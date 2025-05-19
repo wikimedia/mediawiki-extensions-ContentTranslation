@@ -399,7 +399,7 @@
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "په <span>$1</span> او <span>$2</span> کې نشته",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "په <span>$1</span>، <span>$2</span> او نورو کې نشته",
 	"cx-uls-relevant-languages-banner-text-single-missing": "په <span>$1</span> او نورو کې نشته",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "په span>$1</span>، <span>$2</span> او نورو کې نشته",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "په span>$1</span>، <span>$2</span> او نورو ژبو کې نشته",
 	"cx-uls-relevant-languages-panel-header": "دا مخ ژباړل",
 	"cx-uls-relevant-languages-panel-message": "دا مخ په ځينو ژبو کې چې تاسو پرې پوهېږئ، نشته. تاسو کولی شئ چې دا په څو دقيقو کې وژباړئ!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "دا به په <strong>نوې ليکنه کې لومړۍ برخه </strong> وي!",
