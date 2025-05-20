@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"automatic-translation-desc": "Pruža [[Special:AutomaticTranslation|automatski prevod]] stranica sa sadržajem.",
+	"mint-home-input-placeholder": "Pronađite temu",
+	"mint-translation-list-all-languages-option-label": "Sve",
+	"mint-home-info-panel-text": "Milioni tema na Vikipediji mogu biti automatski (mašinski) prevedeni na $1.",
+	"mint-home-random-topic-button-label": "Slučajna tema",
+	"mint-language-selector-title": "Jezici",
+	"mint-language-selector-suggestions-header": "Predloženo",
+	"mint-language-selector-all-languages-header": "Svi jezici",
+	"mint-language-selector-input-placeholder": "Izaberite jezik",
+	"mint-language-selector-no-search-results": "Nema rezultata",
+	"mint-search-topic-page-header": "Pronađite temu",
+	"mint-search-topic-page-input-placeholder": "Pronađite temu",
+	"mint-search-topic-page-results-container-empty": "Pronađite bilo koju temu. Sadržaj teme može se razlikovati od jezika do jezika.",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Vidi automatizovan prevod",
+	"mint-confirm-topic-page-go-to-search-button-label": "Pronađite drugu temu",
+	"mint-confirm-topic-page-target-article-link-container-header": "Napisali urednici na $1",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Pročitaj članak",
+	"mint-view-translation-page-header": "Automatizovan prevod",
+	"mint-view-translation-page-disclaimer-header": "Automatizovan sadržaj može biti netačan",
+	"mint-view-translation-page-disclaimer-body": "Ova stranica je automatizovan prevod sadržaja originalno napisanog na $1.",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Saznajte više",
+	"mint-view-translation-page-source-article-link-label": "Otvori u $1",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Popravi prevod"
+}
