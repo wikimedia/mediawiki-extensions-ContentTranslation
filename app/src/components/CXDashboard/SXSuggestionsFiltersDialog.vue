@@ -334,5 +334,10 @@ const tentativelySelectSearchArea = (selectedArea) => {
       }
     }
   }
+
+  li {
+    // See T391554 for context
+    list-style-type: none;
+  }
 }
 </style>
