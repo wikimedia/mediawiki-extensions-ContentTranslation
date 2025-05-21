@@ -10,6 +10,7 @@
 	"cx-dashboard-header": "طرجامات",
 	"cx-javascript": "هاد التول ماكاتخدمش بلا جاڤاسكريپت. راه جاڤاسكريپت عندك يا مديزاكتيڤي، يا فيه شي موشكيل، ؤلا لبراوزر ديالك مامصيپورطيش.",
 	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation الطرجامة د لمحتوى] هيّ واحد التول باش تطرجم الصفاحي ل لوغتك بزّربة. [$1 جرّبها دابا نيت!]",
+	"cx-license-agreement": "يلا كمّلتي راك كاتوافق على [https://foundation.wikimedia.org/wiki/Terms_of_Use/ary شروط التخدام] و على نشر الطرجامات ديالك تحت رخصات [https://creativecommons.org/licenses/by-sa/4.0/deed.ary كومنز 4.0] و [//ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_جنو_للوثائق_الحرة لوتايق لحرة 1.3].",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|تطرجم|تطرجمو}}",
 	"cx-publish-page-success": "الصفحة تنشرات ف $1",
 	"cx-publish-summary": "تصاوبات ب الطرجامة د الصفحة \"$1\"",
