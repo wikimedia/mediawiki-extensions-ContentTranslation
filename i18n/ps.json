@@ -60,7 +60,7 @@
 	"cx-special-login-error": "تاسو باید په دې پاڼه کې د ژباړې لپاره ننوځئ. [ $1 ننوتل]",
 	"cx-tools-instructions-text1": "د ژباړلو لپاره پر پاراگرافونو {{GENDER:|کېکاږئ}}",
 	"cx-tools-instructions-text2": "{{GENDER:|تاسې}} اړ نه ياست چې ټول په يوځای ورگډ کړئ",
-	"cx-tools-instructions-text3": "د ژباړه مو په طبيعي ډول د لوست او پوهاوي وړ {{GENDER:|وگرځوئ}}",
+	"cx-tools-instructions-text3": "ژباړه مو په طبيعي ډول د لوست او پوهاوي وړ {{GENDER:|وگرځوئ}}",
 	"cx-tools-instructions-text4": "ماشيني ژباړه گټوره ده؛ خو {{GENDER:|تاسې}} ته پکار ده چې د ژباړې په مخکتلو سره مو ليکنه کره کړئ.",
 	"cx-tools-instructions-text5": "ژباړه مو {{GENDER:|خپره کړئ}}",
 	"cx-tools-instructions-text6": "هر کله چې {{GENDER:|تاسې}} له پايلې خوښ وئ؛ نو بيا پر \"{{int:cx-publish-button}}\" کېکاږئ.",

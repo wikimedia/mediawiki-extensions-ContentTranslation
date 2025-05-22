@@ -46,6 +46,7 @@
 	"mint-explore-languages-header": "Меттанаш талла",
 	"mint-explore-languages-search-input-placeholder": "ХӀокху темина массо а меттанаш",
 	"mint-explore-languages-explanation-banner-title": "Кхечу меттанех кхин дӀа а хаа",
+	"mint-explore-languages-language-card-container-title": "\"$1\" уггаре дукха дӀасадаржийна меттанаш",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 дакъа|0=Дакъош дац}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Уггаре а мадарра",
 	"mint-explore-languages-open-language-selector": "Харжа мотт",
