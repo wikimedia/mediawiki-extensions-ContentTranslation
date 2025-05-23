@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Baydastann",
 			"Bosogo",
 			"Chorobek",
 			"Janatkg",
@@ -124,5 +125,6 @@
 	"sx-block-template-adaptation-card-title-placeholder": "Калып",
 	"cx-sx-dashboard-help-panel-title": "Жардам керекпи ?",
 	"cx-sx-dashboard-help-panel-more-info-label": "Бул курал тууралуу",
-	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Ушул айда"
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Ушул айда",
+	"cx-sx-suggestions-filters-tab-all": "Баары"
 }
