@@ -74,20 +74,24 @@ ve.ce.CXTransclusionBlockNode.static.tagName = 'div';
  * @inheritdoc
  */
 ve.ce.CXTransclusionBlockNode.static.getDescriptionDom = function ( model ) {
-	// Only the source surface will reach here, the target surface won't
 	// Call the parent implementation to get the formatted description of the template
 	const span = ve.ce.CXTransclusionBlockNode.super.static.getDescriptionDom.apply( this, arguments );
 
-	// Update the href when it is on the source surface
+	// Check ve.ce.MWTransclusionNode.static.getDescriptionDom for the original implementation
+	// we only filter out the parts that contain templatePage
+	// so we can make sure there are matches item with the links
+	const nodes = model.getPartsList()
+		.filter( ( part ) => part.templatePage );
+
+	// Update the hrefs from the parts list
 	const surfaceLanguage = model.getDocument().getLang();
 	const links = span.querySelectorAll( 'a' );
-	links.forEach( ( link ) => {
-		const title = link.getAttribute( 'href' ).split( '/wiki/' ).pop();
-
-		if ( title ) {
-			const url = ve.init.target.config.siteMapper.getPageUrl( surfaceLanguage, title );
-			link.setAttribute( 'href', url );
-		}
+	links.forEach( ( link, index ) => {
+		const part = nodes[ index ];
+		// templatePage contains the title and namespace of the page in the surface language
+		const title = part.templatePage;
+		const url = ve.init.target.config.siteMapper.getPageUrl( surfaceLanguage, title );
+		link.setAttribute( 'href', url );
 	} );
 
 	return span;
