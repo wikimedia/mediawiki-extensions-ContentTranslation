@@ -73,7 +73,7 @@ const tabs = computed(() => [
     searchPlaceholder: bananaI18n.i18n(
       "cx-sx-suggestions-filter-search-input-placeholder-collections"
     ),
-    filterGroups: [getFilterGroup("collections")],
+    filterGroups: [getFilterGroup("collections")].filter(Boolean),
   },
   {
     name: "geography",
@@ -81,7 +81,7 @@ const tabs = computed(() => [
     searchPlaceholder: bananaI18n.i18n(
       "cx-sx-suggestions-filter-search-input-placeholder-regions"
     ),
-    filterGroups: [getFilterGroup("geography")],
+    filterGroups: [getFilterGroup("geography")].filter(Boolean),
   },
   {
     name: "topics",
