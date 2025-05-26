@@ -30,6 +30,7 @@ const {
   selectFilter,
   isFilterSelected,
   waitingForPageCollectionsFetch,
+  validateURLFilterWithCollections,
 } = useSuggestionsFilters();
 
 const dialogVisible = ref(false);
@@ -79,6 +80,7 @@ watch(dialogVisible, (newValue) => {
 
 watch(waitingForPageCollectionsFetch, (newValue) => {
   if (!newValue) {
+    validateURLFilterWithCollections();
     filtersSummary.value = getFiltersSummary();
   }
 });

@@ -11,6 +11,7 @@ import {
 import useURLHandler from "./useURLHandler";
 import usePageCollections from "@/components/CXDashboard/usePageCollections";
 import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
+import useFiltersValidator from "@/composables/useFiltersValidator";
 
 const topicGroups = mw.loader.require("ext.cx.articletopics");
 
@@ -33,6 +34,8 @@ const useSuggestionsFilters = () => {
   const bananaI18n = useI18n();
   const { currentSuggestionFilters: currentFilter, setFilterURLParams } =
     useURLHandler();
+
+  const { validateFilters, filtersValidatorError } = useFiltersValidator();
 
   const editsFilter = {
     id: EDITS_SUGGESTION_PROVIDER,
@@ -111,7 +114,7 @@ const useSuggestionsFilters = () => {
   );
 
   /**
-   * @return {[{id: string, label: string, type: string}], {id: string, label: string, type: string}]}
+   * @return {[{id: string, label: string, type: string}, {id: string, label: string, type: string}]}
    */
   const getFiltersSummary = () => {
     if (waitingForPageCollectionsFetch.value) {
@@ -165,6 +168,26 @@ const useSuggestionsFilters = () => {
     return topic ? topic.articletopics : [];
   };
 
+  const validateURLFilterWithCollections = () => {
+    if (!pageCollectionsFetched.value) {
+      return;
+    }
+
+    const suggestionFilter = validateFilters(
+      {
+        type: currentFilter.value.type,
+        id: currentFilter.value.id,
+      },
+      pageCollections.value
+    );
+
+    setFilterURLParams(suggestionFilter.type, suggestionFilter.id);
+
+    if (filtersValidatorError.value) {
+      mw.notify(bananaI18n.i18n("cx-sx-suggestions-filters-invalid-url"));
+    }
+  };
+
   return {
     allFilters,
     getFiltersSummary,
@@ -173,6 +196,7 @@ const useSuggestionsFilters = () => {
     getArticleTopics,
     waitingForPageCollectionsFetch,
     findSelectedFilter,
+    validateURLFilterWithCollections,
   };
 };
 

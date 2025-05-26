@@ -25,36 +25,16 @@ const useFiltersValidator = () => {
    * Validate and coerce filters to correct values
    *
    * @param {{type: string|null, id: string|null}} filters
+   * @param {PageCollection[]|false} pageCollections page collections to validate against. False, if no such validations is desired
    * @return {{type: string, id: string}}
    */
-  const validateFilters = ({ type, id }) => {
+  const validateFilters = ({ type, id }, pageCollections = false) => {
     // Reset error
     filtersValidatorError.value = false;
 
     // Case-insensitive comparison
     const typeLowerCase = type?.toLowerCase();
     const idLowerCase = id?.toLowerCase();
-
-    // Topic must be valid or we use the default filter
-    if (typeLowerCase === TOPIC_SUGGESTION_PROVIDER) {
-      if (topicIds.value.some((topicId) => topicId === id)) {
-        return { type: typeLowerCase, id: idLowerCase };
-      } else {
-        filtersValidatorError.value = true;
-
-        return DEFAULT_FILTERS;
-      }
-    }
-
-    // we cannot properly validate the suggestion filter for a specific collection, since the
-    // page collections have not yet been fetched, when filter validation is performed. To avoid,
-    // making this an asynchronous method, we are just accepting any value as valid collection name
-    if (
-      typeLowerCase === COLLECTIONS_SUGGESTION_PROVIDER ||
-      typeLowerCase === SEED_SUGGESTION_PROVIDER
-    ) {
-      return { type: typeLowerCase, id };
-    }
 
     // For 'edits' and 'popular' filters, only 'id' is needed,
     // but we set both to the same value
@@ -72,11 +52,41 @@ const useFiltersValidator = () => {
       };
     }
 
-    if (idLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
-      return {
-        type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
-        id: COLLECTIONS_SUGGESTION_PROVIDER,
-      };
+    try {
+      if (typeLowerCase === TOPIC_SUGGESTION_PROVIDER) {
+        // Topic must be valid or we use the default filter
+        if (!topicIds.value.some((topicId) => topicId === id)) {
+          throw new Error();
+        }
+
+        return { type: typeLowerCase, id: idLowerCase };
+      } else if (typeLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
+        if (
+          pageCollections &&
+          !pageCollections.some((col) => col.name.toLowerCase() === idLowerCase)
+        ) {
+          throw new Error();
+        }
+
+        // if no page collections are given, we cannot properly validate the suggestion filter for
+        // a specific collection. In this case, we are just accepting any value as valid collection name
+        return { type: typeLowerCase, id };
+      } else if (idLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
+        if (pageCollections && !pageCollections.length) {
+          throw new Error();
+        }
+
+        return {
+          type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+          id: COLLECTIONS_SUGGESTION_PROVIDER,
+        };
+      } else if (typeLowerCase === SEED_SUGGESTION_PROVIDER) {
+        return { type: typeLowerCase, id };
+      }
+    } catch (error) {
+      filtersValidatorError.value = true;
+
+      return DEFAULT_FILTERS;
     }
 
     // At this point we just set it to the default filter
