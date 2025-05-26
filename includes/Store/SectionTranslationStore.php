@@ -183,7 +183,6 @@ class SectionTranslationStore {
 		int $limit = 100,
 		?string $offset = null
 	): IResultWrapper {
-		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = $this->lb->getConnection( DB_REPLICA );
 
 		$whereConditions = [ 'translation_started_by' => $userId ];
@@ -191,7 +190,13 @@ class SectionTranslationStore {
 		if ( $status !== null ) {
 			$statusIndex = self::getStatusIndexByStatus( $status );
 			$whereConditions[] = $dbr->orExpr( [
-				'translation_status' => $status,
+				$dbr->orExpr( [
+					$dbr->andExpr( [ 'translation_status' => $status, 'cxsx_translation_id' => null ] ),
+					$dbr->andExpr( [
+						'translation_status' => $status,
+						'cxsx_source_section_title' => '__LEAD_SECTION__' ]
+					)
+				] ),
 				'cxsx_translation_status' => $statusIndex
 			] );
 		}
