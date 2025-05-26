@@ -6,14 +6,14 @@ import sadRobotSVG from "../../assets/sad-robot.svg?raw";
 import { computed } from "vue";
 import { CdxButton } from "@wikimedia/codex";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useURLHandler from "@/composables/useURLHandler";
 
 const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
 
 defineEmits(["select-section", "close"]);
 
-const targetLanguageAutonym = computed(() =>
-  getAutonym(suggestion.value?.targetLanguage)
-);
+const targetLanguageAutonym = computed(() => getAutonym(targetLanguage.value));
 const noMissingSectionExists = computed(
   () => Object.keys(suggestion.value?.missingSections || {}).length === 0
 );

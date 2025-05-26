@@ -1,17 +1,16 @@
 <script setup>
-import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import { computed } from "vue";
 import SxSectionSelectorSectionList from "@/components/SXSectionSelector/SXSectionSelectorSectionList.vue";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useURLHandler from "@/composables/useURLHandler";
 
 defineEmits(["select-section"]);
 
 const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 
-const targetLanguageAutonym = computed(() =>
-  getAutonym(suggestion.value?.targetLanguage)
-);
+const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
+const targetLanguageAutonym = computed(() => getAutonym(targetLanguage.value));
 </script>
 
 <template>
