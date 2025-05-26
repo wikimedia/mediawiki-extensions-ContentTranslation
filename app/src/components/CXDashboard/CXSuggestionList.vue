@@ -79,7 +79,10 @@ const refreshSuggestions = () => {
     translation_target_language: targetLanguage.value,
   });
   onSuggestionRefresh();
-  pageSuggestionsList.value.$el.scrollIntoView({ behavior: "smooth" });
+
+  if (!!pageSuggestionsList.value) {
+    pageSuggestionsList.value.$el.scrollIntoView({ behavior: "smooth" });
+  }
 };
 
 const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
