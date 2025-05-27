@@ -55,28 +55,28 @@ const highlightPublishedSection = () => {
 	const urlParams = new URLSearchParams( location.search );
 	const highlightedTitleId = urlParams.get( newSectionParam ).replace( / +/g, '_' );
 	/**
-	 * Find element with id equal to the newly translated section title
+	 * Find element with id equal to the newly translated section title (`<h2>` etc.)
 	 *
 	 * @type {HTMLElement}
 	 */
-	const highlightedTitleSpan = document.getElementById( highlightedTitleId );
+	const highlightedHeading = document.getElementById( highlightedTitleId );
 
-	if ( !highlightedTitleSpan ) {
+	if ( !highlightedHeading ) {
 		return;
 	}
 
 	// Scroll to newly published section
-	highlightedTitleSpan.scrollIntoView();
+	highlightedHeading.scrollIntoView();
 	/**
-	 * Get parent h2 element, which corresponds to the section header
+	 * Get parent element, which corresponds to the section header (`<div class="mw-heading">`)
 	 *
 	 * @type {HTMLElement}
 	 */
-	const highlightedHeader = highlightedTitleSpan.parentElement;
-	highlightElement( highlightedHeader );
+	const highlightedHWrapper = highlightedHeading.parentElement;
+	highlightElement( highlightedHWrapper );
 
 	// Get all section nodes by getting all elements until next section header
-	const siblings = nextUntil( highlightedHeader, 'h2' );
+	const siblings = nextUntil( highlightedHWrapper, '.mw-heading' );
 	const firstHighlightedParagraph = siblings[ 0 ].querySelector( 'p' );
 
 	if ( firstHighlightedParagraph ) {
@@ -92,10 +92,10 @@ const highlightPublishedSection = () => {
 	 */
 	const newIndicator = createNewIndicator();
 
-	// Add new section indicator immediately after .mw-headline span
-	highlightedHeader.insertBefore(
+	// Add new section indicator immediately after the heading text
+	highlightedHWrapper.insertBefore(
 		newIndicator,
-		highlightedHeader.querySelector( '.mw-headline' ).nextSibling
+		highlightedHWrapper.querySelector( 'h1, h2, h3, h4, h5, h6' ).nextSibling
 	);
 
 	// Highlight all section nodes
