@@ -3,7 +3,7 @@ import { MwButtonGroup, MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import SearchResultsCard from "./SearchResultsCard.vue";
 import MwLanguageSelector from "../MWLanguageSelector";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard.vue";
-import { ref, onMounted, computed, watch, inject } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed, watch, inject } from "vue";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useURLHandler from "@/composables/useURLHandler";
@@ -72,10 +72,17 @@ onMounted(async () => {
 
   try {
     previousLanguages.value.push(
-      ...JSON.parse(localStorage.getItem("uls-previous-languages"))
+      ...JSON.parse(localStorage.getItem("cxPreviousLanguages"))
     );
+    addSourceToPreviousLanguages();
   } catch (e) {}
   searchInputRef.value?.focus();
+  window.addEventListener("beforeunload", updatePreviousLanguagesStorage);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("beforeunload", updatePreviousLanguagesStorage);
+  updatePreviousLanguagesStorage();
 });
 
 const close = () => {
@@ -83,8 +90,28 @@ const close = () => {
 };
 
 const updateLanguagePair = useSuggestionListLanguagePairUpdate();
-const updateSourceLanguage = (newSourceLanguage) =>
+
+const updateSourceLanguage = (newSourceLanguage) => {
   updateLanguagePair(newSourceLanguage, targetLanguage.value);
+
+  if (!previousLanguages.value.includes(newSourceLanguage)) {
+    addSourceToPreviousLanguages();
+  }
+};
+
+const addSourceToPreviousLanguages = () => {
+  previousLanguages.value = [
+    sourceLanguage.value,
+    ...previousLanguages.value.filter((lang) => lang !== sourceLanguage.value),
+  ];
+};
+
+const updatePreviousLanguagesStorage = () => {
+  mw.storage.set(
+    "cxPreviousLanguages",
+    JSON.stringify(previousLanguages.value)
+  );
+};
 
 const updateSelection = (updatedLanguage) => {
   if (updatedLanguage === "other") {
@@ -92,6 +119,7 @@ const updateSelection = (updatedLanguage) => {
 
     return;
   }
+
   updateSourceLanguage(updatedLanguage);
 };
 
@@ -127,7 +155,6 @@ const onSourceLanguageDialogClose = () => {
  */
 const onSourceLanguageSelected = (updatedSourceLanguage) => {
   sourceLanguageSelectOn.value = false;
-  previousLanguages.value.push(sourceLanguage.value);
   updateSelection(updatedSourceLanguage);
 };
 

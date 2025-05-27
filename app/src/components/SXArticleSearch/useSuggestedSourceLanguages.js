@@ -37,21 +37,20 @@ const useSuggestedSourceLanguages = () => {
       ).map((languageCode) => languageCode.split("-")[0]);
 
       const suggestedLanguages = [
+        ...previousLanguages.value,
         // User's current interface language
         mw.config.get("wgUserLanguage"),
         // Current wiki's content language
         mw.config.get("wgContentLanguage"),
         browserLanguage,
-        ...previousLanguages.value,
         ...acceptLanguages,
       ];
 
       // Filter out duplicate languages using Set. Also filter out
-      // source, target and invalid languages (i.e. languages that
+      // target and invalid languages (i.e. languages that
       // are not included in the list of supported language codes for CX).
       return [...new Set(suggestedLanguages)].filter(
         (language) =>
-          language !== sourceLanguage.value &&
           language !== targetLanguage.value &&
           supportedSourceLanguageCodes.value.includes(language)
       );

@@ -55,11 +55,11 @@ describe("useSuggestedSourceLanguages test", () => {
     const suggestedSourceLanguages =
       getSuggestedSourceLanguages(previousLanguages);
     expect(suggestedSourceLanguages.value).toStrictEqual([
+      "ig",
+      "fr",
       "aa",
       "ab",
       "ar",
-      "ig",
-      "fr",
       "it",
       "ja",
     ]);

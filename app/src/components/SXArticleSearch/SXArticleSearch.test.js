@@ -119,6 +119,7 @@ describe("SXArticleSearch component test", () => {
 
   it("should use composable to get suggestedSourceLanguages computed property", async () => {
     expect(wrapper.vm.suggestedSourceLanguages).toStrictEqual([
+      "en",
       "bn",
       "ar",
       "ko",

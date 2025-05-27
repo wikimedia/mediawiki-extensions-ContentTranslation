@@ -18,6 +18,7 @@ const getSourceLanguageOptions = (sourceLanguage, suggestedSourceLanguages) =>
      * @type {number}
      */
     const sliceSize = 2;
+    const sourceLanguages = [];
 
     const languageSelectorOption = {
       value: "other",
@@ -27,10 +28,18 @@ const getSourceLanguageOptions = (sourceLanguage, suggestedSourceLanguages) =>
         class: "px-0 py-4 me-4 ms-auto",
       },
     };
-    const sourceLanguages = [
-      sourceLanguage.value,
-      ...suggestedSourceLanguages.value.slice(0, sliceSize),
-    ];
+
+    if (suggestedSourceLanguages.value.includes(sourceLanguage.value)) {
+      sourceLanguages.push(
+        ...suggestedSourceLanguages.value.slice(0, sliceSize + 1)
+      );
+    } else {
+      sourceLanguages.push(
+        sourceLanguage.value,
+        ...suggestedSourceLanguages.value.slice(0, sliceSize)
+      );
+    }
+
     const languageOptions = sourceLanguages
       .filter(
         (option, index) =>
