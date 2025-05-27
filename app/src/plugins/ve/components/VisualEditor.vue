@@ -1,7 +1,9 @@
 <template>
   <div ref="sxeditor" :lang="language" :dir="dir" class="visual-editor">
-    <div class="overlay-header header initial-header">
-      <div class="toolbar"></div>
+    <div class="overlay-header-container">
+      <div class="overlay-header header initial-header">
+        <div class="toolbar"></div>
+      </div>
     </div>
     <div class="surface pa-5" :lang="language" :dir="dir"></div>
   </div>
