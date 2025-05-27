@@ -63,8 +63,14 @@ fetchAppendixSectionTitles(targetLanguage.value);
 const router = useRouter();
 
 const onClose = () => {
-  if (!previousRoute.value) {
-    // If coming to confirmer from an external link, go to dashboard directly
+  const validTargetRoutes = ["dashboard", "sx-article-search"];
+
+  if (
+    !previousRoute.value ||
+    !validTargetRoutes.includes(previousRoute.value)
+  ) {
+    // If coming to confirmer from an external link or from an invalid target route,
+    // go to dashboard directly
     router.push({ name: "dashboard" });
   } else {
     router.push({ name: previousRoute.value });
