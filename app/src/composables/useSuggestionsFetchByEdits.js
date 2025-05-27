@@ -40,17 +40,11 @@ const useSuggestionsFetchByEdits = () => {
     await retry(async () => {
       const seed = await getSuggestionSeed("page");
 
-      // Seed should always be provided as we cannot fetch a section suggestion
-      // without using one. Thus, if no seed provided, suggestion fetching should stop
-      if (!seed) {
-        return true;
-      }
-
       /** @type {ArticleSuggestion[]} */
       let suggestions = await cxSuggestionsApi.fetchPageSuggestions(
         sourceLanguage.value,
         targetLanguage.value,
-        seed
+        seed || null
       );
 
       suggestions = suggestions.filter((suggestion) =>
@@ -83,16 +77,11 @@ const useSuggestionsFetchByEdits = () => {
     await retry(async () => {
       const seed = await getSuggestionSeed("section");
 
-      // Seed should always be provided as we cannot fetch a section suggestion
-      // without using one. Thus, if no seed provided, suggestion fetching should stop
-      if (!seed) {
-        return true;
-      }
       /** @type {SectionSuggestion[]|null} */
       const suggestions = await cxSuggestionsApi.fetchSectionSuggestions(
         sourceLanguage.value,
         targetLanguage.value,
-        seed
+        seed || null
       );
 
       // Try again with the next seed

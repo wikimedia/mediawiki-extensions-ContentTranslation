@@ -74,22 +74,25 @@ async function fetchPageCollections() {
 /**
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
- * @param {String} seedArticleTitle
+ * @param {String|null} seedArticleTitle
  * @param {Number} count - How many suggestions to fetch. 24 is default.
  * @return {Promise<ArticleSuggestion[]>}
  */
 async function fetchPageSuggestions(
   sourceLanguage,
   targetLanguage,
-  seedArticleTitle,
+  seedArticleTitle = null,
   count = 24
 ) {
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
-    seed: seedArticleTitle,
     count,
   };
+
+  if (seedArticleTitle) {
+    urlParams.seed = seedArticleTitle;
+  }
 
   const suggestedResults =
     (await requestToRecommendationApi({ urlParams })) || [];
@@ -102,6 +105,7 @@ async function fetchPageSuggestions(
         targetLanguage,
         wikidataId: item.wikidata_id,
         langLinksCount: parseInt(item.sitelink_count),
+        suggestionSeed: seedArticleTitle,
       })
   );
 }
@@ -293,16 +297,23 @@ async function fetchSectionSuggestion(
 /**
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
- * @param {String} seed
+ * @param {String|null} seed
  * @returns {Promise<SectionSuggestion[]>}
  */
-async function fetchSectionSuggestions(sourceLanguage, targetLanguage, seed) {
+async function fetchSectionSuggestions(
+  sourceLanguage,
+  targetLanguage,
+  seed = null
+) {
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
-    seed,
     count: 24,
   };
+
+  if (seed) {
+    urlParams.seed = seed;
+  }
 
   const urlPostfix = "/sections";
 
@@ -322,6 +333,7 @@ async function fetchSectionSuggestions(sourceLanguage, targetLanguage, seed) {
           targetSections: recommendation.target_sections,
           present: recommendation.present,
           missing: recommendation.missing,
+          seed,
         })
     )
   );
@@ -432,36 +444,6 @@ async function fetchUserEdits(language) {
 
     // return unique titles
     return [...new Set(titles)];
-  } catch (error) {
-    mw.log.error("Error while fetching suggestion seeds", error);
-
-    return [];
-  }
-}
-
-/**
- * Given a language pair, this api action returns an array of published translation
- * source titles, to be used as suggestion seeds.
- *
- * @param {String} sourceLanguage
- * @param {String} targetLanguage
- * @return {Promise<string[]>}
- */
-async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
-  const query = {
-    action: "query",
-    format: "json",
-    list: "cxpublishedtranslations",
-    from: sourceLanguage,
-    to: targetLanguage,
-    limit: 200,
-  };
-  const mwApi = siteMapper.getApi(sourceLanguage);
-
-  try {
-    const response = await mwApi.get(query);
-
-    return response.result.translations.map((t) => t.sourceTitle);
   } catch (error) {
     mw.log.error("Error while fetching suggestion seeds", error);
 
@@ -598,7 +580,6 @@ export default {
   fetchPageSuggestions,
   fetchSectionSuggestion,
   fetchSectionSuggestions,
-  fetchSuggestionSeeds,
   fetchAppendixTargetSectionTitles,
   fetchSuggestionSourceSections,
   markFavorite,

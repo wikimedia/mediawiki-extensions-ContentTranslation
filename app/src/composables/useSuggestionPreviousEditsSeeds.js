@@ -1,5 +1,5 @@
 import { useStore } from "vuex";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import pageApi from "@/wiki/mw/api/page";
 import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
@@ -13,22 +13,8 @@ const sectionSuggestionSeedCollections = ref([]);
 let publishedTranslationsReturned = false;
 let previousEditsInSourceLoaded = false;
 let previousEditsInTargetLoaded = false;
-/**
- * An array of language pairs, for which the default seeds have been fetched
- * @type {Ref<{ sourceLanguage: string, targetLanguage: string}[]>}
- */
-let defaultSeedsFetchedByLanguages = ref([]);
 const previousEditsInSource = ref([]);
 
-const addLanguagePairToDefaultSeedsFetched = (
-  sourceLanguage,
-  targetLanguage
-) => {
-  defaultSeedsFetchedByLanguages.value.push({
-    sourceLanguage,
-    targetLanguage,
-  });
-};
 let ongoingStoreEditSeedsPromise = null;
 
 const seedCollections = {
@@ -50,17 +36,6 @@ const useSuggestionPreviousEditsSeeds = () => {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
   } = useURLHandler();
-
-  /**
-   * @type {ComputedRef<boolean>}
-   */
-  const defaultSeedsFetched = computed(() =>
-    defaultSeedsFetchedByLanguages.value.some(
-      (languagePair) =>
-        languagePair.sourceLanguage === sourceLanguage.value &&
-        languagePair.targetLanguage === targetLanguage.value
-    )
-  );
 
   const fetchPreviousEditsInSource = async () => {
     if (!previousEditsInSourceLoaded) {
@@ -112,7 +87,7 @@ const useSuggestionPreviousEditsSeeds = () => {
     if (!previousEditsInTargetLoaded) {
       /** @type {string[]} */
       const previousEditsInTarget = await cxSuggestionsApi
-        .fetchUserEdits(sourceLanguage.value)
+        .fetchUserEdits(targetLanguage.value)
         .then((titles) => {
           previousEditsInTargetLoaded = true;
 
@@ -150,21 +125,6 @@ const useSuggestionPreviousEditsSeeds = () => {
     }
 
     return currentSeedCollection;
-  };
-
-  /**
-   * @return {Promise<void>}
-   */
-  const storeDefaultSeeds = async () => {
-    const defaultSeeds = await cxSuggestionsApi.fetchSuggestionSeeds(
-      sourceLanguage.value,
-      targetLanguage.value
-    );
-
-    for (const type in seedCollections) {
-      const seedCollection = getSeedCollection(type);
-      seedCollection.seeds = [...seedCollection.seeds, ...(defaultSeeds || [])];
-    }
   };
 
   const doStoreEditSeeds = async () => {
@@ -215,23 +175,11 @@ const useSuggestionPreviousEditsSeeds = () => {
       await storeEditSeeds();
     }
 
-    let seed = currentSeedCollection.shiftSeeds();
-
-    if (!seed && !defaultSeedsFetched.value) {
-      await storeDefaultSeeds();
-      seed = currentSeedCollection.shiftSeeds();
-      addLanguagePairToDefaultSeedsFetched(
-        sourceLanguage.value,
-        targetLanguage.value
-      );
-    }
-
-    return seed;
+    return currentSeedCollection.shiftSeeds();
   };
 
   return {
     getSuggestionSeed,
-    defaultSeedsFetched,
     fetchPreviousEditsInSource,
     previousEditsInSource,
   };

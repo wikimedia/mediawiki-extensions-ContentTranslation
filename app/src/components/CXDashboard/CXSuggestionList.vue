@@ -52,7 +52,7 @@ const startTranslation = (suggestion) => {
     suggestion.sourceTitle,
     suggestion.sourceLanguage,
     suggestion.targetLanguage,
-    getEventSourceForDashboardSuggestion(),
+    getEventSourceForDashboardSuggestion(suggestion.suggestionSeed),
     currentSuggestionFilters.value.id
   );
 };

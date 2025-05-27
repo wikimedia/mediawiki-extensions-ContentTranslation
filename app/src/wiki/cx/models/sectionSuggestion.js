@@ -15,6 +15,7 @@ export default class SectionSuggestion {
    * @param {Object<string, string>} options.missing
    * @param {string[]} options.sourceSections Array of all section titles in source article ordered by their order of appearance in the article
    * @param {string[]} options.targetSections Array of all section titles in target article ordered by their order of appearance in the article
+   * @param {string|null} options.suggestionSeed
    * @param {boolean} options.isListable A boolean indicating whether we should display this section suggestion inside dashboard suggestion list
    * @param {{ type: String, id: String }|null} options.suggestionProvider
    */
@@ -27,6 +28,7 @@ export default class SectionSuggestion {
     missing,
     sourceSections = [],
     targetSections = [],
+    suggestionSeed = null,
     isListable = true,
     suggestionProvider = null,
   }) {
@@ -38,6 +40,7 @@ export default class SectionSuggestion {
     this.presentSections = present;
     this.sourceSections = sourceSections;
     this.targetSections = targetSections;
+    this.suggestionSeed = suggestionSeed;
     this.isListable = isListable;
     /** @type {{type: String, id: String}|null} */
     this.suggestionProvider = suggestionProvider;

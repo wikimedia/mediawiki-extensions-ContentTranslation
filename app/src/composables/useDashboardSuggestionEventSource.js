@@ -6,7 +6,6 @@ import {
   SEED_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import useURLHandler from "@/composables/useURLHandler";
-import useSuggestionPreviousEditsSeeds from "@/composables/useSuggestionPreviousEditsSeeds";
 
 const SUGGESTION_NO_SEED = "suggestion_no_seed";
 const SUGGESTION_RECENT_EDIT = "suggestion_recent_edit";
@@ -17,15 +16,12 @@ const SUGGESTION_COLLECTIONS = "suggestion_collections";
 
 const useDashboardSuggestionEventSource = () => {
   const { currentSuggestionFilters: currentFilter } = useURLHandler();
-  const { defaultSeedsFetched } = useSuggestionPreviousEditsSeeds();
 
-  return () => {
+  return (suggestionSeed = null) => {
     const { type, id } = currentFilter.value;
 
     if (id === EDITS_SUGGESTION_PROVIDER) {
-      return defaultSeedsFetched.value
-        ? SUGGESTION_NO_SEED
-        : SUGGESTION_RECENT_EDIT;
+      return suggestionSeed ? SUGGESTION_RECENT_EDIT : SUGGESTION_NO_SEED;
     } else if (type === TOPIC_SUGGESTION_PROVIDER) {
       return SUGGESTION_TOPIC_AREA;
     } else if (type === SEED_SUGGESTION_PROVIDER) {
