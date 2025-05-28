@@ -286,7 +286,8 @@ class SpecialContentTranslation extends SpecialPage {
 
 		$out->addJsConfigVars( [
 			'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
-				$config->get( 'ContentTranslationUnmodifiedMTThresholdForPublish' )
+				$config->get( 'ContentTranslationUnmodifiedMTThresholdForPublish' ),
+			'wgContentTranslationEnableMT' => $config->get( 'ContentTranslationEnableMT' )
 		] );
 
 		if ( $this->onDesktopTranslationView() ) {
@@ -294,8 +295,7 @@ class SpecialContentTranslation extends SpecialPage {
 			$out->addJsConfigVars( [
 				'wgContentTranslationCampaigns' => $config->get( 'ContentTranslationCampaigns' ),
 				'wgContentTranslationPublishRequirements' => $config->get( 'ContentTranslationPublishRequirements' ),
-				'wgContentTranslationVersion' => $version,
-				'wgContentTranslationEnableMT' => $config->get( 'ContentTranslationEnableMT' )
+				'wgContentTranslationVersion' => $version
 			] );
 
 		} else {

@@ -28,10 +28,24 @@ const useMTProvidersFetch = () => {
       return;
     }
 
-    const mtProviderGroup = await siteApi.fetchSupportedMTProviders(
-      sourceLanguage.value,
-      targetLanguage.value
-    );
+    // Check if machine translation is enabled
+    const isMTEnabled = mw.config.get("wgContentTranslationEnableMT");
+
+    let mtProviderGroup;
+
+    if (isMTEnabled) {
+      mtProviderGroup = await siteApi.fetchSupportedMTProviders(
+        sourceLanguage.value,
+        targetLanguage.value
+      );
+    } else {
+      // Create an empty MT provider group with only non-MT providers
+      mtProviderGroup = new MTProviderGroup(
+        sourceLanguage.value,
+        targetLanguage.value,
+        [] // Empty providers array - only "original" and "empty" will be added by constructor
+      );
+    }
 
     store.commit("mediawiki/addMtProviderGroup", mtProviderGroup);
   };
@@ -68,8 +82,13 @@ const useMTProvidersInitialize = () => {
         sourceLanguage.value,
         targetLanguage.value
       );
-      const defaultProvider =
-        mw.storage.get(storageKey) || supportedProviders[0];
+      let defaultProvider = mw.storage.get(storageKey);
+
+      if (!defaultProvider || !supportedProviders.includes(defaultProvider)) {
+        // Storage value is invalid/unavailable, pick a new default
+        defaultProvider = supportedProviders[0];
+      }
+
       store.commit("application/setCurrentMTProvider", defaultProvider);
     }
   };
