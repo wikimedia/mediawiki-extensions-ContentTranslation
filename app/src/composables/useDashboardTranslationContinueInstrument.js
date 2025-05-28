@@ -18,7 +18,7 @@ const useDashboardTranslationContinueInstrument = () => {
     }
 
     const {
-      sectionTranslationId,
+      translationId,
       sourceLanguage,
       targetLanguage,
       sourceTitle,
@@ -28,17 +28,25 @@ const useDashboardTranslationContinueInstrument = () => {
       targetSectionTitle,
     } = currentTranslation.value;
 
-    return logEvent({
+    const payload = {
       event_type: "dashboard_translation_continue",
-      translation_id: sectionTranslationId,
+      translation_id: translationId,
       translation_source_language: sourceLanguage,
       translation_source_title: sourceTitle,
-      translation_source_section: sourceSectionTitle,
       translation_target_language: targetLanguage,
       translation_target_title: targetTitle,
-      translation_target_section: targetSectionTitle,
       translation_type: isLeadSectionTranslation ? "article" : "section",
-    });
+    };
+
+    if (sourceSectionTitle) {
+      payload.translation_source_section = sourceSectionTitle;
+    }
+
+    if (targetSectionTitle) {
+      payload.translation_target_section = targetSectionTitle;
+    }
+
+    return logEvent(payload);
   };
 };
 
