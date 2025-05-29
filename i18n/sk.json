@@ -208,6 +208,8 @@
 	"cx-sx-dashboard-banner-access-previous": "Vrátiť sa k staršej verzii",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 deň|$1 dni|$1 dní|0=Dnes}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 rok|$1 roky|$1 rokov}}",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Vytvoriť nový preklad",
+	"cx-mflanguagesearcher-entrypoint-card-description": "Vytvorenie novej stránky vo vašom jazyku krok za krokom.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Viac informácií",
 	"cx-sx-suggestions-filters-header": "Prispôsobiť návrhy",
 	"cx-sx-suggestions-filter-user-edit-label": "Pre vás",
