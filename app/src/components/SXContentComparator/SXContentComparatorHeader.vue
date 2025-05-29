@@ -45,9 +45,11 @@ const isMobile = computed(() => breakpoints.value.mobile);
       type="text"
       @click="$emit('close')"
     />
-    <div class="row my-1 py-2 mx-0">
-      <div class="flex grow" :class="isMobile ? 'col-12' : 'me-6'">
-        <div class="sx-content-comparator-header__titles grow">
+    <div class="row my-1 py-2 mx-0 gap-6">
+      <div
+        class="sx-content-comparator-header__titles-nav flex grow justify-between"
+      >
+        <div class="sx-content-comparator-header__titles shrink">
           <h4
             class="pa-0 sx-content-comparator-header__article-title"
             :lang="suggestion.sourceLanguage"
@@ -108,5 +110,9 @@ const isMobile = computed(() => breakpoints.value.mobile);
 
 .sx-content-comparator-header__review-contents {
   color: @color-base;
+}
+
+.sx-content-comparator-header__titles-nav {
+  max-width: 100%;
 }
 </style>
