@@ -2,44 +2,28 @@
 
 namespace ContentTranslation;
 
-use MediaWiki\Config\ServiceOptions;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\LBFactory;
 
 /**
  * ContentTranslation Database Connection abstraction
  */
 class LoadBalancer {
+	private const VIRTUAL_DOMAIN = 'virtual-cx';
 
 	/** @var LBFactory */
 	private $lbFactory;
 
-	/**
-	 * The Database domain ID of the relevant wiki or false for the local wiki
-	 * @var string|false
-	 */
-	private $contentTranslationDatabase;
+	private IConnectionProvider $connectionProvider;
 
-	/**
-	 * The external Database cluster name where the database lives or false if not exists
-	 * @var string|false
-	 */
-	private $contentTranslationCluster;
-
-	/**
-	 * @internal For use by ServiceWiring
-	 */
-	public const CONSTRUCTOR_OPTIONS = [
-		'ContentTranslationDatabase',
-		'ContentTranslationCluster',
-	];
-
-	public function __construct( LBFactory $lbFactory, ServiceOptions $options ) {
-		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
-
+	public function __construct(
+		LBFactory $lbFactory,
+		IConnectionProvider $connectionProvider
+	) {
 		$this->lbFactory = $lbFactory;
-		$this->contentTranslationDatabase = $options->get( 'ContentTranslationDatabase' );
-		$this->contentTranslationCluster = $options->get( 'ContentTranslationCluster' );
+		$this->connectionProvider = $connectionProvider;
 	}
 
 	/**
@@ -49,11 +33,29 @@ class LoadBalancer {
 	 * @return IDatabase
 	 */
 	public function getConnection( int $type, $group = [] ): IDatabase {
-		$lb = $this->contentTranslationCluster
-			? $this->lbFactory->getExternalLB( $this->contentTranslationCluster )
-			: $this->lbFactory->getMainLB( $this->contentTranslationDatabase );
+		return $this->lbFactory->getLoadBalancer( self::VIRTUAL_DOMAIN )
+			->getConnection(
+				$type,
+				$group,
+				$this->lbFactory->getMappedDomain( self::VIRTUAL_DOMAIN )
+			);
+	}
 
-		return $lb->getConnection( $type, $group, $this->contentTranslationDatabase );
+	/**
+	 * Returns a database connection to the primary database with the virtual domain
+	 * @return IDatabase
+	 */
+	public function getPrimaryConnection(): IDatabase {
+		return $this->connectionProvider->getPrimaryDatabase( self::VIRTUAL_DOMAIN );
+	}
+
+	/**
+	 * Returns a readable database connection to the replica database with the virtual domain
+	 * @param string|null $group
+	 * @return IReadableDatabase
+	 */
+	public function getReplicaConnection( ?string $group = null ): IReadableDatabase {
+		return $this->connectionProvider->getReplicaDatabase( self::VIRTUAL_DOMAIN, $group );
 	}
 
 }

@@ -28,7 +28,7 @@ class TranslationStore {
 	}
 
 	public function unlinkTranslationFromTranslator( int $translationId ) {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( self::TRANSLATOR_TABLE_NAME )
@@ -38,7 +38,7 @@ class TranslationStore {
 	}
 
 	public function deleteTranslation( int $translationId ) {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		$dbw->newUpdateQueryBuilder()
 			->update( self::TRANSLATION_TABLE_NAME )
@@ -71,7 +71,12 @@ class TranslationStore {
 		?string $status = null,
 		int $dbType = DB_REPLICA
 	): ?Translation {
-		$dbr = $this->lb->getConnection( $dbType );
+		if ( $dbType === DB_REPLICA ) {
+			$dbr = $this->lb->getReplicaConnection();
+		} else {
+			$dbr = $this->lb->getPrimaryConnection();
+		}
+
 		$globalUserId = $this->userService->getGlobalUserId( $user );
 
 		$conditions = [
@@ -101,7 +106,7 @@ class TranslationStore {
 	 * the last 10 minutes, null is returned.
 	 */
 	public function findRecentTranslationByUser( int $userId ): ?Translation {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		$conditions = [
 			'translation_started_by' => $userId,
@@ -135,7 +140,7 @@ class TranslationStore {
 	 * @throws \Exception
 	 */
 	public function findByUserAndId( UserIdentity $user, int $id ): ?Translation {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 		$globalUserId = $this->userService->getGlobalUserId( $user );
 
 		$row = $dbr->newSelectQueryBuilder()
@@ -160,7 +165,7 @@ class TranslationStore {
 	 * @return Translation|null
 	 */
 	public function findByPublishedTitle( string $publishedTitle, string $targetLanguage ): ?Translation {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		$row = $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
@@ -190,7 +195,7 @@ class TranslationStore {
 		string $sourceLanguage,
 		string $targetLanguage
 	): ?Translation {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		$row = $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
@@ -218,7 +223,7 @@ class TranslationStore {
 	 * @return Translation[]
 	 */
 	public function findTranslationsByTitles( array $titles, string $sourceLanguage, string $targetLanguage ): array {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		$resultSet = $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
@@ -290,8 +295,7 @@ class TranslationStore {
 		?string $from = null,
 		?string $to = null
 	): array {
-		// Note: there is no index on translation_last_updated_timestamp
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		$whereConditions = [ 'translation_started_by' => $userId ];
 
@@ -326,7 +330,7 @@ class TranslationStore {
 	}
 
 	public function insertTranslation( Translation $translation, UserIdentity $user ): bool {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		$row = [
 			'translation_source_title' => $translation->translation['sourceTitle'],
@@ -366,7 +370,7 @@ class TranslationStore {
 	}
 
 	public function updateTranslation( Translation $translation, array $options = [] ): void {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		$set = [
 			'translation_target_title' => $translation->translation['targetTitle'],

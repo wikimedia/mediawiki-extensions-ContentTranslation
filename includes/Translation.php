@@ -4,8 +4,8 @@ namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
-use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IExpression;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 class Translation {
 	private bool $isNew = false;
@@ -239,7 +239,7 @@ class Translation {
 	/**
 	 * @return IExpression
 	 */
-	public static function getPublishedCondition( IDatabase $db ) {
+	public static function getPublishedCondition( IReadableDatabase $db ) {
 		return $db->expr( 'translation_status', '=', 'published' )
 			->or( 'translation_target_url', '!=', null );
 	}

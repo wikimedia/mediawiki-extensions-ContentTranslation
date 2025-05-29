@@ -330,6 +330,9 @@
 		"cx-entrypoint-fd-status": "notshown",
 		"cx_campaign_newarticle_shown": false
 	},
+	"DatabaseVirtualDomains": [
+		"virtual-cx"
+	],
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],
@@ -2094,5 +2097,6 @@
 		"remoteExtPath": "ContentTranslation/modules"
 	},
 	"load_composer_autoloader": true,
-	"manifest_version": 2
+	"manifest_version": 2,
+	"callback": "ContentTranslation\\HookHandler\\RegistrationHandler::onRegistration"
 }
