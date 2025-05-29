@@ -8,6 +8,8 @@ import { useStore } from "vuex";
 import useMTProviderUpdate from "./useMTProviderUpdate";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useURLHandler from "@/composables/useURLHandler";
+import { useI18n } from "vue-banana-i18n";
+import { setTargetBlank } from "@/utils/htmlHelper";
 
 const props = defineProps({
   active: {
@@ -63,6 +65,11 @@ const selectProvider = (provider) => {
 const getMTProviderLabel = MTProviderGroup.getMTProviderLabel;
 
 const close = () => emit("update:active", false);
+
+const bananaI18n = useI18n();
+const disabledMtMessage = setTargetBlank(
+  bananaI18n.i18n("cx-tools-mt-noservices")
+);
 </script>
 
 <template>
@@ -146,6 +153,17 @@ const close = () => emit("update:active", false);
       </template>
       <p class="sx-sentence-selector__empty-sentence-option__cursor">|</p>
     </mw-card>
+    <mw-card
+      v-if="!apiMtProviders.length"
+      class="sx-sentence-selector__mt-disabled-info-card mx-4 pa-5"
+    >
+      <template #header>
+        <h5
+          class="sx-sentence-selector__translation-info-card-title"
+          v-html="disabledMtMessage"
+        />
+      </template>
+    </mw-card>
   </mw-dialog>
 </template>
 
@@ -153,9 +171,6 @@ const close = () => emit("update:active", false);
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-sentence-selector__translation-options {
-  a {
-    pointer-events: none;
-  }
   .mw-ui-dialog__header {
     h6 {
       color: @color-base;
@@ -173,6 +188,19 @@ const close = () => emit("update:active", false);
 }
 .sx-sentence-selector__mt-provider-option-card {
   cursor: pointer;
+
+  // disable links inside translation previews
+  .mw-ui-card__content a {
+    pointer-events: none;
+  }
+}
+// Special visual treatment for MT disabled message
+.sx-sentence-selector__mt-disabled-info-card {
+  background-color: @background-color-neutral-subtle;
+  h5 {
+    color: @color-subtle;
+    font-weight: @font-weight-normal;
+  }
 }
 @keyframes blink {
   50% {
