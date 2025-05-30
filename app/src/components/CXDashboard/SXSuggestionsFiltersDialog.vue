@@ -94,8 +94,7 @@ const tabs = computed(() => [
     ),
   },
 ]);
-const currentTab = ref("all");
-const switchCurrentTab = (tabName) => (currentTab.value = tabName);
+const switchCurrentTab = (tabName) => (searchScope.value = tabName);
 
 const showPartialFiltersList = (group) => {
   const chipsNumberLimit = 6;
@@ -222,7 +221,8 @@ const fullscreen = computed(() => breakpoints.value.mobile);
 
 const { getFilterProvider } = useSuggestionProvider();
 
-const { searchInput, searchResults } = useSuggestionsFilterSearch(currentTab);
+const { searchInput, searchScope, searchResults } =
+  useSuggestionsFilterSearch();
 const selectedFilter = computed(
   () => tentativelySelectedFilter.value || findSelectedFilter()
 );
@@ -230,25 +230,13 @@ const selectedFilter = computed(
 const selection = ref(null);
 
 /**
- * @param {{ label: string }} selectedTopic
+ * @param {{ label: string, filterType: string, filterId: string }} item
  */
-const tentativelySelectSearchTopic = (selectedTopic) => {
+const tentativelySelectSearchItem = (item) => {
   tentativelySelectFilter({
-    type: SEED_SUGGESTION_PROVIDER,
-    id: selectedTopic.label,
-    label: selectedTopic.label,
-  });
-  searchInput.value = "";
-};
-
-/**
- * @param {{ filterType: string, filterId: string, label: string}} selectedArea
- */
-const tentativelySelectSearchArea = (selectedArea) => {
-  tentativelySelectFilter({
-    type: selectedArea.filterType,
-    id: selectedArea.filterId,
-    label: selectedArea.label,
+    type: item.filterType,
+    id: item.filterId,
+    label: item.label,
   });
   searchInput.value = "";
 };
@@ -259,46 +247,6 @@ const viewAllLabels = {
   [REGIONS_SUGGESTION_PROVIDER]:
     "cx-sx-suggestions-filters-view-all-regions-group",
 };
-
-const filteredResultGroups = computed(() => {
-  const isAll = currentTab.value === "all";
-  const getTopicAreasByType = (type) =>
-    searchResults.value.topic_areas.filter((t) => t.filterType === type);
-
-  return [
-    {
-      key: "topics",
-      show: searchResults.value.topics.length && isAll,
-      items: searchResults.value.topics,
-      onClick: tentativelySelectSearchTopic,
-      showThumbnail: true,
-    },
-    {
-      key: "topic-areas",
-      show:
-        getTopicAreasByType(TOPIC_SUGGESTION_PROVIDER).length &&
-        (isAll || currentTab.value === "topics"),
-      items: getTopicAreasByType(TOPIC_SUGGESTION_PROVIDER),
-      onClick: tentativelySelectSearchArea,
-    },
-    {
-      key: "geography",
-      show:
-        getTopicAreasByType(REGIONS_SUGGESTION_PROVIDER).length &&
-        (isAll || currentTab.value === "geography"),
-      items: getTopicAreasByType(REGIONS_SUGGESTION_PROVIDER),
-      onClick: tentativelySelectSearchArea,
-    },
-    {
-      key: "collections",
-      show:
-        searchResults.value.collections.length &&
-        (isAll || currentTab.value === "collections"),
-      items: searchResults.value.collections,
-      onClick: tentativelySelectSearchArea,
-    },
-  ].filter((menu) => menu.show);
-});
 </script>
 
 <template>
@@ -352,7 +300,7 @@ const filteredResultGroups = computed(() => {
         </div>
       </div>
       <cdx-tabs
-        v-model:active="currentTab"
+        v-model:active="searchScope"
         class="sx-suggestions-filters__tabs"
         @update:active="switchCurrentTab"
       >
@@ -401,15 +349,15 @@ const filteredResultGroups = computed(() => {
             </div>
           </div>
           <div v-else class="sx-suggestions-filters__search-results px-4 pt-3">
-            <div v-if="filteredResultGroups.length">
+            <div v-if="searchResults.length">
               <cdx-menu
-                v-for="resultGroup in filteredResultGroups"
+                v-for="resultGroup in searchResults"
                 :key="resultGroup.key"
                 v-model:selected="selection"
                 :expanded="true"
                 :menu-items="resultGroup.items"
                 :show-thumbnail="resultGroup.showThumbnail || false"
-                @menu-item-click="resultGroup.onClick"
+                @menu-item-click="tentativelySelectSearchItem"
               ></cdx-menu>
             </div>
             <div v-else>

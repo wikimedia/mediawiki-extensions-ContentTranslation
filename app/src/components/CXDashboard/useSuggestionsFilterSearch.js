@@ -1,4 +1,4 @@
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import { cdxIconArticles, cdxIconSearch } from "@wikimedia/codex-icons";
 import usePageCollections from "./usePageCollections";
 import useSearchArticles from "@/composables/useArticleSearch";
@@ -7,6 +7,7 @@ import {
   TOPIC_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
   REGIONS_SUGGESTION_PROVIDER,
+  SEED_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import { useI18n } from "vue-banana-i18n";
 
@@ -20,19 +21,25 @@ const allTopics = topicGroups.flatMap((group) =>
 );
 
 /**
- * @param {Ref<string>} scope - The scope to filter the suggestions, according to filters dialog tab
  * @returns {{
  *   searchInput: Ref<string>,
- *   searchResults: Ref<{
- *     topics: { label: string, value: string, description: string, thumbnail: { url: string } }[],
- *     topic_areas: { label: string, value: string, description: string, icon: string | null, filterType: string, filterId: string }[],
- *     collections: { label: string, value: string, description: string, icon: string | null, filterType: string, filterId: string }[]
- *   }>
+ *   searchScope: Ref<string>,
+ *   searchResults: ComputedRef<Array<{
+ *     key: string,
+ *     show: boolean,
+ *     items: Array<any>,
+ *     showThumbnail?: boolean
+ *   }>>
  * }}
  */
-const useSuggestionsFilterSearch = (scope) => {
+const useSuggestionsFilterSearch = () => {
   const searchInput = ref("");
-  const searchResults = ref({ topics: [], topic_areas: [], collections: [] });
+  const searchScope = ref("all");
+  const rawSearchResults = ref({
+    topics: [],
+    topic_areas: [],
+    collections: [],
+  });
   const bananaI18n = useI18n();
 
   const { pageCollections } = usePageCollections();
@@ -65,27 +72,29 @@ const useSuggestionsFilterSearch = (scope) => {
   const { searchResultsSlice } = useSearchArticles(sourceLanguage, searchInput);
 
   watch(searchResultsSlice, () => {
-    searchResults.value.topics = searchResultsSlice.value.map((result) => ({
+    rawSearchResults.value.topics = searchResultsSlice.value.map((result) => ({
       label: result.title,
       value: result.title,
       description: result.description,
       thumbnail: {
         url: result.thumbnail?.source,
       },
+      filterType: SEED_SUGGESTION_PROVIDER,
+      filterId: result.title,
     }));
   });
 
-  watch([searchInput, scope], async () => {
-    searchResults.value.topic_areas = searchTopics(searchInput.value).map(
+  watch([searchInput, searchScope], async () => {
+    rawSearchResults.value.topic_areas = searchTopics(searchInput.value).map(
       (topic) => ({
         label: topic.label,
         value: topic.label,
         description: bananaI18n.i18n(
-          scope.value === "all"
+          searchScope.value === "all"
             ? "cx-sx-suggestions-filter-search-results-topics-default-description"
             : "cx-sx-suggestions-filter-search-results-topics-alternative-description"
         ),
-        icon: scope.value === "all" ? cdxIconSearch : null,
+        icon: searchScope.value === "all" ? cdxIconSearch : null,
         filterType:
           topic.groupId === "geography"
             ? REGIONS_SUGGESTION_PROVIDER
@@ -94,24 +103,60 @@ const useSuggestionsFilterSearch = (scope) => {
       })
     );
 
-    searchResults.value.collections = searchCollections(searchInput.value).map(
-      (collection) => ({
-        label: collection.name,
-        value: collection.name,
-        description: bananaI18n.i18n(
-          scope.value === "all"
-            ? "cx-sx-suggestions-filter-search-results-collections-default-description"
-            : "cx-sx-suggestions-filter-search-results-collections-alternative-description",
-          collection.articlesCount
-        ),
-        icon: scope.value === "all" ? cdxIconArticles : null,
-        filterType: COLLECTIONS_SUGGESTION_PROVIDER,
-        filterId: collection.name,
-      })
-    );
+    rawSearchResults.value.collections = searchCollections(
+      searchInput.value
+    ).map((collection) => ({
+      label: collection.name,
+      value: collection.name,
+      description: bananaI18n.i18n(
+        searchScope.value === "all"
+          ? "cx-sx-suggestions-filter-search-results-collections-default-description"
+          : "cx-sx-suggestions-filter-search-results-collections-alternative-description",
+        collection.articlesCount
+      ),
+      icon: searchScope.value === "all" ? cdxIconArticles : null,
+      filterType: COLLECTIONS_SUGGESTION_PROVIDER,
+      filterId: collection.name,
+    }));
   });
 
-  return { searchInput, searchResults };
+  const searchResults = computed(() => {
+    const isAll = searchScope.value === "all";
+    const getTopicAreasByType = (type) =>
+      rawSearchResults.value.topic_areas.filter((t) => t.filterType === type);
+
+    return [
+      {
+        key: "topics",
+        show: rawSearchResults.value.topics.length && isAll,
+        items: rawSearchResults.value.topics,
+        showThumbnail: true,
+      },
+      {
+        key: "topic-areas",
+        show:
+          getTopicAreasByType(TOPIC_SUGGESTION_PROVIDER).length &&
+          (isAll || searchScope.value === "topics"),
+        items: getTopicAreasByType(TOPIC_SUGGESTION_PROVIDER),
+      },
+      {
+        key: "geography",
+        show:
+          getTopicAreasByType(REGIONS_SUGGESTION_PROVIDER).length &&
+          (isAll || searchScope.value === "geography"),
+        items: getTopicAreasByType(REGIONS_SUGGESTION_PROVIDER),
+      },
+      {
+        key: "collections",
+        show:
+          rawSearchResults.value.collections.length &&
+          (isAll || searchScope.value === "collections"),
+        items: rawSearchResults.value.collections,
+      },
+    ].filter((menu) => menu.show);
+  });
+
+  return { searchInput, searchScope, searchResults };
 };
 
 export default useSuggestionsFilterSearch;
