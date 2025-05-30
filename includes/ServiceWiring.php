@@ -64,10 +64,7 @@ return [
 		},
 	'ContentTranslation.LoadBalancer' =>
 		static function ( MediaWikiServices $services ): LoadBalancer {
-			return new LoadBalancer(
-				$services->getDBLoadBalancerFactory(),
-				$services->getConnectionProvider()
-			);
+			return new LoadBalancer( $services->getConnectionProvider() );
 		},
 	'ContentTranslation.ParsoidClientFactory' => static function (
 			MediaWikiServices $services

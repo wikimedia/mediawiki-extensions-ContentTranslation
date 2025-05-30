@@ -79,7 +79,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
+		$dbr = $lb->getReplicaConnection();
 		$notifyAgeInDays = $this->getOption( 'notify-age-in-days' );
 
 		// Notifications can only be send if the user account exists on the wiki where this
@@ -308,7 +308,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	private function logLastNotifiedDraft( stdClass $lastDraft ): void {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbw = $lb->getConnection( DB_PRIMARY );
+		$dbw = $lb->getPrimaryConnection();
 
 		$dt = new DateTime();
 

@@ -46,7 +46,7 @@ class ApiContentTranslationSplit extends ApiBase {
 	 * @throws ApiUsageException
 	 */
 	private function validateRequest(): void {
-		if ( $this->loadBalancer->getConnection( DB_PRIMARY )->isReadOnly() ) {
+		if ( $this->loadBalancer->getPrimaryConnection()->isReadOnly() ) {
 			$this->dieReadOnly();
 		}
 

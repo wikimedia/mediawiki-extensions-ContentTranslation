@@ -108,7 +108,7 @@ class CategoriesStorageManager {
 	) {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$db = $lb->getConnection( DB_PRIMARY );
+		$db = $lb->getPrimaryConnection();
 
 		$db->doAtomicSection(
 			__METHOD__,
@@ -140,7 +140,7 @@ class CategoriesStorageManager {
 	private static function exists( $translationId ) {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$db = $lb->getConnection( DB_PRIMARY );
+		$db = $lb->getPrimaryConnection();
 
 		$result = $db->newSelectQueryBuilder()
 			->select( 'cxc_content' )

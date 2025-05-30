@@ -50,7 +50,7 @@ class RecentSignificantEditStore {
 	 */
 	public function insert( RecentSignificantEdit $edit ): int {
 		$values = $this->normalizeEdit( $edit );
-		$primaryDb = $this->lb->getConnection( DB_PRIMARY );
+		$primaryDb = $this->lb->getPrimaryConnection();
 		$values['cxse_timestamp'] = $primaryDb->timestamp();
 
 		$primaryDb->newInsertQueryBuilder()
@@ -77,7 +77,7 @@ class RecentSignificantEditStore {
 		if ( $edit->getId() === null ) {
 			return;
 		}
-		$primaryDb = $this->lb->getConnection( DB_PRIMARY );
+		$primaryDb = $this->lb->getPrimaryConnection();
 
 		$values = $this->normalizeEdit( $edit );
 		$values['cxse_timestamp'] = $primaryDb->timestamp();
@@ -108,7 +108,7 @@ class RecentSignificantEditStore {
 			return $edit->getId();
 		}, array_slice( $edits, self::RECENT_EDITS_LIMIT ) );
 
-		$primaryDb = $this->lb->getConnection( DB_PRIMARY );
+		$primaryDb = $this->lb->getPrimaryConnection();
 		$primaryDb->newDeleteQueryBuilder()
 			->deleteFrom( self::TABLE_NAME )
 			->where( [ 'cxse_id' => $editIdsToDelete ] )
@@ -125,7 +125,7 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit[]
 	 */
 	public function findEditsByUser( int $userId ): array {
-		$replicaDb = $this->lb->getConnection( DB_REPLICA );
+		$replicaDb = $this->lb->getReplicaConnection();
 		$result = $replicaDb->newSelectQueryBuilder()
 			->select( IDatabase::ALL_ROWS )
 			->from( self::TABLE_NAME )
@@ -155,7 +155,7 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit|null
 	 */
 	public function findExistingEdit( int $userId, int $pageWikidataId, string $language ): ?RecentSignificantEdit {
-		$replicaDb = $this->lb->getConnection( DB_REPLICA );
+		$replicaDb = $this->lb->getReplicaConnection();
 		$row = $replicaDb->newSelectQueryBuilder()
 			->select( IDatabase::ALL_ROWS )
 			->from( self::TABLE_NAME )
@@ -188,7 +188,7 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit[]
 	 */
 	public function findEditsForPotentialSuggestions( int $userId, int $wikidataId, string $language ): array {
-		$replicaDb = $this->lb->getConnection( DB_REPLICA );
+		$replicaDb = $this->lb->getReplicaConnection();
 		$conditions = [
 			'cxse_global_user_id' => $userId,
 			'cxse_page_wikidata_id' => $wikidataId,

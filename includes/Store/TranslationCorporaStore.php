@@ -14,6 +14,7 @@ use Psr\Log\LoggerInterface;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IExpression;
+use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\LBFactory;
 use Wikimedia\Rdbms\LikeValue;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
@@ -54,7 +55,7 @@ class TranslationCorporaStore {
 	 * @param string $timestamp
 	 */
 	private function updateTranslationUnit( TranslationUnit $translationUnit, string $timestamp ): void {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		$dbw->newUpdateQueryBuilder()
 			->update( self::TABLE_NAME )
@@ -91,7 +92,7 @@ class TranslationCorporaStore {
 	 * @return int Number of rows inserted
 	 */
 	private function insertTranslationUnit( TranslationUnit $translationUnit ): int {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		$dbw->newInsertQueryBuilder()
 			->insertInto( self::TABLE_NAME )
@@ -116,7 +117,7 @@ class TranslationCorporaStore {
 	 * @param int|int[] $translationId
 	 */
 	public function deleteTranslationData( $translationId ): void {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( self::TABLE_NAME )
@@ -140,7 +141,7 @@ class TranslationCorporaStore {
 	 * @return void
 	 */
 	public function deleteTranslationDataBySectionId( int $translationId, string $baseSectionId ): void {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( self::TABLE_NAME )
@@ -161,7 +162,7 @@ class TranslationCorporaStore {
 	 * @return int
 	 */
 	public function countByTranslationId( int $translationId ): int {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		return $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
@@ -179,7 +180,7 @@ class TranslationCorporaStore {
 	 * @param int $batchSize
 	 */
 	public function deleteTranslationDataGently( $ids, int $batchSize = 1000 ): void {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		while ( true ) {
 			$rowsToDelete = $dbw->newSelectQueryBuilder()
@@ -208,7 +209,7 @@ class TranslationCorporaStore {
 	 * @return TranslationUnit[]
 	 */
 	public function findByTranslationId( int $translationId ): array {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		$resultSet = $dbr->newSelectQueryBuilder()
 			->select( [
@@ -240,7 +241,7 @@ class TranslationCorporaStore {
 	 * @return int count of translated subsections
 	 */
 	public function countTranslatedSubSectionsByTranslationId( int $translationId ): int {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		return (int)$dbr->newSelectQueryBuilder()
 			->select( 'COUNT(DISTINCT cxc_section_id)' )
@@ -280,12 +281,12 @@ class TranslationCorporaStore {
 			// SH gap locks in doFind() and then deadlock in create() trying to get IX gap
 			// locks (if no duplicate rows were found).
 			$options = [];
-			$dbr = $this->lb->getConnection( DB_REPLICA );
+			$dbr = $this->lb->getReplicaConnection();
 			$existing = $this->doFind( $dbr, $conditions, $options, $fname );
 		}
 
 		if ( $existing ) {
-			$dbw = $this->lb->getConnection( DB_PRIMARY );
+			$dbw = $this->lb->getPrimaryConnection();
 			$dbw->doAtomicSection(
 				__METHOD__,
 				function ( IDatabase $dbw ) use ( $translationUnit, $conditions, $fname ) {
@@ -311,13 +312,13 @@ class TranslationCorporaStore {
 	}
 
 	/**
-	 * @param IDatabase $db
+	 * @param IReadableDatabase $db
 	 * @param array $conditions
 	 * @param array $options
 	 * @param string $method
 	 * @return TranslationUnit|null
 	 */
-	private function doFind( IDatabase $db, $conditions, $options, $method ): ?TranslationUnit {
+	private function doFind( IReadableDatabase $db, $conditions, $options, $method ): ?TranslationUnit {
 		$row = $db->newSelectQueryBuilder()
 			->select( [
 				'cxc_translation_id',

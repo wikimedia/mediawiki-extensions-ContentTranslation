@@ -31,7 +31,7 @@ class Translator {
 	public function addTranslation( $translationId ) {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbw = $lb->getConnection( DB_PRIMARY );
+		$dbw = $lb->getPrimaryConnection();
 		$dbw->newReplaceQueryBuilder()
 			->replaceInto( 'cx_translators' )
 			->uniqueIndexFields( [ 'translator_user_id', 'translator_translation_id' ] )
@@ -50,7 +50,7 @@ class Translator {
 	public function getTranslationsCount() {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
+		$dbr = $lb->getReplicaConnection();
 
 		$count = $dbr->newSelectQueryBuilder()
 			->select( 'COUNT(*)' )
@@ -92,7 +92,7 @@ class Translator {
 
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
+		$dbr = $lb->getReplicaConnection();
 
 		$rows = $dbr->newSelectQueryBuilder()
 			->select( [
@@ -121,7 +121,7 @@ class Translator {
 	public static function getTotalTranslatorsCount() {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
+		$dbr = $lb->getReplicaConnection();
 
 		return $dbr->newSelectQueryBuilder()
 			->select( 'COUNT(DISTINCT translation_started_by)' )

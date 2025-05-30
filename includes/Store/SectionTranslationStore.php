@@ -40,7 +40,7 @@ class SectionTranslationStore {
 	}
 
 	public function insertTranslation( SectionTranslation $translation ) {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 		$values = $this->translationToDBRow( $translation );
 		// set start/last_updated timestamps to current timestamp
 		$values['cxsx_translation_start_timestamp'] = $dbw->timestamp();
@@ -63,7 +63,7 @@ class SectionTranslationStore {
 			return;
 		}
 
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 		$rows = [];
 		foreach ( $translations as $translation ) {
 			$values = $this->translationToDBRow( $translation );
@@ -81,7 +81,7 @@ class SectionTranslationStore {
 	}
 
 	public function updateTranslation( SectionTranslation $translation ) {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 		$values = $this->translationToDBRow( $translation );
 		$values['cxsx_translation_last_updated_timestamp'] = $dbw->timestamp();
 
@@ -98,7 +98,7 @@ class SectionTranslationStore {
 	 * @param int|null $translationStatus Either "deleted", "draft" or "published"
 	 */
 	public function updateTranslationStatusById( ?int $id, ?int $translationStatus ) {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 		$dbw->newUpdateQueryBuilder()
 			->update( self::TABLE_NAME )
 			->set( [ 'cxsx_translation_status' => $translationStatus ] )
@@ -108,7 +108,7 @@ class SectionTranslationStore {
 	}
 
 	public function findTranslation( int $translationId, string $sectionId ): ?SectionTranslation {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		$row = $dbr->newSelectQueryBuilder()
 			->select( IDatabase::ALL_ROWS )
@@ -128,7 +128,7 @@ class SectionTranslationStore {
 	 * @return SectionTranslation|null
 	 */
 	public function findTranslationBySectionTitle( int $translationId, string $sectionTitle ): ?SectionTranslation {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		$row = $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
@@ -183,7 +183,7 @@ class SectionTranslationStore {
 		int $limit = 100,
 		?string $offset = null
 	): IResultWrapper {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getReplicaConnection();
 
 		$whereConditions = [ 'translation_started_by' => $userId ];
 
@@ -348,7 +348,7 @@ class SectionTranslationStore {
 	 * @return void
 	 */
 	public function deleteTranslationById( int $sectionTranslationId ): void {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw = $this->lb->getPrimaryConnection();
 
 		$deletedStatusIndex = self::getStatusIndexByStatus( self::TRANSLATION_STATUS_DELETED );
 		$dbw->newUpdateQueryBuilder()

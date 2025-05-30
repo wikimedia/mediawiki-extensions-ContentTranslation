@@ -61,7 +61,7 @@ class ApiSectionTranslationSave extends ApiBase {
 	}
 
 	private function validateRequest() {
-		if ( $this->lb->getConnection( DB_PRIMARY )->isReadOnly() ) {
+		if ( $this->lb->getPrimaryConnection()->isReadOnly() ) {
 			$this->dieReadOnly();
 		}
 

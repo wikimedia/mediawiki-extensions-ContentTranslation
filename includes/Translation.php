@@ -38,7 +38,7 @@ class Translation {
 	public static function getStats(): array {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
+		$dbr = $lb->getReplicaConnection();
 
 		$statusCase = $dbr->conditional(
 			self::getPublishedCondition( $dbr ),
@@ -149,7 +149,7 @@ class Translation {
 	) {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
+		$dbr = $lb->getReplicaConnection();
 
 		$conditions = [];
 		if ( $status === 'published' ) {
@@ -256,7 +256,7 @@ class Translation {
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
+		$dbr = $lb->getReplicaConnection();
 		$conditions = [];
 		$conditions[] = self::getPublishedCondition( $dbr );
 
