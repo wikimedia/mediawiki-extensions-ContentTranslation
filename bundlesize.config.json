@@ -6,5 +6,13 @@
 	{
 		"resourceModule": "ext.cx.eventlogging.campaigns",
 		"maxSize": "0.3 kB"
+	},
+	{
+		"resourceModule": "ext.cx.model",
+		"maxSize": "0.2 kB"
+	},
+	{
+		"resourceModule": "mw.cx.SiteMapper",
+		"maxSize": "1.8 kB"
 	}
 ]

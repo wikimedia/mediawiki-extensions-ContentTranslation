@@ -1036,7 +1036,6 @@
 				"entrypoints/ext.cx.uls.quick.actions.js"
 			],
 			"dependencies": [
-				"oojs-ui.styles.icons-interactions",
 				"mw.cx.SiteMapper",
 				"ext.uls.interface",
 				"ext.uls.common"
