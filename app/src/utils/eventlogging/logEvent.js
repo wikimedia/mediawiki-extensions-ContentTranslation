@@ -1,7 +1,4 @@
-import {
-  getTranslationSessionPosition,
-  setTranslationSessionPosition,
-} from "./translationSessionPosition";
+import { nextSessionPosition } from "./translationSessionPosition";
 
 let cachedEditCount = null;
 
@@ -90,7 +87,6 @@ function logEvent(event) {
   const isAnonUser = mw.user.isAnon();
   const userName = mw.user.getName();
 
-  const translationSessionPosition = getTranslationSessionPosition();
   const eventDefaults = {
     $schema: "/analytics/mediawiki/content_translation_event/1.8.0",
     wiki_db: wikiDB,
@@ -99,31 +95,24 @@ function logEvent(event) {
     web_pageview_id: mw.user.getPageviewToken(),
     user_is_anonymous: isAnonUser,
     content_translation_session_id: sessionId,
-    content_translation_session_position: translationSessionPosition,
+    content_translation_session_position: nextSessionPosition(),
   };
 
-  let promise;
-
   if (isAnonUser) {
-    promise = Promise.resolve(
+    return Promise.resolve(
       mw.eventLog.submit(streamName, Object.assign({}, eventDefaults, event))
     );
-  } else {
-    promise = getGlobalEditCount(userName).then((editCount) => {
-      cachedEditCount = editCount;
-      mw.eventLog.submit(
-        streamName,
-        Object.assign({}, eventDefaults, event, {
-          user_global_edit_count: editCount,
-          user_global_edit_count_bucket: getUserEditCountBucket(editCount),
-        })
-      );
-    });
   }
 
-  return promise.then(() => {
-    // increment the session position
-    setTranslationSessionPosition();
+  return getGlobalEditCount(userName).then((editCount) => {
+    cachedEditCount = editCount;
+    mw.eventLog.submit(
+      streamName,
+      Object.assign({}, eventDefaults, event, {
+        user_global_edit_count: editCount,
+        user_global_edit_count_bucket: getUserEditCountBucket(editCount),
+      })
+    );
   });
 }
 

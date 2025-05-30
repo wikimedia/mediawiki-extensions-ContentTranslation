@@ -7,28 +7,36 @@ const getLocalStorageKey = () =>
  * @return {number}
  */
 const getTranslationSessionPosition = () => {
-  const storageKey = getLocalStorageKey();
-  let translationSessionPosition = mw.storage.get(storageKey);
+  const translationSessionPosition = parseInt(
+    mw.storage.get(getLocalStorageKey())
+  );
 
-  if (
-    translationSessionPosition === null ||
-    translationSessionPosition === undefined
-  ) {
-    translationSessionPosition = 0;
-  }
-
-  return parseInt(translationSessionPosition);
+  return isNaN(translationSessionPosition) ? 0 : translationSessionPosition;
 };
 
-const setTranslationSessionPosition = function () {
-  const translationSessionPosition = getTranslationSessionPosition();
+const setTranslationSessionPosition = function (translationSessionPosition) {
+  const storageKey = getLocalStorageKey();
+  mw.storage.set(storageKey, translationSessionPosition);
+};
+
+const cleanupTranslationSessionPosition = () => {
   // clear pre-existing session position counters from local storage
   Object.keys(mw.storage.store)
     .filter((x) => x.startsWith(POSITION_LOCAL_STORAGE_PREFIX))
     .forEach((x) => mw.storage.remove(x));
-
-  const storageKey = getLocalStorageKey();
-  mw.storage.set(storageKey, translationSessionPosition + 1);
 };
 
-export { getTranslationSessionPosition, setTranslationSessionPosition };
+const nextSessionPosition = () => {
+  const translationSessionPosition = getTranslationSessionPosition();
+
+  if (translationSessionPosition % 10 === 0) {
+    // Cleanup local storage every 10 times to avoid excessive storage usage
+    cleanupTranslationSessionPosition();
+  }
+
+  setTranslationSessionPosition(translationSessionPosition + 1);
+
+  return translationSessionPosition;
+};
+
+export { nextSessionPosition };

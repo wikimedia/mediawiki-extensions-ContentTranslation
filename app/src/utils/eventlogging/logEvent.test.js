@@ -12,8 +12,7 @@ global.fetch = jest.fn((url) => {
   });
 });
 jest.mock("./translationSessionPosition", () => ({
-  getTranslationSessionPosition: () => 1,
-  setTranslationSessionPosition: () => jest.fn(),
+  nextSessionPosition: () => 1,
 }));
 
 describe("Event logging", () => {

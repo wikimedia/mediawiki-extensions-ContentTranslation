@@ -1,19 +1,14 @@
-import {
-  setTranslationSessionPosition,
-  getTranslationSessionPosition,
-} from "./translationSessionPosition";
+import { nextSessionPosition } from "./translationSessionPosition";
 
 describe("translation session position test", () => {
-  it("should get and set the translation session position properly", () => {
-    let position = getTranslationSessionPosition();
+  it("should auto-increment session position starting from 0", () => {
+    let position = nextSessionPosition();
     expect(position).toBe(0);
 
-    setTranslationSessionPosition();
-    position = getTranslationSessionPosition();
+    position = nextSessionPosition();
     expect(position).toBe(1);
 
-    setTranslationSessionPosition();
-    position = getTranslationSessionPosition();
+    position = nextSessionPosition();
     expect(position).toBe(2);
   });
 });
