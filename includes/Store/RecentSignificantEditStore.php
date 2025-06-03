@@ -5,7 +5,7 @@ declare( strict_types=1 );
 namespace ContentTranslation\Store;
 
 use ContentTranslation\Entity\RecentSignificantEdit;
-use ContentTranslation\LoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
 
 class RecentSignificantEditStore {
@@ -27,11 +27,11 @@ class RecentSignificantEditStore {
 	 */
 	private $currentWikiFamilyKey;
 
-	/** @var LoadBalancer */
-	private $lb;
+	/** @var IConnectionProvider */
+	private $connectionProvider;
 
-	public function __construct( LoadBalancer $lb, ?string $currentWikiFamily ) {
-		$this->lb = $lb;
+	public function __construct( IConnectionProvider $connectionProvider, ?string $currentWikiFamily ) {
+		$this->connectionProvider = $connectionProvider;
 		$currentWikiFamily ??= self::DEFAULT_WIKI_FAMILY;
 		$this->currentWikiFamilyKey = array_search( $currentWikiFamily, self::SUPPORTED_WIKI_FAMILIES );
 	}
@@ -50,7 +50,7 @@ class RecentSignificantEditStore {
 	 */
 	public function insert( RecentSignificantEdit $edit ): int {
 		$values = $this->normalizeEdit( $edit );
-		$primaryDb = $this->lb->getPrimaryConnection();
+		$primaryDb = $this->connectionProvider->getPrimaryDatabase();
 		$values['cxse_timestamp'] = $primaryDb->timestamp();
 
 		$primaryDb->newInsertQueryBuilder()
@@ -77,7 +77,7 @@ class RecentSignificantEditStore {
 		if ( $edit->getId() === null ) {
 			return;
 		}
-		$primaryDb = $this->lb->getPrimaryConnection();
+		$primaryDb = $this->connectionProvider->getPrimaryDatabase();
 
 		$values = $this->normalizeEdit( $edit );
 		$values['cxse_timestamp'] = $primaryDb->timestamp();
@@ -108,7 +108,7 @@ class RecentSignificantEditStore {
 			return $edit->getId();
 		}, array_slice( $edits, self::RECENT_EDITS_LIMIT ) );
 
-		$primaryDb = $this->lb->getPrimaryConnection();
+		$primaryDb = $this->connectionProvider->getPrimaryDatabase();
 		$primaryDb->newDeleteQueryBuilder()
 			->deleteFrom( self::TABLE_NAME )
 			->where( [ 'cxse_id' => $editIdsToDelete ] )
@@ -125,7 +125,7 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit[]
 	 */
 	public function findEditsByUser( int $userId ): array {
-		$replicaDb = $this->lb->getReplicaConnection();
+		$replicaDb = $this->connectionProvider->getReplicaDatabase();
 		$result = $replicaDb->newSelectQueryBuilder()
 			->select( IDatabase::ALL_ROWS )
 			->from( self::TABLE_NAME )
@@ -155,7 +155,7 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit|null
 	 */
 	public function findExistingEdit( int $userId, int $pageWikidataId, string $language ): ?RecentSignificantEdit {
-		$replicaDb = $this->lb->getReplicaConnection();
+		$replicaDb = $this->connectionProvider->getReplicaDatabase();
 		$row = $replicaDb->newSelectQueryBuilder()
 			->select( IDatabase::ALL_ROWS )
 			->from( self::TABLE_NAME )
@@ -188,7 +188,7 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit[]
 	 */
 	public function findEditsForPotentialSuggestions( int $userId, int $wikidataId, string $language ): array {
-		$replicaDb = $this->lb->getReplicaConnection();
+		$replicaDb = $this->connectionProvider->getReplicaDatabase();
 		$conditions = [
 			'cxse_global_user_id' => $userId,
 			'cxse_page_wikidata_id' => $wikidataId,

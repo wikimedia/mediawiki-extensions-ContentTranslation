@@ -8,14 +8,13 @@ declare( strict_types = 1 );
 namespace ContentTranslation\Store;
 
 use ContentTranslation\Entity\TranslationUnit;
-use ContentTranslation\LoadBalancer;
 use LogicException;
 use Psr\Log\LoggerInterface;
 use stdClass;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
-use Wikimedia\Rdbms\LBFactory;
 use Wikimedia\Rdbms\LikeValue;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 use Wikimedia\Rdbms\SelectQueryBuilder;
@@ -30,21 +29,16 @@ use Wikimedia\Rdbms\SelectQueryBuilder;
  */
 class TranslationCorporaStore {
 
-	/** @var LoadBalancer */
-	private $lb;
-
-	/** @var LBFactory */
-	private $lbFactory;
+	/** @var IConnectionProvider */
+	private $connectionProvider;
 	private LoggerInterface $logger;
 	public const TABLE_NAME = 'cx_corpora';
 
 	public function __construct(
-		LoadBalancer $lb,
-		LBFactory $lbFactory,
+		IConnectionProvider $connectionProvider,
 		LoggerInterface $logger
 	) {
-		$this->lb = $lb;
-		$this->lbFactory = $lbFactory;
+		$this->connectionProvider = $connectionProvider;
 		$this->logger = $logger;
 	}
 
@@ -55,7 +49,7 @@ class TranslationCorporaStore {
 	 * @param string $timestamp
 	 */
 	private function updateTranslationUnit( TranslationUnit $translationUnit, string $timestamp ): void {
-		$dbw = $this->lb->getPrimaryConnection();
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		$dbw->newUpdateQueryBuilder()
 			->update( self::TABLE_NAME )
@@ -92,7 +86,7 @@ class TranslationCorporaStore {
 	 * @return int Number of rows inserted
 	 */
 	private function insertTranslationUnit( TranslationUnit $translationUnit ): int {
-		$dbw = $this->lb->getPrimaryConnection();
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		$dbw->newInsertQueryBuilder()
 			->insertInto( self::TABLE_NAME )
@@ -117,7 +111,7 @@ class TranslationCorporaStore {
 	 * @param int|int[] $translationId
 	 */
 	public function deleteTranslationData( $translationId ): void {
-		$dbw = $this->lb->getPrimaryConnection();
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( self::TABLE_NAME )
@@ -141,7 +135,7 @@ class TranslationCorporaStore {
 	 * @return void
 	 */
 	public function deleteTranslationDataBySectionId( int $translationId, string $baseSectionId ): void {
-		$dbw = $this->lb->getPrimaryConnection();
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( self::TABLE_NAME )
@@ -162,7 +156,7 @@ class TranslationCorporaStore {
 	 * @return int
 	 */
 	public function countByTranslationId( int $translationId ): int {
-		$dbr = $this->lb->getReplicaConnection();
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 
 		return $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
@@ -180,7 +174,7 @@ class TranslationCorporaStore {
 	 * @param int $batchSize
 	 */
 	public function deleteTranslationDataGently( $ids, int $batchSize = 1000 ): void {
-		$dbw = $this->lb->getPrimaryConnection();
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		while ( true ) {
 			$rowsToDelete = $dbw->newSelectQueryBuilder()
@@ -195,12 +189,13 @@ class TranslationCorporaStore {
 				break;
 			}
 
+			$ticket = $this->connectionProvider->getEmptyTransactionTicket( __METHOD__ );
 			$dbw->newDeleteQueryBuilder()
 				->deleteFrom( self::TABLE_NAME )
 				->where( [ 'cxc_id' => $rowsToDelete ] )
 				->caller( __METHOD__ )
 				->execute();
-			$this->lbFactory->waitForReplication();
+			$this->connectionProvider->commitAndWaitForReplication( __METHOD__, $ticket );
 		}
 	}
 
@@ -209,7 +204,7 @@ class TranslationCorporaStore {
 	 * @return TranslationUnit[]
 	 */
 	public function findByTranslationId( int $translationId ): array {
-		$dbr = $this->lb->getReplicaConnection();
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 
 		$resultSet = $dbr->newSelectQueryBuilder()
 			->select( [
@@ -241,7 +236,7 @@ class TranslationCorporaStore {
 	 * @return int count of translated subsections
 	 */
 	public function countTranslatedSubSectionsByTranslationId( int $translationId ): int {
-		$dbr = $this->lb->getReplicaConnection();
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 
 		return (int)$dbr->newSelectQueryBuilder()
 			->select( 'COUNT(DISTINCT cxc_section_id)' )
@@ -281,12 +276,12 @@ class TranslationCorporaStore {
 			// SH gap locks in doFind() and then deadlock in create() trying to get IX gap
 			// locks (if no duplicate rows were found).
 			$options = [];
-			$dbr = $this->lb->getReplicaConnection();
+			$dbr = $this->connectionProvider->getReplicaDatabase();
 			$existing = $this->doFind( $dbr, $conditions, $options, $fname );
 		}
 
 		if ( $existing ) {
-			$dbw = $this->lb->getPrimaryConnection();
+			$dbw = $this->connectionProvider->getPrimaryDatabase();
 			$dbw->doAtomicSection(
 				__METHOD__,
 				function ( IDatabase $dbw ) use ( $translationUnit, $conditions, $fname ) {

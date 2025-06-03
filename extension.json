@@ -202,7 +202,7 @@
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSave",
 			"services": [
 				"ContentTranslation.TranslationCorporaManager",
-				"ContentTranslation.LoadBalancer",
+				"ContentTranslation.ConnectionProvider",
 				"ContentTranslation.TranslationUnitValidator",
 				"LanguageNameUtils",
 				"ContentTranslation.TranslationStore"
@@ -212,7 +212,7 @@
 			"class": "ContentTranslation\\ActionApi\\ApiSectionTranslationSave",
 			"services": [
 				"ContentTranslation.TranslationCorporaManager",
-				"ContentTranslation.LoadBalancer",
+				"ContentTranslation.ConnectionProvider",
 				"ContentTranslation.SectionTranslationStore",
 				"ContentTranslation.SandboxTitleMaker",
 				"TitleFactory",
@@ -223,7 +223,7 @@
 		"cxsplit": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSplit",
 			"services": [
-				"ContentTranslation.LoadBalancer",
+				"ContentTranslation.ConnectionProvider",
 				"ContentTranslation.TranslationSplitter",
 				"ContentTranslation.TranslationStore",
 				"ContentTranslation.SectionTranslationStore"

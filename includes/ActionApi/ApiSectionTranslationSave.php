@@ -9,7 +9,6 @@ namespace ContentTranslation\ActionApi;
 use ContentTranslation\Entity\SectionTranslation;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\Exception\TranslationSaveException;
-use ContentTranslation\LoadBalancer;
 use ContentTranslation\LogNames;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\Service\SandboxTitleMaker;
@@ -27,10 +26,11 @@ use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
 use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class ApiSectionTranslationSave extends ApiBase {
 	private TranslationCorporaManager $corporaManager;
-	private LoadBalancer $lb;
+	private IConnectionProvider $connectionProvider;
 	private SectionTranslationStore $sectionTranslationStore;
 	private SandboxTitleMaker $sandboxTitleMaker;
 	private TitleFactory $titleFactory;
@@ -42,7 +42,7 @@ class ApiSectionTranslationSave extends ApiBase {
 		ApiMain $mainModule,
 		string $action,
 		TranslationCorporaManager $corporaManager,
-		LoadBalancer $loadBalancer,
+		IConnectionProvider $connectionProvider,
 		SectionTranslationStore $sectionTranslationStore,
 		SandboxTitleMaker $sandboxTitleMaker,
 		TitleFactory $titleFactory,
@@ -51,7 +51,7 @@ class ApiSectionTranslationSave extends ApiBase {
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaManager = $corporaManager;
-		$this->lb = $loadBalancer;
+		$this->connectionProvider = $connectionProvider;
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
 		$this->titleFactory = $titleFactory;
@@ -61,7 +61,7 @@ class ApiSectionTranslationSave extends ApiBase {
 	}
 
 	private function validateRequest() {
-		if ( $this->lb->getPrimaryConnection()->isReadOnly() ) {
+		if ( $this->connectionProvider->getPrimaryDatabase()->isReadOnly() ) {
 			$this->dieReadOnly();
 		}
 

@@ -9,7 +9,6 @@ namespace ContentTranslation\ActionApi;
 use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\Exception\TranslationSaveException;
-use ContentTranslation\LoadBalancer;
 use ContentTranslation\LogNames;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\SiteMapper;
@@ -28,10 +27,11 @@ use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\ParamValidator\TypeDef\StringDef;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class ApiContentTranslationSave extends ApiBase {
 	private TranslationCorporaManager $corporaManager;
-	private LoadBalancer $lb;
+	private IConnectionProvider $connectionProvider;
 	private TranslationUnitValidator $translationUnitValidator;
 	private LanguageNameUtils $languageNameUtils;
 	private TranslationStore $translationStore;
@@ -45,14 +45,14 @@ class ApiContentTranslationSave extends ApiBase {
 		ApiMain $mainModule,
 		string $action,
 		TranslationCorporaManager $corporaManager,
-		LoadBalancer $loadBalancer,
+		IConnectionProvider $connectionProvider,
 		TranslationUnitValidator $translationUnitValidator,
 		LanguageNameUtils $languageNameUtils,
 		TranslationStore $translationStore
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaManager = $corporaManager;
-		$this->lb = $loadBalancer;
+		$this->connectionProvider = $connectionProvider;
 		$this->translationUnitValidator = $translationUnitValidator;
 		$this->languageNameUtils = $languageNameUtils;
 		$this->translationStore = $translationStore;
@@ -62,7 +62,7 @@ class ApiContentTranslationSave extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		if ( $this->lb->getPrimaryConnection()->isReadOnly() ) {
+		if ( $this->connectionProvider->getPrimaryDatabase()->isReadOnly() ) {
 			$this->dieReadOnly();
 		}
 

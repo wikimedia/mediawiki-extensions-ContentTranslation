@@ -5,6 +5,7 @@ namespace ContentTranslation;
 use ContentTranslation\Service\UserService;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class Translator {
 
@@ -29,9 +30,9 @@ class Translator {
 	 * @param int $translationId
 	 */
 	public function addTranslation( $translationId ) {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbw = $lb->getPrimaryConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$dbw = $connectionProvider->getPrimaryDatabase();
 		$dbw->newReplaceQueryBuilder()
 			->replaceInto( 'cx_translators' )
 			->uniqueIndexFields( [ 'translator_user_id', 'translator_translation_id' ] )
@@ -48,9 +49,9 @@ class Translator {
 	 * @return int
 	 */
 	public function getTranslationsCount() {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getReplicaConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$dbr = $connectionProvider->getReplicaDatabase();
 
 		$count = $dbr->newSelectQueryBuilder()
 			->select( 'COUNT(*)' )
@@ -90,9 +91,9 @@ class Translator {
 			'target' => 'translation_target_language',
 		];
 
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getReplicaConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$dbr = $connectionProvider->getReplicaDatabase();
 
 		$rows = $dbr->newSelectQueryBuilder()
 			->select( [
@@ -119,9 +120,9 @@ class Translator {
 	 * @return int Number of translators
 	 */
 	public static function getTotalTranslatorsCount() {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getReplicaConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$dbr = $connectionProvider->getReplicaDatabase();
 
 		return $dbr->newSelectQueryBuilder()
 			->select( 'COUNT(DISTINCT translation_started_by)' )

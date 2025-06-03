@@ -7,7 +7,6 @@
 namespace ContentTranslation\Scripts;
 
 use ContentTranslation\Exception\InvalidNotificationTitleException;
-use ContentTranslation\LoadBalancer;
 use ContentTranslation\Notification;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationCorporaStore;
@@ -19,6 +18,7 @@ use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\WikiMap\WikiMap;
 use stdClass;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
@@ -77,9 +77,9 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			throw new InvalidArgumentException( 'Purge days must be an integer' );
 		}
 
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getReplicaConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$dbr = $connectionProvider->getReplicaDatabase();
 		$notifyAgeInDays = $this->getOption( 'notify-age-in-days' );
 
 		// Notifications can only be send if the user account exists on the wiki where this
@@ -306,9 +306,9 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	private function logLastNotifiedDraft( stdClass $lastDraft ): void {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbw = $lb->getPrimaryConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$dbw = $connectionProvider->getPrimaryDatabase();
 
 		$dt = new DateTime();
 

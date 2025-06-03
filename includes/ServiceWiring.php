@@ -3,7 +3,7 @@
 declare( strict_types=1 );
 
 use ContentTranslation\AbuseFilterChecker;
-use ContentTranslation\LoadBalancer;
+use ContentTranslation\ConnectionProvider;
 use ContentTranslation\LogNames;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\ParsoidClientFactory;
@@ -27,6 +27,7 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\WikiMap\WikiMap;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Services\NoSuchServiceException;
 
 // PHP unit does not understand code coverage for this file
@@ -58,13 +59,12 @@ return [
 				$filterRunnerFactory
 			);
 		},
+	'ContentTranslation.ConnectionProvider' => static function ( MediaWikiServices $services ): IConnectionProvider {
+		return new ConnectionProvider( $services->getConnectionProvider() );
+	},
 	'ContentTranslation.EditedSectionFinder' =>
 		static function (): EditedSectionFinder {
 			return new EditedSectionFinder();
-		},
-	'ContentTranslation.LoadBalancer' =>
-		static function ( MediaWikiServices $services ): LoadBalancer {
-			return new LoadBalancer( $services->getConnectionProvider() );
 		},
 	'ContentTranslation.ParsoidClientFactory' => static function (
 			MediaWikiServices $services
@@ -88,7 +88,7 @@ return [
 			global $wgConf;
 			[ $wikiFamily ] = $wgConf->siteFromDB( WikiMap::getCurrentWikiId() );
 			return new RecentSignificantEditStore(
-				$services->getService( 'ContentTranslation.LoadBalancer' ),
+				$services->getService( 'ContentTranslation.ConnectionProvider' ),
 				$wikiFamily
 			);
 		},
@@ -111,7 +111,7 @@ return [
 	'ContentTranslation.SectionTranslationStore' =>
 		static function ( MediaWikiServices $services ): SectionTranslationStore {
 			return new SectionTranslationStore(
-				$services->getService( 'ContentTranslation.LoadBalancer' )
+				$services->getService( 'ContentTranslation.ConnectionProvider' )
 			);
 		},
 	'ContentTranslation.TranslationCorporaManager' =>
@@ -123,8 +123,7 @@ return [
 	'ContentTranslation.TranslationCorporaStore' =>
 		static function ( MediaWikiServices $services ): TranslationCorporaStore {
 			return new TranslationCorporaStore(
-				$services->getService( 'ContentTranslation.LoadBalancer' ),
-				$services->getDBLoadBalancerFactory(),
+				$services->getService( 'ContentTranslation.ConnectionProvider' ),
 				LoggerFactory::getInstance( LogNames::MAIN )
 			);
 		},
@@ -138,7 +137,7 @@ return [
 	'ContentTranslation.TranslationStore' =>
 		static function ( MediaWikiServices $services ): TranslationStore {
 			return new TranslationStore(
-				$services->getService( 'ContentTranslation.LoadBalancer' ),
+				$services->getService( 'ContentTranslation.ConnectionProvider' ),
 				$services->getService( 'ContentTranslation.UserService' )
 			);
 		},

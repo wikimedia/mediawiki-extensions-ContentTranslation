@@ -3,7 +3,6 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\ActionApi;
 
-use ContentTranslation\LoadBalancer;
 use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
@@ -11,6 +10,7 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiUsageException;
 use Wikimedia\ParamValidator\ParamValidator;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * Action API module that is used to split a content translation
@@ -24,18 +24,18 @@ class ApiContentTranslationSplit extends ApiBase {
 	private TranslationSplitter $translationSplitter;
 	private TranslationStore $translationStore;
 	private SectionTranslationStore $sectionTranslationStore;
-	private LoadBalancer $loadBalancer;
+	private IConnectionProvider $connectionProvider;
 
 	public function __construct(
 		ApiMain $mainModule,
 		string $action,
-		LoadBalancer $loadBalancer,
+		IConnectionProvider $connectionProvider,
 		TranslationSplitter $translationSplitter,
 		TranslationStore $translationStore,
 		SectionTranslationStore $sectionTranslationStore
 	) {
 		parent::__construct( $mainModule, $action );
-		$this->loadBalancer = $loadBalancer;
+		$this->connectionProvider = $connectionProvider;
 		$this->translationSplitter = $translationSplitter;
 		$this->translationStore = $translationStore;
 		$this->sectionTranslationStore = $sectionTranslationStore;
@@ -46,7 +46,7 @@ class ApiContentTranslationSplit extends ApiBase {
 	 * @throws ApiUsageException
 	 */
 	private function validateRequest(): void {
-		if ( $this->loadBalancer->getPrimaryConnection()->isReadOnly() ) {
+		if ( $this->connectionProvider->getPrimaryDatabase()->isReadOnly() ) {
 			$this->dieReadOnly();
 		}
 

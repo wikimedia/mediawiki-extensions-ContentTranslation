@@ -14,12 +14,12 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 use ContentTranslation\JsonDumpFormatter;
-use ContentTranslation\LoadBalancer;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\TmxDumpFormatter;
 use ContentTranslation\Translation;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -114,9 +114,9 @@ class CXCorporaDump extends Maintenance {
 		[ $sinkClass, $sinkExtension ] = self::$sinkTypes[ $sinkType ];
 
 		// Figure out groups (which translation pairs go to which file)
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$db = $lb->getReplicaConnection( 'vslow' );
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$db = $connectionProvider->getReplicaDatabase( false, 'vslow' );
 
 		if ( !$splitAt ) {
 			$name = self::makePairName( $sourceLanguage, $targetLanguage );

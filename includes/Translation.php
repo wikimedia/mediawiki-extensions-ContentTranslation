@@ -4,6 +4,7 @@ namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
 
@@ -36,9 +37,9 @@ class Translation {
 	 * @return array[]
 	 */
 	public static function getStats(): array {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getReplicaConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$dbr = $connectionProvider->getReplicaDatabase();
 
 		$statusCase = $dbr->conditional(
 			self::getPublishedCondition( $dbr ),
@@ -147,9 +148,9 @@ class Translation {
 	public static function getTrendByStatus(
 		$source, $target, $status, $interval, $translatorId
 	) {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getReplicaConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$dbr = $connectionProvider->getReplicaDatabase();
 
 		$conditions = [];
 		if ( $status === 'published' ) {
@@ -254,9 +255,9 @@ class Translation {
 	 * @return array
 	 */
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getReplicaConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$dbr = $connectionProvider->getReplicaDatabase();
 		$conditions = [];
 		$conditions[] = self::getPublishedCondition( $dbr );
 

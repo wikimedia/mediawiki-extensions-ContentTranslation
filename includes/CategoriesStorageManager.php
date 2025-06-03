@@ -11,6 +11,7 @@
 namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
 
 class CategoriesStorageManager {
@@ -106,9 +107,9 @@ class CategoriesStorageManager {
 	public static function save(
 		$translationId, $sourceCategories, $targetCategories, $newTranslation
 	) {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$db = $lb->getPrimaryConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$db = $connectionProvider->getPrimaryDatabase();
 
 		$db->doAtomicSection(
 			__METHOD__,
@@ -138,9 +139,9 @@ class CategoriesStorageManager {
 	 * @return bool
 	 */
 	private static function exists( $translationId ) {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$db = $lb->getPrimaryConnection();
+		/** @var IConnectionProvider $connectionProvider */
+		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
+		$db = $connectionProvider->getPrimaryDatabase();
 
 		$result = $db->newSelectQueryBuilder()
 			->select( 'cxc_content' )
