@@ -12,6 +12,7 @@ import useURLHandler from "./useURLHandler";
 import usePageCollections from "@/components/CXDashboard/usePageCollections";
 import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
 import useFiltersValidator from "@/composables/useFiltersValidator";
+import SuggestionFilter from "@/wiki/cx/models/suggestionFilter";
 
 const topicGroups = mw.loader.require("ext.cx.articletopics");
 
@@ -23,11 +24,14 @@ const topicGroupToFilterGroup = (topicGroup) =>
   new SuggestionFilterGroup({
     id: topicGroup.groupId,
     label: topicGroup.label,
-    filters: topicGroup.topics.map((topic) => ({
-      id: topic.topicId,
-      label: topic.label,
-      type: TOPIC_SUGGESTION_PROVIDER,
-    })),
+    filters: topicGroup.topics.map(
+      (topic) =>
+        new SuggestionFilter({
+          id: topic.topicId,
+          label: topic.label,
+          type: TOPIC_SUGGESTION_PROVIDER,
+        })
+    ),
   });
 
 const useSuggestionsFilters = () => {
@@ -37,23 +41,24 @@ const useSuggestionsFilters = () => {
 
   const { validateFilters, filtersValidatorError } = useFiltersValidator();
 
-  const editsFilter = {
+  const editsFilter = new SuggestionFilter({
     id: EDITS_SUGGESTION_PROVIDER,
     type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
     label: bananaI18n.i18n("cx-sx-suggestions-filter-user-edit-label"),
-  };
-  const popularFilter = {
+  });
+  const popularFilter = new SuggestionFilter({
     id: POPULAR_SUGGESTION_PROVIDER,
     type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
     label: bananaI18n.i18n("cx-sx-suggestions-filter-most-popular-label"),
-  };
-  const collectionsFilter = {
+  });
+  const collectionsFilter = new SuggestionFilter({
     id: COLLECTIONS_SUGGESTION_PROVIDER,
     type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
     label: bananaI18n.i18n("cx-sx-suggestions-filter-page-collection-label"),
-  };
+  });
 
-  const { pageCollections, pageCollectionsFetched } = usePageCollections();
+  const { pageCollectionGroups, pageCollectionGroupsFetched } =
+    usePageCollections();
 
   const automaticFiltersGroup = computed(() => {
     const filterGroup = new SuggestionFilterGroup({
@@ -62,7 +67,8 @@ const useSuggestionsFilters = () => {
       filters: [editsFilter, popularFilter],
     });
 
-    if (pageCollections.value.length) {
+    // "ungrouped" key is always there
+    if (Object.keys(pageCollectionGroups.value).length > 1) {
       filterGroup.filters.push(collectionsFilter);
     }
 
@@ -70,14 +76,45 @@ const useSuggestionsFilters = () => {
   });
 
   /**
-   * @param {PageCollection} collection
-   * @returns {{id: string, label: string, type: string}}
+   * @returns {SuggestionFilter[]}
    */
-  const collectionToFilter = (collection) => ({
-    id: collection.name,
-    label: collection.name,
-    type: COLLECTIONS_SUGGESTION_PROVIDER,
-  });
+  const collectionGroupToFilters = () => {
+    const groups = { ...pageCollectionGroups.value };
+    delete groups.ungrouped;
+
+    const groupFilters = [];
+
+    for (const groupName in groups) {
+      const subFilters = groups[groupName].map(
+        (subCollection) =>
+          new SuggestionFilter({
+            id: subCollection.name,
+            label: subCollection.name,
+            type: COLLECTIONS_SUGGESTION_PROVIDER,
+          })
+      );
+
+      const groupFilter = new SuggestionFilter({
+        id: groupName,
+        label: groupName,
+        type: COLLECTIONS_SUGGESTION_PROVIDER,
+        subFilters,
+      });
+
+      groupFilters.push(groupFilter);
+    }
+
+    const ungroupedFilters = (pageCollectionGroups.value.ungrouped || []).map(
+      (collection) =>
+        new SuggestionFilter({
+          id: collection.name,
+          label: collection.name,
+          type: COLLECTIONS_SUGGESTION_PROVIDER,
+        })
+    );
+
+    return [...groupFilters, ...ungroupedFilters];
+  };
 
   const collectionFiltersGroup = computed(
     () =>
@@ -86,19 +123,20 @@ const useSuggestionsFilters = () => {
         label: bananaI18n.i18n(
           "cx-sx-suggestions-filter-page-collections-group-label"
         ),
-        filters: pageCollections.value.map((collection) =>
-          collectionToFilter(collection)
-        ),
+        filters: collectionGroupToFilters(),
       })
   );
 
+  /**
+   * @type {ComputedRef<SuggestionFilterGroup[]>}
+   */
   const allFilters = computed(() => {
     const filters = [
       automaticFiltersGroup.value,
       ...topicGroups.map(topicGroupToFilterGroup),
     ];
 
-    if (pageCollections.value.length) {
+    if (collectionFiltersGroup.value.filters.length) {
       // push the collection filters group, just after the automatic group
       filters.splice(1, 0, collectionFiltersGroup.value);
     }
@@ -110,7 +148,7 @@ const useSuggestionsFilters = () => {
     () =>
       [currentFilter.value.type, currentFilter.value.id].includes(
         COLLECTIONS_SUGGESTION_PROVIDER
-      ) && !pageCollectionsFetched.value
+      ) && !pageCollectionGroupsFetched.value
   );
 
   /**
@@ -142,16 +180,29 @@ const useSuggestionsFilters = () => {
     setFilterURLParams(filter.type, filter.id);
   };
 
+  const findSelectedCollectionFilter = () => {
+    const collectionFilters = collectionGroupToFilters();
+
+    const allCollectionFilters = collectionFilters.flatMap((filter) => [
+      filter,
+      ...(filter.subFilters || []),
+    ]);
+
+    return allCollectionFilters.find(isFilterSelected);
+  };
+
   /**
-   * @return {{id: string, label: string, type: string}}
+   * @return {SuggestionFilter}
    */
   const findSelectedFilter = () => {
     if (currentFilter.value.type === SEED_SUGGESTION_PROVIDER) {
-      return {
+      return new SuggestionFilter({
         id: currentFilter.value.id,
         label: currentFilter.value.id,
         type: currentFilter.value.type,
-      };
+      });
+    } else if (currentFilter.value.type === COLLECTIONS_SUGGESTION_PROVIDER) {
+      return findSelectedCollectionFilter();
     }
 
     return allFilters.value
@@ -159,6 +210,10 @@ const useSuggestionsFilters = () => {
       .find(isFilterSelected);
   };
 
+  /**
+   * @param {SuggestionFilter} filter
+   * @returns {boolean}
+   */
   const isFilterSelected = (filter) => currentFilter.value.id === filter.id;
 
   const getArticleTopics = (topicId) => {
@@ -169,16 +224,18 @@ const useSuggestionsFilters = () => {
   };
 
   const validateURLFilterWithCollections = () => {
-    if (!pageCollectionsFetched.value) {
+    if (!pageCollectionGroupsFetched.value) {
       return;
     }
+
+    const pageCollections = Object.values(pageCollectionGroups.value).flat();
 
     const suggestionFilter = validateFilters(
       {
         type: currentFilter.value.type,
         id: currentFilter.value.id,
       },
-      pageCollections.value
+      pageCollections
     );
 
     setFilterURLParams(suggestionFilter.type, suggestionFilter.id);

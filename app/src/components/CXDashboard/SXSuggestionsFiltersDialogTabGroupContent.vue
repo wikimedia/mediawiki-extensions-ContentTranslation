@@ -1,20 +1,10 @@
 <script setup>
-import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
-import useSuggestionProvider from "@/composables/useSuggestionProvider.js";
-
-const { getFilterProvider } = useSuggestionProvider();
+import SuggestionFilterChip from "./SuggestionFilterChip.vue";
+import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
 
 const props = defineProps({
-  groupLabel: {
-    type: String,
-    required: true,
-  },
-  filters: {
-    type: Array,
-    required: true,
-  },
-  filterTypeToIconMap: {
-    type: Object,
+  filterGroup: {
+    type: SuggestionFilterGroup,
     required: true,
   },
   tentativelySelectFilter: {
@@ -30,21 +20,17 @@ const props = defineProps({
 
 <template>
   <div class="sx-suggestions-filters__group-label mb-3">
-    {{ groupLabel }}
+    {{ filterGroup.label }}
   </div>
   <div class="sx-suggestions-filters__group-filters mb-3">
-    <custom-info-chip
-      v-for="filter in filters"
+    <suggestion-filter-chip
+      v-for="filter in filterGroup.filters"
       :key="filter.id"
-      class="sx-suggestions-filters__filter my-1 mx-1 py-1"
-      :class="{
-        'sx-suggestions-filters__filter--active': isSelected(filter),
-      }"
-      :icon="filterTypeToIconMap[getFilterProvider(filter)]"
-      :content="filter.label"
-      @click="tentativelySelectFilter(filter)"
+      :filter="filter"
+      :is-selected="isSelected"
+      @filter-selected="tentativelySelectFilter($event)"
     >
-    </custom-info-chip>
+    </suggestion-filter-chip>
   </div>
 </template>
 

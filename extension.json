@@ -946,7 +946,8 @@
 				"cx-page-collection-dialog-page-suggestions-header",
 				"cx-page-collection-dialog-section-suggestions-header",
 				"cx-sx-suggestion-list-empty-title",
-				"cx-sx-suggestion-list-empty-description"
+				"cx-sx-suggestion-list-empty-description",
+				"cx-sx-suggestions-filter-collection-group-all-option-label"
 			],
 			"noflip": true
 		},

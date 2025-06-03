@@ -1,24 +1,47 @@
 import { ref } from "vue";
 import suggestionsApi from "@/wiki/cx/api/suggestions";
 
+const UNGROUPED_KEY = "ungrouped";
 /**
- * @type {Ref<PageCollection[]>}
+ * @type {Ref<{ [group: string]: PageCollection[] }>}
  */
-const pageCollections = ref([]);
-const pageCollectionsFetched = ref(false);
+const pageCollectionGroups = ref({});
+const pageCollectionGroupsFetched = ref(false);
 
 const usePageCollections = () => {
-  const fetchPageCollections = async () => {
+  const fetchPageCollectionGroups = async () => {
     try {
-      pageCollections.value = await suggestionsApi.fetchPageCollections();
-      pageCollections.value.sort((a, b) => a.name.localeCompare(b.name));
-      pageCollectionsFetched.value = true;
+      const collectionGroups = await suggestionsApi.fetchPageCollectionGroups();
+
+      const sortedGroups = Object.fromEntries(
+        Object.keys(collectionGroups)
+          .sort((a, b) => {
+            if (a === UNGROUPED_KEY) return 1;
+            if (b === UNGROUPED_KEY) return -1;
+
+            return a.localeCompare(b);
+          })
+          .map((key) => [key, collectionGroups[key]])
+      );
+
+      if (sortedGroups[UNGROUPED_KEY]) {
+        sortedGroups[UNGROUPED_KEY] = sortedGroups[UNGROUPED_KEY].sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+      }
+
+      pageCollectionGroups.value = sortedGroups;
+      pageCollectionGroupsFetched.value = true;
     } catch (error) {
       mw.log.error("Failed to fetch page collections", error);
     }
   };
 
-  return { pageCollections, fetchPageCollections, pageCollectionsFetched };
+  return {
+    fetchPageCollectionGroups,
+    pageCollectionGroupsFetched,
+    pageCollectionGroups,
+  };
 };
 
 export default usePageCollections;

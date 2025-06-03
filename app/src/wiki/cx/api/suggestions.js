@@ -50,24 +50,32 @@ const requestToRecommendationApi = async ({ urlPostfix = null, urlParams }) => {
 };
 
 /**
- * @returns {Promise<PageCollection[]>}
+ * @returns {Promise<{ [group: string]: PageCollection[] }>}
  */
-async function fetchPageCollections() {
+async function fetchPageCollectionGroups() {
   const urlParams = {};
-  const urlPostfix = "/page-collections";
+  const urlPostfix = "/page-collection-groups";
 
   try {
-    const collectionResults =
+    const collectionGroupResults =
       (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
 
-    return collectionResults.map((item) => new PageCollection(item));
+    const groupedCollections = {};
+
+    for (const groupName in collectionGroupResults) {
+      groupedCollections[groupName] = collectionGroupResults[groupName].map(
+        (item) => new PageCollection(item)
+      );
+    }
+
+    return groupedCollections;
   } catch (error) {
     mw.log.error(
       "Error while fetching the page collections from Recommendation API",
       error
     );
 
-    return [];
+    return {};
   }
 }
 
@@ -589,7 +597,7 @@ export default {
   fetchMostPopularSectionSuggestions,
   fetchPageSuggestionsByTopics,
   fetchSectionSuggestionsByTopics,
-  fetchPageCollections,
+  fetchPageCollectionGroups,
   fetchPageSuggestionsByCollections,
   fetchSectionSuggestionsByCollections,
 };

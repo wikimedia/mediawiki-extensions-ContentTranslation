@@ -2,7 +2,7 @@ export default class SuggestionFilterGroup {
   /**
    * @param {string} id
    * @param {string} label
-   * @param {{ id: string, label: string, type: string }[]} filters
+   * @param {SuggestionFilter[]} filters
    */
   constructor({ id, label, filters }) {
     this.id = id;

@@ -10,13 +10,13 @@ const useDashboardInitialization = () => {
   const { fetchAllTranslations } = useTranslationsFetch();
   const initializeSuggestions = useSuggestionsInitialize();
   const fetchFavorites = useFavoritesFetch();
-  const { fetchPageCollections } = usePageCollections();
+  const { fetchPageCollectionGroups } = usePageCollections();
   const { logDashboardOpenEvent } = useDashboardOpenInstrument();
   const { applicationLanguagesInitialized } =
     useApplicationLanguagesInitialize();
 
   return async () => {
-    fetchPageCollections();
+    fetchPageCollectionGroups();
 
     // Catch any possible errors during fetching favorite suggestions and
     // translations, to make sure that "initializeSuggestions" actions is dispatched,

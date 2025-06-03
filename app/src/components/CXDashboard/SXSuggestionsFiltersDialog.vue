@@ -10,31 +10,22 @@ import {
   CdxTabs,
   CdxTab,
 } from "@wikimedia/codex";
-import {
-  cdxIconClose,
-  cdxIconUserAvatar,
-  cdxIconHeart,
-  cdxIconArticles,
-  cdxIconSearch,
-} from "@wikimedia/codex-icons";
+import { cdxIconClose, cdxIconSearch } from "@wikimedia/codex-icons";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 import {
-  EDITS_SUGGESTION_PROVIDER,
-  POPULAR_SUGGESTION_PROVIDER,
   TOPIC_SUGGESTION_PROVIDER,
   REGIONS_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
-  SEED_SUGGESTION_PROVIDER,
   AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
 } from "@/utils/suggestionFilterProviders";
 import { getSuggestionFilterEventSource } from "@/utils/getSuggestionFilterEventSource";
 import { getSuggestionFilterEventContext } from "@/utils/getSuggestionFilterEventContext";
-import useSuggestionProvider from "@/composables/useSuggestionProvider";
 import useEventLogging from "@/composables/useEventLogging";
 import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
 import SxSuggestionsFiltersDialogTabGroupContent from "@/components/CXDashboard/SXSuggestionsFiltersDialogTabGroupContent.vue";
 import useSuggestionsFilterSearch from "./useSuggestionsFilterSearch";
-
+import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
+import SuggestionFilter from "@/wiki/cx/models/suggestionFilter";
 const bananaI18n = useI18n();
 
 const props = defineProps({
@@ -46,14 +37,9 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const filterTypeToIconMap = {
-  [EDITS_SUGGESTION_PROVIDER]: cdxIconUserAvatar,
-  [POPULAR_SUGGESTION_PROVIDER]: cdxIconHeart,
-  [COLLECTIONS_SUGGESTION_PROVIDER]: cdxIconArticles,
-  [TOPIC_SUGGESTION_PROVIDER]: null,
-  [SEED_SUGGESTION_PROVIDER]: null,
-};
-
+/**
+ * @type {ComputedRef<{name: string, searchPlaceholder: string, label: string, filterGroups: SuggestionFilterGroup[]}[]>}
+ */
 const tabs = computed(() => [
   {
     name: "all",
@@ -61,11 +47,14 @@ const tabs = computed(() => [
     searchPlaceholder: bananaI18n.i18n(
       "cx-sx-suggestions-filter-search-input-placeholder"
     ),
-    filterGroups: allFilters.value.map((filterGroup) => ({
-      id: filterGroup.id,
-      label: filterGroup.label,
-      filters: getMainTabFilters(filterGroup.id),
-    })),
+    filterGroups: allFilters.value.map(
+      (filterGroup) =>
+        new SuggestionFilterGroup({
+          id: filterGroup.id,
+          label: filterGroup.label,
+          filters: getMainTabFilters(filterGroup.id),
+        })
+    ),
   },
   {
     name: "collections",
@@ -117,15 +106,20 @@ const showPartialFiltersList = (group) => {
 const { allFilters, isFilterSelected, selectFilter, findSelectedFilter } =
   useSuggestionsFilters();
 
+/**
+ * @param {string} target
+ * @returns {SuggestionFilterGroup}
+ */
 const getFilterGroup = (target) => {
   if (target === REGIONS_SUGGESTION_PROVIDER) {
     const group = allFilters.value.find((group) => group.id === target);
-    group.filters = group.filters.map((filter) => {
-      return {
-        ...filter,
-        type: REGIONS_SUGGESTION_PROVIDER,
-      };
-    });
+    group.filters = group.filters.map(
+      (filter) =>
+        new SuggestionFilter({
+          ...filter,
+          type: REGIONS_SUGGESTION_PROVIDER,
+        })
+    );
 
     return group;
   }
@@ -133,6 +127,10 @@ const getFilterGroup = (target) => {
   return allFilters.value.find((group) => group.id === target);
 };
 
+/**
+ * @param {string} groupName
+ * @returns {SuggestionFilter[]}
+ */
 const getMainTabFilters = (groupName) => {
   const group = getFilterGroup(groupName);
 
@@ -142,6 +140,11 @@ const getMainTabFilters = (groupName) => {
 
   return group.filters;
 };
+
+/**
+ * @param {string} group
+ * @returns {boolean}
+ */
 const isTopicsFilterGroup = (group) =>
   group !== REGIONS_SUGGESTION_PROVIDER &&
   group !== COLLECTIONS_SUGGESTION_PROVIDER &&
@@ -182,6 +185,7 @@ const done = () => {
 };
 
 const selectionHasChanged = ref(false);
+/** @type {Ref<UnwrapRef<SuggestionFilter>>} */
 const tentativelySelectedFilter = ref(null);
 
 const reset = () => {
@@ -205,6 +209,10 @@ const tentativelySelectFilter = (filter) => {
   selectionHasChanged.value = true;
 };
 
+/**
+ * @param {SuggestionFilter} filter
+ * @returns {boolean}
+ */
 const isSelected = (filter) => {
   if (tentativelySelectedFilter.value) {
     return (
@@ -218,8 +226,6 @@ const isSelected = (filter) => {
 
 const breakpoints = inject("breakpoints");
 const fullscreen = computed(() => breakpoints.value.mobile);
-
-const { getFilterProvider } = useSuggestionProvider();
 
 const { searchInput, searchScope, searchResults } =
   useSuggestionsFilterSearch();
@@ -295,7 +301,7 @@ const viewAllLabels = {
           <custom-info-chip
             class="sx-suggestions-filters__filter sx-suggestions-filters__filter--active my-1 mx-1 py-1"
             :content="selectedFilter.label"
-            :icon="filterTypeToIconMap[getFilterProvider(selectedFilter)]"
+            :icon="selectedFilter.icon"
           ></custom-info-chip>
         </div>
       </div>
@@ -329,9 +335,7 @@ const viewAllLabels = {
               class="sx-suggestions-filters__group"
             >
               <sx-suggestions-filters-dialog-tab-group-content
-                :group-label="filterGroup.label"
-                :filters="filterGroup.filters"
-                :filter-type-to-icon-map="filterTypeToIconMap"
+                :filter-group="filterGroup"
                 :tentatively-select-filter="tentativelySelectFilter"
                 :is-selected="isSelected"
               ></sx-suggestions-filters-dialog-tab-group-content>

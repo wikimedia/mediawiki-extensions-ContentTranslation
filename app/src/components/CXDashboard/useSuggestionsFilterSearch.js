@@ -42,7 +42,7 @@ const useSuggestionsFilterSearch = () => {
   });
   const bananaI18n = useI18n();
 
-  const { pageCollections } = usePageCollections();
+  const { pageCollectionGroups } = usePageCollections();
   const { sourceLanguageURLParameter: sourceLanguage } = useURLHandler();
 
   /**
@@ -64,7 +64,9 @@ const useSuggestionsFilterSearch = () => {
   const searchCollections = (query) => {
     query = query.toLowerCase(); // Convert input to lowercase for case-insensitive search
 
-    return pageCollections.value.filter((item) =>
+    const pageCollections = Object.values(pageCollectionGroups.value).flat();
+
+    return pageCollections.filter((item) =>
       item.name.toLowerCase().includes(query)
     );
   };

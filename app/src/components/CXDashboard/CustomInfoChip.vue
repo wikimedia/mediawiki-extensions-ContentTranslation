@@ -1,5 +1,6 @@
 <script setup>
-import { CdxInfoChip } from "@wikimedia/codex";
+import { CdxIcon, CdxInfoChip } from "@wikimedia/codex";
+import { cdxIconExpand, cdxIconCollapse } from "@wikimedia/codex-icons";
 import { computed } from "vue";
 
 const props = defineProps({
@@ -11,27 +12,45 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  expandable: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  expanded: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const slashIndex = computed(() => props.content.lastIndexOf("/"));
 const firstPart = computed(() => props.content.slice(0, slashIndex.value));
 const secondPart = computed(() => props.content.slice(slashIndex.value + 1));
+
+const expandIcon = computed(() =>
+  props.expanded ? cdxIconCollapse : cdxIconExpand
+);
 </script>
 
 <template>
   <cdx-info-chip :icon="icon" class="custom-info-chip">
-    <div v-if="slashIndex === -1" class="cdx-info-chip__text">
+    <template v-if="slashIndex === -1">
       {{ content }}
-    </div>
-    <div v-else class="cdx-info-chip__text custom-info-chip__with-slash">
-      <span class="cdx-info-chip__text custom-info-chip__with-slash__first">{{
-        firstPart
-      }}</span>
-      <span>/</span>
-      <span class="cdx-info-chip__text custom-info-chip__with-slash__second">{{
-        secondPart
-      }}</span>
-    </div>
+      <cdx-icon v-if="expandable" :icon="expandIcon"></cdx-icon>
+    </template>
+    <template v-else>
+      <div class="cdx-info-chip__text custom-info-chip__with-slash">
+        <span class="cdx-info-chip__text custom-info-chip__with-slash__first">
+          {{ firstPart }}
+        </span>
+        <span>/</span>
+        <span class="cdx-info-chip__text custom-info-chip__with-slash__second">
+          {{ secondPart }}
+        </span>
+        <cdx-icon v-if="expandable" :icon="expandIcon"></cdx-icon>
+      </div>
+    </template>
   </cdx-info-chip>
 </template>
 
