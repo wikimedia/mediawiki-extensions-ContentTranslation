@@ -336,4 +336,12 @@ class SpecialContentTranslation extends SpecialPage {
 			}
 		}
 	}
+
+	/**
+	 * @codeCoverageIgnore Merely declarative
+	 * @inheritDoc
+	 */
+	public function doesWrites() {
+		return true;
+	}
 }
