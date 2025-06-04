@@ -349,6 +349,11 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 			return;
 		}
 
+		if ( !navigator.onLine ) {
+			this.translationView.setErrorStatusMessage( mw.msg( 'cx-save-draft-offline' ) );
+			return;
+		}
+
 		if ( this.failCounter > 0 && isRetry !== true ) {
 			// Last save failed, and a retry has been scheduled. Don't allow starting new
 			// save requests to avoid overloading the servers, unless this is the retry.

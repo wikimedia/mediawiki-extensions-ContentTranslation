@@ -256,6 +256,11 @@ mw.cx.TargetArticle.prototype.publishComplete = function ( apiTargetTitle ) {
  * @param {Object} [jqXHR] jQuery XHR object
  */
 mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailObjOrData, data, jqXHR ) {
+	if ( !navigator.onLine ) {
+		this.showPublishError( mw.msg( 'cx-publish-error-offline' ) );
+		return;
+	}
+
 	if ( !data ) {
 		if ( errorCode === 'ok-but-empty' ) {
 			this.showPublishError( mw.msg( 'cx-publish-error-empty' ) );
