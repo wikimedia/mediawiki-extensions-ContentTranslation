@@ -8,6 +8,7 @@ declare( strict_types = 1 );
 namespace ContentTranslation\Store;
 
 use ContentTranslation\Entity\TranslationUnit;
+use ContentTranslation\Service\ContentCompressionService;
 use LogicException;
 use Psr\Log\LoggerInterface;
 use stdClass;
@@ -32,14 +33,17 @@ class TranslationCorporaStore {
 	/** @var IConnectionProvider */
 	private $connectionProvider;
 	private LoggerInterface $logger;
+	private ContentCompressionService $compressionService;
 	public const TABLE_NAME = 'cx_corpora';
 
 	public function __construct(
 		IConnectionProvider $connectionProvider,
-		LoggerInterface $logger
+		LoggerInterface $logger,
+		ContentCompressionService $compressionService
 	) {
 		$this->connectionProvider = $connectionProvider;
 		$this->logger = $logger;
+		$this->compressionService = $compressionService;
 	}
 
 	/**
@@ -56,7 +60,7 @@ class TranslationCorporaStore {
 			->set( [
 				'cxc_sequence_id' => $translationUnit->getSequenceId(),
 				'cxc_timestamp' => $dbw->timestamp(),
-				'cxc_content' => $translationUnit->getContent()
+				'cxc_content' => $this->compressionService->compress( $translationUnit->getContent() )
 			] )
 			->where( [
 				'cxc_translation_id' => $translationUnit->getTranslationId(),
@@ -96,7 +100,7 @@ class TranslationCorporaStore {
 				'cxc_origin' => $translationUnit->getOrigin(),
 				'cxc_sequence_id' => $translationUnit->getSequenceId(),
 				'cxc_timestamp' => $dbw->timestamp(),
-				'cxc_content' => $translationUnit->getContent()
+				'cxc_content' => $this->compressionService->compress( $translationUnit->getContent() )
 			] )
 			->caller( __METHOD__ )
 			->ignore()
@@ -345,7 +349,7 @@ class TranslationCorporaStore {
 			$row->cxc_section_id,
 			$row->cxc_origin,
 			(int)$row->cxc_sequence_id, // cxc_sequence_id can be null
-			(string)$row->cxc_content, // cxc_content can be null
+			$this->compressionService->decompress( $row->cxc_content ),
 			(int)$row->cxc_translation_id,
 			$row->cxc_timestamp
 		);

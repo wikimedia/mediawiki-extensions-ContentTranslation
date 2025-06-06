@@ -8,6 +8,7 @@ use ContentTranslation\LogNames;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
+use ContentTranslation\Service\ContentCompressionService;
 use ContentTranslation\Service\EditedSectionFinder;
 use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionPositionCalculator;
@@ -63,6 +64,10 @@ return [
 	'ContentTranslation.ConnectionProvider' => static function ( MediaWikiServices $services ): IConnectionProvider {
 		return new ConnectionProvider( $services->getConnectionProvider() );
 	},
+	'ContentTranslation.ContentCompressionService' =>
+		static function (): ContentCompressionService {
+			return new ContentCompressionService();
+		},
 	'ContentTranslation.EditedSectionFinder' =>
 		static function (): EditedSectionFinder {
 			return new EditedSectionFinder();
@@ -129,7 +134,8 @@ return [
 		static function ( MediaWikiServices $services ): TranslationCorporaStore {
 			return new TranslationCorporaStore(
 				$services->getService( 'ContentTranslation.ConnectionProvider' ),
-				LoggerFactory::getInstance( LogNames::MAIN )
+				LoggerFactory::getInstance( LogNames::MAIN ),
+				$services->getService( 'ContentTranslation.ContentCompressionService' )
 			);
 		},
 	'ContentTranslation.TranslationSplitter' =>
