@@ -442,6 +442,16 @@ const viewAllLabels = {
       .cdx-menu-item {
         padding-left: 0;
         padding-right: 0;
+        &__text {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          &__description {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
       }
     }
     &-empty {
