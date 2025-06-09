@@ -530,6 +530,7 @@
 	"cx-sx-suggestions-filters-header": "Настройте фильтры",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Закрыть фильтры предложений",
 	"cx-sx-suggestions-filters-done-button-label": "Готово",
+	"cx-sx-suggestions-filters-tab-all": "Все",
 	"cx-sx-suggestions-filter-user-edit-label": "Для вас",
 	"cx-sx-suggestions-filter-most-popular-label": "Популярные",
 	"cx-sx-suggestions-filter-page-collection-label": "Все коллекции",

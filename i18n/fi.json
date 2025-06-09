@@ -294,7 +294,7 @@
 	"cx-sx-existing-translation-additional-info": "Laajenna kääntämällä $1{{PLURAL:$2| ja $2 muu osio| ja $2 muuta osioita|0=}}",
 	"cx-sx-start-translation-button-label": "Aloita käännös",
 	"cx-sx-view-translation-anchor": "Näytä",
-	"cx-sx-existing-translation-learn-more": "Lue lisää",
+	"cx-sx-existing-translation-learn-more": "Lisätietoja",
 	"cx-sx-section-selector-missing-sections-title": "Kielellä $1 puuttuvat osiot",
 	"cx-sx-section-selector-present-sections-title": "Kielellä $1 olemassa olevat osiot",
 	"cx-sx-section-selector-more-details-title": "Lisätietoja",
