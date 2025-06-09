@@ -1118,59 +1118,6 @@
 				"cx-create-new-translation"
 			]
 		},
-		"ext.cx.stats": {
-			"scripts": [
-				"stats/ext.cx.stats.js"
-			],
-			"styles": [
-				"stats/styles/ext.cx.stats.less"
-			],
-			"dependencies": [
-				"chart.js",
-				"mw.cx.SiteMapper",
-				"ext.cx.widgets.callout",
-				"ext.cx.widgets.spinner",
-				"jquery.uls.data",
-				"mediawiki.jqueryMsg",
-				"mediawiki.language",
-				"mediawiki.user",
-				"moment",
-				"user.options"
-			],
-			"messages": [
-				"cx-stats-all-translations-title",
-				"cx-stats-cumulative-tab-title",
-				"cx-stats-draft-source-target",
-				"cx-stats-draft-target-source",
-				"cx-stats-draft-translations-label",
-				"cx-stats-draft-translations-title",
-				"cx-stats-grouping-title",
-				"cx-stats-local-published",
-				"cx-stats-local-published-number",
-				"cx-stats-new-draft-translations-label",
-				"cx-stats-published-source-target",
-				"cx-stats-published-target-source",
-				"cx-stats-published-translations-label",
-				"cx-stats-published-translations-title",
-				"cx-stats-published-translators-title",
-				"cx-stats-tabs-expand",
-				"cx-stats-title",
-				"cx-stats-total-published",
-				"cx-stats-try-contenttranslation",
-				"cx-stats-weekly-published",
-				"cx-stats-weekly-trend-tab-title",
-				"cx-trend-deletions",
-				"cx-trend-translations-to",
-				"percent"
-			]
-		},
-		"chart.js": {
-			"localBasePath": "lib",
-			"remoteExtPath": "ContentTranslation/lib",
-			"scripts": [
-				"chart.js/Chart.js"
-			]
-		},
 		"ext.cx.entrypoints.recentedit": {
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.recentedit/index.js",

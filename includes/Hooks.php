@@ -201,7 +201,7 @@ class Hooks implements
 		$out->addModules( 'ext.cx.eventlogging.campaigns' );
 
 		if ( !$title ||
-			$title->isSpecial( 'ContentTranslation' ) || $title->isSpecial( 'ContentTranslationStats' )
+			$title->isSpecial( 'ContentTranslation' )
 		) {
 			// Entry point modules need not be shown in CX special pages
 			return;

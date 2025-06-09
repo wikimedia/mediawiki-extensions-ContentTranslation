@@ -26,7 +26,3 @@ The ContentTranslation extension, including those listed in the AUTHORS.txt file
 hold the copyright to this work. It is free software released under
 the GNU General Public License version 2 or later.
 See the files AUTHORS.txt and LICENSE.txt.
-
-The Chart.js library is Copyright (c) 2013-2015 Nick Downie,
-and it is free software released under the MIT license.
-See the file MIT-LICENSE.txt.
