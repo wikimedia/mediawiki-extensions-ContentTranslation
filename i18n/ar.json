@@ -100,7 +100,7 @@
 	"cx-tools-mt-set-default": "حفظ كقيمة افتراضية",
 	"cx-tools-mt-noservices": "خدمات الترجمة غير متوفرة للغات المختارة، [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|لماذا؟]]",
 	"cx-tools-mt-preferred": "افتراضي",
-	"cx-tools-categories-count-message": "{{PLURAL:$1|لا تصنيف|تصنيف واحد|تصنيفان|$1 تصنيفات|$1 تصنيفا|$1 تصنيف}}",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 تصنيف|$1 تصنيفات|0=لا تصنيفات}}",
 	"cx-stats-title": "إحصاءات ترجمة المحتوى",
 	"cx-warning-unsaved-translation": "لديك ترجمات لم تحفظ",
 	"cx-error-page-not-found": "لم يعثر على الصفحة \"$1\" في ويكيبيديا $2",
