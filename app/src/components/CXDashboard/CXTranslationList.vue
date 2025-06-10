@@ -85,6 +85,9 @@ const availableSourceLanguages = computed(() => {
   return [...new Set(translationSourceLanguages)];
 });
 
+/**
+ * @param {DraftTranslation} translation
+ */
 const askDeletionConfirmation = (translation) => {
   translationToDelete.value = translation;
   deletionDialogOn.value = true;
@@ -142,7 +145,6 @@ const headerWrapperClass = computed(() =>
         v-for="translation in activeTranslations"
         :key="`${translationStatus}-${translation.key}`"
         :translation="translation"
-        @delete-translation="askDeletionConfirmation(translation)"
       />
     </div>
     <sx-confirm-translation-deletion-dialog

@@ -2,12 +2,15 @@ import useEventLogging from "@/composables/useEventLogging";
 import { useStore } from "vuex";
 import cxTranslatorApi from "@/wiki/cx/api/translator";
 
+/**
+ * @return {function(DraftTranslation): Promise<void>}
+ */
 const useDraftTranslationDelete = () => {
   const { commit } = useStore();
   const logEvent = useEventLogging();
 
   return async (translation) => {
-    if (!translation.sectionTranslationId) {
+    if (translation.isArticleTranslation) {
       // Given a translation model, this action calls the "deleteCXtranslation"
       // method of the translator API to delete the draft section translation and
       // its related corpora content from the database that was specifically
@@ -39,16 +42,24 @@ const useDraftTranslationDelete = () => {
       }
     }
 
-    logEvent({
+    const payload = {
       event_type: "dashboard_translation_discard",
-      translation_id: translation.sectionTranslationId,
+      translation_id: translation.translationId,
       translation_source_language: translation.sourceLanguage,
       translation_source_title: translation.sourceTitle,
-      translation_source_section: translation.sourceSectionTitle,
       translation_target_language: translation.targetLanguage,
       translation_target_title: translation.targetTitle,
-      translation_target_section: translation.targetSectionTitle,
-    });
+    };
+
+    if (translation.sourceSectionTitle) {
+      payload.translation_source_section = translation.sourceSectionTitle;
+    }
+
+    if (translation.targetSectionTitle) {
+      payload.translation_target_section = translation.targetSectionTitle;
+    }
+
+    logEvent(payload);
   };
 };
 

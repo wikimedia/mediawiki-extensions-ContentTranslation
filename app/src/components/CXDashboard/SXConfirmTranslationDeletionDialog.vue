@@ -1,6 +1,6 @@
 <script setup>
 import { MwButton, MwDialog } from "@/lib/mediawiki.ui";
-import Translation from "@/wiki/cx/models/translation";
+import DraftTranslation from "@/wiki/cx/models/draftTranslation";
 import useDraftTranslationDelete from "./useDraftTranslationDelete";
 
 const props = defineProps({
@@ -9,7 +9,7 @@ const props = defineProps({
     required: true,
   },
   translation: {
-    type: Translation,
+    type: DraftTranslation,
     default: null,
   },
 });

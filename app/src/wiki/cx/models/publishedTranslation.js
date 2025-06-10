@@ -2,7 +2,6 @@ import Translation from "./translation";
 
 export default class PublishedTranslation extends Translation {
   /**
-   * @param {number} sectionTranslationId
    * @param {number} translationId
    * @param {string} sourceTitle
    * @param {string} sourceLanguage

@@ -1,6 +1,5 @@
 export default class Translation {
   /**
-   * @param {number} sectionTranslationId
    * @param {number} translationId
    * @param {string} sourceTitle
    * @param {string} sourceLanguage

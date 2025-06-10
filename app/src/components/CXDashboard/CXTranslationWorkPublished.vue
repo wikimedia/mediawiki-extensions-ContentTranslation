@@ -3,7 +3,6 @@ import CxTranslationWork from "./CXTranslationWork.vue";
 import { MwCol, MwRow, MwSpinner } from "@/lib/mediawiki.ui";
 import { computed, ref } from "vue";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
-import { useRouter } from "vue-router";
 import useSectionSuggestionForPublishedFetch from "./useSectionSuggestionForPublishedFetch";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconAdd, cdxIconEllipsis } from "@wikimedia/codex-icons";
@@ -36,8 +35,6 @@ fetchSectionSuggestionForPublished(
   .then((sectionSuggestion) => (suggestion.value = sectionSuggestion))
   .catch((error) => console.log(error))
   .finally(() => (suggestionLoading.value = false));
-
-const router = useRouter();
 
 const { setSectionURLParam } = useURLHandler();
 

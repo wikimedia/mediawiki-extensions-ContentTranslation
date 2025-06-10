@@ -3,9 +3,9 @@ import PageSection from "@/wiki/cx/models/pageSection";
 
 export default class DraftTranslation extends Translation {
   /**
-   * @param {number} sectionTranslationId
+   * @param {number|null} sectionTranslationId
    * @param {number} translationId
-   * @param {string} sectionId
+   * @param {string|null} sectionId
    * @param {string} sourceTitle
    * @param {string} sourceLanguage
    * @param {string} targetLanguage
