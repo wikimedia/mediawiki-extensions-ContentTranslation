@@ -608,6 +608,20 @@ mw.cx.TargetArticle.prototype.handleEditError = function ( editError ) {
 			editError.info
 		);
 	} else if ( editError.code.startsWith( 'abusefilter' ) ) {
+		if ( !editError.abusefilter ) {
+			mw.errorLogger.logError(
+				new Error( editError.code + ': ' + editError.info ),
+				'error.contenttranslaton'
+			);
+
+			// This is a weird situation. Show the user a message about abuse filter and display the error code
+			this.showPublishError(
+				mw.msg( 'cx-publish-error-abuse-filter', editError.code ),
+				editError.info
+			);
+			return;
+		}
+
 		// Handle Abuse Filter errors.
 		this.showPublishError(
 			mw.msg( 'cx-publish-error-abuse-filter', editError.abusefilter.description ),
