@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import AssertUserError from "@/utils/errors/assertUserError";
 import { useStore } from "vuex";
 import { cleanupHtml } from "@/utils/publishHelper";
@@ -9,6 +9,8 @@ import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentPageRevision from "@/composables/useCurrentPageRevision";
 import useURLHandler from "@/composables/useURLHandler";
 import usePublishInstrument from "@/composables/usePublishInstrument";
+import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 const useTranslationPublish = () => {
   const store = useStore();
@@ -20,6 +22,16 @@ const useTranslationPublish = () => {
   const { sourceSection, targetPageTitleForPublishing } =
     useCurrentPageSection();
   const revision = useCurrentPageRevision();
+  const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+
+  const existingTargetSectionTitle = computed(
+    () =>
+      suggestion.value?.presentSections[
+        sourceSection.value?.sourceSectionTitleForPublishing
+      ]
+  );
+  const { existingSectionPublishOption } = useExistingSectionPublishOption();
+
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
 
@@ -86,6 +98,13 @@ const useTranslationPublish = () => {
       isSandbox,
       sectionTranslationId,
     };
+
+    if (
+      !!existingTargetSectionTitle.value &&
+      existingSectionPublishOption.value === "expand"
+    ) {
+      publishPayload.existingSectionTitle = existingTargetSectionTitle.value;
+    }
 
     if (captchaId) {
       publishPayload.captchaId = captchaId;

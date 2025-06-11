@@ -247,6 +247,7 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {String} publishParams.captchaWord
  * @param {boolean} publishParams.isSandbox
  * @param {Number|null} publishParams.sectionTranslationId
+ * @param {string|undefined} publishParams.existingSectionTitle
  * @return {Promise<{
  *   publishFeedbackMessage: PublishFeedbackMessage|null,
  *   targetUrl: string|null,
@@ -268,6 +269,7 @@ const publishTranslation = ({
   captchaWord,
   isSandbox,
   sectionTranslationId,
+  existingSectionTitle,
 }) => {
   const params = {
     assert: optionalUserAssertion,
@@ -282,6 +284,7 @@ const publishTranslation = ({
     targetlanguage: targetLanguage,
     issandbox: isSandbox,
     sectiontranslationid: sectionTranslationId,
+    existingsectiontitle: existingSectionTitle,
   };
 
   if (captchaId) {

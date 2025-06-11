@@ -6,7 +6,11 @@ import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import { createStore } from "vuex";
 import { ref } from "vue";
 import useTranslationPublish from "./useTranslationPublish";
+import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
 import { loadTestComposable } from "@/utils/loadTestComposable";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+
+const { setExistingSectionPublishOption } = useExistingSectionPublishOption();
 
 const mockErrorResult = {
   publishFeedbackMessage: new PublishFeedbackMessage({
@@ -70,21 +74,37 @@ const sectionSentence = new SectionSentence({
 });
 sectionSentence.mtProviderUsed = "empty";
 
+const SOURCE_SECTION_TITLE = "Test section title 1";
 const currentSourceSection = new PageSection({
   id: 1,
-  title: "Test section title 1",
+  title: SOURCE_SECTION_TITLE,
   subSections: [
     new SubSection({ node: subSectionNode, sentences: [sectionSentence] }),
   ],
 });
 currentSourceSection.translatedTitle = "Test target section title 1";
 
-const mockValues = {
+const mockCurrentPageSectionValues = {
   sourceSection: ref(currentSourceSection),
   targetPageTitleForPublishing: ref("Test target article title 1"),
 };
 
-jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
+jest.mock(
+  "@/composables/useCurrentPageSection",
+  () => () => mockCurrentPageSectionValues
+);
+
+const mockCurrentSectionSuggestionValues = {
+  sectionSuggestion: ref(
+    new SectionSuggestion({
+      present: { [SOURCE_SECTION_TITLE]: "Existing section title 1" },
+    })
+  ),
+};
+jest.mock(
+  "@/composables/useCurrentSectionSuggestion",
+  () => () => mockCurrentSectionSuggestionValues
+);
 
 jest.mock("@/composables/useURLHandler", () => () => ({
   sourceLanguageURLParameter: { value: "en" },
@@ -108,7 +128,7 @@ const mockStore = createStore({
 
 const mockSaveTranslation = jest.fn(() => {
   const targetTitleForPublishing =
-    mockValues.targetPageTitleForPublishing.value;
+    mockCurrentPageSectionValues.targetPageTitleForPublishing.value;
 
   if (targetTitleForPublishing === "Test target article title 3") {
     return mockErrorPublishFeedbackMessageForSaving;
@@ -128,20 +148,40 @@ describe(" test `useTranslationPublish` composable", () => {
     expect(mockSaveTranslation).toHaveBeenCalledTimes(1);
   });
 
-  it("should call api publishTranslation method with the proper payload", async () => {
+  it("should call api publishTranslation method with the proper payload when publishing section as new", async () => {
+    setExistingSectionPublishOption("new");
     await doPublish();
 
-    expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
+    expect(cxTranslatorApi.publishTranslation).toHaveBeenLastCalledWith({
       html: '<span class="cx-segment">Target translated sentence 1</span>',
       sourceTitle: "Test source title 1",
       targetTitle: "Test target article title 1",
-      sourceSectionTitle: "Test section title 1",
+      sourceSectionTitle: SOURCE_SECTION_TITLE,
       targetSectionTitle: "Test target section title 1",
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 11,
       isSandbox: false,
       sectionTranslationId: 1234,
+    });
+  });
+
+  it("should call publishTranslation method with existing section title if 'expand' option is selected", async () => {
+    setExistingSectionPublishOption("expand");
+    await doPublish();
+
+    expect(cxTranslatorApi.publishTranslation).toHaveBeenLastCalledWith({
+      html: '<span class="cx-segment">Target translated sentence 1</span>',
+      sourceTitle: "Test source title 1",
+      targetTitle: "Test target article title 1",
+      sourceSectionTitle: SOURCE_SECTION_TITLE,
+      targetSectionTitle: "Test target section title 1",
+      sourceLanguage: "en",
+      targetLanguage: "es",
+      revision: 11,
+      isSandbox: false,
+      sectionTranslationId: 1234,
+      existingSectionTitle: "Existing section title 1",
     });
   });
 
@@ -157,9 +197,9 @@ describe(" test `useTranslationPublish` composable", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by publishTranslation api method and an empty target URL, when publishing fails", async () => {
-    mockValues.targetPageTitleForPublishing.value =
+    mockCurrentPageSectionValues.targetPageTitleForPublishing.value =
       "Test target article title 2";
-    mockValues.sourceSection.value.subSections = [];
+    mockCurrentPageSectionValues.sourceSection.value.subSections = [];
 
     const result = await doPublish();
 
@@ -170,7 +210,7 @@ describe(" test `useTranslationPublish` composable", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by saveTranslation api method and an empty targetTitle, when saving fails", async () => {
-    mockValues.targetPageTitleForPublishing.value =
+    mockCurrentPageSectionValues.targetPageTitleForPublishing.value =
       "Test target article title 3";
     const result = await doPublish();
 
