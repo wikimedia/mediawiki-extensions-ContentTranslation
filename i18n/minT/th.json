@@ -76,5 +76,6 @@
 	"ax-translation-view-feedback-positive-technical-aspect": "มุมมองด้านเทคนิคเช่นเวลาในการโหลดไม่ได้เป็นอุปสรรคในการเรียนรู้",
 	"ax-translation-view-feedback-negative-missing-information": "ที่อื่นมีข้อมูลที่ดีกว่า",
 	"ax-translation-view-feedback-negative-translation-quality": "คุณภาพการแปลไม่ดีพอที่จะเข้าใจเนื้อหาได้อย่างมั่นใจ",
-	"ax-translation-view-feedback-confirm-title": "ข้อเสนอแนะ"
+	"ax-translation-view-feedback-confirm-title": "ข้อเสนอแนะ",
+	"ax-cx-failed-translation-label": "เกิดข้อผิดพลาดขณะแปล"
 }
