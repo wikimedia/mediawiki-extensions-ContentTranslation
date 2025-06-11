@@ -49,6 +49,13 @@ mw.cx.ui.CaptchaDialog.static.actions = [
 /**
  * @inheritdoc
  */
+mw.cx.ui.CaptchaDialog.prototype.getEscapeAction = function () {
+	return 'cancel';
+};
+
+/**
+ * @inheritdoc
+ */
 mw.cx.ui.CaptchaDialog.prototype.initialize = function () {
 	// Parent method
 	mw.cx.ui.CaptchaDialog.super.prototype.initialize.call( this );
@@ -75,20 +82,6 @@ mw.cx.ui.CaptchaDialog.prototype.getActionProcess = function ( action ) {
 		this.close();
 		this.emit( action );
 	}, this );
-};
-
-/**
- * @inheritdoc
- */
-mw.cx.ui.CaptchaDialog.prototype.onDialogKeyDown = function ( e ) {
-	if ( e.which === OO.ui.Keys.ESCAPE && this.constructor.static.escapable ) {
-		this.executeAction( 'cancel' );
-		e.preventDefault();
-		e.stopPropagation();
-		return;
-	}
-
-	return mw.cx.ui.CaptchaDialog.super.prototype.onDialogKeyDown.call( this, e );
 };
 
 /**
