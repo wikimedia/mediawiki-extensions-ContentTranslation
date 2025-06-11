@@ -3,10 +3,8 @@ import { MwRow } from "../../lib/mediawiki.ui";
 import tutorialSvgMT from "../../assets/tutorial-mt.svg?raw";
 import tutorialSvgSections from "../../assets/tutorial-sections.svg?raw";
 import { ref } from "vue";
-import { useRouter } from "vue-router";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconNext } from "@wikimedia/codex-icons";
-import useURLHandler from "@/composables/useURLHandler";
 import useEditorNavigation from "@/composables/useEditorNavigation";
 
 const totalSteps = ref(2);
@@ -20,22 +18,13 @@ const goToNextStep = () => {
 
 const isActiveStep = (step) => step === activeStep.value;
 
-const router = useRouter();
-
-const {
-  sourceLanguageURLParameter: sourceLanguage,
-  targetLanguageURLParameter: targetLanguage,
-  pageURLParameter: pageTitle,
-  sectionURLParameter: sectionTitle,
-} = useURLHandler();
-
 const navigateToEditor = useEditorNavigation();
 </script>
 
 <template>
   <section class="sx-quick-tutorial">
     <mw-row direction="column" class="sx-quick-tutorial__body-container ma-0">
-      <section class="sx-quick-tutorial__main-point py-9 px-6">
+      <section class="sx-quick-tutorial__main-point my-4 py-5 px-6">
         <transition name="fade" mode="out-in">
           <h2
             v-if="isActiveStep(1)"
