@@ -505,6 +505,8 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automaatne",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Kogud",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Otsi teemasid ja kogusid",
+	"cx-sx-suggestions-filter-search-results-topics-default-description": "Teema ⋅ Sirvi artikleid",
+	"cx-sx-suggestions-filter-search-results-collections-default-description": "Kogu ⋅ {{PLURAL:$1|$1 artikkel|$1 artiklit|0=Artiklid puuduvad}}",
 	"cx-sx-suggestion-list-empty-title": "Soovitused puuduvad praegu",
 	"cx-sx-suggestion-list-empty-description": "Sellele filtrile vastavaid tulemusi ei leidu. Võid proovida teistsugust filtrit või otsida kindlat artiklit, mida tõlkida."
 }
