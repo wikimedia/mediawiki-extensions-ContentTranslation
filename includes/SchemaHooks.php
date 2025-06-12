@@ -32,9 +32,6 @@ class SchemaHooks implements LoadExtensionSchemaUpdatesHook {
 		// All tables for the extension
 		$updater->addExtensionTable( 'cx_translations', "$dir/sql/$dbType/tables-generated.sql" );
 
-		// 1.35
-		$updater->addExtensionTable( 'cx_notification_log', "$dir/sql/notification-log.sql" );
-
 		// 1.37
 		$updater->addExtensionField(
 			'cx_notification_log',
