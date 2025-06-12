@@ -578,6 +578,8 @@
 	"cx-sx-suggestions-filter-search-input-placeholder-topics": "Placeholder of the search input, when Topics tab is selected, where user can search for a specific topic to use as suggestion filter.",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Default description for the topic areas that are listed as search results to the user's suggestion filter search",
 	"cx-sx-suggestions-filter-search-results-topics-alternative-description": "Alternative description for the topic areas that are listed as search results to the user's suggestion filter search",
+	"cx-sx-suggestions-filter-search-results-regions-default-description": "Default description for the regions that are listed as search results to the user's suggestion filter search",
+	"cx-sx-suggestions-filter-search-results-regions-alternative-description": "Alternative description for the regions that are listed as search results to the user's suggestion filter search",
 	"cx-sx-suggestions-filter-search-results-collections-default-description": "Default description for the community-defined page collections that are listed as search results to the user's suggestion filter search\n\nParameters:\n* $1 - the number of articles included in the page collection",
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "Alternative description for the community-defined page collections that are listed as search results to the user's suggestion filter search\n\nParameters:\n* $1 - the number of articles included in the page collection",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Primary message when search results are empty to the user's suggestion filter search",

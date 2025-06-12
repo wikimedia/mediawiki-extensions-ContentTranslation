@@ -1,10 +1,6 @@
 <script setup>
 import CustomInfoChip from "./CustomInfoChip.vue";
 import SuggestionFilter from "@/wiki/cx/models/suggestionFilter";
-import {
-  cdxIconFolderPlaceholder,
-  cdxIconArticles,
-} from "@wikimedia/codex-icons";
 import { computed, ref } from "vue";
 
 const props = defineProps({
@@ -18,7 +14,26 @@ const props = defineProps({
   },
 });
 
-const isExpanded = ref(false);
+const isInitiallyExpanded = () => {
+  // If the filter or one of its subfilters is selected, it should be expanded by default
+  if (!props.filter.expandable) {
+    return false;
+  }
+
+  if (props.isSelected(props.filter)) {
+    return true;
+  }
+
+  if (props.filter.subFilters) {
+    return props.filter.subFilters.some((subFilter) =>
+      props.isSelected(subFilter)
+    );
+  }
+
+  return false;
+};
+
+const isExpanded = ref(isInitiallyExpanded());
 const emit = defineEmits(["filter-selected"]);
 
 const onClick = () => {
@@ -53,7 +68,7 @@ const getSubFilterLabel = (subFilter) => {
     :class="{
       'sx-suggestions-filters__filter--active': isSelected(filter),
     }"
-    :icon="filter.expandable ? cdxIconFolderPlaceholder : filter.icon"
+    :icon="filter.expandable ? filter.expandableIcon : filter.icon"
     :content="filterLabel"
     :expandable="!!filter.expandable"
     @click="onClick"
@@ -67,7 +82,7 @@ const getSubFilterLabel = (subFilter) => {
       :class="{
         'sx-suggestions-filters__filter--active': isSelected(filter),
       }"
-      :icon="filter.expandable ? cdxIconFolderPlaceholder : filter.icon"
+      :icon="filter.expandable ? filter.expandableIcon : filter.icon"
       :content="
         $i18n('cx-sx-suggestions-filter-collection-group-all-option-label')
       "
@@ -81,7 +96,7 @@ const getSubFilterLabel = (subFilter) => {
         'sx-suggestions-filters__filter--active': isSelected(subFilter),
       }"
       :content="getSubFilterLabel(subFilter)"
-      :icon="cdxIconArticles"
+      :icon="subFilter.icon"
       @click="$emit('filter-selected', subFilter)"
     ></custom-info-chip>
   </div>

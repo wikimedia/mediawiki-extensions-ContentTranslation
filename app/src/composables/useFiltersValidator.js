@@ -3,11 +3,14 @@ import {
   EDITS_SUGGESTION_PROVIDER,
   POPULAR_SUGGESTION_PROVIDER,
   TOPIC_SUGGESTION_PROVIDER,
+  REGIONS_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
   AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
   SEED_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
-const topicGroups = mw.loader.require("ext.cx.articletopics");
+const { topics: topicGroups, regions } = mw.loader.require(
+  "ext.cx.articlefilters"
+);
 
 const DEFAULT_FILTERS = {
   type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
@@ -55,7 +58,23 @@ const useFiltersValidator = () => {
     try {
       if (typeLowerCase === TOPIC_SUGGESTION_PROVIDER) {
         // Topic must be valid or we use the default filter
-        if (!topicIds.value.some((topicId) => topicId === id)) {
+        if (!topicIds.value.some((topicId) => topicId === idLowerCase)) {
+          throw new Error();
+        }
+
+        return { type: typeLowerCase, id: idLowerCase };
+      } else if (typeLowerCase === REGIONS_SUGGESTION_PROVIDER) {
+        // Region must be valid or we use the default filter
+
+        if (
+          !regions.some(
+            (region) =>
+              region.id.toLowerCase() === idLowerCase ||
+              region.countries.some(
+                (country) => country.id.toLowerCase() === idLowerCase
+              )
+          )
+        ) {
           throw new Error();
         }
 

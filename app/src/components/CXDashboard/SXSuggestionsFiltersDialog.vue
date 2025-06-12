@@ -47,14 +47,12 @@ const tabs = computed(() => [
     searchPlaceholder: bananaI18n.i18n(
       "cx-sx-suggestions-filter-search-input-placeholder"
     ),
-    filterGroups: allFilters.value.map(
-      (filterGroup) =>
-        new SuggestionFilterGroup({
-          id: filterGroup.id,
-          label: filterGroup.label,
-          filters: getMainTabFilters(filterGroup.id),
-        })
-    ),
+    filterGroups: getFilterGroups([
+      AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+      COLLECTIONS_SUGGESTION_PROVIDER,
+      REGIONS_SUGGESTION_PROVIDER,
+      TOPIC_SUGGESTION_PROVIDER,
+    ]),
   },
   {
     name: "collections",
@@ -62,7 +60,7 @@ const tabs = computed(() => [
     searchPlaceholder: bananaI18n.i18n(
       "cx-sx-suggestions-filter-search-input-placeholder-collections"
     ),
-    filterGroups: [getFilterGroup("collections")].filter(Boolean),
+    filterGroups: getFilterGroups([COLLECTIONS_SUGGESTION_PROVIDER]),
   },
   {
     name: "geography",
@@ -70,7 +68,7 @@ const tabs = computed(() => [
     searchPlaceholder: bananaI18n.i18n(
       "cx-sx-suggestions-filter-search-input-placeholder-regions"
     ),
-    filterGroups: [getFilterGroup("geography")].filter(Boolean),
+    filterGroups: getFilterGroups([REGIONS_SUGGESTION_PROVIDER]),
   },
   {
     name: "topics",
@@ -78,77 +76,41 @@ const tabs = computed(() => [
     searchPlaceholder: bananaI18n.i18n(
       "cx-sx-suggestions-filter-search-input-placeholder-topics"
     ),
-    filterGroups: allFilters.value.filter((filterGroup) =>
-      isTopicsFilterGroup(filterGroup.id)
-    ),
+    filterGroups: getFilterGroups([TOPIC_SUGGESTION_PROVIDER]),
   },
 ]);
 const switchCurrentTab = (tabName) => (searchScope.value = tabName);
 
-const showPartialFiltersList = (group) => {
-  const chipsNumberLimit = 6;
-  const collections = getFilterGroup(COLLECTIONS_SUGGESTION_PROVIDER);
-  const regions = getFilterGroup(REGIONS_SUGGESTION_PROVIDER);
-
-  if (
-    group === COLLECTIONS_SUGGESTION_PROVIDER &&
-    collections.filters.length > chipsNumberLimit
-  ) {
-    return true;
+const showPartialFiltersList = (tab, group) => {
+  // Shorter filters list only applies to the 'all' tab
+  if (tab !== "all") {
+    return false;
   }
 
-  return (
-    group === REGIONS_SUGGESTION_PROVIDER &&
-    regions.filters.length > chipsNumberLimit
-  );
+  // More than 6 collections
+  if (group === COLLECTIONS_SUGGESTION_PROVIDER) {
+    const collectionGroups = getFilterGroups([COLLECTIONS_SUGGESTION_PROVIDER]);
+
+    return collectionGroups.length && collectionGroups[0].filters.length > 6;
+  }
+
+  // In the other groups, only regions shows the 'view more' link
+  return group === REGIONS_SUGGESTION_PROVIDER;
 };
 
 const { allFilters, isFilterSelected, selectFilter, findSelectedFilter } =
   useSuggestionsFilters();
 
 /**
- * @param {string} target
- * @returns {SuggestionFilterGroup}
+ * @param {string[]} filterGroupTypes
+ * @returns {SuggestionFilterGroup[]}
  */
-const getFilterGroup = (target) => {
-  if (target === REGIONS_SUGGESTION_PROVIDER) {
-    const group = allFilters.value.find((group) => group.id === target);
-    group.filters = group.filters.map(
-      (filter) =>
-        new SuggestionFilter({
-          ...filter,
-          type: REGIONS_SUGGESTION_PROVIDER,
-        })
-    );
-
-    return group;
-  }
-
-  return allFilters.value.find((group) => group.id === target);
+const getFilterGroups = (filterGroupTypes) => {
+  return filterGroupTypes
+    .flatMap((type) => allFilters.value.filter((group) => group.type === type))
+    .filter(Boolean);
 };
 
-/**
- * @param {string} groupName
- * @returns {SuggestionFilter[]}
- */
-const getMainTabFilters = (groupName) => {
-  const group = getFilterGroup(groupName);
-
-  if (showPartialFiltersList(groupName)) {
-    return group.filters.slice(0, 4);
-  }
-
-  return group.filters;
-};
-
-/**
- * @param {string} group
- * @returns {boolean}
- */
-const isTopicsFilterGroup = (group) =>
-  group !== REGIONS_SUGGESTION_PROVIDER &&
-  group !== COLLECTIONS_SUGGESTION_PROVIDER &&
-  group !== AUTOMATIC_SUGGESTION_PROVIDER_GROUP;
 const logEvent = useEventLogging();
 
 const closeDialog = () => {
@@ -171,15 +133,7 @@ const done = () => {
       ),
     });
 
-    if (tentativelySelectedFilter.value.type === REGIONS_SUGGESTION_PROVIDER) {
-      selectFilter({
-        type: TOPIC_SUGGESTION_PROVIDER,
-        id: tentativelySelectedFilter.value.id,
-        label: tentativelySelectedFilter.value.label,
-      });
-    } else {
-      selectFilter(tentativelySelectedFilter.value);
-    }
+    selectFilter(tentativelySelectedFilter.value);
   }
   closeDialog();
 };
@@ -338,11 +292,12 @@ const viewAllLabels = {
                 :filter-group="filterGroup"
                 :tentatively-select-filter="tentativelySelectFilter"
                 :is-selected="isSelected"
+                :limit="
+                  showPartialFiltersList(tab.name, filterGroup.type) ? 4 : 0
+                "
               ></sx-suggestions-filters-dialog-tab-group-content>
               <div
-                v-if="
-                  tab.name === 'all' && showPartialFiltersList(filterGroup.id)
-                "
+                v-if="showPartialFiltersList(tab.name, filterGroup.type)"
                 class="sx-suggestions-filters__group-view-all mb-3"
                 @click="switchCurrentTab(filterGroup.id)"
               >

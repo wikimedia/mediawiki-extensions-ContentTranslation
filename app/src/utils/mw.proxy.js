@@ -121,8 +121,11 @@ const mw = {
   },
   loader: {
     require: (filename) => {
-      if (filename === "ext.cx.articletopics") {
-        return [];
+      if (filename === "ext.cx.articlefilters") {
+        return {
+          topics: [],
+          regions: [],
+        };
       }
     },
   },

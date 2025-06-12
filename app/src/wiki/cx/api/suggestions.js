@@ -424,6 +424,83 @@ async function fetchSectionSuggestionsByTopics(
   );
 }
 
+/**
+ * @param {String} sourceLanguage
+ * @param {String} targetLanguage
+ * @param {String[]} countries
+ * @param {Number} count - How many suggestions to fetch. 24 is default.
+ * @return {Promise<ArticleSuggestion[]>}
+ */
+async function fetchPageSuggestionsByCountries(
+  sourceLanguage,
+  targetLanguage,
+  countries,
+  count = 24
+) {
+  const urlParams = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    country: countries.join("|"),
+    count,
+  };
+
+  const suggestedResults =
+    (await requestToRecommendationApi({ urlParams })) || [];
+
+  return suggestedResults.map(
+    (item) =>
+      new ArticleSuggestion({
+        sourceTitle: item.title.replace(/_/g, " "),
+        sourceLanguage,
+        targetLanguage,
+        wikidataId: item.wikidata_id,
+        langLinksCount: parseInt(item.sitelink_count),
+      })
+  );
+}
+
+/**
+ * @param {String} sourceLanguage
+ * @param {String} targetLanguage
+ * @param {String[]} countries
+ * @param {Number} count - How many suggestions to fetch. 24 is default.
+ * @return {Promise<SectionSuggestion[]>}
+ */
+async function fetchSectionSuggestionsByCountries(
+  sourceLanguage,
+  targetLanguage,
+  countries,
+  count = 24
+) {
+  const urlParams = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    country: countries.join("|"),
+    count,
+  };
+
+  const urlPostfix = "/sections";
+  const recommendations =
+    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
+
+  return (
+    recommendations &&
+    recommendations.map(
+      (recommendation) =>
+        new SectionSuggestion({
+          sourceLanguage,
+          targetLanguage,
+          sourceTitle: recommendation.source_title,
+          targetTitle: recommendation.target_title,
+          sourceSections: recommendation.source_sections,
+          targetSections: recommendation.target_sections,
+          present: recommendation.present,
+          missing: recommendation.missing,
+        })
+    )
+  );
+}
+
 async function fetchUserEdits(language) {
   if (mw.user.isAnon()) {
     return [];
@@ -597,6 +674,8 @@ export default {
   fetchMostPopularSectionSuggestions,
   fetchPageSuggestionsByTopics,
   fetchSectionSuggestionsByTopics,
+  fetchPageSuggestionsByCountries,
+  fetchSectionSuggestionsByCountries,
   fetchPageCollectionGroups,
   fetchPageSuggestionsByCollections,
   fetchSectionSuggestionsByCollections,

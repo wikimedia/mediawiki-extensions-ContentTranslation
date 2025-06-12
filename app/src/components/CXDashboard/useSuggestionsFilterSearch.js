@@ -11,7 +11,9 @@ import {
 } from "@/utils/suggestionFilterProviders";
 import { useI18n } from "vue-banana-i18n";
 
-const topicGroups = mw.loader.require("ext.cx.articletopics");
+const { topics: topicGroups, regions } = mw.loader.require(
+  "ext.cx.articlefilters"
+);
 
 const allTopics = topicGroups.flatMap((group) =>
   group.topics.map((topic) => ({
@@ -71,6 +73,25 @@ const useSuggestionsFilterSearch = () => {
     );
   };
 
+  /**
+   *
+   * @param {string} query
+   * @returns {{label: string, id: string}[]}
+   */
+  const searchRegions = (query) => {
+    query = query.toLowerCase(); // Convert input to lowercase for case-insensitive search
+
+    return regions
+      .flatMap((region) => [region, ...region.countries])
+      .filter((regionOrCountry) =>
+        regionOrCountry.label.toLowerCase().includes(query)
+      )
+      .map((regionOrCountry) => ({
+        label: regionOrCountry.label,
+        id: regionOrCountry.id,
+      }));
+  };
+
   const { searchResultsSlice } = useSearchArticles(sourceLanguage, searchInput);
 
   watch(searchResultsSlice, () => {
@@ -97,10 +118,7 @@ const useSuggestionsFilterSearch = () => {
             : "cx-sx-suggestions-filter-search-results-topics-alternative-description"
         ),
         icon: searchScope.value === "all" ? cdxIconSearch : null,
-        filterType:
-          topic.groupId === "geography"
-            ? REGIONS_SUGGESTION_PROVIDER
-            : TOPIC_SUGGESTION_PROVIDER,
+        filterType: TOPIC_SUGGESTION_PROVIDER,
         filterId: topic.topicId,
       })
     );
@@ -120,12 +138,25 @@ const useSuggestionsFilterSearch = () => {
       filterType: COLLECTIONS_SUGGESTION_PROVIDER,
       filterId: collection.name,
     }));
+
+    rawSearchResults.value.regions = searchRegions(searchInput.value).map(
+      (region) => ({
+        label: region.label,
+        value: region.label,
+        description: bananaI18n.i18n(
+          searchScope.value === "all"
+            ? "cx-sx-suggestions-filter-search-results-regions-default-description"
+            : "cx-sx-suggestions-filter-search-results-regions-alternative-description"
+        ),
+        icon: searchScope.value === "all" ? cdxIconSearch : null,
+        filterType: REGIONS_SUGGESTION_PROVIDER,
+        filterId: region.id,
+      })
+    );
   });
 
   const searchResults = computed(() => {
     const isAll = searchScope.value === "all";
-    const getTopicAreasByType = (type) =>
-      rawSearchResults.value.topic_areas.filter((t) => t.filterType === type);
 
     return [
       {
@@ -137,16 +168,16 @@ const useSuggestionsFilterSearch = () => {
       {
         key: "topic-areas",
         show:
-          getTopicAreasByType(TOPIC_SUGGESTION_PROVIDER).length &&
+          rawSearchResults.value.topic_areas.length &&
           (isAll || searchScope.value === "topics"),
-        items: getTopicAreasByType(TOPIC_SUGGESTION_PROVIDER),
+        items: rawSearchResults.value.topic_areas,
       },
       {
         key: "geography",
         show:
-          getTopicAreasByType(REGIONS_SUGGESTION_PROVIDER).length &&
+          rawSearchResults.value.regions.length &&
           (isAll || searchScope.value === "geography"),
-        items: getTopicAreasByType(REGIONS_SUGGESTION_PROVIDER),
+        items: rawSearchResults.value.regions,
       },
       {
         key: "collections",

@@ -7,6 +7,7 @@ import {
   COLLECTIONS_SUGGESTION_PROVIDER,
   AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
   SEED_SUGGESTION_PROVIDER,
+  REGIONS_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import useURLHandler from "./useURLHandler";
 import usePageCollections from "@/components/CXDashboard/usePageCollections";
@@ -14,7 +15,9 @@ import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
 import useFiltersValidator from "@/composables/useFiltersValidator";
 import SuggestionFilter from "@/wiki/cx/models/suggestionFilter";
 
-const topicGroups = mw.loader.require("ext.cx.articletopics");
+const { topics: topicGroups, regions } = mw.loader.require(
+  "ext.cx.articlefilters"
+);
 
 /**
  * @param {{ groupId: string, label: string, topics: { topicId: string, label: string }[] }} topicGroup
@@ -24,6 +27,7 @@ const topicGroupToFilterGroup = (topicGroup) =>
   new SuggestionFilterGroup({
     id: topicGroup.groupId,
     label: topicGroup.label,
+    type: TOPIC_SUGGESTION_PROVIDER,
     filters: topicGroup.topics.map(
       (topic) =>
         new SuggestionFilter({
@@ -63,6 +67,7 @@ const useSuggestionsFilters = () => {
   const automaticFiltersGroup = computed(() => {
     const filterGroup = new SuggestionFilterGroup({
       id: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+      type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
       label: bananaI18n.i18n("cx-sx-suggestions-filter-default-group-label"),
       filters: [editsFilter, popularFilter],
     });
@@ -119,13 +124,38 @@ const useSuggestionsFilters = () => {
   const collectionFiltersGroup = computed(
     () =>
       new SuggestionFilterGroup({
-        id: "collections",
+        id: COLLECTIONS_SUGGESTION_PROVIDER,
+        type: COLLECTIONS_SUGGESTION_PROVIDER,
         label: bananaI18n.i18n(
           "cx-sx-suggestions-filter-page-collections-group-label"
         ),
         filters: collectionGroupToFilters(),
       })
   );
+
+  const regionsFilterGroup = computed(() => {
+    return new SuggestionFilterGroup({
+      id: REGIONS_SUGGESTION_PROVIDER,
+      type: REGIONS_SUGGESTION_PROVIDER,
+      label: bananaI18n.i18n("cx-sx-suggestions-filters-tab-regions"),
+      filters: regions.map(
+        (region) =>
+          new SuggestionFilter({
+            id: region.id,
+            label: region.label,
+            type: REGIONS_SUGGESTION_PROVIDER,
+            subFilters: region.countries.map(
+              (country) =>
+                new SuggestionFilter({
+                  id: country.id,
+                  label: country.label,
+                  type: REGIONS_SUGGESTION_PROVIDER,
+                })
+            ),
+          })
+      ),
+    });
+  });
 
   /**
    * @type {ComputedRef<SuggestionFilterGroup[]>}
@@ -134,6 +164,7 @@ const useSuggestionsFilters = () => {
     const filters = [
       automaticFiltersGroup.value,
       ...topicGroups.map(topicGroupToFilterGroup),
+      regionsFilterGroup.value,
     ];
 
     if (collectionFiltersGroup.value.filters.length) {
@@ -163,6 +194,7 @@ const useSuggestionsFilters = () => {
 
     if (
       selectedFilter.type === TOPIC_SUGGESTION_PROVIDER ||
+      selectedFilter.type === REGIONS_SUGGESTION_PROVIDER ||
       selectedFilter.type === SEED_SUGGESTION_PROVIDER ||
       selectedFilter.type === COLLECTIONS_SUGGESTION_PROVIDER ||
       selectedFilter.id === COLLECTIONS_SUGGESTION_PROVIDER
@@ -180,17 +212,6 @@ const useSuggestionsFilters = () => {
     setFilterURLParams(filter.type, filter.id);
   };
 
-  const findSelectedCollectionFilter = () => {
-    const collectionFilters = collectionGroupToFilters();
-
-    const allCollectionFilters = collectionFilters.flatMap((filter) => [
-      filter,
-      ...(filter.subFilters || []),
-    ]);
-
-    return allCollectionFilters.find(isFilterSelected);
-  };
-
   /**
    * @return {SuggestionFilter}
    */
@@ -201,12 +222,11 @@ const useSuggestionsFilters = () => {
         label: currentFilter.value.id,
         type: currentFilter.value.type,
       });
-    } else if (currentFilter.value.type === COLLECTIONS_SUGGESTION_PROVIDER) {
-      return findSelectedCollectionFilter();
     }
 
     return allFilters.value
       .flatMap((group) => group.filters)
+      .flatMap((filter) => [filter, ...(filter.subFilters || [])])
       .find(isFilterSelected);
   };
 
@@ -221,6 +241,16 @@ const useSuggestionsFilters = () => {
     const topic = allTopics.find((t) => t.topicId === topicId);
 
     return topic ? topic.articletopics : [];
+  };
+
+  const getCountries = (regionOrCountry) => {
+    const region = regions.find((r) => r.id === regionOrCountry);
+
+    if (region) {
+      return region.countries.map((country) => country.id);
+    }
+
+    return [regionOrCountry]; // If it's not a region, return it as a single country
   };
 
   const validateURLFilterWithCollections = () => {
@@ -254,6 +284,7 @@ const useSuggestionsFilters = () => {
     waitingForPageCollectionsFetch,
     findSelectedFilter,
     validateURLFilterWithCollections,
+    getCountries,
   };
 };
 

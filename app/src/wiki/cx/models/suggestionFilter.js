@@ -3,21 +3,25 @@ import {
   COLLECTIONS_SUGGESTION_PROVIDER,
   EDITS_SUGGESTION_PROVIDER,
   POPULAR_SUGGESTION_PROVIDER,
-  SEED_SUGGESTION_PROVIDER,
-  TOPIC_SUGGESTION_PROVIDER,
+  REGIONS_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import {
   cdxIconArticles,
   cdxIconHeart,
   cdxIconUserAvatar,
+  cdxIconMapPin,
+  cdxIconFolderPlaceholder,
 } from "@wikimedia/codex-icons";
 
 const filterTypeToIconMap = {
   [EDITS_SUGGESTION_PROVIDER]: cdxIconUserAvatar,
   [POPULAR_SUGGESTION_PROVIDER]: cdxIconHeart,
   [COLLECTIONS_SUGGESTION_PROVIDER]: cdxIconArticles,
-  [TOPIC_SUGGESTION_PROVIDER]: null,
-  [SEED_SUGGESTION_PROVIDER]: null,
+};
+
+const filterTypeToExpandableIconMap = {
+  [COLLECTIONS_SUGGESTION_PROVIDER]: cdxIconFolderPlaceholder,
+  [REGIONS_SUGGESTION_PROVIDER]: cdxIconMapPin,
 };
 
 export default class SuggestionFilter {
@@ -51,6 +55,10 @@ export default class SuggestionFilter {
   }
 
   get icon() {
-    return filterTypeToIconMap[this.provider];
+    return filterTypeToIconMap[this.provider] || null;
+  }
+
+  get expandableIcon() {
+    return filterTypeToExpandableIconMap[this.provider] || this.icon;
   }
 }

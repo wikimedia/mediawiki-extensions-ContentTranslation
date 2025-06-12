@@ -651,12 +651,16 @@
 				"mw.cx.util"
 			]
 		},
-		"ext.cx.articletopics": {
+		"ext.cx.articlefilters": {
 			"packageFiles": [
-				"articletopics/ext.cx.articletopics.js",
+				"articlefilters/ext.cx.articlefilters.js",
 				{
 					"name": "articletopics.json",
 					"callback": "ContentTranslation\\ArticleTopicsDefinition::getTopics"
+				},
+				{
+					"name": "articlecountries.json",
+					"callback": "ContentTranslation\\ArticleCountriesDefinition::getCountries"
 				}
 			]
 		},
@@ -683,7 +687,7 @@
 				"mediawiki.user",
 				"mw.cx.SiteMapper",
 				"mw.cx.util",
-				"ext.cx.articletopics"
+				"ext.cx.articlefilters"
 			],
 			"codexComponents": [
 				"CdxButton",
@@ -935,6 +939,8 @@
 				"cx-sx-suggestions-filter-search-input-placeholder-topics",
 				"cx-sx-suggestions-filter-search-results-topics-default-description",
 				"cx-sx-suggestions-filter-search-results-topics-alternative-description",
+				"cx-sx-suggestions-filter-search-results-regions-default-description",
+				"cx-sx-suggestions-filter-search-results-regions-alternative-description",
 				"cx-sx-suggestions-filter-search-results-collections-default-description",
 				"cx-sx-suggestions-filter-search-results-collections-alternative-description",
 				"cx-sx-suggestions-filter-search-results-empty-primary",

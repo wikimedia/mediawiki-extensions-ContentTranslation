@@ -35,6 +35,10 @@ class ArticleTopicsDefinition {
 		$groupsDefinitions = [];
 
 		foreach ( $groupedTopics as $topicGroup ) {
+			if ( $topicGroup['groupId'] === 'geography' ) {
+				// Skip the group since we're using articlecountry instead
+				continue;
+			}
 			$topicsDefinitions = [];
 
 			foreach ( $topicGroup['topics'] as $topicData ) {

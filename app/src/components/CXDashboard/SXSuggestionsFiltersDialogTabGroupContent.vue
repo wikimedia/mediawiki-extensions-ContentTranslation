@@ -15,7 +15,19 @@ const props = defineProps({
     type: Function,
     required: true,
   },
+  limit: {
+    type: Number,
+    default: 0,
+  },
 });
+
+const getLimitedFilters = () => {
+  if (props.limit > 0) {
+    return props.filterGroup.filters.slice(0, props.limit);
+  }
+
+  return props.filterGroup.filters;
+};
 </script>
 
 <template>
@@ -24,7 +36,7 @@ const props = defineProps({
   </div>
   <div class="sx-suggestions-filters__group-filters mb-3">
     <suggestion-filter-chip
-      v-for="filter in filterGroup.filters"
+      v-for="filter in getLimitedFilters()"
       :key="filter.id"
       :filter="filter"
       :is-selected="isSelected"
