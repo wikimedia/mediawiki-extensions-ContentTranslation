@@ -563,5 +563,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Neue Seiten",
 	"cx-page-collection-dialog-section-suggestions-header": "Neuer Abschnitt",
 	"cx-sx-suggestion-list-empty-title": "Derzeit keine Vorschläge",
-	"cx-sx-suggestion-list-empty-description": "Für diesen Filter haben wir keine Vorschläge gefunden. Du kannst einen anderen Filter ausprobieren oder nach einem bestimmten Artikel zum Übersetzen suchen."
+	"cx-sx-suggestion-list-empty-description": "Für diesen Filter haben wir keine Vorschläge gefunden. Du kannst einen anderen Filter ausprobieren oder nach einem bestimmten Artikel zum Übersetzen suchen.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Alle"
 }

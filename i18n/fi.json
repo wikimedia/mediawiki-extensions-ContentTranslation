@@ -564,5 +564,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Uudet sivut",
 	"cx-page-collection-dialog-section-suggestions-header": "Uudet osiot",
 	"cx-sx-suggestion-list-empty-title": "Ei ehdotuksia tällä hetkellä",
-	"cx-sx-suggestion-list-empty-description": "Tällä suodattimella ei löytynyt yhtään ehdotusta. Kokeile toista suodatinta tai hae tiettyä artikkelia käännettäväksi."
+	"cx-sx-suggestion-list-empty-description": "Tällä suodattimella ei löytynyt yhtään ehdotusta. Kokeile toista suodatinta tai hae tiettyä artikkelia käännettäväksi.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Kaikki"
 }
