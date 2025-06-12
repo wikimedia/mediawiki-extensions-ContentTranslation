@@ -20,7 +20,7 @@ describe("Event logging", () => {
     const event = { foo: "bar", access_method: "desktop" };
     await logEvent(event);
     const eventPayload = {
-      $schema: "/analytics/mediawiki/content_translation_event/1.8.0",
+      $schema: "/analytics/mediawiki/content_translation_event/1.10.0",
       wiki_db: "test-db",
       user_name: "test-username",
       web_pageview_id: "ecd3eeb13fde5ab4d7da",

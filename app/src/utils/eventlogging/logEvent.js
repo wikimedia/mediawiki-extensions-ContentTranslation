@@ -88,7 +88,7 @@ function logEvent(event) {
   const userName = mw.user.getName();
 
   const eventDefaults = {
-    $schema: "/analytics/mediawiki/content_translation_event/1.8.0",
+    $schema: "/analytics/mediawiki/content_translation_event/1.10.0",
     wiki_db: wikiDB,
     user_name: userName,
     web_session_id: webSessionId,
