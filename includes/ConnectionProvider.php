@@ -11,7 +11,7 @@ use Wikimedia\Rdbms\IReadableDatabase;
  * Decorator for IConnectionProvider that enforces the virtual-cx domain
  */
 class ConnectionProvider implements IConnectionProvider {
-	private const VIRTUAL_DOMAIN = 'virtual-cx';
+	public const VIRTUAL_DOMAIN = 'virtual-cx';
 	private IConnectionProvider $inner;
 
 	public function __construct( IConnectionProvider $inner ) {
