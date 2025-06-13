@@ -309,7 +309,7 @@ const verifyBackNavigationDialogOn = ref(false);
       <translated-segment-card
         v-if="!isBlockTemplateSelected && isSelectedTranslationUnitTranslated"
         @edit-translation="editTranslation($event, false)"
-        @skip-translation="skipTranslation"
+        @select-next-segment="skipTranslation"
         @select-previous-segment="selectPreviousTranslationUnit"
       />
       <!--      MwCard has a margin-bottom: 1em by default. Since this is -->
@@ -331,6 +331,7 @@ const verifyBackNavigationDialogOn = ref(false);
         @apply-translation="applyTranslation"
         @skip-translation="skipTranslation"
         @select-previous-segment="selectPreviousTranslationUnit"
+        @select-next-segment="skipTranslation"
       />
     </mw-row>
     <mw-row v-else column class="grow">

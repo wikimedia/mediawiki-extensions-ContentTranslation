@@ -2,6 +2,7 @@
 import { MwRow, MwCol, MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import BlockTemplateStatusIndicator from "./BlockTemplateStatusIndicator.vue";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
+import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons.vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
@@ -19,6 +20,8 @@ const {
   selectedContentTranslationUnit: selectedSubSection,
   currentProposedTranslation: blockProposedTranslation,
 } = useCurrentPageSection();
+
+const isTranslated = computed(() => selectedSubSection.value?.isTranslated);
 
 const blockEditableContent = computed(() => {
   const blockTranslation =
@@ -215,7 +218,8 @@ const optionalMissingTargetParamsCount = computed(() => {
       </div>
       <mw-spinner v-else />
     </div>
-    <proposed-translation-action-buttons v-bind="$attrs" />
+    <proposed-translation-action-buttons v-if="!isTranslated" v-bind="$attrs" />
+    <translated-segment-card-action-buttons v-else v-bind="$attrs" />
     <sx-block-template-status-dialog
       v-model:active="templateStatusDialogOn"
       :source-params-count="sourceParamsCount"

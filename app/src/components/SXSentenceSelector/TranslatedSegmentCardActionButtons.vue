@@ -5,7 +5,7 @@ import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconNext, cdxIconPrevious } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
-defineEmits(["select-previous-segment", "skip-translation"]);
+defineEmits(["select-previous-segment", "select-next-segment"]);
 
 const { sourceSection, isSectionTitleSelected } = useCurrentPageSection();
 
@@ -40,7 +40,7 @@ const isLastTranslationUnit = computed(
           'cx-sx-sentence-selector-translated-segment-next-button-aria-label'
         )
       "
-      @click="$emit('skip-translation')"
+      @click="$emit('select-next-segment')"
     >
       <cdx-icon :icon="cdxIconNext" />
     </cdx-button>
