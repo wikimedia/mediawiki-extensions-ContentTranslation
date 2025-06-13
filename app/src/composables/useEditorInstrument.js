@@ -190,12 +190,19 @@ const useEditorInstrument = () => {
       ...sharedPayload.value,
     });
 
+  const logEditorSegmentEditEvent = () =>
+    logEvent({
+      event_type: "editor_segment_edit",
+      ...sharedPayload.value,
+    });
+
   return {
     logEditorOpenEvent,
     logEditorCloseEvent,
     logEditorCloseWarnEvent,
     logEditorSegmentAddEvent,
     logEditorSegmentSkipEvent,
+    logEditorSegmentEditEvent,
   };
 };
 

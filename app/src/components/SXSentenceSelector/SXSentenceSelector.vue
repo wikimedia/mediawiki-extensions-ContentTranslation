@@ -222,7 +222,7 @@ const configureTranslationOptions = () => {
 
 const { getCurrentTitleByLanguage } = useLanguageTitleGroup();
 
-const editTranslation = (content, isInitialEdit) => {
+const editTranslation = (content) => {
   router.push({
     name: "sx-editor",
     state: {
@@ -232,7 +232,7 @@ const editTranslation = (content, isInitialEdit) => {
         targetLanguage.value,
         sourceLanguage.value
       ),
-      isInitialEdit: isInitialEdit || null,
+      isInitialEdit: !isSelectedTranslationUnitTranslated.value || null,
     },
   });
 };
@@ -316,7 +316,7 @@ const verifyBackNavigationDialogOn = ref(false);
       </mw-col>
       <translated-segment-card
         v-if="!isBlockTemplateSelected && isSelectedTranslationUnitTranslated"
-        @edit-translation="editTranslation($event, false)"
+        @edit-translation="editTranslation"
         @select-next-segment="selectNextTranslationUnit"
         @select-previous-segment="selectPreviousTranslationUnit"
       />
@@ -327,7 +327,7 @@ const verifyBackNavigationDialogOn = ref(false);
         v-else-if="!isBlockTemplateSelected"
         :class="{ 'mb-0': !shouldProposedTranslationBounce }"
         @configure-options="configureTranslationOptions"
-        @edit-translation="editTranslation($event, true)"
+        @edit-translation="editTranslation"
         @apply-translation="applyTranslation"
         @skip-translation="skipTranslation"
         @select-previous-segment="selectPreviousTranslationUnit"

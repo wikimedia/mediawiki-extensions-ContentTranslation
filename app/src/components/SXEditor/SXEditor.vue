@@ -29,7 +29,8 @@ const { isFinalEdit, isInitialEdit, content, originalContent, title } =
 
 const editedTranslation = ref(null);
 const showFeedback = ref(false);
-const { logEditorSegmentAddEvent } = useEditorInstrument();
+const { logEditorSegmentAddEvent, logEditorSegmentEditEvent } =
+  useEditorInstrument();
 
 const {
   sourceLanguageURLParameter: sourceLanguage,
@@ -60,12 +61,19 @@ const onEditCompleted = async (translation) => {
   if (isFinalEdit) {
     sourceSection.value.editedTranslation = translation;
   } else {
-    if (mtScore.value === 0 && isInitialEdit) {
-      logEditorSegmentAddEvent();
-    }
     applyTranslationPromise =
       applyEditedTranslationToSelectedTranslationUnit(translation);
   }
+
+  // if this is the first edit of a segment and there is no change in the MT,
+  // this action should be treated as "Apply"
+  if (mtScore.value === 0 && isInitialEdit) {
+    logEditorSegmentAddEvent();
+  } else if (mtScore.value > 0) {
+    // if there is at least one change in the MT, the "segment edit" event should be logged
+    logEditorSegmentEditEvent();
+  }
+
   await Promise.all([timeout, applyTranslationPromise]);
   showFeedback.value = false;
   closeEditor();
