@@ -184,11 +184,18 @@ const useEditorInstrument = () => {
       ...sharedPayload.value,
     });
 
+  const logEditorSegmentSkipEvent = () =>
+    logEvent({
+      event_type: "editor_segment_skip",
+      ...sharedPayload.value,
+    });
+
   return {
     logEditorOpenEvent,
     logEditorCloseEvent,
     logEditorCloseWarnEvent,
     logEditorSegmentAddEvent,
+    logEditorSegmentSkipEvent,
   };
 };
 

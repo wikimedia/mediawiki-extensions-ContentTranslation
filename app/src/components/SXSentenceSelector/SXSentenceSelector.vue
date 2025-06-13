@@ -80,6 +80,7 @@ const {
   logEditorCloseEvent,
   logEditorCloseWarnEvent,
   logEditorSegmentAddEvent,
+  logEditorSegmentSkipEvent,
 } = useEditorInstrument();
 const initializeSegmentSelection = useInitializeSegmentSelection();
 const initializeMTProviders = useMTProvidersInitialize();
@@ -146,10 +147,17 @@ onMounted(async () => {
 
 watch(selectedContentTranslationUnit, scrollToTranslationUnit);
 
-const {
-  selectNextTranslationUnit: skipTranslation,
-  selectPreviousTranslationUnit,
-} = useTranslationUnitSelect();
+const { selectNextTranslationUnit, selectPreviousTranslationUnit } =
+  useTranslationUnitSelect();
+
+/**
+ * @returns {Promise}
+ */
+const skipTranslation = () => {
+  logEditorSegmentSkipEvent();
+
+  return selectNextTranslationUnit();
+};
 
 const applyProposedTranslationToSelectedTranslationUnit =
   useProposedTranslationApply();
@@ -309,7 +317,7 @@ const verifyBackNavigationDialogOn = ref(false);
       <translated-segment-card
         v-if="!isBlockTemplateSelected && isSelectedTranslationUnitTranslated"
         @edit-translation="editTranslation($event, false)"
-        @select-next-segment="skipTranslation"
+        @select-next-segment="selectNextTranslationUnit"
         @select-previous-segment="selectPreviousTranslationUnit"
       />
       <!--      MwCard has a margin-bottom: 1em by default. Since this is -->
@@ -331,7 +339,7 @@ const verifyBackNavigationDialogOn = ref(false);
         @apply-translation="applyTranslation"
         @skip-translation="skipTranslation"
         @select-previous-segment="selectPreviousTranslationUnit"
-        @select-next-segment="skipTranslation"
+        @select-next-segment="selectNextTranslationUnit"
       />
     </mw-row>
     <mw-row v-else column class="grow">
