@@ -590,5 +590,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Yeni sayfalar",
 	"cx-page-collection-dialog-section-suggestions-header": "Yeni bölümler",
 	"cx-sx-suggestion-list-empty-title": "Şimdilik öneri yok",
-	"cx-sx-suggestion-list-empty-description": "Bu süzgeç için hiçbir öneri bulamadık. Başka bir süzgeç deneyebilir ya da çevirmek için belirli bir madde arayabilirsiniz."
+	"cx-sx-suggestion-list-empty-description": "Bu süzgeç için hiçbir öneri bulamadık. Başka bir süzgeç deneyebilir ya da çevirmek için belirli bir madde arayabilirsiniz.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tümü"
 }

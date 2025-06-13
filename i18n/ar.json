@@ -580,5 +580,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "الصفحات الجديدة",
 	"cx-page-collection-dialog-section-suggestions-header": "أقسام جديدة",
 	"cx-sx-suggestion-list-empty-title": "لا توجد اقتراحات في الوقت الحالي",
-	"cx-sx-suggestion-list-empty-description": "لم نعثر على أي اقتراحات لهذا الفلتر. يمكنك تجربة فلتر آخر أو البحث عن مقال محدد لترجمته."
+	"cx-sx-suggestion-list-empty-description": "لم نعثر على أي اقتراحات لهذا الفلتر. يمكنك تجربة فلتر آخر أو البحث عن مقال محدد لترجمته.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "الكل"
 }

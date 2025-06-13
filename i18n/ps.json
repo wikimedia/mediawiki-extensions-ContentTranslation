@@ -551,5 +551,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "نوي مخونه",
 	"cx-page-collection-dialog-section-suggestions-header": "نوې برخې",
 	"cx-sx-suggestion-list-empty-title": "د اوس لپاره وړانديزونه نشته",
-	"cx-sx-suggestion-list-empty-description": "موږ د دې چاڼگر لپاره هيڅ وړانديزونه ونهٔ موندل. تاسو کولی شئ چې يو بل چاڼگر وکاروئ يا هم د ژباړې لپاره د يوې ځانگړې ليکنې لټون وکړئ."
+	"cx-sx-suggestion-list-empty-description": "موږ د دې چاڼگر لپاره هيڅ وړانديزونه ونهٔ موندل. تاسو کولی شئ چې يو بل چاڼگر وکاروئ يا هم د ژباړې لپاره د يوې ځانگړې ليکنې لټون وکړئ.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "ټول"
 }

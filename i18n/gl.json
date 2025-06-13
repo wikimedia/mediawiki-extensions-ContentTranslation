@@ -558,5 +558,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Páxinas novas",
 	"cx-page-collection-dialog-section-suggestions-header": "Seccións novas",
 	"cx-sx-suggestion-list-empty-title": "Nestes intres non hai suxestións",
-	"cx-sx-suggestion-list-empty-description": "Non atopamos ningunha suxestión para este filtro. Podes probar un filtro diferente ou buscar un artigo específico para traducilo."
+	"cx-sx-suggestion-list-empty-description": "Non atopamos ningunha suxestión para este filtro. Podes probar un filtro diferente ou buscar un artigo específico para traducilo.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Todas"
 }

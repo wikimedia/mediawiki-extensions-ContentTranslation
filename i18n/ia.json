@@ -551,5 +551,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Nove paginas",
 	"cx-page-collection-dialog-section-suggestions-header": "Nove sectiones",
 	"cx-sx-suggestion-list-empty-title": "Nulle suggestion pro le momento",
-	"cx-sx-suggestion-list-empty-description": "Nos non ha trovate alcun suggestion pro iste filtro. Tu pote tentar un altere filtro o cercar un articulo specific a traducer."
+	"cx-sx-suggestion-list-empty-description": "Nos non ha trovate alcun suggestion pro iste filtro. Tu pote tentar un altere filtro o cercar un articulo specific a traducer.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Totes"
 }

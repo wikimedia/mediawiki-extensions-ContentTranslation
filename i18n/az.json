@@ -554,5 +554,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Yeni səhifələr",
 	"cx-page-collection-dialog-section-suggestions-header": "Yeni bölmələr",
 	"cx-sx-suggestion-list-empty-title": "Hələlik heç bir tövsiyə yoxdur",
-	"cx-sx-suggestion-list-empty-description": "Bu filtr üçün heç bir tövsiyə tapmadıq. Siz fərqli filtri sınaya və ya tərcümə etmək üçün spesifik məqalə axtara bilərsiniz."
+	"cx-sx-suggestion-list-empty-description": "Bu filtr üçün heç bir tövsiyə tapmadıq. Siz fərqli filtri sınaya və ya tərcümə etmək üçün spesifik məqalə axtara bilərsiniz.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Hamısı"
 }
