@@ -512,14 +512,11 @@
 	"cx-sx-suggestions-filter-active-group-label": "Активни филтери",
 	"cx-sx-suggestions-filter-default-group-label": "Аутоматски",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Збирке",
-	"cx-sx-suggestions-filter-search-input-placeholder": "Пронађите теме, регионе или колекције",
-	"cx-sx-suggestions-filter-search-input-placeholder-collections": "Претрага колекција",
-	"cx-sx-suggestions-filter-search-input-placeholder-regions": "Претрага региона",
-	"cx-sx-suggestions-filter-search-input-placeholder-topics": "Претрага тема",
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 чланак|$1 чланка|0=Нема чланака}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Нема резултата",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 чланка постоји у $3",
 	"cx-page-collection-dialog-page-suggestions-header": "Нове странице",
 	"cx-page-collection-dialog-section-suggestions-header": "Нови одељци",
-	"cx-sx-suggestion-list-empty-title": "Тренутно нема предлога"
+	"cx-sx-suggestion-list-empty-title": "Тренутно нема предлога",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Све"
 }

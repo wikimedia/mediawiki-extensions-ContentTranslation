@@ -534,10 +534,10 @@
 	"cx-sx-suggestions-filter-active-group-label": "Активни филтри",
 	"cx-sx-suggestions-filter-default-group-label": "Автоматски",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Збирки",
-	"cx-sx-suggestions-filter-search-input-placeholder": "Пребарај збирки, региони или теми",
-	"cx-sx-suggestions-filter-search-input-placeholder-collections": "Пребарај збирки",
-	"cx-sx-suggestions-filter-search-input-placeholder-regions": "Пребарај региони",
-	"cx-sx-suggestions-filter-search-input-placeholder-topics": "Пребарај теми",
+	"cx-sx-suggestions-filter-search-input-placeholder": "Пребарај ги сите категории...",
+	"cx-sx-suggestions-filter-search-input-placeholder-collections": "Пребарај по збирки...",
+	"cx-sx-suggestions-filter-search-input-placeholder-regions": "Пребарај регион или земја...",
+	"cx-sx-suggestions-filter-search-input-placeholder-topics": "Пребарај тема...",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Тема ⋅ Прелистај статии",
 	"cx-sx-suggestions-filter-search-results-topics-alternative-description": "Прелистај статии",
 	"cx-sx-suggestions-filter-search-results-collections-default-description": "Збирка ⋅ {{PLURAL:$1|$1 статија|$1 статии|0=Нема статии}}",
@@ -550,5 +550,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Нови страници",
 	"cx-page-collection-dialog-section-suggestions-header": "Нови оддели",
 	"cx-sx-suggestion-list-empty-title": "Засега нема предлози",
-	"cx-sx-suggestion-list-empty-description": "Не најдовме предлози за овој филтер. Можете да се обидете со друг филтер или да пребарате конкретна статија за преведување."
+	"cx-sx-suggestion-list-empty-description": "Не најдовме предлози за овој филтер. Можете да се обидете со друг филтер или да пребарате конкретна статија за преведување.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Сè"
 }
