@@ -970,6 +970,7 @@
 		"mw.cx.util": {
 			"packageFiles": [
 				"util/mw.cx.util.js",
+				"util/mw.cx.eventlogging.translationSessionPosition.js",
 				{
 					"name": "config.json",
 					"config": {

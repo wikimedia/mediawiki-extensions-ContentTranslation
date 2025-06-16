@@ -4,6 +4,8 @@
 
 'use strict';
 
+const nextSessionPosition = require( './mw.cx.eventlogging.translationSessionPosition.js' );
+
 /**
  * Align two sections horizontally
  *
@@ -136,3 +138,5 @@ mw.cx.getLoginHref = function () {
 		returntoquery: currentUri.search.slice( 1 )
 	} );
 };
+
+mw.cx.nextTranslationSessionPosition = nextSessionPosition;
