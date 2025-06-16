@@ -101,34 +101,6 @@
 		mw.storage.set( 'cxTargetLanguage', validDefaultLanguagePair.targetLanguage );
 	};
 
-	CXDashboard.prototype.logAnalyticsEvent = function () {
-		const validCampaigns = {
-			specialcontribute: 'contributions_page',
-			ulsmissinglanguages: 'content_language_selector',
-			ulsaddlanguages: 'language_selector_options'
-		};
-		const campaign = new URL( location.href ).searchParams.get( 'campaign' );
-
-		if ( campaign && !!validCampaigns[ campaign ] ) {
-			mw.cx.logEvent( {
-				// eslint-disable-next-line camelcase
-				event_type: 'dashboard_open',
-				// eslint-disable-next-line camelcase
-				event_source: validCampaigns[ campaign ],
-				// eslint-disable-next-line camelcase
-				content_translation_session_position: 0,
-				// eslint-disable-next-line camelcase
-				translation_source_language: mw.storage.get( 'cxSourceLanguage' ),
-				// eslint-disable-next-line camelcase
-				translation_target_language: mw.storage.get( 'cxTargetLanguage' ),
-				// eslint-disable-next-line camelcase
-				access_method: 'desktop',
-				// eslint-disable-next-line camelcase
-				translation_type: 'article'
-			} );
-		}
-	};
-
 	/**
 	 * Find valid source and target language pair, with different source and target language
 	 *

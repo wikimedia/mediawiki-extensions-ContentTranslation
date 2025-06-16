@@ -424,10 +424,38 @@ mw.cx.TranslationController.prototype.getSaveQueue = function () {
  * @return {string|undefined} The message to be shown to the user
  */
 mw.cx.TranslationController.prototype.onPageUnload = function () {
+	const event = {
+		// eslint-disable-next-line camelcase
+		translation_source_title: this.translation.getSourceTitle(),
+		// eslint-disable-next-line camelcase
+		translation_target_title: this.translation.getTargetTitle(),
+		// eslint-disable-next-line camelcase
+		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
+	};
+
+	if ( this.translation.id ) {
+		// eslint-disable-next-line camelcase
+		event.translation_id = this.translation.id;
+	}
+
+	if ( this.translation.isSectionTranslation() ) {
+		// eslint-disable-next-line camelcase
+		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();
+		// eslint-disable-next-line camelcase
+		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
+	}
+
 	if ( this.hasUnsavedChanges() ) {
+		// eslint-disable-next-line camelcase
+		event.event_type = 'editor_close_warn';
+		mw.cx.logEvent( event );
 		// Immediately start processing the save queue.
 		this.processSaveQueue();
 		return mw.msg( 'cx-warning-unsaved-translation' );
+	} else {
+		// eslint-disable-next-line camelcase
+		event.event_type = 'editor_close';
+		mw.cx.logEvent( event );
 	}
 };
 
@@ -701,6 +729,30 @@ mw.cx.TranslationController.prototype.publish = function () {
 	const mtAbuseMsg = this.getMTAbuseMsg( numOfHighMTSections );
 
 	mw.log( '[CX] Publishing translation...' );
+	const event = {
+		// eslint-disable-next-line camelcase
+		event_type: 'publish_attempt',
+		// eslint-disable-next-line camelcase
+		translation_source_title: this.translation.getSourceTitle(),
+		// eslint-disable-next-line camelcase
+		translation_target_title: this.translation.getTargetTitle(),
+		// eslint-disable-next-line camelcase
+		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
+	};
+
+	if ( this.translation.id ) {
+		// eslint-disable-next-line camelcase
+		event.translation_id = this.translation.id;
+	}
+
+	if ( this.translation.isSectionTranslation() ) {
+		// eslint-disable-next-line camelcase
+		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();
+		// eslint-disable-next-line camelcase
+		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
+	}
+
+	mw.cx.logEvent( event );
 
 	this.scrollToInfobar();
 
@@ -842,6 +894,31 @@ mw.cx.TranslationController.prototype.onPublishSuccess = function ( apiTargetTit
 		this.translation.getSourceTitle(),
 		this.translation.getTargetTitle()
 	);
+
+	const event = {
+		// eslint-disable-next-line camelcase
+		event_type: 'publish_success',
+		// eslint-disable-next-line camelcase
+		translation_source_title: this.translation.getSourceTitle(),
+		// eslint-disable-next-line camelcase
+		translation_target_title: this.translation.getTargetTitle(),
+		// eslint-disable-next-line camelcase
+		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
+	};
+
+	if ( this.translation.id ) {
+		// eslint-disable-next-line camelcase
+		event.translation_id = this.translation.id;
+	}
+
+	if ( this.translation.isSectionTranslation() ) {
+		// eslint-disable-next-line camelcase
+		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();
+		// eslint-disable-next-line camelcase
+		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
+	}
+
+	mw.cx.logEvent( event );
 };
 
 /**
@@ -853,6 +930,31 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
 	this.veTarget.onPublishFailure( error.getMessageText() );
 	this.scrollToInfobar();
 	this.enableEditing();
+
+	const event = {
+		// eslint-disable-next-line camelcase
+		event_type: 'publish_failure',
+		// eslint-disable-next-line camelcase
+		translation_source_title: this.translation.getSourceTitle(),
+		// eslint-disable-next-line camelcase
+		translation_target_title: this.translation.getTargetTitle(),
+		// eslint-disable-next-line camelcase
+		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
+	};
+
+	if ( this.translation.id ) {
+		// eslint-disable-next-line camelcase
+		event.translation_id = this.translation.id;
+	}
+
+	if ( this.translation.isSectionTranslation() ) {
+		// eslint-disable-next-line camelcase
+		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();
+		// eslint-disable-next-line camelcase
+		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
+	}
+
+	mw.cx.logEvent( event );
 };
 
 /**

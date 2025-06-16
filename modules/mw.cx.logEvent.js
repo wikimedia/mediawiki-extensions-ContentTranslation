@@ -1,6 +1,4 @@
-// Below methods were copied from /app/src/plugins/logEvent.js file
 ( function () {
-
 	let cachedEditCount = null;
 
 	/**
@@ -83,20 +81,16 @@
 			return Promise.resolve();
 		}
 
-		// ΝΟΤΕ: we cannot use mw.config.get("skin") for detecting mobile and desktop versions,
-		// as the skin is always set to "contenttranslation" for both desktop and mobile applications
-		// since this code is only used in the mobile version, we can hardcode the access method to "mobile web"
-		const accessMethod = event.access_method || 'mobile web';
+		const accessMethod = 'desktop';
 		const wikiDB = mw.config.get( 'wgDBname' );
 		const sessionId = [ 'cx_sx', mw.user.sessionId(), accessMethod, wikiDB ].join( '_' );
 		const streamName = 'mediawiki.content_translation_event';
 		const isAnonUser = mw.user.isAnon();
 		const userName = mw.user.getName();
+		const urlParams = new URLSearchParams( window.location.search );
 
 		const eventDefaults = {
-			$schema: '/analytics/mediawiki/content_translation_event/1.4.0',
-			// eslint-disable-next-line camelcase
-			translation_type: 'section',
+			$schema: '/analytics/mediawiki/content_translation_event/1.10.0',
 			// eslint-disable-next-line camelcase
 			wiki_db: wikiDB,
 			// eslint-disable-next-line camelcase
@@ -110,24 +104,30 @@
 			// eslint-disable-next-line camelcase
 			user_is_anonymous: isAnonUser,
 			// eslint-disable-next-line camelcase
-			content_translation_session_id: sessionId
+			content_translation_session_id: sessionId,
+			// eslint-disable-next-line camelcase
+			content_translation_session_position: mw.cx.nextTranslationSessionPosition(),
+			// eslint-disable-next-line camelcase
+			translation_source_language: urlParams.get( 'from' ),
+			// eslint-disable-next-line camelcase
+			translation_target_language: urlParams.get( 'to' )
 		};
 
 		if ( isAnonUser ) {
 			return Promise.resolve(
 				mw.eventLog.submit( streamName, Object.assign( {}, eventDefaults, event ) )
 			);
-		} else {
-			return getGlobalEditCount( userName ).then( ( editCount ) => {
-				cachedEditCount = editCount;
-				// eslint-disable-next-line camelcase
-				event.user_global_edit_count = editCount;
-				// eslint-disable-next-line camelcase
-				event.user_global_edit_count_bucket = getUserEditCountBucket( editCount );
-
-				mw.eventLog.submit( streamName, Object.assign( {}, eventDefaults, event ) );
-			} );
 		}
+
+		return getGlobalEditCount( userName ).then( ( editCount ) => {
+			cachedEditCount = editCount;
+			// eslint-disable-next-line camelcase
+			event.user_global_edit_count = editCount;
+			// eslint-disable-next-line camelcase
+			event.user_global_edit_count_bucket = getUserEditCountBucket( editCount );
+
+			mw.eventLog.submit( streamName, Object.assign( {}, eventDefaults, event ) );
+		} );
 	}
 
 	mw.cx.logEvent = logEvent;

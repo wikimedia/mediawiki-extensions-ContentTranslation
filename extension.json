@@ -517,7 +517,6 @@
 				"dashboard/mw.cx.TranslationList.js",
 				"dashboard/mw.cx.SuggestionList.js",
 				"widgets/translator/ext.cx.translator.js",
-				"dashboard/ext.cx.logevent.js",
 				"dashboard/ext.cx.dashboard.js"
 			],
 			"styles": [
@@ -1588,6 +1587,7 @@
 				"ui/mw.cx.ui.ToolsColumn.js",
 				"dm/mw.cx.dm.DraftTranslationDTO.js",
 				"mw.cx.init.Translation.js",
+				"mw.cx.logEvent.js",
 				"mw.cx.TargetArticle.js",
 				"mw.cx.TranslationController.js",
 				"mw.cx.TranslationTracker.js",
