@@ -195,6 +195,8 @@
 	"cx-sx-article-search-no-search-results-message": "Nebol nájdený žiaden článok pre „$1“ v $2",
 	"cx-suggestion-list-favorites-division": "Na neskôr",
 	"sx-block-template-adaptation-card-body-header-success": "Navrhovaná šablóna",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Chýba v jazykoch <span>$1</span>, <span>$2</span> a ďalších",
 	"cx-uls-relevant-languages-panel-header": "Preložiť túto stránku",
+	"cx-uls-relevant-languages-panel-message": "Táto stránka chýba v niektorých jazykoch, ktoré možno poznáte. Môžete ju preložiť za pár minút!",
 	"cx-uls-translate-page-quick-action-label": "Preložiť túto stránku"
 }
