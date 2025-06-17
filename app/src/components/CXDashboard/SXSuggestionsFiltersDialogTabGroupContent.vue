@@ -19,6 +19,10 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  getSubFilterConfig: {
+    type: Function,
+    default: null,
+  },
 });
 
 const getLimitedFilters = () => {
@@ -40,6 +44,12 @@ const getLimitedFilters = () => {
       :key="filter.id"
       :filter="filter"
       :is-selected="isSelected"
+      :sub-filter-limit="
+        getSubFilterConfig ? getSubFilterConfig(filter).limit : 0
+      "
+      :view-more-config="
+        getSubFilterConfig ? getSubFilterConfig(filter).viewMoreConfig : null
+      "
       @filter-selected="tentativelySelectFilter($event)"
     >
     </suggestion-filter-chip>

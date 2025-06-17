@@ -1,7 +1,7 @@
 <script setup>
 import CustomInfoChip from "./CustomInfoChip.vue";
 import SuggestionFilter from "@/wiki/cx/models/suggestionFilter";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   filter: {
@@ -12,10 +12,23 @@ const props = defineProps({
     type: Function,
     required: true,
   },
+  subFilterLimit: {
+    type: Number,
+    default: 0,
+  },
+  viewMoreConfig: {
+    type: Object,
+    default: null,
+    validator: (val) => {
+      if (val === null) return true;
+
+      return typeof val.label === "string" && typeof val.onClick === "function";
+    },
+  },
 });
 
-const isInitiallyExpanded = () => {
-  // If the filter or one of its subfilters is selected, it should be expanded by default
+const isExpanded = computed(() => {
+  // If the filter or one of its subfilters is selected, it should be expanded
   if (!props.filter.expandable) {
     return false;
   }
@@ -31,15 +44,11 @@ const isInitiallyExpanded = () => {
   }
 
   return false;
-};
+});
 
-const isExpanded = ref(isInitiallyExpanded());
 const emit = defineEmits(["filter-selected"]);
 
 const onClick = () => {
-  if (props.filter.expandable) {
-    isExpanded.value = !isExpanded.value;
-  }
   emit("filter-selected", props.filter);
 };
 
@@ -59,6 +68,28 @@ const getSubFilterLabel = (subFilter) => {
   }
 
   return label; // Return the item unchanged if it doesn't start with the group name
+};
+
+const visibleSubFilters = computed(() => {
+  if (props.subFilterLimit > 0) {
+    return props.filter.subFilters.slice(0, props.subFilterLimit);
+  }
+
+  return props.filter.subFilters;
+});
+
+const shouldShowViewMoreLink = computed(
+  () =>
+    props.viewMoreConfig &&
+    props.subFilterLimit > 0 &&
+    props.filter.subFilters.length > props.subFilterLimit &&
+    isExpanded.value
+);
+
+const handleViewMore = () => {
+  if (props.viewMoreConfig && props.viewMoreConfig.onClick) {
+    props.viewMoreConfig.onClick();
+  }
 };
 </script>
 
@@ -89,7 +120,7 @@ const getSubFilterLabel = (subFilter) => {
       @click="$emit('filter-selected', filter)"
     ></custom-info-chip>
     <custom-info-chip
-      v-for="subFilter in filter.subFilters"
+      v-for="subFilter in visibleSubFilters"
       :key="subFilter.id"
       class="sx-suggestions-filters__filter my-1 mx-1 py-1"
       :class="{
@@ -99,6 +130,13 @@ const getSubFilterLabel = (subFilter) => {
       :icon="subFilter.icon"
       @click="$emit('filter-selected', subFilter)"
     ></custom-info-chip>
+    <div
+      v-if="shouldShowViewMoreLink"
+      class="sx-suggestions-filters__view-more-link"
+      @click="handleViewMore"
+    >
+      {{ viewMoreConfig.label }}
+    </div>
   </div>
 </template>
 
@@ -109,5 +147,13 @@ const getSubFilterLabel = (subFilter) => {
   border-inline-start: @border-style-base @border-width-thick @border-color-base;
   padding-inline-start: @spacing-25;
   margin-bottom: @spacing-75;
+}
+
+.sx-suggestions-filters__view-more-link {
+  color: @color-progressive;
+  cursor: @cursor-base--hover;
+  font-size: @font-size-small;
+  margin: @spacing-25 @spacing-50;
+  padding: @spacing-25 @spacing-0;
 }
 </style>

@@ -24,8 +24,7 @@ import useEventLogging from "@/composables/useEventLogging";
 import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
 import SxSuggestionsFiltersDialogTabGroupContent from "@/components/CXDashboard/SXSuggestionsFiltersDialogTabGroupContent.vue";
 import useSuggestionsFilterSearch from "./useSuggestionsFilterSearch";
-import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
-import SuggestionFilter from "@/wiki/cx/models/suggestionFilter";
+
 const bananaI18n = useI18n();
 
 const props = defineProps({
@@ -80,6 +79,24 @@ const tabs = computed(() => [
   },
 ]);
 const switchCurrentTab = (tabName) => (searchScope.value = tabName);
+
+const getSubFilterConfig = (filter, tabName) => {
+  // Only regions on 'all' tab with >7 subfilters get limited
+  if (tabName === "all" && filter.type === REGIONS_SUGGESTION_PROVIDER) {
+    return {
+      limit: 7,
+      viewMoreConfig: {
+        label: bananaI18n.i18n(
+          "cx-sx-suggestions-filters-view-more-countries",
+          filter.label
+        ),
+        onClick: () => switchCurrentTab("geography"),
+      },
+    };
+  }
+
+  return { limit: 0 }; // Show all
+};
 
 const showPartialFiltersList = (tab, group) => {
   // Shorter filters list only applies to the 'all' tab
@@ -294,6 +311,9 @@ const viewAllLabels = {
                 :is-selected="isSelected"
                 :limit="
                   showPartialFiltersList(tab.name, filterGroup.type) ? 4 : 0
+                "
+                :get-sub-filter-config="
+                  (filter) => getSubFilterConfig(filter, tab.name)
                 "
               ></sx-suggestions-filters-dialog-tab-group-content>
               <div

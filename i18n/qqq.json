@@ -561,6 +561,7 @@
 	"cx-sx-suggestions-filters-done-button-label": "Label of the 'Done' button that closes the filters view in the unified dashboard",
 	"cx-sx-suggestions-filters-view-all-collections-group": "Label of the link that opens the Collections tab to view all filter suggestions for that group",
 	"cx-sx-suggestions-filters-view-all-regions-group": "Label of the link that opens the Regions tab to view all filter suggestions for that group",
+	"cx-sx-suggestions-filters-view-more-countries": "Label of the link that switches to the Regions tab and shows all countries for a specific region. Parameters:\n* $1 - the name of the region",
 	"cx-sx-suggestions-filters-tab-all": "Label of the tab that shows all the available filters for translation suggestions in the suggestions filters dialog",
 	"cx-sx-suggestions-filters-tab-collections": "Label of the tab that shows the collection filters for translation suggestions in the suggestions filters dialog",
 	"cx-sx-suggestions-filters-tab-regions": "Label of the tab that shows the region filters for translation suggestions in the suggestions filters dialog",
