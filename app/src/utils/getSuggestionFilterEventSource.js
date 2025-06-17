@@ -13,6 +13,7 @@ const SUGGESTION_FILTER_SEARCH_RESULT_SEED =
 const SUGGESTION_FILTER_COLLECTIONS = "suggestion_filter_collections";
 const SUGGESTION_FILTER_PREVIOUS_EDITS = "suggestion_filter_previous_edits";
 const SUGGESTION_FILTER_POPULAR_ARTICLES = "suggestion_filter_popular_articles";
+const SUGGESTION_FILTER_REGION = "suggestion_filter_region";
 
 export const getSuggestionFilterEventSource = (filter) => {
   if (filter.type === TOPIC_SUGGESTION_PROVIDER) {
@@ -20,8 +21,7 @@ export const getSuggestionFilterEventSource = (filter) => {
   }
 
   if (filter.type === REGIONS_SUGGESTION_PROVIDER) {
-    // TODO: Add a new event source for region suggestions to the schema
-    return SUGGESTION_FILTER_TOPIC_AREA;
+    return SUGGESTION_FILTER_REGION;
   }
 
   if (filter.type === SEED_SUGGESTION_PROVIDER) {

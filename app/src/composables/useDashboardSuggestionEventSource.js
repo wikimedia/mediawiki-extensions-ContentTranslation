@@ -14,6 +14,7 @@ const SUGGESTION_TOPIC_AREA = "suggestion_topic_area";
 const SUGGESTION_SEARCH_RESULT_SEED = "suggestion_search_result_seed";
 const SUGGESTION_FEATURED = "suggestion_featured";
 const SUGGESTION_COLLECTIONS = "suggestion_collections";
+const SUGGESTION_REGION = "suggestion_region";
 
 const useDashboardSuggestionEventSource = () => {
   const { currentSuggestionFilters: currentFilter } = useURLHandler();
@@ -26,8 +27,7 @@ const useDashboardSuggestionEventSource = () => {
     } else if (type === TOPIC_SUGGESTION_PROVIDER) {
       return SUGGESTION_TOPIC_AREA;
     } else if (type === REGIONS_SUGGESTION_PROVIDER) {
-      // todo: Add a new event source for country suggestions to the schema
-      return SUGGESTION_TOPIC_AREA;
+      return SUGGESTION_REGION;
     } else if (type === SEED_SUGGESTION_PROVIDER) {
       return SUGGESTION_SEARCH_RESULT_SEED;
     } else if (id === POPULAR_SUGGESTION_PROVIDER) {
