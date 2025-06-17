@@ -123,8 +123,46 @@ const mw = {
     require: (filename) => {
       if (filename === "ext.cx.articlefilters") {
         return {
-          topics: [],
-          regions: [],
+          topics: [
+            {
+              groupId: "culture",
+              label: "Culture",
+              topics: [
+                { topicId: "Art", label: "Art" },
+                { topicId: "History", label: "History" },
+                { topicId: "Music", label: "Music" },
+              ],
+            },
+            {
+              groupId: "science",
+              label: "Science",
+              topics: [
+                { topicId: "Biology", label: "Biology" },
+                { topicId: "Physics", label: "Physics" },
+                { topicId: "Chemistry", label: "Chemistry" },
+              ],
+            },
+          ],
+          regions: [
+            {
+              id: "Europe",
+              label: "Europe",
+              countries: [
+                { id: "France", label: "France" },
+                { id: "Germany", label: "Germany" },
+                { id: "Spain", label: "Spain" },
+              ],
+            },
+            {
+              id: "Asia",
+              label: "Asia",
+              countries: [
+                { id: "Japan", label: "Japan" },
+                { id: "China", label: "China" },
+                { id: "India", label: "India" },
+              ],
+            },
+          ],
         };
       }
     },

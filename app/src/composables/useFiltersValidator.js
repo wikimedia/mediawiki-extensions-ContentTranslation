@@ -25,6 +25,53 @@ const useFiltersValidator = () => {
   const filtersValidatorError = ref(false);
 
   /**
+   * @param {string} id
+   * @param {string} idLowerCase
+   * @returns {{type: string, id: string}|null}
+   */
+  const validateTopicFilter = (id, idLowerCase) => {
+    if (!topicIds.value.includes(idLowerCase)) return null;
+
+    return { type: TOPIC_SUGGESTION_PROVIDER, id: idLowerCase };
+  };
+
+  /**
+   * @param {string} id
+   * @param {string} idLowerCase
+   * @returns {{type: string, id: string}|null}
+   */
+  const validateRegionFilter = (id, idLowerCase) => {
+    const isValid = regions.some(
+      (region) =>
+        region.id.toLowerCase() === idLowerCase ||
+        region.countries.some(
+          (country) => country.id.toLowerCase() === idLowerCase
+        )
+    );
+    if (!isValid) return null;
+
+    return { type: REGIONS_SUGGESTION_PROVIDER, id: idLowerCase };
+  };
+
+  /**
+   * @param {string} id
+   * @param {string} idLowerCase
+   * @param {PageCollection[]|false} pageCollections
+   * @returns {{type: string, id: string}|null}
+   */
+  const validateCollectionFilter = (id, idLowerCase, pageCollections) => {
+    if (
+      pageCollections &&
+      !pageCollections.some((col) => col.name.toLowerCase() === idLowerCase)
+    ) {
+      return null;
+    }
+
+    // if no page collections provided, accept any value with original casing
+    return { type: COLLECTIONS_SUGGESTION_PROVIDER, id };
+  };
+
+  /**
    * Validate and coerce filters to correct values
    *
    * @param {{type: string|null, id: string|null}} filters
@@ -32,15 +79,12 @@ const useFiltersValidator = () => {
    * @return {{type: string, id: string}}
    */
   const validateFilters = ({ type, id }, pageCollections = false) => {
-    // Reset error
     filtersValidatorError.value = false;
 
-    // Case-insensitive comparison
     const typeLowerCase = type?.toLowerCase();
     const idLowerCase = id?.toLowerCase();
 
-    // For 'edits' and 'popular' filters, only 'id' is needed,
-    // but we set both to the same value
+    // Handle ID-based automatic filters
     if (idLowerCase === EDITS_SUGGESTION_PROVIDER) {
       return {
         type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
@@ -55,60 +99,44 @@ const useFiltersValidator = () => {
       };
     }
 
-    try {
-      if (typeLowerCase === TOPIC_SUGGESTION_PROVIDER) {
-        // Topic must be valid or we use the default filter
-        if (!topicIds.value.some((topicId) => topicId === idLowerCase)) {
-          throw new Error();
-        }
+    // "All collections" filter
+    if (idLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
+      if (pageCollections && !pageCollections.length) {
+        filtersValidatorError.value = true;
 
-        return { type: typeLowerCase, id: idLowerCase };
-      } else if (typeLowerCase === REGIONS_SUGGESTION_PROVIDER) {
-        // Region must be valid or we use the default filter
-
-        if (
-          !regions.some(
-            (region) =>
-              region.id.toLowerCase() === idLowerCase ||
-              region.countries.some(
-                (country) => country.id.toLowerCase() === idLowerCase
-              )
-          )
-        ) {
-          throw new Error();
-        }
-
-        return { type: typeLowerCase, id: idLowerCase };
-      } else if (typeLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
-        if (
-          pageCollections &&
-          !pageCollections.some((col) => col.name.toLowerCase() === idLowerCase)
-        ) {
-          throw new Error();
-        }
-
-        // if no page collections are given, we cannot properly validate the suggestion filter for
-        // a specific collection. In this case, we are just accepting any value as valid collection name
-        return { type: typeLowerCase, id };
-      } else if (idLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
-        if (pageCollections && !pageCollections.length) {
-          throw new Error();
-        }
-
-        return {
-          type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
-          id: COLLECTIONS_SUGGESTION_PROVIDER,
-        };
-      } else if (typeLowerCase === SEED_SUGGESTION_PROVIDER) {
-        return { type: typeLowerCase, id };
+        return DEFAULT_FILTERS;
       }
-    } catch (error) {
-      filtersValidatorError.value = true;
 
-      return DEFAULT_FILTERS;
+      return {
+        type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+        id: COLLECTIONS_SUGGESTION_PROVIDER,
+      };
     }
 
-    // At this point we just set it to the default filter
+    // Handle type-based validation filters
+    if (typeLowerCase === TOPIC_SUGGESTION_PROVIDER) {
+      const validationResult = validateTopicFilter(id, idLowerCase);
+      if (validationResult) return validationResult;
+
+      filtersValidatorError.value = true;
+    } else if (typeLowerCase === REGIONS_SUGGESTION_PROVIDER) {
+      const validationResult = validateRegionFilter(id, idLowerCase);
+      if (validationResult) return validationResult;
+
+      filtersValidatorError.value = true;
+    } else if (typeLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
+      const validationResult = validateCollectionFilter(
+        id,
+        idLowerCase,
+        pageCollections
+      );
+      if (validationResult) return validationResult;
+
+      filtersValidatorError.value = true;
+    } else if (typeLowerCase === SEED_SUGGESTION_PROVIDER) {
+      return { type: SEED_SUGGESTION_PROVIDER, id };
+    }
+
     return DEFAULT_FILTERS;
   };
 
