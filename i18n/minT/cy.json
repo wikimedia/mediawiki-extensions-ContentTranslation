@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ceirios"
+		]
+	},
+	"automatic-translation-special-page-description": "Cyfieithu peirianyddol",
+	"automatic-translation-desc": "Yn cynnig [[Special:AutomaticTranslation|cyfieithu peirianyddol]] ar gyfer tudalennau cynnwys.",
+	"mint-home-header-title": "Cyfieithu peirianyddol",
+	"mint-home-input-placeholder": "Chwilio am bwnc",
+	"mint-translation-list-all-languages-option-label": "Popeth",
+	"mint-home-info-panel-text": "Gellir cyfieithu miliynau o bynciau ar Wicipedia yn awtomatig i $1.",
+	"mint-home-random-topic-button-label": "Pwnc ar hap",
+	"mint-language-selector-title": "Ieithoedd",
+	"mint-language-selector-suggestions-header": "Awgrymir",
+	"mint-language-selector-all-languages-header": "Pob iaith",
+	"mint-language-selector-input-placeholder": "Dewisiwch iaith",
+	"mint-language-selector-no-search-results": "Dim canlyniadau",
+	"mint-search-topic-page-header": "Chwilio am bwnc",
+	"mint-search-topic-page-input-placeholder": "Chwilio am bwnc",
+	"mint-confirm-topic-page-header": "Cyfieithu peirianyddol",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Gweld cyfieithiad peirianyddol",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Darllen erthygl",
+	"mint-view-translation-page-header": "Cyfieithu peirianyddol",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Dysgu mwy",
+	"mint-view-translation-page-source-article-link-label": "Agor yn $1"
+}

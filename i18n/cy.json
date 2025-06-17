@@ -11,10 +11,10 @@
 			"Thefartydoctor"
 		]
 	},
-	"cx": "Cyfieithu'r dudalen",
+	"cx": "Cyfieithu tudalen",
 	"cx-dashboard-header": "Cyfieithiadau",
 	"cx-javascript": "Nid yw'r offeryn hwn yn gweithio heb JavaScript. Mae'n debyg bod JavaScript wedi'i analluogi, wedi methu, neu nid yw'r porwr hwn yn cael ei gefnogi.",
-	"cx-specialpage-enable-betafeature": "Mae'r [[mw:Special:MyLanguage/Content_translation|Cymhorthydd Cyfieithu]] yn offeryn sy'n eich helpu chi gyfieithu tudalennau i'ch iaith yn gyflym. [$1 Rhowch gynnig arni!]",
+	"cx-specialpage-enable-betafeature": "Mae'r [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation Cyfieithu] yn offeryn sy'n eich helpu chi gyfieithu tudalennau i'ch iaith yn gyflym. [$1 Rhowch gynnig arni!]",
 	"cx-license-agreement": "Wrth barhau, rydych chi'n cytuno â'r [https://foundation.wikimedia.org/wiki/Terms_of_Use Telerau Gwasanaeth] ac yn cytuno'n ddi-droi'n-ôl i ryddhau eich cyfraniadau o dan [https://creativecommons.org/licenses/by-sa/4.0/ Drwydded CC BY-SA 4.0] a'r [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3]",
 	"cx-error-server-connection": "Gwall: Ni allwyd cysylltu â'r gweinydd.",
 	"cx-desc": "Hwyluso'r gwaith o [[Special:ContentTranslation|gyfieithu]] tudalennau cynnwys",
