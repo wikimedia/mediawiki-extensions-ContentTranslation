@@ -279,11 +279,13 @@ class ApiContentTranslationPublish extends ApiBase {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 			$saveResult = $this->saveWikitext( $targetTitle, $wikitext, $params );
 		} catch ( ApiUsageException $e ) {
+			throw $e;
+		} catch ( Exception $e ) {
 			$this->logger->error(
-				'Error when publishing content for {targetTitle}, {apiException}',
+				'Error when publishing content for {targetTitle}, {exception}',
 				[
 					'targetTitle' => $targetTitle->getPrefixedDBkey(),
-					'apiException' => $e->getMessage(),
+					'exception' => $e->getMessage(),
 				]
 			);
 

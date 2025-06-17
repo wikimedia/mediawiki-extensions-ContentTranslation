@@ -227,11 +227,13 @@ class ApiSectionTranslationPublish extends ApiBase {
 		try {
 			$editResult = $this->saveWikitext( $params['html'], $targetTitle, $sectionNumber, $targetSectionTitle );
 		} catch ( ApiUsageException $e ) {
+			throw $e;
+		} catch ( Exception $e ) {
 			$this->logger->error(
-				'Error when publishing section {targetTitle}, {apiException}',
+				'Error when publishing section {targetTitle}, {exception}',
 				[
 					'targetTitle' => $targetTitle->getPrefixedDBkey(),
-					'apiException' => $e->getMessage(),
+					'exception' => $e->getMessage(),
 				]
 			);
 
