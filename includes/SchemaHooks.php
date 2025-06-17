@@ -17,15 +17,6 @@ class SchemaHooks implements LoadExtensionSchemaUpdatesHook {
 	 * @param DatabaseUpdater $updater
 	 */
 	public function onLoadExtensionSchemaUpdates( $updater ) {
-		global $wgContentTranslationCluster, $wgContentTranslationDatabase;
-
-		// Following tables should only be created if both cluster and database are false.
-		// Otherwise, they are not created in the place they are accesses, because
-		// DatabaseUpdater does not support other databases other than main wiki schema.
-		if ( $wgContentTranslationCluster !== false || $wgContentTranslationDatabase !== false ) {
-			return;
-		}
-
 		$dir = dirname( __DIR__ );
 		$dbType = $updater->getDB()->getType();
 

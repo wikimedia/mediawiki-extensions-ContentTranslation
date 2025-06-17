@@ -358,14 +358,6 @@
 				"yue": "zh-yue"
 			}
 		},
-		"ContentTranslationDatabase": {
-			"description": "The Database domain ID of the relevant wiki or false for the local wiki",
-			"value": false
-		},
-		"ContentTranslationCluster": {
-			"description": "The external Database cluster name where the database lives or false if not exists",
-			"value": false
-		},
 		"ContentTranslationSiteTemplates": {
 			"value": {
 				"view": "https://$1.wikipedia.org/wiki/$2",
@@ -1899,6 +1891,5 @@
 		"remoteExtPath": "ContentTranslation/modules"
 	},
 	"load_composer_autoloader": true,
-	"manifest_version": 2,
-	"callback": "ContentTranslation\\HookHandler\\RegistrationHandler::onRegistration"
+	"manifest_version": 2
 }
