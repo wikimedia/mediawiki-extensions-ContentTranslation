@@ -23,6 +23,7 @@ use ContentTranslation\Notification;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\Service\TranslationTargetUrlCreator;
+use ContentTranslation\Service\UserPermissionChecker;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
@@ -54,6 +55,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	private LanguageNameUtils $languageNameUtils;
 	private TranslationStore $translationStore;
 	private TranslationTargetUrlCreator $targetUrlCreator;
+	private UserPermissionChecker $userPermissionChecker;
 	private ChangeTagsStore $changeTagsStore;
 	private LoggerInterface $logger;
 
@@ -66,6 +68,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		LanguageNameUtils $languageNameUtils,
 		TranslationStore $translationStore,
 		TranslationTargetUrlCreator $targetUrlCreator,
+		UserPermissionChecker $userPermissionChecker,
 		ChangeTagsStore $changeTagsStore
 	) {
 		parent::__construct( $main, $name );
@@ -75,6 +78,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		$this->languageNameUtils = $languageNameUtils;
 		$this->translationStore = $translationStore;
 		$this->targetUrlCreator = $targetUrlCreator;
+		$this->userPermissionChecker = $userPermissionChecker;
 		$this->changeTagsStore = $changeTagsStore;
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
@@ -226,6 +230,11 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		if ( trim( $params['html'] ) === '' ) {
 			$this->dieWithError( [ 'apierror-paramempty', 'html' ], 'invalidhtml' );
+		}
+
+		// Check user group publishing requirements
+		if ( !$this->userPermissionChecker->checkUserCanPublish( $this->getUser(), $params['title'] ) ) {
+			$this->dieWithError( 'apierror-cx-publish-usergroup-required', 'usergroup-required' );
 		}
 
 		$this->publish();

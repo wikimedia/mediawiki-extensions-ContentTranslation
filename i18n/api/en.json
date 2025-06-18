@@ -96,6 +96,7 @@
 	"apierror-cx-samelanguages": "Source and target languages cannot be the same.",
 	"apierror-cx-suggestionsdisabled": "Suggestions not enabled for this wiki.",
 	"apierror-cx-translationnotfound": "Translation not found.",
+	"apierror-cx-publish-usergroup-required": "You do not have the required user group permissions to publish translations to the main namespace.",
 	"apihelp-query+langlinkscount-summary": "Get the number of other language versions.",
 	"apihelp-query+langlinkscount-example-1": "Get the number of other language versions for 'Dog' page",
 	"apihelp-query+cxdeletedtranslations-summary": "Get the number of your published translations that were deleted.",

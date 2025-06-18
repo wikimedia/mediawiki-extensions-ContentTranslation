@@ -16,6 +16,7 @@ use ContentTranslation\Service\SectionTitleFetcher;
 use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\Service\TranslationTargetUrlCreator;
 use ContentTranslation\Service\TranslatorService;
+use ContentTranslation\Service\UserPermissionChecker;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Service\WikidataIdFetcher;
 use ContentTranslation\Store\FavoriteSuggestionStore;
@@ -171,6 +172,17 @@ return [
 			return new TranslatorService(
 				$services->getService( 'ContentTranslation.UserService' ),
 				$services->getService( 'ContentTranslation.TranslationStore' )
+			);
+		},
+	'ContentTranslation.UserPermissionChecker' =>
+		static function ( MediaWikiServices $services ): UserPermissionChecker {
+			return new UserPermissionChecker(
+				$services->getTitleFactory(),
+				$services->getUserGroupManager(),
+				new ServiceOptions(
+					UserPermissionChecker::CONSTRUCTOR_OPTIONS,
+					$services->getMainConfig()
+				)
 			);
 		},
 	'ContentTranslation.UserService' =>

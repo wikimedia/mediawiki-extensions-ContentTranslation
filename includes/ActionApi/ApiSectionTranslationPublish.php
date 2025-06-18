@@ -20,6 +20,7 @@ use ContentTranslation\SectionAction;
 use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\TranslationTargetUrlCreator;
+use ContentTranslation\Service\UserPermissionChecker;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
@@ -50,6 +51,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	private SectionTranslationStore $sectionTranslationStore;
 	private TranslationStore $translationStore;
 	private TranslationTargetUrlCreator $targetUrlCreator;
+	private UserPermissionChecker $userPermissionChecker;
 	private ChangeTagsStore $changeTagsStore;
 	private LoggerInterface $logger;
 
@@ -65,6 +67,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		SectionTranslationStore $sectionTranslationStore,
 		TranslationStore $translationStore,
 		TranslationTargetUrlCreator $targetUrlCreator,
+		UserPermissionChecker $userPermissionChecker,
 		ChangeTagsStore $changeTagsStore
 	) {
 		parent::__construct( $main, $action );
@@ -77,6 +80,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->translationStore = $translationStore;
 		$this->targetUrlCreator = $targetUrlCreator;
+		$this->userPermissionChecker = $userPermissionChecker;
 		$this->changeTagsStore = $changeTagsStore;
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
@@ -189,6 +193,17 @@ class ApiSectionTranslationPublish extends ApiBase {
 
 		if ( trim( $params['html'] ) === '' ) {
 			$this->dieWithError( [ 'apierror-paramempty', 'html' ], 'invalidhtml' );
+		}
+
+		// Check user group publishing requirements
+		if (
+			!$this->userPermissionChecker->checkUserCanPublish(
+				$this->getUser(),
+				$params['title'],
+				$params['issandbox'] ?? false
+			)
+		) {
+			$this->dieWithError( 'apierror-cx-publish-usergroup-required', 'usergroup-required' );
 		}
 
 		$this->publish();
