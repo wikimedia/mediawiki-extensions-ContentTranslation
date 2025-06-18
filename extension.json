@@ -190,7 +190,7 @@
 				"TitleFactory",
 				"HookContainer",
 				"LanguageNameUtils",
-				"ContentTranslation.ParsoidClientFactory",
+				"ContentTranslation.SectionContentEvaluator",
 				"ContentTranslation.SectionPositionCalculator",
 				"ContentTranslation.SandboxTitleMaker",
 				"ContentTranslation.SectionTranslationStore",

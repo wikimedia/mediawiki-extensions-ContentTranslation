@@ -11,6 +11,7 @@ use ContentTranslation\PreferenceHelper;
 use ContentTranslation\Service\ContentCompressionService;
 use ContentTranslation\Service\EditedSectionFinder;
 use ContentTranslation\Service\SandboxTitleMaker;
+use ContentTranslation\Service\SectionContentEvaluator;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
 use ContentTranslation\Service\TranslationSplitter;
@@ -107,6 +108,13 @@ return [
 		static function ( MediaWikiServices $services ): SandboxTitleMaker {
 			$isSandboxLinkLoaded = ExtensionRegistry::getInstance()->isLoaded( 'SandboxLink' );
 			return new SandboxTitleMaker( $services->getTitleFactory(), $isSandboxLinkLoaded );
+		},
+	'ContentTranslation.SectionContentEvaluator' =>
+		static function ( MediaWikiServices $services ): SectionContentEvaluator {
+			return new SectionContentEvaluator(
+				$services->getWikiPageFactory(),
+				$services->getService( 'ContentTranslation.ParsoidClientFactory' )
+			);
 		},
 	'ContentTranslation.SectionPositionCalculator' =>
 		static function ( MediaWikiServices $services ): SectionPositionCalculator {

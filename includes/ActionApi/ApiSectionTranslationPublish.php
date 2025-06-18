@@ -13,11 +13,12 @@
 namespace ContentTranslation\ActionApi;
 
 use ContentTranslation\ContentTranslationHookRunner;
+use ContentTranslation\Exception\HtmlToWikitextConversionException;
+use ContentTranslation\Exception\SectionWikitextRetrievalException;
 use ContentTranslation\LogNames;
-use ContentTranslation\ParsoidClient;
-use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\SectionAction;
 use ContentTranslation\Service\SandboxTitleMaker;
+use ContentTranslation\Service\SectionContentEvaluator;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\TranslationTargetUrlCreator;
 use ContentTranslation\Service\UserPermissionChecker;
@@ -45,7 +46,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	private TitleFactory $titleFactory;
 	private HookContainer $hookContainer;
 	private LanguageNameUtils $languageNameUtils;
-	protected ParsoidClientFactory $parsoidClientFactory;
+	private SectionContentEvaluator $sectionContentEvaluator;
 	private SectionPositionCalculator $sectionPositionCalculator;
 	private SandboxTitleMaker $sandboxTitleMaker;
 	private SectionTranslationStore $sectionTranslationStore;
@@ -61,7 +62,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		TitleFactory $titleFactory,
 		HookContainer $hookContainer,
 		LanguageNameUtils $languageNameUtils,
-		ParsoidClientFactory $parsoidClientFactory,
+		SectionContentEvaluator $sectionContentEvaluator,
 		SectionPositionCalculator $sectionPositionCalculator,
 		SandboxTitleMaker $sandboxTitleMaker,
 		SectionTranslationStore $sectionTranslationStore,
@@ -74,7 +75,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->titleFactory = $titleFactory;
 		$this->hookContainer = $hookContainer;
 		$this->languageNameUtils = $languageNameUtils;
-		$this->parsoidClientFactory = $parsoidClientFactory;
+		$this->sectionContentEvaluator = $sectionContentEvaluator;
 		$this->sectionPositionCalculator = $sectionPositionCalculator;
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
 		$this->sectionTranslationStore = $sectionTranslationStore;
@@ -83,10 +84,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->userPermissionChecker = $userPermissionChecker;
 		$this->changeTagsStore = $changeTagsStore;
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
-	}
-
-	protected function getParsoidClient(): ParsoidClient {
-		return $this->parsoidClientFactory->createParsoidClient();
 	}
 
 	/**
@@ -127,8 +124,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	protected function submitEditAction( Title $title, string $wikitext, $sectionNumber ) {
 		$params = $this->extractRequestParams();
 		[ 'sourcelanguage' => $from, 'sourcerevid' => $sourceRevId, 'sourcetitle' => $sourceTitle ] = $params;
-		// TODO: 'existingsectiontitle' param will be added in following patch
-		$existingSectionTitle = null;
+		$existingSectionTitle = $params['existingsectiontitle'];
 		$sectionAction = SectionAction::fromData( $sectionNumber, $existingSectionTitle );
 		$summary = $this->getPublishSummary(
 			$from,
@@ -230,15 +226,23 @@ class ApiSectionTranslationPublish extends ApiBase {
 		'@phan-var Title $targetTitle';
 		$hookRunner->onSectionTranslationBeforePublish( $targetTitle, $targetLanguage, $user );
 
+		$existingSectionTitle = $params['existingsectiontitle'];
 		$sectionNumber = $this->sectionPositionCalculator->calculateSectionPosition(
 			$targetTitle,
 			$targetLanguage,
-			$isSandbox
+			$isSandbox,
+			$existingSectionTitle
 		);
 
 		$targetSectionTitle = $params['targetsectiontitle'];
 		try {
-			$editResult = $this->saveWikitext( $params['html'], $targetTitle, $sectionNumber, $targetSectionTitle );
+			$editResult = $this->saveWikitext(
+				$params['html'],
+				$targetTitle,
+				$sectionNumber,
+				$targetSectionTitle,
+				$existingSectionTitle
+			);
 		} catch ( ApiUsageException $e ) {
 			throw $e;
 		} catch ( Exception $e ) {
@@ -332,26 +336,27 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param Title $targetTitle
 	 * @param int|string $sectionNumber
 	 * @param string $targetSectionTitle
+	 * @param string|null $existingSectionTitle
 	 * @return mixed
 	 * @throws ApiUsageException
 	 */
-	private function saveWikitext( string $html, Title $targetTitle, $sectionNumber, string $targetSectionTitle ) {
-		// When the section number is a positive integer, it means that the section needs to be positioned
-		// before the first appendix section. In those cases, we need to prepend the target section title
-		// to the HTML that is being published
-		// TODO: 'existingsectiontitle' param will be added in following patch
-		$existingSectionTitle = null;
+	private function saveWikitext(
+		string $html,
+		Title $targetTitle,
+		$sectionNumber,
+		string $targetSectionTitle,
+		?string $existingSectionTitle = null
+	) {
 		$sectionAction = SectionAction::fromData( $sectionNumber, $existingSectionTitle );
-		if ( $sectionAction === SectionAction::CREATE_NUMBERED_SECTION ) {
-			$html = $this->prependSectionTitle( $html, $targetSectionTitle );
-		}
-		$wikitext = null;
 		try {
-			$wikitext = $this->getParsoidClient()->convertHtmlToWikitext(
+			$wikitext = $this->sectionContentEvaluator->calculateSectionContent(
+				$html,
 				$targetTitle,
-				$html
-			)['body'];
-		} catch ( Exception $e ) {
+				$sectionAction,
+				$targetSectionTitle,
+				$existingSectionTitle
+			);
+		} catch ( HtmlToWikitextConversionException $e ) {
 			$this->logger->error(
 				'Error when converting section HTML to Wikitext using ParsoidClient for {targetTitle}, {errorMessage}',
 				[
@@ -362,22 +367,21 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$this->dieWithError(
 				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
 			);
+		} catch ( SectionWikitextRetrievalException $e ) {
+			$this->logger->error(
+				'Error while retrieving wikitext of {targetTitle}:{sectionTitle}. {errorMessage}.',
+				[
+					'targetTitle' => $targetTitle->getPrefixedDBkey(),
+					'sectionTitle' => $existingSectionTitle,
+					'errorMessage' => $e->getMessage(),
+				]
+			);
+			$this->dieWithError(
+				[ 'apierror-cx-wikitext-retrieval-exception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
+			);
 		}
 		$editResult = $this->submitEditAction( $targetTitle, $wikitext, $sectionNumber );
 		return $editResult['edit'];
-	}
-
-	/**
-	 * This method prepends the target section title to the HTML that is being published.
-	 * Used for sections that need to be prepended to the first appendix section of the
-	 * target article.
-	 * @param string $html
-	 * @param string $sectionTitle
-	 * @return string
-	 */
-	private function prependSectionTitle( string $html, string $sectionTitle ): string {
-		// add empty line to the end of HTML string, so that the first appendix section title goes into the next line
-		return "<h2>$sectionTitle</h2>\n$html\n";
 	}
 
 	/**
@@ -459,6 +463,10 @@ class ApiSectionTranslationPublish extends ApiBase {
 			],
 			'issandbox' => [
 				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_REQUIRED => false,
+			],
+			'existingsectiontitle' => [
+				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'captchaid' => null,

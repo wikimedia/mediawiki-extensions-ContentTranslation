@@ -108,15 +108,21 @@ class SectionPositionCalculator {
 	 * 2. If section is a lead section then its position should be equal to 0.
 	 * 3. If the section is neither a sandbox section nor a lead section:
 	 *    a. If at least one appendix section exists then it equals to the
-	 * 	  index of the first appendix section (in order of appearance)
+	 *       index of the first appendix section (in order of appearance)
 	 *    b. If not, it's equal to "new".
 	 *
 	 * @param Title $targetTitle
 	 * @param string $targetLanguage
 	 * @param bool $isSandbox
+	 * @param string|null $existingSectionTitle
 	 * @return int|string
 	 */
-	public function calculateSectionPosition( Title $targetTitle, string $targetLanguage, bool $isSandbox ) {
+	public function calculateSectionPosition(
+		Title $targetTitle,
+		string $targetLanguage,
+		bool $isSandbox,
+		?string $existingSectionTitle = null
+	): int|string {
 		$sectionPosition = "new";
 		if ( $isSandbox ) {
 			return $sectionPosition;
@@ -130,6 +136,13 @@ class SectionPositionCalculator {
 		}
 
 		if ( $targetSectionTitles ) {
+			if ( $existingSectionTitle !== null ) {
+				$existingSectionPosition = array_search( $existingSectionTitle, $targetSectionTitles );
+
+				if ( $existingSectionPosition !== false ) {
+					return $existingSectionPosition;
+				}
+			}
 			$appendixTitles = $this->fetchAppendixTitles( $targetLanguage );
 
 			$targetAppendixTitles = array_intersect( $targetSectionTitles, $appendixTitles );

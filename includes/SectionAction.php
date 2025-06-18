@@ -36,4 +36,12 @@ enum SectionAction: int {
 
 		return self::CREATE_SECTION_AT_END;
 	}
+
+	public function isExpandAction(): bool {
+		return match ( $this ) {
+			self::EXPAND_LEAD_SECTION,
+			self::EXPAND_NUMBERED_SECTION => true,
+			default => false,
+		};
+	}
 }
