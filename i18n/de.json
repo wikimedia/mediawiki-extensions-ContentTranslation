@@ -555,6 +555,8 @@
 	"cx-sx-suggestions-filter-search-input-placeholder-topics": "Nach einem Thema suchen ...",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Thema ⋅ Artikel durchsuchen",
 	"cx-sx-suggestions-filter-search-results-topics-alternative-description": "Artikel durchsuchen",
+	"cx-sx-suggestions-filter-search-results-regions-default-description": "Region ⋅ Artikel durchsuchen",
+	"cx-sx-suggestions-filter-search-results-regions-alternative-description": "Artikel durchsuchen",
 	"cx-sx-suggestions-filter-search-results-collections-default-description": "Sammlung ⋅ {{PLURAL:$1|$1 Artikel|0=Keine Artikel}}",
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 Artikel|0=Keine Artikel}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Keine Ergebnisse gefunden",
