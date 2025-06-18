@@ -419,44 +419,18 @@ mw.cx.TranslationController.prototype.getSaveQueue = function () {
 
 /**
  * Find out if there is any "dirty" section translation units.
- * Inform about sections not saved to the user.
+ * Inform about sections not saved to the user and log editor close event
  *
  * @return {string|undefined} The message to be shown to the user
  */
 mw.cx.TranslationController.prototype.onPageUnload = function () {
-	const event = {
-		// eslint-disable-next-line camelcase
-		translation_source_title: this.translation.getSourceTitle(),
-		// eslint-disable-next-line camelcase
-		translation_target_title: this.translation.getTargetTitle(),
-		// eslint-disable-next-line camelcase
-		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
-	};
-
-	if ( this.translation.id ) {
-		// eslint-disable-next-line camelcase
-		event.translation_id = this.translation.id;
-	}
-
-	if ( this.translation.isSectionTranslation() ) {
-		// eslint-disable-next-line camelcase
-		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();
-		// eslint-disable-next-line camelcase
-		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
-	}
-
 	if ( this.hasUnsavedChanges() ) {
-		// eslint-disable-next-line camelcase
-		event.event_type = 'editor_close_warn';
-		mw.cx.logEvent( event );
+		this.logTranslationControllerEvent( 'editor_close_warn' );
 		// Immediately start processing the save queue.
 		this.processSaveQueue();
 		return mw.msg( 'cx-warning-unsaved-translation' );
-	} else {
-		// eslint-disable-next-line camelcase
-		event.event_type = 'editor_close';
-		mw.cx.logEvent( event );
 	}
+	this.logTranslationControllerEvent( 'editor_close' );
 };
 
 mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections, validations ) {
@@ -729,30 +703,7 @@ mw.cx.TranslationController.prototype.publish = function () {
 	const mtAbuseMsg = this.getMTAbuseMsg( numOfHighMTSections );
 
 	mw.log( '[CX] Publishing translation...' );
-	const event = {
-		// eslint-disable-next-line camelcase
-		event_type: 'publish_attempt',
-		// eslint-disable-next-line camelcase
-		translation_source_title: this.translation.getSourceTitle(),
-		// eslint-disable-next-line camelcase
-		translation_target_title: this.translation.getTargetTitle(),
-		// eslint-disable-next-line camelcase
-		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
-	};
-
-	if ( this.translation.id ) {
-		// eslint-disable-next-line camelcase
-		event.translation_id = this.translation.id;
-	}
-
-	if ( this.translation.isSectionTranslation() ) {
-		// eslint-disable-next-line camelcase
-		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();
-		// eslint-disable-next-line camelcase
-		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
-	}
-
-	mw.cx.logEvent( event );
+	this.logTranslationControllerEvent( 'publish_attempt' );
 
 	this.scrollToInfobar();
 
@@ -881,6 +832,7 @@ mw.cx.TranslationController.prototype.onPublishCancel = function () {
  */
 mw.cx.TranslationController.prototype.onPublishSuccess = function ( apiTargetTitle ) {
 	mw.log( '[CX] Publishing finished successfully' );
+	this.logTranslationControllerEvent( 'publish_success' );
 
 	this.scrollToInfobar();
 	const targetTitle = apiTargetTitle || this.translation.getTargetTitle();
@@ -894,31 +846,6 @@ mw.cx.TranslationController.prototype.onPublishSuccess = function ( apiTargetTit
 		this.translation.getSourceTitle(),
 		this.translation.getTargetTitle()
 	);
-
-	const event = {
-		// eslint-disable-next-line camelcase
-		event_type: 'publish_success',
-		// eslint-disable-next-line camelcase
-		translation_source_title: this.translation.getSourceTitle(),
-		// eslint-disable-next-line camelcase
-		translation_target_title: this.translation.getTargetTitle(),
-		// eslint-disable-next-line camelcase
-		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
-	};
-
-	if ( this.translation.id ) {
-		// eslint-disable-next-line camelcase
-		event.translation_id = this.translation.id;
-	}
-
-	if ( this.translation.isSectionTranslation() ) {
-		// eslint-disable-next-line camelcase
-		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();
-		// eslint-disable-next-line camelcase
-		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
-	}
-
-	mw.cx.logEvent( event );
 };
 
 /**
@@ -930,31 +857,7 @@ mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
 	this.veTarget.onPublishFailure( error.getMessageText() );
 	this.scrollToInfobar();
 	this.enableEditing();
-
-	const event = {
-		// eslint-disable-next-line camelcase
-		event_type: 'publish_failure',
-		// eslint-disable-next-line camelcase
-		translation_source_title: this.translation.getSourceTitle(),
-		// eslint-disable-next-line camelcase
-		translation_target_title: this.translation.getTargetTitle(),
-		// eslint-disable-next-line camelcase
-		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
-	};
-
-	if ( this.translation.id ) {
-		// eslint-disable-next-line camelcase
-		event.translation_id = this.translation.id;
-	}
-
-	if ( this.translation.isSectionTranslation() ) {
-		// eslint-disable-next-line camelcase
-		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();
-		// eslint-disable-next-line camelcase
-		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
-	}
-
-	mw.cx.logEvent( event );
+	this.logTranslationControllerEvent( 'publish_failure' );
 };
 
 /**
@@ -1091,6 +994,43 @@ mw.cx.TranslationController.prototype.onTranslationIssues = function ( id, hasEr
  */
 mw.cx.TranslationController.prototype.scrollToInfobar = function () {
 	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
+};
+
+/**
+ * Log TranslationController events
+ */
+mw.cx.TranslationController.prototype.logTranslationControllerEvent = function ( eventType ) {
+	const event = {
+		// eslint-disable-next-line camelcase
+		event_type: eventType,
+		// eslint-disable-next-line camelcase
+		translation_source_title: this.translation.getSourceTitle(),
+		// eslint-disable-next-line camelcase
+		translation_target_title: this.translation.getTargetTitle(),
+		// eslint-disable-next-line camelcase
+		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
+	};
+
+	if ( this.translation.id ) {
+		// eslint-disable-next-line camelcase
+		event.translation_id = this.translation.id;
+	}
+
+	if ( this.translation.isSectionTranslation() ) {
+		// eslint-disable-next-line camelcase
+		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();
+		// eslint-disable-next-line camelcase
+		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
+	}
+
+	this.veTarget.MTManager.getPreferredProvider()
+		.then( ( provider ) => {
+			// eslint-disable-next-line camelcase
+			event.translation_provider = provider;
+		} )
+		.always( () => {
+			mw.cx.logEvent( event );
+		} );
 };
 
 /* Registration */
