@@ -282,40 +282,8 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 
 	const editError = data.error;
 	if ( editError ) {
-		// Handle spam blacklist error (either from core or from Extension:SpamBlacklist)
-		// Example of API result - https://phabricator.wikimedia.org/P8991
-		if ( editError.code === 'spamblacklist' ) {
-			this.showPublishError(
-				mw.msg( 'cx-publish-error-spam-blacklist', editError.info ),
-				editError.info
-			);
-			return;
-		} else if ( editError.code.startsWith( 'abusefilter' ) ) {
-			// Handle Abuse Filter errors.
-			this.showPublishError(
-				mw.msg( 'cx-publish-error-abuse-filter', editError.abusefilter.description ),
-				editError.info
-			);
-			return;
-		} else if ( editError.code === 'invalidtitle' ) {
-			this.showPublishError(
-				mw.msg( 'title-invalid-characters', this.getTargetTitle() ),
-				JSON.stringify( editError )
-			);
-			return;
-		} else if ( editError.code === 'badtoken' || editError.code === 'assertuserfailed' ) {
-			this.showUnrecoverablePublishError(
-				mw.msg( 'cx-lost-session-publish' ),
-				JSON.stringify( editError )
-			);
-			return;
-		} else if ( editError.code === 'titleblacklist-forbidden' ) {
-			this.showPublishError( mw.msg( 'cx-publish-error-title-blacklist' ), JSON.stringify( editError ) );
-			return;
-		} else if ( editError.code === 'readonly' ) {
-			this.showUnrecoverablePublishError( mw.msg( 'cx-publish-error-readonly' ), editError.readonlyreason );
-			return;
-		}
+		this.handleEditError( editError );
+		return;
 	}
 
 	const editResult = data.edit;
@@ -629,4 +597,35 @@ mw.cx.TargetArticle.prototype.getTags = function ( hasTooMuchUnmodifiedText ) {
 	}
 
 	return tagString;
+};
+
+mw.cx.TargetArticle.prototype.handleEditError = function ( editError ) {
+	// Handle spam blacklist error (either from core or from Extension:SpamBlacklist)
+	// Example of API result - https://phabricator.wikimedia.org/P8991
+	if ( editError.code === 'spamblacklist' ) {
+		this.showPublishError(
+			mw.msg( 'cx-publish-error-spam-blacklist', editError.info ),
+			editError.info
+		);
+	} else if ( editError.code.startsWith( 'abusefilter' ) ) {
+		// Handle Abuse Filter errors.
+		this.showPublishError(
+			mw.msg( 'cx-publish-error-abuse-filter', editError.abusefilter.description ),
+			editError.info
+		);
+	} else if ( editError.code === 'invalidtitle' ) {
+		this.showPublishError(
+			mw.msg( 'title-invalid-characters', this.getTargetTitle() ),
+			JSON.stringify( editError )
+		);
+	} else if ( editError.code === 'badtoken' || editError.code === 'assertuserfailed' ) {
+		this.showUnrecoverablePublishError(
+			mw.msg( 'cx-lost-session-publish' ),
+			JSON.stringify( editError )
+		);
+	} else if ( editError.code === 'titleblacklist-forbidden' ) {
+		this.showPublishError( mw.msg( 'cx-publish-error-title-blacklist' ), JSON.stringify( editError ) );
+	} else if ( editError.code === 'readonly' ) {
+		this.showUnrecoverablePublishError( mw.msg( 'cx-publish-error-readonly' ), editError.readonlyreason );
+	}
 };
