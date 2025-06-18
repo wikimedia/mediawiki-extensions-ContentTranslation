@@ -16,6 +16,7 @@ use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\LogNames;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
+use ContentTranslation\SectionAction;
 use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\TranslationTargetUrlCreator;
@@ -88,7 +89,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param string $sourceLanguage
 	 * @param string $sourceRevId
 	 * @param string $sourceTitle
-	 * @param bool $isLeadSection
+	 * @param SectionAction $sectionAction
 	 * @param string $sourceSectionTitle
 	 * @return string
 	 */
@@ -96,23 +97,18 @@ class ApiSectionTranslationPublish extends ApiBase {
 		string $sourceLanguage,
 		string $sourceRevId,
 		string $sourceTitle,
-		bool $isLeadSection,
+		SectionAction $sectionAction,
 		string $sourceSectionTitle
 	): string {
 		$sourceLink = "[[:{$sourceLanguage}:Special:Redirect/revision/{$sourceRevId}|{$sourceTitle}]]";
 		// if the published section is a lead section, the summary should be slightly different
-		if ( $isLeadSection ) {
-			return $this->msg(
-				'cx-sx-publish-lead-section-summary',
-				$sourceLink
-			)->inContentLanguage()->text();
+		if ( $sectionAction === SectionAction::CREATE_LEAD_SECTION ) {
+			$message = $this->msg( 'cx-sx-publish-lead-section-summary', $sourceLink );
 		} else {
-			return $this->msg(
-				'cx-sx-publish-summary',
-				$sourceSectionTitle,
-				$sourceLink
-			)->inContentLanguage()->text();
+			$message = $this->msg( 'cx-sx-publish-summary', $sourceSectionTitle, $sourceLink );
 		}
+
+		return $message->inContentLanguage()->text();
 	}
 
 	/**
@@ -127,12 +123,14 @@ class ApiSectionTranslationPublish extends ApiBase {
 	protected function submitEditAction( Title $title, string $wikitext, $sectionNumber ) {
 		$params = $this->extractRequestParams();
 		[ 'sourcelanguage' => $from, 'sourcerevid' => $sourceRevId, 'sourcetitle' => $sourceTitle ] = $params;
-		$isLeadSection = $sectionNumber === 0;
+		// TODO: 'existingsectiontitle' param will be added in following patch
+		$existingSectionTitle = null;
+		$sectionAction = SectionAction::fromData( $sectionNumber, $existingSectionTitle );
 		$summary = $this->getPublishSummary(
 			$from,
 			$sourceRevId,
 			$sourceTitle,
-			$isLeadSection,
+			$sectionAction,
 			$params['sourcesectiontitle']
 		);
 
@@ -146,7 +144,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			'captchaword' => $params['captchaword'],
 		];
 
-		if ( (int)$sectionNumber > 0 ) {
+		if ( $sectionAction === SectionAction::CREATE_NUMBERED_SECTION ) {
 			$apiParams['prependtext'] = $wikitext;
 		} else {
 			$apiParams['text'] = $wikitext;
@@ -326,7 +324,10 @@ class ApiSectionTranslationPublish extends ApiBase {
 		// When the section number is a positive integer, it means that the section needs to be positioned
 		// before the first appendix section. In those cases, we need to prepend the target section title
 		// to the HTML that is being published
-		if ( (int)$sectionNumber > 0 ) {
+		// TODO: 'existingsectiontitle' param will be added in following patch
+		$existingSectionTitle = null;
+		$sectionAction = SectionAction::fromData( $sectionNumber, $existingSectionTitle );
+		if ( $sectionAction === SectionAction::CREATE_NUMBERED_SECTION ) {
 			$html = $this->prependSectionTitle( $html, $targetSectionTitle );
 		}
 		$wikitext = null;
