@@ -35,18 +35,6 @@
 		this.isNarrowScreenSize = false;
 
 		this.filterLabels = {};
-		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
-			this.filterLabels.suggestions = {
-				wide: {
-					label: mw.msg( 'cx-translation-filter-suggested-translations' ),
-					icon: undefined
-				},
-				narrow: {
-					label: undefined,
-					icon: 'lightbulb'
-				}
-			};
-		}
 		this.filterLabels.draft = {
 			wide: {
 				label: mw.msg( 'cx-translation-filter-draft-translations' ),
@@ -176,27 +164,12 @@
 			lists = [ 'draft', 'published' ];
 
 		this.renderTranslations();
-		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
-			this.renderTranslationSuggestions();
-			lists.push( 'suggestions' );
-		}
 
 		if ( lists.includes( locationHash ) ) {
 			this.setActiveList( locationHash );
 		} else {
 			this.setActiveList( 'draft' );
-			this.lists.draft.once( 'noDrafts', this.onNoDrafts.bind( this ) );
 		}
-	};
-
-	/**
-	 * Populates various UI components with data in the given translation suggestions.
-	 */
-	CXDashboard.prototype.renderTranslationSuggestions = function () {
-		this.lists.suggestions = new mw.cx.CXSuggestionList(
-			this.$translationListContainer,
-			this.siteMapper
-		);
 	};
 
 	/**
@@ -386,15 +359,6 @@
 		} );
 		// Resize handler
 		$( window ).on( 'resize', OO.ui.throttle( this.resize.bind( this ), 250 ) );
-	};
-
-	/**
-	 * Handler called when user has no draft translations
-	 */
-	CXDashboard.prototype.onNoDrafts = function () {
-		if ( mw.config.get( 'wgContentTranslationEnableSuggestions' ) ) {
-			this.setActiveList( 'suggestions' );
-		}
 	};
 
 	CXDashboard.prototype.hideListHeader = function () {

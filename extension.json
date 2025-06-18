@@ -246,12 +246,6 @@
 				"LanguageNameUtils"
 			]
 		},
-		"cxsuggestionlist": {
-			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
-			"services": [
-				"ContentTranslation.UserService"
-			]
-		},
 		"cxtoken": "ContentTranslation\\ActionApi\\ApiContentTranslationToken"
 	},
 	"APIListModules": {
@@ -527,7 +521,6 @@
 				"dashboard/ext.cx.recommendtool.client.js",
 				"dashboard/mw.cx.DashboardList.js",
 				"dashboard/mw.cx.TranslationList.js",
-				"dashboard/mw.cx.SuggestionList.js",
 				"widgets/translator/ext.cx.translator.js",
 				"dashboard/ext.cx.dashboard.js"
 			],
@@ -538,7 +531,6 @@
 				"source/styles/mw.cx.SourcePageSelector.less",
 				"widgets/progressbar/ext.cx.progressbar.less",
 				"dashboard/styles/mw.cx.TranslationList.less",
-				"dashboard/styles/mw.cx.SuggestionList.less",
 				"widgets/translator/ext.cx.translator.less",
 				"dashboard/styles/ext.cx.dashboard.less"
 			],
