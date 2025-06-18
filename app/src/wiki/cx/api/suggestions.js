@@ -597,10 +597,9 @@ function fetchAppendixTargetSectionTitles(targetLanguage) {
 const markFavorite = (sourceTitle, sourceLanguage, targetLanguage) => {
   const params = {
     assert: "user",
-    action: "cxsuggestionlist",
-    listname: "cx-suggestionlist-favorite",
+    action: "cxfavoritesuggestions",
     listaction: "add",
-    titles: sourceTitle,
+    title: sourceTitle,
     from: sourceLanguage,
     to: targetLanguage,
   };
@@ -621,10 +620,9 @@ const markFavorite = (sourceTitle, sourceLanguage, targetLanguage) => {
 const unmarkFavorite = (suggestion) => {
   const params = {
     assert: "user",
-    action: "cxsuggestionlist",
-    listname: "cx-suggestionlist-favorite",
+    action: "cxfavoritesuggestions",
     listaction: "remove",
-    titles: suggestion.title,
+    title: suggestion.title,
     from: suggestion.sourceLanguage,
     to: suggestion.targetLanguage,
   };

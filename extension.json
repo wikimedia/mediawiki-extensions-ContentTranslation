@@ -237,6 +237,15 @@
 				"ContentTranslation.UserService"
 			]
 		},
+		"cxfavoritesuggestions": {
+			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationFavoriteSuggestions",
+			"services": [
+				"ContentTranslation.FavoriteSuggestionStore",
+				"ContentTranslation.UserService",
+				"TitleFactory",
+				"LanguageNameUtils"
+			]
+		},
 		"cxsuggestionlist": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
 			"services": [

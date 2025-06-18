@@ -17,6 +17,7 @@ use ContentTranslation\Service\TranslationTargetUrlCreator;
 use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Service\WikidataIdFetcher;
+use ContentTranslation\Store\FavoriteSuggestionStore;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
@@ -65,6 +66,10 @@ return [
 	'ContentTranslation.EditedSectionFinder' =>
 		static function (): EditedSectionFinder {
 			return new EditedSectionFinder();
+		},
+	'ContentTranslation.FavoriteSuggestionStore' =>
+		static function ( MediaWikiServices $services ): FavoriteSuggestionStore {
+			return new FavoriteSuggestionStore( $services->getService( 'ContentTranslation.ConnectionProvider' ) );
 		},
 	'ContentTranslation.ParsoidClientFactory' => static function (
 			MediaWikiServices $services

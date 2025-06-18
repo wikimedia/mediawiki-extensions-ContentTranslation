@@ -101,6 +101,7 @@
 	"apierror-cx-jwtmissing": "{{doc-apierror}}\n\n\"JWT\" is \"[https://jwt.io/ JSON web token]\", a technology for identifying users for web services.",
 	"apierror-cx-keynotconfigured": "{{doc-apierror}}",
 	"apierror-cx-missingdraft": "{{doc-apierror}}",
+	"apierror-cx-mustbeloggedin-favorites": "{{doc-apierror}}",
 	"apierror-cx-mustbeloggedin-suggestions": "{{doc-apierror}}",
 	"apierror-cx-mustbeloggedin-get-suggestions": "{{doc-apierror}}",
 	"apierror-cx-mustbeloggedin-viewtranslations": "{{doc-apierror}}",
@@ -160,5 +161,12 @@
 	"apihelp-query+automatictranslationdenselanguages-example-1": "{{doc-apihelp-example|query+automatictranslationdenselanguages}}",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "{{doc-apihelp-example|query+automatictranslationdenselanguages}}",
 	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "{{doc-apierror}}",
-	"apihelp-query+automatictranslationdenselanguages-param-limit": "{{doc-apihelp-param|query+automatictranslationdenselanguages|limit}}"
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "{{doc-apihelp-param|query+automatictranslationdenselanguages|limit}}",
+	"apihelp-cxfavoritesuggestions-summary": "{{doc-apihelp-summary|cxfavoritesuggestions}}",
+	"apihelp-cxfavoritesuggestions-param-listaction": "{{doc-apihelp-param|cxfavoritesuggestions|listaction}}",
+	"apihelp-cxfavoritesuggestions-param-title": "{{doc-apihelp-param|cxfavoritesuggestions|title}}",
+	"apihelp-cxfavoritesuggestions-param-from": "{{doc-apihelp-param|cxfavoritesuggestions|from}}",
+	"apihelp-cxfavoritesuggestions-param-to": "{{doc-apihelp-param|cxfavoritesuggestions|to}}",
+	"apihelp-cxfavoritesuggestions-example-1": "{{doc-apihelp-example|cxfavoritesuggestions}}",
+	"apihelp-cxfavoritesuggestions-example-2": "{{doc-apihelp-example|cxfavoritesuggestions}}"
 }

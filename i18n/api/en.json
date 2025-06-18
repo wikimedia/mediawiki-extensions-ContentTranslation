@@ -104,6 +104,7 @@
 	"apierror-cx-jwtmissing": "JWT is not installed.",
 	"apierror-cx-keynotconfigured": "Key not configured.",
 	"apierror-cx-missingdraft": "Draft does not exist.",
+	"apierror-cx-mustbeloggedin-favorites": "You must be logged-in to manage your favorite suggestions.",
 	"apierror-cx-mustbeloggedin-suggestions": "You must be logged-in to manage your suggestions.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "You must be logged-in to get translation suggestions.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "To view your translations, you must log in.",
@@ -163,5 +164,12 @@
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Fetch the list of sitelinks for the 'Moon' article in all available languages, sorted by article size.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "Fetch the list of sitelinks for the 'Moon' article, including the section titles, in all available languages, sorted by article size.",
 	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Request to fetch sitelinks from Wikidata failed",
-	"apihelp-query+automatictranslationdenselanguages-param-limit": "The maximum number of sitelinks to fetch."
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "The maximum number of sitelinks to fetch.",
+	"apihelp-cxfavoritesuggestions-summary": "Add or remove a favorite suggestion to the current user's list.",
+	"apihelp-cxfavoritesuggestions-param-listaction": "Action to be performed on the given favorite suggestion title. Available options: 'add' and 'remove'",
+	"apihelp-cxfavoritesuggestions-param-title": "The title of the favorite suggestion on which the action should be performed",
+	"apihelp-cxfavoritesuggestions-param-from": "The source language of the favorite suggestion on which the action should be performed",
+	"apihelp-cxfavoritesuggestions-param-to": "The target language of the favorite suggestion on which the action should be performed",
+	"apihelp-cxfavoritesuggestions-example-1": "Add a suggestion to the user's list of favorite suggestions",
+	"apihelp-cxfavoritesuggestions-example-2": "Remove a suggestion from the user's list of favorite suggestions"
 }
