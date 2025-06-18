@@ -508,133 +508,6 @@
 				"base/ext.cx.model.js"
 			]
 		},
-		"ext.cx.dashboard": {
-			"scripts": [
-				"widgets/feedback/ext.cx.feedback.js",
-				"tools/ext.cx.tools.validator.js",
-				"source/mw.cx.SelectedSourcePage.js",
-				"source/mw.cx.SelectedSourcePageDialog.js",
-				"ui/widgets/mw.cx.ui.PageSelectorWidget.js",
-				"ui/widgets/mw.cx.ui.TitleOptionWidget.js",
-				"source/mw.cx.SourcePageSelector.js",
-				"widgets/progressbar/ext.cx.progressbar.js",
-				"dashboard/ext.cx.recommendtool.client.js",
-				"dashboard/mw.cx.DashboardList.js",
-				"dashboard/mw.cx.TranslationList.js",
-				"widgets/translator/ext.cx.translator.js",
-				"dashboard/ext.cx.dashboard.js"
-			],
-			"styles": [
-				"widgets/feedback/styles/ext.cx.feedback.less",
-				"source/styles/mw.cx.SelectedSourcePage.less",
-				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less",
-				"source/styles/mw.cx.SourcePageSelector.less",
-				"widgets/progressbar/ext.cx.progressbar.less",
-				"dashboard/styles/mw.cx.TranslationList.less",
-				"widgets/translator/ext.cx.translator.less",
-				"dashboard/styles/ext.cx.dashboard.less"
-			],
-			"skinStyles": {
-				"monobook": [
-					"dashboard/styles/ext.cx.dashboard.monobook.less"
-				]
-			},
-			"dependencies": [
-				"ext.cx.model",
-				"ext.cx.widgets.spinner",
-				"ext.uls.common",
-				"ext.uls.mediawiki",
-				"jquery.suggestions",
-				"jquery.uls.data",
-				"mediawiki.api",
-				"mediawiki.jqueryMsg",
-				"mediawiki.language",
-				"mediawiki.storage",
-				"mediawiki.user",
-				"mediawiki.widgets",
-				"moment",
-				"mw.cx.SiteMapper",
-				"mw.cx.ui",
-				"mw.cx.ui.Infobar",
-				"mw.cx.ui.LanguageFilter",
-				"mw.cx.util",
-				"oojs",
-				"oojs-ui.styles.icons-moderation",
-				"oojs-ui.styles.icons-alerts",
-				"oojs-ui.styles.icons-content",
-				"oojs-ui.styles.icons-editing-advanced",
-				"oojs-ui.styles.icons-editing-core",
-				"oojs-ui.styles.icons-interactions",
-				"oojs-ui.styles.icons-media",
-				"oojs-ui-widgets",
-				"oojs-ui-windows",
-				"user.options"
-			],
-			"messages": [
-				"ellipsis",
-				"login",
-				"cx-continue-translation",
-				"cx-create-new-translation",
-				"cx-dashboard-header",
-				"cx-dashboard-sidebar-feedback",
-				"cx-dashboard-sidebar-information",
-				"cx-dashboard-sidebar-title",
-				"cx-dashboard-sidebar-unifieddashboard",
-				"cx-dashboard-banner-message",
-				"cx-discard-translation",
-				"cx-draft-discard-confirmation-message",
-				"cx-draft-cancel-button-label",
-				"cx-draft-discard-button-label",
-				"cx-error-server-connection",
-				"cx-favorite-add",
-				"cx-favorite-added-for-later",
-				"cx-favorite-added-for-later-detail",
-				"cx-favorite-remove",
-				"cx-favorite-removed",
-				"cx-feedback-link",
-				"cx-header-progressbar-text",
-				"cx-header-progressbar-text-mt",
-				"cx-license-agreement",
-				"cx-lost-session",
-				"cx-lost-session-dashboard",
-				"cx-page-missing-in-target-language",
-				"cx-page-number-of-languages",
-				"cx-page-selector-widget-recent-edits-label",
-				"cx-page-selector-widget-nearby-label",
-				"cx-selected-source-page-start-translation-button",
-				"cx-selected-source-page-error-page-and-title-exist",
-				"cx-selected-source-page-error-page-exists",
-				"cx-selected-source-page-error-title-in-use",
-				"cx-selected-source-page-view-count",
-				"cx-source-page-selector-input-placeholder",
-				"cx-source-page-selector-no-suggestions",
-				"cx-source-page-selector-no-search-results",
-				"cx-suggestionlist-collapse",
-				"cx-suggestionlist-discard",
-				"cx-suggestionlist-empty-desc",
-				"cx-suggestionlist-empty-desc-recommend-link-text",
-				"cx-suggestionlist-empty-title",
-				"cx-suggestionlist-expand",
-				"cx-suggestionlist-favorite",
-				"cx-suggestionlist-featured",
-				"cx-suggestionlist-refresh",
-				"cx-suggestionlist-title",
-				"cx-suggestionlist-view-source-page",
-				"cx-translation-filter-draft-translations",
-				"cx-translation-filter-published-translations",
-				"cx-translation-filter-suggested-translations",
-				"cx-translation-status-draft",
-				"cx-translation-status-deleted",
-				"cx-translation-status-published",
-				"cx-translation-label-draft",
-				"cx-translation-label-published",
-				"cx-translationlist-empty-title",
-				"cx-translationlist-empty-desc",
-				"cx-translator-header",
-				"cx-translator-month-stats-label",
-				"cx-translator-total-translations-label"
-			]
-		},
 		"sx.publishing.followup": {
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.publishingfollowup/index.js",
@@ -706,7 +579,6 @@
 				"CdxTab"
 			],
 			"messages": [
-				"cx-dashboard-header",
 				"cx-create-new-translation",
 				"cx-translation-filter-suggested-translations",
 				"cx-translation-filter-draft-translations",
@@ -1011,30 +883,6 @@
 				"mediawiki.ForeignApi",
 				"mediawiki.Title",
 				"mediawiki.user"
-			]
-		},
-		"mw.cx.ui.LanguageFilter": {
-			"scripts": [
-				"ui/mw.cx.ui.LanguageFilter.js"
-			],
-			"styles": [
-				"ui/styles/mw.cx.ui.LanguageFilter.less"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"ext.uls.common",
-				"ext.uls.mediawiki",
-				"jquery.uls.data",
-				"mediawiki.jqueryMsg",
-				"mediawiki.storage",
-				"mediawiki.language",
-				"mw.cx.util",
-				"oojs-ui.styles.icons-interactions",
-				"oojs-ui-widgets"
-			],
-			"messages": [
-				"cx-translation-filter-label-all-languages",
-				"cx-translation-filter-uls-all-languages"
 			]
 		},
 		"ext.cx.wikibase.link": {
