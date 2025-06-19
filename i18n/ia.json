@@ -543,6 +543,8 @@
 	"cx-sx-suggestions-filter-search-input-placeholder-topics": "Cercar un topico…",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Topico ⋅ Percurrer articulos",
 	"cx-sx-suggestions-filter-search-results-topics-alternative-description": "Percurrer articulos",
+	"cx-sx-suggestions-filter-search-results-regions-default-description": "Region ⋅ Percurrer articulos",
+	"cx-sx-suggestions-filter-search-results-regions-alternative-description": "Percurrer articulos",
 	"cx-sx-suggestions-filter-search-results-collections-default-description": "Collection ⋅ {{PLURAL:$1|$1 articulo|$1 articulos|0=Necun articulo}}",
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 articulo|$1 articulos|0=Necun articulo}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Nulle resultato trovate",

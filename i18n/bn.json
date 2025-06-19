@@ -40,6 +40,7 @@
 	"cx-publish-error-spam-blacklist": "আপনার অনুবাদে সম্ভাব্য স্প্যামযুক্ত বিষয়বস্তু সনাক্ত করা হয়েছে। বিস্তারিত: $1",
 	"cx-publish-error-title-blacklist": "আপনি যে শিরোনাম লিখেছেন তা কালোতালিকাভুক্ত। আপনার অনুবাদের জন্য অন্য নাম নির্বাচন করুন।",
 	"cx-publish-error-unknown": "অজানা উদ্ধারযোগ্য নয় ত্রুটি ঘটেছে। ত্রুটির বিস্তারিত: $1",
+	"cx-publish-error-offline": "আপনি বর্তমানে অফলাইনে আছেন। আপনি অনলাইনে ফিরে না আসা পর্যন্ত আপনার অনুবাদ প্রকাশ করা যাবে না।",
 	"cx-publish-button": "প্রকাশ করুন",
 	"cx-publish-button-publishing": "প্রকাশ করা হচ্ছে...",
 	"cx-lost-session": "এই অধিবেশনের মেয়াদ শেষ হয়ে গেছে",
@@ -541,5 +542,6 @@
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 দিন বাকি|0=কোনও দিন বাকি নেই}}",
 	"cx-page-collection-dialog-page-suggestions-header": "নতুন পাতা",
 	"cx-page-collection-dialog-section-suggestions-header": "নতুন অনুচ্ছেদ",
-	"cx-sx-suggestion-list-empty-title": "এখনকার জন্য কোনও পরামর্শ নেই"
+	"cx-sx-suggestion-list-empty-title": "এখনকার জন্য কোনও পরামর্শ নেই",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "সকল"
 }
