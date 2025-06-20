@@ -193,13 +193,11 @@ class TranslationCorporaStore {
 				break;
 			}
 
-			$ticket = $this->connectionProvider->getEmptyTransactionTicket( __METHOD__ );
 			$dbw->newDeleteQueryBuilder()
 				->deleteFrom( self::TABLE_NAME )
 				->where( [ 'cxc_id' => $rowsToDelete ] )
 				->caller( __METHOD__ )
 				->execute();
-			$this->connectionProvider->commitAndWaitForReplication( __METHOD__, $ticket );
 		}
 	}
 
