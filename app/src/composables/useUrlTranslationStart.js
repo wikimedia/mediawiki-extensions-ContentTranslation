@@ -9,8 +9,7 @@ import useDashboardOpenInstrument from "@/components/CXDashboard/useDashboardOpe
 const useUrlTranslationStart = () => {
   const startTranslation = useTranslationStart();
   const fetchLanguageTitles = useLanguageTitlesFetch();
-  const { logDashboardOpenEvent, getEventSource } =
-    useDashboardOpenInstrument();
+  const { logDashboardOpenEvent } = useDashboardOpenInstrument();
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
@@ -28,7 +27,7 @@ const useUrlTranslationStart = () => {
       pageTitle.value,
       sourceLanguage.value,
       targetLanguage.value,
-      getEventSource(),
+      "direct_preselect",
       null,
       false
     );

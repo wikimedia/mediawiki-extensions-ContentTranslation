@@ -84,7 +84,7 @@ const useDashboardOpenInstrument = () => {
     return logEvent(payload);
   };
 
-  return { logDashboardOpenEvent, getEventSource };
+  return { logDashboardOpenEvent };
 };
 
 export default useDashboardOpenInstrument;
