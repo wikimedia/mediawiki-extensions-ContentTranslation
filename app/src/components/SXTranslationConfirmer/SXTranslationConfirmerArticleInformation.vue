@@ -5,9 +5,8 @@ import { siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "vue";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import { useStore } from "vuex";
-import { useI18n } from "vue-banana-i18n";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
-import useTranslationSize from "@/composables/useTranslationSize";
+import useTranslationSize from "./useTranslationSize";
 import {
   cdxIconBookmark,
   cdxIconBookmarkOutline,
@@ -20,7 +19,6 @@ import useURLHandler from "@/composables/useURLHandler";
 import useCurrentPages from "@/composables/useCurrentPages";
 
 const store = useStore();
-const bananaI18n = useI18n();
 
 const { currentSourcePage: sourceArticle } = useCurrentPages();
 const {
@@ -41,8 +39,6 @@ const isFavorite = computed(() =>
 
 const { markFavoriteSuggestion, removeFavoriteSuggestion } =
   useSuggestionsBookmark();
-
-const { translationSizeMessageArgs } = useTranslationSize();
 
 const markSuggestionAsFavorite = () =>
   markFavoriteSuggestion(
@@ -108,24 +104,7 @@ const weeklyViews = computed(() => {
   return formatPageViews(views);
 });
 
-const timeEstimateMessage = computed(() => {
-  if (translationSizeMessageArgs.value) {
-    return bananaI18n.i18n(...translationSizeMessageArgs.value);
-  }
-
-  return "";
-});
-
-const isQuickTranslation = computed(() => {
-  // according to the specifications, a translation is considered  quick, if it takes less than 15 minutes (T360570)
-  if (translationSizeMessageArgs.value) {
-    const calculatedMinutesEstimate = translationSizeMessageArgs.value[2];
-
-    return calculatedMinutesEstimate < 15;
-  }
-
-  return false;
-});
+const { timeEstimateMessage, isQuickTranslation } = useTranslationSize();
 </script>
 
 <template>
@@ -179,6 +158,7 @@ const isQuickTranslation = computed(() => {
           </span>
         </div>
         <span
+          v-if="timeEstimateMessage"
           class="sx-translation-confirmer__article-information__stats__time-estimate"
           :class="{
             'sx-translation-confirmer__article-information__stats__time-estimate--quick':

@@ -536,7 +536,7 @@ async function fetchUserEdits(language) {
   }
 }
 
-async function fetchSuggestionSourceSections(language, title) {
+async function fetchArticleSections(language, title) {
   const query = {
     action: "parse",
     format: "json",
@@ -666,7 +666,7 @@ export default {
   fetchSectionSuggestion,
   fetchSectionSuggestions,
   fetchAppendixTargetSectionTitles,
-  fetchSuggestionSourceSections,
+  fetchArticleSections,
   markFavorite,
   unmarkFavorite,
   fetchUserEdits,

@@ -15,7 +15,7 @@ import { computed, inject } from "vue";
 import { getDir } from "@wikimedia/language-data";
 import { useStore } from "vuex";
 import useApplicationState from "../../composables/useApplicationState";
-import useTranslationSize from "@/composables/useTranslationSize";
+import { isQuickTranslationByBytes } from "@/utils/translationTimeEstimator";
 import CollectionArticleSuggestion from "@/wiki/cx/models/collectionArticleSuggestion";
 import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSuggestion";
 import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
@@ -28,7 +28,6 @@ const props = defineProps({
 });
 
 const store = useStore();
-const { bytesToMinutes } = useTranslationSize();
 const suggestion = computed(() => props.suggestion);
 const title = computed(
   () => suggestion.value.sourceTitle || suggestion.value.title
@@ -67,10 +66,9 @@ const bookmarkIconColor = computed(() =>
   isFavoriteSuggestion.value ? colors.blue600 : "currentColor"
 );
 
-const isQuickTranslation = computed(() => {
-  // according to the specifications, a translation is considered quick, if it takes less than 15 minutes (T360570)
-  return bytesToMinutes(page.value?.articleSize) < 15;
-});
+const isQuickTranslation = computed(() =>
+  isQuickTranslationByBytes(page.value?.articleSize)
+);
 
 const isCollectionSuggestion = computed(
   () =>

@@ -3,33 +3,32 @@ import { mount } from "@vue/test-utils";
 import { createI18n } from "vue-banana-i18n";
 import colors from "@/lib/mediawiki.ui/plugins/colors";
 import Page from "@/wiki/mw/models/page";
-import suggestionsGetters from "@/store/modules/suggestions/getters";
+import { ref } from "vue";
 import { createStore } from "vuex";
 
-jest.mock("@/composables/useURLHandler", () => {
-  const { ref } = require("vue");
-  const mockSourceLanguage = ref("en");
-  const mockTargetLanguage = ref("el");
-  const mockSourceTitle = ref("Test Title");
+const mockSourceLanguage = ref("en");
+const mockTargetLanguage = ref("el");
+const mockSourceTitle = ref("Test Title");
+jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: mockSourceLanguage,
+  targetLanguageURLParameter: mockTargetLanguage,
+  pageURLParameter: mockSourceTitle,
+}));
 
-  return () => ({
-    sourceLanguageURLParameter: mockSourceLanguage,
-    targetLanguageURLParameter: mockTargetLanguage,
-    pageURLParameter: mockSourceTitle,
-  });
-});
+jest.mock("@/composables/useSuggestionsBookmark", () => () => ({
+  markFavoritePageSuggestion: jest.fn(),
+  markFavoriteSectionSuggestion: jest.fn(),
+  markFavoriteSuggestion: jest.fn(),
+  removeFavoriteSuggestion: jest.fn(),
+}));
+
+const mockSectionSuggestion = ref(null);
+jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
+  sectionSuggestion: mockSectionSuggestion,
+}));
 
 const mockStore = createStore({
-  modules: {
-    suggestions: {
-      namespaced: true,
-      state: { favorites: [], sectionSuggestions: [] },
-      getters: {
-        getSectionSuggestionsForArticle:
-          suggestionsGetters.getSectionSuggestionsForArticle,
-      },
-    },
-  },
+  modules: { suggestions: { namespaced: true, state: { favorites: [] } } },
 });
 
 const i18n = createI18n();
@@ -38,7 +37,7 @@ const mockCurrentPage = new Page({
   thumbnail: { source: "test_thumbnail.png" },
   langlinkscount: 100,
   pageviews: { 1: 1, 2: 2 },
-  articlesize: 1000,
+  revisions: [{ size: 20000 }], // equals 20 minutes (not quick),
 });
 
 jest.mock("@/composables/useCurrentPages", () => () => ({
