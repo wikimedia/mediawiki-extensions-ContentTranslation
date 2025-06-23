@@ -43,7 +43,7 @@ OO.inheritClass( ve.ui.CXTranslationToolbar, ve.ui.Toolbar );
 
 /**
  * @param {mw.cx.MachineTranslationManager} MTManager
- * @return {jQuery.Promise}
+ * @return {Promise}
  */
 ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 	const createProviderItem = function ( provider, defaultProvider ) {
@@ -82,13 +82,13 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 
 			// Check that we are not getting ve.dm.NullSelection
 			if ( !( selection instanceof ve.dm.LinearSelection ) ) {
-				return;
+				return Promise.resolve();
 			}
 
 			// When changing provides, there is temporarily no parent section
 			const section = mw.cx.getParentSectionForSelection( surface, selection );
 			if ( !section ) {
-				return;
+				return Promise.resolve();
 			}
 
 			// Fall back to defaultProvider (should only happen for drafts stored with
@@ -125,6 +125,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 		);
 	};
 
+	// TODO: Use async/await to simplify code
 	return MTManager.getDefaultProvider().then(
 		( defaultProvider ) => MTManager.getAvailableProviders().then( ( providers ) => {
 			providers.forEach( ( provider ) => {

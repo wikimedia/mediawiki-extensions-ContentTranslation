@@ -16,8 +16,8 @@ const EMPTY_TEXT_PROVIDER_KEY = 'scratch';
 
 class MwCxMachineTranslationManager {
 	/**
-	 * @param {string} sourceLanguage
-	 * @param {string} targetLanguage
+	 * @param {string} sourceLanguage Language code
+	 * @param {string} targetLanguage Language code
 	 * @param {mw.cx.MachineTranslationService} MTService
 	 */
 	constructor( sourceLanguage, targetLanguage, MTService ) {
@@ -46,7 +46,7 @@ class MwCxMachineTranslationManager {
 	/**
 	 * Get the preferred provider, also taking into account user preference.
 	 *
-	 * @return {jQuery.Promise}
+	 * @return {Promise<string>}
 	 */
 	getPreferredProvider() {
 		const key = this.storageKey;
@@ -67,12 +67,13 @@ class MwCxMachineTranslationManager {
 		mw.storage.set( this.storageKey, value );
 	}
 
+	/**
+	 * @return {Promise<string>}
+	 */
 	getAvailableProviders() {
 		return this.MT.getProviders().then(
-			( providers ) => providers.concat( [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] ),
-			// Allow to continue translation even if this fails
-			() => $.Deferred().resolve( [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] )
-		);
+			( providers ) => providers.concat( [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] )
+		).catch( () => [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] );
 	}
 
 	/**
@@ -80,31 +81,25 @@ class MwCxMachineTranslationManager {
 	 * left-to-right and right-to-left is complex and confusing, default to
 	 * `scratch` translation if directions are different.
 	 *
-	 * @return {jQuery.Promise} Resolves to provider id.
+	 * @return {string} MT provider id.
 	 */
 	getDefaultNonMTProvider() {
-		return mw.loader.using( 'jquery.uls.data' ).then(
-			() => {
-				const sourceDir = $.uls.data.getDir( this.sourceLanguage );
-				const targetDir = $.uls.data.getDir( this.targetLanguage );
+		// jquery.uls.data is a hard dependency for "mw.cx.init" RL module
+		const sourceDir = $.uls.data.getDir( this.sourceLanguage );
+		const targetDir = $.uls.data.getDir( this.targetLanguage );
 
-				return sourceDir === targetDir ? ORIGINAL_TEXT_PROVIDER_KEY : EMPTY_TEXT_PROVIDER_KEY;
-			},
-			// Convert failure to success
-			() => $.Deferred().resolve( ORIGINAL_TEXT_PROVIDER_KEY ).promise()
-		);
+		return sourceDir === targetDir ? ORIGINAL_TEXT_PROVIDER_KEY : EMPTY_TEXT_PROVIDER_KEY;
 	}
 
 	/**
 	 * Get the default MT provider.
 	 *
-	 * @return {jQuery.Promise} Resolves to a provider id.
+	 * @return {Promise<string>} Resolves to a provider id, e.g. "Google".
 	 */
 	getDefaultProvider() {
 		return this.MT.getSuggestedDefaultProvider().then(
-			( provider ) => provider || this.getDefaultNonMTProvider(),
-			() => this.getDefaultNonMTProvider()
-		);
+			( provider ) => provider || this.getDefaultNonMTProvider()
+		).catch( () => this.getDefaultNonMTProvider() );
 	}
 
 	get storageKey() {
@@ -112,6 +107,9 @@ class MwCxMachineTranslationManager {
 		return [ 'cxMTProvider', this.sourceLanguage, this.targetLanguage ].join( '-' );
 	}
 
+	/**
+	 * @return {string}
+	 */
 	static getProviderForInstrumentation( provider ) {
 		if ( provider === EMPTY_TEXT_PROVIDER_KEY ) {
 			return 'blank';

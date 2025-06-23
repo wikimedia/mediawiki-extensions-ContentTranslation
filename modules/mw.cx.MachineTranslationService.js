@@ -95,7 +95,7 @@ mw.cx.MachineTranslationService.prototype.prepareContentForScratch = function ( 
 /**
  * Get a list of available machine translation providers.
  *
- * @return {jQuery.Promise}
+ * @return {Promise<string[]>}
  */
 mw.cx.MachineTranslationService.prototype.getProviders = function () {
 	return this.getProvidersCached().then(
@@ -103,6 +103,9 @@ mw.cx.MachineTranslationService.prototype.getProviders = function () {
 	);
 };
 
+/**
+ * @return {Promise<string>}
+ */
 mw.cx.MachineTranslationService.prototype.getSuggestedDefaultProvider = function () {
 	return this.getProvidersCached().then( ( providers ) => {
 		if ( providers.length === 0 || providers[ 0 ] === 'source-mt' ) {
@@ -115,15 +118,23 @@ mw.cx.MachineTranslationService.prototype.getSuggestedDefaultProvider = function
 
 /* Private methods */
 
+/**
+ * @return {Promise<string[]>}
+ */
 mw.cx.MachineTranslationService.prototype.getProvidersCached = function () {
 	if ( this.providers !== null ) {
-		return $.Deferred().resolve( this.providers );
+		return Promise.resolve( this.providers );
 	}
 
 	return this.fetchProviders()
-		.fail( this.fetchProvidersError.bind( this ) )
-		.done( ( providers ) => {
+		.then( ( providers ) => {
 			this.providers = providers;
+
+			return this.providers;
+		} )
+		.catch( ( error ) => {
+			mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch machine translation providers.' );
+			mw.log.error( '[CX]', 'Unable to fetch machine translation providers.', error );
 		} );
 };
 
@@ -131,12 +142,12 @@ mw.cx.MachineTranslationService.prototype.getProvidersCached = function () {
  * Fetch available providers from cxserver.
  *
  * @private
- * @return {jQuery.Promise}
+ * @return {Promise<string[]>}
  */
 mw.cx.MachineTranslationService.prototype.fetchProviders = function () {
-	if ( mw.config.get( 'wgContentTranslationEnableMT' ) === false ) {
+	if ( !mw.config.get( 'wgContentTranslationEnableMT' ) ) {
 		// MT services are not enabled for this wiki.
-		return $.Deferred().resolve( [] );
+		return Promise.resolve( [] );
 	}
 
 	const fetchProvidersUrl = this.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
@@ -144,12 +155,14 @@ mw.cx.MachineTranslationService.prototype.fetchProviders = function () {
 		$to: this.targetLanguage
 	} );
 
-	return $.get( fetchProvidersUrl ).then( ( response ) => response.mt || [] );
-};
-
-mw.cx.MachineTranslationService.prototype.fetchProvidersError = function () {
-	mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch machine translation providers.' );
-	mw.log.error( '[CX]', 'Unable to fetch machine translation providers.', arguments );
+	return fetch( fetchProvidersUrl )
+		.then( ( response ) => {
+			if ( !response.ok ) {
+				throw new Error( `HTTP Error: ${ response.status }` );
+			}
+			return response.json();
+		} )
+		.then( ( data ) => data.mt || [] );
 };
 
 mw.cx.MachineTranslationService.prototype.fetchCXServerToken = function () {

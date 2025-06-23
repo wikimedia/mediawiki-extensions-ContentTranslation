@@ -533,12 +533,13 @@ ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
 		payload.translation_id = this.translation.id;
 	}
 
+	// eslint-disable-next-line es-x/no-promise-prototype-finally
 	this.MTManager.getPreferredProvider()
 		.then( ( provider ) => {
 			// eslint-disable-next-line camelcase
 			payload.translation_provider = mw.cx.MachineTranslationManager.getProviderForInstrumentation( provider );
 		} )
-		.always( () => {
+		.finally( () => {
 			mw.cx.logEvent( payload );
 		} );
 
@@ -836,18 +837,19 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--non-empty' );
 
 	model.emit( 'beforeTranslation' );
+	// eslint-disable-next-line es-x/no-promise-prototype-finally
 	this.MTManager.getPreferredProvider()
 		.then( ( provider ) => {
 			this.changeContentSource( model, null, provider );
 			// eslint-disable-next-line camelcase
 			payload.translation_provider = mw.cx.MachineTranslationManager.getProviderForInstrumentation( provider );
 		} )
-		.fail( () => {
+		.catch( () => {
 			mw.notify( mw.msg( 'cx-auto-failed' ) );
-			return this.MTManager.getDefaultNonMTProvider().then(
-				( provider ) => this.changeContentSource( model, null, provider )
-			);
-		} ).always( () => {
+
+			const nonMTProvider = this.MTManager.getDefaultNonMTProvider();
+			this.changeContentSource( model, null, nonMTProvider );
+		} ).finally( () => {
 			const $sourceElement = this.getSourceSectionElement( cxid );
 			$sourceElement.removeClass( 'cx-section-highlight' );
 			const sectionNode = this.getTargetSectionNode( cxid );

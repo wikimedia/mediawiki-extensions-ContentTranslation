@@ -1025,12 +1025,13 @@ mw.cx.TranslationController.prototype.logTranslationControllerEvent = function (
 		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
 	}
 
+	// eslint-disable-next-line es-x/no-promise-prototype-finally
 	this.veTarget.MTManager.getPreferredProvider()
 		.then( ( provider ) => {
 			// eslint-disable-next-line camelcase
 			event.translation_provider = mw.cx.MachineTranslationManager.getProviderForInstrumentation( provider );
 		} )
-		.always( () => {
+		.finally( () => {
 			mw.cx.logEvent( event );
 		} );
 };
