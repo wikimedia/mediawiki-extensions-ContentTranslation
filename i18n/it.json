@@ -274,8 +274,6 @@
 	"cx-sx-sentence-selector-skip-translation-button-label": "Salta",
 	"cx-sx-translation-confirmer-title": "Nuova traduzione",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visualizzazione/|$1 visualizzazioni/|0=Nessuna visualizzazione questa }}settimana",
-	"cx-sx-translation-confirmer-translation-time-single-section-minute": "{{PLURAL:$1|$1 minuto|$1 minuti}} per tradurre questa sezione",
-	"cx-sx-translation-confirmer-translation-time-single-section-hour": "{{PLURAL:$1|$1 ora|$1 ore}} per tradurre questa sezione",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Originale",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traduci",
 	"cx-sx-editor-original-panel-label": "Originale",

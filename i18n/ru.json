@@ -538,7 +538,7 @@
 	"cx-sx-suggestions-filter-active-group-label": "Активные фильтры",
 	"cx-sx-suggestions-filter-default-group-label": "Автоматически",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Коллекции",
-	"cx-sx-suggestions-filter-search-input-placeholder": "Поиск темы или коллекции",
+	"cx-sx-suggestions-filter-search-input-placeholder": "Поиск по всем категориям…",
 	"cx-sx-suggestion-list-empty-title": "В настоящий момент предложений нет",
 	"cx-sx-suggestion-list-empty-description": "Мы не нашли предложений для этого фильтра. Вы можете попробовать другой фильтр или выполнить поиск определенной статьи для перевода."
 }

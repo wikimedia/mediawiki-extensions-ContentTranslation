@@ -520,12 +520,13 @@
 	"cx-sx-suggestions-filter-active-group-label": "사용 중인 필터",
 	"cx-sx-suggestions-filter-default-group-label": "자동",
 	"cx-sx-suggestions-filter-page-collections-group-label": "모음집",
-	"cx-sx-suggestions-filter-search-input-placeholder": "주제 검색",
-	"cx-sx-suggestions-filter-search-input-placeholder-topics": "주제 검색",
+	"cx-sx-suggestions-filter-search-input-placeholder": "모든 분류 검색...",
+	"cx-sx-suggestions-filter-search-input-placeholder-topics": "주제 검색...",
 	"cx-sx-suggestions-filter-search-results-topics-alternative-description": "문서 찾아보기",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "결과가 없습니다",
 	"cx-page-collection-dialog-close-button-aria-label": "대시보드로 돌아가기",
 	"cx-page-collection-dialog-page-suggestions-header": "새 문서",
 	"cx-page-collection-dialog-section-suggestions-header": "새 문단",
-	"cx-sx-suggestion-list-empty-title": "현재로서는 제안이 없습니다"
+	"cx-sx-suggestion-list-empty-title": "현재로서는 제안이 없습니다",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "모두"
 }

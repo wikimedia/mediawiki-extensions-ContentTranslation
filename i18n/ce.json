@@ -326,8 +326,6 @@
 	"cx-sx-translation-confirmer-title": "Керла гочдар",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 кӀиранахь хьовсарш|0=ХӀокху кӀирнахь хьовсарш дацар}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 сахьт|0={{PLURAL:$2|$2 минот}}}} гочдан",
-	"cx-sx-translation-confirmer-translation-time-single-section-minute": "{{PLURAL:$1|$1 минот}} хӀара дакъа гочдан",
-	"cx-sx-translation-confirmer-translation-time-single-section-hour": "{{PLURAL:$1|$1 сахьт}} хӀара дакъа гочдан",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 сахьт|0={{PLURAL:$2|$2 минот}}}} {{PLURAL:$3|$3 дакъа}} гочдан",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Йукъайуьллург",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Хьан гочдар арахоьцур ду керла дозуш доцу дакъа санна.",

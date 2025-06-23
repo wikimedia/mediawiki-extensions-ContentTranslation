@@ -22,6 +22,7 @@
 	"cx-publish-page-success": "Säit publizéiert ënner $1",
 	"cx-publish-error-empty": "De Server huet ouni Date geäntwert.",
 	"cx-publish-error-readonly": "Et däerf net an d'Wiki geschriwwe ginn.",
+	"cx-publish-error-offline": "Dir sidd am Moment offline. Är Iwwersetzung kann net verëffentlecht ginn, ier Dir erëm online sidd.",
 	"cx-publish-button": "Verëffentlechen",
 	"cx-publish-button-publishing": "Gëtt publizéiert...",
 	"cx-lost-session": "Är Sessioun ass ofgelaf",
@@ -75,7 +76,9 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Dëse Titel gëtt schonn op [$1 $2] fir [$3 eng aner Säit] benotzt",
 	"cx-selected-source-page-error-page-exists": "D'Säit [$1 gëtt et schonn] op $2",
 	"cx-selected-source-page-error-title-in-use": "Den Titel fir déi nei Säit [$1 gëtt scho benotzt]",
+	"cx-favorite-add": "Op d'Lëscht vun der Favoritte setzen",
 	"cx-favorite-added-for-later": "Fir spéider derbäigesat!",
+	"cx-favorite-remove": "Vun der Lëscht vun de Favoritten erofhuelen",
 	"cx-favorite-removed": "Aus der Lëscht vu Favoritte geläscht!",
 	"cx-page-missing-in-target-language": "Feelt op $1",
 	"cx-page-number-of-languages": "Zuel vun de Sproochen",
@@ -245,9 +248,9 @@
 	"cx-sx-content-comparator-target-selector-target-section-title": "Abschnitt op $1",
 	"cx-sx-translation-confirmer-title": "Nei Iwwersetzung",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 Opruff pro|$1 Opriff pro|0=Keen Opruff dës}} Woch",
-	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|0={{PLURAL:$2|$2 Minutt|$2 Minutte}}}} fir z'iwwersetzen",
-	"cx-sx-translation-confirmer-translation-time-single-section-minute": "{{PLURAL:$1|$1 Minutt|$1 Minutte}} fir dësen Abschnitt z'iwwersetzen",
-	"cx-sx-translation-confirmer-translation-time-single-section-hour": "{{PLURAL:$1|$1 Stonn|$1 Stonne}} fir dësen Abschnitt z'iwwersetzen",
+	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 Stonn|$1 Stonne|0={{PLURAL:$2|$2 Minutt|$2 Minutte}}}} fir den Aleedungsabschnitt z'iwwersetzen",
+	"cx-sx-translation-confirmer-translation-time-single-section": "{{PLURAL:$1|$1 Stonn|$1 Stonne|0={{PLURAL:$2|$2 Minutt|$2 Minutte}}}} fir dësen Abschnitt z'iwwersetzen",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 Stonn|$1 Stonne|0={{PLURAL:$2|$2 Minutt|$2 Minutte}}}} fir z'iwwersetzen",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|0={{PLURAL:$2|$2 Minutt|$2 Minutte}}}} fir {{PLURAL:$3|$3 Abschnitt|$3 Abschnitter}} z'iwwersetzen",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Lieszeechen",
 	"cx-sx-content-comparator-discarded-section-label": "(net zréckbehalen)",
@@ -414,5 +417,6 @@
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 Dag|$1 Deeg|0=Keen Dag}} iwwreg",
 	"cx-page-collection-dialog-page-suggestions-header": "Nei Säiten",
 	"cx-page-collection-dialog-section-suggestions-header": "Nei Abschnitter",
-	"cx-sx-suggestion-list-empty-title": "Fir de Moment keng Virschléi"
+	"cx-sx-suggestion-list-empty-title": "Fir de Moment keng Virschléi",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "All"
 }

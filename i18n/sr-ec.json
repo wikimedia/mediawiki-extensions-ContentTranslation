@@ -331,7 +331,6 @@
 	"cx-sx-translation-confirmer-title": "Нови превод",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 преглед/|$1 прегледа/|0=Нема прегледа ове}} недеље",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 сат|$1 сата|0={{PLURAL:$2|$2 минут|$2 минута}}}} за превођење",
-	"cx-sx-translation-confirmer-translation-time-single-section-minute": "{{PLURAL:$1|$1 минут|$1 минута}} за превођење овог одељка",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 сат|$1 сата|0={{PLURAL:$2|$2 минут|$2 минута}}}} за превођење {{PLURAL:$3|$3 одељка|$3 одељака}}",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Обележивачи",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Ваш превод ће бити објављен као засебан нови одељак.",

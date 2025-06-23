@@ -571,6 +571,8 @@
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "了解更多",
 	"cx-sx-suggestions-filters-header": "调整建议",
 	"cx-sx-suggestions-filters-done-button-label": "完成",
+	"cx-sx-suggestions-filters-tab-all": "全部",
+	"cx-sx-suggestions-filters-tab-topics": "主题",
 	"cx-sx-suggestions-filter-user-edit-label": "推荐给你",
 	"cx-sx-suggestions-filter-most-popular-label": "热门",
 	"cx-sx-suggestions-filter-more-label": "更多",
@@ -581,5 +583,6 @@
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|还剩$1天|0=没有剩余天数}}",
 	"cx-page-collection-dialog-page-suggestions-header": "新页面",
 	"cx-page-collection-dialog-section-suggestions-header": "新章节",
-	"cx-sx-suggestion-list-empty-title": "目前没有建议"
+	"cx-sx-suggestion-list-empty-title": "目前没有建议",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "全部"
 }

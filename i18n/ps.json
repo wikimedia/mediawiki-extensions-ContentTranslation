@@ -326,8 +326,6 @@
 	"cx-sx-translation-confirmer-title": "نوې ژباړه",
 	"cx-sx-translation-confirmer-views-count": "دا اوونۍ {{PLURAL:$1|$1 کتنه|$1 کتنې|0=هيڅ کتنه نشته}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "ژباړلو لپاره يې {{PLURAL:$1|$1 گړۍ|$1 گـړۍ|0={{PLURAL:$2|$2 دقيقه|$2 دقيقې}}}} وخت ته اړتيا ده",
-	"cx-sx-translation-confirmer-translation-time-single-section-minute": "د دې برخې ژباړلو لپاره {{PLURAL:$1|$1 دقيقه|$1 دقيقې}} وخت ته اړتيا ده",
-	"cx-sx-translation-confirmer-translation-time-single-section-hour": "د دې برخې ژباړلو لپاره {{PLURAL:$1|$1 گړۍ}} وخت ته اړتيا ده",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$3|$3 برخه|$3 برخې}} چې ژباړلو لپاره يې {{PLURAL:$1|$1 گـړۍ|$1 گړۍ|0={{PLURAL:$2|$2 دقيقه|$2 دقيقې}}}} وخت ته اړتيا ده",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "کتاب‌‌نښې",
 	"cx-sx-content-comparator-discarded-section-clarifications": "ستاسو ژباړه به د يوې خپلواکې نوې برخې په توگه خپره شي.",
