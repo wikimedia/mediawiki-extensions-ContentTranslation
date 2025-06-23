@@ -298,10 +298,11 @@ class TranslationCorporaStore {
 				'contentHash' => crc32( $translationUnit->getContent() ),
 				'contentLength' => strlen( $translationUnit->getContent() )
 			];
-			$this->logger->info( 'Inserting translation unit', $logParams );
 			$affectedRows = $this->insertTranslationUnit( $translationUnit );
 			if ( $affectedRows === 0 ) {
 				$this->logger->info( 'No translation unit inserted due to unique key conflict.', $logParams );
+			} else {
+				$this->logger->info( 'Inserted translation unit', $logParams );
 			}
 		}
 	}
