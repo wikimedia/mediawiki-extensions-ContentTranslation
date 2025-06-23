@@ -6,12 +6,9 @@ namespace ContentTranslation\Manager;
 use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Entity\TranslationUnit;
 use ContentTranslation\Exception\InvalidSectionDataException;
-use ContentTranslation\LogNames;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Translation;
 use MediaWiki\Json\FormatJson;
-use MediaWiki\Logger\LoggerFactory;
-use Psr\Log\LoggerInterface;
 
 /**
  * @author Nik Gkountas
@@ -30,11 +27,9 @@ class TranslationCorporaManager {
 	private const CATEGORIES = 'CX_CATEGORY_METADATA';
 
 	private TranslationCorporaStore $corporaStore;
-	private LoggerInterface $logger;
 
 	public function __construct( TranslationCorporaStore $corporaStore ) {
 		$this->corporaStore = $corporaStore;
-		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
 
 	public function getCorporaDumpArraysByTranslationId( int $translationId, bool $sanitize ): array {
@@ -79,19 +74,6 @@ class TranslationCorporaManager {
 	 */
 	public function saveTranslationUnits( Translation $translation, string $content ): array {
 		$translationUnits = $this->createTranslationUnitsFromContent( $content, $translation->getTranslationId() );
-
-		// Check if there are duplicate translation units. See: T391311#10838576
-		$dupes = $this->getDuplicateTranslationUnits( $translationUnits );
-		if ( $dupes ) {
-			$this->logger->warning(
-				'Duplicate translation unit found in the list of translation units to save.',
-				[
-					'content' => $content,
-					'translationId' => $translation->getTranslationId(),
-					'dupes' => $dupes
-				]
-			);
-		}
 
 		$isNewTranslation = $translation->isNew();
 		foreach ( $translationUnits as $translationUnit ) {
@@ -218,21 +200,6 @@ class TranslationCorporaManager {
 		}
 
 		return $translationDTOs;
-	}
-
-	/**
-	 * @param TranslationUnit[] $translationUnits
-	 * @return string[]
-	 */
-	private function getDuplicateTranslationUnits( array $translationUnits ): array {
-		$ids = array_map(
-			static fn ( TranslationUnit $unit ): string => $unit->getSectionId() . '-' . $unit->getOrigin(),
-			$translationUnits
-		);
-
-		$counts = array_count_values( $ids );
-
-		return array_keys( array_filter( $counts, static fn ( int $n ): bool => $n > 1 ) );
 	}
 
 }
