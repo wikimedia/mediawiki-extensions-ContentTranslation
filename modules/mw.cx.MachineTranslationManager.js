@@ -11,6 +11,9 @@
 
 'use strict';
 
+const ORIGINAL_TEXT_PROVIDER_KEY = 'source';
+const EMPTY_TEXT_PROVIDER_KEY = 'scratch';
+
 /**
  * @class
  * @param {string} sourceLanguage Language code
@@ -36,8 +39,8 @@ mw.cx.MachineTranslationManager.prototype.getProviderLabel = function ( provider
 		Elia: [ 'cx-tools-mt-provider-title', 'Elia.eus' ],
 		Google: [ 'cx-tools-mt-provider-title', 'Google Translate' ],
 		Yandex: [ 'cx-tools-mt-provider-title', 'Yandex.Translate' ],
-		scratch: [ 'cx-tools-mt-dont-use' ],
-		source: [ 'cx-tools-mt-use-source' ],
+		[ EMPTY_TEXT_PROVIDER_KEY ]: [ 'cx-tools-mt-dont-use' ],
+		[ ORIGINAL_TEXT_PROVIDER_KEY ]: [ 'cx-tools-mt-use-source' ],
 		reset: [ 'cx-tools-mt-reset' ]
 	}[ provider ] || [ 'cx-tools-mt-provider-title', provider ] );
 };
@@ -50,9 +53,8 @@ mw.cx.MachineTranslationManager.prototype.getProviderLabel = function ( provider
  * @return {jQuery.Promise}
  */
 mw.cx.MachineTranslationManager.prototype.getPreferredProvider = function () {
-	const
-		key = this.getStorageKey(),
-		value = mw.storage.get( key );
+	const key = this.getStorageKey();
+	const value = mw.storage.get( key );
 
 	return this.getAvailableProviders().then( ( providers ) => {
 		if ( value && providers.includes( value ) ) {
@@ -73,9 +75,9 @@ mw.cx.MachineTranslationManager.prototype.setPreferredProvider = function ( valu
 
 mw.cx.MachineTranslationManager.prototype.getAvailableProviders = function () {
 	return this.MT.getProviders().then(
-		( providers ) => providers.concat( [ 'source', 'scratch' ] ),
+		( providers ) => providers.concat( [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] ),
 		// Allow to continue translation even if this fails
-		() => $.Deferred().resolve( [ 'source', 'scratch' ] )
+		() => $.Deferred().resolve( [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] )
 	);
 };
 
@@ -94,10 +96,10 @@ mw.cx.MachineTranslationManager.prototype.getDefaultNonMTProvider = function () 
 			const sourceDir = $.uls.data.getDir( this.sourceLanguage );
 			const targetDir = $.uls.data.getDir( this.targetLanguage );
 
-			return sourceDir === targetDir ? 'source' : 'scratch';
+			return sourceDir === targetDir ? ORIGINAL_TEXT_PROVIDER_KEY : EMPTY_TEXT_PROVIDER_KEY;
 		},
 		// Convert failure to success
-		() => $.Deferred().resolve( 'source' ).promise()
+		() => $.Deferred().resolve( ORIGINAL_TEXT_PROVIDER_KEY ).promise()
 	);
 };
 
@@ -116,4 +118,16 @@ mw.cx.MachineTranslationManager.prototype.getDefaultProvider = function () {
 mw.cx.MachineTranslationManager.prototype.getStorageKey = function () {
 	// This format was used by CX1, so keeping it for compatibility.
 	return [ 'cxMTProvider', this.sourceLanguage, this.targetLanguage ].join( '-' );
+};
+
+mw.cx.MachineTranslationManager.prototype.getProviderForInstrumentation = function () {
+	return this.getPreferredProvider().then( ( provider ) => {
+		if ( provider === EMPTY_TEXT_PROVIDER_KEY ) {
+			return 'blank';
+		} else if ( provider === ORIGINAL_TEXT_PROVIDER_KEY ) {
+			return 'source';
+		}
+		// event logging schema expects lowercase MT providers (e.g. "google" for "Google" MT provider)
+		return provider.toLowerCase();
+	} );
 };

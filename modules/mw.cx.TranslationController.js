@@ -998,6 +998,8 @@ mw.cx.TranslationController.prototype.scrollToInfobar = function () {
 
 /**
  * Log TranslationController events
+ *
+ * @param {string} eventType
  */
 mw.cx.TranslationController.prototype.logTranslationControllerEvent = function ( eventType ) {
 	const event = {
@@ -1023,7 +1025,7 @@ mw.cx.TranslationController.prototype.logTranslationControllerEvent = function (
 		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
 	}
 
-	this.veTarget.MTManager.getPreferredProvider()
+	this.veTarget.MTManager.getProviderForInstrumentation()
 		.then( ( provider ) => {
 			// eslint-disable-next-line camelcase
 			event.translation_provider = provider;

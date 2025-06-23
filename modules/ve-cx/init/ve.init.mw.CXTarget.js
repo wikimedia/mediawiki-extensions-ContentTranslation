@@ -533,7 +533,7 @@ ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
 		payload.translation_id = this.translation.id;
 	}
 
-	this.MTManager.getPreferredProvider()
+	this.MTManager.getProviderForInstrumentation()
 		.then( ( provider ) => {
 			// eslint-disable-next-line camelcase
 			payload.translation_provider = provider;
@@ -836,7 +836,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--non-empty' );
 
 	model.emit( 'beforeTranslation' );
-	this.MTManager.getPreferredProvider()
+	this.MTManager.getProviderForInstrumentation()
 		.then( ( provider ) => {
 			this.changeContentSource( model, null, provider );
 			// eslint-disable-next-line camelcase
