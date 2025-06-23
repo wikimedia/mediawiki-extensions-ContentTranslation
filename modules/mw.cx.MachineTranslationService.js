@@ -19,6 +19,7 @@ mw.cx.MachineTranslationService = function MwCxMachineTranslationService(
 	this.siteMapper = siteMapper;
 
 	this.providers = null;
+	this.fetchPromise = null;
 };
 
 /* Public methods */
@@ -126,16 +127,16 @@ mw.cx.MachineTranslationService.prototype.getProvidersCached = function () {
 		return Promise.resolve( this.providers );
 	}
 
-	return this.fetchProviders()
-		.then( ( providers ) => {
-			this.providers = providers;
+	this.fetchPromise = this.fetchPromise || this.fetchProviders();
 
-			return this.providers;
-		} )
-		.catch( ( error ) => {
-			mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch machine translation providers.' );
-			mw.log.error( '[CX]', 'Unable to fetch machine translation providers.', error );
-		} );
+	return this.fetchPromise.then( ( providers ) => {
+		this.providers = providers;
+
+		return this.providers;
+	} ).catch( ( error ) => {
+		mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch machine translation providers.' );
+		mw.log.error( '[CX]', 'Unable to fetch machine translation providers.', error );
+	} );
 };
 
 /**
