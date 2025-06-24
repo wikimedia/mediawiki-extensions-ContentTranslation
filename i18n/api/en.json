@@ -93,7 +93,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "You must be logged-in to manage your suggestions.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "You must be logged-in to get translation suggestions.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "To view your translations, you must log in.",
-	"apierror-cx-invalid-type-viewtranslations": "Invalid translation type. Type must be set and must be either 'deleted', 'draft' or 'published'",
 	"apierror-cx-samelanguages": "Source and target languages cannot be the same.",
 	"apierror-cx-suggestionsdisabled": "Suggestions not enabled for this wiki.",
 	"apierror-cx-translationnotfound": "Translation not found.",

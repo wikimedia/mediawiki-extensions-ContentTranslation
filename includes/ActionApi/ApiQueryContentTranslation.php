@@ -136,10 +136,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	private function serveUnifiedDashboardTranslations( array $params ): void {
 		$status = $params['type'];
 
-		if ( !$status || !in_array( $status, SectionTranslationStore::TRANSLATION_STATUSES ) ) {
-			$this->dieWithError( 'apierror-cx-invalid-type-viewtranslations', 'invalidtype' );
-		}
-
 		$sectionTranslations = [];
 		$user = $this->getUser();
 		$translatorUserId = $this->userService->getGlobalUserId( $user );
