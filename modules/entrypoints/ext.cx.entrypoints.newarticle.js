@@ -40,12 +40,7 @@
 
 		$cancel.on( 'click', () => {
 			$trigger.callout( 'hide' );
-			$.cookie(
-				'cx_campaign_' + campaign + '_hide', 1, {
-					expires: 300,
-					path: '/'
-				}
-			);
+			mw.cookie.set( `${ campaign }_hide`, 1, { prefix: 'cx_campaign_', expires: 300, path: '/' } );
 			// Campaign or call to action was rejected by the user.
 			mw.hook( 'mw.cx.cta.reject' ).fire( campaign );
 		} );

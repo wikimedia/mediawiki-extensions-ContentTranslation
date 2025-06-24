@@ -1175,6 +1175,7 @@
 			],
 			"dependencies": [
 				"ext.cx.widgets.callout",
+				"mediawiki.cookie",
 				"mediawiki.jqueryMsg",
 				"mediawiki.ui.button",
 				"mediawiki.util",
