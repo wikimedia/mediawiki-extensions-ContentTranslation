@@ -185,8 +185,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			$this->getUser(),
 			$sourceTitle,
 			$sourceLanguage,
-			$targetLanguage,
-			TranslationStore::TRANSLATION_STATUS_DRAFT
+			$targetLanguage
 		);
 
 		if ( $translation instanceof Translation ) {
@@ -196,10 +195,19 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 					$params['sourcesectiontitle']
 				);
 
-				$sectionTranslationId = $sectionTranslation ? $sectionTranslation->getId() : null;
-				$targetSectionTitle = $sectionTranslation ? $sectionTranslation->getTargetSectionTitle() : null;
+				$draftStatusIndex = SectionTranslationStore::getStatusIndexByStatus(
+					SectionTranslationStore::TRANSLATION_STATUS_DRAFT
+				);
+				if ( $sectionTranslation?->getTranslationStatus() !== $draftStatusIndex ) {
+					return;
+				}
+
+				$sectionTranslationId = $sectionTranslation?->getId();
+				$targetSectionTitle = $sectionTranslation?->getTargetSectionTitle();
 				$translation->translation['sectionTranslationId'] = $sectionTranslationId;
 				$translation->translation['targetSectionTitle'] = $targetSectionTitle;
+			} elseif ( $translation->getStatus() !== TranslationStore::TRANSLATION_STATUS_DRAFT ) {
+				return;
 			}
 
 			$this->addUnitsAndCategoriesToTranslation( $translation );

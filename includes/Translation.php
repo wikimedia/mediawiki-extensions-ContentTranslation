@@ -125,6 +125,10 @@ class Translation {
 		return $this->translation['targetLanguage'];
 	}
 
+	public function getStatus(): string {
+		return $this->translation['translation_status'];
+	}
+
 	/**
 	 * Return the underlying data fields.
 	 *

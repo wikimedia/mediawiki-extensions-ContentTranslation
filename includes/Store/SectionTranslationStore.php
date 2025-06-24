@@ -151,7 +151,7 @@ class SectionTranslationStore {
 			$row->cxsx_section_id,
 			$row->cxsx_source_section_title,
 			$row->cxsx_target_section_title,
-			$row->cxsx_translation_status ? (int)$row->cxsx_translation_status : null,
+			isset( $row->cxsx_translation_status ) ? (int)$row->cxsx_translation_status : null,
 			$row->cxsx_translation_progress,
 		);
 	}
