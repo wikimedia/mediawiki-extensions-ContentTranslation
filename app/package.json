@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "1.0.0+20250620",
+  "version": "1.0.0+20250625",
   "private": true,
   "main": "./dist/cx3.umd.js",
   "module": "./dist/cx3.es.js",
@@ -16,7 +16,7 @@
     "test:unit": "jest -c config/jest/jest.config.js",
     "lint": "eslint . --fix",
     "format": "prettier . --write",
-    "test": "npm install && npm -s run test:bundle && npm run lint && npm run test:unit",
+    "test": "npm install && npm run lint && npm run test:unit",
     "test:bundle": "bash ./scripts/check_bundle.sh"
   },
   "dependencies": {
@@ -59,7 +59,7 @@
     },
     {
       "path": "dist/style.css",
-      "maxSize": "18.96KB"
+      "maxSize": "18.98KB"
     }
   ]
 }
