@@ -389,7 +389,7 @@
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|Une heure|$1 heures|0={{PLURAL:$2|Une minute|$2 minutes}}}} pour traduire",
 	"cx-sx-translation-confirmer-translation-time-single-section-minute": "{{PLURAL:$1|$1 minute|$1 minutes}} pour traduire cette section",
 	"cx-sx-translation-confirmer-translation-time-single-section-hour": "{{PLURAL:$1|$1 heure|$1 heures}} pour traduire cette section",
-	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 heure|$1 heures|0={{PLURAL:$2|$2 minute|$2 minutes}}}} pour traduire {{PLURAL:$3|$3 section|$3 sections}}",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|Une heure|$1 heures|0={{PLURAL:$2|Une minute|$2 minutes}}}} pour traduire {{PLURAL:$3|une section|$3 sections}}",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Marque-page",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Votre traduction sera publiée sous forme d’une nouvelle section indépendante.",
 	"cx-sx-content-comparator-discarded-section-label": "(écartée)",

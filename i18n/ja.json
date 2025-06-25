@@ -462,7 +462,7 @@
 	"sx-recent-translation-entrypoint-dialog-header": "この翻訳を改善する",
 	"sx-recent-translation-entrypoint-dialog-review-switch-text": "内容をレビュー",
 	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "新しい節を追加",
-	"sx-recent-translation-entrypoint-dialog-review-lead-text": "翻訳では、他の言語の編集者の作業が再利用されます。ただし、翻訳によって一部の要素が失われる場合があります。以下により貢献することができます。",
+	"sx-recent-translation-entrypoint-dialog-review-lead-text": "翻訳では、他の言語の編集者の作業が再利用されます。しかし、一部の要素が翻訳の過程で失われることがあります。以下の方法で貢献できます:",
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "コンテンツを自然に読めるようにする",
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "必要に応じて文章を編集し、単語の順序を変更したり置き換えたりします。",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "脚注を確認",
