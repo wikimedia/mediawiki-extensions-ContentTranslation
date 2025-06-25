@@ -60,95 +60,10 @@ mw.cx.TranslationTracker.static.calculateSectionTranslationProgress = function (
 		return 0;
 	}
 
-	const tokens1 = this.tokenise( string1, language );
-	const tokens2 = this.tokenise( string2, language );
+	const tokens1 = mw.cx.tokenise( string1, language );
+	const tokens2 = mw.cx.tokenise( string2, language );
 
 	return tokens2.length / tokens1.length;
-};
-
-/**
- * Calculate the difference between two strings in the scale
- * of 0 to 1, based on the order changed in string2 from string1.
- *
- * @param {string} string1
- * @param {string} string2
- * @param {string} language
- * @return {number} A value between 0 and 1
- */
-mw.cx.TranslationTracker.static.calculateUnmodifiedContent = ( function () {
-	/**
-	 * Finds the length of the longest common subsequence between two arrays of tokens.
-	 * This preserves the order of tokens.
-	 *
-	 * @param {string[]} tokens1
-	 * @param {string[]} tokens2
-	 * @return {number} The length of the longest common subsequence
-	 */
-	const findLongestCommonSubsequenceLength = function ( tokens1, tokens2 ) {
-		const m = tokens1.length;
-		const n = tokens2.length;
-
-		// Create a table to store the LCS lengths
-		const dp = Array( m + 1 )
-			.fill()
-			.map( () => Array( n + 1 ).fill( 0 ) );
-
-		// Fill the dp table
-		for ( let i = 1; i <= m; i++ ) {
-			for ( let j = 1; j <= n; j++ ) {
-				if ( tokens1[ i - 1 ] === tokens2[ j - 1 ] ) {
-					dp[ i ][ j ] = dp[ i - 1 ][ j - 1 ] + 1;
-				} else {
-					dp[ i ][ j ] = Math.max( dp[ i - 1 ][ j ], dp[ i ][ j - 1 ] );
-				}
-			}
-		}
-
-		// Return the length of the LCS
-		return dp[ m ][ n ];
-	};
-
-	return function ( string1, string2, language ) {
-		if ( !string1 || !string2 ) {
-			return 0;
-		}
-
-		if ( string1 === string2 ) {
-			// Both strings are equal. So string2 is 100% unmodified version of string1
-			return 1;
-		}
-
-		const tokens1 = this.tokenise( string1, language );
-		const tokens2 = this.tokenise( string2, language );
-
-		// Find the longest common subsequence (tokens in the same order)
-		const lcsLength = findLongestCommonSubsequenceLength( tokens1, tokens2 );
-
-		// Calculate the unmodified content percentage based on the larger token set
-		const largerLength = Math.max( tokens1.length, tokens2.length );
-
-		return lcsLength / largerLength;
-	};
-}() );
-
-/**
- * Tokenize a given string. Here tokens is basically words for non CJK languages.
- * For CJK languages, we just split at each codepoint level.
- *
- * @param {string} string
- * @param {string} language
- * @return {string[]}
- */
-mw.cx.TranslationTracker.static.tokenise = function ( string, language ) {
-	if ( !string ) {
-		return [];
-	}
-	if ( $.uls.data.scriptgroups.CJK.includes( $.uls.data.getScript( language ) ) ) {
-		return string.split( '' );
-	}
-
-	// Match all non whitespace characters for tokens.
-	return string.match( /\S+/g ) || [];
 };
 
 /**
@@ -245,7 +160,7 @@ mw.cx.TranslationTracker.static.getTokensFromValidationTree = function ( validat
 	for ( let i = 0; i < validationTree.length; i++ ) {
 		const validationNode = validationTree[ i ];
 		const sourceText = $( ve.dm.converter.getDomFromNode( validationNode ) ).text();
-		sourceTokens = sourceTokens.concat( this.tokenise( sourceText, language ) );
+		sourceTokens = sourceTokens.concat( mw.cx.tokenise( sourceText, language ) );
 	}
 
 	return sourceTokens;
@@ -523,7 +438,7 @@ mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNum
 		unmodifiedContent = sectionState.getUnmodifiedMT(),
 		userTranslation = sectionState.getUserTranslation();
 
-	const unmodifiedPercentage = this.constructor.static.calculateUnmodifiedContent(
+	const unmodifiedPercentage = mw.cx.calculateUnmodifiedContent(
 		unmodifiedContent.text,
 		userTranslation.text,
 		this.targetLanguage
@@ -690,11 +605,11 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = func
 
 	this.getTargetSectionModels().forEach( function ( sectionModel ) {
 		const sectionState = this.sections[ sectionModel.getId() ],
-			unmodifiedMTTokens = this.constructor.static.tokenise(
+			unmodifiedMTTokens = mw.cx.tokenise(
 				sectionState.getUnmodifiedMT().text,
 				this.targetLanguage
 			),
-			userTranslationTokens = this.constructor.static.tokenise(
+			userTranslationTokens = mw.cx.tokenise(
 				sectionState.getUserTranslation().text,
 				this.targetLanguage
 			);

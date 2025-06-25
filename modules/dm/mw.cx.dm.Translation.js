@@ -346,7 +346,7 @@ mw.cx.dm.Translation.static.isMatchingForRestore = function (
 	// If old and new source content has some edits, causing some words change,
 	// find out the common token ratio. The definition of token depends on the language
 	// but mostly it means words.
-	const commonTokenRatio = mw.cx.TranslationTracker.static.calculateUnmodifiedContent(
+	const commonTokenRatio = mw.cx.calculateUnmodifiedContent(
 		$savedTranslationUnitSource.text(),
 		$sourceSectionNode.text(),
 		language

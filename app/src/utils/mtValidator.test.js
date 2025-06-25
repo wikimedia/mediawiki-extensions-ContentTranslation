@@ -1,19 +1,20 @@
 import mtValidator from "./mtValidator";
 
-jest.mock("./mtHelper", () => ({
-  __esModule: true, // this property makes it work
-  calculateUnmodifiedContent: jest.fn((proposed, actual, language) => {
-    if (actual === "actual1" && proposed === "proposed1") {
-      return 0.97;
-    } else if (actual === "actual2" && proposed === "proposed2") {
-      return 0.9;
-    } else if (actual === "actual3" && proposed === "proposed3") {
-      return 0.8;
-    }
+global.mw = {
+  cx: {
+    calculateUnmodifiedContent: jest.fn((proposed, actual, language) => {
+      if (actual === "actual1" && proposed === "proposed1") {
+        return 0.97;
+      } else if (actual === "actual2" && proposed === "proposed2") {
+        return 0.9;
+      } else if (actual === "actual3" && proposed === "proposed3") {
+        return 0.8;
+      }
 
-    return 0;
-  }),
-}));
+      return 0;
+    }),
+  },
+};
 
 describe("mtValidator test", () => {
   it("calculateScore test", () => {

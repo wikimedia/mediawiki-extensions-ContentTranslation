@@ -1,5 +1,3 @@
-import { calculateUnmodifiedContent } from "./mtHelper";
-
 /** Default general MT threshold */
 const publishingThreshold = mw.config.get(
   "wgContentTranslationUnmodifiedMTThresholdForPublish",
@@ -29,7 +27,8 @@ const calculateScore = (actualTranslation, proposedTranslation, language) => {
   const resultText = htmlToElement(actualTranslation).textContent;
   const proposedText = htmlToElement(proposedTranslation).textContent;
   const distance =
-    100 - 100 * calculateUnmodifiedContent(proposedText, resultText, language);
+    100 -
+    100 * mw.cx.calculateUnmodifiedContent(proposedText, resultText, language);
 
   return Math.ceil(distance);
 };
