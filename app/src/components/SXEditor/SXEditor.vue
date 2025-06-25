@@ -120,6 +120,11 @@ const onEditCompleted = async (translation) => {
   height: 100%;
   &__editing-surface-container {
     position: relative;
+
+    .ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
+      // T397840
+      position: initial;
+    }
   }
 }
 </style>
