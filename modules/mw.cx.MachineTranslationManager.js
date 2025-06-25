@@ -14,120 +14,115 @@
 const ORIGINAL_TEXT_PROVIDER_KEY = 'source';
 const EMPTY_TEXT_PROVIDER_KEY = 'scratch';
 
-/**
- * @class
- * @param {string} sourceLanguage Language code
- * @param {string} targetLanguage Language code
- * @param {mw.cx.MachineTranslationService} MTService
- */
-mw.cx.MachineTranslationManager = function MwCxMachineTranslationManager(
-	sourceLanguage, targetLanguage, MTService
-) {
-	this.sourceLanguage = sourceLanguage;
-	this.targetLanguage = targetLanguage;
-	this.MT = MTService;
-};
+class MwCxMachineTranslationManager {
+	/**
+	 * @param {string} sourceLanguage
+	 * @param {string} targetLanguage
+	 * @param {mw.cx.MachineTranslationService} MTService
+	 */
+	constructor( sourceLanguage, targetLanguage, MTService ) {
+		this.sourceLanguage = sourceLanguage;
+		this.targetLanguage = targetLanguage;
+		this.MT = MTService;
+	}
 
-/**
- * Map provider id to human readable label.
- *
- * @param {string} provider Id of the provider
- * @return {string} Translated label
- */
-mw.cx.MachineTranslationManager.prototype.getProviderLabel = function ( provider ) {
-	return mw.msg.apply( null, {
-		Elia: [ 'cx-tools-mt-provider-title', 'Elia.eus' ],
-		Google: [ 'cx-tools-mt-provider-title', 'Google Translate' ],
-		Yandex: [ 'cx-tools-mt-provider-title', 'Yandex.Translate' ],
-		[ EMPTY_TEXT_PROVIDER_KEY ]: [ 'cx-tools-mt-dont-use' ],
-		[ ORIGINAL_TEXT_PROVIDER_KEY ]: [ 'cx-tools-mt-use-source' ],
-		reset: [ 'cx-tools-mt-reset' ]
-	}[ provider ] || [ 'cx-tools-mt-provider-title', provider ] );
-};
+	/**
+	 * Map provider id to human-readable label.
+	 *
+	 * @param {string} provider Id of the provider
+	 * @return {string} Translated label
+	 */
+	static getProviderLabel( provider ) {
+		return mw.msg.apply( null, {
+			Elia: [ 'cx-tools-mt-provider-title', 'Elia.eus' ],
+			Google: [ 'cx-tools-mt-provider-title', 'Google Translate' ],
+			Yandex: [ 'cx-tools-mt-provider-title', 'Yandex.Translate' ],
+			[ EMPTY_TEXT_PROVIDER_KEY ]: [ 'cx-tools-mt-dont-use' ],
+			[ ORIGINAL_TEXT_PROVIDER_KEY ]: [ 'cx-tools-mt-use-source' ],
+			reset: [ 'cx-tools-mt-reset' ]
+		}[ provider ] || [ 'cx-tools-mt-provider-title', provider ] );
+	}
 
-/* Public methods */
+	/**
+	 * Get the preferred provider, also taking into account user preference.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	getPreferredProvider() {
+		const key = this.storageKey;
+		const value = mw.storage.get( key );
 
-/**
- * Get the preferred provider, also taking into account user preference.
- *
- * @return {jQuery.Promise}
- */
-mw.cx.MachineTranslationManager.prototype.getPreferredProvider = function () {
-	const key = this.getStorageKey();
-	const value = mw.storage.get( key );
+		return this.getAvailableProviders().then( ( providers ) => {
+			if ( value && providers.includes( value ) ) {
+				return value;
+			}
 
-	return this.getAvailableProviders().then( ( providers ) => {
-		if ( value && providers.includes( value ) ) {
-			return value;
-		}
+			// Stored provider is invalid or not available right now
+			return this.getDefaultProvider();
+		} );
 
-		// Stored provider is invalid or not available right now
-		return this.getDefaultProvider();
-	} );
+	}
 
-};
+	setPreferredProvider( value ) {
+		mw.storage.set( this.storageKey, value );
+	}
 
-mw.cx.MachineTranslationManager.prototype.setPreferredProvider = function ( value ) {
-	const key = this.getStorageKey();
+	getAvailableProviders() {
+		return this.MT.getProviders().then(
+			( providers ) => providers.concat( [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] ),
+			// Allow to continue translation even if this fails
+			() => $.Deferred().resolve( [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] )
+		);
+	}
 
-	mw.storage.set( key, value );
-};
+	/**
+	 * Determines whether `source` or `scratch` should be used. Since mixing
+	 * left-to-right and right-to-left is complex and confusing, default to
+	 * `scratch` translation if directions are different.
+	 *
+	 * @return {jQuery.Promise} Resolves to provider id.
+	 */
+	getDefaultNonMTProvider() {
+		return mw.loader.using( 'jquery.uls.data' ).then(
+			() => {
+				const sourceDir = $.uls.data.getDir( this.sourceLanguage );
+				const targetDir = $.uls.data.getDir( this.targetLanguage );
 
-mw.cx.MachineTranslationManager.prototype.getAvailableProviders = function () {
-	return this.MT.getProviders().then(
-		( providers ) => providers.concat( [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] ),
-		// Allow to continue translation even if this fails
-		() => $.Deferred().resolve( [ ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY ] )
-	);
-};
+				return sourceDir === targetDir ? ORIGINAL_TEXT_PROVIDER_KEY : EMPTY_TEXT_PROVIDER_KEY;
+			},
+			// Convert failure to success
+			() => $.Deferred().resolve( ORIGINAL_TEXT_PROVIDER_KEY ).promise()
+		);
+	}
 
-/* Private methods */
+	/**
+	 * Get the default MT provider.
+	 *
+	 * @return {jQuery.Promise} Resolves to a provider id.
+	 */
+	getDefaultProvider() {
+		return this.MT.getSuggestedDefaultProvider().then(
+			( provider ) => provider || this.getDefaultNonMTProvider(),
+			() => this.getDefaultNonMTProvider()
+		);
+	}
 
-/**
- * Determines whether `source` or `scratch` should be used. Since mixing
- * left-to-right and right-to-left is complex and confusing, default to
- * `scratch` translation if directions are different.
- *
- * @return {jQuery.Promise} Resolves to provider id.
- */
-mw.cx.MachineTranslationManager.prototype.getDefaultNonMTProvider = function () {
-	return mw.loader.using( 'jquery.uls.data' ).then(
-		() => {
-			const sourceDir = $.uls.data.getDir( this.sourceLanguage );
-			const targetDir = $.uls.data.getDir( this.targetLanguage );
+	get storageKey() {
+		// This format was used by CX1, so keeping it for compatibility.
+		return [ 'cxMTProvider', this.sourceLanguage, this.targetLanguage ].join( '-' );
+	}
 
-			return sourceDir === targetDir ? ORIGINAL_TEXT_PROVIDER_KEY : EMPTY_TEXT_PROVIDER_KEY;
-		},
-		// Convert failure to success
-		() => $.Deferred().resolve( ORIGINAL_TEXT_PROVIDER_KEY ).promise()
-	);
-};
+	getProviderForInstrumentation() {
+		return this.getPreferredProvider().then( ( provider ) => {
+			if ( provider === EMPTY_TEXT_PROVIDER_KEY ) {
+				return 'blank';
+			} else if ( provider === ORIGINAL_TEXT_PROVIDER_KEY ) {
+				return 'source';
+			}
+			// event logging schema expects lowercase MT providers (e.g. "google" for "Google" MT provider)
+			return provider.toLowerCase();
+		} );
+	}
+}
 
-/**
- * Get the default MT provider.
- *
- * @return {jQuery.Promise} Resolves to a provider id.
- */
-mw.cx.MachineTranslationManager.prototype.getDefaultProvider = function () {
-	return this.MT.getSuggestedDefaultProvider().then(
-		( provider ) => provider || this.getDefaultNonMTProvider(),
-		() => this.getDefaultNonMTProvider()
-	);
-};
-
-mw.cx.MachineTranslationManager.prototype.getStorageKey = function () {
-	// This format was used by CX1, so keeping it for compatibility.
-	return [ 'cxMTProvider', this.sourceLanguage, this.targetLanguage ].join( '-' );
-};
-
-mw.cx.MachineTranslationManager.prototype.getProviderForInstrumentation = function () {
-	return this.getPreferredProvider().then( ( provider ) => {
-		if ( provider === EMPTY_TEXT_PROVIDER_KEY ) {
-			return 'blank';
-		} else if ( provider === ORIGINAL_TEXT_PROVIDER_KEY ) {
-			return 'source';
-		}
-		// event logging schema expects lowercase MT providers (e.g. "google" for "Google" MT provider)
-		return provider.toLowerCase();
-	} );
-};
+mw.cx.MachineTranslationManager = MwCxMachineTranslationManager;
