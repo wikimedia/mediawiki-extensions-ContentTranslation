@@ -533,10 +533,10 @@ ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
 		payload.translation_id = this.translation.id;
 	}
 
-	this.MTManager.getProviderForInstrumentation()
+	this.MTManager.getPreferredProvider()
 		.then( ( provider ) => {
 			// eslint-disable-next-line camelcase
-			payload.translation_provider = provider;
+			payload.translation_provider = mw.cx.MachineTranslationManager.getProviderForInstrumentation( provider );
 		} )
 		.always( () => {
 			mw.cx.logEvent( payload );
@@ -836,11 +836,11 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--non-empty' );
 
 	model.emit( 'beforeTranslation' );
-	this.MTManager.getProviderForInstrumentation()
+	this.MTManager.getPreferredProvider()
 		.then( ( provider ) => {
 			this.changeContentSource( model, null, provider );
 			// eslint-disable-next-line camelcase
-			payload.translation_provider = provider;
+			payload.translation_provider = mw.cx.MachineTranslationManager.getProviderForInstrumentation( provider );
 		} )
 		.fail( () => {
 			mw.notify( mw.msg( 'cx-auto-failed' ) );

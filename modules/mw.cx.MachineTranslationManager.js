@@ -112,16 +112,14 @@ class MwCxMachineTranslationManager {
 		return [ 'cxMTProvider', this.sourceLanguage, this.targetLanguage ].join( '-' );
 	}
 
-	getProviderForInstrumentation() {
-		return this.getPreferredProvider().then( ( provider ) => {
-			if ( provider === EMPTY_TEXT_PROVIDER_KEY ) {
-				return 'blank';
-			} else if ( provider === ORIGINAL_TEXT_PROVIDER_KEY ) {
-				return 'source';
-			}
-			// event logging schema expects lowercase MT providers (e.g. "google" for "Google" MT provider)
-			return provider.toLowerCase();
-		} );
+	static getProviderForInstrumentation( provider ) {
+		if ( provider === EMPTY_TEXT_PROVIDER_KEY ) {
+			return 'blank';
+		} else if ( provider === ORIGINAL_TEXT_PROVIDER_KEY ) {
+			return 'source';
+		}
+		// event logging schema expects lowercase MT providers (e.g. "google" for "Google" MT provider)
+		return provider.toLowerCase();
 	}
 }
 

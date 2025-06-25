@@ -1025,10 +1025,10 @@ mw.cx.TranslationController.prototype.logTranslationControllerEvent = function (
 		event.translation_target_section = this.veTarget.translationView.targetColumn.getTitle();
 	}
 
-	this.veTarget.MTManager.getProviderForInstrumentation()
+	this.veTarget.MTManager.getPreferredProvider()
 		.then( ( provider ) => {
 			// eslint-disable-next-line camelcase
-			event.translation_provider = provider;
+			event.translation_provider = mw.cx.MachineTranslationManager.getProviderForInstrumentation( provider );
 		} )
 		.always( () => {
 			mw.cx.logEvent( event );
