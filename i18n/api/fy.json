@@ -9,8 +9,6 @@
 	"apihelp-cxpublish-param-to": "De koade fan de doeltaal.",
 	"apihelp-query+cxpublishedtranslations-param-from": "De koade fan de boarnetaal.",
 	"apihelp-query+cxpublishedtranslations-param-to": "De koade fan de doeltaal.",
-	"apihelp-query+contenttranslationlangtrend-param-source": "De koade fan de boarnetaal.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "De koade fan de doeltaal.",
 	"apihelp-cxdelete-param-from": "De koade fan de boarnetaal.",
 	"apihelp-cxdelete-param-to": "De koade fan de doeltaal.",
 	"apihelp-cxdelete-param-sourcetitle": "De titel fan de boarneside."

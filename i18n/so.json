@@ -38,7 +38,6 @@
 	"cx-tools-mt-use-source": "Adeegso isla qoraalka",
 	"cx-tools-mt-provider-title": "Adeegso $1",
 	"cx-tools-mt-dont-use": "Ha adeegsan turjumad aaladeed",
-	"cx-stats-title": "Tirakoobka wax turjumidda",
 	"cx-error-page-not-found": "Bogga  \"$1\" ma laga heli karin $2 Wikipedia",
 	"cx-selected-source-page-error-page-and-title-exist": "Ciwaankaan horay baa loo adeegsaday [$1 $2] si [$3 ka bedelan bogga]",
 	"cx-selected-source-page-error-title-in-use": "Ciwaanka boggaan cusub waa [$1 la adeegsaday mar hore]",
@@ -57,12 +56,6 @@
 	"cx-contributions-upload": "Gali fayl",
 	"cx-translation-status-draft": "Howl socota",
 	"cx-translation-status-published": "Bandhigid",
-	"cx-stats-published-translations-title": "Turjumaadii waa la faafiyay",
-	"cx-stats-draft-translations-title": "Waxaa socota turjumaad",
-	"cx-stats-new-draft-translations-label": "Waxaa socota howsha turjumaad cusub",
 	"cx-campaign-contributionsmenu-myuploads": "Gali fayl",
-	"cx-stats-published-translations-label": "Turjumaadii waa la faafiyay",
-	"cx-stats-draft-target-source": "Turjumaad ayaa ku socota",
-	"cx-stats-total-published": "Wadarta la faafiyay",
 	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]]."
 }

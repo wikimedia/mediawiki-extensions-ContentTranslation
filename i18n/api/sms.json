@@ -14,8 +14,6 @@
 	"apihelp-query+contenttranslationsuggestions-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Käivvǩiõl ǩiõllkoodd.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Käivvǩiõl ǩiõllkoodd.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "Täävtõsǩiõl ǩiõllkoodd.",
 	"apihelp-cxdelete-param-from": "Käivvǩiõl ǩiõllkoodd.",
 	"apihelp-cxdelete-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
 	"apihelp-cxdelete-param-sourcetitle": "Käivvseeid nõmm.",

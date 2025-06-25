@@ -17,7 +17,6 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Recuperar totas las traduccions publicadas",
 	"apihelp-query+cxpublishedtranslations-example-2": "Recuperar totas las traduccions publicadas, traduitas de l’anglés",
 	"apihelp-query+cxpublishedtranslations-example-3": "Recuperar totas las traduccions publicadas, traduitas de l’anglés en espanhòl",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Lo còdi de lenga font.",
 	"apihelp-cxdelete-param-from": "Lo còdi de lenga font.",
 	"apihelp-cxsuggestionlist-param-from": "Lo còdi de lenga font.",
 	"apihelp-cxsave-param-from": "Lo còdi de lenga font."

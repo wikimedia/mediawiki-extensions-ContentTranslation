@@ -17,8 +17,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "સ્રોત ભાષા કોડ.",
 	"apihelp-query+cxpublishedtranslations-param-to": "લક્ષ્ય ભાષા કોડ.",
 	"apihelp-query+cxpublishedtranslations-example-1": "બધાં પ્રકાશિત ભાષાંતરો મેળવો",
-	"apihelp-query+contenttranslationlangtrend-param-source": "સ્રોત ભાષાનો કોડ.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "લક્ષ્ય ભાષાનો કોડ.",
 	"apihelp-cxtoken-example-1": "cxserver માંથી સત્તાધિકરણ ટોકન મેળવો",
 	"apihelp-cxdelete-param-from": "સ્રોત ભાષા કોડ.",
 	"apihelp-cxdelete-param-to": "લક્ષ્ય ભાષા કોડ.",

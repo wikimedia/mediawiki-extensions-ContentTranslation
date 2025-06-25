@@ -11,7 +11,6 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "Lähesivun nimi.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Lähteen kielikooti.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Lähteen kielikooti.",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Lähteen kielikooti.",
 	"apihelp-cxdelete-param-from": "Lähteen kielikooti.",
 	"apihelp-cxdelete-param-sourcetitle": "Lähesivun nimi.",
 	"apihelp-cxsuggestionlist-param-from": "Lähteen kielikooti.",

@@ -13,8 +13,6 @@
 	"apihelp-query+contenttranslation-param-translationid": "איבערזעצונג אידענטיפיצירער.",
 	"apihelp-query+cxpublishedtranslations-param-from": "קוואלשפראך קאד.",
 	"apihelp-query+cxpublishedtranslations-param-to": "צילשפראך קאד",
-	"apihelp-query+contenttranslationlangtrend-param-source": "קוואלשפראך קאד.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "צילשפראך קאד",
 	"apihelp-cxdelete-param-from": "קוואלשפראך קאד.",
 	"apihelp-cxdelete-param-to": "צילשפראך קאד.",
 	"apihelp-cxdelete-param-sourcetitle": "טיטל פונעם קוואלבלאט.",

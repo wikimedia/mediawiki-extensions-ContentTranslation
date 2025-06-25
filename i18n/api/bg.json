@@ -16,8 +16,6 @@
 	"apihelp-query+contenttranslationsuggestions-param-to": "Код на целевия език.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Код на изходния език.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Код на целевия език.",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Код на изходния език.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "Код на целевия език.",
 	"apihelp-cxdelete-param-from": "Код на изходния език.",
 	"apihelp-cxdelete-param-to": "Код на целевия език.",
 	"apihelp-cxdelete-param-sourcetitle": "Заглавие на изходната страница.",

@@ -22,8 +22,6 @@
 	"apihelp-query+contenttranslation-param-type": "Stad an droidigezh.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Kod ar yezh orin.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Kod ar yezh pal.",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Kod ar yezh orin.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "Kod ar yezh pal.",
 	"apihelp-cxsuggestionlist-param-titles": "Titloù pajennoù",
 	"apihelp-cxsuggestionlist-param-from": "Kod ar yezh orin.",
 	"apihelp-cxsuggestionlist-param-to": "Kod ar yezh pal.",

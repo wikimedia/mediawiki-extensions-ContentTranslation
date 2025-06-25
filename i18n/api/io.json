@@ -6,8 +6,6 @@
 	},
 	"apihelp-cxpublish-param-sourcetitle": "Titulo di la fonto-pagino.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Kodexo di la fonto-linguo.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "Kodexo di la linguo dil tradukuro.",
-	"apihelp-query+contenttranslationlangtrend-param-interval": "Intervalo por kalkular la tendenco. Povas esar <kbd>semano</kbd> o <kbd>monato</kbd>.",
 	"apihelp-cxdelete-param-sourcetitle": "Titulo di la fonto-pagino.",
 	"apihelp-cxsave-param-sourcetitle": "La titulo di la fonto-pagino."
 }

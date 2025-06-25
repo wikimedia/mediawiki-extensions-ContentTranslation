@@ -23,8 +23,6 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Sækja allar útgefnar þýðingar",
 	"apihelp-query+cxpublishedtranslations-example-2": "Sækja allar útgefnar þýðingar úr ensku",
 	"apihelp-query+cxpublishedtranslations-example-3": "Sækja allar útgefnar þýðingar úr ensku á spænsku",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Kóði frummálsins.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "Kóði markmálsins.",
 	"apihelp-cxdelete-summary": "Eyða þýðingardrögum sem gerð voru með Content Translation-viðbótinni.",
 	"apihelp-cxdelete-param-from": "Kóði frummálsins.",
 	"apihelp-cxdelete-param-to": "Kóði markmálsins.",

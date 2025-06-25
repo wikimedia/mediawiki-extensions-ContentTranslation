@@ -11,8 +11,6 @@
 	"apihelp-query+contenttranslation-param-translationid": "Гочдаран ID.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Хьостан меттан код.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Ӏалашонан меттан код.",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Хьостан меттан код.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "Ӏалашонан меттан код.",
 	"apihelp-cxdelete-param-from": "Хьостан меттан код.",
 	"apihelp-cxdelete-param-to": "Ӏалашонан меттан код.",
 	"apihelp-cxdelete-param-sourcetitle": "ДӀайолалун агӀонан цӀе.",

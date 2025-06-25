@@ -27,13 +27,10 @@
 	"cx-contributions-upload": "Медиафайл тӀатохар",
 	"cx-contributions-new-article-tooltip": "Хьакхолла керда оагӀув",
 	"cx-translation-label-draft": "Йистедаьннадоаца таржамаш",
-	"cx-stats-draft-translations-title": "Йистедаланза таржамаш",
-	"cx-stats-draft-translations-label": "Йистедаланза таржамаш",
 	"cx-campaign-no-thanks": "А, баркал",
 	"cx-campaign-try": "Таржама кечалах пайда эца",
 	"cx-campaign-contributionsmenu-mytranslations": "Таржамаш",
 	"cx-campaign-contributionsmenu-myuploads": "Чуяьха медиафайлаш",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 таржам}}",
 	"echo-category-title-cx": "Таржамаш",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Хьа таржам"
 }

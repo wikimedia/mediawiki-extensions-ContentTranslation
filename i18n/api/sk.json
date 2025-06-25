@@ -22,8 +22,6 @@
 	"apihelp-query+contenttranslationsuggestions-param-to": "Kód cieľového jazyka.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Kód zdrojového jazyka.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Kód cieľového jazyka.",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Kód zdrojového jazyka.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "Kód cieľového jazyka.",
 	"apihelp-cxdelete-param-from": "Kód zdrojového jazyka.",
 	"apihelp-cxdelete-param-to": "Kód cieľového jazyka.",
 	"apihelp-cxsuggestionlist-param-from": "Kód zdrojového jazyka.",

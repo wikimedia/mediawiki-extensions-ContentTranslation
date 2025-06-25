@@ -21,8 +21,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "स्रोत भाषाको कोड ।",
 	"apihelp-query+cxpublishedtranslations-param-to": "लक्षित भाषाको कोड ।",
 	"apihelp-query+cxpublishedtranslations-example-1": "सबै प्रकाशित अनुवादहरू खोज्नुहोस्",
-	"apihelp-query+contenttranslationlangtrend-param-source": "स्रोत भाषाको कोड ।",
-	"apihelp-query+contenttranslationlangtrend-param-target": "लक्षित भाषाको कोड ।",
 	"apihelp-cxdelete-param-from": "स्रोत भाषाको कोड ।",
 	"apihelp-cxdelete-param-to": "लक्षित भाषाको कोड ।",
 	"apihelp-cxdelete-param-sourcetitle": "स्रोत लेखको शीर्षक ।",

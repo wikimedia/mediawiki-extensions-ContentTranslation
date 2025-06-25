@@ -21,8 +21,6 @@
 	"apihelp-query+contenttranslationsuggestions-param-to": "Kohdekielen koodi.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Lähdekielen koodi.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Kohdekielen koodi.",
-	"apihelp-query+contenttranslationlangtrend-param-source": "Lähdekielen koodi.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "Kohdekielen koodi.",
 	"apihelp-cxdelete-param-from": "Lähdekielen koodi.",
 	"apihelp-cxdelete-param-to": "Kohdekielen koodi.",
 	"apihelp-cxdelete-param-sourcetitle": "Lähdesivun nimi.",

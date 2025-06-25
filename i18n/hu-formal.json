@@ -16,7 +16,6 @@
 	"cx-tools-instructions-text3": "Úgy írjon, hogy az könnyen olvasható és értelmezhető legyen.",
 	"cx-tools-instructions-text4": "A gépi fordítás hasznos, de vizsgálja felül a szöveget, hogy pontos-e.",
 	"cx-tools-instructions-text6": "Amikor elégedett az eredménnyel, kattintson a „{{int:cx-publish-button}}” gombra.",
-	"cx-stats-title": "Tartalomfordítási statisztikája",
 	"cx-mt-abuse-warning-title": "A fordításának egy része $1% módosítatlan {{PLURAL:$1|szöveget}} tartalmaz",
 	"cx-mt-abuse-warning-text": "A gépi fordítás csak kiindulásként szolgál. Kérem, győződjön meg arról, hogy a tartalma pontos és könnyen értelmezhető a nyelvén.",
 	"cx-draft-discard-confirmation-message": "Biztosan szeretné véglegesen törölni ezt a fordítást?",
