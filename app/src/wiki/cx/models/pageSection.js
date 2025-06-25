@@ -7,7 +7,7 @@ const LEAD_SECTION_DUMMY_TITLE = "__LEAD_SECTION__";
 
 /**
  * This model represents a translation section belonging to a Page model.
- * It stores section content through section sub-sections, section title
+ * It stores section content through section subsections, section title
  * and section id, which corresponds to the mw-section-number attribute,
  * as provided by cx server's content segmentation action.
  */

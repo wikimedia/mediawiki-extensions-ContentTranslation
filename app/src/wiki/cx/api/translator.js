@@ -70,7 +70,7 @@ async function fetchTranslations(status, offset = null) {
 }
 
 /**
- * @param {string} translationId
+ * @param {number} translationId
  * @return {Promise<CorporaRestoredUnit[]>}
  */
 function fetchTranslationUnits(translationId) {
@@ -418,7 +418,7 @@ const saveTranslation = ({
 };
 
 /**
- * @param {int} translationId
+ * @param {number} translationId
  * @return {Promise}
  */
 const splitTranslation = (translationId) => {

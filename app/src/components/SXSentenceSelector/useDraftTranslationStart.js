@@ -15,19 +15,21 @@ const useDraftTranslationStart = () => {
    * @return {(function(): Promise)}
    */
   return async (translation) => {
-    if (!translation.restored) {
-      await translatorApi
-        .fetchTranslationUnits(translation.translationId)
-        .then((translationUnits) =>
-          translationRestorer.restoreCorporaDraft(
-            currentSourcePage.value,
-            translation.targetTitle,
-            translation.targetLanguage,
-            translationUnits
-          )
-        )
-        .then(() => (translation.restored = true));
+    if (translation.restored) {
+      return;
     }
+
+    const translationUnits = await translatorApi.fetchTranslationUnits(
+      translation.translationId
+    );
+    await translationRestorer.restoreCorporaDraft(
+      currentSourcePage.value,
+      translation.targetTitle,
+      translation.targetLanguage,
+      translationUnits
+    );
+
+    translation.restored = true;
 
     let sectionTitleTranslation;
 
