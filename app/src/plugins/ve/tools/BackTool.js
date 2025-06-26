@@ -6,7 +6,7 @@ const SXEditorBackTool = function SXEditorBackTool() {
   SXEditorBackTool.super.apply(this, arguments);
 };
 OO.inheritClass(SXEditorBackTool, ve.ui.Tool);
-SXEditorBackTool.static.name = "back";
+SXEditorBackTool.static.name = "sxBack";
 SXEditorBackTool.static.group = "navigation";
 SXEditorBackTool.static.icon = "close";
 SXEditorBackTool.static.title = OO.ui.deferMsg(

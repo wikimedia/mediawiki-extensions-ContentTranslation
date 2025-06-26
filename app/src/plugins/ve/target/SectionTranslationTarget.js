@@ -100,13 +100,13 @@ SectionTranslationTarget.prototype.setupToolbar = function (surface) {
     // Back
     {
       name: "back",
-      include: ["back"],
+      include: ["sxBack"],
     },
     ...originalToolbarGroups,
     {
       name: "next",
       type: "bar",
-      include: ["showMobileNext"],
+      include: ["sxNext"],
     },
   ];
   // Grand-parent method

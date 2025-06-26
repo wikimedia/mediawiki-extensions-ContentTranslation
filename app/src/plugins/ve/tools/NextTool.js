@@ -6,7 +6,7 @@ const SXEditorNextTool = function SXEditorNextTool() {
   SXEditorNextTool.super.apply(this, arguments);
 };
 OO.inheritClass(SXEditorNextTool, ve.ui.Tool);
-SXEditorNextTool.static.name = "showMobileNext";
+SXEditorNextTool.static.name = "sxNext";
 SXEditorNextTool.static.icon = "next";
 SXEditorNextTool.static.flags = ["primary", "progressive"];
 SXEditorNextTool.static.group = "navigation";
