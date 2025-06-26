@@ -53,6 +53,7 @@
 	"tag-contenttranslation-v2-description": "Το περιεχόμενο μεταφράστηκε από άλλη γλώσσα χρησιμοποιώντας την έκδοση 2 του εργαλείου Μετάφραση Περιεχομένου.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|ΜετάφρασηΕνότητας]]",
 	"tag-sectiontranslation-description": "Το περιεχόμενο μεταφράστηκε από μια ενότητα σε άλλη γλώσσα χρησιμοποιώντας τη λειτουργία Μετάφραση Ενότητας του εργαλείου Μετάφραση Περιεχομένου.",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "Η μετάφραση που δημοσιεύτηκε χρησιμοποιώντας το ContentTranslation έχει υψηλό ποσοστό μη τροποποιημένης μηχανικής μετάφρασης",
 	"cx-source-loading": "Φόρτωση του $1",
 	"cx-beta": "Μετάφραση Περιεχομένου",
 	"cx-beta-desc": "Ένα εργαλείο για γρήγορη μετάφραση σελίδων στη γλώσσα σας. Αρχίστε τις μεταφράσεις από τη [[Special:MyContributions|σελίδα συνεισφορών σας]], επεξεργαστείτε τις με το παράπλευρο επεξεργαστή ειδικά σχεδιασμένο για μετάφραση. Μερικά από τα εργαλεία ενδέχεται να είναι διαθέσιμα μόνο για συγκεκριμένες γλώσσες.",
@@ -314,7 +315,7 @@
 	"cx-sx-sentence-selector-header-title": "Μετάφραση ενότητας",
 	"cx-sx-sentence-selector-done-button-label": "Έγινε",
 	"cx-sx-sentence-selector-suggested-translation-title": "Προτεινόμενη μετάφραση από $1",
-	"cx-sx-proposed-translation-not-available-message": "Η αυτόματη μετάφραση δεν είναι διαθέσιμη αυτή τη στιγμή",
+	"cx-sx-proposed-translation-not-available-message": "Δεν είναι διαθέσιμη αυτή τη στιγμή",
 	"cx-sx-proposed-translation-retry-button": "Ξαναπροσπαθήστε",
 	"cx-sx-proposed-translation-other-options-button": "Άλλες επιλογές",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Επεξεργασία μετάφρασης",
@@ -400,6 +401,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Μεταφράστε την ενότητα",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Νέα μετάφραση",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Ενότητα",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "Συνέχεια μετάφρασης",
 	"sx-editor-feedback-overlay-title": "Ευχαριστούμε!",
 	"sx-editor-feedback-overlay-clarification": "Μαθαίνετε από τις διορθώσεις σας",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> επεξεργάστηκε από εσάς",
@@ -445,7 +447,7 @@
 	"cx-sx-publisher-captcha-dialog-header-title": "Έλεγχος ότι δεν είστε ρομπότ",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Δημοσίευση",
 	"cx-contributecard-entrypoint-title": "Μεταφράσεις",
-	"cx-contributecard-entrypoint-desc": "Μεταφράστε μια ενότητα ή ένα ολόκληρο άρθρο. Κάντε περισσότερο περιεχόμενο διαθέσιμο σε περισσότερες γλώσσες.",
+	"cx-contributecard-entrypoint-desc": "Μεταφράστε μια ενότητα ή ένα ολόκληρο λήμμα. Κάντε περισσότερο περιεχόμενο διαθέσιμο σε περισσότερες γλώσσες.",
 	"cx-contributecard-entrypoint-cta": "Ξεκινήστε μια μετάφραση",
 	"cx-sx-block-template-mapping-status-title-no-target-template": "Δε βρέθηκε κάποιο αντίστοιχο πρότυπο",
 	"cx-sx-block-template-mapping-status-title-unadapted-template": "Το πρότυπο αυτό θα είναι άδειο",
@@ -479,5 +481,7 @@
 	"sx-translation-deletion-confirm-button-label": "Διαγραφή μετάφρασης",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 ημέρα|$1 ημέρες|0=Σήμερα}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 μήνας|$1 μήνες}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 έτος|$1 έτη}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 έτος|$1 έτη}}",
+	"sx-confirm-draft-translation-start-dialog-title": "Συνέχεια μετάφρασης σε κινητό",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Αυτή η μετάφραση ξεκίνησε σε διαφορετική συσκευή και περιλαμβάνει περιεχόμενα για πολλές ενότητες του λήμματος."
 }
