@@ -10,7 +10,7 @@
  * Note: Removed switching to visual, source modes. Use only visual editor mode.
  *
  * @class
- * @extends ve.init.mw.ArticleTarget
+ * @extends ve.init.mw.MobileArticleTarget
  *
  * @constructor
  * @param {Element} overlay Overlay element. Should have toolbar and surface
@@ -18,7 +18,6 @@
  * @param {Object} [config] Configuration options
  * @param {string} [config.section] Number of the section target should scroll to
  */
-
 function SectionTranslationTarget(overlay, config) {
   this.overlay = overlay;
   this.$overlaySurface = overlay.querySelector(".surface");
@@ -84,6 +83,11 @@ SectionTranslationTarget.prototype.next = function () {
 };
 
 /**
+ * This fully overrides the upstream method in order
+ * to remove the editMode switching tools.
+ *
+ * TODO: Find a less hacky way to do this.
+ *
  * @inheritdoc
  */
 SectionTranslationTarget.prototype.setupToolbar = function (surface) {
@@ -92,31 +96,30 @@ SectionTranslationTarget.prototype.setupToolbar = function (surface) {
   // temporarily add them here. We need to do it _here_ rather than in their
   // own static variable to make sure that other tools which meddle with
   // toolbarGroups (Cite, mostly) have a chance to do so.
-  this.toolbarGroups = [].concat(
-    [
-      // Back
-      {
-        name: "back",
-        include: ["back"],
-      },
-    ],
-    originalToolbarGroups,
-    [
-      {
-        name: "next",
-        type: "bar",
-        include: ["showMobileNext"],
-      },
-    ]
-  );
-  // Parent method
+  this.toolbarGroups = [
+    // Back
+    {
+      name: "back",
+      include: ["back"],
+    },
+    ...originalToolbarGroups,
+    {
+      name: "next",
+      type: "bar",
+      include: ["showMobileNext"],
+    },
+  ];
+  // Grand-parent method
   ve.init.mw.MobileArticleTarget.super.prototype.setupToolbar.call(
     this,
     surface
   );
   this.toolbarGroups = originalToolbarGroups;
-  this.toolbar.$group.addClass("ve-init-mw-mobileArticleTarget-editTools");
+
   this.toolbar.$element.addClass("ve-init-mw-mobileArticleTarget-toolbar");
+  this.toolbar.$popups.addClass(
+    "ve-init-mw-mobileArticleTarget-toolbar-popups"
+  );
 };
 
 /**
