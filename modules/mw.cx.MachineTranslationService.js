@@ -99,30 +99,6 @@ mw.cx.MachineTranslationService.prototype.prepareContentForScratch = function ( 
  * @return {Promise<string[]>}
  */
 mw.cx.MachineTranslationService.prototype.getProviders = function () {
-	return this.getProvidersCached().then(
-		( providers ) => providers.filter( ( item ) => item !== 'source-mt' )
-	);
-};
-
-/**
- * @return {Promise<string>}
- */
-mw.cx.MachineTranslationService.prototype.getSuggestedDefaultProvider = function () {
-	return this.getProvidersCached().then( ( providers ) => {
-		if ( providers.length === 0 || providers[ 0 ] === 'source-mt' ) {
-			return null;
-		}
-
-		return providers[ 0 ];
-	} );
-};
-
-/* Private methods */
-
-/**
- * @return {Promise<string[]>}
- */
-mw.cx.MachineTranslationService.prototype.getProvidersCached = function () {
 	if ( this.providers !== null ) {
 		return Promise.resolve( this.providers );
 	}
@@ -138,6 +114,8 @@ mw.cx.MachineTranslationService.prototype.getProvidersCached = function () {
 		mw.log.error( '[CX]', 'Unable to fetch machine translation providers.', error );
 	} );
 };
+
+/* Private methods */
 
 /**
  * Fetch available providers from cxserver.

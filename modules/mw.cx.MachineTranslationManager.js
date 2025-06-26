@@ -97,8 +97,8 @@ class MwCxMachineTranslationManager {
 	 * @return {Promise<string>} Resolves to a provider id, e.g. "Google".
 	 */
 	getDefaultProvider() {
-		return this.MT.getSuggestedDefaultProvider().then(
-			( provider ) => provider || this.getDefaultNonMTProvider()
+		return this.MT.getProviders().then(
+			( providers ) => providers && providers[ 0 ] || this.getDefaultNonMTProvider()
 		).catch( () => this.getDefaultNonMTProvider() );
 	}
 

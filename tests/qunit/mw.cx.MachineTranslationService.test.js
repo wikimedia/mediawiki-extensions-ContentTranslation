@@ -85,7 +85,7 @@ QUnit.test( 'fetchProviders [Service is down]', function ( assert ) {
 	);
 } );
 
-QUnit.test( 'getSuggestedDefaultProvider [Success with results]', function ( assert ) {
+QUnit.test( 'getProviders [Success with results]', function ( assert ) {
 	this.stubFetch( '/list/mt/source/target', [
 		200,
 		{ 'Content-Type': 'application/json' },
@@ -93,36 +93,8 @@ QUnit.test( 'getSuggestedDefaultProvider [Success with results]', function ( ass
 	] );
 
 	return new mw.cx.MachineTranslationService( 'source', 'target', this.siteMapper )
-		.getSuggestedDefaultProvider()
-		.then( ( provider ) => {
-			assert.strictEqual( provider, 'Provider1', 'The first provider is suggested.' );
-		} );
-} );
-
-QUnit.test( 'getSuggestedDefaultProvider [Success without results]', function ( assert ) {
-	this.stubFetch( '/list/mt/source/target', [
-		200,
-		{ 'Content-Type': 'application/json' },
-		'{}'
-	] );
-
-	return new mw.cx.MachineTranslationService( 'source', 'target', this.siteMapper )
-		.getSuggestedDefaultProvider()
-		.then( ( provider ) => {
-			assert.strictEqual( provider, null, 'If no providers, no suggested provider.' );
-		} );
-} );
-
-QUnit.test( 'getSuggestedDefaultProvider [Success with source-mt in result]', function ( assert ) {
-	this.stubFetch( '/list/mt/source/target', [
-		200,
-		{ 'Content-Type': 'application/json' },
-		'{ "mt": [ "source-mt", "Provider1", "Provider2" ] }'
-	] );
-
-	return new mw.cx.MachineTranslationService( 'source', 'target', this.siteMapper )
-		.getSuggestedDefaultProvider()
-		.then( ( provider ) => {
-			assert.strictEqual( provider, null, 'Source mt suggested by the server should be ignored' );
+		.getProviders()
+		.then( ( providers ) => {
+			assert.deepEqual( providers, [ 'Provider1', 'Provider2' ], 'MT Providers are returned properly' );
 		} );
 } );
