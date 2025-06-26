@@ -302,7 +302,10 @@ class TranslationCorporaStore {
 			if ( $affectedRows === 0 ) {
 				$this->logger->info( 'No translation unit inserted due to unique key conflict.', $logParams );
 			} else {
-				$this->logger->info( 'Inserted translation unit', $logParams );
+				// ContentTranslation channel is configured to log "info"+ level requests
+				// This generates a lot of logs in ContentTranslation channel.
+				// It can be changed to info when investigating T397910
+				$this->logger->debug( 'Inserted translation unit', $logParams );
 			}
 		}
 	}
