@@ -28,9 +28,6 @@
 	"apihelp-cxdelete-param-to": "Kóði markmálsins.",
 	"apihelp-cxdelete-param-sourcetitle": "Titill upprunagreinarinnar.",
 	"apihelp-cxdelete-example-1": "Eyða drögum sem tengjast þessu málapari og titli.",
-	"apihelp-cxsuggestionlist-param-titles": "Síðutitlar.",
-	"apihelp-cxsuggestionlist-param-from": "Kóði frummálsins.",
-	"apihelp-cxsuggestionlist-param-to": "Kóði markmálsins.",
 	"apihelp-cxsave-param-from": "Kóði frummálsins.",
 	"apihelp-cxsave-param-to": "Kóði markmálsins.",
 	"apihelp-cxsave-param-sourcetitle": "Titill frumsíðunnar."

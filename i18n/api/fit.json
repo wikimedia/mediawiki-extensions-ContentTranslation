@@ -13,7 +13,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Lähteen kielikooti.",
 	"apihelp-cxdelete-param-from": "Lähteen kielikooti.",
 	"apihelp-cxdelete-param-sourcetitle": "Lähesivun nimi.",
-	"apihelp-cxsuggestionlist-param-from": "Lähteen kielikooti.",
 	"apihelp-cxsave-param-from": "Lähteen kielikooti.",
 	"apihelp-cxsave-param-sourcetitle": "Lähesivun nimi.",
 	"apierror-cx-translationnotfound": "Käänöstä ei löytynyt.",

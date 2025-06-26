@@ -27,8 +27,6 @@
 	"apihelp-cxdelete-param-from": "Codul limbii sursă.",
 	"apihelp-cxdelete-param-to": "Codul limbii destinație.",
 	"apihelp-cxdelete-param-sourcetitle": "Titlul paginii sursă.",
-	"apihelp-cxsuggestionlist-param-from": "Codul limbii sursă.",
-	"apihelp-cxsuggestionlist-param-to": "Codul limbii destinație.",
 	"apihelp-cxsave-param-sourcerevision": "Versiunea paginii sursă.",
 	"apihelp-cxsave-param-from": "Codul limbii sursă.",
 	"apihelp-cxsave-param-to": "Codul limbii destinație.",

@@ -24,10 +24,6 @@
 	"apihelp-cxdelete-param-from": "स्रोत भाषाको कोड ।",
 	"apihelp-cxdelete-param-to": "लक्षित भाषाको कोड ।",
 	"apihelp-cxdelete-param-sourcetitle": "स्रोत लेखको शीर्षक ।",
-	"apihelp-cxsuggestionlist-param-listname": "सुझाव सूची नाम।",
-	"apihelp-cxsuggestionlist-param-titles": "पृष्ठ शीर्षकहरू।",
-	"apihelp-cxsuggestionlist-param-from": "स्रोत भाषाको कोड।",
-	"apihelp-cxsuggestionlist-param-to": "लक्षित भाषाको कोड।",
 	"apihelp-cxsave-param-sourcerevision": "स्रोत लेखको संस्करण।",
 	"apihelp-sxsave-param-sourcetitle": "स्रोत लेखको शीर्षक।",
 	"apierror-cxpublishsection-translationnotfound": "अनुवाद फेला परेन।"

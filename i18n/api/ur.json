@@ -19,8 +19,6 @@
 	"apihelp-cxdelete-param-from": "ماخذ زبان کا کوڈ",
 	"apihelp-cxdelete-param-to": "ہدف زبان کا کوڈ",
 	"apihelp-cxdelete-param-sourcetitle": "ماخذ صفحہ کا عنوان",
-	"apihelp-cxsuggestionlist-example-1": "انگریزی (en) سے ہسپانوی (es) میں ترجمہ کرنے کی تجویز کے طور پر فہرست میں عنوان کا اضافہ کریں۔ اگر فہرست پہلے سے موجود نہیں ہے تو ایک نئی فہرست بنائی جائے گی۔",
-	"apihelp-cxsuggestionlist-summary": "تجاویز کی فہرستوں کا نظم کرتا ہے۔ فہرستوں میں تجاویز شامل کرتا ہے اور انھیں ہٹاتا ہے۔",
 	"apihelp-cxsave-param-sourcerevision": "ماخذ صفحہ کی نظر ثانی",
 	"apihelp-query+langlinkscount-summary": "دوسری زبانوں کے ورژنز کے اعداد حاصل کریں۔",
 	"apihelp-sxdelete-summary": "ڈیٹابیس سے قطعہ کے ترجمہ کے مسودہ کو اور اس کے متوازی مجموعہ کو حذف کرتا ہے۔"

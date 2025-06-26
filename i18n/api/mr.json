@@ -18,10 +18,5 @@
 	"apihelp-query+contenttranslation-param-type": "भाषांतराची स्थिती",
 	"apihelp-query+contenttranslation-example-1": "सध्याच्या सदस्याने सुरु केलेली भाषांतरे आणा.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "भाषांतराची ओळखण",
-	"apihelp-cxsuggestionlist-param-listname": "सुचवणी यादीचे नाव.",
-	"apihelp-cxsuggestionlist-param-listaction": "यादीवर करावयाची कार्यवाही.",
-	"apihelp-cxsuggestionlist-param-titles": "पान शीर्षके.",
-	"apihelp-cxsuggestionlist-param-from": "स्रोत भाषा संकेत.",
-	"apihelp-cxsuggestionlist-param-to": "लक्ष्य भाषेचा संकेत.",
 	"apihelp-cxsave-param-sourcerevision": "स्रोत पानाची आवृत्ती"
 }

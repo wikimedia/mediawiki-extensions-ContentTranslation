@@ -36,12 +36,6 @@
 	"apihelp-cxdelete-param-to": "'O codece d' 'a lengua destinaziona.",
 	"apihelp-cxdelete-param-sourcetitle": "'O titulo d' 'a paggena origgene.",
 	"apihelp-cxdelete-example-1": "Scancella na bozza suòcia a nu dato par' 'e llengue e nu dato titolo.",
-	"apihelp-cxsuggestionlist-example-1": "Azzecca nu titolo a n'elenco 'e suggerimiente pe' traducere 'a ll'ingrese (en) a 'o spagnuolo (es). Si l'elenco nun esiste già, sarà criato n'elenco nuovo.",
-	"apihelp-cxsuggestionlist-param-listname": "Nomme 'e ll'elenco suggerimiente.",
-	"apihelp-cxsuggestionlist-param-listaction": "Aziona 'a secutà ncopp'a l'elenco.",
-	"apihelp-cxsuggestionlist-param-titles": "Titule d' 'e paggene.",
-	"apihelp-cxsuggestionlist-param-from": "'O codece r' 'a lengua origgine",
-	"apihelp-cxsuggestionlist-param-to": "'O codece d' 'a lengua destinaziona.",
 	"apihelp-cxsave-param-sourcerevision": "'A verziona d' 'a paggena origgene.",
 	"apihelp-cxsave-param-progress": "Nfurmaziune ncopp' 'a quantità 'e traduzione cumpretata ('o prugresso). 'O JSON ch' 'e parole chiave <code>any</code>, <code>human</code>, <code>mt</code> e <code>mtSectionsCount</code>. 'E valure d' 'e chiave so' tante procent."
 }

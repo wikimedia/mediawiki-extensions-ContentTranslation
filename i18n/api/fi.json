@@ -24,8 +24,6 @@
 	"apihelp-cxdelete-param-from": "Lähdekielen koodi.",
 	"apihelp-cxdelete-param-to": "Kohdekielen koodi.",
 	"apihelp-cxdelete-param-sourcetitle": "Lähdesivun nimi.",
-	"apihelp-cxsuggestionlist-param-from": "Lähdekielen koodi.",
-	"apihelp-cxsuggestionlist-param-to": "Kohdekielen koodi.",
 	"apihelp-cxsave-param-from": "Lähdekielen koodi.",
 	"apihelp-cxsave-param-to": "Kohdekielen koodi.",
 	"apihelp-cxsave-param-sourcetitle": "Lähdesivun nimi.",

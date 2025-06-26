@@ -46,13 +46,6 @@
 	"apihelp-cxdelete-param-to": "Il codice della lingua di destinazione.",
 	"apihelp-cxdelete-param-sourcetitle": "Il titolo della pagina di origine.",
 	"apihelp-cxdelete-example-1": "Cancella una bozza associata a una coppia di lingue e il titolo indicato.",
-	"apihelp-cxsuggestionlist-example-1": "Aggiunge un titolo a un elenco di suggerimenti per tradurre dall'inglese (en) allo spagnolo (es). Se la lista non esiste già, sarà creato un nuovo elenco.",
-	"apihelp-cxsuggestionlist-summary": "Gestisce gli elenchi dei suggerimenti. Aggiunge e rimuove suggerimenti dalle liste.",
-	"apihelp-cxsuggestionlist-param-listname": "Nome dell'elenco suggerimenti.",
-	"apihelp-cxsuggestionlist-param-listaction": "Azione da eseguire sull'elenco.",
-	"apihelp-cxsuggestionlist-param-titles": "Titoli di pagine.",
-	"apihelp-cxsuggestionlist-param-from": "Il codice della lingua di origine.",
-	"apihelp-cxsuggestionlist-param-to": "Il codice della lingua di destinazione.",
 	"apihelp-query+cxtranslatorstats-summary": "Recupera le statistiche di traduzione per l'utente indicato.",
 	"apihelp-query+cxtranslatorstats-param-translator": "Il nome utente del traduttore. Questo parametro è facoltativo. Se non valorizzato, verrà utilizzato l'utente attualmente connesso.",
 	"apihelp-query+cxtranslatorstats-example-1": "Recupera le statistiche di traduzione per l'utente indicato.",
@@ -96,5 +89,8 @@
 	"apierror-cxsplit-no-translation-found": "Nessuna traduzione trovata per l'ID specificato",
 	"apihelp-cxcheckunreviewed-summary": "Controlla se di recente è stata pubblicata qualche traduzione veloce e non revisionata per l'utente attuale.",
 	"apierror-cxcheckunreviewed-anon-user": "L'azione API \"cxcheckunreviewed\" non è abilitata per gli utenti anonimi",
-	"apihelp-query+automatictranslationdenselanguages-param-qid": "L'ID Wikidata."
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "L'ID Wikidata.",
+	"apihelp-cxfavoritesuggestions-param-title": "Il titolo del suggerimento preferito su cui deve essere eseguita l'azione",
+	"apihelp-cxfavoritesuggestions-param-from": "La lingua di origine del suggerimento preferito su cui deve essere eseguita l'azione",
+	"apihelp-cxfavoritesuggestions-example-2": "Rimuovi un suggerimento dall'elenco dei suggerimenti preferiti dell'utente"
 }
