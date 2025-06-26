@@ -13,7 +13,6 @@ SXEditorBackTool.static.title = OO.ui.deferMsg(
   "visualeditor-backbutton-tooltip"
 );
 SXEditorBackTool.static.commandName = "back";
-SXEditorNextTool.static.autoAddToCatchall = false;
 
 /**
  * On state updated event handler
