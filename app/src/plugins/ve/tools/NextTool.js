@@ -12,6 +12,7 @@ SXEditorNextTool.static.flags = ["primary", "progressive"];
 SXEditorNextTool.static.group = "navigation";
 SXEditorNextTool.static.displayBothIconAndLabel = false;
 SXEditorNextTool.static.commandName = "next";
+SXEditorNextTool.static.autoAddToCatchall = false;
 
 /**
  * On state updated event handler
