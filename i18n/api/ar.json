@@ -91,6 +91,7 @@
 	"apierror-cx-jwtmissing": "JWT غير مثبت.",
 	"apierror-cx-keynotconfigured": "المفتاح غير مكوّن.",
 	"apierror-cx-missingdraft": "مسودة غير موجودة.",
+	"apierror-cx-mustbeloggedin-favorites": "يجب عليك تسجيل الدخول لإدارة اقتراحاتك المفضلة.",
 	"apierror-cx-mustbeloggedin-suggestions": "يجب تسجيل الدخول لإدارة اقتراحاتك.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "يجب تسجيل الدخول للحصول على اقتراحات الترجمة.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "لعرض ترجماتك; يجب عليك تسجيل الدخول.",
@@ -150,5 +151,12 @@
 	"apihelp-query+automatictranslationdenselanguages-example-1": "احصل على قائمة روابط الموقع الخاصة بمقالة \"القمر\" بجميع اللغات المتاحة، مرتبة حسب حجم المقالة.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "احصل على قائمة الروابط الخارجية لمقالة \"القمر\"، بما في ذلك عناوين الأقسام، بكل اللغات المتاحة، مرتبة حسب حجم المقالة.",
 	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "فشل طلب جلب الروابط من Wikidata",
-	"apihelp-query+automatictranslationdenselanguages-param-limit": "الحد الأقصى لعدد الروابط التي سيتم جلبها."
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "الحد الأقصى لعدد الروابط التي سيتم جلبها.",
+	"apihelp-cxfavoritesuggestions-summary": "إضافة أو إزالة اقتراح مفضل إلى قائمة المستخدم الحالي.",
+	"apihelp-cxfavoritesuggestions-param-listaction": "الإجراء المطلوب تنفيذه على عنوان الاقتراح المفضل. الخيارات المتاحة: \"إضافة\" و\"إزالة\".",
+	"apihelp-cxfavoritesuggestions-param-title": "عنوان الاقتراح المفضل الذي يجب تنفيذ الإجراء بناءً عليه",
+	"apihelp-cxfavoritesuggestions-param-from": "اللغة المصدر للاقتراح المفضل الذي يجب تنفيذ الإجراء بناءً عليه",
+	"apihelp-cxfavoritesuggestions-param-to": "اللغة المستهدفة للاقتراح المفضل الذي يجب تنفيذ الإجراء بناءً عليه",
+	"apihelp-cxfavoritesuggestions-example-1": "أضف اقتراحًا إلى قائمة اقتراحات المستخدم المفضلة",
+	"apihelp-cxfavoritesuggestions-example-2": "إزالة اقتراح من قائمة اقتراحات المستخدم المفضلة"
 }
