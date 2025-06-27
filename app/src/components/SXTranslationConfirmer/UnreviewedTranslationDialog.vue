@@ -40,9 +40,7 @@ function onPrimaryAction() {
     class="cx-unreviewed-translation-dialog"
     :open="modelValue"
     :title="$i18n('cx-unreviewed-translation-dialog-title')"
-    :close-button-label="
-      $i18n('cx-unreviewed-translation-dialog-close-button-aria-label')
-    "
+    :use-close-button="true"
     :primary-action="primaryAction"
     :default-action="defaultAction"
     @update:open="updateOpen($event)"

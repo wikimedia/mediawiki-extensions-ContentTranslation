@@ -527,7 +527,6 @@
 	"mint-mflanguagesearcher-entrypoint-card-title": "Title of the card of the Automatic Translation entrypoint, shown in language selector when no language is found for search and when it is possible to create article in that language by translation.",
 	"mint-mflanguagesearcher-entrypoint-card-description": "Description of the card of the Automatic Translation entrypoint, shown in language selector when no language is found for search and when it is possible to create article in that language by translation.",
 	"cx-unreviewed-translation-dialog-title": "Title of the dialog that informs the user that they have a recent fast/unreviewed translation, that they need to review, before starting a new one.",
-	"cx-unreviewed-translation-dialog-close-button-aria-label": "Aria label of the close icon button, inside the header of the dialog that informs the user about an existing unreviewed translation.",
 	"cx-unreviewed-translation-dialog-review-translation-button-label": "Label of the button that redirects the user to the unreviewed translated article, inside the dialog that informs the user about an existing unreviewed translation.",
 	"cx-unreviewed-translation-dialog-close-button-label": "Label of the close button, inside the dialog that informs the user about an existing unreviewed translation.",
 	"cx-unreviewed-translation-dialog-body": "Body of the dialog that informs the user that they have a recent fast/unreviewed translation, that they need to review, before starting a new one.",
