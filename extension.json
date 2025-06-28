@@ -321,7 +321,7 @@
 		"ContentTranslation\\Skin\\": "skin/"
 	},
 	"TestAutoloadNamespaces": {
-		"ContentTranslation\\Tests\\": "tests/phpunit"
+		"ContentTranslation\\Tests\\": "tests/phpunit/"
 	},
 	"DefaultUserOptions": {
 		"echo-subscriptions-web-cx": true,
