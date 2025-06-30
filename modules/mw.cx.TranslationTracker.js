@@ -455,8 +455,8 @@ mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNum
 };
 
 /**
- * Check if a section has unmodified MT beyond a threshold. If so, add a warning issue
- * to the section model.
+ * Validate that there are unmodified MT issues in the section that have NOT been marked as resolved
+ * If so, add a warning issue to the section model.
  *
  * @param {number} sectionNumber
  * @return {boolean} Whether the section is crossing the unmodified MT threshold
@@ -465,6 +465,13 @@ mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber
 	const sectionState = this.sections[ sectionNumber ],
 		sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber ),
 		sourceTokens = this.constructor.static.getSectionNodeValidationTokens( sectionModel, this.sourceLanguage );
+
+	// Check if mt-abuse issue is already suppressed (marked as resolved)
+	// If so, skip validation to respect user's decision
+	const existingMTAbuseIssue = sectionModel.translationIssues.find( ( issue ) => issue.name === 'mt-abuse' );
+	if ( existingMTAbuseIssue && existingMTAbuseIssue.isSuppressed() ) {
+		return false;
+	}
 
 	if ( sourceTokens.length < 10 ) {
 		// Exclude smaller sections from MT abuse validations
@@ -523,12 +530,6 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedContentThreshold = function ( se
 	return isSource ?
 		unmodifiedContentThreshold.sourceAfterSuppressWarning :
 		unmodifiedContentThreshold.mtAfterSuppressWarning;
-};
-
-mw.cx.TranslationTracker.prototype.clearMTAbuseWarning = function ( sectionModel ) {
-	if ( sectionModel && sectionModel instanceof ve.dm.CXSectionNode ) {
-		sectionModel.resolveTranslationIssues( [ 'mt-abuse' ] );
-	}
 };
 
 /**
@@ -670,8 +671,6 @@ mw.cx.TranslationTracker.prototype.processValidationQueue = function () {
 		if ( !this.constructor.static.isExcludedFromValidation( sectionModel ) ) {
 			if ( this.validateForMTAbuse( sectionNumber ) ) {
 				this.setMTAbuseWarning( sectionModel );
-			} else {
-				this.clearMTAbuseWarning( sectionModel );
 			}
 		}
 		this.validationDelayQueue.splice( i, 1 );
