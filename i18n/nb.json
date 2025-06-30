@@ -212,7 +212,7 @@
 	"cx-draft-restore-failed": "Klarte ikke hente den lagrede oversettelsen!",
 	"cx-suggestionlist-expand": "Vis alle",
 	"cx-suggestionlist-collapse": "Vis færre",
-	"cx-suggestionlist-refresh": "Gjenoppfrisk forslag",
+	"cx-suggestionlist-refresh": "Få nye forslag",
 	"cx-notification-suggestions-available": "Basert på at {{GENDER:$2|du}} tidligere har oversatt '''$1''', er nye forslag nå tilgjengelige.",
 	"cx-infobar-view-issues": "Vis problemer",
 	"cx-infobar-cannot-publish": "Oversettelsen din kan ikke publiseres fordi publisering kan tillates av mer erfarne brukere på denne wikien.",

@@ -44,7 +44,7 @@
 	"apierror-cx-docserverexception": "Feeler beim Ëmwandele vum HTML a Wikitext $1",
 	"apierror-cx-invalidlanguage": "Ongülteg Sprooch.",
 	"apierror-cx-invalidsourcelanguage": "Ongülteg Quellsprooch.",
-	"apierror-cx-invalidtargetlanguage": "Net valabel Zil-Sprooch.",
+	"apierror-cx-invalidtargetlanguage": "Ongülteg Zilsprooch.",
 	"apierror-cx-invalidtranslator": "Net valabelen Iwwersetzernumm",
 	"apierror-cx-jwtmissing": "JWT ass net installéiert.",
 	"apierror-cx-keynotconfigured": "Schlëssel dan net agestallt",
