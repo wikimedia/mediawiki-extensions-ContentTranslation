@@ -86,7 +86,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "יש להיכנס לחשבון כדי לנהל את ההצעות שלך.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "צריך להיכנס לחשבון כדי לקבל הצעות תרגום.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "כדי להציג את התרגומים שלך, חובה להיכנס לחשבון.",
-	"apierror-cx-invalid-type-viewtranslations": "סוג תרגום בלתי־תקים. הסוג חייב להיות מוגדר, והוא חייב להיות <span dir=\"ltr\">deleted</span>, <span dir=\"ltr\">draft</span> או <span dir=\"ltr\">published</span>.",
 	"apierror-cx-samelanguages": "אי־אפשר ששפות המקור והיעד יהיו זהות.",
 	"apierror-cx-suggestionsdisabled": "ההצעות אינן מופעלות בוויקי הזה.",
 	"apierror-cx-translationnotfound": "התרגום לא נמצא.",

@@ -88,7 +88,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "您必須登入才能管理您的建議。",
 	"apierror-cx-mustbeloggedin-get-suggestions": "您必須登入才能取得翻譯建議。",
 	"apierror-cx-mustbeloggedin-viewtranslations": "您必須登入才能檢視您的翻譯。",
-	"apierror-cx-invalid-type-viewtranslations": "翻譯類型無效。必須設定類型，並且得為「已刪除」、「草稿」、或「已發布」",
 	"apierror-cx-samelanguages": "來源與目標語言不能是同一個。",
 	"apierror-cx-suggestionsdisabled": "此 wiki 未啟用建議功能。",
 	"apierror-cx-translationnotfound": "找不到翻譯。",

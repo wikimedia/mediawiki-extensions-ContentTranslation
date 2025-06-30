@@ -88,7 +88,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "Cómpre ter a sesión iniciada para xestionar as súas suxestións.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Cómpre ter a sesión iniciada para recibir suxestións de tradución.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Para ver as súas traducións debe estar autenticado.",
-	"apierror-cx-invalid-type-viewtranslations": "Tipo de tradución non válido. Cómpre definir o tipo e debe ser \"eliminado\", \"borrador\" ou \"publicado\"",
 	"apierror-cx-samelanguages": "As linguas fonte e obxectivo non poden ser a mesma.",
 	"apierror-cx-suggestionsdisabled": "As suxestións non están activadas neste wiki.",
 	"apierror-cx-translationnotfound": "Non se atopou a tradución.",
@@ -144,5 +143,12 @@
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Obter a lista de ligazóns de sitio para o artigo \"Lúa\" en todas as linguas dispoñibles, ordenadas por tamaño do artigo.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "Obter a lista de ligazóns de sitio para o artigo \"Lúa\", incluídos os títulos das seccións, en todas as linguas dispoñibles, ordenadas por tamaño do artigo.",
 	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Produciuse un erro na solicitude para obter as ligazóns de sitio de Wikidata",
-	"apihelp-query+automatictranslationdenselanguages-param-limit": "Número máximo de ligazóns de sitio a obter."
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "Número máximo de ligazóns de sitio a obter.",
+	"apihelp-cxfavoritesuggestions-summary": "Engadir unha suxestión favorita á lista do usuario actual ou eliminala da mesma.",
+	"apihelp-cxfavoritesuggestions-param-listaction": "Acción a realizar no título da suxestión favorita indicada. Opcións dispoñibles: \"add\" e \"remove\"",
+	"apihelp-cxfavoritesuggestions-param-title": "O título da suxestión favorita sobre a que se debe realizar a acción",
+	"apihelp-cxfavoritesuggestions-param-from": "A lingua de orixe da suxestión favorita sobre a que se debe realizar a acción",
+	"apihelp-cxfavoritesuggestions-param-to": "A lingua de destino da suxestión favorita sobre a que se debe realizar a acción",
+	"apihelp-cxfavoritesuggestions-example-1": "Engadir unha suxestión á lista de suxestións favoritas do usuario",
+	"apihelp-cxfavoritesuggestions-example-2": "Eliminar unha suxestión da lista de suxestións favoritas do usuario"
 }

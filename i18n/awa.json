@@ -8,7 +8,6 @@
 		]
 	},
 	"cx": "पन्ना कै अनुवाद करैं",
-	"cx-dashboard-header": "अनुवाद",
 	"cx-header-translation-center": "अनुवाद केन्द्र",
 	"cx-header-all-translations": "कुल अनुवाद",
 	"cx-source-view-page": "पन्ना देखा जाय",
@@ -38,7 +37,6 @@
 	"cx-tools-mt-dont-use": "एक खाली पैराग्राफ से शुरू करैं",
 	"cx-tools-mt-set-default": "मूल के रूप मा रक्खैं",
 	"cx-tools-mt-preferred": "डिफ़ॉल्ट",
-	"cx-page-selector-widget-nearby-label": "नजदीक",
 	"cx-publish-captcha-title": "जाँचा जात है कि आप रोबोट तौ न हँय",
 	"cx-translation-filter-published-translations": "प्रकाशित अनुवाद",
 	"cx-translation-filter-draft-translations": "प्रगति मा",

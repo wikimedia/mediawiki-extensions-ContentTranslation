@@ -13,14 +13,9 @@
 	"cx-publish-captcha-title": "Ginkikita nga diri ka robot",
 	"cx-captcha-dialog-error": "Baga hin diri asya an imo baton. Alayon, pag-utro.",
 	"cx-captcha-dialog-cancel": "Pasagdi",
-	"cx-dashboard-sidebar-title": "{{GENDER:|Kinahanglan}} mo hin bulig ha paghubad?",
-	"cx-dashboard-sidebar-information": "Dugang pa mahiunong hiní nga garamitón",
-	"cx-dashboard-sidebar-feedback": "Taga-i hi kami hin feedback",
 	"cx-translation-filter-published-translations": "Ginmantalâ",
 	"cx-translation-filter-suggested-translations": "Mga suhestyon",
-	"cx-suggestionlist-favorite": "Para nuruniyan",
 	"cx-contributions-new-article": "Bag-o nga pakli",
 	"cx-contributions-translation": "Paghubad",
-	"cx-translation-status-deleted": "Ginpara",
 	"cx-campaign-no-thanks": "Diri, salamat nala"
 }

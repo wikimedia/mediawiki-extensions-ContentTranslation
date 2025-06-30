@@ -8,13 +8,10 @@
 		]
 	},
 	"cx": "Traduxi pàjina",
-	"cx-dashboard-header": "Tradusion",
 	"cx-javascript": "Sto instrumento no el funsiona sensa JavaScript. JavaScript el podaria èsare dixativà, no che no el gàpia funsionà o che sto navegadore web no el sìpia suportà.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Tradusion voxe]] el xé on instrumento par jutar i tradutori a traduxare pì senplegamente in te ła so łéngua. [$1 Provało, movate!]",
 	"cx-error-server-connection": "Errore: No se ga podesto conetarse al server",
 	"cx-desc": "El rende senplega ła [[Special:ContentTranslation|tradusion]] del contegnuo de łe pàjine",
-	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traduxesto|traduxesti}}",
-	"cx-header-progressbar-text-mt": "($1% dalla {{PLURAL:$1|tradusion automadega|tradusion automadeghe}})",
 	"cx-header-translation-center": "Sentro tradusion",
 	"cx-header-all-translations": "Tute łe tradusion",
 	"cx-source-view-page": "Varda ła pàjina",
@@ -33,8 +30,5 @@
 	"cx-campaign-newarticle-notice": "Da deso xé pì sénplego crear nove pàjine <strong>traduxéndołe</strong>! Vuto provare el instrumento beta de tradusion voxe?",
 	"cx-campaign-try": "Proa tradusion voxe",
 	"cx-no-source-categories": "Nesuna categoria",
-	"cx-your-translations-link": "{{GENDER:$1|Le to tradusion}}",
-	"cx-translationlist-empty-desc": "{{GENDER:|Scomisia}} deso ƚe to traduxion e continùa cuando te voi.",
-	"cx-translator-total-translations-label": "Totałe",
-	"cx-continue-translation": "Sèvita tradusion"
+	"cx-your-translations-link": "{{GENDER:$1|Le to tradusion}}"
 }

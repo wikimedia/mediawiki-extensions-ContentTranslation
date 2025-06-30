@@ -96,7 +96,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "翻訳候補を提案するにはログインしてください。",
 	"apierror-cx-mustbeloggedin-get-suggestions": "翻訳候補を取得するにはログインしてください。",
 	"apierror-cx-mustbeloggedin-viewtranslations": "ご自分の翻訳を閲覧するには、ログインしてください。",
-	"apierror-cx-invalid-type-viewtranslations": "翻訳タイプが無効です。タイプを設定する必要があり、「削除済み」、「下書き」、または「公開済み」のいずれかである必要があります。",
 	"apierror-cx-samelanguages": "翻訳元と翻訳先に同じ言語は指定できません。",
 	"apierror-cx-suggestionsdisabled": "このウィキでは翻訳候補の提案は受け付けていません。",
 	"apierror-cx-translationnotfound": "翻訳が見つかりませんでした。",

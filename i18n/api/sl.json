@@ -86,7 +86,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "Za upravljanje svojih predlogov je potrebno biti prijavljen.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Za pridobitev predlogov morate biti prijavljeni.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Za prikaz svojih prevodov je potrebno biti prijavljen.",
-	"apierror-cx-invalid-type-viewtranslations": "Neveljaven tip prevoda. Tip mora biti nastavljen in mora biti »izbrisano«, »osnutek« ali »objavljeno«.",
 	"apierror-cx-samelanguages": "Izvorni in ciljni jezik ne moreta biti enaka.",
 	"apierror-cx-suggestionsdisabled": "Predlogi v tem vikiju niso omogočeni.",
 	"apierror-cx-translationnotfound": "Prevoda ni bilo mogoče najti.",

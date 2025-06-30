@@ -7,13 +7,10 @@
 		]
 	},
 	"cx": "وەڵگە چاوواشآکە",
-	"cx-dashboard-header": "زوون چاوواشاکردن/تةرجؤمة",
 	"cx-javascript": "این ابزار بدون جاوااسکریپت کار نمی‌کند.",
 	"cx-license-agreement": "با کلیک بر دکمهٔ «$1» شما با [https://foundation.wikimedia.org/wiki/Terms_of_Use شرایط استفاده] موافقت می‌کند و تأیید می‌کنید که مشارکتتان را با ابزار ترجمه در [https://creativecommons.org/licenses/by-sa/4.0/ مجوز CC BY-SA 4.0] و [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] با درک این موضوع که یک پسوند برای نسبت دادن CC BY-SA 4.0 کافی است موافقت می‌کنید.",
 	"cx-error-server-connection": "خطا: نمی‌توان به کارساز وصل شد.",
 	"cx-desc": "ترجمهٔ صفحه‌های محتویات را ساده می‌کند",
-	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ترجمه شده}}",
-	"cx-header-progressbar-text-mt": "($1٪ از {{PLURAL:$1|ترجمه ماشینی}})",
 	"cx-header-translation-center": "نۆمجا زوون چاوواشآکردن",
 	"cx-header-all-translations": "کؤل(گِشت) زوونەل چاوواشآبی",
 	"cx-source-view-page": "مشاهده وةڵگة",
@@ -26,9 +23,6 @@
 	"cx-tools-link-title": "لینک",
 	"cx-tools-link-add": "پیوند اضافۀ کۀ",
 	"cx-tools-mt-title": "زوون چاوواشۀگر ماشینی",
-	"cx-selected-source-page-start-translation-button": "شوروع ترجؤمۀ-زوون چاوواشاکردن",
-	"cx-selected-source-page-error-page-and-title-exist": "این عنوان در حال حاضر در [$1 $2] برای [$3 یک صفحهٔ متفاوت] استفاده شده است",
-	"cx-dashboard-sidebar-feedback": "به ما بازخورد دهید",
 	"cx-translation-filter-published-translations": "پخش بیۀسا/منتشر بی",
 	"cx-translation-filter-draft-translations": "در حال پیشرفت",
 	"cx-save-draft-saving": "در حال ذخیره‌سازی...",
@@ -39,9 +33,7 @@
 	"cx-contributions-translation": "زوون چاوواشاکردن/تةرجؤمة",
 	"cx-contributions-upload": "بارگذاری رسانه",
 	"cx-draft-cancel-button-label": "ئآهووسانن/لغو",
-	"cx-draft-discard-button-label": "حذف ترجمه",
 	"cx-beta-feature-enabled-notification": "مترجم محتویات در این ویکی فعال شده است.",
 	"cx-campaign-contributionsmenu-mytranslations": "تةرجؤمةل",
-	"echo-category-title-cx": "چاوواشە کردنەل",
-	"cx-translationlist-empty-title": "چیزی برای ترجمه وجود ندارد؟"
+	"echo-category-title-cx": "چاوواشە کردنەل"
 }

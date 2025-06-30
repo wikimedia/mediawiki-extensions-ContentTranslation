@@ -5,7 +5,6 @@
 		]
 	},
 	"cx": "Maglikas ning bulung",
-	"cx-dashboard-header": "Deng likas",
 	"cx-header-all-translations": "Deng eganaganang salin-amanu",
 	"cx-source-view-page": "lawen ya ing bulung",
 	"cx-translation-add-translation": "Magdagdag salin-amanu",
@@ -13,17 +12,12 @@
 	"cx-tools-link-add": "Magdagdag suglung",
 	"cx-tools-mt-provider-title": "Ibat $1",
 	"cx-warning-unsaved-translation": "Atin kang e makatalang salin-amanu.",
-	"cx-selected-source-page-start-translation-button": "Magumpisa ning pamaglikas",
 	"cx-create-new-translation": "Mangumpisa ning bayung salin-amanu",
 	"cx-contributions-new-article": "Bayung bulung",
 	"cx-contributions-translation": "Salin-amanu",
 	"cx-contributions-upload": "Lulan media",
-	"cx-translation-status-deleted": "Mebura ne",
-	"cx-draft-discard-confirmation-message": "Siguradu na ka waring permanenti mu neng buran ing pamagsaling iti?",
 	"cx-draft-cancel-button-label": "Kanselan",
-	"cx-draft-discard-button-label": "Buran ing pamagsalin",
 	"cx-campaign-no-thanks": "Ali, salamat",
 	"cx-campaign-contributionsmenu-mytranslations": "Deng salin-amanu",
-	"cx-campaign-contributionsmenu-myuploads": "Lulan media",
-	"cx-translationlist-empty-title": "Alang isalin-amanu?"
+	"cx-campaign-contributionsmenu-myuploads": "Lulan media"
 }

@@ -6,12 +6,9 @@
 	},
 	"cx-tools-mt-provider-title": "Gamiton ang $1",
 	"cx-captcha-dialog-cancel": "Kanselaron",
-	"cx-translation-filter-label-all-languages": "Tanan",
 	"cx-contributions-new-article": "Bag·ong panid",
 	"cx-draft-cancel-button-label": "Kanselaron",
 	"cx-no-source-categories": "Walay kategoriya",
 	"cx-tools-linter-issues": "Mga isyu",
-	"cx-translator-month-stats-label": "Karong bulan",
-	"cx-translator-total-translations-label": "Total",
 	"cx-publish-destination-namespace-main": "Bag·ong panid"
 }

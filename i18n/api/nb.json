@@ -88,7 +88,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "Du må være logget inn for å behandle forslagene dine.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Du må være logget inn for å få oversettelsesforslag.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "For å se oversettelsene dine må du logge inn.",
-	"apierror-cx-invalid-type-viewtranslations": "Ugyldig oversettelsestype. Denne må settes til enten «deleted» (slettet), «draft» (utkast) eller «published» (publisert).",
 	"apierror-cx-samelanguages": "Kilde- og målspråk kan ikke være det samme.",
 	"apierror-cx-suggestionsdisabled": "Forslag er ikke slått på på denne wikien.",
 	"apierror-cx-translationnotfound": "Oversettelse ikke funnet.",

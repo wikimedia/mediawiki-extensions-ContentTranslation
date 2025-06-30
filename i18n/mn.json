@@ -4,20 +4,14 @@
 			"Буцах"
 		]
 	},
-	"cx-dashboard-header": "Орчуулгууд",
 	"cx-header-all-translations": "Бүх орчуулгууд",
 	"cx-publish-button": "Хэвлэх",
 	"cx-tools-link-title": "Холбоос",
 	"cx-tools-link-add": "Холбоос нэмэх",
 	"cx-tools-mt-preferred": "анхны байдал",
-	"cx-page-selector-widget-nearby-label": "Ойр",
 	"cx-captcha-dialog-cancel": "Цуцлах",
-	"cx-translation-filter-label-all-languages": "Бүх",
-	"cx-translation-filter-uls-all-languages": "Бүх хэлнүүд",
 	"cx-contributions-new-article": "Шинэ хуудас",
 	"cx-contributions-translation": "Орчуулга",
-	"cx-translation-status-published": "Хэвлэсэн",
-	"cx-translation-status-deleted": "Устгагдсан",
 	"cx-draft-cancel-button-label": "Цуцлах",
 	"cx-campaign-contributionsmenu-mytranslations": "Орчуулгууд",
 	"cx-no-source-categories": "Ангиллууд байхгүй",
@@ -25,6 +19,5 @@
 	"cx-infobar-view-issues": "Харуулах асуудлууд",
 	"cx-tools-linter-issues": "Асуудлууд",
 	"cx-tools-linter-restart-translation-cancel": "Цуцлах",
-	"cx-translator-total-translations-label": "Нийт",
 	"cx-publish-destination-namespace-main": "Шинэ хуудас"
 }

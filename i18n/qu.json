@@ -12,7 +12,6 @@
 	"cx-beta": "Samiqta t'ikray",
 	"cx-entrypoint-dialog-button-translate-from": "$1-manta t'ikray",
 	"cx-tools-mt-title": "Kikinmanta t'ikrasqa",
-	"cx-selected-source-page-start-translation-button": "T'ikrariy!",
 	"cx-create-new-translation": "Musuq t'ikrasqa",
 	"cx-contributions-new-contributions": "Musuq llamk'apusqa",
 	"cx-contributions-new-article": "Musuq p'anqa",
@@ -21,13 +20,11 @@
 	"cx-contributions-new-article-tooltip": "Musuq p'anqata qillqaspa qallariy",
 	"cx-contributions-translation-tooltip": "Kachkaq p'anqakunata t'ikray",
 	"cx-contributions-upload-tooltip": "Rikchakunata, awdiyu (ruqyay), widyu (kuyuq rikcha) nisqakunatapas churkuy p'anqakunapi kananpaq",
-	"cx-discard-translation": "T'ikrasqata qarquy",
 	"cx-campaign-newarticle-notice": "Kunanqa aswan sikllallam musuq p'anqakunata kamarinki <strong>wakin rimaymanta t'ikraspa</strong>. Samiq t'ikranapaq beta nisqa llamk'anata llanchiyta munankichu?",
 	"cx-campaign-no-thanks": "Ama kachunchu",
 	"cx-campaign-try": "Samiq t'ikranata llanchiy",
 	"cx-campaign-contributionsmenu-mytranslations": "T'ikrasqakuna",
 	"echo-category-title-cx": "T'ikrasqakuna",
 	"cx-contributions-link": "Llamk'apusqaykikuna",
-	"cx-your-translations-link": "{{GENDER:$1|T'ikrasqaykikuna}}",
-	"cx-continue-translation": "T'ikraywan qatiykuy"
+	"cx-your-translations-link": "{{GENDER:$1|T'ikrasqaykikuna}}"
 }

@@ -7,9 +7,7 @@
 		]
 	},
 	"cx": "ОагIон таржам",
-	"cx-dashboard-header": "Таржамаш",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] — моллагIча оагIонна хьа меттала сиха таржам дергдолаш лелаеш йола кечал я ер. [$1 ХIанззе пайда эца хьайна цох!]",
-	"cx-header-progressbar-text": "{{PLURAL:$1|Таржам даьд}} $1%",
 	"cx-header-all-translations": "Деррига таржамаш",
 	"cx-publish-summary": "«$1» яхача оагӀонна таржам а деш кхеллай",
 	"tag-contenttranslation": "таржама кечал",

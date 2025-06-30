@@ -5,12 +5,9 @@
 		]
 	},
 	"cx": "Prěvesti stranicu",
-	"cx-dashboard-header": "Prěvody",
 	"cx-javascript": "Tuto orudje ne rabotaje bez JavaScript’a. JavaScript jest izključeny, ne rabotaje ili tutoj prěgledač ne poddrživaje se.",
 	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation Prěvodženje sodržanja] jest orudje za brzo prěvodženje stranic na vaš jezyk. [$1 Izprobujte go!]",
 	"cx-desc": "Ulegčaje [[Special:ContentTranslation|prěvodženje]] sodržanje stranic",
-	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prěvedeno}}",
-	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|mašinnogo prěvoda}})",
 	"cx-header-translation-center": "Centr prěvodženja",
 	"cx-header-all-translations": "Vse prěvody",
 	"cx-source-view-page": "pokazati stranicu",

@@ -9,7 +9,6 @@
 			"Ильнар"
 		]
 	},
-	"cx-dashboard-header": "Тәрҗемәләр",
 	"cx-license-agreement": "Cез бирелгән [https://foundation.wikimedia.org/wiki/Terms_of_Use Куллану шартлары] белән килешүегезне һәм берсүзсез барлык кертелгән кертемегез [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] һәм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3  лицензияләре] тарафыннан таратылуы белән килешәсез.",
 	"cx-publish-button": "Саклау",
 	"cx-publish-summary": "«$1» битен тәрҗемә итеп ясалган",
@@ -26,6 +25,5 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Тәрҗемәләр",
 	"cx-campaign-contributionsmenu-myuploads": "Төялгән медиа",
 	"echo-category-title-cx": "Тәрҗемәләр",
-	"cx-translationlist-empty-title": "Тәрҗемә итәргә бернәрсә дә юкмы?",
 	"cx-sx-publish-lead-section-summary": "$1 битенең кереш өлешен тәрҗемә итеп ясалган"
 }

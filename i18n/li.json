@@ -7,12 +7,9 @@
 		]
 	},
 	"cx": "Zèt pagina euver",
-	"cx-dashboard-header": "Euverzèttinge",
 	"cx-javascript": "Dit hölpmiddel wirk neet zónger JavaScrip. JavaScrip steit oet of wirk neet, of de browser waat se gebroeks weurt neet óngerstäönd.",
 	"cx-error-server-connection": "Fout: kós neet verbinje mit de server.",
 	"cx-desc": "Maak 't einveljiger inhawdelike pagina's [[Special:ContentTranslation|euver te zètte]]",
-	"cx-header-progressbar-text": "$1% {{PLURAL:$1|euvergezatte}}",
-	"cx-header-progressbar-text-mt": "($1% van {{PLURAL:$1|masjinaal euverzètting}})",
 	"cx-header-translation-center": "Euverzèttingscentrum",
 	"cx-header-all-translations": "Alle euverzèttinge",
 	"cx-source-view-page": "tuin pagina",
@@ -37,8 +34,6 @@
 	"cx-tools-mt-dont-use": "Gebroek gein mesjieneuverzèttinge",
 	"cx-tools-mt-set-default": "Haaj es standerd",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categorie|$1 categorieje|0=Gein categorieje}}",
-	"cx-page-missing-in-target-language": "Óntbrèk in 't $1",
-	"cx-page-number-of-languages": "Aantaal spraoke",
 	"cx-contributions-translation": "Euverzètting",
 	"cx-draft-cancel-button-label": "Annelere",
 	"cx-campaign-contributionsmenu-mytranslations": "Euverzèttinge"

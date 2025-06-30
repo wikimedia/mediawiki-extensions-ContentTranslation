@@ -10,8 +10,6 @@
 	"cx-tools-link-title": "Hårdêye",
 	"cx-tools-link-add": "Radjouter ene hårdêye",
 	"cx-tools-mt-provider-title": "Eployî $1",
-	"cx-suggestionlist-expand": "Tot håyner",
-	"cx-suggestionlist-collapse": "Håyner moens",
 	"cx-infobar-view-issues": "Håyner les rujhes",
 	"cx-tools-linter-issues": "Rujhes",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1|0=Nole}} rujhe{{PLURAL:$1||s}}",
