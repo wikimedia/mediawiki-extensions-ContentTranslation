@@ -93,7 +93,8 @@ body.skin-contenttranslation {
 
 .fullscreen {
   position: fixed;
-  width: 100%;
+  // Prevent overflow from growing if content is over-sized (T398319)
+  width: 100vw;
   height: 100%;
   // height: 100vh doesn't work well for mobile screen as it leads to cropping of content at the bottom
   // For browsers supporting -webkit attributes (iOS Safari, Chrome) -webkit-fill-available value fixes
