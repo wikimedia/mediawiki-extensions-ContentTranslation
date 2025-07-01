@@ -8,7 +8,8 @@
 			"Snævar",
 			"Stefán Örvar Sigmundsson",
 			"Sveinn í Felli",
-			"WanderingMorpheme"
+			"WanderingMorpheme",
+			"Bjarki S"
 		]
 	},
 	"cx": "Þýða síðu",
@@ -272,5 +273,8 @@
 	"cx-sx-sentence-selector-skip-translation-button-label": "Sleppa",
 	"cx-sx-publisher-lead-section-option-details": "Búa til nýja síðu í aðalnafnrýminu",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Breyta þýðingu",
-	"cx-uls-translate-page-quick-action-label": "Þýða þessa síðu"
+	"cx-uls-translate-page-quick-action-label": "Þýða þessa síðu",
+	"cx-contributecard-entrypoint-title": "Þýðingar",
+	"cx-contributecard-entrypoint-desc": "Þýddu einn kafla eða heila grein. Bættu við efni á fleiri tungumálum.",
+	"cx-contributecard-entrypoint-cta": "Hefja þýðingu"
 }
