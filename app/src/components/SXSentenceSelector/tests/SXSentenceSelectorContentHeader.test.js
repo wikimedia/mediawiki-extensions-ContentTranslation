@@ -2,7 +2,6 @@ import { mount } from "@vue/test-utils";
 import SXSentenceSelectorContentHeader from "../SXSentenceSelectorContentHeader";
 import PageSection from "@/wiki/cx/models/pageSection";
 import Page from "@/wiki/mw/models/page";
-import { createStore } from "vuex";
 import { ref } from "vue";
 
 const mockValues = {
@@ -21,19 +20,19 @@ jest.mock("@/composables/useCurrentPages", () => () => ({
   currentSourcePage: { value: mockCurrentPage },
 }));
 
-const mockStore = createStore({
-  modules: {
-    application: {
-      namespaced: true,
-      state: { sourceLanguage: "en" },
-    },
-  },
-});
+jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: { value: "en" },
+}));
+
+jest.mock(
+  "@/components/SXSentenceSelector/useTranslationUnitSelect",
+  () => () => ({
+    selectTranslationUnitById: jest.fn(),
+  })
+);
 
 describe("SXSentenceSelector Section Content Header", () => {
-  const wrapper = mount(SXSentenceSelectorContentHeader, {
-    global: { plugins: [mockStore] },
-  });
+  const wrapper = mount(SXSentenceSelectorContentHeader);
 
   it("Component output matches snapshot", () => {
     expect(wrapper.element).toMatchSnapshot();

@@ -3,17 +3,15 @@ import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { useStore } from "vuex";
+import useURLHandler from "@/composables/useURLHandler";
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentPages from "@/composables/useCurrentPages";
 
-const store = useStore();
 const { sourceSection, isSectionTitleSelected } = useCurrentPageSection();
 const titleClass = "sx-sentence-selector__section-title";
 const { currentSourcePage: currentPage } = useCurrentPages();
-const { sourceLanguage } = useApplicationState(store);
+const { sourceLanguageURLParameter: sourceLanguage } = useURLHandler();
 
 const sourceArticleTitle = computed(() => currentPage.value?.title);
 
