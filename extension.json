@@ -389,7 +389,6 @@
 		},
 		"ContentTranslationCampaigns": {
 			"value": {
-				"cxstats": true,
 				"specialcx": true,
 				"newarticle": true,
 				"specialcontribute": true,
