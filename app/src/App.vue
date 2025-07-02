@@ -120,4 +120,16 @@ body.skin-contenttranslation {
     all: unset;
   }
 }
+
+.mw-specialpage-summary {
+	padding-right: @spacing-250;
+	padding-left: @spacing-250;
+	margin-bottom: @spacing-100;
+
+	@media only screen and (max-width: @max-width-breakpoint-tablet) {
+		padding-right: @spacing-75;
+		padding-left: @spacing-75;
+		margin-bottom: @spacing-75;
+	}
+}
 </style>
