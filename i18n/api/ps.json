@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"apihelp-cxpublish-param-html": "د خوندي کولو مېنځپانگه.",
@@ -24,5 +25,6 @@
 	"apihelp-cxdelete-param-to": "د موخې د ژبې کوډ",
 	"apihelp-cxdelete-param-sourcetitle": "د سرچينې مخ سرليک",
 	"apihelp-cxsave-param-sourcerevision": "د سرچينې مخ مخکتنه.",
-	"apihelp-cxsave-param-to": "د موخې د ژبې کوډ."
+	"apihelp-cxsave-param-to": "د موخې د ژبې کوډ.",
+	"apierror-cx-publish-usergroup-required": "تاسو د کارن ډلې اړين پرېښولي نه لرئ چې ار نوم‌‌تشيال ته ژباړې خپرې کړئ."
 }
