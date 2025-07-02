@@ -149,7 +149,7 @@ module.exports = {
 				'',
 				this.sourceLanguage,
 				this.targetLanguage,
-				{ sx: true }
+				{ campaign: 'mfrecentedit', sx: true }
 			);
 		}
 	},
