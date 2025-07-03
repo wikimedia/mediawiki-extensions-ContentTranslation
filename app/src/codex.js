@@ -10,6 +10,8 @@ if (import.meta.env.PROD) {
     CdxMessage,
     CdxTabs,
     CdxTab,
+    CdxField,
+    CdxRadio,
   } = require("../codex.js");
 
   window.Codex = {
@@ -23,5 +25,7 @@ if (import.meta.env.PROD) {
     CdxMessage,
     CdxTabs,
     CdxTab,
+    CdxField,
+    CdxRadio,
   };
 }

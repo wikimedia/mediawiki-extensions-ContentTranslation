@@ -577,7 +577,9 @@
 				"CdxMenu",
 				"CdxMessage",
 				"CdxTabs",
-				"CdxTab"
+				"CdxTab",
+				"CdxField",
+				"CdxRadio"
 			],
 			"messages": [
 				"cx-create-new-translation",

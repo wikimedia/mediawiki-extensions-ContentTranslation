@@ -1,5 +1,6 @@
 <script setup>
-import { MwDialog, MwDivider, MwRadio, MwRadioGroup } from "@/lib/mediawiki.ui";
+import { MwDialog, MwDivider } from "@/lib/mediawiki.ui";
+import { CdxField, CdxRadio } from "@wikimedia/codex";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import { computed } from "vue";
@@ -36,28 +37,21 @@ const optionDetails = computed(() =>
 const publishOptions = computed(() => [
   {
     label: optionLabel.value,
-    details: optionDetails.value,
+    description: optionDetails.value,
     value: "NEW_SECTION",
     disabled: false,
   },
   {
     label: bananaI18n.i18n("cx-sx-publisher-sandbox-option-label"),
-    details: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
+    description: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
     value: "SANDBOX_SECTION",
     disabled: isAnon.value,
   },
 ]);
 
-const getMarginBottomClassByOptionIndex = (index) => {
-  const isLastOption = index === publishOptions.value.length - 1;
-
-  return isLastOption ? "mb-1" : "mb-4";
-};
-
 const onPublishOptionsClose = () => emit("update:active", false);
 
-const updateOption = (event) => {
-  const selectedOption = event.target.value;
+const updateOption = (selectedOption) => {
   store.commit("application/setPublishTarget", selectedOption);
   onPublishOptionsClose();
 };
@@ -96,25 +90,23 @@ const updateOption = (event) => {
       </div>
     </template>
     <div class="pa-4">
-      <mw-radio-group
-        :value="selectedOption"
-        name="publish-options"
-        @input="updateOption"
-      >
-        <template v-for="(option, index) in publishOptions" :key="option.label">
-          <mw-radio
-            class="pa-0 my-1"
-            :label="option.label"
-            :input-value="option.value"
-            :disabled="option.disabled"
-          />
-          <p
-            class="complementary ms-7 mt-0"
-            :class="getMarginBottomClassByOptionIndex(index)"
-            v-text="option.details"
-          />
-        </template>
-      </mw-radio-group>
+      <cdx-field is-fieldset>
+        <cdx-radio
+          v-for="(radio, index) in publishOptions"
+          :key="'publish-options-radio-' + radio.value"
+          :class="index < publishOptions.length - 1 ? 'mb-4' : 'mb-0'"
+          :model-value="selectedOption"
+          :input-value="radio.value"
+          :disabled="radio.disabled"
+          name="publish-options"
+          @update:model-value="updateOption"
+        >
+          {{ radio.label }}
+          <template #description>
+            {{ radio.description }}
+          </template>
+        </cdx-radio>
+      </cdx-field>
     </div>
   </mw-dialog>
 </template>
@@ -145,6 +137,12 @@ const updateOption = (event) => {
           font-weight: @font-weight-bold;
           line-height: 1.25rem;
         }
+      }
+    }
+
+    .cdx-radio__label {
+      .cdx-label__label__text {
+        font-weight: @font-weight-bold;
       }
     }
   }
