@@ -10,6 +10,7 @@ import {
   SEED_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import { useI18n } from "vue-banana-i18n";
+import SuggestionFilterSearchResult from "@/wiki/cx/models/suggestionFilterSearchResult";
 
 const { topics: topicGroups, regions } = mw.loader.require(
   "ext.cx.articlefilters"
@@ -41,6 +42,7 @@ const useSuggestionsFilterSearch = () => {
     topics: [],
     topic_areas: [],
     collections: [],
+    regions: [],
   });
   const bananaI18n = useI18n();
 
@@ -95,63 +97,70 @@ const useSuggestionsFilterSearch = () => {
   const { searchResultsSlice } = useSearchArticles(sourceLanguage, searchInput);
 
   watch(searchResultsSlice, () => {
-    rawSearchResults.value.topics = searchResultsSlice.value.map((result) => ({
-      label: result.title,
-      value: result.title,
-      description: result.description,
-      thumbnail: {
-        url: result.thumbnail?.source,
-      },
-      filterType: SEED_SUGGESTION_PROVIDER,
-      filterId: result.title,
-    }));
+    rawSearchResults.value.topics = searchResultsSlice.value.map(
+      (result) =>
+        new SuggestionFilterSearchResult({
+          label: result.title,
+          value: result.title,
+          description: result.description,
+          thumbnail: { url: result.thumbnail?.source },
+          filterType: SEED_SUGGESTION_PROVIDER,
+          filterId: result.title,
+          showThumbnail: true,
+        })
+    );
   });
 
   watch([searchInput, searchScope], async () => {
     rawSearchResults.value.topic_areas = searchTopics(searchInput.value).map(
-      (topic) => ({
-        label: topic.label,
-        value: topic.label,
-        description: bananaI18n.i18n(
-          searchScope.value === "all"
-            ? "cx-sx-suggestions-filter-search-results-topics-default-description"
-            : "cx-sx-suggestions-filter-search-results-topics-alternative-description"
-        ),
-        icon: searchScope.value === "all" ? cdxIconSearch : null,
-        filterType: TOPIC_SUGGESTION_PROVIDER,
-        filterId: topic.topicId,
-      })
+      (topic) =>
+        new SuggestionFilterSearchResult({
+          label: topic.label,
+          value: topic.label,
+          description: bananaI18n.i18n(
+            searchScope.value === "all"
+              ? "cx-sx-suggestions-filter-search-results-topics-default-description"
+              : "cx-sx-suggestions-filter-search-results-topics-alternative-description"
+          ),
+          icon: searchScope.value === "all" ? cdxIconSearch : null,
+          filterType: TOPIC_SUGGESTION_PROVIDER,
+          filterId: topic.topicId,
+        })
     );
 
     rawSearchResults.value.collections = searchCollections(
       searchInput.value
-    ).map((collection) => ({
-      label: collection.name,
-      value: collection.name,
-      description: bananaI18n.i18n(
-        searchScope.value === "all"
-          ? "cx-sx-suggestions-filter-search-results-collections-default-description"
-          : "cx-sx-suggestions-filter-search-results-collections-alternative-description",
-        collection.articlesCount
-      ),
-      icon: searchScope.value === "all" ? cdxIconArticles : null,
-      filterType: COLLECTIONS_SUGGESTION_PROVIDER,
-      filterId: collection.name,
-    }));
+    ).map(
+      (collection) =>
+        new SuggestionFilterSearchResult({
+          label: collection.name,
+          value: collection.name,
+          description: bananaI18n.i18n(
+            searchScope.value === "all"
+              ? "cx-sx-suggestions-filter-search-results-collections-default-description"
+              : "cx-sx-suggestions-filter-search-results-collections-alternative-description",
+            collection.articlesCount
+          ),
+          icon: searchScope.value === "all" ? cdxIconArticles : null,
+          filterType: COLLECTIONS_SUGGESTION_PROVIDER,
+          filterId: collection.name,
+        })
+    );
 
     rawSearchResults.value.regions = searchRegions(searchInput.value).map(
-      (region) => ({
-        label: region.label,
-        value: region.label,
-        description: bananaI18n.i18n(
-          searchScope.value === "all"
-            ? "cx-sx-suggestions-filter-search-results-regions-default-description"
-            : "cx-sx-suggestions-filter-search-results-regions-alternative-description"
-        ),
-        icon: searchScope.value === "all" ? cdxIconSearch : null,
-        filterType: REGIONS_SUGGESTION_PROVIDER,
-        filterId: region.id,
-      })
+      (region) =>
+        new SuggestionFilterSearchResult({
+          label: region.label,
+          value: region.label,
+          description: bananaI18n.i18n(
+            searchScope.value === "all"
+              ? "cx-sx-suggestions-filter-search-results-regions-default-description"
+              : "cx-sx-suggestions-filter-search-results-regions-alternative-description"
+          ),
+          icon: searchScope.value === "all" ? cdxIconSearch : null,
+          filterType: REGIONS_SUGGESTION_PROVIDER,
+          filterId: region.id,
+        })
     );
   });
 
@@ -163,7 +172,6 @@ const useSuggestionsFilterSearch = () => {
         key: "topics",
         show: rawSearchResults.value.topics.length && isAll,
         items: rawSearchResults.value.topics,
-        showThumbnail: true,
       },
       {
         key: "topic-areas",

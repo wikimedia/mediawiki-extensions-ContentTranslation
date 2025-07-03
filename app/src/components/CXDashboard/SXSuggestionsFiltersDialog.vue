@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, inject } from "vue";
+import { ref, computed, inject, watch } from "vue";
 import { useI18n } from "vue-banana-i18n";
 import { MwRow, MwCol, MwDialog } from "@/lib/mediawiki.ui";
 import {
@@ -206,23 +206,72 @@ const selectedFilter = computed(
 
 const selection = ref(null);
 
-/**
- * @param {{ label: string, filterType: string, filterId: string }} item
- */
-const tentativelySelectSearchItem = (item) => {
+watch(selection, () => {
+  if (!selection.value) {
+    return;
+  }
+  /** @type {SuggestionFilterSearchResult} */
+  const selectedItem = combinedResults.value.find(
+    (item) => item.value === selection.value
+  );
+
   tentativelySelectFilter({
-    type: item.filterType,
-    id: item.filterId,
-    label: item.label,
+    type: selectedItem.filterType,
+    id: selectedItem.filterId,
+    label: selectedItem.label,
   });
   searchInput.value = "";
-};
+});
 
 const viewAllLabels = {
   [COLLECTIONS_SUGGESTION_PROVIDER]:
     "cx-sx-suggestions-filters-view-all-collections-group",
   [REGIONS_SUGGESTION_PROVIDER]:
     "cx-sx-suggestions-filters-view-all-regions-group",
+};
+
+/**
+ * @type {ComputedRef<SuggestionFilterSearchResult[]>}
+ */
+const combinedResults = computed(() =>
+  searchResults.value.flatMap((group) => group.items)
+);
+const resultMenusInTabs = ref({});
+
+const activeResultsMenu = computed(
+  () => resultMenusInTabs.value[searchScope.value]
+);
+
+const activeResultDescendant = computed(() => {
+  const highlightedItem = activeResultsMenu.value?.getHighlightedMenuItem();
+
+  return highlightedItem?.id;
+});
+
+/**
+ * Copied from Codex examples: https://doc.wikimedia.org/codex/latest/components/demos/menu.html
+ *
+ * Delegate most keydowns on the text input to the Menu component. This
+ * allows the Menu component to enable keyboard navigation of the menu.
+ *
+ * @param {KeyboardEvent} e The keyboard event
+ */
+const onKeydown = (e) => {
+  // The menu component enables the space key to open and close the
+  // menu. However, for text inputs with menus, the space key should
+  // always insert a new space character in the input.
+  if (e.key === " ") {
+    return;
+  }
+
+  // Delegate all other key events to the Menu component.
+  if (activeResultsMenu.value) {
+    activeResultsMenu.value.delegateKeyNavigation(e);
+  }
+};
+
+const addTabResultMenu = (menuComponent, tabName) => {
+  resultMenusInTabs.value[tabName] = menuComponent;
 };
 </script>
 
@@ -290,10 +339,15 @@ const viewAllLabels = {
           <div class="px-4 pb-4 pt-7">
             <cdx-text-input
               v-model="searchInput"
+              role="combobox"
+              :aria-activedescendant="activeResultDescendant"
+              aria-controls="sx-suggestions-filters__search-results__menu"
+              aria-autocomplete="none"
               :placeholder="tab.searchPlaceholder"
               input-type="search"
               :start-icon="cdxIconSearch"
               :clearable="!!searchInput"
+              @keydown="onKeydown"
             />
           </div>
           <div
@@ -328,37 +382,34 @@ const viewAllLabels = {
             </div>
           </div>
           <div v-else class="sx-suggestions-filters__search-results px-4 pt-3">
-            <div v-if="searchResults.length">
-              <cdx-menu
-                v-for="resultGroup in searchResults"
-                :key="resultGroup.key"
-                v-model:selected="selection"
-                :expanded="true"
-                :menu-items="resultGroup.items"
-                :show-thumbnail="resultGroup.showThumbnail || false"
-                @menu-item-click="tentativelySelectSearchItem"
-              ></cdx-menu>
-            </div>
-            <div v-else>
-              <div class="sx-suggestions-filters__search-results-empty">
-                <span
-                  class="sx-suggestions-filters__search-results-empty-primary"
-                  >{{
-                    $i18n(
-                      "cx-sx-suggestions-filter-search-results-empty-primary"
-                    )
-                  }}</span
-                >
-                <span
-                  class="sx-suggestions-filters__search-results-empty-secondary"
-                  >{{
-                    $i18n(
-                      "cx-sx-suggestions-filter-search-results-empty-secondary"
-                    )
-                  }}</span
-                >
-              </div>
-            </div>
+            <cdx-menu
+              id="sx-suggestions-filters__search-results__menu"
+              :ref="(el) => addTabResultMenu(el, tab.name)"
+              v-model:selected="selection"
+              expanded
+              :menu-items="combinedResults"
+            >
+              <template #no-results>
+                <div class="sx-suggestions-filters__search-results-empty">
+                  <span
+                    class="sx-suggestions-filters__search-results-empty-primary"
+                    >{{
+                      $i18n(
+                        "cx-sx-suggestions-filter-search-results-empty-primary"
+                      )
+                    }}</span
+                  >
+                  <span
+                    class="sx-suggestions-filters__search-results-empty-secondary"
+                    >{{
+                      $i18n(
+                        "cx-sx-suggestions-filter-search-results-empty-secondary"
+                      )
+                    }}</span
+                  >
+                </div>
+              </template>
+            </cdx-menu>
           </div>
         </cdx-tab>
       </cdx-tabs>
