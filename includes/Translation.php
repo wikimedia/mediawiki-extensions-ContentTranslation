@@ -3,7 +3,6 @@
 namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Storage\NameTableAccessException;
 use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
@@ -30,108 +29,6 @@ class Translation {
 
 	public function setIsNew( bool $isNew ): void {
 		$this->isNew = $isNew;
-	}
-
-	/**
-	 * Get the stats for all translations in draft or published status.
-	 * @return array[]
-	 */
-	public static function getStats(): array {
-		/** @var IConnectionProvider $connectionProvider */
-		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
-		$dbr = $connectionProvider->getReplicaDatabase();
-
-		$statusCase = $dbr->conditional(
-			self::getPublishedCondition( $dbr ),
-			$dbr->addQuotes( 'published' ),
-			$dbr->addQuotes( 'draft' )
-		);
-
-		$rows = $dbr->newSelectQueryBuilder()
-			->select( [
-				'sourceLanguage' => 'translation_source_language',
-				'targetLanguage' => 'translation_target_language',
-				'status' => $statusCase,
-				'count' => 'COUNT(*)',
-				'translators' => 'COUNT(DISTINCT translation_started_by)',
-			] )
-			->from( 'cx_translations' )
-			->where( [ 'translation_status' => [ 'draft', 'published' ] ] )
-			->groupBy( [
-				'translation_source_language',
-				'translation_target_language',
-				'status',
-			] )
-			->caller( __METHOD__ )
-			->fetchResultSet();
-
-		$result = [];
-
-		foreach ( $rows as $row ) {
-			$result[] = (array)$row;
-		}
-
-		return $result;
-	}
-
-	/**
-	 * Get time-wise cumulative number of deletions for given
-	 * language pairs, with given interval.
-	 *
-	 * @param string $interval
-	 * @return array<string,array>
-	 */
-	public static function getDeletionTrend( $interval ): array {
-		$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
-		$dbr = $lb->getConnection( DB_REPLICA );
-
-		$conditions = [];
-
-		$changeTagDefStore = MediaWikiServices::getInstance()->getChangeTagDefStore();
-		try {
-			$conditions['ct_tag_id'] = $changeTagDefStore->getId( 'contenttranslation' );
-		} catch ( NameTableAccessException $exception ) {
-			// No translations published yet, so can skip query
-			return [];
-		}
-
-		$groupBy = [];
-		if ( $interval === 'week' ) {
-			$groupBy = [
-				'YEARWEEK(ar_timestamp, 3)',
-			];
-		} elseif ( $interval === 'month' ) {
-			$groupBy = [
-				'YEAR(ar_timestamp)',
-				'MONTH(ar_timestamp)',
-			];
-		}
-
-		$rows = $dbr->newSelectQueryBuilder()
-			->select( [
-				'date' => 'MAX(ar_timestamp)',
-				'count' => 'COUNT(ar_page_id)'
-			] )
-			->from( 'change_tag' )
-			->join( 'archive', null, 'ar_rev_id = ct_rev_id' )
-			->where( $conditions )
-			->groupBy( $groupBy )
-			->caller( __METHOD__ )
-			->fetchResultSet();
-
-		$count = 0;
-		$result = [];
-		$dm = new DateManipulator( $interval );
-		foreach ( $rows as $row ) {
-			$count += (int)$row->count;
-			$time = $dm->getIntervalIdentifier( $row->date )->format( 'U' );
-			$result[$time] = [
-				'count' => $count,
-				'delta' => (int)$row->count,
-			];
-		}
-
-		return $result;
 	}
 
 	/**
