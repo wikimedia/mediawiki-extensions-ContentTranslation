@@ -34,7 +34,12 @@ const expandIcon = computed(() =>
 </script>
 
 <template>
-  <cdx-info-chip :icon="icon" class="custom-info-chip">
+  <cdx-info-chip
+    :icon="icon"
+    class="custom-info-chip"
+    tabindex="0"
+    @keyup.enter="$emit('click')"
+  >
     <template v-if="slashIndex === -1">
       {{ content }}
       <cdx-icon v-if="expandable" :icon="expandIcon"></cdx-icon>

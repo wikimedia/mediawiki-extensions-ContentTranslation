@@ -373,6 +373,8 @@ const addTabResultMenu = (menuComponent, tabName) => {
               <div
                 v-if="showPartialFiltersList(tab.name, filterGroup.type)"
                 class="sx-suggestions-filters__group-view-all mb-3"
+                tabindex="0"
+                @keyup.enter="switchCurrentTab(filterGroup.id)"
                 @click="switchCurrentTab(filterGroup.id)"
               >
                 <span>

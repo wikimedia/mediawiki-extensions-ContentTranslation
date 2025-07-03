@@ -133,7 +133,9 @@ const handleViewMore = () => {
     <div
       v-if="shouldShowViewMoreLink"
       class="sx-suggestions-filters__view-more-link"
+      tabindex="0"
       @click="handleViewMore"
+      @keyup.enter="handleViewMore"
     >
       {{ viewMoreConfig.label }}
     </div>
