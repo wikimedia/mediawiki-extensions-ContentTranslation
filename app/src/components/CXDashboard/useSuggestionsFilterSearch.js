@@ -94,7 +94,14 @@ const useSuggestionsFilterSearch = () => {
       }));
   };
 
-  const { searchResultsSlice } = useSearchArticles(sourceLanguage, searchInput);
+  const searchTopicsQuery = computed(() =>
+    searchScope.value === "all" ? searchInput.value : ""
+  );
+
+  const { searchResultsSlice, searchResultsLoading } = useSearchArticles(
+    sourceLanguage,
+    searchTopicsQuery
+  );
 
   watch(searchResultsSlice, () => {
     rawSearchResults.value.topics = searchResultsSlice.value.map(
@@ -197,7 +204,7 @@ const useSuggestionsFilterSearch = () => {
     ].filter((menu) => menu.show);
   });
 
-  return { searchInput, searchScope, searchResults };
+  return { searchInput, searchScope, searchResults, searchResultsLoading };
 };
 
 export default useSuggestionsFilterSearch;

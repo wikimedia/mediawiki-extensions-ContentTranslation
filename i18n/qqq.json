@@ -513,6 +513,7 @@
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "Alternative description for the community-defined page collections that are listed as search results to the user's suggestion filter search\n\nParameters:\n* $1 - the number of articles included in the page collection",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Primary message when search results are empty to the user's suggestion filter search",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Secondary message when search results are empty to the user's suggestion filter search",
+	"cx-sx-suggestions-filter-search-results-loading": "Message displayed when search results are loading and the results list is empty",
 	"cx-page-collection-dialog-close-button-aria-label": "Aria label for the close button in the header of the dialog, that displays information and suggestions for a page collection.",
 	"cx-page-collection-dialog-existing-target-count": "Text that displays the number of the collection pages present in the target language, in the dialog, that displays information and suggestions for a page collection.\n\nParameters:\n* $1 - the number of the collection pages that exist in the target language \n* $2 - the number of all the collection pages \n* $3 - the target language autonym",
 	"cx-page-collection-dialog-days-left": "Text that displays the number of days left for the event that is related to the page collection, in the dialog, that displays information and suggestions for a page collection.",

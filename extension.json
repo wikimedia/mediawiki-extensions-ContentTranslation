@@ -824,6 +824,7 @@
 				"cx-sx-suggestions-filter-search-results-collections-alternative-description",
 				"cx-sx-suggestions-filter-search-results-empty-primary",
 				"cx-sx-suggestions-filter-search-results-empty-secondary",
+				"cx-sx-suggestions-filter-search-results-loading",
 				"cx-page-collection-dialog-close-button-aria-label",
 				"cx-page-collection-dialog-existing-target-count",
 				"cx-page-collection-dialog-days-left",

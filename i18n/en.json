@@ -493,6 +493,7 @@
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 article|$1 articles|0=No articles}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "No results found",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Try different search terms or check other tabs",
+	"cx-sx-suggestions-filter-search-results-loading": "Search results loading...",
 	"cx-page-collection-dialog-close-button-aria-label": "Go back to dashboard",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 articles exist in $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 day|$1 days|0=No days}} left",

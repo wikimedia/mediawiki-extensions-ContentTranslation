@@ -198,7 +198,7 @@ const isSelected = (filter) => {
 const breakpoints = inject("breakpoints");
 const fullscreen = computed(() => breakpoints.value.mobile);
 
-const { searchInput, searchScope, searchResults } =
+const { searchInput, searchScope, searchResults, searchResultsLoading } =
   useSuggestionsFilterSearch();
 const selectedFilter = computed(
   () => tentativelySelectedFilter.value || findSelectedFilter()
@@ -388,27 +388,29 @@ const addTabResultMenu = (menuComponent, tabName) => {
               id="sx-suggestions-filters__search-results__menu"
               :ref="(el) => addTabResultMenu(el, tab.name)"
               v-model:selected="selection"
+              :show-pending="searchResultsLoading"
               expanded
               :menu-items="combinedResults"
             >
+              <template #pending>
+                <div
+                  v-i18n:cx-sx-suggestions-filter-search-results-loading
+                  class="sx-suggestions-filters__search-results-pending"
+                />
+              </template>
               <template #no-results>
-                <div class="sx-suggestions-filters__search-results-empty">
+                <div
+                  v-if="!searchResultsLoading"
+                  class="sx-suggestions-filters__search-results-empty"
+                >
                   <span
+                    v-i18n:cx-sx-suggestions-filter-search-results-empty-primary
                     class="sx-suggestions-filters__search-results-empty-primary"
-                    >{{
-                      $i18n(
-                        "cx-sx-suggestions-filter-search-results-empty-primary"
-                      )
-                    }}</span
-                  >
+                  />
                   <span
+                    v-i18n:cx-sx-suggestions-filter-search-results-empty-secondary
                     class="sx-suggestions-filters__search-results-empty-secondary"
-                    >{{
-                      $i18n(
-                        "cx-sx-suggestions-filter-search-results-empty-secondary"
-                      )
-                    }}</span
-                  >
+                  />
                 </div>
               </template>
             </cdx-menu>
@@ -486,6 +488,14 @@ const addTabResultMenu = (menuComponent, tabName) => {
         }
       }
     }
+    &-pending {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-weight: @font-weight-bold;
+    }
+
     &-empty {
       display: flex;
       flex-direction: column;
