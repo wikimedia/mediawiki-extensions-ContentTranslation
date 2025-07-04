@@ -309,6 +309,7 @@
 	"cx-sx-publisher-header-close-button-aria-label": "Aria label for the close button, inside the header of 'Preview and publish' step, that navigates the user back to the editor step",
 	"cx-sx-publisher-header-check-button-aria-label": "Aria label for the check button, inside the header of 'Preview and publish' step, that publishes the current translation",
 	"cx-sx-publisher-publish-panel-new-section-status": "Status for publish panel inside 'Preview and publish' screen for new section",
+	"cx-sx-publisher-publish-panel-existing-section-notice": "Message inside publish panel of 'Preview and publish' step, indicating to the user that the current section already exists in the target page",
 	"cx-sx-publisher-publish-panel-new-section-result": "Description of expected result of publishing new section inside 'Preview and publish' screen",
 	"cx-sx-publisher-review-info": "Additional information to review before publishing a section translation",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Title of animation dialog that opens when user tries to publish a translation",

@@ -10,14 +10,27 @@ import useTranslationPublish from "./useTranslationPublish";
 import { useI18n } from "vue-banana-i18n";
 import useEditTranslation from "./useEditTranslation";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
-import { cdxIconSettings, cdxIconEdit } from "@wikimedia/codex-icons";
+import {
+  cdxIconSettings,
+  cdxIconEdit,
+  cdxIconLinkExternal,
+} from "@wikimedia/codex-icons";
 import usePublishFeedbackMessages from "./usePublishFeedbackMessages";
 import usePublishingComplete from "./usePublishingComplete";
 import useCaptcha from "./useCaptcha";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useURLHandler from "@/composables/useURLHandler";
 import usePublishTarget from "@/composables/usePublishTarget";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 const { sourceSection } = useCurrentPageSection();
+const { sectionSuggestion: suggestion, isCurrentSectionPresent } =
+  useCurrentSectionSuggestion();
+const {
+  targetLanguageURLParameter: targetLanguage,
+  sectionURLParameter: sourceSectionTitle,
+} = useURLHandler();
 
 const translatedTitle = computed(() => sourceSection.value?.title);
 const bananaI18n = useI18n();
@@ -111,6 +124,24 @@ watch(publishOptionsOn, (newValue) => {
     initializePublishFeedbackMessages();
   }
 });
+
+const targetSectionTitle = computed(
+  () => suggestion.value?.presentSections?.[sourceSectionTitle.value]
+);
+
+const targetArticlePath = computed(() => {
+  const articlePath = siteMapper.getPageUrl(
+    targetLanguage.value,
+    suggestion.value?.targetTitle
+  );
+
+  const targetSectionAnchor = (targetSectionTitle.value || "").replace(
+    / /g,
+    "_"
+  );
+
+  return `${articlePath}#${targetSectionAnchor}`;
+});
 </script>
 
 <template>
@@ -119,25 +150,47 @@ watch(publishOptionsOn, (newValue) => {
       :is-publishing-disabled="isPublishingDisabled"
       @publish-translation="publishTranslation"
     />
-    <div class="sx-publisher__publish-panel pa-4">
-      <h5
-        v-i18n:cx-sx-publisher-publish-panel-new-section-status
-        class="mb-2"
-      />
-      <!-- eslint-disable vue/no-v-html -->
-      <h6 class="mb-2" v-html="expectedPanelResult" />
-      <!-- eslint-enable vue/no-v-html -->
-      <mw-row justify="end" class="ma-0">
-        <mw-col shrink>
-          <cdx-button
-            weight="quiet"
-            :aria-label="$i18n('cx-sx-publisher-configure-button-aria-label')"
-            @click="configureTranslationOptions"
+    <div
+      class="sx-publisher__publish-panel"
+      :class="isCurrentSectionPresent ? 'py-4' : 'pa-4'"
+    >
+      <template v-if="!isCurrentSectionPresent">
+        <h5
+          v-i18n:cx-sx-publisher-publish-panel-new-section-status
+          class="mb-2"
+        />
+      </template>
+      <template v-else>
+        <div
+          class="sx-publisher__publish-panel__existing-target-section px-4 pb-4"
+        >
+          <h5 v-i18n:cx-sx-publisher-publish-panel-existing-section-notice />
+          <a
+            class="sx-publisher__publish-panel__existing-target-section-link py-2 px-3 mt-4"
+            :href="targetArticlePath"
+            target="_blank"
           >
-            <cdx-icon :icon="cdxIconSettings" />
-          </cdx-button>
-        </mw-col>
-      </mw-row>
+            {{ targetSectionTitle }}
+            <cdx-icon :icon="cdxIconLinkExternal" />
+          </a>
+        </div>
+      </template>
+      <div :class="{ 'px-4 mt-4': isCurrentSectionPresent }">
+        <!-- eslint-disable vue/no-v-html -->
+        <h6 class="mb-2" v-html="expectedPanelResult" />
+        <!-- eslint-enable vue/no-v-html -->
+        <mw-row justify="end" class="ma-0">
+          <mw-col shrink>
+            <cdx-button
+              weight="quiet"
+              :aria-label="$i18n('cx-sx-publisher-configure-button-aria-label')"
+              @click="configureTranslationOptions"
+            >
+              <cdx-icon :icon="cdxIconSettings" />
+            </cdx-button>
+          </mw-col>
+        </mw-row>
+      </div>
     </div>
     <sx-publisher-review-info
       :publish-feedback-messages="publishFeedbackMessages"
@@ -187,6 +240,17 @@ watch(publishOptionsOn, (newValue) => {
   &__publish-panel {
     background-color: @background-color-interactive-subtle;
     border-bottom: @border-width-base @border-style-base @border-color-subtle;
+
+    &__existing-target-section {
+      border-bottom: @border-width-base @border-style-base @border-color-subtle;
+      &-link {
+        display: flex;
+        justify-content: space-between;
+        background-color: @background-color-neutral;
+        font-weight: @font-weight-bold;
+        color: @color-base;
+      }
+    }
   }
 
   &__section-preview__title {
