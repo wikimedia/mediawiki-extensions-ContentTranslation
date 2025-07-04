@@ -201,6 +201,7 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 	{
 		name: 'extra',
 		align: 'after',
+		excludeFromTargetWidget: true,
 		icon: 'ellipsis',
 		label: '',
 		indicator: null,
