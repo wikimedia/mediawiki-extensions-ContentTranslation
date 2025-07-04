@@ -12,7 +12,6 @@ const useContentHeaderOptions = () => {
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
-    sectionURLParameter: sectionTitle,
   } = useURLHandler();
 
   const sourceLanguageAutonym = computed(() =>
@@ -22,12 +21,9 @@ const useContentHeaderOptions = () => {
     getAutonym(targetLanguage.value)
   );
 
-  const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+  const { isCurrentSectionPresent } = useCurrentSectionSuggestion();
 
   const { existingSectionPublishOption } = useExistingSectionPublishOption();
-  const isCurrentSectionPresent = computed(
-    () => !!suggestion.value?.presentSections.hasOwnProperty(sectionTitle.value)
-  );
 
   const isSectionForExpansion = computed(
     () =>

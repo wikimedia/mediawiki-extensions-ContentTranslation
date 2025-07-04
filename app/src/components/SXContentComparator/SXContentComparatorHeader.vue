@@ -7,7 +7,7 @@ import {
 import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation.vue";
 import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection.vue";
-import { computed, inject } from "vue";
+import { computed } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import { getDir } from "@wikimedia/language-data";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
@@ -17,13 +17,11 @@ defineEmits(["close", "translation-button-clicked"]);
 
 const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
 const { sourceSection } = useCurrentPageSection();
-const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { sectionSuggestion: suggestion, isCurrentSectionPresent } =
+  useCurrentSectionSuggestion();
 
 const isCurrentSectionMissing = computed(() =>
   suggestion.value?.missingSections.hasOwnProperty(sourceSectionTitle.value)
-);
-const isCurrentSectionPresent = computed(() =>
-  suggestion.value?.presentSections.hasOwnProperty(sourceSectionTitle.value)
 );
 
 const sourceSectionContent = computed(() => sourceSection.value?.html);
@@ -31,9 +29,6 @@ const sectionSourceTitles = computed(() => [
   ...Object.keys(suggestion.value.missingSections),
   ...Object.keys(suggestion.value.presentSections),
 ]);
-
-const breakpoints = inject("breakpoints");
-const isMobile = computed(() => breakpoints.value.mobile);
 </script>
 
 <template>
