@@ -6,9 +6,9 @@ import { computed } from "vue";
 import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
 import { useI18n } from "vue-banana-i18n";
 import useCompareContents from "@/components/SXContentComparator/useCompareContents";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useURLHandler from "@/composables/useURLHandler";
 
-const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
 const { activeSectionTargetTitle: targetSectionTitle } = useCompareContents();
 
 const bananaI18n = useI18n();
@@ -23,7 +23,7 @@ const shouldBePublishedAsNew = computed(
 const mappedSectionHeaderText = computed(() =>
   bananaI18n.i18n(
     "cx-sx-content-comparator-mapped-section-header-title",
-    getAutonym(suggestion.value.targetLanguage)
+    getAutonym(targetLanguage.value)
   )
 );
 </script>
@@ -56,14 +56,14 @@ const mappedSectionHeaderText = computed(() =>
       <mw-col shrink>
         <mw-button
           v-if="!shouldBePublishedAsNew"
-          class="pa-0"
+          class="sx-content-comparator-header__mapped-section__discard-button pa-0"
           :icon="mwIconTrash"
           type="icon"
           @click="setExistingSectionPublishOption('new')"
         />
         <mw-button
           v-else
-          class="pa-0"
+          class="sx-content-comparator-header__mapped-section__undo-button pa-0"
           :icon="mwIconUndo"
           type="icon"
           @click="setExistingSectionPublishOption('expand')"

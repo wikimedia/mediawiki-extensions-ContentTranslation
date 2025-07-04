@@ -66,6 +66,7 @@ const sectionSourceTitles = computed(() => [
       </div>
       <div class="py-2 mb-1">
         <mw-button
+          class="sx-content-comparator-header__translation-button"
           :icon="mwIconEdit"
           progressive
           :label="
