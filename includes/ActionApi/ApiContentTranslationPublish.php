@@ -338,13 +338,16 @@ class ApiContentTranslationPublish extends ApiBase {
 				'edit' => $saveResult['edit']
 			];
 
-			$this->logger->error(
-				'Error when publishing content for {targetTitle}, {editResult}',
-				[
-					'targetTitle' => $targetTitle->getPrefixedDBkey(),
-					'editResult' => json_encode( $saveResult['edit'], JSON_PRETTY_PRINT ),
-				]
-			);
+			// Don't bother logging captcha related errors
+			if ( !isset( $saveResult['edit']['captcha'] ) ) {
+				$this->logger->error(
+					'Error when publishing content for {targetTitle}, {editResult}',
+					[
+						'targetTitle' => $targetTitle->getPrefixedDBkey(),
+						'editResult' => json_encode( $saveResult['edit'], JSON_PRETTY_PRINT ),
+					]
+				);
+			}
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );

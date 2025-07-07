@@ -315,13 +315,16 @@ class ApiSectionTranslationPublish extends ApiBase {
 				'edit' => $editResult
 			];
 
-			$this->logger->error(
-				'Error when publishing section {targetTitle}, {editResultCode}',
-				[
-					'targetTitle' => $targetTitle->getPrefixedDBkey(),
-					'editResult' => json_encode( $editResult, JSON_PRETTY_PRINT ),
-				]
-			);
+			// Don't bother logging captcha related errors
+			if ( !isset( $editResult['edit']['captcha'] ) ) {
+				$this->logger->error(
+					'Error when publishing section {targetTitle}, {editResultCode}',
+					[
+						'targetTitle' => $targetTitle->getPrefixedDBkey(),
+						'editResult' => json_encode( $editResult, JSON_PRETTY_PRINT ),
+					]
+				);
+			}
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
