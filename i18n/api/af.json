@@ -3,6 +3,7 @@
 		"authors": [
 			"Fwolff",
 			"Purodha",
+			"Rooiratel",
 			"Slashme",
 			"Winstonza"
 		]
@@ -28,5 +29,6 @@
 	"apihelp-cxdelete-param-to": "Die kode vir die teikentaal.",
 	"apihelp-cxdelete-param-sourcetitle": "Die titel van die bronartikel.",
 	"apihelp-cxdelete-example-1": "Skrap 'n konsepartikel wat tussen die gegewe paar tale met hierdie titel gemaak is.",
-	"apihelp-cxsave-param-sourcerevision": "Die weergawe van die bronartikel."
+	"apihelp-cxsave-param-sourcerevision": "Die weergawe van die bronartikel.",
+	"apierror-cx-mustbeloggedin-favorites": "Jy moet aangemeld wees om jou gunsteling voorstelle te bestuur."
 }
