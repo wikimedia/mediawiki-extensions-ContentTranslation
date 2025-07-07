@@ -633,8 +633,10 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 	// Check if user is offline before attempting to publish
 	if ( !navigator.onLine ) {
 		const offlineMessage = mw.msg( 'cx-publish-error-offline' );
-		this.translationView.showMessage( 'error', offlineMessage );
+		this.translationView.showMessage( 'error', offlineMessage, null, 'cx-publish-offline' );
 		return;
+	} else {
+		this.translationView.removeMessage( 'cx-publish-offline' );
 	}
 
 	// Disable the trigger button

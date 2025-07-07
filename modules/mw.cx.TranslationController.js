@@ -349,9 +349,10 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 			return;
 		}
 
-		if ( !navigator.onLine ) {
-			this.translationView.setErrorStatusMessage( mw.msg( 'cx-save-draft-offline' ) );
-			return;
+		if ( navigator.onLine ) {
+			// force remove the offline message
+			// clearMessages() is called when user makes changes to the translation
+			this.translationView.removeMessage( 'cx-publish-offline' );
 		}
 
 		if ( this.failCounter > 0 && isRetry !== true ) {
@@ -486,7 +487,12 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode ) {
 		this.showLoginDialog();
 	}
 
-	const message = this.failCounter > 5 ? 'cx-save-draft-error' : 'cx-save-draft-error-retry';
+	let message;
+	if ( !navigator.onLine ) {
+		message = 'cx-save-draft-offline';
+	} else {
+		message = this.failCounter > 5 ? 'cx-save-draft-error' : 'cx-save-draft-error-retry';
+	}
 	// eslint-disable-next-line mediawiki/msg-doc
 	this.translationView.setErrorStatusMessage( mw.msg( message ) );
 };
