@@ -293,7 +293,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'type' => [
-				ParamValidator::PARAM_DEFAULT => null,
+				ParamValidator::PARAM_DEFAULT => 'draft',
 				ParamValidator::PARAM_TYPE => [ 'draft', 'published' ],
 			],
 			'usecase' => [
