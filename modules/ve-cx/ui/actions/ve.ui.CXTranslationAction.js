@@ -70,17 +70,19 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 		promise = target.changeContentSource( section, originalSource, source );
 	}
 
+	// eslint-disable-next-line es-x/no-promise-prototype-finally
 	promise
-		.always( () => {
-			// Recalculate the section, since the instance got destroyed in content change
-			section = target.getTargetSectionNode( section.getSectionId() );
-			if ( section ) {
-				// Emit Post-translate event
-				section.emit( 'afterTranslation' );
-			}
-		} ).fail( () => {
+		.catch( () => {
 			mw.notify( mw.msg( 'cx-mt-failed' ) );
 			this.surface.getModel().emit( 'contextChange' );
+		} )
+		.finally( () => {
+		// Recalculate the section, since the instance got destroyed in content change
+			section = target.getTargetSectionNode( section.getSectionId() );
+			if ( section ) {
+			// Emit Post-translate event
+				section.emit( 'afterTranslation' );
+			}
 		} );
 };
 

@@ -1050,9 +1050,9 @@ const getTransclusionNode = ( subSectionNode ) => Array.from( subSectionNode.chi
  * Translate and adapt the source section for the given section id.
  *
  * @param {string} sectionId Section ID
- * @param {string} provider Machine translation privider
+ * @param {string} provider Machine translation provider
  * @param {boolean} noCache If true, do a fresh translation from server
- * @return {jQuery.Promise}
+ * @return {Promise<string>}
  */
 ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider, noCache ) {
 	let mode = ve.dm.Converter.static.CLIPBOARD_MODE;
@@ -1116,7 +1116,7 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider,
  * @param {string} newProvider
  * @param {Object} options
  * @param {boolean} options.noCache Do not use cached version
- * @return {jQuery.promise}
+ * @return {Promise}
  * @fires changeContentSource
  */
 ve.init.mw.CXTarget.prototype.changeContentSource = function (
@@ -1140,7 +1140,7 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 
 		if ( cachedContent ) {
 			this.setSectionContent( section, cachedContent, newProvider );
-			return $.Deferred().resolve().promise();
+			return Promise.resolve();
 		}
 	}
 

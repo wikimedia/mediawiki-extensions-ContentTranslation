@@ -29,17 +29,19 @@ mw.cx.MachineTranslationService = function MwCxMachineTranslationService(
  *
  * @param {string} content HTML to translate.
  * @param {string} provider Which provider to use.
- * @return {jQuery.Promise} Returns the translated HTML as a string.
+ * @return {Promise<string>} Returns a Promise that resolves to the translated HTML as a string.
  */
 mw.cx.MachineTranslationService.prototype.translate = function ( content, provider ) {
 	if ( provider === 'source' ) {
 		// Adapt without translation.
 		return this.fetchTranslation( content );
 	} else if ( provider === 'scratch' ) {
-		return $.Deferred().resolve( this.prepareContentForScratch( content ) );
+		return Promise.resolve( this.prepareContentForScratch( content ) );
 	}
 
-	return this.getCXServerToken().then( this.fetchTranslation.bind( this, content, provider ) );
+	return this.getCXServerToken().then(
+		( token ) => this.fetchTranslation( content, provider, token )
+	);
 };
 
 /**
@@ -151,28 +153,28 @@ mw.cx.MachineTranslationService.prototype.fetchCXServerToken = function () {
 	} );
 };
 
+mw.cx.MachineTranslationService.prototype.getCXServerTokenPromise = function () {
+	return this.fetchCXServerToken().then( ( token ) => {
+		const now = Math.floor( Date.now() / 1000 );
+		// We use `age` instead of `exp` because it is more reliable, as user's
+		// clocks might be set to wrong time.
+		token.refreshAt = now + token.age - 30;
+		return token;
+	} ).catch( ( errorCode, errorObj ) => {
+		if ( errorCode === 'token-impossible' ) {
+			// Likely CX extension has not been configured properly.
+			// To make development and testing easier, assume that
+			// no token is needed.
+			mw.log.warn( '[CX] Unable to get cxserver token (ignored).', errorObj );
+			return {};
+		}
+		mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch machine translation token.' );
+		mw.log.error( '[CX] Unable to get cxserver token.', errorObj );
+	} );
+};
+
 mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
-	this.tokenPromise = this.tokenPromise ||
-		this.fetchCXServerToken().then(
-			( token ) => {
-				const now = Math.floor( Date.now() / 1000 );
-				// We use `age` instead of `exp` because it is more reliable, as user's
-				// clocks might be set to wrong time.
-				token.refreshAt = now + token.age - 30;
-				return token;
-			},
-			( errorCode, errorObj ) => {
-				if ( errorCode === 'token-impossible' ) {
-					// Likely CX extension has not been configured properly.
-					// To make development and testing easier, assume that
-					// no token is needed.
-					mw.log.warn( '[CX] Unable to get cxserver token (ignored).', errorObj );
-					return $.Deferred().resolve( {} ).promise();
-				}
-				mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch machine translation token.' );
-				mw.log.error( '[CX] Unable to get cxserver token.', errorObj );
-			}
-		);
+	this.tokenPromise = this.tokenPromise || this.getCXServerTokenPromise();
 
 	return this.tokenPromise.then( ( token ) => {
 		const now = Math.floor( Date.now() / 1000 );
@@ -194,7 +196,7 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
  * @param {string} [provider] Provider to use. If not given,
  *  content is adapted without machine translation.
  * @param {string} [token] Authorization token. Required only when the provider needs it.
- * @return {jQuery.Promise} Returns the translated HTML as a string.
+ * @return {Promise<string>} Returns a Promise that resolves to the translated HTML as a string.
  */
 mw.cx.MachineTranslationService.prototype.fetchTranslation = function ( content, provider, token ) {
 	const mtURL = this.siteMapper.getCXServerUrl( '/translate/$from/$to/$provider', {
@@ -203,16 +205,18 @@ mw.cx.MachineTranslationService.prototype.fetchTranslation = function ( content,
 		$provider: provider || ''
 	} );
 
-	const request = {
-		type: 'post',
-		url: mtURL,
-		data: {
-			html: content
-		},
-		headers: {
-			Authorization: token
-		}
+	const requestOptions = {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json', Authorization: token },
+		body: JSON.stringify( { html: content } )
 	};
 
-	return $.ajax( request ).then( ( response ) => response.contents );
+	return fetch( mtURL, requestOptions )
+		.then( ( response ) => {
+			if ( !response.ok ) {
+				throw new Error( `[CX] Translation request failed: ${ response.status }` );
+			}
+			return response.json();
+		} )
+		.then( ( data ) => data.contents );
 };
