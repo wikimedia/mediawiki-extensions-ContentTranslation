@@ -490,6 +490,7 @@
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 Artikel|0=Keine Artikel}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Keine Ergebnisse gefunden",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Versuche verschiedene Suchbegriffe oder überprüfe andere Registerkarten",
+	"cx-sx-suggestions-filter-search-results-loading": "Suchergebnisse werden geladen …",
 	"cx-page-collection-dialog-close-button-aria-label": "Zurück zum Dashboard",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 Artikel existieren in $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 Tag|$1 Tage|0=Kein Tag}} übrig",
