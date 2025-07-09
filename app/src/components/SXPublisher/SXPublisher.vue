@@ -202,7 +202,7 @@ const targetArticlePath = computed(() => {
           tag="h2"
           grow
           class="sx-publisher__section-preview__title ma-0"
-          v-html="translatedTitle"
+          v-text="translatedTitle"
         />
         <!--eslint-enable vue/no-v-text-v-html-on-component vue/no-v-html -->
         <mw-col shrink>

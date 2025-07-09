@@ -53,6 +53,10 @@ export default {
       type: String,
       required: true,
     },
+    useText: {
+      type: Boolean,
+      required: true,
+    },
     dir: {
       type: String,
       default: "auto",
@@ -65,7 +69,9 @@ export default {
     // Vue 3 way of accessing references to template elements. equivalent of this.$refs in Vue 2
     const sxeditor = ref(null);
     let veSurface = null;
-    const editedContent = computed(() => veSurface.getHtml());
+    const editedContent = computed(() =>
+      props.useText ? veSurface.getDom().body.textContent : veSurface.getHtml()
+    );
 
     const clearVisualEditor = () => {
       veSurface.destroy();

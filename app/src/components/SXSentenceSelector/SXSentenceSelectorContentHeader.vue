@@ -63,7 +63,7 @@ const selectSectionTitle = () => selectTranslationUnitById(0);
       class="pa-0 ma-0"
       :class="titleClasses"
       @click="selectSectionTitle"
-      v-html="translationTitle"
+      v-text="translationTitle"
     />
     <!--eslint-enable vue/no-v-html -->
   </mw-col>

@@ -36,7 +36,7 @@ const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,
 } = useURLHandler();
-const { sourceSection } = useCurrentPageSection();
+const { isSectionTitleSelected, sourceSection } = useCurrentPageSection();
 const mtScore = computed(() =>
   mtValidator.calculateScore(
     editedTranslation.value,
@@ -105,6 +105,7 @@ const onEditCompleted = async (translation) => {
         :language="targetLanguage"
         :dir="getDir(targetLanguage)"
         :title="title"
+        :use-text="!!isSectionTitleSelected"
         @ready="onEditorReady"
         @close="closeEditor"
         @edit-completed="onEditCompleted"

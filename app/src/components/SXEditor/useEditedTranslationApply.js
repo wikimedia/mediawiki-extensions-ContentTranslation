@@ -12,8 +12,11 @@ const useEditedTranslationApply = () => {
   const store = useStore();
   const saveTranslation = useTranslationSave();
   const { selectNextTranslationUnit } = useTranslationUnitSelect();
-  const { sourceSection, selectedContentTranslationUnit } =
-    useCurrentPageSection();
+  const {
+    isSectionTitleSelected,
+    sourceSection,
+    selectedContentTranslationUnit,
+  } = useCurrentPageSection();
   const { getCurrentTitleByLanguage } = useLanguageTitleGroup();
   const {
     sourceLanguageURLParameter: sourceLanguage,
@@ -29,12 +32,14 @@ const useEditedTranslationApply = () => {
    * @param {string} translation
    */
   return async (translation) => {
-    const div = document.createElement("div");
-    div.innerHTML = translation;
-    // Remove dummy span node if exists. This node was only added so that VE doesn't add a new paragraph (which is done
-    // by default when VE initial content is empty).
-    div.querySelectorAll(".sx-edit-dummy-node").forEach((el) => el.remove());
-    translation = div.innerHTML;
+    if (!isSectionTitleSelected.value) {
+      const div = document.createElement("div");
+      div.innerHTML = translation;
+      // Remove dummy span node if exists. This node was only added so that VE doesn't add a new paragraph (which is done
+      // by default when VE initial content is empty).
+      div.querySelectorAll(".sx-edit-dummy-node").forEach((el) => el.remove());
+      translation = div.innerHTML;
+    }
 
     if (selectedContentTranslationUnit.value instanceof SubSection) {
       const templateTranslationHtml = await renderTemplateFromVE(
