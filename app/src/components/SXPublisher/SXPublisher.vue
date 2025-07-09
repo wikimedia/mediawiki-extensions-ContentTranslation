@@ -7,7 +7,6 @@ import SxPublishOptionSelector from "./SXPublishOptionSelector.vue";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
 import { computed, onMounted, ref, watch } from "vue";
 import useTranslationPublish from "./useTranslationPublish";
-import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import useEditTranslation from "./useEditTranslation";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
@@ -16,19 +15,19 @@ import usePublishFeedbackMessages from "./usePublishFeedbackMessages";
 import usePublishingComplete from "./usePublishingComplete";
 import useCaptcha from "./useCaptcha";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import usePublishTarget from "@/composables/usePublishTarget";
 
-const store = useStore();
 const { sourceSection } = useCurrentPageSection();
 
 const translatedTitle = computed(() => sourceSection.value?.title);
 const bananaI18n = useI18n();
 
-const panelResult = computed(() => {
-  const isSandboxTarget = store.getters["application/isSandboxTarget"];
+const { target, PUBLISHING_TARGETS } = usePublishTarget();
 
+const expectedPanelResult = computed(() => {
   // if the publishing target is the user sandbox, always show
   // the sandbox publishing result message
-  if (isSandboxTarget) {
+  if (target.value === PUBLISHING_TARGETS.SANDBOX) {
     return bananaI18n.i18n(
       "cx-sx-publisher-publish-panel-sandbox-section-result"
     );
@@ -122,7 +121,7 @@ watch(publishOptionsOn, (newValue) => {
         class="mb-2"
       />
       <!-- eslint-disable vue/no-v-html -->
-      <h6 class="mb-2" v-html="panelResult" />
+      <h6 class="mb-2" v-html="expectedPanelResult" />
       <!-- eslint-enable vue/no-v-html -->
       <mw-row justify="end" class="ma-0">
         <mw-col shrink>

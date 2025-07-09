@@ -1,11 +1,11 @@
 import siteApi from "@/wiki/mw/api/site";
-import { useStore } from "vuex";
+import usePublishTarget from "@/composables/usePublishTarget";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentPages from "@/composables/useCurrentPages";
 import useURLHandler from "@/composables/useURLHandler";
 
 const usePublishingComplete = () => {
-  const store = useStore();
+  const { target, PUBLISHING_TARGETS } = usePublishTarget();
   const { currentSourcePage } = useCurrentPages();
   const {
     sourceLanguageURLParameter: sourceLanguage,
@@ -20,7 +20,6 @@ const usePublishingComplete = () => {
    */
   return async (targetUrl) => {
     const targetPageTitle = targetPageTitleForPublishing.value;
-    const isSandboxTarget = store.getters["application/isSandboxTarget"];
 
     const sourceTitle = currentSourcePage.value.title;
 
@@ -30,7 +29,7 @@ const usePublishingComplete = () => {
     // the rest of the code inside this method is only executed when publishing is successful
     if (
       sourceSection.value.isLeadSection &&
-      !isSandboxTarget &&
+      target.value !== PUBLISHING_TARGETS.SANDBOX &&
       sourceMwTitle.getNamespaceId() !== namespaceIds.user
     ) {
       // Add wikibase link, wait for it, but failure is acceptable

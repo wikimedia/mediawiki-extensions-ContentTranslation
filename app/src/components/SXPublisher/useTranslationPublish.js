@@ -9,7 +9,7 @@ import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentPageRevision from "@/composables/useCurrentPageRevision";
 import useURLHandler from "@/composables/useURLHandler";
 import usePublishInstrument from "@/composables/usePublishInstrument";
-import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
+import usePublishTarget from "@/composables/usePublishTarget";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 const useTranslationPublish = () => {
@@ -30,7 +30,7 @@ const useTranslationPublish = () => {
         sourceSection.value?.sourceSectionTitleForPublishing
       ]
   );
-  const { existingSectionPublishOption } = useExistingSectionPublishOption();
+  const { target: publishTarget, PUBLISHING_TARGETS } = usePublishTarget();
 
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
@@ -84,8 +84,6 @@ const useTranslationPublish = () => {
 
     const targetTitle = targetPageTitleForPublishing.value;
 
-    const isSandbox = store.getters["application/isSandboxTarget"];
-
     const publishPayload = {
       html: cleanupHtml(sourceSection.value.translationHtml),
       sourceTitle: sourceTitle.value,
@@ -95,13 +93,13 @@ const useTranslationPublish = () => {
       sourceLanguage: sourceLanguage.value,
       targetLanguage: targetLanguage.value,
       revision: revision.value,
-      isSandbox,
+      isSandbox: publishTarget.value === PUBLISHING_TARGETS.SANDBOX,
       sectionTranslationId,
     };
 
     if (
       !!existingTargetSectionTitle.value &&
-      existingSectionPublishOption.value === "expand"
+      publishTarget.value === PUBLISHING_TARGETS.EXPAND
     ) {
       publishPayload.existingSectionTitle = existingTargetSectionTitle.value;
     }

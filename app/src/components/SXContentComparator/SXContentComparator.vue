@@ -7,15 +7,15 @@ import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
 import { ref, computed, watch } from "vue";
 import { useRouter } from "vue-router";
-import { useStore } from "vuex";
 import useTargetArticlePreview from "./useTargetArticlePreview";
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
 import useURLHandler from "@/composables/useURLHandler";
 import useEditorNavigation from "@/composables/useEditorNavigation";
+import usePublishTarget from "@/composables/usePublishTarget";
 
-const store = useStore();
+const { resetPublishTarget } = usePublishTarget();
 const router = useRouter();
 
 const contentTypeSelection = ref("source_section");
@@ -33,15 +33,13 @@ const confirmTranslation = () => {
 const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,
-  pageURLParameter: pageTitle,
-  sectionURLParameter: sectionTitle,
 } = useURLHandler();
 
-const { activeSectionTargetTitle, sourceSectionContent, targetSectionContent } =
-  useCompareContents();
+const { sourceSectionContent, targetSectionContent } = useCompareContents();
 
 const targetPageContent = useTargetArticlePreview();
-const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { sectionSuggestion: suggestion, isCurrentSectionPresent } =
+  useCurrentSectionSuggestion();
 
 const targetTitle = computed(() => suggestion.value.targetTitle);
 
@@ -58,6 +56,8 @@ watch(
     ),
   { immediate: true }
 );
+
+watch(isCurrentSectionPresent, resetPublishTarget, { immediate: true });
 </script>
 
 <template>

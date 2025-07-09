@@ -21,6 +21,10 @@ jest.mock("@/composables/useEditorInstrument", () => () => ({
   logEditorSegmentAddEvent: jest.fn(),
 }));
 
+jest.mock("@/composables/usePublishTarget", () => () => ({
+  target: { value: "NEW_SECTION" },
+}));
+
 jest.mock("@/plugins/ve");
 jest.mock("vue-router", () => ({ useRouter: jest.fn() }));
 

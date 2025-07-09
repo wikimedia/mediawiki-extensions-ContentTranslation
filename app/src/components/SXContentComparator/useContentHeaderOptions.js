@@ -2,8 +2,7 @@ import { computed } from "vue";
 import { useI18n } from "vue-banana-i18n";
 import { getAutonym } from "@wikimedia/language-data";
 import useURLHandler from "@/composables/useURLHandler";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
-import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
+import usePublishTarget from "@/composables/usePublishTarget";
 
 /**
  * @return {ComputedRef<{value: string, props: object}[]>}
@@ -21,14 +20,9 @@ const useContentHeaderOptions = () => {
     getAutonym(targetLanguage.value)
   );
 
-  const { isCurrentSectionPresent } = useCurrentSectionSuggestion();
-
-  const { existingSectionPublishOption } = useExistingSectionPublishOption();
-
+  const { target, PUBLISHING_TARGETS } = usePublishTarget();
   const isSectionForExpansion = computed(
-    () =>
-      isCurrentSectionPresent.value &&
-      existingSectionPublishOption.value === "expand"
+    () => target.value === PUBLISHING_TARGETS.EXPAND
   );
 
   const bananaI18n = useI18n();
@@ -48,32 +42,30 @@ const useContentHeaderOptions = () => {
 
     let targetSelectorItem;
 
-    switch (true) {
-      case isSectionForExpansion.value:
-        targetSelectorItem = {
-          value: "target_section",
-          props: {
-            label: bananaI18n.i18n(
-              "cx-sx-content-comparator-target-selector-target-section-title",
-              targetLanguageAutonym.value
-            ),
-            type: "text",
-            class: "px-0 py-4 mx-4",
-          },
-        };
-        break;
-      default:
-        targetSelectorItem = {
-          value: "target_article",
-          props: {
-            label: bananaI18n.i18n(
-              "cx-sx-content-comparator-target-selector-full-article-title",
-              targetLanguageAutonym.value
-            ),
-            type: "text",
-            class: "px-0 py-4 mx-4",
-          },
-        };
+    if (isSectionForExpansion.value) {
+      targetSelectorItem = {
+        value: "target_section",
+        props: {
+          label: bananaI18n.i18n(
+            "cx-sx-content-comparator-target-selector-target-section-title",
+            targetLanguageAutonym.value
+          ),
+          type: "text",
+          class: "px-0 py-4 mx-4",
+        },
+      };
+    } else {
+      targetSelectorItem = {
+        value: "target_article",
+        props: {
+          label: bananaI18n.i18n(
+            "cx-sx-content-comparator-target-selector-full-article-title",
+            targetLanguageAutonym.value
+          ),
+          type: "text",
+          class: "px-0 py-4 mx-4",
+        },
+      };
     }
 
     return [sourceSelectorItem, targetSelectorItem];

@@ -6,11 +6,8 @@ import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import { createStore } from "vuex";
 import { ref } from "vue";
 import useTranslationPublish from "./useTranslationPublish";
-import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
 import { loadTestComposable } from "@/utils/loadTestComposable";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-
-const { setExistingSectionPublishOption } = useExistingSectionPublishOption();
 
 const mockErrorResult = {
   publishFeedbackMessage: new PublishFeedbackMessage({
@@ -94,6 +91,20 @@ jest.mock(
   () => () => mockCurrentPageSectionValues
 );
 
+const mockPublishTargetValues = {
+  target: ref(null),
+  PUBLISHING_TARGETS: {
+    NEW_SECTION: "NEW_SECTION",
+    EXPAND: "EXPAND",
+    SANDBOX: "SANDBOX",
+  },
+};
+
+jest.mock(
+  "@/composables/usePublishTarget",
+  () => () => mockPublishTargetValues
+);
+
 const mockCurrentSectionSuggestionValues = {
   sectionSuggestion: ref(
     new SectionSuggestion({
@@ -115,16 +126,7 @@ jest.mock("@/composables/useURLHandler", () => () => ({
 const mockRevision = ref(11);
 jest.mock("@/composables/useCurrentPageRevision", () => () => mockRevision);
 
-const applicationModule = {
-  namespaced: true,
-  getters: { isSandboxTarget: () => false },
-};
-
-const mockStore = createStore({
-  modules: {
-    application: applicationModule,
-  },
-});
+const mockStore = createStore();
 
 const mockSaveTranslation = jest.fn(() => {
   const targetTitleForPublishing =
@@ -149,7 +151,7 @@ describe(" test `useTranslationPublish` composable", () => {
   });
 
   it("should call api publishTranslation method with the proper payload when publishing section as new", async () => {
-    setExistingSectionPublishOption("new");
+    mockPublishTargetValues.target.value = "NEW_SECTION";
     await doPublish();
 
     expect(cxTranslatorApi.publishTranslation).toHaveBeenLastCalledWith({
@@ -166,8 +168,26 @@ describe(" test `useTranslationPublish` composable", () => {
     });
   });
 
+  it("should call api publishTranslation method with the proper payload when publishing section to sandbox", async () => {
+    mockPublishTargetValues.target.value = "SANDBOX";
+    await doPublish();
+
+    expect(cxTranslatorApi.publishTranslation).toHaveBeenLastCalledWith({
+      html: '<span class="cx-segment">Target translated sentence 1</span>',
+      sourceTitle: "Test source title 1",
+      targetTitle: "Test target article title 1",
+      sourceSectionTitle: SOURCE_SECTION_TITLE,
+      targetSectionTitle: "Test target section title 1",
+      sourceLanguage: "en",
+      targetLanguage: "es",
+      revision: 11,
+      isSandbox: true,
+      sectionTranslationId: 1234,
+    });
+  });
+
   it("should call publishTranslation method with existing section title if 'expand' option is selected", async () => {
-    setExistingSectionPublishOption("expand");
+    mockPublishTargetValues.target.value = "EXPAND";
     await doPublish();
 
     expect(cxTranslatorApi.publishTranslation).toHaveBeenLastCalledWith({

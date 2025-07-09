@@ -4,6 +4,7 @@ import translatorApi from "@/wiki/cx/api/translator";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentPageRevision from "@/composables/useCurrentPageRevision";
 import useURLHandler from "@/composables/useURLHandler";
+import usePublishTarget from "@/composables/usePublishTarget";
 
 const useTranslationSave = () => {
   const store = useStore();
@@ -15,6 +16,7 @@ const useTranslationSave = () => {
     targetLanguageURLParameter: targetLanguage,
   } = useURLHandler();
   const revision = useCurrentPageRevision();
+  const { target, PUBLISHING_TARGETS } = usePublishTarget();
 
   /**
    * This action is called:
@@ -42,7 +44,6 @@ const useTranslationSave = () => {
     );
 
     const progress = sourceSection.value.getTranslationProgress(targetLanguage);
-    const isSandbox = store.getters["application/isSandboxTarget"];
 
     /**
      * saveTranslation api method returns null on success and a PublishFeedbackMessage upon failure
@@ -61,7 +62,7 @@ const useTranslationSave = () => {
       units: units.map((unit) => unit.payload),
       // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
       sectionId: baseSectionId,
-      isSandbox,
+      isSandbox: target === PUBLISHING_TARGETS.SANDBOX,
       progress,
     });
   };

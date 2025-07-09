@@ -44,6 +44,11 @@ const mockValues = {
 
 jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
 
+jest.mock("@/composables/usePublishTarget", () => () => ({
+  target: { value: "NEW_SECTION" },
+  PUBLISHING_TARGETS: { SANDBOX: "SANDBOX" },
+}));
+
 jest.mock("@/composables/useURLHandler", () => () => ({
   pageURLParameter: { value: "Test source title 1" },
   sourceLanguageURLParameter: { value: "en" },
@@ -52,13 +57,6 @@ jest.mock("@/composables/useURLHandler", () => () => ({
 
 const mockRevision = ref(11);
 jest.mock("@/composables/useCurrentPageRevision", () => () => mockRevision);
-
-const applicationModule = {
-  namespaced: true,
-  getters: {
-    isSandboxTarget: () => false,
-  },
-};
 
 const mediawikiModule = {
   namespaced: true,
@@ -69,7 +67,6 @@ const mediawikiModule = {
 
 const store = createStore({
   modules: {
-    application: applicationModule,
     mediawiki: mediawikiModule,
   },
 });

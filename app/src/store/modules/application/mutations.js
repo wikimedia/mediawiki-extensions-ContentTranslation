@@ -45,19 +45,6 @@ const mutations = {
   },
 
   /**
-   * @param state
-   * @param {("NEW_SECTION"|"SANDBOX_SECTION")} target
-   */
-  setPublishTarget: (state, target) => {
-    const validTargets = ["NEW_SECTION", "SANDBOX_SECTION"];
-
-    if (!validTargets.includes(target)) {
-      throw "Invalid publish target";
-    }
-    state.publishTarget = target;
-  },
-
-  /**
    * @param {object} state
    * @param {boolean} value
    */

@@ -7,6 +7,8 @@ import { computed } from "vue";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import usePublishTarget from "@/composables/usePublishTarget";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 defineProps({
   active: {
@@ -18,7 +20,7 @@ defineProps({
 const emit = defineEmits(["update:active"]);
 
 const store = useStore();
-const selectedOption = computed(() => store.state.application.publishTarget);
+const { target, PUBLISHING_TARGETS } = usePublishTarget();
 const isAnon = computed(() => store.state.translator.isAnon);
 const bananaI18n = useI18n();
 const { sourceSection } = useCurrentPageSection();
@@ -38,23 +40,18 @@ const publishOptions = computed(() => [
   {
     label: optionLabel.value,
     description: optionDetails.value,
-    value: "NEW_SECTION",
+    value: PUBLISHING_TARGETS.NEW_SECTION,
     disabled: false,
   },
   {
     label: bananaI18n.i18n("cx-sx-publisher-sandbox-option-label"),
     description: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
-    value: "SANDBOX_SECTION",
+    value: PUBLISHING_TARGETS.SANDBOX,
     disabled: isAnon.value,
   },
 ]);
 
 const onPublishOptionsClose = () => emit("update:active", false);
-
-const updateOption = (selectedOption) => {
-  store.commit("application/setPublishTarget", selectedOption);
-  onPublishOptionsClose();
-};
 </script>
 
 <template>
@@ -94,12 +91,12 @@ const updateOption = (selectedOption) => {
         <cdx-radio
           v-for="(radio, index) in publishOptions"
           :key="'publish-options-radio-' + radio.value"
+          v-model="target"
           :class="index < publishOptions.length - 1 ? 'mb-4' : 'mb-0'"
-          :model-value="selectedOption"
           :input-value="radio.value"
           :disabled="radio.disabled"
           name="publish-options"
-          @update:model-value="updateOption"
+          @update:model-value="onPublishOptionsClose"
         >
           {{ radio.label }}
           <template #description>

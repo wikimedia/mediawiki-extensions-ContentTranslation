@@ -17,12 +17,16 @@ jest.mock("@/components/SXContentComparator/useCompareContents", () => () => ({
   activeSectionTargetTitle: mockActiveSectionTargetTitle,
 }));
 
-const mockSetExistingSectionPublishOption = jest.fn();
-const mockExistingSectionPublishOption = ref("expand"); // or 'new'
+const mockSetTarget = jest.fn();
+const mockPublishTarget = ref("EXPAND");
 
-jest.mock("@/composables/useExistingSectionPublishOption", () => () => ({
-  existingSectionPublishOption: mockExistingSectionPublishOption,
-  setExistingSectionPublishOption: mockSetExistingSectionPublishOption,
+jest.mock("@/composables/usePublishTarget", () => () => ({
+  target: mockPublishTarget,
+  PUBLISHING_TARGETS: {
+    NEW_SECTION: "NEW_SECTION",
+    EXPAND: "EXPAND",
+  },
+  setTarget: mockSetTarget,
 }));
 
 describe("SxContentComparatorMappedSection", () => {
@@ -57,7 +61,7 @@ describe("SxContentComparatorMappedSection", () => {
       ".sx-content-comparator-header__mapped-section__discard-button"
     );
     await trashButton.trigger("click");
-    expect(mockSetExistingSectionPublishOption).toHaveBeenCalledWith("new");
+    expect(mockSetTarget).toHaveBeenCalledWith("NEW_SECTION");
   });
 
   it("renders target section title", () => {
@@ -75,7 +79,7 @@ describe("SxContentComparatorMappedSection", () => {
 
   it('renders undo icon button and line-through title when publish option is "new"', async () => {
     // Override mock to simulate discard mode
-    mockExistingSectionPublishOption.value = "new";
+    mockPublishTarget.value = "NEW_SECTION";
     await wrapper.vm.$nextTick();
 
     const undoButton = wrapper.findComponent(
@@ -95,6 +99,6 @@ describe("SxContentComparatorMappedSection", () => {
   it('calls setExistingSectionPublishOption("expand") when undo clicked', async () => {
     const undoButton = wrapper.findComponent({ name: "mw-button" });
     await undoButton.trigger("click");
-    expect(mockSetExistingSectionPublishOption).toHaveBeenCalledWith("expand");
+    expect(mockSetTarget).toHaveBeenCalledWith("EXPAND");
   });
 });

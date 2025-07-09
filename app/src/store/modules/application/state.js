@@ -21,7 +21,6 @@ export default {
    * @type {String}
    */
   targetLanguage: "en",
-  publishTarget: "NEW_SECTION",
   /**
    * This variable indicates whether an auto-save request is pending.
    * Auto-save requests are being debounced during sentence-by-sentence

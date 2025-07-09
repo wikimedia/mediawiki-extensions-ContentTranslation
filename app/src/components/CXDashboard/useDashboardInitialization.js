@@ -5,6 +5,7 @@ import useFavoritesFetch from "./useFavoritesFetch";
 import usePageCollections from "./usePageCollections";
 import useDashboardOpenInstrument from "@/components/CXDashboard/useDashboardOpenInstrument";
 import { watch } from "vue";
+import usePublishTarget from "@/composables/usePublishTarget";
 
 const useDashboardInitialization = () => {
   const { fetchAllTranslations } = useTranslationsFetch();
@@ -14,9 +15,11 @@ const useDashboardInitialization = () => {
   const { logDashboardOpenEvent } = useDashboardOpenInstrument();
   const { applicationLanguagesInitialized } =
     useApplicationLanguagesInitialize();
+  const { clearPublishTarget } = usePublishTarget();
 
   return async () => {
     fetchPageCollectionGroups();
+    clearPublishTarget();
 
     // Catch any possible errors during fetching favorite suggestions and
     // translations, to make sure that "initializeSuggestions" actions is dispatched,

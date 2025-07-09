@@ -3,7 +3,7 @@ import { MwButton, MwCol, MwRow } from "@/lib/mediawiki.ui";
 import { getAutonym } from "@wikimedia/language-data";
 import { mwIconTrash, mwIconUndo } from "@/lib/mediawiki.ui/components/icons";
 import { computed } from "vue";
-import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
+import usePublishTarget from "@/composables/usePublishTarget";
 import { useI18n } from "vue-banana-i18n";
 import useCompareContents from "@/components/SXContentComparator/useCompareContents";
 import useURLHandler from "@/composables/useURLHandler";
@@ -13,12 +13,7 @@ const { activeSectionTargetTitle: targetSectionTitle } = useCompareContents();
 
 const bananaI18n = useI18n();
 
-const { existingSectionPublishOption, setExistingSectionPublishOption } =
-  useExistingSectionPublishOption();
-
-const shouldBePublishedAsNew = computed(
-  () => existingSectionPublishOption.value === "new"
-);
+const { target, PUBLISHING_TARGETS, setTarget } = usePublishTarget();
 
 const mappedSectionHeaderText = computed(() =>
   bananaI18n.i18n(
@@ -39,7 +34,7 @@ const mappedSectionHeaderText = computed(() =>
         >
           {{ mappedSectionHeaderText }}
           <span
-            v-if="shouldBePublishedAsNew"
+            v-if="target === PUBLISHING_TARGETS.NEW_SECTION"
             v-i18n:cx-sx-content-comparator-discarded-section-label
           />
         </h6>
@@ -47,7 +42,7 @@ const mappedSectionHeaderText = computed(() =>
           class="sx-content-comparator-header__mapped-section-target-title pa-0 ms-1"
           :class="{
             'sx-content-comparator-header__mapped-section-target-title--discarded':
-              shouldBePublishedAsNew,
+              target === PUBLISHING_TARGETS.NEW_SECTION,
           }"
         >
           {{ targetSectionTitle }}
@@ -55,23 +50,23 @@ const mappedSectionHeaderText = computed(() =>
       </mw-col>
       <mw-col shrink>
         <mw-button
-          v-if="!shouldBePublishedAsNew"
+          v-if="target === PUBLISHING_TARGETS.EXPAND"
           class="sx-content-comparator-header__mapped-section__discard-button pa-0"
           :icon="mwIconTrash"
           type="icon"
-          @click="setExistingSectionPublishOption('new')"
+          @click="setTarget(PUBLISHING_TARGETS.NEW_SECTION)"
         />
         <mw-button
           v-else
           class="sx-content-comparator-header__mapped-section__undo-button pa-0"
           :icon="mwIconUndo"
           type="icon"
-          @click="setExistingSectionPublishOption('expand')"
+          @click="setTarget(PUBLISHING_TARGETS.EXPAND)"
         />
       </mw-col>
     </mw-row>
     <p
-      v-if="!shouldBePublishedAsNew"
+      v-if="target === PUBLISHING_TARGETS.EXPAND"
       v-i18n:cx-sx-content-comparator-mapped-section-clarifications
       class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
     />

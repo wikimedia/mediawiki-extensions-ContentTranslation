@@ -32,13 +32,14 @@ import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useDraftTranslationStart from "./useDraftTranslationStart";
 import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
+import usePublishTarget from "@/composables/usePublishTarget";
+import useSuggestionLoad from "@/composables/useSuggestionLoad";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
 const screenHeight = ref("100%");
 
 const store = useStore();
-
 const { currentMTProvider } = useApplicationState(store);
 const {
   sourceLanguageURLParameter: sourceLanguage,
@@ -46,6 +47,17 @@ const {
   pageURLParameter: sourceTitle,
   sectionURLParameter: sectionTitle,
 } = useURLHandler();
+
+const { resetPublishTarget, target } = usePublishTarget();
+const loadSuggestion = useSuggestionLoad();
+
+if (!target.value) {
+  loadSuggestion(
+    sourceLanguage.value,
+    targetLanguage.value,
+    sourceTitle.value
+  ).then(() => resetPublishTarget());
+}
 
 const { sourceSection: currentPageSection, selectedContentTranslationUnit } =
   useCurrentPageSection();
