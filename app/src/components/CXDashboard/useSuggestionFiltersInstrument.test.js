@@ -30,6 +30,7 @@ describe("useSuggestionFiltersInstrument", () => {
     expect(mockLogEvent).toHaveBeenCalledWith({
       event_type: "suggestion_filters_confirm",
       event_subtype: "suggestion_filters_single_select_confirm",
+      event_source: "suggestion_filter_topic_area",
       event_context: "Art",
     });
   });
@@ -40,6 +41,7 @@ describe("useSuggestionFiltersInstrument", () => {
     expect(mockLogEvent).toHaveBeenCalledWith({
       event_type: "suggestion_filters_confirm",
       event_subtype: "suggestion_filters_single_select_confirm",
+      event_source: "suggestion_filter_region",
       event_context: "Asia",
     });
   });
@@ -50,6 +52,7 @@ describe("useSuggestionFiltersInstrument", () => {
     expect(mockLogEvent).toHaveBeenCalledWith({
       event_type: "suggestion_filters_confirm",
       event_subtype: "suggestion_filters_single_select_confirm",
+      event_source: "suggestion_filter_search_result_seed",
       event_context: "Football",
     });
   });
@@ -63,6 +66,7 @@ describe("useSuggestionFiltersInstrument", () => {
     expect(mockLogEvent).toHaveBeenCalledWith({
       event_type: "suggestion_filters_confirm",
       event_subtype: "suggestion_filters_single_select_confirm",
+      event_source: "suggestion_filter_collections",
       event_context: "Essential articles",
     });
   });
@@ -73,6 +77,7 @@ describe("useSuggestionFiltersInstrument", () => {
     expect(mockLogEvent).toHaveBeenCalledWith({
       event_type: "suggestion_filters_confirm",
       event_subtype: "suggestion_filters_single_select_confirm",
+      event_source: "suggestion_filter_collections",
       event_context: "all-collections",
     });
   });
@@ -83,6 +88,7 @@ describe("useSuggestionFiltersInstrument", () => {
     expect(mockLogEvent).toHaveBeenCalledWith({
       event_type: "suggestion_filters_confirm",
       event_subtype: "suggestion_filters_single_select_confirm",
+      event_source: "suggestion_filter_previous_edits",
       event_context: undefined,
     });
   });
@@ -93,6 +99,7 @@ describe("useSuggestionFiltersInstrument", () => {
     expect(mockLogEvent).toHaveBeenCalledWith({
       event_type: "suggestion_filters_confirm",
       event_subtype: "suggestion_filters_single_select_confirm",
+      event_source: "suggestion_filter_popular_articles",
       event_context: undefined,
     });
   });

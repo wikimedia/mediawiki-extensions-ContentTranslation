@@ -83,6 +83,7 @@ export default () => {
     logEvent({
       event_type: "suggestion_filters_confirm",
       event_subtype: "suggestion_filters_single_select_confirm",
+      event_source: getSuggestionFilterEventSource(filter),
       event_context: getSuggestionFilterEventContext(filter),
     });
 
