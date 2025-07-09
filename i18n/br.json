@@ -131,6 +131,7 @@
 	"cx-save-draft-shortcut-label": "Enrollañ ar brouilhed",
 	"cx-save-draft-tooltip": "Enrollet emgefre eo ar brouilhedoù troidigezhioù",
 	"cx-save-draft-error": "Ur fazi ez eus bet en un enrollañ ar brouilhed.",
+	"cx-save-draft-error-retry": "N'haller ket enrollañ. Klasket a vo en-dro a-benn nebeut...",
 	"cx-contributions-new-contributions": "Degasadenn nevez",
 	"cx-contributions-new-article": "Pajenn nevez",
 	"cx-contributions-translation": "Troidigezh",
