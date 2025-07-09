@@ -18,12 +18,10 @@ import {
   COLLECTIONS_SUGGESTION_PROVIDER,
   AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
 } from "@/utils/suggestionFilterProviders";
-import { getSuggestionFilterEventSource } from "@/utils/getSuggestionFilterEventSource";
-import { getSuggestionFilterEventContext } from "@/utils/getSuggestionFilterEventContext";
-import useEventLogging from "@/composables/useEventLogging";
 import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
 import SxSuggestionsFiltersDialogTabGroupContent from "@/components/CXDashboard/SXSuggestionsFiltersDialogTabGroupContent.vue";
 import useSuggestionsFilterSearch from "./useSuggestionsFilterSearch";
+import useSuggestionFiltersInstrument from "./useSuggestionFiltersInstrument";
 
 const bananaI18n = useI18n();
 
@@ -128,28 +126,25 @@ const getFilterGroups = (filterGroupTypes) => {
     .filter(Boolean);
 };
 
-const logEvent = useEventLogging();
-
 const closeDialog = () => {
   reset();
   emit("update:modelValue", false);
 };
 
+const {
+  logSuggestionFiltersClose,
+  logSuggestionFiltersConfirm,
+  logSuggestionFiltersSelect,
+} = useSuggestionFiltersInstrument();
+
 const logThenCloseDialog = () => {
-  logEvent({ event_type: "suggestion_filters_close" });
+  logSuggestionFiltersClose();
   closeDialog();
 };
 
 const done = () => {
   if (tentativelySelectedFilter.value) {
-    logEvent({
-      event_type: "suggestion_filters_confirm",
-      event_subtype: "suggestion_filters_single_select_confirm",
-      event_context: getSuggestionFilterEventContext(
-        tentativelySelectedFilter.value
-      ),
-    });
-
+    logSuggestionFiltersConfirm(tentativelySelectedFilter.value);
     selectFilter(tentativelySelectedFilter.value);
   }
   closeDialog();
@@ -168,14 +163,7 @@ const reset = () => {
  * @param {{ type: string, id: string, label: string }} filter
  */
 const tentativelySelectFilter = (filter) => {
-  const eventPayload = {
-    event_type: "suggestion_filters_select",
-    event_subtype: "suggestion_filters_single_select",
-    event_source: getSuggestionFilterEventSource(filter),
-    event_context: getSuggestionFilterEventContext(filter),
-  };
-
-  logEvent(eventPayload);
+  logSuggestionFiltersSelect(filter);
   tentativelySelectedFilter.value = filter;
   selectionHasChanged.value = true;
 };

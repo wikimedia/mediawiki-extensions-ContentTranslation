@@ -183,7 +183,7 @@ const useSuggestionsFilters = () => {
   );
 
   /**
-   * @return {[{id: string, label: string, type: string}, {id: string, label: string, type: string}]}
+   * @return {[SuggestionFilter, SuggestionFilter]}
    */
   const getFiltersSummary = () => {
     if (waitingForPageCollectionsFetch.value) {

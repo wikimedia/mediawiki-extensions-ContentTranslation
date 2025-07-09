@@ -77,7 +77,6 @@ const useSuggestionProvider = () => {
     ];
 
   return {
-    getFilterProvider,
     getCurrentPageSuggestionProvider,
     getCurrentSectionSuggestionProvider,
   };
