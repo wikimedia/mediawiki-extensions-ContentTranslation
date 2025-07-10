@@ -43,7 +43,6 @@
 	"cx-license-agreement": "License agreement for the contributions using Content Translation tool. This is legal text and be careful. You may point the license URLs to a Wikipedia page in your language if it exists.",
 	"cx-error-server-connection": "Error message shown when connection to the Content Translation server has failed.",
 	"cx-desc": "{{desc|name=ContentTranslation|url=https://www.mediawiki.org/wiki/Extension:ContentTranslation}}",
-	"cx-header-translation-center": "Text for the translation center title.",
 	"cx-header-all-translations": "A link at the top of the translation interface to the main [[Special:ContentTranslation]] page that lists all translations by the user.\n{{Identical|All translations}}",
 	"cx-source-view-page": "A link that points to the source page under the heading of the source column.\n{{Identical|View page}}",
 	"cx-target-view-page": "A link that points to the target page under the heading of the target column for section translations.\n{{Identical|View page}}",
