@@ -477,6 +477,7 @@
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 статија|$1 статии|0=Нема статии}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Не пронајдов ништо",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Пробајте да пребарате со други зборови или со други јазичиња",
+	"cx-sx-suggestions-filter-search-results-loading": "Се вчитува исходот од пребараното...",
 	"cx-page-collection-dialog-close-button-aria-label": "Назад на управувачницата",
 	"cx-page-collection-dialog-existing-target-count": "Постојат $1/$2 статии на $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|Преостанува $1 ден|Преостануват $1 дена|0=Денес}}",

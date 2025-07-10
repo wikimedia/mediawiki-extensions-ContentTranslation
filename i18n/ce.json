@@ -467,6 +467,7 @@
 	"cx-sx-suggestions-filter-search-input-placeholder-topics": "Теманаш лахар",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Тема ⋅ Йаззамаш хьажар",
 	"cx-sx-suggestions-filter-search-results-topics-alternative-description": "Йаззамаш лахар",
+	"cx-sx-suggestions-filter-search-results-regions-alternative-description": "Йаззамаш лахар",
 	"cx-sx-suggestions-filter-search-results-collections-default-description": "Коллекци ⋅ {{PLURAL:$1|$1 йаззам|0=Йаззамаш бац}}",
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 йаззам|0=Цхьа а йаззам бац}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "ХӀумма а ца карийна",
@@ -477,5 +478,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Керла агӀонаш",
 	"cx-page-collection-dialog-section-suggestions-header": "Керла дакъош",
 	"cx-sx-suggestion-list-empty-title": "ХӀинца йолу ханна предложенеш йац",
-	"cx-sx-suggestion-list-empty-description": "Цхьа а предложени ца карийра тхуна оцу фильтран. Кхечу кепара фильтр хьажа мегар ду, йа гочйан билггал болу йаззам лаха мегар ду."
+	"cx-sx-suggestion-list-empty-description": "Цхьа а предложени ца карийра тхуна оцу фильтран. Кхечу кепара фильтр хьажа мегар ду, йа гочйан билггал болу йаззам лаха мегар ду.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Массо а"
 }

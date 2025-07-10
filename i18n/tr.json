@@ -517,6 +517,7 @@
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 madde|0=Madde yok}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Hiçbir sonuç bulunamadı",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Farklı arama terimleri deneyin ya da diğer sekmeleri kontrol edin",
+	"cx-sx-suggestions-filter-search-results-loading": "Arama sonuçları yükleniyor...",
 	"cx-page-collection-dialog-close-button-aria-label": "Gösterge tablosuna geri dön",
 	"cx-page-collection-dialog-existing-target-count": "$3 için $1/$2 madde var",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 gün kaldı|0=Hiçbir gün kalmadı}}",

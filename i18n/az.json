@@ -481,6 +481,7 @@
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 məqalə|0=Məqalə yoxdur}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Heç bir nəticə tapılmadı",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Fərqli axtarış terminlərini sınayın və ya digər vərəqələri yoxlayın",
+	"cx-sx-suggestions-filter-search-results-loading": "Axtarış nəticələri yüklənir...",
 	"cx-page-collection-dialog-close-button-aria-label": "İdarə panelinə qayıt",
 	"cx-page-collection-dialog-existing-target-count": "$3 dilində $1/$2 məqalə mövcuddur",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 gün qalıb|0=Müddət bitib}}",

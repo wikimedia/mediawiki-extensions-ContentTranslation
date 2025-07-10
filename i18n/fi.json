@@ -490,6 +490,7 @@
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 artikkeli|$1 artikkelia|0=Ei artikkeleita}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Tuloksia ei löytynyt",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Kokeile eri hakusanoja tai katso muita välilehtiä",
+	"cx-sx-suggestions-filter-search-results-loading": "Hakutuloksia ladataan...",
 	"cx-page-collection-dialog-close-button-aria-label": "Siirry takaisin hallintapaneeliin",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 artikkelia olemassa kielellä $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 päivä|$1 päivää|0=Ei päiviä}} jäljellä",

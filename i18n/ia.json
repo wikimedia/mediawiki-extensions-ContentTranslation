@@ -478,6 +478,7 @@
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 articulo|$1 articulos|0=Necun articulo}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Nulle resultato trovate",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Tenta altere terminos de recerca o marca altere schedas",
+	"cx-sx-suggestions-filter-search-results-loading": "Le resultatos del recerca se carga…",
 	"cx-page-collection-dialog-close-button-aria-label": "Retornar al tabuliero de instrumentos",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 articulos existe in $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 die|$1 dies|0=Necun die}} restante",

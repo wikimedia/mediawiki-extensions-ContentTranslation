@@ -485,6 +485,7 @@
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 artigo|$1 artigos|0=Sen artigos}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Non se atopou ningún resultado",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Proba con diferentes termos de busca ou consulta as outras lapelas",
+	"cx-sx-suggestions-filter-search-results-loading": "Cargando os resultados da busca...",
 	"cx-page-collection-dialog-close-button-aria-label": "Volver ao panel de control",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 artigos existen en $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 día restante|$1 días restantes|0=Ningún día restante}}",
