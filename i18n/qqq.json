@@ -215,7 +215,6 @@
 	"cx-tools-linter-restart-translation-title": "Title used for a modal dialog displayed as confirmation when user wants to restart the translation.",
 	"cx-tools-linter-restart-translation-message": "Main message of a modal dialog displayed as confirmation when user wants to restart the translation.",
 	"cx-tools-linter-restart-translation-cancel": "Label of cancel button on a modal dialog displayed as confirmation when user wants to restart the translation.\n{{Identical|Cancel}}",
-	"cx-translator-header": "Shown in sidebar menu in the Content Translation dashboard. Represents card header for translation statistics of current user.",
 	"cx-publish-settings": "Header label for publish settings dialog in Content Translation",
 	"cx-publish-destination-header": "Header label for choosing namespace as publishing destination",
 	"cx-publish-destination-tooltip": "Tooltip text for the namespace selector",
