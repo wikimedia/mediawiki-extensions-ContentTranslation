@@ -5,7 +5,7 @@
 		"lint": "npm -s run lint:i18n && npm -s run lint:js && npm -s run lint:css",
 		"lint:js": "eslint --cache .",
 		"lint:css": "stylelint --cache \"**/*.less\"",
-		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
+		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/ i18n/api/ i18n/minT/",
 		"test:cx3": "cd app && npm run test",
 		"test:cx2": "npm -s run lint",
 		"precommit": "npm run test:cx2 && git diff --name-only --staged --exit-code app || npm run test:cx3",
