@@ -287,6 +287,8 @@ class SpecialContentTranslation extends SpecialPage {
 		$out->addJsConfigVars( [
 			'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
 				$config->get( 'ContentTranslationUnmodifiedMTThresholdForPublish' ),
+			'wgContentTranslationPublishRequirements' =>
+				$config->get( 'ContentTranslationPublishRequirements' ),
 			'wgContentTranslationEnableMT' => $config->get( 'ContentTranslationEnableMT' )
 		] );
 
@@ -294,7 +296,6 @@ class SpecialContentTranslation extends SpecialPage {
 			$version = 2;
 			$out->addJsConfigVars( [
 				'wgContentTranslationCampaigns' => $config->get( 'ContentTranslationCampaigns' ),
-				'wgContentTranslationPublishRequirements' => $config->get( 'ContentTranslationPublishRequirements' ),
 				'wgContentTranslationVersion' => $version
 			] );
 

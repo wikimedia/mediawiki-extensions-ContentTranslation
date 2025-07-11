@@ -156,33 +156,14 @@ const useEditorInstrument = () => {
     }
   };
 
-  /**
-   * @returns {Promise}
-   */
   const logEditorOpenEvent = () => {
-    const currentWorkflowStep = router.currentRoute.value.meta.workflowStep;
-    const routes = router.getRoutes();
+    const payload = {
+      event_type: "editor_open",
+      ...sharedPayload.value,
+    };
+    assertTranslationSourceTitle(payload);
 
-    const previousRouteObject = routes.find(
-      (route) => route.name === previousRoute.value
-    );
-    const previousRouteStep = previousRouteObject?.meta?.workflowStep || 0;
-
-    // we should not log the event when user comes to "Pick a sentence" step from
-    // "Edit a sentence" step or "Preview and publish" step. We should only log
-    // the event when the user comes from "Confirm a translation", "Compare the
-    // contents or "Quick tutorial" steps.
-    if (currentWorkflowStep > previousRouteStep) {
-      const payload = {
-        event_type: "editor_open",
-        ...sharedPayload.value,
-      };
-      assertTranslationSourceTitle(payload);
-
-      return logEvent(payload);
-    }
-
-    return Promise.resolve();
+    return logEvent(payload);
   };
 
   const logEditorCloseEvent = () => {

@@ -1,8 +1,14 @@
 import { ref, computed } from "vue";
 import useMtValidate from "./useMtValidate";
+import canUserPublish from "@/utils/userPublishingPermissions";
+import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
+import usePublishTarget from "@/composables/usePublishTarget";
 
 const usePublishFeedbackMessages = () => {
   const validateMT = useMtValidate();
+
+  const { target, PUBLISHING_TARGETS } = usePublishTarget();
+
   /**
    * Feedback messages that contain publishing-related warnings or errors. If only
    * warnings exist inside this array, publishing is enabled. If at least one error
@@ -28,10 +34,22 @@ const usePublishFeedbackMessages = () => {
   };
 
   const initializePublishFeedbackMessages = () => {
+    // Check user publishing permissions
+    if (!canUserPublish() && target.value !== PUBLISHING_TARGETS.SANDBOX) {
+      const permissionMessage = new PublishFeedbackMessage({
+        text: mw.message("cx-publish-permission-error").text(),
+        title: mw.message("cx-publish-permission-error-title").text(),
+        type: "generic",
+        status: "error",
+      });
+      addPublishFeedbackMessage(permissionMessage);
+    }
+
+    // Validate machine translation
     const mtValidationMessage = validateMT();
 
     if (mtValidationMessage) {
-      publishFeedbackMessages.value.push(mtValidationMessage);
+      addPublishFeedbackMessage(mtValidationMessage);
     }
   };
 

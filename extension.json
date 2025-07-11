@@ -827,7 +827,11 @@
 				"cx-page-collection-dialog-section-suggestions-header",
 				"cx-sx-suggestion-list-empty-title",
 				"cx-sx-suggestion-list-empty-description",
-				"cx-sx-suggestions-filter-collection-group-all-option-label"
+				"cx-sx-suggestions-filter-collection-group-all-option-label",
+				"cx-publish-permission-warning",
+				"cx-publish-permission-warning-link-label",
+				"cx-publish-permission-error",
+				"cx-publish-permission-error-title"
 			],
 			"noflip": true
 		},

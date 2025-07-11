@@ -26,7 +26,19 @@ jest.mock("@/composables/usePublishTarget", () => () => ({
 }));
 
 jest.mock("@/plugins/ve");
-jest.mock("vue-router", () => ({ useRouter: jest.fn() }));
+
+jest.mock("vue-router", () => ({
+  useRouter: () => ({
+    currentRoute: {
+      value: {
+        meta: {
+          workflowStep: 0,
+        },
+      },
+    },
+    getRoutes: () => [],
+  }),
+}));
 
 const subSections = [
   new SubSectionModel({

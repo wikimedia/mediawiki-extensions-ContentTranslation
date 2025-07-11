@@ -22,7 +22,7 @@ import useProposedTranslationApply from "./useProposedTranslationApply";
 import usePendingSaveRequestsClear from "./usePendingSaveRequestsClear";
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
 import useTranslationUnitTranslate from "./useTranslationUnitTranslate";
-import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { CdxButton, CdxIcon, CdxMessage } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
@@ -34,13 +34,16 @@ import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 import usePublishTarget from "@/composables/usePublishTarget";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
+import canUserPublish from "@/utils/userPublishingPermissions";
+import usePermissionWarningDismiss from "@/composables/usePermissionWarningDismiss";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
 const screenHeight = ref("100%");
 
 const store = useStore();
-const { currentMTProvider } = useApplicationState(store);
+
+const { currentMTProvider, previousRoute } = useApplicationState(store);
 const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,
@@ -94,10 +97,29 @@ const {
   logEditorSegmentAddEvent,
   logEditorSegmentSkipEvent,
 } = useEditorInstrument();
+
+/**
+ * Check if the user is beginning to edit based on workflow step progression.
+ * @returns {boolean}
+ */
+const isBeginningToEdit = () => {
+  const currentWorkflowStep = router.currentRoute.value.meta.workflowStep;
+  const routes = router.getRoutes();
+
+  const previousRouteObject = routes.find(
+    (route) => route.name === previousRoute.value
+  );
+  const previousRouteStep = previousRouteObject?.meta?.workflowStep || 0;
+
+  return currentWorkflowStep > previousRouteStep;
+};
+
 const initializeSegmentSelection = useInitializeSegmentSelection();
 const initializeMTProviders = useMTProvidersInitialize();
 initializeMTProviders().then(() => {
-  logEditorOpenEvent();
+  if (isBeginningToEdit()) {
+    logEditorOpenEvent();
+  }
   translationDataStatus.value.mtProviders = true;
 });
 
@@ -267,6 +289,19 @@ const isBlockTemplateSelected = computed(
 );
 
 const verifyBackNavigationDialogOn = ref(false);
+
+const {
+  isDismissed: isPermissionWarningDismissed,
+  dismiss: dismissPermissionWarning,
+  reset: resetPermissionWarningDismissed,
+} = usePermissionWarningDismiss();
+
+if (isBeginningToEdit()) {
+  resetPermissionWarningDismissed();
+}
+const showPermissionWarning = computed(
+  () => !canUserPublish() && !isPermissionWarningDismissed.value
+);
 </script>
 
 <template>
@@ -315,6 +350,24 @@ const verifyBackNavigationDialogOn = ref(false);
         :lang="sourceLanguage"
         class="sx-sentence-selector__section"
       >
+        <cdx-message
+          v-if="showPermissionWarning"
+          type="warning"
+          :allow-user-dismiss="true"
+          class="mx-4 mt-4"
+          @user-dismissed="dismissPermissionWarning"
+        >
+          <p>{{ $i18n("cx-publish-permission-warning") }}</p>
+          <p>
+            <strong>
+              <a
+                href="https://www.mediawiki.org/wiki/Help:Content_translation/Publishing"
+                target="_blank"
+                >{{ $i18n("cx-publish-permission-warning-link-label") }}</a
+              >
+            </strong>
+          </p>
+        </cdx-message>
         <sx-sentence-selector-content-header />
         <div class="sx-sentence-selector__section-contents px-4">
           <sub-section
