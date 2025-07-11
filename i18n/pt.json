@@ -265,6 +265,7 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "A sua tradução expandirá a secção existente. Descarte isto se as secções não estiverem relacionadas.",
 	"cx-sx-translation-confirmer-title": "Nova tradução",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita por|$1 visitas por|0=Não houve visitas esta}} semana",
+	"cx-sx-translation-confirmer-translation-time-single-section": "{{PLURAL:$1|$1 hora|$1 horas|0={{PLURAL:$2|$2 minuto|$2 minutos}}}} para traduzir esta secção",
 	"cx-sx-content-comparator-discarded-section-clarifications": "A sua tradução será publicada como uma secção nova e independente.",
 	"cx-sx-content-comparator-discarded-section-label": "(descartado)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Começar com uma tradução diferente",
@@ -420,5 +421,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Onde estão as outras secções?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Não se preocupe. As restantes secções não estão perdidas. Elas ficarão disponíveis quando tiver publicado a presente tradução como um artigo novo. Depois de a publicar, encontrará novas traduções em progresso com o conteúdo de cada secção.",
 	"sx-confirm-draft-translation-start-button-label": "Aceitar",
-	"sx-published-translation-new-translation-button-label": "Nova tradução"
+	"sx-published-translation-new-translation-button-label": "Nova tradução",
+	"cx-sx-suggestions-filters-view-more-countries": "Veja mais países em $1"
 }
