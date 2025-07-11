@@ -316,9 +316,11 @@ class ApiSectionTranslationPublish extends ApiBase {
 			];
 
 			// Don't bother logging captcha related errors
-			if ( !isset( $editResult['edit']['captcha'] ) ) {
+			// ApiContentTranslationPublish::saveWikiText returns the API response directly, whereas
+			// ApiSectionTranslationPublish::saveWikiText returns 'edit' property from API response.
+			if ( !isset( $editResult['captcha'] ) ) {
 				$this->logger->error(
-					'Error when publishing section {targetTitle}, {editResultCode}',
+					'Error when publishing section {targetTitle}',
 					[
 						'targetTitle' => $targetTitle->getPrefixedDBkey(),
 						'editResult' => json_encode( $editResult, JSON_PRETTY_PRINT ),

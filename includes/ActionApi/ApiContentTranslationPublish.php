@@ -341,7 +341,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			// Don't bother logging captcha related errors
 			if ( !isset( $saveResult['edit']['captcha'] ) ) {
 				$this->logger->error(
-					'Error when publishing content for {targetTitle}, {editResult}',
+					'Error when publishing content for {targetTitle}',
 					[
 						'targetTitle' => $targetTitle->getPrefixedDBkey(),
 						'editResult' => json_encode( $saveResult['edit'], JSON_PRETTY_PRINT ),
