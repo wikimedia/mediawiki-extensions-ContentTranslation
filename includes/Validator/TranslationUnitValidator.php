@@ -82,7 +82,7 @@ class TranslationUnitValidator {
 			// The section content is HTML. AbuseFilter need wikitext.
 			$text = $this->getParsoidClient()->convertHtmlToWikitext( $title, $sectionHTML )['body'];
 			$results = $this->abuseFilterChecker->checkSectionForTitleAndUser( $user, $title, $text );
-		} catch ( Exception $e ) {
+		} catch ( Exception ) {
 			// Validation failed. But proceed.
 		}
 		return $results;

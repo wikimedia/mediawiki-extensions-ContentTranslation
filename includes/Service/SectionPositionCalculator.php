@@ -170,7 +170,7 @@ class SectionPositionCalculator {
 		$cxServerUrl = SiteMapper::getCXServerUrl( $baseUrl, $params );
 		try {
 			$response = $this->httpRequestFactory->get( $cxServerUrl, [], __METHOD__ );
-		} catch ( \Exception $exception ) {
+		} catch ( \Exception ) {
 			return [];
 		}
 

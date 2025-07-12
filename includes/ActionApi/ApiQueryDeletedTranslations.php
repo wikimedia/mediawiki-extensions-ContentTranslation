@@ -36,7 +36,7 @@ class ApiQueryDeletedTranslations extends ApiQueryBase {
 		$changeTagDefStore = MediaWikiServices::getInstance()->getChangeTagDefStore();
 		try {
 			$this->addWhereFld( 'ct_tag_id', $changeTagDefStore->getId( 'contenttranslation' ) );
-		} catch ( NameTableAccessException $exception ) {
+		} catch ( NameTableAccessException ) {
 			// Return zero deleted articles if we cannot find contenttranslation tag definition ID
 			$this->getResult()->addValue( [ 'query', $this->getModuleName() ], 'deleted', 0 );
 			return;

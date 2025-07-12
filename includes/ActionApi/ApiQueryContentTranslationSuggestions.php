@@ -13,7 +13,6 @@ use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\SuggestionListManager;
 use MediaWiki\Api\ApiBase;
-use MediaWiki\Api\ApiPageSet;
 use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryGeneratorBase;
 use MediaWiki\Deferred\DeferredUpdates;
@@ -46,13 +45,10 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 
 	/** @inheritDoc */
 	public function executeGenerator( $resultPageSet ) {
-		$this->run( $resultPageSet );
+		$this->run();
 	}
 
-	/**
-	 * @param ApiPageSet|null $resultPageSet
-	 */
-	private function run( $resultPageSet = null ) {
+	private function run() {
 		$config = $this->getConfig();
 		if ( !$config->get( 'ContentTranslationEnableSuggestions' ) ) {
 			$this->dieWithError( 'apierror-cx-suggestionsdisabled', 'suggestionsdisabled' );

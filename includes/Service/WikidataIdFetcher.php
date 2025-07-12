@@ -38,7 +38,7 @@ class WikidataIdFetcher {
 
 		try {
 			$response = $this->httpRequestFactory->get( $url, [], __METHOD__ );
-		} catch ( \Exception $exception ) {
+		} catch ( \Exception ) {
 			return null;
 		}
 

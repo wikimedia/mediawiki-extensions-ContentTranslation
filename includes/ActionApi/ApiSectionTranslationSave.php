@@ -142,7 +142,7 @@ class ApiSectionTranslationSave extends ApiBase {
 
 		try {
 			$this->corporaManager->saveTranslationUnits( $translation, $params['content'] );
-		} catch ( InvalidSectionDataException $exception ) {
+		} catch ( InvalidSectionDataException ) {
 			$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
 		}
 		$sectionTranslationId = $this->saveSectionTranslation(

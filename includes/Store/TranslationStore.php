@@ -408,6 +408,7 @@ class TranslationStore {
 	 *
 	 * @param Translation $translation
 	 * @param UserIdentity $user
+	 * @throws TranslationSaveException
 	 */
 	public function saveTranslation( Translation $translation, UserIdentity $user ): void {
 		$existingTranslation = $this->findTranslationByUser(

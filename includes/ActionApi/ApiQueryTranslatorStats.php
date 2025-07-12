@@ -44,7 +44,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 
 		try {
 			$translatorId = $this->userService->getGlobalUserId( $user );
-		} catch ( Exception $e ) {
+		} catch ( Exception ) {
 			$this->dieWithError( 'apierror-cx-invalidtranslator', 'invalidtranslator' );
 		}
 

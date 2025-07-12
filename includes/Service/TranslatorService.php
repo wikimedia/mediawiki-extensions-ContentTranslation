@@ -27,7 +27,7 @@ class TranslatorService {
 	public function isTranslator( User $user ): bool {
 		try {
 			$translatorId = $this->userService->getGlobalUserId( $user );
-		} catch ( \Exception $e ) {
+		} catch ( \Exception ) {
 			// Not a global user and not a translator
 			return false;
 		}
