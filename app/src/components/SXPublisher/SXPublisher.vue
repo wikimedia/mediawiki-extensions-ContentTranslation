@@ -31,6 +31,10 @@ const expectedPanelResult = computed(() => {
     return bananaI18n.i18n(
       "cx-sx-publisher-publish-panel-sandbox-section-result"
     );
+  } else if (target.value === PUBLISHING_TARGETS.EXPAND) {
+    return bananaI18n.i18n(
+      "cx-sx-publisher-publish-panel-expand-section-result"
+    );
   } else if (sourceSection.value.isLeadSection) {
     return bananaI18n.i18n("cx-sx-publisher-publish-panel-lead-section-result");
   } else {

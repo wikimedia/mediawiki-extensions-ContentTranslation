@@ -24,6 +24,7 @@ const { target, PUBLISHING_TARGETS } = usePublishTarget();
 const isAnon = computed(() => store.state.translator.isAnon);
 const bananaI18n = useI18n();
 const { sourceSection } = useCurrentPageSection();
+const { isCurrentSectionPresent } = useCurrentSectionSuggestion();
 
 const optionLabel = computed(() =>
   sourceSection.value.isLeadSection
@@ -36,21 +37,33 @@ const optionDetails = computed(() =>
     : bananaI18n.i18n("cx-sx-publisher-new-section-option-details")
 );
 
-const publishOptions = computed(() => [
-  {
-    label: optionLabel.value,
-    description: optionDetails.value,
-    value: PUBLISHING_TARGETS.NEW_SECTION,
-    disabled: false,
-  },
-  {
-    label: bananaI18n.i18n("cx-sx-publisher-sandbox-option-label"),
-    description: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
-    value: PUBLISHING_TARGETS.SANDBOX,
-    disabled: isAnon.value,
-  },
-]);
+const publishOptions = computed(() => {
+  const options = [
+    {
+      label: optionLabel.value,
+      description: optionDetails.value,
+      value: PUBLISHING_TARGETS.NEW_SECTION,
+      disabled: false,
+    },
+    {
+      label: bananaI18n.i18n("cx-sx-publisher-sandbox-option-label"),
+      description: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
+      value: PUBLISHING_TARGETS.SANDBOX,
+      disabled: isAnon.value,
+    },
+  ];
 
+  if (isCurrentSectionPresent.value) {
+    options.push({
+      label: bananaI18n.i18n("cx-sx-publisher-expand-option-label"),
+      description: bananaI18n.i18n("cx-sx-publisher-expand-option-details"),
+      value: PUBLISHING_TARGETS.EXPAND,
+      disabled: false,
+    });
+  }
+
+  return options;
+});
 const onPublishOptionsClose = () => emit("update:active", false);
 </script>
 
