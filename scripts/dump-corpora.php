@@ -5,6 +5,7 @@
  */
 
 // Standard boilerplate to define $IP
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -12,6 +13,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$IP = "$dir/../../..";
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 use ContentTranslation\JsonDumpFormatter;
 use ContentTranslation\Manager\TranslationCorporaManager;
@@ -323,5 +325,7 @@ class CXCorporaDump extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = CXCorporaDump::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

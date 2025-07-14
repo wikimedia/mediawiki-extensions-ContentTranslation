@@ -24,6 +24,7 @@ use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 // Standard boilerplate to define $IP
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -31,6 +32,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$IP = "$dir/../../..";
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 class PurgeUnpublishedDrafts extends Maintenance {
 	/** @var bool */
@@ -326,5 +328,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = PurgeUnpublishedDrafts::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd
