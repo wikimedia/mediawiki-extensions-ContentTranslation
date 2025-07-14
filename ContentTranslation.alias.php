@@ -182,12 +182,20 @@ $specialPageAliases['vi'] = [
 	'ContentTranslation' => [ 'Dịch_nội_dung' ],
 ];
 
+/** Chinese (中文) */
+$specialPageAliases['zh'] = [
+	'ContentTranslation' => [ 'ContentTranslation' ],
+	'AutomaticTranslation' => [ 'AutomaticTranslation' ]
+];
+
 /** Simplified Chinese (中文（简体）) */
 $specialPageAliases['zh-hans'] = [
 	'ContentTranslation' => [ '内容翻译' ],
+	'AutomaticTranslation' => [ '自动翻译' ]
 ];
 
 /** Traditional Chinese (中文（繁體）) */
 $specialPageAliases['zh-hant'] = [
 	'ContentTranslation' => [ '內容翻譯' ],
+	'AutomaticTranslation' => [ '自動翻譯' ]
 ];
