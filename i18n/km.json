@@ -13,7 +13,6 @@
 	"cx-license-agreement": "តាមរយៈការបន្ត អ្នកយល់ព្រមនឹង [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] ហើយអ្នកយល់ព្រមដោយមិនអាចដកហូតវិញក្នុងការចេញផ្សាយការរួមចំណែករបស់អ្នកនៅក្រោម [https://creativecommons.org/licenses/by-sa/4.0 / CC BY-SA 4.0] និង [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] អាជ្ញាប័ណ្ណ។",
 	"cx-error-server-connection": "បញ្ហា៖ មិន​អាច​ភ្ជាប់​ទៅ​កាន់ម៉ាស៊ីន​បម្រើ​ការបានទេ។",
 	"cx-desc": "បង្កភាពងាយស្រួលក្នុងការ[[Special:ContentTranslation|បកប្រែ]]អត្ថបទ",
-	"cx-header-translation-center": "មជ្ឍមណ្ឌលបកប្រែ",
 	"cx-header-all-translations": "​ការបកប្រែទាំងអស់",
 	"cx-source-view-page": "មើលទំព័រ",
 	"cx-publish-page-success": "ទំព័របោះផ្សាយនៅ $1",
@@ -107,6 +106,5 @@
 	"cx-draft-restored": "បានផ្ទុកការបកប្រែដែលបានរក្យាទុក។",
 	"cx-suggestionlist-refresh": "ផ្ទុកបេក្ខភាពឡើងវិញ",
 	"cx-tools-linter-restart-translation-cancel": "បោះបង់",
-	"cx-translator-header": "ស្ថិតិ​របស់អ្នក",
 	"cx-sx-publisher-mt-abuse-message-title": "ការបកប្រែរបស់អ្នកមានផ្ទុកអត្ថបទដែលមិនបានកែប្រែរួច $1%"
 }

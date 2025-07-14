@@ -11,7 +11,6 @@
 	"cx-license-agreement": "لو استمريت فإنته توافق على [https://foundation.wikimedia.org/wiki/Terms_of_Use/ar شروط الاستخدام] وعلى نشر ترجماتك جوا رخصات [https://creativecommons.org/licenses/by-sa/4.0/deed.ar المشاع الإبداعي 4.0] و[//ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_جنو_للوثائق_الحرة الوثائق الحرة 1.3].",
 	"cx-error-server-connection": "خطأ: تعذر الاتصال بالسيرفر.",
 	"cx-desc": "تسهل [[Special:ContentTranslation|ترجمة]] صفحات المحتوى",
-	"cx-header-translation-center": "مركز الترجمة",
 	"cx-header-all-translations": "كل الترجمات",
 	"cx-source-view-page": "طلع الصفحة",
 	"cx-target-view-page": "طلع الصفحة",

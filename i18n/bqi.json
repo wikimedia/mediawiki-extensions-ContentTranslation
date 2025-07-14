@@ -7,7 +7,6 @@
 	},
 	"cx": "ڤالرنیڌن بٱلگاْ",
 	"cx-error-server-connection": "خٱتا:نٱترین ڤٱسل ڤابۊین ب رسیناْجا",
-	"cx-header-translation-center": "جاگٱ ڤالرنیڌن",
 	"cx-header-all-translations": "هٱماْ ڤالرنیڌنیٱل",
 	"cx-source-view-page": "دیڌن بٱلگاْ",
 	"cx-publish-page-success": "بٱلگاْ میٛن $1 دٱرتیچ ڤابی",
@@ -69,7 +68,6 @@
 	"cx-tools-linter-page-exists": "بٱلگاْ ایساْ هڌس",
 	"cx-tools-linter-template": "چۊئاْ میٛن دٱسرساْ",
 	"cx-tools-linter-restart-translation-cancel": "ٱنجومشیڤ کردن",
-	"cx-translator-header": "آمار ایسا",
 	"cx-publish-destination-namespace-main": "بٱلگاْ تازاْ",
 	"cx-linkcontextitem-missing-link-title": "هومپاٛیڤٱند بیٛلا ڤابیڌاْ",
 	"cx-linkcontextitem-missing-title-description": "بٱلگاْ تا ایساْ نیڌس"

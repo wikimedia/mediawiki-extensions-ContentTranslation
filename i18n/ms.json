@@ -18,7 +18,6 @@
 	"cx-license-agreement": "Dengan menyambung, anda bersetuju dengan [https://foundation.wikimedia.org/wiki/Terms_of_Use Syarat-Syarat Penggunaan] dan anda bersetuju, tanpa kebolehan menarik balik, untuk mengeluarkan sumbangan-sumbangan anda di bawah lesen-lesen [https://creativecommons.org/licenses/by-sa/4.0/deed.ms CC BY-SA 4.0] dan [//ms.wikipedia.org/wiki/Wikipedia:Teks_Lesen_Pendokumenan_Bebas_GNU GFDL 1.3].",
 	"cx-error-server-connection": "Ralat: Tidak dapat menyambung ke pelayan.",
 	"cx-desc": "Mempermudah [[Special:ContentTranslation|penterjemahan]] laman kandungan",
-	"cx-header-translation-center": "Pusat penterjemahan",
 	"cx-header-all-translations": "Semua terjemahan",
 	"cx-source-view-page": "paparkan laman",
 	"cx-target-view-page": "papar laman",
@@ -180,7 +179,6 @@
 	"cx-tools-linter-restart-translation-title": "Mulakan semula terjemahan?",
 	"cx-tools-linter-restart-translation-message": "Anda akan memulakan terjemahan baharu untuk versi halaman terbaharu. Semua perubahan anda akan hilang.",
 	"cx-tools-linter-restart-translation-cancel": "Batalkan",
-	"cx-translator-header": "Statistik anda",
 	"cx-publish-settings": "Tetapan penerbitan",
 	"cx-publish-destination-header": "Destinasi menerbit",
 	"cx-publish-destination-tooltip": "Pilih ruang nama ke mana laman ini akan diterbitkan",
@@ -270,6 +268,7 @@
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Bahagian baharu akan ditambahkan di sini setelah anda menyiapkan terjemahan",
 	"cx-sx-editor-original-panel-label": "Asal",
 	"cx-sx-publisher-header-title": "Sahkan penerbitan",
+	"cx-sx-publisher-header-close-button-aria-label": "Tutup",
 	"cx-sx-publisher-publish-panel-new-section-status": "Sedia untuk terbit?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Terjemahan anda akan <strong>ditambahkan ke rencana tersebut sebagai bahagian baharu.</strong>",
 	"cx-sx-publisher-review-info": "Semak terjemahan anda dibaca secara semula jadi dan mengikuti tatabahasa yang betul",
@@ -311,6 +310,7 @@
 	"cx-sx-article-search-recently-edited-title": "Baru-baru ini disunting oleh anda",
 	"cx-sx-article-search-nearby-title": "Berdekatan",
 	"sx-article-search-language-selector-dialog-title": "Bahasa",
+	"sx-article-search-close-button-aria-label": "Tutup",
 	"cx-sx-language-selector-placeholder": "Cari bahasa",
 	"cx-sx-language-selector-all-languages": "Semua bahasa",
 	"cx-sx-language-selector-suggestions": "Dicadangkan",
@@ -434,5 +434,9 @@
 	"cx-sx-suggestions-filter-user-edit-label": "Untuk anda",
 	"cx-sx-suggestions-filter-most-popular-label": "Popular",
 	"cx-sx-suggestions-filter-more-label": "Lagi",
-	"cx-sx-suggestions-filter-default-group-label": "Automatik"
+	"cx-sx-suggestions-filter-default-group-label": "Automatik",
+	"cx-sx-suggestions-filter-page-collections-group-label": "Koleksi",
+	"cx-page-collection-dialog-page-suggestions-header": "Laman baharu",
+	"cx-page-collection-dialog-section-suggestions-header": "Bahagian baharu",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Semua"
 }

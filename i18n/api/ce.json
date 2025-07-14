@@ -42,5 +42,6 @@
 	"apihelp-sxsave-param-targetlanguage": "Ӏалашонан меттан код.",
 	"apihelp-sxsave-param-sourcetitle": "ДӀайолалун агӀонан цӀе.",
 	"apihelp-sxsave-param-sourcerevision": "АгӀонан хьостан кодан версин ID.",
-	"apierror-cxpublishsection-translationnotfound": "Гочдар ца карийна."
+	"apierror-cxpublishsection-translationnotfound": "Гочдар ца карийна.",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "Викихаамийн идентификатор"
 }

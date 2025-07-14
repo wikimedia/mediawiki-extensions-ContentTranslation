@@ -44,5 +44,9 @@
 	"mint-view-translation-overlay-share-button-label": "Kongsi terjemahan automatik",
 	"mint-view-translation-overlay-feedback-link-label": "Hantar maklum balas",
 	"ax-article-footer-entrypoint-card-description": "Lebih banyak kandungan dalam bahasa lain",
-	"ax-article-footer-entrypoint-card-supporting-text": "Baca terjemahan automatik"
+	"ax-article-footer-entrypoint-card-supporting-text": "Baca terjemahan automatik",
+	"mint-explore-languages-open-language-selector": "Pilih bahasa",
+	"ax-translation-view-feedback-positive": "Ya",
+	"ax-translation-view-feedback-negative": "Tidak",
+	"ax-translation-view-feedback-confirm-title": "Maklum balas"
 }

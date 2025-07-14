@@ -12,7 +12,6 @@
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Мазмұн Аудару]] сіздің тіліңізге беттерді жылдам аудару құралы. [$1 Қазір сынап көру!]",
 	"cx-error-server-connection": "Қате: Серверге байланыспады.",
 	"cx-desc": "Контент беттерді [[Special:ContentTranslation|аудару]] оңай жасалады",
-	"cx-header-translation-center": "Аударма орталығы",
 	"cx-header-all-translations": "Барлық аударма",
 	"cx-source-view-page": "бетті көру",
 	"cx-publish-page-success": "$1 беті жарияланды",

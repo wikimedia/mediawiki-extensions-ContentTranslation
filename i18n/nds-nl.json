@@ -11,7 +11,6 @@
 	"cx-license-agreement": "Döär wyder te gån stem jy in mid et [https://foundation.wikimedia.org/wiki/Terms_of_Use Gebruuksbeding] en akkedeer jy unherröpelik dat juw bydragen vrygeaven wördet under de [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0-licensy] en de [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Faut: kun geen verbinding maken mid de server.",
 	"cx-desc": "Maakt et eynvoldig üm inholdelike syden [[Special:ContentTranslation|oaver te setten]]",
-	"cx-header-translation-center": "Oaversettingscentrum",
 	"cx-header-all-translations": "Alle oaversettingen",
 	"cx-source-view-page": "syde bekyken",
 	"cx-publish-page-success": "Syde uutbracht up $1",
@@ -91,7 +90,6 @@
 	"cx-tools-linter-reference": "Untbreakende referensy",
 	"cx-tools-linter-incomplete-reference": "Unvulleadige referensy",
 	"cx-tools-linter-restart-translation-cancel": "Afbreaken",
-	"cx-translator-header": "Juw statistiken",
 	"cx-publish-destination-namespace-main": "Nye syde",
 	"cx-linkcontextitem-missing-link-title": "Untbreakende verwysing"
 }

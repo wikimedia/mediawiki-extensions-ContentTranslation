@@ -10,7 +10,6 @@
 	"cx-javascript": "Din l-għodda ma taħdimx mingħajr JavaScript.",
 	"cx-error-server-connection": "Żball: Ma setgħetx issir konnessjoni mas-server.",
 	"cx-desc": "Għodda li biha l-edituri jistgħu jittraduċu l-paġni minn lingwa għal oħra bl-għajnuna ta' traduzzjoni awtomatika u għodda oħra ta' traduzzjoni",
-	"cx-header-translation-center": "Ċentru ta' traduzzjoni",
 	"cx-source-view-page": "Ara l-paġna",
 	"cx-publish-page-success": "Paġna ppubblikata fuq $1",
 	"cx-publish-button": "Ippubblika t-traduzzjoni",
@@ -46,7 +45,6 @@
 	"cx-contributions-upload": "Tella' fajl multimedjali",
 	"cx-contributions-link": "Il-kontribuzzjonijiet tiegħek",
 	"cx-tools-linter-invalid-character-message": "Xi karattri ma jistgħux jintużaw fit-titlu tal-paġni għal raġunijiet tekniċi.\n\nJekk jogħġbok, editja t-titlu biex tevita l-karattri problematiċi.",
-	"cx-translator-header": "Statistika tiegħek",
 	"sx-article-search-language-selector-dialog-title": "Lingwi",
 	"cx-sx-language-selector-all-languages": "Il-lingwi kollha",
 	"sx-translation-list-language-selector-dialog-title": "Lingwi"

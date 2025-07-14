@@ -14,7 +14,6 @@
 	"cx-license-agreement": "\"$1\" कळ टिचकण्याने,आपण [https://foundation.wikimedia.org/wiki/Terms_of_Use वापरण्याच्या अटी] मान्य करता व आपण, भाषांतर उपकरणाचे साह्याने केलेल्या आपल्या योगदानाचे , न परताव्याच्या अटींवर, [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 परवाना] व [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License जीडीएफएल] या अंतर्गत विमोचन करता,या आकलनानुसार कि,CC BY-SA 4.0 साठी एक हायपरलिंक किंवा यूआरएल हे पुरेसे श्रेय आहे.",
 	"cx-error-server-connection": "त्रुटी: विदागाराशी अनुबंध करु शकलो नाही.",
 	"cx-desc": "आशय पानांचे [[Special:ContentTranslation|भाषांतर]] करण्याचे काम सोपे करते",
-	"cx-header-translation-center": "भाषांतर केंद्र",
 	"cx-header-all-translations": "सर्व भाषांतरे",
 	"cx-source-view-page": "पान बघा",
 	"cx-publish-page-success": "$1 येथे प्रकाशित केलेले पान",
@@ -99,7 +98,6 @@
 	"cx-draft-restored": "जतन केलेल्या भाषांतराचे भारण केले.",
 	"cx-suggestionlist-refresh": "सुचवण्या तरोताज्या करा",
 	"cx-notification-suggestions-available": "'''$1''' वरील {{GENDER:$2|आपल्या}} मागील भाषांतरांवर आधारीत, नविन सुचवण्या आता उपलब्ध आहेत.",
-	"cx-translator-header": "आपली सांख्यिकी",
 	"cx-publish-destination-namespace-main": "नविन पान",
 	"cx-publish-destination-namespace-user": "वैयक्तीक मसूदा"
 }

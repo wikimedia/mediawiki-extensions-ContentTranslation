@@ -7,7 +7,6 @@
 		]
 	},
 	"cx": "Alih basa kaca",
-	"cx-header-translation-center": "Pusat pangalihan basa",
 	"cx-header-all-translations": "Sinamian pangalihan basa",
 	"cx-source-view-page": "cingak kaca",
 	"cx-target-view-page": "cingak kaca",
@@ -85,7 +84,6 @@
 	"cx-tools-linter-template-add-new": "Weweh mal anyar",
 	"cx-tools-linter-incomplete-template": "Mal ten jangkep",
 	"cx-tools-linter-restart-translation-cancel": "Wangdé",
-	"cx-translator-header": "Statistik ragané",
 	"cx-publish-settings": "Setélan pawedaran",
 	"cx-publish-destination-header": "Tatujon pawedaran",
 	"cx-publish-destination-namespace-main": "Kaca anyar",
