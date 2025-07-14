@@ -130,7 +130,7 @@
 </template>
 
 <script>
-const { computed, defineComponent, ref, onMounted, watchEffect, watch } = require( 'vue' );
+const { computed, defineComponent, ref, onMounted, onUnmounted, watchEffect, watch } = require( 'vue' );
 const { wpProvParam } = require( './constants.js' );
 const { CdxIcon, CdxButton, CdxCard } = require( '@wikimedia/codex' );
 const {
@@ -171,10 +171,32 @@ module.exports = defineComponent( {
 		const { setURLParams } = useUrlHelper();
 		setURLParams( props.pageResult, targetLanguage.value, 'confirm' );
 
+		const { logEvent } = useEventLogging();
+
+		// check https://phabricator.wikimedia.org/T397821 for the instrument info
+		let pageLoadStart;
+
 		const languageSelectorExplanationRef = ref( null );
 		const confirmTopicReviewRef = ref( null );
+		const loadingTranslation = ref( true );
+
+		// Handler that logs an 'exit' action when the user unloads the window
+		// and the translation is not loaded yet
+		const exitHandler = () => {
+			if ( !loadingTranslation.value ) {
+				return;
+			}
+			const seconds = Math.round( ( performance.now() - pageLoadStart ) / 1000 );
+			logEvent( 'exit', null, null, { duration: seconds } );
+		};
+
 		onMounted( () => {
 			confirmTopicReviewRef.value.focus();
+			window.addEventListener( 'beforeunload', exitHandler );
+		} );
+
+		onUnmounted( () => {
+			window.removeEventListener( 'beforeunload', exitHandler );
 		} );
 
 		watch( languageSelectorExplanationRef, () => {
@@ -214,7 +236,6 @@ module.exports = defineComponent( {
 		}
 
 		const translation = ref( null );
-		const loadingTranslation = ref( true );
 		const { translateLeadSection } = useLeadSectionTranslationFetch();
 
 		const formatLeadSectionHtml = ( html ) => {
@@ -232,6 +253,7 @@ module.exports = defineComponent( {
 
 		const doTranslateLeadSection = async ( pageTitle, sourceLang, targetLang ) => {
 			loadingTranslation.value = true;
+			pageLoadStart = performance.now();
 			try {
 				translation.value = formatLeadSectionHtml(
 					await translateLeadSection( pageTitle, sourceLang, targetLang )
@@ -252,7 +274,6 @@ module.exports = defineComponent( {
 		const { navigateToPage, openLanguageSelector } = useRouter();
 		const goToSearch = () => navigateToPage( 'search' );
 
-		const { logEvent } = useEventLogging();
 		const goToTranslation = () => {
 			const translationContext = {
 				// eslint-disable-next-line camelcase
