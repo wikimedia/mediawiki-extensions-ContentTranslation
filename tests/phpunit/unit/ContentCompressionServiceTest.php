@@ -25,7 +25,7 @@ class ContentCompressionServiceTest extends MediaWikiUnitTestCase {
 
 		$compressed = $this->service->compress( $originalContent );
 		$this->assertNotEquals( $originalContent, $compressed );
-		$this->assertStringStartsWith( 'rawdeflate,', $compressed );
+		$this->assertStringStartsWith( ContentCompressionService::COMPRESSION_PREFIX, $compressed );
 
 		$decompressed = $this->service->decompress( $compressed );
 		$this->assertEquals( $originalContent, $decompressed );
@@ -58,7 +58,7 @@ class ContentCompressionServiceTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testDecompressionFailureThrowsRuntimeException() {
-		$invalidContent = 'rawdeflate,invalid_base64_data';
+		$invalidContent = ContentCompressionService::COMPRESSION_PREFIX . 'invalid_base64_data';
 
 		$this->expectException( RuntimeException::class );
 		$this->service->decompress( $invalidContent );

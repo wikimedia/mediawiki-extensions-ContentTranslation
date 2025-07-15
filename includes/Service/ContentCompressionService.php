@@ -16,11 +16,16 @@ use RuntimeException;
 class ContentCompressionService {
 
 	/**
+	 * Prefix for the compressed content
+	 */
+	public const COMPRESSION_PREFIX = 'rawdeflate,';
+
+	/**
 	 * Compress content using gzdeflate.
 	 * Returns the compressed content, otherwise original content.
 	 *
 	 * @param string $content Content to compress (typically HTML)
-	 * @return string Compressed content prefixed with 'rawdeflate,' and base64-encoded,
+	 * @return string Compressed content prefixed with COMPRESSION_PREFIX and base64-encoded,
 	 *                or original content if compression fails
 	 */
 	public function compress( string $content ): string {
@@ -30,7 +35,7 @@ class ContentCompressionService {
 			return $content;
 		}
 
-		return 'rawdeflate,' . base64_encode( $compressed );
+		return self::COMPRESSION_PREFIX . base64_encode( $compressed );
 	}
 
 	/**
