@@ -51,7 +51,7 @@ mw.cx.ui.Infobar.prototype.showWarning = function ( message, details ) {
  *
  * @param {string} type Message class.
  * @param {mw.Message|string} message Message objects are parsed, strings are plain text.
- * @param {mw.Message|string} details The details of error in HTML.
+ * @param {mw.Message|string|jQuery} details The details of error
  * @param {Mixed} data Custom data of any type or combination of types (e.g., string, number, array, object).
  * @param {OO.ui.ButtonWidget[]} buttons Additional buttons to add to the message widget.
  */

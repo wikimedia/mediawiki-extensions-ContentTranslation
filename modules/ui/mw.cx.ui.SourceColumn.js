@@ -109,5 +109,7 @@ mw.cx.ui.SourceColumn.prototype.showLoadingIndicator = function () {
 
 mw.cx.ui.SourceColumn.prototype.removeLoadingIndicator = function () {
 	this.loading = false;
-	this.$loadingIndicator.remove();
+	if ( this.$loadingIndicator ) {
+		this.$loadingIndicator.remove();
+	}
 };

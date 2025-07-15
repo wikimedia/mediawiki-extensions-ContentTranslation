@@ -44,6 +44,8 @@ mw.cx.ui.MessageWidget.prototype.composeMessage = function ( message, details ) 
 	if ( details ) {
 		if ( details instanceof mw.Message ) {
 			$details.append( details.parseDom() );
+		} else if ( details instanceof $ ) {
+			$details.append( details );
 		} else {
 			$details.text( details );
 		}

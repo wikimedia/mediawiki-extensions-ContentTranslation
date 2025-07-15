@@ -149,7 +149,8 @@ mw.cx.MachineTranslationService.prototype.fetchProviders = function () {
 mw.cx.MachineTranslationService.prototype.fetchCXServerToken = function () {
 	return new mw.Api().postWithToken( 'csrf', {
 		action: 'cxtoken',
-		assert: 'user'
+		assert: 'user',
+		errorformat: 'html'
 	} );
 };
 
@@ -168,8 +169,13 @@ mw.cx.MachineTranslationService.prototype.getCXServerTokenPromise = function () 
 			mw.log.warn( '[CX] Unable to get cxserver token (ignored).', errorObj );
 			return {};
 		}
-		mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch machine translation token.' );
+
+		const errorMessage = ( new mw.Api() ).getErrorMessage( errorObj );
+		mw.hook( 'mw.cx.error' )
+			.fire( 'Some machine translation services are not available', errorMessage );
+
 		mw.log.error( '[CX] Unable to get cxserver token.', errorObj );
+		return {};
 	} );
 };
 
