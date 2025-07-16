@@ -126,7 +126,7 @@ class Translation {
 	}
 
 	public function getStatus(): string {
-		return $this->translation['translation_status'];
+		return $this->translation['status'];
 	}
 
 	/**
