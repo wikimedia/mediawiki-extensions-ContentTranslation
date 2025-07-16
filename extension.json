@@ -283,7 +283,8 @@
 		"cxtranslatorstats": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryTranslatorStats",
 			"services": [
-				"ContentTranslation.UserService"
+				"ContentTranslation.UserService",
+				"ContentTranslation.TranslationStore"
 			]
 		},
 		"automatictranslationdenselanguages": {

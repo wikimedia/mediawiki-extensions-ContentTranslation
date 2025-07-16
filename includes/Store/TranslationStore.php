@@ -2,6 +2,7 @@
 
 namespace ContentTranslation\Store;
 
+use ContentTranslation\DateManipulator;
 use ContentTranslation\Exception\TranslationSaveException;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Translation;
@@ -517,5 +518,82 @@ class TranslationStore {
 		return $db
 			->expr( 'translation_status', '=', 'published' )
 			->or( 'translation_target_url', '!=', null );
+	}
+
+	/**
+	 * Get time-wise cumulative number of translations for given
+	 * language pairs, with given interval.
+	 *
+	 * @param string|null $source Source language code
+	 * @param string|null $target Target language code
+	 * @param string $status Status of translation. Either 'published' or 'draft'
+	 * @param string $interval 'weekly' or 'monthly' trend
+	 * @param int|null $translatorId
+	 * @return array
+	 */
+	public function getTrendByStatus(
+		?string $source,
+		?string $target,
+		string $status,
+		string $interval,
+		?int $translatorId
+	): array {
+		$dbr = $this->connectionProvider->getReplicaDatabase();
+
+		$conditions = [];
+		if ( $status === 'published' ) {
+			$conditions[] = self::getPublishedCondition( $dbr );
+		} else {
+			$conditions[] = $dbr->andExpr( [
+				'translation_status' => 'draft',
+				'translation_target_url' => null,
+			] );
+		}
+
+		if ( $source !== null ) {
+			$conditions['translation_source_language'] = $source;
+		}
+		if ( $target !== null ) {
+			$conditions['translation_target_language'] = $target;
+		}
+		if ( $translatorId !== null ) {
+			$conditions['translation_last_update_by'] = $translatorId;
+		}
+		$groupBy = [];
+		if ( $interval === 'week' ) {
+			$groupBy = [
+				'YEARWEEK(translation_last_updated_timestamp, 3)',
+			];
+		} elseif ( $interval === 'month' ) {
+			$groupBy = [
+				'YEAR(translation_last_updated_timestamp)',
+				'MONTH(translation_last_updated_timestamp)',
+			];
+		}
+
+		$rows = $dbr->newSelectQueryBuilder()
+			->select( [
+				'date' => 'MAX(translation_last_updated_timestamp)',
+				'count' => 'COUNT(translation_id)'
+			] )
+			->from( 'cx_translations' )
+			->where( $conditions )
+			->groupBy( $groupBy )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+
+		$count = 0;
+		$result = [];
+		$dm = new DateManipulator( $interval );
+		foreach ( $rows as $row ) {
+			$count += (int)$row->count;
+			$time = $dm->getIntervalIdentifier( $row->date )->format( 'U' );
+			$result[$time] = [
+				'count' => $count,
+				'delta' => (int)$row->count,
+			];
+		}
+
+		return $result;
 	}
 }

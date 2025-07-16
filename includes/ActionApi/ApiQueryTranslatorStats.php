@@ -10,7 +10,7 @@ namespace ContentTranslation\ActionApi;
 
 use ContentTranslation\DateManipulator;
 use ContentTranslation\Service\UserService;
-use ContentTranslation\Translation;
+use ContentTranslation\Store\TranslationStore;
 use Exception;
 use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
@@ -20,14 +20,17 @@ use Wikimedia\ParamValidator\ParamValidator;
 class ApiQueryTranslatorStats extends ApiQueryBase {
 
 	private UserService $userService;
+	private TranslationStore $translationStore;
 
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		UserService $userService
+		UserService $userService,
+		TranslationStore $translationStore,
 	) {
 		parent::__construct( $query, $moduleName );
 		$this->userService = $userService;
+		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {
@@ -48,8 +51,12 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 			$this->dieWithError( 'apierror-cx-invalidtranslator', 'invalidtranslator' );
 		}
 
-		$publishedStats = Translation::getTrendByStatus(
-			null, null, 'published', 'month', $translatorId
+		$publishedStats = $this->translationStore->getTrendByStatus(
+			null,
+			null,
+			'published',
+			'month',
+			$translatorId
 		);
 
 		$trend = $this->addMissingMonths( $publishedStats );
