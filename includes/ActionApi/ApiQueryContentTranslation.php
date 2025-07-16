@@ -14,7 +14,6 @@ use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
-use ContentTranslation\Translator;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiPageSet;
 use MediaWiki\Api\ApiQuery;
@@ -105,8 +104,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 			return;
 		}
-
-		$translator = new Translator( $user );
 
 		// Case D: Find list of translations. Either section translations or article translations
 		$offset = null;
