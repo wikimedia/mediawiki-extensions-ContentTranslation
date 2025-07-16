@@ -2,7 +2,7 @@ import useURLHandler from "@/composables/useURLHandler";
 import { ref } from "vue";
 import useEventLogging from "@/composables/useEventLogging";
 
-// DOCUMENTATION: https://github.com/wikimedia/schemas-event-secondary/tree/master/jsonschema/analytics/mediawiki/content_translation_event#dashboard_translation_start
+// DOCUMENTATION: https://gitlab.wikimedia.org/repos/data-engineering/schemas-event-secondary/-/tree/master/jsonschema/analytics/mediawiki/content_translation_event#dashboard_translation_start
 
 // Possible event sources:
 
@@ -45,6 +45,12 @@ const startTranslationEventSource = ref(null);
 const startTranslationEventContext = ref(null);
 
 const setStartTranslationEventSource = (eventSource) => {
+  if (!eventSource) {
+    mw.errorLogger.logError(
+      new Error("[CX] Empty event source set"),
+      "error.contenttranslation"
+    );
+  }
   startTranslationEventSource.value = eventSource;
 };
 

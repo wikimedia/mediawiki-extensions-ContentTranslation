@@ -53,9 +53,7 @@ const useTranslationStart = () => {
     setStartTranslationEventContext(eventContext);
 
     if (navigateToRoute) {
-      router.push({
-        name: "sx-translation-confirmer",
-      });
+      router.push({ name: "sx-translation-confirmer" });
     }
   };
 };

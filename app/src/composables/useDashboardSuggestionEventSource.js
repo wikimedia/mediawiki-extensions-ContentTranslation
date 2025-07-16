@@ -42,8 +42,12 @@ const useDashboardSuggestionEventSource = () => {
       // here we handle both "All collections" and single collection filters
       return SUGGESTION_COLLECTIONS;
     }
+    const error = new Error(
+      `[CX] No matching event source found for filter with type ${type} and id ${id}`
+    );
+    mw.errorLogger.logError(error, "error.contenttranslation");
 
-    throw new Error("Event source cannot be empty");
+    throw error;
   };
 };
 
