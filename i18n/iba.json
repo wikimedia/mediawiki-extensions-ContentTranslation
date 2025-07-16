@@ -401,6 +401,9 @@
 	"cx-sx-suggestions-filters-header": "Ngadu jaku sadang",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Tutup penapis jaku sadang",
 	"cx-sx-suggestions-filters-done-button-label": "Tembu",
+	"cx-sx-suggestions-filters-tab-all": "Semua",
+	"cx-sx-suggestions-filters-tab-regions": "Kandang menua",
+	"cx-sx-suggestions-filters-tab-topics": "Topik",
 	"cx-sx-suggestions-filter-user-edit-label": "Ungkup nuan",
 	"cx-sx-suggestions-filter-most-popular-label": "Tebilang",
 	"cx-sx-suggestions-filter-page-collection-label": "Semua koleksyen",
@@ -408,7 +411,9 @@
 	"cx-sx-suggestions-filter-active-group-label": "Penapis aktif",
 	"cx-sx-suggestions-filter-default-group-label": "Automatik",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Koleksyen",
-	"cx-sx-suggestions-filter-search-input-placeholder": "Giga topik",
+	"cx-sx-suggestions-filter-search-input-placeholder": "Giga semua kategori...",
+	"cx-sx-suggestions-filter-search-input-placeholder-regions": "Giga kandang menua tauka menua...",
+	"cx-sx-suggestions-filter-search-input-placeholder-topics": "Giga topik...",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Bidang topik",
 	"cx-page-collection-dialog-close-button-aria-label": "Pulai ngagai Papan Mua",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 artikel bisi dalam $3",
@@ -416,5 +421,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Lambar baru",
 	"cx-page-collection-dialog-section-suggestions-header": "Bagi baru",
 	"cx-sx-suggestion-list-empty-title": "Nadai sadang ungkup diatu",
-	"cx-sx-suggestion-list-empty-description": "Kami nemuka nadai sadang ari penapis tu. Nuan ulih nguji penapis bukai tauka giga artikel spesifik deka disalin."
+	"cx-sx-suggestion-list-empty-description": "Kami nemuka nadai sadang ari penapis tu. Nuan ulih nguji penapis bukai tauka giga artikel spesifik deka disalin.",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Semua"
 }
