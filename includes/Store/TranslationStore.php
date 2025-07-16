@@ -8,6 +8,8 @@ use ContentTranslation\Translation;
 use DateTime;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IConnectionProvider;
+use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Rdbms\OrExpressionGroup;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
@@ -173,7 +175,7 @@ class TranslationStore {
 			->where( [
 				'translation_target_language' => $targetLanguage,
 				'translation_target_title' => $publishedTitle,
-				Translation::getPublishedCondition( $dbr ),
+				self::getPublishedCondition( $dbr ),
 			] )
 			->caller( __METHOD__ )
 			->fetchRow();
@@ -456,5 +458,64 @@ class TranslationStore {
 		}
 		$translation->translation['id'] = $existingTranslation->getTranslationId();
 		$this->updateTranslation( $translation, $options );
+	}
+
+	/**
+	 * Get all published translation records.
+	 *
+	 * @param string $from Source language code
+	 * @param string $to Target language code
+	 * @param int $limit Number of records to fetch at most
+	 * @param int $offset Offset from which at most $limit records to fetch
+	 * @return array
+	 */
+	public function getAllPublishedTranslations( string $from, string $to, int $limit, int $offset ): array {
+		$dbr = $this->connectionProvider->getReplicaDatabase();
+		$conditions = [
+			'translation_source_language' => $from,
+			'translation_target_language' => $to,
+		];
+		$conditions[] = self::getPublishedCondition( $dbr );
+
+		$queryBuilder = $dbr->newSelectQueryBuilder()
+			->select( [
+				'translationId' => 'translation_id',
+				'sourceTitle' => 'translation_source_title',
+				'targetTitle' => 'translation_target_title',
+				'sourceLanguage' => 'translation_source_language',
+				'sourceRevisionId' => 'translation_source_revision_id',
+				'targetRevisionId' => 'translation_target_revision_id',
+				'targetLanguage' => 'translation_target_language',
+				'sourceURL' => 'translation_source_url',
+				'targetURL' => 'translation_target_url',
+				'publishedDate' => 'translation_last_updated_timestamp',
+				'stats' => 'translation_progress',
+			] )
+			->from( 'cx_translations' )
+			->where( $conditions )
+			->limit( $limit )
+			->caller( __METHOD__ );
+
+		if ( $offset ) {
+			$queryBuilder->offset( $offset );
+		}
+
+		$rows = $queryBuilder->fetchResultSet();
+
+		$result = [];
+
+		foreach ( $rows as $row ) {
+			$translation = (array)$row;
+			$translation['stats'] = json_decode( $translation['stats'] );
+			$result[] = $translation;
+		}
+
+		return $result;
+	}
+
+	public static function getPublishedCondition( IReadableDatabase $db ): OrExpressionGroup {
+		return $db
+			->expr( 'translation_status', '=', 'published' )
+			->or( 'translation_target_url', '!=', null );
 	}
 }

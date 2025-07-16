@@ -2,10 +2,9 @@
 
 namespace ContentTranslation;
 
+use ContentTranslation\Store\TranslationStore;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IConnectionProvider;
-use Wikimedia\Rdbms\IExpression;
-use Wikimedia\Rdbms\IReadableDatabase;
 
 class Translation {
 	private bool $isNew = false;
@@ -51,7 +50,7 @@ class Translation {
 
 		$conditions = [];
 		if ( $status === 'published' ) {
-			$conditions[] = self::getPublishedCondition( $dbr );
+			$conditions[] = TranslationStore::getPublishedCondition( $dbr );
 		} else {
 			$conditions[] = $dbr->andExpr( [
 				'translation_status' => 'draft',
@@ -136,68 +135,6 @@ class Translation {
 	 */
 	public function getData() {
 		return $this->translation;
-	}
-
-	/**
-	 * @return IExpression
-	 */
-	public static function getPublishedCondition( IReadableDatabase $db ) {
-		return $db->expr( 'translation_status', '=', 'published' )
-			->or( 'translation_target_url', '!=', null );
-	}
-
-	/**
-	 * Get all published translation records.
-	 *
-	 * @param string $from Source language code
-	 * @param string $to Target language code
-	 * @param int $limit Number of records to fetch atmost
-	 * @param int $offset Offset from which at most $limit records to fetch
-	 * @return array
-	 */
-	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
-		/** @var IConnectionProvider $connectionProvider */
-		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
-		$dbr = $connectionProvider->getReplicaDatabase();
-		$conditions = [];
-		$conditions[] = self::getPublishedCondition( $dbr );
-		$conditions['translation_source_language'] = $from;
-		$conditions['translation_target_language'] = $to;
-
-		$queryBuilder = $dbr->newSelectQueryBuilder()
-			->select( [
-				'translationId' => 'translation_id',
-				'sourceTitle' => 'translation_source_title',
-				'targetTitle' => 'translation_target_title',
-				'sourceLanguage' => 'translation_source_language',
-				'sourceRevisionId' => 'translation_source_revision_id',
-				'targetRevisionId' => 'translation_target_revision_id',
-				'targetLanguage' => 'translation_target_language',
-				'sourceURL' => 'translation_source_url',
-				'targetURL' => 'translation_target_url',
-				'publishedDate' => 'translation_last_updated_timestamp',
-				'stats' => 'translation_progress',
-			] )
-			->from( 'cx_translations' )
-			->where( $conditions )
-			->limit( $limit )
-			->caller( __METHOD__ );
-
-		if ( $offset ) {
-			$queryBuilder->offset( $offset );
-		}
-
-		$rows = $queryBuilder->fetchResultSet();
-
-		$result = [];
-
-		foreach ( $rows as $row ) {
-			$translation = (array)$row;
-			$translation['stats'] = json_decode( $translation['stats'] );
-			$result[] = $translation;
-		}
-
-		return $result;
 	}
 
 	/**

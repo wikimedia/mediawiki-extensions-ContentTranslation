@@ -8,7 +8,7 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ContentTranslation\Translation;
+use ContentTranslation\Store\TranslationStore;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
@@ -19,14 +19,17 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 class ApiQueryPublishedTranslations extends ApiQueryBase {
 
 	private LanguageNameUtils $languageNameUtils;
+	private TranslationStore $translationStore;
 
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		LanguageNameUtils $languageNameUtils
+		LanguageNameUtils $languageNameUtils,
+		TranslationStore $translationStore,
 	) {
 		parent::__construct( $query, $moduleName );
 		$this->languageNameUtils = $languageNameUtils;
+		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {
@@ -44,8 +47,11 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 		if ( !$this->languageNameUtils->isValidBuiltInCode( $to ) ) {
 			$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
 		}
-		$translations = Translation::getAllPublishedTranslations(
-			$from, $to, $limit, $offset
+		$translations = $this->translationStore->getAllPublishedTranslations(
+			$from,
+			$to,
+			$limit,
+			$offset
 		);
 
 		$result->addValue( [ 'result' ], 'translations', $translations );

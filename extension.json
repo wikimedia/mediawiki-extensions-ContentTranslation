@@ -276,7 +276,8 @@
 		"cxpublishedtranslations": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryPublishedTranslations",
 			"services": [
-				"LanguageNameUtils"
+				"LanguageNameUtils",
+				"ContentTranslation.TranslationStore"
 			]
 		},
 		"cxtranslatorstats": {

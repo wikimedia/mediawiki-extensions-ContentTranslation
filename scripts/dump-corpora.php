@@ -17,8 +17,8 @@ require_once "$IP/maintenance/Maintenance.php";
 
 use ContentTranslation\JsonDumpFormatter;
 use ContentTranslation\Manager\TranslationCorporaManager;
+use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\TmxDumpFormatter;
-use ContentTranslation\Translation;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IConnectionProvider;
@@ -187,7 +187,7 @@ class CXCorporaDump extends Maintenance {
 	 * @return IResultWrapper
 	 */
 	private static function getLanguagePairs( IDatabase $db, $sourceLanguage, $targetLanguage ) {
-		$publishedCondition = Translation::getPublishedCondition( $db );
+		$publishedCondition = TranslationStore::getPublishedCondition( $db );
 		$pairs = [ [ $sourceLanguage, $targetLanguage ] ];
 		$languageCondition = self::makeLanguageConditions( $db, $pairs );
 
@@ -294,7 +294,7 @@ class CXCorporaDump extends Maintenance {
 	 * @return IResultWrapper
 	 */
 	private static function getTranslations( $db, $pairs ) {
-		$publishedCondition = Translation::getPublishedCondition( $db );
+		$publishedCondition = TranslationStore::getPublishedCondition( $db );
 		$languageCondition = self::makeLanguageConditions( $db, $pairs );
 
 		return $db->newSelectQueryBuilder()

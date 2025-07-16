@@ -3,6 +3,7 @@
 namespace ContentTranslation;
 
 use ContentTranslation\Service\UserService;
+use ContentTranslation\Store\TranslationStore;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
 use Wikimedia\Rdbms\IConnectionProvider;
@@ -60,7 +61,7 @@ class Translator {
 			->where( [
 				'translator_user_id' => $this->getGlobalUserId(),
 				// And it is published
-				Translation::getPublishedCondition( $dbr )
+				TranslationStore::getPublishedCondition( $dbr )
 			] )
 			->caller( __METHOD__ )
 			->fetchField();
