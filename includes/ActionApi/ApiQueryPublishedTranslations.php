@@ -30,22 +30,19 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 	}
 
 	public function execute() {
-		$from = $to = null;
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
-		if ( isset( $params['from'] ) ) {
-			$from = $params['from'];
-		}
-		if ( isset( $params['to'] ) ) {
-			$to = $params['to'];
-		}
+
+		$from = $params['from'];
+		$to = $params['to'];
+
 		$limit = $params['limit'];
 		$offset = $params['offset'];
-		if ( $from !== null && !$this->languageNameUtils->isValidBuiltInCode( $from ) ) {
+		if ( !$this->languageNameUtils->isValidBuiltInCode( $from ) ) {
 			$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
 		}
-		if ( $to !== null && !$this->languageNameUtils->isValidBuiltInCode( $to ) ) {
-				$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
+		if ( !$this->languageNameUtils->isValidBuiltInCode( $to ) ) {
+			$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
 		}
 		$translations = Translation::getAllPublishedTranslations(
 			$from, $to, $limit, $offset
@@ -73,8 +70,8 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			],
 			'offset' => [
-				ParamValidator::PARAM_DEFAULT => '',
-				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_DEFAULT => 0,
+				ParamValidator::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
 			],
 		];
@@ -83,12 +80,8 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
-			'action=query&list=cxpublishedtranslations' =>
-				'apihelp-query+cxpublishedtranslations-example-1',
-			'action=query&list=cxpublishedtranslations&from=en' =>
-				'apihelp-query+cxpublishedtranslations-example-2',
 			'action=query&list=cxpublishedtranslations&from=en&to=es' =>
-				'apihelp-query+cxpublishedtranslations-example-3',
+				'apihelp-query+cxpublishedtranslations-example-1',
 		];
 	}
 }

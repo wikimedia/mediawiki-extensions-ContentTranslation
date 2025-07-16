@@ -49,8 +49,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "{{doc-apihelp-param|query+cxpublishedtranslations|to}}",
 	"apihelp-query+cxpublishedtranslations-param-limit": "{{doc-apihelp-param|query+cxpublishedtranslations|limit}}",
 	"apihelp-query+cxpublishedtranslations-example-1": "{{doc-apihelp-example|query+cxpublishedtranslations}}",
-	"apihelp-query+cxpublishedtranslations-example-2": "{{doc-apihelp-example|query+cxpublishedtranslations}}",
-	"apihelp-query+cxpublishedtranslations-example-3": "{{doc-apihelp-example|query+cxpublishedtranslations}}",
 	"apihelp-cxtoken-summary": "\"[[:mw:Special:MyLanguage/Content_translation/cxserver|cxserver]]\" is a name of an internal software component, and probably shouldn't be translated.\n{{doc-apihelp-summary|cxtoken}}",
 	"apihelp-cxtoken-example-1": "\"[[:mw:Special:MyLanguage/Content_translation/cxserver|cxserver]]\" is a name of an internal software component, and probably shouldn't be translated.\n{{doc-apihelp-example|cxtoken}}",
 	"apihelp-cxdelete-summary": "{{doc-apihelp-summary|cxdelete}}",

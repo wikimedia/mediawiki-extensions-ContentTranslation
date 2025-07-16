@@ -161,14 +161,8 @@ class Translation {
 		$dbr = $connectionProvider->getReplicaDatabase();
 		$conditions = [];
 		$conditions[] = self::getPublishedCondition( $dbr );
-
-		if ( $from ) {
-			$conditions['translation_source_language'] = $from;
-		}
-
-		if ( $to ) {
-			$conditions['translation_target_language'] = $to;
-		}
+		$conditions['translation_source_language'] = $from;
+		$conditions['translation_target_language'] = $to;
 
 		$queryBuilder = $dbr->newSelectQueryBuilder()
 			->select( [
