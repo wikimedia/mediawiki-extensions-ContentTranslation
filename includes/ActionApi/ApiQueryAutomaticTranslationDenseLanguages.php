@@ -4,7 +4,7 @@ declare( strict_types = 1 );
 namespace ContentTranslation\ActionApi;
 
 use MediaWiki\Api\ApiQuery;
-use MediaWiki\Api\ApiQueryGeneratorBase;
+use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\Http\HttpRequestFactory;
 use Wikimedia\LightweightObjectStore\ExpirationAwareness;
 use Wikimedia\ObjectCache\WANObjectCache;
@@ -18,7 +18,7 @@ use Wikimedia\ParamValidator\ParamValidator;
  * @license GPL-2.0-or-later
  * @since 2024.06
  */
-class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
+class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryBase {
 
 	private const WIKIPEDIA_API_URL = 'https://en.wikipedia.org/w/api.php';
 	private const WIKIDATA_API_URL = 'https://www.wikidata.org/w/api.php';
@@ -255,15 +255,6 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 	}
 
 	public function execute() {
-		$this->run();
-	}
-
-	/** @inheritDoc */
-	public function executeGenerator( $resultPageSet ) {
-		$this->run();
-	}
-
-	private function run() {
 		$params = $this->extractRequestParams();
 		$qid = $params['qid'];
 

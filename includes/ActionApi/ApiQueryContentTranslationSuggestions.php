@@ -14,7 +14,7 @@ use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\SuggestionListManager;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiQuery;
-use MediaWiki\Api\ApiQueryGeneratorBase;
+use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MediaWikiServices;
@@ -24,7 +24,7 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 /**
  * Api module for querying translation suggestions.
  */
-class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
+class ApiQueryContentTranslationSuggestions extends ApiQueryBase {
 	private UserService $userService;
 	private TranslationStore $translationStore;
 
@@ -40,15 +40,6 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	}
 
 	public function execute() {
-		$this->run();
-	}
-
-	/** @inheritDoc */
-	public function executeGenerator( $resultPageSet ) {
-		$this->run();
-	}
-
-	private function run() {
 		$config = $this->getConfig();
 		if ( !$config->get( 'ContentTranslationEnableSuggestions' ) ) {
 			$this->dieWithError( 'apierror-cx-suggestionsdisabled', 'suggestionsdisabled' );

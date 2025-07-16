@@ -16,14 +16,14 @@ use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiQuery;
-use MediaWiki\Api\ApiQueryGeneratorBase;
+use MediaWiki\Api\ApiQueryBase;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 /**
  * Api module for querying ContentTranslation.
  */
-class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
+class ApiQueryContentTranslation extends ApiQueryBase {
 
 	private SectionTranslationStore $sectionTranslationStore;
 	private TranslationCorporaManager $corporaManager;
@@ -47,15 +47,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	}
 
 	public function execute() {
-		$this->run();
-	}
-
-	/** @inheritDoc */
-	public function executeGenerator( $resultPageSet ) {
-		$this->run();
-	}
-
-	private function run() {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 		$user = $this->getUser();
