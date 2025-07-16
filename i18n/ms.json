@@ -345,6 +345,7 @@
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Bahagian baharu akan ditambahkan di sini setelah anda menyiapkan terjemahan",
 	"cx-sx-editor-original-panel-label": "Asal",
 	"cx-sx-publisher-header-title": "Sahkan penerbitan",
+	"cx-sx-publisher-header-close-button-aria-label": "Tutup",
 	"cx-sx-publisher-publish-panel-new-section-status": "Sedia untuk terbit?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Terjemahan anda akan <strong>ditambahkan ke rencana tersebut sebagai bahagian baharu.</strong>",
 	"cx-sx-publisher-review-info": "Semak terjemahan anda dibaca secara semula jadi dan mengikuti tatabahasa yang betul",
@@ -386,6 +387,7 @@
 	"cx-sx-article-search-recently-edited-title": "Baru-baru ini disunting oleh anda",
 	"cx-sx-article-search-nearby-title": "Berdekatan",
 	"sx-article-search-language-selector-dialog-title": "Bahasa",
+	"sx-article-search-close-button-aria-label": "Tutup",
 	"cx-sx-language-selector-placeholder": "Cari bahasa",
 	"cx-sx-language-selector-all-languages": "Semua bahasa",
 	"cx-sx-language-selector-suggestions": "Dicadangkan",
@@ -510,5 +512,8 @@
 	"cx-sx-suggestions-filter-user-edit-label": "Untuk anda",
 	"cx-sx-suggestions-filter-most-popular-label": "Popular",
 	"cx-sx-suggestions-filter-more-label": "Lagi",
-	"cx-sx-suggestions-filter-default-group-label": "Automatik"
+	"cx-sx-suggestions-filter-default-group-label": "Automatik",
+	"cx-sx-suggestions-filter-page-collections-group-label": "Koleksi",
+	"cx-page-collection-dialog-page-suggestions-header": "Laman baharu",
+	"cx-page-collection-dialog-section-suggestions-header": "Bahagian baharu"
 }

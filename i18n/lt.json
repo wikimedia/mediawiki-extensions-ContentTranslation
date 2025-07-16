@@ -105,7 +105,7 @@
 	"cx-mt-abuse-warning-title": "Dalis jūsų vertimo {{PLURAL:$1|yra}} $1% nemodifikuoto teksto",
 	"cx-mt-abuse-warning-text": "Automatinis vertimas yra pateikiamas tik kaip atspirties taškas. Įsitikinkite, kad turinys yra tikslus ir natūraliai perskaitomas jūsų kalba.\n\nJūsų vertimas gali būti ištrintas, kai jį peržiūrės kiti redaktoriai.",
 	"cx-publish-captcha-title": "Tikrinama, ar nesate robotas",
-	"cx-captcha-dialog-error": "Pana6u, kad jūsų atsakymas neteisingas. Bandykite dar kartą.",
+	"cx-captcha-dialog-error": "Panašu, kad jūsų atsakymas neteisingas. Bandykite dar kartą.",
 	"cx-captcha-dialog-cancel": "Atšaukti",
 	"cx-captcha-unsupported-type": "Aptiktas nepalaikomas captcha tipas.",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Reikia}} pagalbos verčiant?",
