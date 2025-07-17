@@ -70,7 +70,8 @@ mw.cx.TranslationController.prototype.listen = function () {
 		surfaceReady: 'onSurfaceReady',
 		publish: 'publish',
 		targetTitleChange: 'onTargetTitleChange', // emitted only for article translations
-		targetSectionTitleChange: 'onTargetSectionTitleChange' // emitted only for section translations
+		targetSectionTitleChange: 'onTargetSectionTitleChange', // emitted only for section translations
+		segmentAdd: 'onSegmentAdd'
 	} );
 
 	this.targetArticle.connect( this, {
@@ -91,6 +92,10 @@ mw.cx.TranslationController.prototype.listen = function () {
 	}.bind( this );
 
 	window.onbeforeunload = this.onPageUnload.bind( this );
+};
+
+mw.cx.TranslationController.prototype.onSegmentAdd = function () {
+	this.logTranslationControllerEvent( 'editor_segment_add' );
 };
 
 /**
@@ -922,6 +927,7 @@ mw.cx.TranslationController.prototype.onTargetSectionTitleChange = function () {
 };
 
 mw.cx.TranslationController.prototype.onSurfaceReady = function () {
+	this.logTranslationControllerEvent( 'editor_open' );
 	const api = new mw.Api();
 
 	this.translationTracker.init( this.translation );

@@ -520,30 +520,6 @@ ve.init.mw.CXTarget.prototype.onTranslationRestore = function () {
  * Call this when translation editor is ready.
  */
 ve.init.mw.CXTarget.prototype.onSurfaceReady = function () {
-	const payload = {
-		// eslint-disable-next-line camelcase
-		event_type: 'editor_open',
-		// eslint-disable-next-line camelcase
-		translation_source_title: this.translation.getSourceTitle(),
-		// eslint-disable-next-line camelcase
-		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
-	};
-
-	if ( this.translation.id ) {
-		// eslint-disable-next-line camelcase
-		payload.translation_id = this.translation.id;
-	}
-
-	// eslint-disable-next-line es-x/no-promise-prototype-finally
-	this.MTManager.getPreferredProvider()
-		.then( ( provider ) => {
-			// eslint-disable-next-line camelcase
-			payload.translation_provider = mw.cx.MachineTranslationManager.getProviderForInstrumentation( provider );
-		} )
-		.finally( () => {
-			mw.cx.logEvent( payload );
-		} );
-
 	// Update namespace tools
 	this.updateNamespace();
 	// Get ready with the translation of first section.
@@ -828,19 +804,7 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNodeFromSectionNumber = function (
  * @param {ve.ce.CXPlaceholderNode} placeholder
  */
 ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
-	const payload = {
-		// eslint-disable-next-line camelcase
-		event_type: 'editor_segment_add',
-		// eslint-disable-next-line camelcase
-		translation_source_title: this.translation.getSourceTitle(),
-		// eslint-disable-next-line camelcase
-		translation_type: this.translation.isSectionTranslation() ? 'section' : 'article'
-	};
-
-	if ( this.translation.id ) {
-		// eslint-disable-next-line camelcase
-		payload.translation_id = this.translation.id;
-	}
+	this.emit( 'segmentAdd' );
 
 	const model = placeholder.getModel();
 	const cxid = model.getAttribute( 'cxid' );
@@ -850,11 +814,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	model.emit( 'beforeTranslation' );
 	// eslint-disable-next-line es-x/no-promise-prototype-finally
 	this.MTManager.getPreferredProvider()
-		.then( ( provider ) => {
-			// eslint-disable-next-line camelcase
-			payload.translation_provider = mw.cx.MachineTranslationManager.getProviderForInstrumentation( provider );
-			return this.changeContentSource( model, null, provider );
-		} )
+		.then( ( provider ) => this.changeContentSource( model, null, provider ) )
 		.catch( () => {
 			mw.notify( mw.msg( 'cx-auto-failed' ) );
 			const nonMTProvider = this.MTManager.getDefaultNonMTProvider();
@@ -869,7 +829,6 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 			} else {
 				mw.log.error( '[CX] No model found after translation for ' + cxid );
 			}
-			mw.cx.logEvent( payload );
 		} );
 };
 
