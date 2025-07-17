@@ -606,7 +606,7 @@ mw.cx.TargetArticle.prototype.handleEditError = function ( editError ) {
 		if ( !editError.abusefilter ) {
 			mw.errorLogger.logError(
 				new Error( editError.code + ': ' + editError.info ),
-				'error.contenttranslaton'
+				'error.contenttranslation'
 			);
 
 			// This is a weird situation. Show the user a message about abuse filter and display the error code
