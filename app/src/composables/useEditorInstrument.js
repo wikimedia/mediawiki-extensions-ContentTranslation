@@ -140,6 +140,22 @@ const useEditorInstrument = () => {
     return payload;
   });
 
+  const assertTranslationSourceTitle = (payload) => {
+    if (!payload.translation_source_title) {
+      const currentParams = new URL(window.location).searchParams;
+      mw.errorLogger.logError(
+        new Error(
+          `Event ${
+            payload.event_type
+          } is missing translation_source_title. Current URL params: ${JSON.stringify(
+            Array.from(currentParams.entries())
+          )}`
+        ),
+        "error.contenttranslation"
+      );
+    }
+  };
+
   /**
    * @returns {Promise}
    */
@@ -157,20 +173,27 @@ const useEditorInstrument = () => {
     // the event when the user comes from "Confirm a translation", "Compare the
     // contents or "Quick tutorial" steps.
     if (currentWorkflowStep > previousRouteStep) {
-      return logEvent({
+      const payload = {
         event_type: "editor_open",
         ...sharedPayload.value,
-      });
+      };
+      assertTranslationSourceTitle(payload);
+
+      return logEvent(payload);
     }
 
     return Promise.resolve();
   };
 
-  const logEditorCloseEvent = () =>
-    logEvent({
+  const logEditorCloseEvent = () => {
+    const payload = {
       event_type: "editor_close",
       ...sharedPayload.value,
-    });
+    };
+    assertTranslationSourceTitle(payload);
+
+    return logEvent(payload);
+  };
 
   const logEditorCloseWarnEvent = () =>
     logEvent({
