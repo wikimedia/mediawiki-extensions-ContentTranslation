@@ -18,6 +18,9 @@ ve.ui.CXTransclusionContextItem = function VeUiCXTransclusionContextItem() {
 
 OO.inheritClass( ve.ui.CXTransclusionContextItem, ve.ui.MWTransclusionContextItem );
 
+ve.ui.CXTransclusionContextItem.static.name = 'cxtransclusion';
+ve.ui.CXTransclusionContextItem.static.commandName = 'cxtransclusion';
+
 /* Methods */
 
 /**

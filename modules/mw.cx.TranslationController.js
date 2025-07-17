@@ -63,7 +63,8 @@ mw.cx.TranslationController.prototype.listen = function () {
 		targetCategoriesChange: 'onTargetCategoriesChange',
 		issuesResolved: 'onIssuesResolved',
 		translationIssues: 'onTranslationIssues',
-		sectionChange: 'onSectionChange'
+		sectionChange: 'onSectionChange',
+		segmentEdit: 'onSegmentEdit'
 	} );
 
 	this.veTarget.connect( this, {
@@ -94,14 +95,18 @@ mw.cx.TranslationController.prototype.listen = function () {
 	window.onbeforeunload = this.onPageUnload.bind( this );
 };
 
+mw.cx.TranslationController.prototype.onSegmentEdit = function () {
+	this.logTranslationControllerEvent( 'editor_segment_edit' );
+};
+
 mw.cx.TranslationController.prototype.onSegmentAdd = function () {
 	this.logTranslationControllerEvent( 'editor_segment_add' );
 };
 
 /**
  * Add the section changes to save queue and change queue.
- * These two queues are processed in different interevals and different
- * triggers. Hence two queues.
+ * These two queues are processed in different intervals and different
+ * triggers. Hence, two queues.
  *
  * @param {string} sectionId
  */

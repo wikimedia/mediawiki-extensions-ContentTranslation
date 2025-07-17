@@ -22,6 +22,7 @@ ve.dm.CXSectionNode = function VeDmCXSectionNode() {
 
 	this.translation = this.getTranslation();
 	this.isModified = false;
+	this.hasPendingEditEvent = false;
 
 	this.connect( this, {
 		update: 'onUpdate',
@@ -85,11 +86,23 @@ ve.dm.CXSectionNode.prototype.onAfterRender = function () {
 	}
 };
 
+ve.dm.CXSectionNode.prototype.emitSegmentEdit = function () {
+	this.translation.emit( 'segmentEdit' );
+};
+
+ve.dm.CXSectionNode.prototype.onBlur = function () {
+	if ( this.isTargetSection() && this.hasPendingEditEvent && this.hasUserModifications() ) {
+		this.emitSegmentEdit();
+		this.hasPendingEditEvent = false;
+	}
+};
+
 ve.dm.CXSectionNode.prototype.onUpdate = function () {
 	if ( this.isTargetSection() ) {
 		// Update is triggered by a tree modification. Wait for the whole tree modification
 		// to finish, e.g. if there are relevant internal list changes to wait for.
 		setTimeout( this.emitSectionChange.bind( this ) );
+		this.hasPendingEditEvent = true;
 	}
 };
 

@@ -1292,6 +1292,7 @@
 				"ve-cx/ui/ve.ui.CXReferenceContextItem.js",
 				"ve-cx/ui/ve.ui.CXReferenceDialog.js",
 				"ve-cx/ui/ve.ui.CXTranslationToolbar.js",
+				"ve-cx/ui/ve.ui.CXTransclusionDialog.js",
 				"ve-cx/ui/actions/ve.ui.CXTranslationAction.js",
 				"ve-cx/ui/tools/ve.ui.CXResetSectionTool.js",
 				"ve-cx/ui/tools/ve.ui.CXSaveMTPreferenceTool.js",

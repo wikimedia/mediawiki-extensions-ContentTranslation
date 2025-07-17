@@ -92,12 +92,11 @@ mw.cx.init.Translation.prototype.init = function () {
 					translationModel.setSavedTranslation( draft );
 				}
 
+				this.veTarget.setTranslation( translationModel );
 				// Initialize translation controller
 				this.translationController = new mw.cx.TranslationController(
 					translationModel, this.veTarget, this.config.siteMapper, this.config
 				);
-
-				this.veTarget.setTranslation( translationModel );
 
 				this.checkIfUserCanPublish();
 				if ( translationModel.isChangedSignificantly() ) {

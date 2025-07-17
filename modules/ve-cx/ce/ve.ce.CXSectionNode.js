@@ -25,7 +25,8 @@ ve.ce.CXSectionNode = function VeCeCXSectionNode() {
 
 	this.getFocusableElement().on( {
 		focus: this.emit.bind( this, 'focus' ),
-		blur: this.emit.bind( this, 'blur' )
+		blur: this.emit.bind( this, 'blur' ),
+		focusout: () => ( this.model.onBlur() )
 	} );
 
 	this.model.connect( this, {
