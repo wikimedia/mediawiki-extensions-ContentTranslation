@@ -37,6 +37,9 @@ const useTranslationStart = () => {
     eventContext = null,
     navigateToRoute = true
   ) => {
+    setStartTranslationEventSource(eventSource);
+    setStartTranslationEventContext(eventContext);
+
     /** @type {SectionSuggestion|ArticleSuggestion|null} */
     const suggestion = await loadSuggestion(
       sourceLanguage,
@@ -49,8 +52,6 @@ const useTranslationStart = () => {
     }
 
     setTranslationURLParams(suggestion);
-    setStartTranslationEventSource(eventSource);
-    setStartTranslationEventContext(eventContext);
 
     if (navigateToRoute) {
       router.push({ name: "sx-translation-confirmer" });

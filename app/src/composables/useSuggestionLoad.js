@@ -62,9 +62,11 @@ const useSuggestionLoad = () => {
           store.commit("suggestions/addSectionSuggestion", suggestion);
         }
       } catch (e) {
-        throw new Error(
-          `No page metadata found for title ${sourceTitle} and language pair ${sourceLanguage}-${targetLanguage}`
+        const error = new Error(
+          `No page metadata found for title ${sourceTitle} and language pair ${sourceLanguage}-${targetLanguage}. ${e}`
         );
+        mw.errorLogger.logError(error, "error.contenttranslation");
+        throw error;
       }
     }
 
