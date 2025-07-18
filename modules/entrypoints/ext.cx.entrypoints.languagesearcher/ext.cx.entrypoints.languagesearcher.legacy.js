@@ -25,6 +25,37 @@
 		} ).then( ( result ) => Object.keys( result.languagesearch || {} ) );
 	}
 
+	function createLanguageButton( { label = '', iconClass, href, className } ) {
+		const classes = [
+			'cdx-button',
+			'cdx-button--fake-button',
+			'cdx-button--fake-button--enabled',
+			'cdx-button--action-default',
+			'cdx-button--weight-quiet',
+			className
+		];
+		const iconClasses = [
+			'cdx-button__icon',
+			iconClass
+		];
+		const buttonHtml = `
+			<a
+  				class="${ classes.join( ' ' ) }"
+  				href="${ href }"
+			>
+				<span
+					class="${ iconClasses.join( ' ' ) }"
+					aria-hidden="true"
+				></span>
+				${ label }
+			</a>`;
+
+		const container = document.createElement( 'div' );
+		container.innerHTML = buttonHtml.trim();
+
+		return container.firstElementChild;
+	}
+
 	/**
 	 * Handle the matches found for the search query.
 	 * Replace the default empty state of language searcher with custom one.
@@ -71,14 +102,12 @@
 				results[ languageIndex ],
 				{ campaign: CAMPAIGN, sx: true }
 			);
-			languageButtons.push( new OO.ui.ButtonWidget( {
+			languageButtons.push( {
 				label: $.uls.data.getAutonym( results[ languageIndex ] ),
-				icon: 'add',
 				href: cxUrl,
-				framed: false,
-				classes: [ 'cx-entrypoint-mflanguagesearcher-ctabtn' ]
-			} )
-			);
+				className: 'cx-entrypoint-mflanguagesearcher-cta-btn',
+				iconClass: 'cx-entrypoint-mflanguagesearcher-cta-btn__icon'
+			} );
 			if ( languageIndex >= 1 ) {
 				// We are showing maximum two results
 				break;
@@ -89,7 +118,7 @@
 		noResultsMsgElement.classList.add( 'hidden' );
 
 		for ( languageIndex = 0; languageIndex < languageButtons.length; languageIndex++ ) {
-			actionsElement.appendChild( languageButtons[ languageIndex ].$element[ 0 ] );
+			actionsElement.appendChild( createLanguageButton( languageButtons[ languageIndex ] ) );
 		}
 
 		cxUrl = mw.util.getUrl( 'Special:ContentTranslation', {
@@ -98,13 +127,12 @@
 			page: mw.config.get( 'wgPageName' ),
 			sx: true
 		} );
-		const moreButton = new OO.ui.ButtonWidget( {
-			icon: 'ellipsis',
+		const moreButton = createLanguageButton( {
 			href: cxUrl,
-			framed: false,
-			classes: [ 'cx-entrypoint-mflanguagesearcher-ctabtn-more' ]
+			className: 'cx-entrypoint-mflanguagesearcher-cta-btn-more',
+			iconClass: 'cx-entrypoint-mflanguagesearcher-cta-btn-more__icon'
 		} );
-		actionsElement.appendChild( moreButton.$element[ 0 ] );
+		actionsElement.appendChild( moreButton );
 	}
 
 	/**

@@ -1050,8 +1050,16 @@
 			]
 		},
 		"ext.cx.entrypoints.languagesearcher.legacy": {
-			"scripts": [
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": "true",
+			"codexComponents": [
+				"CdxButton"
+			],
+			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.legacy.js"
+			],
+			"styles": [
+				"entrypoints/styles/ext.cx.entrypoints.languagesearcher.legacy.less"
 			],
 			"dependencies": [
 				"jquery.uls.data",
