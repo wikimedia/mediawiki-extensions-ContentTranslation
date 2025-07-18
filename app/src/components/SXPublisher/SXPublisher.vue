@@ -177,7 +177,10 @@ const targetArticlePath = computed(() => {
       </template>
       <div :class="{ 'px-4 mt-4': isCurrentSectionPresent }">
         <!-- eslint-disable vue/no-v-html -->
-        <h6 class="mb-2" v-html="expectedPanelResult" />
+        <h6
+          class="sx-publisher__publish-panel__expected-publishing-result mb-2"
+          v-html="expectedPanelResult"
+        />
         <!-- eslint-enable vue/no-v-html -->
         <mw-row justify="end" class="ma-0">
           <mw-col shrink>
