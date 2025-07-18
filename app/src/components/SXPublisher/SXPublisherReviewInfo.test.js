@@ -1,11 +1,12 @@
 import SXPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
-import { mount } from "@vue/test-utils";
+import { shallowMount, mount } from "@vue/test-utils";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import { createI18n } from "vue-banana-i18n";
+import { CdxMessage, CdxButton } from "@wikimedia/codex";
+import { cdxIconEye } from "@wikimedia/codex-icons";
+import { MwCol } from "@/lib/mediawiki.ui";
 
 const i18n = createI18n();
-
-import { cdxIconAlert, cdxIconEye, cdxIconBlock } from "@wikimedia/codex-icons";
 
 jest.spyOn(global.Math, "random").mockReturnValue(0.1);
 describe("SXPublisher review info panel test", () => {
@@ -19,15 +20,16 @@ describe("SXPublisher review info panel test", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("should return status, reviewIcon and messageType correctly when no publishFeedbackMessages exist", () => {
-    expect(wrapper.vm.status).toStrictEqual("default");
-    expect(wrapper.vm.reviewIcon).toStrictEqual(cdxIconEye);
-    expect(wrapper.vm.messageType).toBe("notice");
+  it("should return status and reviewIcon correctly when no publishFeedbackMessages exist", () => {
+    expect(wrapper.vm.status).toStrictEqual("notice");
+
+    const message = wrapper.findComponent(CdxMessage);
+    expect(message.props("icon")).toBe(cdxIconEye);
   });
 
-  it(`should return status, reviewIcon, messageType, messageTitle and messageText correctly when
+  it(`should return status, reviewIcon, messageTitle and messageText correctly when
    the active message is an error`, () => {
-    wrapper = mount(SXPublisherReviewInfo, {
+    wrapper = shallowMount(SXPublisherReviewInfo, {
       global: { plugins: [i18n] },
       props: {
         publishFeedbackMessages: [
@@ -40,8 +42,6 @@ describe("SXPublisher review info panel test", () => {
       },
     });
     expect(wrapper.vm.status).toStrictEqual("error");
-    expect(wrapper.vm.reviewIcon).toStrictEqual(cdxIconBlock);
-    expect(wrapper.vm.messageType).toBe("error");
     expect(wrapper.vm.messageTitle).toBe("Error title");
     expect(wrapper.vm.messageText).toBe("Error text");
   });
@@ -62,11 +62,9 @@ describe("SXPublisher review info panel test", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it(`should compute status, reviewIcon, messageType, messageTitle and messageText correctly when
+  it(`should compute status, reviewIcon, messageTitle and messageText correctly when
    the active message is a warning`, () => {
     expect(wrapper.vm.status).toStrictEqual("warning");
-    expect(wrapper.vm.reviewIcon).toStrictEqual(cdxIconAlert);
-    expect(wrapper.vm.messageType).toBe("warning");
     expect(wrapper.vm.messageTitle).toBe("Warning title");
     expect(wrapper.vm.messageText).toBe("Warning text");
   });
@@ -82,7 +80,8 @@ describe("SXPublisher review info panel test", () => {
         ],
       },
     });
-    const previousButtonWrapper = wrapper.find(
+
+    const previousButtonWrapper = wrapper.findComponent(
       ".sx-publisher__review-info__navigation-buttons > button"
     );
     previousButtonWrapper.trigger("click");

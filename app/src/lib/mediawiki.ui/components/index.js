@@ -6,7 +6,6 @@ import MwDivider from "./MWDivider";
 import { MwCol, MwGrid, MwRow } from "./MWLayout";
 import MwIcon from "./MWIcon";
 import MwInput from "./MWInput";
-import MwMessage from "./MWMessage";
 import MwSelect from "./MWSelect";
 import MwSpinner from "./MWSpinner";
 import MwThumbnail from "./MWThumbnail";
@@ -23,7 +22,6 @@ export {
   MwCard,
   MwSelect,
   MwSpinner,
-  MwMessage,
   MwThumbnail,
   MwDivider,
   MwButtonGroup,
