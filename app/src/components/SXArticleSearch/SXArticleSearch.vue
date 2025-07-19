@@ -3,7 +3,7 @@ import { MwButtonGroup, MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import SearchResultsCard from "./SearchResultsCard.vue";
 import MwLanguageSelector from "../MWLanguageSelector";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard.vue";
-import { ref, onMounted, onBeforeUnmount, computed, watch, inject } from "vue";
+import { ref, onMounted, computed, watch, inject } from "vue";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useURLHandler from "@/composables/useURLHandler";
@@ -17,6 +17,7 @@ import { CdxButton, CdxIcon, CdxSearchInput } from "@wikimedia/codex";
 import { cdxIconClose } from "@wikimedia/codex-icons";
 import useTranslationStart from "@/composables/useTranslationStart";
 import useSuggestionPreviousEditsSeeds from "@/composables/useSuggestionPreviousEditsSeeds";
+import useLanguageHistory from "./useLanguageHistory";
 import pageApi from "@/wiki/mw/api/page";
 import useKeyboardNavigation from "@/composables/useKeyboardNavigation";
 import useSearchArticles from "@/composables/useArticleSearch";
@@ -26,15 +27,7 @@ const searchInputUsed = ref(false);
 const searchInputRef = ref(null);
 const sourceLanguageSelectOn = ref(false);
 
-/**
- * Previously used languages by user. These languages are set in local
- * storage by MediaWiki ULS extension. Since it is NOT guaranteed that
- * these items are set in local storage, these languages are allowed
- * to be empty
- *
- * @type {Ref<string[]>}
- */
-const previousLanguages = ref([]);
+const { previousLanguages, addLanguageToHistory } = useLanguageHistory();
 
 const store = useStore();
 const {
@@ -69,20 +62,8 @@ const router = useRouter();
 const { fetchAllTranslations } = useTranslationsFetch();
 onMounted(async () => {
   fetchAllTranslations();
-
-  try {
-    previousLanguages.value.push(
-      ...JSON.parse(localStorage.getItem("cxPreviousLanguages"))
-    );
-    addSourceToPreviousLanguages();
-  } catch (e) {}
+  addLanguageToHistory(sourceLanguage.value);
   searchInputRef.value?.focus();
-  window.addEventListener("beforeunload", updatePreviousLanguagesStorage);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("beforeunload", updatePreviousLanguagesStorage);
-  updatePreviousLanguagesStorage();
 });
 
 const close = () => {
@@ -93,24 +74,7 @@ const updateLanguagePair = useSuggestionListLanguagePairUpdate();
 
 const updateSourceLanguage = (newSourceLanguage) => {
   updateLanguagePair(newSourceLanguage, targetLanguage.value);
-
-  if (!previousLanguages.value.includes(newSourceLanguage)) {
-    addSourceToPreviousLanguages();
-  }
-};
-
-const addSourceToPreviousLanguages = () => {
-  previousLanguages.value = [
-    sourceLanguage.value,
-    ...previousLanguages.value.filter((lang) => lang !== sourceLanguage.value),
-  ];
-};
-
-const updatePreviousLanguagesStorage = () => {
-  mw.storage.set(
-    "cxPreviousLanguages",
-    JSON.stringify(previousLanguages.value)
-  );
+  addLanguageToHistory(newSourceLanguage);
 };
 
 const updateSelection = (updatedLanguage) => {

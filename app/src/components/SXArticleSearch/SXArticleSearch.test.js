@@ -83,6 +83,11 @@ jest.mock(
   () => () => mockStartTranslation
 );
 jest.mock("./useSuggestedSourceLanguages", () => jest.fn());
+jest.mock("./useLanguageHistory", () => () => ({
+  // Include "en" (mockSourceLanguage) since the component adds it on mount
+  previousLanguages: { value: ["en", "bn"] },
+  addLanguageToHistory: jest.fn(),
+}));
 
 const mockSourceLanguage = ref("en");
 const mockTargetLanguage = ref("es");
