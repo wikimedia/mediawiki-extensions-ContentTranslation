@@ -56,6 +56,10 @@
 	"cx-publish-error-offline": "Message shown when the user is offline and cannot publish their translation until they are back online.",
 	"cx-publish-button": "Publish button text in [[Special:ContentTranslation]].\n\nAlso used in {{msg-mw|Cx-tools-instructions-text6}}.",
 	"cx-publish-button-publishing": "Publish button text in [[Special:ContentTranslation]], shown while publishing is in progress. Replaces {{msg-mw|cx-publish-button}}.\n{{Identical|Publishing}}",
+	"cx-publish-permission-warning": "Warning message shown to users who do not have permission to publish translations to the main namespace. Displayed when starting a translation to inform users they cannot publish.",
+	"cx-publish-permission-warning-link-label": "Label for the 'Learn more' link that appears in the permission warning message. Links to documentation about Content Translation publishing requirements.",
+	"cx-publish-permission-error": "Error message shown when users without publishing permissions attempt to publish a translation. Used in publishing feedback to block publication.",
+	"cx-publish-permission-error-title": "Title for the error message shown when users without publishing permissions attempt to publish a translation. Used as the heading for the permission error feedback.",
 	"cx-lost-session": "Generic message displayed when user session expires. Used as a title of modal dialog that provides button to log in again.",
 	"cx-lost-session-draft": "Error message to display.",
 	"cx-lost-session-publish": "Error message to display.",
@@ -523,9 +527,5 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Header text for the section that lists the section suggestions of the page collection, in the dialog, that displays information and suggestions for a page collection.",
 	"cx-sx-suggestion-list-empty-title": "Title text shown when there is no suggestion to show for the current filter",
 	"cx-sx-suggestion-list-empty-description": "A brief description shown when there is no suggestion to show for the current filter",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Label of the option that selects all the sub-collections for a page collection filter, in the suggestions filters dialog",
-	"cx-publish-permission-warning": "Warning message shown to users who do not have permission to publish translations to the main namespace. Displayed when starting a translation to inform users they cannot publish.",
-	"cx-publish-permission-warning-link-label": "Label for the 'Learn more' link that appears in the permission warning message. Links to documentation about Content Translation publishing requirements.",
-	"cx-publish-permission-error": "Error message shown when users without publishing permissions attempt to publish a translation. Used in publishing feedback to block publication.",
-	"cx-publish-permission-error-title": "Title for the error message shown when users without publishing permissions attempt to publish a translation. Used as the heading for the permission error feedback."
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Label of the option that selects all the sub-collections for a page collection filter, in the suggestions filters dialog"
 }
