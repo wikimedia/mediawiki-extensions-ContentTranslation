@@ -146,6 +146,9 @@ mw.cx.MachineTranslationService.prototype.fetchProviders = function () {
 		.then( ( data ) => data.mt || [] );
 };
 
+/**
+ * @return {mw.Api~AbortablePromise}
+ */
 mw.cx.MachineTranslationService.prototype.fetchCXServerToken = function () {
 	return new mw.Api().postWithToken( 'csrf', {
 		action: 'cxtoken',
@@ -154,37 +157,45 @@ mw.cx.MachineTranslationService.prototype.fetchCXServerToken = function () {
 	} );
 };
 
+/**
+ * @return {Promise<{object}>}
+ */
 mw.cx.MachineTranslationService.prototype.getCXServerTokenPromise = function () {
-	return this.fetchCXServerToken().then( ( token ) => {
-		const now = Math.floor( Date.now() / 1000 );
-		// We use `age` instead of `exp` because it is more reliable, as user's
-		// clocks might be set to wrong time.
-		token.refreshAt = now + token.age - 30;
-		return token;
-	} ).catch( ( errorCode, errorObj ) => {
-		if ( errorCode === 'token-impossible' ) {
-			// Likely CX extension has not been configured properly.
-			// To make development and testing easier, assume that
-			// no token is needed.
-			mw.log.warn( '[CX] Unable to get cxserver token (ignored).', errorObj );
-			return {};
-		}
+	return new Promise( ( resolve ) => {
+		this.fetchCXServerToken().then( ( token ) => {
+			const now = Math.floor( Date.now() / 1000 );
+			// We use `age` instead of `exp` because it is more reliable, as user's
+			// clocks might be set to wrong time.
+			token.refreshAt = now + token.age - 30;
+			return resolve( token );
+		} ).catch( ( errorCode, errorObj ) => {
+			if ( errorCode === 'token-impossible' ) {
+				// Likely CX extension has not been configured properly.
+				// To make development and testing easier, assume that
+				// no token is needed.
+				mw.log.warn( '[CX] Unable to get cxserver token (ignored).', errorObj );
+				return resolve( {} );
+			}
 
-		const errorMessage = ( new mw.Api() ).getErrorMessage( errorObj );
-		mw.hook( 'mw.cx.error' )
-			.fire( 'Some machine translation services are not available', errorMessage );
+			const errorMessage = ( new mw.Api() ).getErrorMessage( errorObj );
+			mw.hook( 'mw.cx.error' )
+				.fire( 'Some machine translation services are not available', errorMessage );
 
-		mw.log.error( '[CX] Unable to get cxserver token.', errorObj );
-		return {};
+			mw.log.error( '[CX] Unable to get cxserver token.', errorObj );
+			return resolve( {} );
+		} );
 	} );
 };
 
+/**
+ * @return {Promise}
+ */
 mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 	this.tokenPromise = this.tokenPromise || this.getCXServerTokenPromise();
 
 	return this.tokenPromise.then( ( token ) => {
 		const now = Math.floor( Date.now() / 1000 );
-		if ( 'refreshAt' in token && token.refreshAt <= now ) {
+		if ( token.refreshAt && token.refreshAt <= now ) {
 			this.tokenPromise = undefined;
 			return this.getCXServerToken();
 		}
