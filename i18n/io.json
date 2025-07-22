@@ -97,6 +97,7 @@
 	"cx-tools-linter-cannot-publish-message": "Ca komunitato decidis limitizar la publikigo di tradukuri nur por experta redakteri.\nVu ne povas publikigar ca tradukuro til ke vu divenos plu experta tradukanta en ca wiki, tamen vu povas:<ul><li>Publikigar vua tradukuro kom klado, ed uzar pose l'existanta utensili por krear artikli.</li><li>Trandukar ca artiklo ad altra idiomo, sen ca limitizo.</li></ul>",
 	"cx-tools-linter-template-inline-message": "L'originala pagino usas shabloni por krear la strukturo di la kontenajo, tamen kelk ek li ne existas en la wiki destino.\n\nKontenajo di mankanta shabloni adjuntesis kom pura texto. Voluntez revizar la rezulto.",
 	"cx-tools-linter-old-revision": "La bazo di la tradukuro esas anciena versiono di la pagino",
+	"cx-tools-linter-incomplete-reference-message": "Refero adjuntesis sen bezonata informo.\n\nNe povis obtenar mankanta detali automatale del originala refero, pro ke sua strukturo esas kelke diferanta.\n\nVoluntez redaktar la refero en la tradukuro, por kompletigar l'informi mankanta.",
 	"cx-tools-linter-restart-translation-cancel": "Nuligar",
 	"cx-publish-settings": "Publikigez ajusti",
 	"cx-publish-destination-header": "Destino di la publikigo",

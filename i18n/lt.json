@@ -383,6 +383,6 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Viso",
 	"sx-confirm-back-navigation-dialog-title": "Palikti vertimą?",
 	"sx-confirm-back-navigation-dialog-body": "Visi jūsų pakeitimai bus prarasti.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Ištrinti",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Tęsti"
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Atsisakyti pakeitimų",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Tęsti redagavimą"
 }
