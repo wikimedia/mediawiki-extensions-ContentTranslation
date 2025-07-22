@@ -2,7 +2,7 @@
 
 const useEventLogging = () => {
 	const streamName = 'mediawiki.product_metrics.translation_mint_for_readers';
-	const schemaId = '/analytics/product_metrics/web/translation/1.0.0';
+	const schemaId = '/analytics/product_metrics/web/translation/1.4.2';
 
 	/**
 	 * @param {string} action
