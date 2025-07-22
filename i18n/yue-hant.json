@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"H78c67c",
-			"Winston Sung"
+			"Winston Sung",
+			"JeffreyKim"
 		]
 	},
 	"cx": "翻譯頁",
 	"cx-dashboard-header": "翻譯",
 	"cx-javascript": "呢個工具一定要有JavaScript先至用到。而家JavaScript閂咗、用唔到、又或者係呢個瀏覽器唔支援JavaScript。",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|內容翻譯]]係個令你可以快速翻譯頁面到你嘅語言嘅工具。[$1 即刻試下！]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation 內容翻譯]]係一個可以快速將頁面翻譯成你嘅語言嘅工具。[$1 即刻試吓！]",
 	"cx-license-agreement": "一旦繼續，就表示你同意[https://foundation.wikimedia.org/wiki/Terms_of_Use 使用條款]；並且同意將你所作出嘅任何貢獻以[https://creativecommons.org/licenses/by-sa/4.0/ 共享創意，署名兼共享版權嘅4.0版本協議]（CC BY-SA 4.0）同 [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] 兩份協議授權畀其他人，冇得反悔。",
 	"cx-error-server-connection": "出錯：連唔到去伺服器。",
 	"cx-desc": "[[Special:ContentTranslation|翻譯]]內容頁面更加簡單",
@@ -17,6 +18,7 @@
 	"cx-header-translation-center": "翻譯中心",
 	"cx-header-all-translations": "所有翻譯",
 	"cx-source-view-page": "睇頁",
+	"cx-target-view-page": "觀看頁",
 	"cx-publish-page-success": "呢頁喺 $1 發佈",
 	"cx-publish-button": "發佈",
 	"cx-publish-button-publishing": "發佈緊...",
