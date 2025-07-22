@@ -318,10 +318,11 @@ class CXCorporaDump extends Maintenance {
 	private static function getFormatter( $format, $pairName ) {
 		if ( $format === 'json' ) {
 			return new JsonDumpFormatter();
-		} else {
-			[ $sourceLanguage, $targetLanguage ] = explode( '2', $pairName );
-			return new TmxDumpFormatter( $sourceLanguage === '_' ? '*all*' : $sourceLanguage );
 		}
+
+		[ $sourceLanguage, ] = explode( '2', $pairName );
+
+		return new TmxDumpFormatter( $sourceLanguage === '_' ? '*all*' : $sourceLanguage );
 	}
 }
 

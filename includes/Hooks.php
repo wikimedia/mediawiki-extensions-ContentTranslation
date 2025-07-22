@@ -371,10 +371,11 @@ class Hooks implements
 	public static function registerTags( array &$tags ) {
 		global $wgContentTranslationCampaigns;
 		$tags[] = 'contenttranslation';
-		$tags[] = 'contenttranslation-v2'; // CX2 distinct tag. Used since 2018-09
+		// CX2 distinct tag. Used since 2018-09
+		$tags[] = 'contenttranslation-v2';
 		$tags[] = 'sectiontranslation';
 		$tags[] = 'contenttranslation-high-unmodified-mt-text';
-		foreach ( $wgContentTranslationCampaigns as $tagName => $tag ) {
+		foreach ( $wgContentTranslationCampaigns as $tag ) {
 			if ( isset( $tag['edittag'] ) ) {
 				$tags[] = $tag['edittag'];
 			}

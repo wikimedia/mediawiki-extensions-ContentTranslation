@@ -67,7 +67,7 @@ class TmxDumpFormatter {
 	}
 
 	private function formatEntry( array $entry ) {
-		foreach ( $entry['corpora'] as $id => $units ) {
+		foreach ( $entry['corpora'] as $units ) {
 			$this->xml->startElement( 'tu' );
 			$this->xml->writeAttribute( 'srclang', $entry['sourceLanguage'] );
 			foreach ( $units as $origin => $unit ) {

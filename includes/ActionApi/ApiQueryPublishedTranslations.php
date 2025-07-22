@@ -33,7 +33,6 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 		$from = $to = null;
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
-		$user = $this->getUser();
 		if ( isset( $params['from'] ) ) {
 			$from = $params['from'];
 		}

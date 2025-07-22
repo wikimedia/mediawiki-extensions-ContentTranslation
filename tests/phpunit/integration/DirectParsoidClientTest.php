@@ -39,7 +39,6 @@ class DirectParsoidClientTest extends MediaWikiIntegrationTestCase {
 		);
 
 		$html = '<h2>Hello World</h2>';
-		$oldid = $pageIdentity->getId();
 
 		$response = $directClient->convertHtmlToWikitext(
 			$pageIdentity,
@@ -51,7 +50,7 @@ class DirectParsoidClientTest extends MediaWikiIntegrationTestCase {
 		$this->assertArrayHasKey( 'Content-Type', $response['headers'] );
 
 		$this->assertArrayHasKey( 'body', $response );
-		// Trim to remove trailing newline
+		// Trim to remove the trailing newline
 		$wikitext = trim( $response['body'] );
 		$this->assertStringContainsString( '== Hello World ==', $wikitext );
 	}
@@ -74,8 +73,6 @@ class DirectParsoidClientTest extends MediaWikiIntegrationTestCase {
 		$this->assertIsArray( $response );
 		$this->assertArrayHasKey( 'body', $response );
 		$this->assertArrayHasKey( 'headers', $response );
-
-		$headers = $response['headers'];
 
 		$html = $response['body'];
 		$this->assertStringContainsString( $page->getTitle()->getText(), $html );
