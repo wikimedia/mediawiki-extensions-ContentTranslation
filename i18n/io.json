@@ -136,6 +136,7 @@
 	"cx-tools-linter-cannot-publish-message": "Ca komunitato decidis limitizar la publikigo di tradukuri nur por experta redakteri.\nVu ne povas publikigar ca tradukuro til ke vu divenos plu experta tradukanta en ca wiki, tamen vu povas:<ul><li>Publikigar vua tradukuro kom klado, ed uzar pose l'existanta utensili por krear artikli.</li><li>Trandukar ca artiklo ad altra idiomo, sen ca limitizo.</li></ul>",
 	"cx-tools-linter-template-inline-message": "L'originala pagino usas shabloni por krear la strukturo di la kontenajo, tamen kelk ek li ne existas en la wiki destino.\n\nKontenajo di mankanta shabloni adjuntesis kom pura texto. Voluntez revizar la rezulto.",
 	"cx-tools-linter-old-revision": "La bazo di la tradukuro esas anciena versiono di la pagino",
+	"cx-tools-linter-incomplete-reference-message": "Refero adjuntesis sen bezonata informo.\n\nNe povis obtenar mankanta detali automatale del originala refero, pro ke sua strukturo esas kelke diferanta.\n\nVoluntez redaktar la refero en la tradukuro, por kompletigar l'informi mankanta.",
 	"cx-tools-linter-restart-translation-cancel": "Nuligar",
 	"cx-translator-header": "Vua statistiki",
 	"cx-translator-month-stats-label": "Ca monato",
@@ -148,7 +149,8 @@
 	"cx-preference-enable-entrypoints": "Acesar [[$1|komencez tradukuro]], de la pagino di kontributadi, de la listo pri lingui, e listo pri nova pagini.",
 	"cx-feature-discovery-dismiss": "O.K., me komprenis",
 	"cx-sx-section-selector-title": "Secioni",
-	"cx-sx-language-selector-dialog-title": "Serchar ula linguo",
+	"cx-sx-language-selector-dialog-title": "Serchar idiomo",
+	"cx-sx-start-translation-button-label": "Komencar traduko",
 	"cx-sx-view-translation-anchor": "Videz",
 	"cx-sx-existing-translation-learn-more": "Savez pluse",
 	"cx-sx-section-selector-missing-sections-title": "Secioni mankanta che $1",
@@ -166,6 +168,7 @@
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 horo|$1 hori|0={{PLURAL:$2|$2 minuto|$2 minuti}}}} por tradukar",
 	"cx-sx-publish-summary": "Kreita per traduko di la seciono \"$1\" de la pagino \"$2\"",
 	"cx-sx-publish-lead-section-summary": "Kreita per traduko dil aperto-seciono di la pagino \"$1\"",
+	"cx-sx-language-selector-placeholder": "Serchar idiomo",
 	"cx-sx-translation-confirmer-action-new-translation": "Nova traduko",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Nova tradukajo",
 	"cx-campaign-mflanguagesearcher-invite": "Vu povas tradukar ca pagino. To esas facila maniero por krear nova kontenajo en vua idiomo.",
@@ -179,5 +182,6 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Tradukar \"$1\" e \"$2\"",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Mankanta en <span>$1</span> e pluse",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse"
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse",
+	"cx-contributecard-entrypoint-cta": "Komencar tradukado"
 }

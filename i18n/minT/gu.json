@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"CptViraj"
+			"CptViraj",
+			"KartikMistry"
 		]
 	},
 	"mint-language-selector-title": "ભાષાઓ",
-	"mint-language-selector-suggestions-header": "સૂચવવામાં આવેલ",
+	"mint-language-selector-suggestions-header": "સૂચવેલ",
 	"mint-language-selector-all-languages-header": "બધી ભાષાઓ",
 	"mint-language-selector-input-placeholder": "ભાષા પસંદ કરો",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "લેખ વાંચો",

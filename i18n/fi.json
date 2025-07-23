@@ -241,7 +241,7 @@
 	"cx-tools-linter-invalid-character-message": "Joitakin merkkejä ei voida käyttää sivujen nimissä teknisten rajoitusten vuoksi.\n\nOle hyvä ja muokkaa nimeä välttääksesi ongelmalliset merkit.",
 	"cx-tools-linter-page-exists": "Sivu on jo olemassa",
 	"cx-tools-linter-page-exists-message": "Sivu nimellä $1 on jo olemassa. Käännöksesi julkaiseminen korvaa olemassa olevan sisällön.\n\nTarkista, että on sopivaa korvata olemassa oleva sivu, tai harkitse käännöksesi uudelleen nimeämistä.",
-	"cx-tools-linter-cannot-publish-title": "Julkaiseminen sallittua vain kokeneille käyttäjille",
+	"cx-tools-linter-cannot-publish-title": "Julkaiseminen sallittu vain kokeneille käyttäjille",
 	"cx-tools-linter-cannot-publish-message": "Tämä yhteisö on päättänyt rajoittaa käännösten julkaisemisen vain kokeneille muokkaajille.\nEt voi julkaista tätä käännöstä suoraan artikkelina, ennen kuin sinulla on enemmän kokemusta tämän wikin muokkaamisesta, mutta voit:<ul><li>Julkaista käännöksesi luonnoksena omalla alasivullasi, ja se voidaan myöhemmin siirtää artikkeliksi.</li><li>Kääntää tämän artikkelin jollekin toiselle kielelle, jolla ei ole tätä rajoitusta.</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "Merkitse julkaistavaksi luonnoksena",
 	"cx-tools-linter-template": "Mallinetta ei ole",
