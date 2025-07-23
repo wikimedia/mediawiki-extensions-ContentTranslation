@@ -179,25 +179,6 @@ const showRefreshButton = computed(
       />
     </mw-card>
     <mw-card
-      v-if="showPageSuggestionsList"
-      ref="pageSuggestionsList"
-      class="cx-suggestion-list__page-suggestions pa-0 mb-0"
-    >
-      <h5
-        v-i18n:cx-suggestion-list-new-pages-division
-        class="cx-suggestion-list__division-title ma-0 pa-4"
-      />
-      <cx-translation-suggestion
-        v-for="(suggestion, index) in currentPageSuggestionsSlice"
-        :key="`page-suggestion-${index}`"
-        :suggestion="suggestion"
-        @close="discardPageSuggestion(suggestion)"
-        @click="startTranslation(suggestion)"
-        @bookmark="markFavoritePageSuggestion(suggestion)"
-      />
-      <mw-spinner v-if="showPageSuggestionLoadingIndicator" />
-    </mw-card>
-    <mw-card
       v-if="showSectionSuggestionsList"
       class="cx-suggestion-list__section-suggestions pa-0 mb-0"
     >
@@ -215,6 +196,25 @@ const showRefreshButton = computed(
         @bookmark="markFavoriteSectionSuggestion(suggestion)"
       />
       <mw-spinner v-if="showSectionSuggestionLoadingIndicator" />
+    </mw-card>
+    <mw-card
+      v-if="showPageSuggestionsList"
+      ref="pageSuggestionsList"
+      class="cx-suggestion-list__page-suggestions pa-0 mb-0"
+    >
+      <h5
+        v-i18n:cx-suggestion-list-new-pages-division
+        class="cx-suggestion-list__division-title ma-0 pa-4"
+      />
+      <cx-translation-suggestion
+        v-for="(suggestion, index) in currentPageSuggestionsSlice"
+        :key="`page-suggestion-${index}`"
+        :suggestion="suggestion"
+        @close="discardPageSuggestion(suggestion)"
+        @click="startTranslation(suggestion)"
+        @bookmark="markFavoritePageSuggestion(suggestion)"
+      />
+      <mw-spinner v-if="showPageSuggestionLoadingIndicator" />
     </mw-card>
     <cx-list-empty-placeholder
       v-if="showEmptyPlaceholder"
