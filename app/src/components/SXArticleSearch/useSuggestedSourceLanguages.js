@@ -11,10 +11,7 @@ import useURLHandler from "@/composables/useURLHandler";
  */
 const useSuggestedSourceLanguages = () => {
   const { supportedSourceLanguageCodes } = useSupportedLanguageCodes();
-  const {
-    sourceLanguageURLParameter: sourceLanguage,
-    targetLanguageURLParameter: targetLanguage,
-  } = useURLHandler();
+  const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
 
   const getSuggestedSourceLanguages = (previousLanguages) =>
     computed(() => {

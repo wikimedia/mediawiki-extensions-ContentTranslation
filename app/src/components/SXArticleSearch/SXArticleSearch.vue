@@ -54,7 +54,6 @@ const suggestedSourceLanguages = getSuggestedSourceLanguages(previousLanguages);
  * @type {ComputedRef<string[]>}
  */
 const sourceLanguageOptions = getSourceLanguageOptions(
-  sourceLanguage,
   suggestedSourceLanguages
 );
 const router = useRouter();

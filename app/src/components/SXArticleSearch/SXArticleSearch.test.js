@@ -4,7 +4,6 @@ import { createI18n } from "vue-banana-i18n";
 import { BreakpointsPlugin } from "../../lib/mediawiki.ui/plugins/";
 import mockStore from "./articleSearchMockStore";
 import { computed, ref } from "vue";
-import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
 import Page from "@/wiki/mw/models/page";
 
@@ -82,7 +81,6 @@ jest.mock(
   "@/composables/useTranslationStart",
   () => () => mockStartTranslation
 );
-jest.mock("./useSuggestedSourceLanguages", () => jest.fn());
 jest.mock("./useLanguageHistory", () => () => ({
   // Include "en" (mockSourceLanguage) since the component adds it on mount
   previousLanguages: { value: ["en", "bn"] },
@@ -102,13 +100,12 @@ getItemSpy.mockImplementation(getLocalStorageItem);
 jest.mock("@/store", () => jest.requireActual("./articleSearchMockStore"));
 jest.mock("vue-router", () => ({ useRouter: jest.fn() }));
 
-const mockUseSuggestedSourceLanguages = () => ({
-  getSuggestedSourceLanguages: (previousLanguages) =>
-    computed(() => [...previousLanguages.value, "ar", "ko"]),
-});
+const mockUseSuggestedSourceLanguages = (previousLanguages) =>
+  computed(() => [...previousLanguages.value, "ar", "ko"]);
 
-useSuggestedSourceLanguages.mockImplementation(mockUseSuggestedSourceLanguages);
-
+jest.mock("./useSuggestedSourceLanguages", () => () => ({
+  getSuggestedSourceLanguages: mockUseSuggestedSourceLanguages,
+}));
 const i18n = createI18n();
 
 describe("SXArticleSearch component test", () => {
