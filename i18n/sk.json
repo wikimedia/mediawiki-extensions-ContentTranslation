@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"AlesFiala2002",
 			"Dušan Kreheľ",
 			"Kusavica",
 			"Luky001",
@@ -179,7 +180,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Existuje v $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sekcia v $1",
 	"cx-sx-translation-confirmer-title": "Nový preklad",
-	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 zobrazenie/|$1 zobrazenia/|$1 zobrazení/|0=Źiadne zobrazenia tento }}týždeň",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 zobrazenie/|$1 zobrazenia/|$1 zobrazení/|0=Žiadne zobrazenia tento }}týždeň",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 hodina||$1 hodiny|$1 hodín|0={{PLURAL:$2|$2 minúta|$2 minúty|$2 minút}}}} prekladania",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 hodina|$1 hodiny|$1 hodín|0={{PLURAL:$2|$2 minúta|$2 minúty|$2 minút}}}} na preklad {{PLURAL:$3|$3 sekcie|$3 sekcií}}",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Váš preklad bude pridaný sem",
