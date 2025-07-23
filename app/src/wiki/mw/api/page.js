@@ -229,7 +229,7 @@ const fetchSegmentedContent = (
  * @param language
  * @return {Promise<Page[]>}
  */
-const fetchNearbyPages = async (language) => {
+const fetchNearbyPages = (language) => {
   const coords = getUserCoordinates();
 
   if (!coords) {
@@ -251,12 +251,13 @@ const fetchNearbyPages = async (language) => {
     origin: "*",
   };
 
-  return await siteMapper
-    .getApi(language)
-    .get(params)
-    .then((response) => response.query.pages)
-    .then((pages) => pages.map((page) => new Page(page)))
-    .catch((error) => []);
+  return new Promise((resolve) => {
+    const jQueryPromise = siteMapper.getApi(language).get(params);
+
+    jQueryPromise
+      .then((response) => resolve(response?.query?.pages || []))
+      .fail(() => resolve([]));
+  }).then((pages) => pages.map((page) => new Page(page)));
 };
 
 /**
