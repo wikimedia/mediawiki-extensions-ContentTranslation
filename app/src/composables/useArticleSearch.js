@@ -40,8 +40,12 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
   }, 500);
 
   const refreshSearch = () => {
-    searchResultsLoading.value = true;
     searchResults.value = [];
+
+    if (!searchInput.value) {
+      return;
+    }
+    searchResultsLoading.value = true;
 
     debouncedSearchForArticles();
   };
