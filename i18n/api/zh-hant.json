@@ -48,8 +48,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "目標語言代碼。",
 	"apihelp-query+cxpublishedtranslations-param-limit": "要取得的翻譯數量上限。",
 	"apihelp-query+cxpublishedtranslations-example-1": "取得所有已發布的翻譯",
-	"apihelp-query+cxpublishedtranslations-example-2": "取得所有自英文已發布的翻譯",
-	"apihelp-query+cxpublishedtranslations-example-3": "取得所有從英文翻譯為西班牙文已發布的翻譯",
 	"apihelp-cxtoken-summary": "以 cxserver 取得 JWT 令牌來驗證。",
 	"apihelp-cxtoken-example-1": "取得 cxserver 的驗證令牌",
 	"apihelp-cxdelete-summary": "刪除使用內容翻譯擴充套件所建立的草稿翻譯。",

@@ -19,8 +19,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Kaodim-piteny loharano.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Kaodim-piteny tanjona.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Haka ny dikanteny rehetra navoaka",
-	"apihelp-query+cxpublishedtranslations-example-2": "Haka ny dikanteny rehetra navoaka, nodikaina avy tamin'ny teny anglisy",
-	"apihelp-query+cxpublishedtranslations-example-3": "Haka ny dikanteny rehetra navoaka, nodikaina ami'nny teny espaniola avy tamin'ny teny anglisy",
 	"apihelp-cxtoken-example-1": "Hampiasa ny token famantarana ho an'ny cxserver",
 	"apihelp-cxdelete-param-from": "Kaodim-piteny loharano.",
 	"apihelp-cxdelete-param-to": "Kaodim-piteny tanjona.",

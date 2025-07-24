@@ -38,8 +38,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Il codice della lingua di destinazione.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Il numero massimo di traduzioni da recuperare.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Recupera tutte le traduzioni pubblicate",
-	"apihelp-query+cxpublishedtranslations-example-2": "Recupera tutte le traduzioni pubblicate tradotte dall'inglese",
-	"apihelp-query+cxpublishedtranslations-example-3": "Recupera tutte le traduzioni pubblicate tradotte dall'inglese allo spagnolo",
 	"apihelp-cxtoken-summary": "Ottieni token JWT per l'autenticazione con cxserver.",
 	"apihelp-cxtoken-example-1": "Recupera il token di autenticazione per cxserver",
 	"apihelp-cxdelete-param-from": "Il codice della lingua di origine.",

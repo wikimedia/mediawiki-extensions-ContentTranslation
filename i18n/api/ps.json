@@ -19,8 +19,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "د سرچينې د ژبې کوډ.",
 	"apihelp-query+cxpublishedtranslations-param-to": "د موخې د ژبې کوډ.",
 	"apihelp-query+cxpublishedtranslations-example-1": "ټولې خپرې شوې ژباړې راغونډول",
-	"apihelp-query+cxpublishedtranslations-example-2": "له انگرېزي څخه ژباړل شوې، ټولې ژباړې راغونډول",
-	"apihelp-query+cxpublishedtranslations-example-3": "له انگرېزي څخه هسپاني ته ژباړل شوې، ټولې ژباړې راغونډول",
 	"apihelp-cxdelete-param-from": "د سرچينې د ژبې کوډ",
 	"apihelp-cxdelete-param-to": "د موخې د ژبې کوډ",
 	"apihelp-cxdelete-param-sourcetitle": "د سرچينې مخ سرليک",

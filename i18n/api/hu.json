@@ -30,8 +30,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "A forrásnyelv kódja.",
 	"apihelp-query+cxpublishedtranslations-param-to": "A célnyelv kódja.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Összes közzétett fordítás begyűjtése",
-	"apihelp-query+cxpublishedtranslations-example-2": "Az összes közzétett fordítás begyűjtése, amit angolból fordítottak",
-	"apihelp-query+cxpublishedtranslations-example-3": "Az összes közzétett fordítás begyűjtése, amit angolról spanyolra fordítottak",
 	"apihelp-cxdelete-param-from": "A forrásnyelv kódja.",
 	"apihelp-cxdelete-param-to": "A célnyelv kódja.",
 	"apihelp-cxdelete-param-sourcetitle": "A forráscikk címe.",

@@ -36,8 +36,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Kod izvornog jezika.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Kod ciljnog jezika.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Uzmi sve objavljene prevode",
-	"apihelp-query+cxpublishedtranslations-example-2": "Uzmi sve objavljene prevode, prevedene sa engleskog",
-	"apihelp-query+cxpublishedtranslations-example-3": "Uzmi sve objavljene prevode, prevedene sa engleskog na španski",
 	"apihelp-cxtoken-example-1": "Preuzmi token za potvrdu identiteta za cxserver",
 	"apihelp-cxdelete-param-from": "Kod izvornog jezika.",
 	"apihelp-cxdelete-param-to": "Kod ciljnog jezika.",

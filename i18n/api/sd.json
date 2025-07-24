@@ -30,8 +30,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "مقصود ٻولي جو ڪوڊ.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "کڻڻ لاءِ ترجمن جو وڌ۾وڌ انگ.",
 	"apihelp-query+cxpublishedtranslations-example-1": "سڀ ڇاپيل ترجما ڪڍو",
-	"apihelp-query+cxpublishedtranslations-example-2": "انگريزي مان ترجمو ڪيل، سڀ ڇاپيل ترجما ڪڍو",
-	"apihelp-query+cxpublishedtranslations-example-3": "انگريزي کان اسپيني ۾ ترجمو ڪيل، سڀ ڇاپيل ترجما کڻو",
 	"apihelp-cxdelete-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
 	"apihelp-cxdelete-param-to": "مقصود ٻولي جو ڪوڊ.",
 	"apihelp-cxdelete-param-sourcetitle": "ذريعاتي صفحي جو عنوان.",

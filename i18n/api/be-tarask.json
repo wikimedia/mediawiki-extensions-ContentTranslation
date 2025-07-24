@@ -21,8 +21,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Код мовы-крыніцы.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Код мэтавай мовы.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Атрыманьне ўсіх апублікаваных перакладаў",
-	"apihelp-query+cxpublishedtranslations-example-2": "Атрыманьне ўсіх апублікаваных перакладаў з ангельскай мовы",
-	"apihelp-query+cxpublishedtranslations-example-3": "Атрыманьне ўсіх апублікаваных перакладаў з ангельскай на гішпанскую мову",
 	"apihelp-cxtoken-example-1": "Атрымаць токен аўтэнтыфікацыі для cxserver",
 	"apihelp-cxdelete-param-from": "Код крынічнай мовы.",
 	"apihelp-cxdelete-param-to": "Код мэтавай мовы.",

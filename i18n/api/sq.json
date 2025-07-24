@@ -45,8 +45,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Kodi i gjuhës në të cilën do të bëhet përkthimi.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Numri maksimal i përkthimeve për të marrë.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Merri të gjitha përkthimet e publikuara",
-	"apihelp-query+cxpublishedtranslations-example-2": "Merri të gjitha përkthimet e publikuara, të përkthyera nga gjuha Angleze",
-	"apihelp-query+cxpublishedtranslations-example-3": "Merri të gjitha përkthimet e publikuara, të përkthyera nga gjuha Angleze në atë Spanjolle",
 	"apihelp-cxtoken-summary": "Merrni argumentet JWT për t'u vërtetuar me cxserver.",
 	"apihelp-cxtoken-example-1": "Merrni shenjën e vërtetimit për cxserver",
 	"apihelp-cxdelete-summary": "Fshini draftpërkthimin e krijuar duke përdorur zgjatimin e Përkthimit të Përmbajtjes.",

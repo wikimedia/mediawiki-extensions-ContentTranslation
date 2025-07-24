@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"JeffreyKim"
+		]
+	},
+	"automatic-translation-special-page-description": "自動翻譯",
+	"automatic-translation-desc": "為內容頁面提供[[Special:AutomaticTranslation|自動翻譯]]。",
+	"mint-home-header-title": "自動翻譯",
+	"mint-home-input-placeholder": "搵個主題 ...",
+	"mint-translation-list-all-languages-option-label": "全部",
+	"mint-home-info-panel-text": "維基百科上面有幾百萬個主題可以自動轉換成 $1。",
+	"mint-home-random-topic-button-label": "隨機主題",
+	"ax-home-random-topic-loading-label": "撈緊入去…",
+	"ax-home-random-topic-error": "擷取隨機主題嗰陣遇到錯誤",
+	"ax-home-error-title": "攞文章嗰陣遇到錯誤 $1。",
+	"mint-home-experimental-note": "自動翻譯支援仲係實驗性嘅。[$1知多啲]",
+	"mint-language-selector-title": "語言",
+	"mint-language-selector-suggestions-header": "建議",
+	"mint-language-selector-all-languages-header": "所有語言",
+	"mint-language-selector-input-placeholder": "揀一種語言",
+	"mint-language-selector-no-search-results": "冇結果",
+	"mint-search-topic-page-header": "搵個主題",
+	"mint-search-topic-page-input-placeholder": "搵個主題",
+	"mint-search-topic-page-input-aria-label": "搵MinT嘅輸入",
+	"mint-search-topic-page-results-container-empty": "搵任何主題。每種語言嘅主題內容可能都唔同。",
+	"mint-confirm-topic-page-header": "自動翻譯",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "睇一個自動翻譯",
+	"ax-translation-view-feedback-confirm-description": "多謝你幫手！你可以分享任何其他關於呢個實驗嘅諗法[https://www.mediawiki.org/wiki/Talk:MinT 喺項目討論頁]。",
+	"ax-cx-failed-translation-label": "翻譯失敗"
+}

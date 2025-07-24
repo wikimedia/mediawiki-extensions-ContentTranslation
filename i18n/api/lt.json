@@ -43,8 +43,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Kalbos, į kurią verčiama, kodas.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Maksimalus vertimų skaičius, kurį grąžinti.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Iškviesti visus paskelbtus vertimus",
-	"apihelp-query+cxpublishedtranslations-example-2": "Iškviesti visus paskelbtus vertimus iš anglų kalbos",
-	"apihelp-query+cxpublishedtranslations-example-3": "Iškviesti visus paskelbtus vertimus iš anglų į ispanų kalbą",
 	"apihelp-cxtoken-example-1": "Gauti cxserver autentikacijos raktą",
 	"apihelp-cxdelete-param-from": "Originalo kalbos kodas.",
 	"apihelp-cxdelete-param-to": "Kalbos, į kurią verčiama, kodas.",

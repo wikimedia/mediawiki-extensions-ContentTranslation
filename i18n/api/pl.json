@@ -36,8 +36,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Kod języka docelowego.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Maksymalna liczba zwracanych tłumaczeń.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Pobierz wszystkie opublikowane tłumaczenia",
-	"apihelp-query+cxpublishedtranslations-example-2": "Pobierz wszystkie opublikowane tłumaczenia z angielskiego",
-	"apihelp-query+cxpublishedtranslations-example-3": "Pobierz wszystkie opublikowane tłumaczenia z angielskiego na hiszpański",
 	"apihelp-cxdelete-param-from": "Źródłowy kod języka.",
 	"apihelp-cxdelete-param-to": "Docelowy kod język.",
 	"apihelp-cxdelete-param-sourcetitle": "Tytuł strony źródłowej.",

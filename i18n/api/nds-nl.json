@@ -19,8 +19,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "De kode van de brontaal.",
 	"apihelp-query+cxpublishedtranslations-param-to": "De kode van de doeltaal.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Laot alle uutebröchten vertalingen zien",
-	"apihelp-query+cxpublishedtranslations-example-2": "Laot alle uutebröchten vertalingen zien die vertaald bin vanuut t Engels",
-	"apihelp-query+cxpublishedtranslations-example-3": "Laot alle uutebröchten vertalingen zien die vertaald bin vanuut t Engels naor t Spaans",
 	"apihelp-cxdelete-param-from": "De kode van de brontaal.",
 	"apihelp-cxdelete-param-to": "De kode van de doeltaal.",
 	"apihelp-cxdelete-param-sourcetitle": "De titel van de bronzied.",

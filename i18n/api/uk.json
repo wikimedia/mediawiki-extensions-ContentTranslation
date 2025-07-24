@@ -48,8 +48,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Код цільової мови.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Максимальне число перекладів для виведення.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Переглянути всі опубліковані переклади",
-	"apihelp-query+cxpublishedtranslations-example-2": "Переглянути всі опубліковані переклади, перекладені з англійської",
-	"apihelp-query+cxpublishedtranslations-example-3": "Переглянути всі опубліковані переклади, перекладені з англійської на іспанську",
 	"apihelp-cxtoken-summary": "Отримати токени JWT для автентифікації з cxserver.",
 	"apihelp-cxtoken-example-1": "Отримати токен автентифікації для cxserver",
 	"apihelp-cxdelete-summary": "Вилучити чернетку перекладу, створену за допомогою розширення ContentTranslation.",

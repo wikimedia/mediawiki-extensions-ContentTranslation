@@ -57,8 +57,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Код целевого языка.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Максимальное число возвращаемых переводов.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Выборка всех опубликованных переводов",
-	"apihelp-query+cxpublishedtranslations-example-2": "Выборка всех опубликованных переводов, переведённых с английского",
-	"apihelp-query+cxpublishedtranslations-example-3": "Выборка всех опубликованных переводов, переведённых с английского на испанский",
 	"apihelp-cxtoken-summary": "Получить токены JWT для аутентификации с помощью cxserver.",
 	"apihelp-cxtoken-example-1": "Получить токен аутентификации для cxserver",
 	"apihelp-cxdelete-summary": "Удалить черновой перевод, созданный с помощью расширения «Инструмент перевода».",

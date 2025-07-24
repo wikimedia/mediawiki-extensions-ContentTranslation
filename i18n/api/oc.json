@@ -15,8 +15,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Lo còdi de lenga font.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Lo nombre maximal de traduccions d'obténer.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Recuperar totas las traduccions publicadas",
-	"apihelp-query+cxpublishedtranslations-example-2": "Recuperar totas las traduccions publicadas, traduitas de l’anglés",
-	"apihelp-query+cxpublishedtranslations-example-3": "Recuperar totas las traduccions publicadas, traduitas de l’anglés en espanhòl",
 	"apihelp-cxdelete-param-from": "Lo còdi de lenga font.",
 	"apihelp-cxsave-param-from": "Lo còdi de lenga font."
 }

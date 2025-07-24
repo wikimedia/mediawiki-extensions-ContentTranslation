@@ -21,8 +21,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Բնօրինակ լեզվի կոդը։",
 	"apihelp-query+cxpublishedtranslations-param-to": "Թիրախային լեզվի կոդը։",
 	"apihelp-query+cxpublishedtranslations-example-1": "Ընտրել բոլոր հրապարակված թարգմանությունները",
-	"apihelp-query+cxpublishedtranslations-example-2": "Ընտրել բոլոր հրապարակված թարգմանությունները, որոնք թարգմանվել են անգլերենից",
-	"apihelp-query+cxpublishedtranslations-example-3": "Ընտրել բոլոր հրապարակված թարգմանությունները, որոնք թարգմանվել են անգլերենից իսպաներեն",
 	"apihelp-cxdelete-param-from": "Բնօրինակ լեզվի կոդը։",
 	"apihelp-cxdelete-param-to": "Թիրախային լեզվի կոդը։",
 	"apihelp-cxdelete-param-sourcetitle": "Բնօրինակ էջի վերնագիրը։",

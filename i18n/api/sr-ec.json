@@ -43,8 +43,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Код изворног језика.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Код циљног језика.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Узми све објављене преводе",
-	"apihelp-query+cxpublishedtranslations-example-2": "Узми све објављене преводе, преведене са енглеског",
-	"apihelp-query+cxpublishedtranslations-example-3": "Узми све објављене преводе, преведене са енглеског на шпански",
 	"apihelp-cxtoken-example-1": "Преузми токен за потврду идентитета за cxserver",
 	"apihelp-cxdelete-param-from": "Код изворног језика.",
 	"apihelp-cxdelete-param-to": "Код циљног језика.",

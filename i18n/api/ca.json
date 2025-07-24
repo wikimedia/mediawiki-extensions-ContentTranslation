@@ -29,8 +29,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Codi de la llengua d'origen.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Codi de la llengua de destí.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Recupera totes les traduccions publicades",
-	"apihelp-query+cxpublishedtranslations-example-2": "Recupera totes les traduccions publicades, traduïdes de l'anglès",
-	"apihelp-query+cxpublishedtranslations-example-3": "Recupera totes les traduccions publicades, traduïdes de l'anglès a l'espanyol",
 	"apihelp-cxdelete-param-from": "El codi de la llengua origen.",
 	"apihelp-cxdelete-param-to": "El codi de la llengua de destí.",
 	"apihelp-cxdelete-param-sourcetitle": "El títol de la pàgina d'origen.",

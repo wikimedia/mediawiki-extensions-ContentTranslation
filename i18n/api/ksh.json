@@ -21,8 +21,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Et Köözel för de Quälleschprohch",
 	"apihelp-query+cxpublishedtranslations-param-to": "Et Köözel för de Zihlschprohch",
 	"apihelp-query+cxpublishedtranslations-example-1": "Holl alle öffentlesch jemaate Övversäzonge",
-	"apihelp-query+cxpublishedtranslations-example-2": "Holl alle öffentlesch jemaate Övversäzonge uss_em Änglesche",
-	"apihelp-query+cxpublishedtranslations-example-3": "Holl alle öffentlesch jemaate Övversäzonge uss_em Änglesche ent Schpahnesche",
 	"apihelp-cxtoken-example-1": "Fetch the authentication token for cxserver <!--  https://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Apihelp-cxtoken-example-1/en -->",
 	"apihelp-cxdelete-param-from": "Et Köözel för de Quälleschprohch.",
 	"apihelp-cxdelete-param-to": "Et Köözel för de Zihlschprohch.",

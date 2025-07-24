@@ -29,8 +29,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "'O codece d' 'a lengua destinazione.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "'O nummero massimo 'e traduziune ca s'avess'a turnà.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Arrepiglia p' 'e mmusta tutt' 'e traduziune pubbrecate",
-	"apihelp-query+cxpublishedtranslations-example-2": "Arrepiglia p' 'e mmustà, tutt' 'e traduziune pubbrecate, traduciute 'a ll'ingrese",
-	"apihelp-query+cxpublishedtranslations-example-3": "Arrepiglia p' 'e mmustà, tutt' 'e traduziune pubbrecate traduciute 'a ll'ingrese mmerz' 'o spagnuolo",
 	"apihelp-cxtoken-example-1": "Arrepiglia p' 'e mmustà 'o token autenticazione p' 'o cxserver",
 	"apihelp-cxdelete-param-from": "'O codece d' 'a lengua origgene.",
 	"apihelp-cxdelete-param-to": "'O codece d' 'a lengua destinaziona.",

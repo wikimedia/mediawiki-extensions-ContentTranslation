@@ -48,8 +48,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Kód cílového jazyka.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Maximální počet překladů je načten.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Načtěte všechny publikované překlady",
-	"apihelp-query+cxpublishedtranslations-example-2": "Načíst všechny publikované překlady přeložené z angličtiny",
-	"apihelp-query+cxpublishedtranslations-example-3": "Načíst všechny publikované překlady přeložené z angličtiny do španělštiny",
 	"apihelp-cxtoken-summary": "Získejte JWT žetony pro ověřování pomocí cxserveru.",
 	"apihelp-cxtoken-example-1": "Získat autentizační token pro cxserver",
 	"apihelp-cxdelete-summary": "Smazat koncept překladů vytvořený pomocí rozšíření Překlad Obsahu.",

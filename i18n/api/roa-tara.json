@@ -43,8 +43,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "'U codece d'a lènghe de destinazione.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "'U numere massime de traduziune da analizzà.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Pigghie tutte le traduziune pubblecate",
-	"apihelp-query+cxpublishedtranslations-example-2": "Pigghie tutte le traduziune pubblecate, tradotte da 'u 'nglese",
-	"apihelp-query+cxpublishedtranslations-example-3": "Pigghie tutte le traduziune pubblecate, tradotte da 'u 'nglese a 'u spagnole",
 	"apihelp-cxtoken-summary": "Pigghie le gettore JWT pe autendicà cu cxserver.",
 	"apihelp-cxtoken-example-1": "Pigghie 'u de autendicazione pe cxserver",
 	"apihelp-cxdelete-summary": "Scangìlle 'na bozze de traduzione ccrejate ausanne l'estenzione Content Translation.",

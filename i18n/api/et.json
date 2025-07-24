@@ -22,8 +22,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Lähtekeele kood.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Sihtkeele kood.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Väljavõte kõigist avaldatud tõlgetest",
-	"apihelp-query+cxpublishedtranslations-example-2": "Väljavõte kõigist avaldatud tõlgetest, mis on tõlgitud inglise keelest",
-	"apihelp-query+cxpublishedtranslations-example-3": "Väljavõte kõigist avaldatud tõlgetest, mis on tõlgitud inglise keelest hispaania keelde",
 	"apihelp-cxdelete-param-from": "Lähtekeele kood.",
 	"apihelp-cxdelete-param-to": "Sihtkeele kood.",
 	"apihelp-cxdelete-param-sourcetitle": "Lähtelehekülje pealkiri.",

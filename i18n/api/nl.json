@@ -50,8 +50,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "De code van de doeltaal.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Het maximale aantal vertalingen dat moet worden opgehaald.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Geef alle gepubliceerde vertalingen",
-	"apihelp-query+cxpublishedtranslations-example-2": "Geef alle gepubliceerde vertalingen die vertaald zijn uit het Engels",
-	"apihelp-query+cxpublishedtranslations-example-3": "Geef alle gepubliceerde vertalingen die vertaald zijn van het Engels naar het Spaans",
 	"apihelp-cxtoken-summary": "JWT-tokens ophalen om te authenticeren met cxserver.",
 	"apihelp-cxtoken-example-1": "Het authenticatietoken voor cxserver ophalen",
 	"apihelp-cxdelete-summary": "Een met de Content Translation-extensie gemaakte conceptvertaling verwijderen.",

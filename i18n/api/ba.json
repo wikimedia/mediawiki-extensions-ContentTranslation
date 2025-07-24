@@ -36,8 +36,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Тәржемә теле коды.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Һайлап алыу өсөн тәржемә тәҡдимдәренең иң күбе.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Барлыҡ баҫтырылған тәржемәләрҙең һайланмаһы",
-	"apihelp-query+cxpublishedtranslations-example-2": "Инглиз теленән эшләнгән барлыҡ баҫтырылған тәржемәләрҙең һайланмаһы",
-	"apihelp-query+cxpublishedtranslations-example-3": "Инглиз теленән испан теленә эшләнгән барлыҡ баҫтырылған тәржемәләрҙең һайланмаһы",
 	"apihelp-cxdelete-param-from": "Баштағы телдең коды.",
 	"apihelp-cxdelete-param-to": "Тәржемә теле коды.",
 	"apihelp-cxdelete-param-sourcetitle": "Башланғыс биттең исеме.",

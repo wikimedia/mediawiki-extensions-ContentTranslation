@@ -60,8 +60,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Le code de la langue cible.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Le nombre maximal de traductions à renvoyer.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Récupérer toutes les traductions publiées",
-	"apihelp-query+cxpublishedtranslations-example-2": "Récupérer toutes les traductions publiées, traduites de l’anglais",
-	"apihelp-query+cxpublishedtranslations-example-3": "Récupérer toutes les traductions publiées, traduites de l’anglais en espagnol",
 	"apihelp-cxtoken-summary": "Obtenir des jetons JWT pour l’authentifications avec cxserver.",
 	"apihelp-cxtoken-example-1": "Récupérer le jeton d’authentification pour cxserver",
 	"apihelp-cxdelete-summary": "Supprimer un brouillon de traduction créé en utilisant l’extension de Traduction de contenu.",

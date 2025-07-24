@@ -23,8 +23,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Die kode vir die brontaal.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Die kode vir die teikentaal.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Haal alle gepubliseerde vertalings",
-	"apihelp-query+cxpublishedtranslations-example-2": "Haal alle gepubliseerde vertalings wat vanaf Engels vertaal is",
-	"apihelp-query+cxpublishedtranslations-example-3": "Kry alle gepubliseerde vertalings wat vanaf Engels in Spaans vertaal is",
 	"apihelp-cxdelete-param-from": "Die kode vir die brontaal.",
 	"apihelp-cxdelete-param-to": "Die kode vir die teikentaal.",
 	"apihelp-cxdelete-param-sourcetitle": "Die titel van die bronartikel.",

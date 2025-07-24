@@ -31,8 +31,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Тылбаастыыр тылыҥ куода.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Төннөрүллэр тылбаастаар муҥутуур ахсааннара.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Бэчээттэммит тылбаастар барыта",
-	"apihelp-query+cxpublishedtranslations-example-2": "Ааҥыл тылыттан тылбаастаммыт барыта",
-	"apihelp-query+cxpublishedtranslations-example-3": "Ааҥыл тылыттан испаан тылыгар тылбаастаммыт барыта",
 	"apihelp-cxdelete-summary": "Өс Тылбааһын көмөтүнэн оҥоһуллубут баллыр тылбааһы суох гын.",
 	"apihelp-cxdelete-param-from": "Тылбаастанар тыл куода.",
 	"apihelp-cxdelete-param-to": "Тылбаастыыр тылыҥ куода.",

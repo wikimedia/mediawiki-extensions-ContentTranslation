@@ -20,8 +20,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "ಮೂಲ ಭಾಷೆಯ ಸಂಕೇತ.",
 	"apihelp-query+cxpublishedtranslations-param-to": "ಉದ್ದೇಶಿತ ಭಾಷೆಯ ಸಂಕೇತ.",
 	"apihelp-query+cxpublishedtranslations-example-1": "ಎಲ್ಲ ಪ್ರಕಟಿತ ಅನುವಾದಗಳನ್ನು ಪಡೆ",
-	"apihelp-query+cxpublishedtranslations-example-2": "ಎಲ್ಲ ಪ್ರಕಟಿತ ಅನುವಾದಗಳನ್ನು ಪಡೆ, ಇಂಗ್ಲೀಷ್‌ನಿಂದ ಅನುವಾದಗೊಂಡವು",
-	"apihelp-query+cxpublishedtranslations-example-3": "ಎಲ್ಲ ಪ್ರಕಟಿತ ಅನುವಾದಗಳನ್ನು ಪಡೆ, ಇಂಗ್ಲೀಷ್‌ನಿಂದ ಸ್ಪ್ಯಾನಿಷ್‌ಗೆ ಅನುವಾದಗೊಂಡವು",
 	"apihelp-cxdelete-param-from": "ಮೂಲ ಭಾಷೆಯ ಸಂಕೇತ.",
 	"apihelp-cxdelete-param-to": "ಉದ್ದೇಶಿತ ಭಾಷೆಯ ಸಂಕೇತ.",
 	"apihelp-cxdelete-param-sourcetitle": "ಮೂಲ ಪುಟದ ಶೀರ್ಷಿಕೆ.",

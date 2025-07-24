@@ -42,8 +42,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "লক্ষ্য ভাষার কোড।",
 	"apihelp-query+cxpublishedtranslations-param-limit": "আনয়ন যোগ্য অনুবাদের সর্বাধিক সংখ্যা৷",
 	"apihelp-query+cxpublishedtranslations-example-1": "সব প্রকাশিত অনুবাদ নিয়ে আসে",
-	"apihelp-query+cxpublishedtranslations-example-2": "ইংরেজি থেকে অনূদিত, সব প্রকাশিত অনুবাদ নিয়ে আসে",
-	"apihelp-query+cxpublishedtranslations-example-3": "ইংরেজি থেকে স্পেনীয়তে অনূদিত, সব প্রকাশিত অনুবাদ নিয়ে আসে",
 	"apihelp-cxtoken-example-1": "Cxserver-এর জন্য প্রমাণীকরণ টোকেন আনে",
 	"apihelp-cxdelete-summary": "বিষয়বস্তু অনুবাদ এক্সটেনশন ব্যবহার করে তৈরি করা একটি খসড়া অনুবাদ মুছুন।",
 	"apihelp-cxdelete-param-from": "উৎস ভাষার কোড।",

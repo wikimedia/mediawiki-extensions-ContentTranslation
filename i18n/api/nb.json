@@ -48,8 +48,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Språkkode for målspråket.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Maksimalt antall oversettelser som skal hentes.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Hent alle publiserte oversettelser",
-	"apihelp-query+cxpublishedtranslations-example-2": "Hent alle publiserte oversettelser, oversatt fra engelsk",
-	"apihelp-query+cxpublishedtranslations-example-3": "Hent alle publiserte oversettelser, oversatt fra engelsk til spansk",
 	"apihelp-cxtoken-summary": "Hent JWT-tegn for å autentisere mot cxserver.",
 	"apihelp-cxtoken-example-1": "Hent autentiseringsnøkkel for cxserver",
 	"apihelp-cxdelete-summary": "Slett en oversettelseskladd som bruker innholdsoversettelsesutvidelsen.",

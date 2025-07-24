@@ -50,8 +50,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "El código del idioma de destino.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "El número máximo de traducciones que se obtendrán.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Obtener todas las traducciones publicadas",
-	"apihelp-query+cxpublishedtranslations-example-2": "Obtener todas las traducciones publicadas, traducidas del inglés",
-	"apihelp-query+cxpublishedtranslations-example-3": "Obtener todas las traducciones publicadas, traducidas del inglés al español",
 	"apihelp-cxtoken-example-1": "Obtener el \"token\" de autenticación para cxserver",
 	"apihelp-cxdelete-param-from": "El código del idioma de origen.",
 	"apihelp-cxdelete-param-to": "El código del idioma de destino.",

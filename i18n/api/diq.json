@@ -22,8 +22,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Çıme qodê zıwani",
 	"apihelp-query+cxpublishedtranslations-param-to": "Hedef Çımey zıwani",
 	"apihelp-query+cxpublishedtranslations-example-1": "Pêro tadayışanê (çarnayışanê) çabiyaeyan biyare",
-	"apihelp-query+cxpublishedtranslations-example-2": "İngılızki beşr bıyaye açarnayışa pêrona bıya",
-	"apihelp-query+cxpublishedtranslations-example-3": "İngılızki ra İspanyolki neşr bıyaye açarnayışa pêrona bıya",
 	"apihelp-cxdelete-param-from": "Çıme qodê zıwani",
 	"apihelp-cxdelete-param-to": "Hedef Çımey zıwani",
 	"apihelp-cxdelete-param-sourcetitle": "Sernamey pelada çımi",

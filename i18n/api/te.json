@@ -34,8 +34,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "గమ్య భాష కోడ్.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "తీసుకు రావాల్సిన గరిష్ఠ అనువాదాల సంఖ్య.",
 	"apihelp-query+cxpublishedtranslations-example-1": "ప్రచిరించిన అనువాదాలన్నిటినీ తీసుకురా",
-	"apihelp-query+cxpublishedtranslations-example-2": "ఇంగ్లీషు నుండి అనువదించి, ప్రచిరించిన అనువాదాలన్నిటినీ తీసుకురా",
-	"apihelp-query+cxpublishedtranslations-example-3": "ఇంగ్లీషు నుండి స్పానిష్ లోకి అనువదించి, ప్రచిరించిన అనువాదాలన్నిటినీ తీసుకురా",
 	"apihelp-cxdelete-summary": "అనువాద పరికరం పొడిగింత ద్వారా సృష్టించిన ముసాయిదా అనువాదాన్ని తొలగించు.",
 	"apihelp-cxdelete-param-from": "మూల భాష కోడ్.",
 	"apihelp-cxdelete-param-to": "గమ్య భాష కోడ్.",

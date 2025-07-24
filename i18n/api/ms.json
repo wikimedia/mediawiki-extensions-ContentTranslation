@@ -30,8 +30,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Kod bahasa sasaran.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Nombor maksimum terjemahan-terjemahan untuk mengambil.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Ambil semua terjemahan yang tertebit",
-	"apihelp-query+cxpublishedtranslations-example-2": "Ambil semua terjemahan yang tertebit, diterjemahkan dari Inggeris",
-	"apihelp-query+cxpublishedtranslations-example-3": "Ambil semua terjemahan yang tertebit, diterjemahkan dari Inggeris ke Sepanyol",
 	"apihelp-cxtoken-example-1": "Dapatkan token pengesahan untuk cxserver",
 	"apihelp-cxdelete-param-from": "Kod bahasa sumber.",
 	"apihelp-cxdelete-param-to": "Kod bahasa sasaran.",

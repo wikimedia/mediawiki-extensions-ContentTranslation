@@ -54,8 +54,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Hedef dil kodu.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Alınacak maksimum çeviri sayısı.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Tüm yayımlanmış çevirileri getirin",
-	"apihelp-query+cxpublishedtranslations-example-2": "İngilizceden yapılan tüm yayımlanmış çevirileri getirin",
-	"apihelp-query+cxpublishedtranslations-example-3": "İngilizceden İspanyolcaya yapılan tüm yayımlanmış çevirileri getirin",
 	"apihelp-cxtoken-summary": "Cxserver ile kimlik doğrulaması yapmak için JWT anahtarlarını alın.",
 	"apihelp-cxtoken-example-1": "Cxserver için kimlik doğrulama anahtarını getirin",
 	"apihelp-cxdelete-summary": "İçerik Çevirisi uzantısı kullanılarak oluşturulan taslak çeviriyi silin.",

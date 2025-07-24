@@ -46,8 +46,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Koda ciljnega jezika.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Največje število pridobljenih prevodov.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Pridobi vse objavljene prevode",
-	"apihelp-query+cxpublishedtranslations-example-2": "Pridobi vse objavljene prevode, prevedene iz angleščine",
-	"apihelp-query+cxpublishedtranslations-example-3": "Pridobi vse objavljene prevode, prevedene iz angleščine v španščino",
 	"apihelp-cxtoken-summary": "Pridobi žetone JWT za avtentikacijo s cxserver.",
 	"apihelp-cxtoken-example-1": "Pridobi avtentikacijski žeton za cxserver.",
 	"apihelp-cxdelete-summary": "Izbrišite osnutek prevoda, ki je bil ustvarjen z Wikiprevajalnikom.",

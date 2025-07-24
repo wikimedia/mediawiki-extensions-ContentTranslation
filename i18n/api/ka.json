@@ -20,8 +20,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "წყაროს ენის კოდი.",
 	"apihelp-query+cxpublishedtranslations-param-to": "სამიზნე ენის კოდი.",
 	"apihelp-query+cxpublishedtranslations-example-1": "ყველა გამოქვეყნებული თარგმანის ამოკრება",
-	"apihelp-query+cxpublishedtranslations-example-2": "ინგლისურიდან თარგმნილი ყველა გამოქვეყნებული თარგმანის ამოკრება",
-	"apihelp-query+cxpublishedtranslations-example-3": "ინგლისურიდან ესპანურზე თარგმნილი ყველა გამოქვეყნებული თარგმანის ამოკრება",
 	"apihelp-cxdelete-param-from": "წყაროს ენის კოდი.",
 	"apihelp-cxdelete-param-to": "სამიზნე ენის კოდი.",
 	"apihelp-cxdelete-param-sourcetitle": "წყაროს გვერდის სათაური.",

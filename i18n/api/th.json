@@ -32,8 +32,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-query+cxpublishedtranslations-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-query+cxpublishedtranslations-example-1": "ดึงข้อมูลการแปลที่เผยแพร่แล้วทั้งหมด",
-	"apihelp-query+cxpublishedtranslations-example-2": "ดึงข้อมูลการแปลที่เผยแพร่แล้วทั้งหมด ที่แปลจากภาษาอังกฤษ",
-	"apihelp-query+cxpublishedtranslations-example-3": "ดึงข้อมูลการแปลที่เผยแพร่แล้วทั้งหมด ที่แปลจากภาษาอังกฤษเป็นภาษาสเปน",
 	"apihelp-cxdelete-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-cxdelete-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-cxdelete-param-sourcetitle": "ชื่อเรื่องของหน้าต้นทาง",

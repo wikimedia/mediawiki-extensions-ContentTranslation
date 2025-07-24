@@ -50,8 +50,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Kode bahasa tujuan.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Maksimum banyaknya terjemahan yang akan diambil.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Ambil semua terjemahan yang sudah diterbitkan",
-	"apihelp-query+cxpublishedtranslations-example-2": "Mengambil seluruh terjemahan yang sudah diterbitkan, yang diterjemahkan dari Inggris",
-	"apihelp-query+cxpublishedtranslations-example-3": "Ambil semua terjemahan yang sudah diterbitkan, terjemahan dari bahasa Inggris ke bahasa Spanyol",
 	"apihelp-cxtoken-summary": "Mendapatkan token JWT untuk autentikasi dengan cxserver.",
 	"apihelp-cxtoken-example-1": "Mengambil token autentikasi untuk cxserver",
 	"apihelp-cxdelete-summary": "Menghapus terjemahan konsep yang dibuat menggunakan ekstensi Terjemahan Konten.",

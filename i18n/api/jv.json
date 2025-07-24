@@ -41,8 +41,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Kodhe basa tujuan.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Gunggung pertalan kang bisa kajupuk.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Jupuk kabèh pertalan kang wis kababar",
-	"apihelp-query+cxpublishedtranslations-example-2": "Jupuk kabèh pertalan kang wis kababar kang kapertal saka basa Inggris",
-	"apihelp-query+cxpublishedtranslations-example-3": "Jupuk kabèh pertalan kang wis kababar kang kapertal saka basa Inggris tumrap basa Sepanyol",
 	"apihelp-cxtoken-summary": "Jupuk token JWT kanggo diocogaké marang paladèn cx.",
 	"apihelp-cxtoken-example-1": "Jupuk lancana payekti kanggo paladèn cx",
 	"apihelp-cxdelete-summary": "Busek rèngrèngan pertalan kang kagawé sarana èstènsi Pertalan Kontèn.",

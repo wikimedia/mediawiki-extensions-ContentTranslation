@@ -20,8 +20,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Бастапқы тіл коды.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Нысана тіл коды.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Барлық жарияланған аудармалардан таңдау",
-	"apihelp-query+cxpublishedtranslations-example-2": "Ағылшыншадан аударылған, барлық жарияланған аудармалардан таңдау",
-	"apihelp-query+cxpublishedtranslations-example-3": "Испаншадан аударылған, барлық жарияланған аудармалардан таңдау",
 	"apihelp-cxdelete-param-from": "Бастапқы тіл коды.",
 	"apihelp-cxdelete-param-to": "Нысана тіл коды.",
 	"apihelp-cxdelete-param-sourcetitle": "Бастапқы беттің атауы.",

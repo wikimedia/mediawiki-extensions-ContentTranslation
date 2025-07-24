@@ -49,8 +49,6 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "کد زبان مقصد.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "حداکثر تعداد ترجمه‌ها برای واکشی.",
 	"apihelp-query+cxpublishedtranslations-example-1": "آوردن همهٔ ترجمه‌های منتشر شده",
-	"apihelp-query+cxpublishedtranslations-example-2": "آوردن همهٔ ترجمه‌های منتشر شده، ترجمه‌شده از انگلیسی",
-	"apihelp-query+cxpublishedtranslations-example-3": "آوردن همهٔ ترجمه‌های منتشر شده، ترجمه از انگلیسی به اسپانیایی",
 	"apihelp-cxdelete-param-from": "کد زبان مبدأ.",
 	"apihelp-cxdelete-param-to": "کد زبان مقصد.",
 	"apihelp-cxdelete-param-sourcetitle": "عنوان صفحهٔ مبدأ.",

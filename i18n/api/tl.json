@@ -21,8 +21,6 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Kodigo ng wikang pinagmulan.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Kodigo ng wikang patutunguhan.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Kunin lahat ng mga saling nailathala",
-	"apihelp-query+cxpublishedtranslations-example-2": "Kunin lahat ng mga saling nailathala, na isinalin mula Ingles",
-	"apihelp-query+cxpublishedtranslations-example-3": "Kunin lahat ng mga saling nailathala, na isinalin mula Ingles patugong Espanyol",
 	"apihelp-cxdelete-param-from": "Kodigo ng wikang pinagmulan.",
 	"apihelp-cxdelete-param-to": "Kodigo ng wikang patutunguhan.",
 	"apihelp-cxdelete-param-sourcetitle": "Ang pamagat ng pahinang pinagmulan.",
