@@ -1,5 +1,4 @@
 <script setup>
-import CxDashboardBanner from "./CXDashboardBanner.vue";
 import CxTranslationList from "./CXTranslationList.vue";
 import CxSuggestionList from "./CXSuggestionList.vue";
 import CxFavoriteList from "./CXFavoriteList.vue";
@@ -17,7 +16,6 @@ import useEventLogging from "@/composables/useEventLogging";
 import useDashboardTabSelectInstrument from "./useDashboardTabSelectInstrument";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconAdd } from "@wikimedia/codex-icons";
-import { isDesktopSite } from "@/utils/mediawikiHelper";
 
 const router = useRouter();
 const logEvent = useEventLogging();
