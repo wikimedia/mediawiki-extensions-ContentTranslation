@@ -186,11 +186,9 @@ class ApiQueryContentTranslation extends ApiQueryBase {
 					return;
 				}
 
-				$sectionTranslationId = $sectionTranslation?->getId();
-				$targetSectionTitle = $sectionTranslation?->getTargetSectionTitle();
-				$translation->translation['sectionTranslationId'] = $sectionTranslationId;
-				$translation->translation['targetSectionTitle'] = $targetSectionTitle;
-				$translation->translation['progress'] = $sectionTranslation?->getProgress();
+				$translation->translation['sectionTranslationId'] = $sectionTranslation->getId();
+				$translation->translation['targetSectionTitle'] = $sectionTranslation->getTargetSectionTitle();
+				$translation->translation['progress'] = $sectionTranslation->getProgress();
 			} elseif ( $translation->getStatus() !== TranslationStore::TRANSLATION_STATUS_DRAFT ) {
 				return;
 			}
