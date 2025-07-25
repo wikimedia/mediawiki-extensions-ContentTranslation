@@ -58,6 +58,19 @@ const routes = [
     name: "sx-sentence-selector",
     component: SXSentenceSelector,
     meta: { workflowStep: 4 },
+    beforeEnter: () => {
+      const {
+        sourceLanguageURLParameter: sourceLanguage,
+        targetLanguageURLParameter: targetLanguage,
+        pageURLParameter: pageTitle,
+      } = useURLHandler();
+
+      return !!(
+        sourceLanguage.value &&
+        targetLanguage.value &&
+        pageTitle.value
+      );
+    },
   },
   {
     path: "/sx/sx-editor",
