@@ -52,7 +52,7 @@ SectionTranslationTarget.static.toolbarGroups = [
     excludeFromTargetWidget: true,
   },
   ...ve.init.mw.MobileArticleTarget.static.toolbarGroups.filter(
-    ( group ) => !group.excludeFromTargetWidget
+    (group) => !group.excludeFromTargetWidget
   ),
   {
     name: "next",
