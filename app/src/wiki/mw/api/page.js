@@ -12,8 +12,8 @@ const defaultThumbnailSize = 120;
 /**
  * Fetches metadata information for pages for the corresponding titles and language
  * and returns a promise that resolves to an array of Page objects
- * @param language
- * @param titles
+ * @param {string} language
+ * @param {string[]} titles
  * @returns {Promise<Page[]>}
  */
 const fetchPages = (language, titles) => {

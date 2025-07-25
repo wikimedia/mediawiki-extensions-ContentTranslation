@@ -19,7 +19,7 @@ const usePageMetadataFetch = () => {
    */
   return (language, titles) => {
     titles = titles.filter(
-      (title) => !store.getters["mediawiki/getPage"](language, title)
+      (title) => !!title && !store.getters["mediawiki/getPage"](language, title)
     );
 
     const chunkSize = 50;
