@@ -34,6 +34,19 @@ const routes = [
     name: "sx-translation-confirmer",
     component: SXTranslationConfirmer,
     meta: { workflowStep: 1 },
+    beforeEnter: () => {
+      const {
+        sourceLanguageURLParameter: sourceLanguage,
+        targetLanguageURLParameter: targetLanguage,
+        pageURLParameter: pageTitle,
+      } = useURLHandler();
+
+      return !!(
+        sourceLanguage.value &&
+        targetLanguage.value &&
+        pageTitle.value
+      );
+    },
   },
   {
     path: "/sx/section-selector",
