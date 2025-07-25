@@ -45,6 +45,23 @@ OO.inheritClass(SectionTranslationTarget, ve.init.mw.MobileArticleTarget);
 
 SectionTranslationTarget.static.integrationType = "contenttranslation";
 
+SectionTranslationTarget.static.toolbarGroups = [
+  {
+    name: "back",
+    include: ["sxBack"],
+    excludeFromTargetWidget: true,
+  },
+  ...ve.init.mw.MobileArticleTarget.static.toolbarGroups.filter(
+    ( group ) => !group.excludeFromTargetWidget
+  ),
+  {
+    name: "next",
+    type: "bar",
+    include: ["sxNext"],
+    excludeFromTargetWidget: true,
+  },
+];
+
 /* Methods */
 
 /**
@@ -80,46 +97,6 @@ SectionTranslationTarget.prototype.back = function () {
 
 SectionTranslationTarget.prototype.next = function () {
   this.config.onNext();
-};
-
-/**
- * This fully overrides the upstream method in order
- * to remove the editMode switching tools.
- *
- * TODO: Find a less hacky way to do this.
- *
- * @inheritdoc
- */
-SectionTranslationTarget.prototype.setupToolbar = function (surface) {
-  var originalToolbarGroups = this.toolbarGroups;
-  // We don't want any of these tools to show up in subordinate widgets, so we
-  // temporarily add them here. We need to do it _here_ rather than in their
-  // own static variable to make sure that other tools which meddle with
-  // toolbarGroups (Cite, mostly) have a chance to do so.
-  this.toolbarGroups = [
-    // Back
-    {
-      name: "back",
-      include: ["sxBack"],
-    },
-    ...originalToolbarGroups,
-    {
-      name: "next",
-      type: "bar",
-      include: ["sxNext"],
-    },
-  ];
-  // Grand-parent method
-  ve.init.mw.MobileArticleTarget.super.prototype.setupToolbar.call(
-    this,
-    surface
-  );
-  this.toolbarGroups = originalToolbarGroups;
-
-  this.toolbar.$element.addClass("ve-init-mw-mobileArticleTarget-toolbar");
-  this.toolbar.$popups.addClass(
-    "ve-init-mw-mobileArticleTarget-toolbar-popups"
-  );
 };
 
 /**
