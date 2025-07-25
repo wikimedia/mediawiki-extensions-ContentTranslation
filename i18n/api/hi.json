@@ -29,7 +29,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "स्रोत भाषा कोड।",
 	"apihelp-query+cxpublishedtranslations-param-to": "लक्षित भाषा कोड।",
 	"apihelp-query+cxpublishedtranslations-param-limit": "दिखाने हेतु अनुवादनों की अधिकतम सीमा",
-	"apihelp-query+cxpublishedtranslations-example-1": "सभी प्रकाशित अनुवाद लाएँ",
+	"apihelp-query+cxpublishedtranslations-example-1": "सभी प्रकाशित अनुवाद लायें, अंग्रेज़ी से स्पेनी में अनूदित",
 	"apihelp-cxdelete-param-from": "स्रोत भाषा कोड",
 	"apihelp-cxdelete-param-to": "लक्षित भाषा कोड।",
 	"apihelp-cxdelete-param-sourcetitle": "स्रोत पृष्ठ का शीर्षक",

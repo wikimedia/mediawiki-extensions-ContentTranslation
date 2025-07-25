@@ -44,7 +44,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Код на изворниот јазик.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Код на целниот јазик.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Највеќе преводи што ќе се дадат.",
-	"apihelp-query+cxpublishedtranslations-example-1": "Дај ги сите објавени преводи",
+	"apihelp-query+cxpublishedtranslations-example-1": "Дај ги сите објавени преводи, преведени од англиски на шпански",
 	"apihelp-cxtoken-summary": "Дај JWT-шифри за заверка со cxserver.",
 	"apihelp-cxtoken-example-1": "Добивање на шифрата за заверка за cxserver",
 	"apihelp-cxdelete-summary": "Бришење на нацрт-превод, создаден користејќи до додатокот за превод на содржини.",

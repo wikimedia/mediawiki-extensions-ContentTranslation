@@ -26,6 +26,8 @@
 	"mint-search-topic-page-results-container-empty": "搵任何主題。每種語言嘅主題內容可能都唔同。",
 	"mint-confirm-topic-page-header": "自動翻譯",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "睇一個自動翻譯",
+	"mint-confirm-topic-page-language-selector-explanation": "翻譯 [$1 嚟自維基百科，用 $2 ] 。探索呢個主題係點樣用{{PLURAL:$3|another language|$3其他語言}}覆蓋。",
+	"mint-confirm-topic-page-go-to-search-button-label": "搵個另一個主題",
 	"ax-translation-view-feedback-confirm-description": "多謝你幫手！你可以分享任何其他關於呢個實驗嘅諗法[https://www.mediawiki.org/wiki/Talk:MinT 喺項目討論頁]。",
 	"ax-cx-failed-translation-label": "翻譯失敗"
 }

@@ -3,6 +3,7 @@
 		"authors": [
 			"A Chinese Wikipedian",
 			"Diskdance",
+			"GuoPC",
 			"LittlePaw365",
 			"Liuxinyu970226",
 			"Peterxy12",
@@ -52,7 +53,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "源语言代码。",
 	"apihelp-query+cxpublishedtranslations-param-to": "目标语言代码。",
 	"apihelp-query+cxpublishedtranslations-param-limit": "检索翻译的最大数量。",
-	"apihelp-query+cxpublishedtranslations-example-1": "检索所有已发布译文",
+	"apihelp-query+cxpublishedtranslations-example-1": "检索所有从英语翻译为西班牙语的已发布译文",
 	"apihelp-cxtoken-summary": "获取JWT令牌以通过cxserver的身份验证。",
 	"apihelp-cxtoken-example-1": "从cxserver检索身份验证令牌",
 	"apihelp-cxdelete-summary": "删除一个用翻译扩展创建的翻译草稿。",

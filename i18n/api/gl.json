@@ -46,7 +46,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Código da lingua de orixe.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Código da lingua de destino.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Número máximo de traducións a retornar.",
-	"apihelp-query+cxpublishedtranslations-example-1": "Obter todas as traducións publicadas",
+	"apihelp-query+cxpublishedtranslations-example-1": "Obter todas as traducións publicadas, traducidas do inglés ao castelán",
 	"apihelp-cxtoken-summary": "Conseguir tokens JWT para autenticarse co cxserver.",
 	"apihelp-cxtoken-example-1": "Obter o pase de autenticación para cxserver",
 	"apihelp-cxdelete-summary": "Borrar un borrador de tradución creado coa extensión de tradución de contidos.",
