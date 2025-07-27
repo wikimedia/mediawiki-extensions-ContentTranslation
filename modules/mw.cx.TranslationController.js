@@ -223,7 +223,6 @@ mw.cx.TranslationController.prototype.saveFailureHandler = function ( error ) {
 	mw.errorLogger.logError( error, 'error.contenttranslation' );
 	this.failCounter++;
 
-	mw.log.warn( '[CX] Saving Failed. Error code: ' + error.errorCode );
 	const isAbort = error.details && error.details.exception === 'abort';
 	if ( !isAbort ) {
 		this.onSaveFailure( error.errorCode );
