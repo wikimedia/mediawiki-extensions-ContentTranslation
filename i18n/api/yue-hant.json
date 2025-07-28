@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"JeffreyKim"
 		]
 	},
-	"apihelp-query+contenttranslation-param-translationid": "翻譯ID"
+	"apihelp-query+contenttranslation-param-translationid": "翻譯ID",
+	"apierror-cx-docserverexception": "將 HTML 轉換成維基文字嗰陣出錯： $1",
+	"apierror-cx-inuse": "另一個用戶已經翻譯緊呢篇文章。"
 }
