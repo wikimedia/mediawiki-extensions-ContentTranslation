@@ -1,7 +1,7 @@
 <script setup>
 import CustomInfoChip from "./CustomInfoChip.vue";
 import SuggestionFilter from "@/wiki/cx/models/suggestionFilter";
-import { computed } from "vue";
+import { computed, ref, watchEffect } from "vue";
 
 const props = defineProps({
   filter: {
@@ -27,29 +27,28 @@ const props = defineProps({
   },
 });
 
-const isExpanded = computed(() => {
-  // If the filter or one of its subfilters is selected, it should be expanded
-  if (!props.filter.expandable) {
-    return false;
-  }
+const isFilterOrChildSelected = computed(
+  () =>
+    props.isSelected(props.filter) ||
+    props.filter.subFilters.some((subFilter) => props.isSelected(subFilter))
+);
 
-  if (props.isSelected(props.filter)) {
-    return true;
-  }
+const isExpanded = ref(false);
 
-  if (props.filter.subFilters) {
-    return props.filter.subFilters.some((subFilter) =>
-      props.isSelected(subFilter)
-    );
+watchEffect(() => {
+  if (props.filter.expandable) {
+    isExpanded.value = isFilterOrChildSelected.value;
   }
-
-  return false;
 });
 
 const emit = defineEmits(["filter-selected"]);
 
 const onClick = () => {
-  emit("filter-selected", props.filter);
+  if (props.filter.expandable && isFilterOrChildSelected.value) {
+    isExpanded.value = !isExpanded.value;
+  } else {
+    emit("filter-selected", props.filter);
+  }
 };
 
 const filterLabel = computed(() => {
