@@ -723,6 +723,9 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	// of this alignment. So we lock the scroll position.
 	const scrollPosition = $( this.getElementWindow() ).scrollTop();
 	articleNode.getChildren().forEach( ( node ) => {
+		if ( node.getType() !== 'cxSection' ) {
+			return;
+		}
 		let sectionNumber;
 		const element = node.$element[ 0 ];
 		const id = element && element.id;
