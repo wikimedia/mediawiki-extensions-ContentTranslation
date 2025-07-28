@@ -108,7 +108,7 @@ const handleViewMore = () => {
   <custom-info-chip
     class="sx-suggestions-filters__filter my-1 mx-1 py-1"
     :class="{
-      'sx-suggestions-filters__filter--active': isSelected(filter),
+      'sx-suggestions-filters__filter--active': isFilterOrChildSelected,
     }"
     :icon="filter.expandable ? filter.expandableIcon : filter.icon"
     :content="filterLabel"
