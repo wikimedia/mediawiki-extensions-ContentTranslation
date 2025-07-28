@@ -1,6 +1,5 @@
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
-import { useRouter } from "vue-router";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 import useCurrentPages from "@/composables/useCurrentPages";
 import useURLHandler from "@/composables/useURLHandler";
@@ -10,7 +9,6 @@ import { computed } from "vue";
 
 const useEditorInstrument = () => {
   const store = useStore();
-  const router = useRouter();
 
   const { currentTranslation } = useCurrentDraftTranslation();
   const { currentMTProvider, previousRoute } = useApplicationState(store);
@@ -140,28 +138,11 @@ const useEditorInstrument = () => {
     return payload;
   });
 
-  const assertTranslationSourceTitle = (payload) => {
-    if (!payload.translation_source_title) {
-      const currentParams = new URL(window.location).searchParams;
-      mw.errorLogger.logError(
-        new Error(
-          `Event ${
-            payload.event_type
-          } is missing translation_source_title. Current URL params: ${JSON.stringify(
-            Array.from(currentParams.entries())
-          )}`
-        ),
-        "error.contenttranslation"
-      );
-    }
-  };
-
   const logEditorOpenEvent = () => {
     const payload = {
       event_type: "editor_open",
       ...sharedPayload.value,
     };
-    assertTranslationSourceTitle(payload);
 
     return logEvent(payload);
   };
@@ -171,7 +152,6 @@ const useEditorInstrument = () => {
       event_type: "editor_close",
       ...sharedPayload.value,
     };
-    assertTranslationSourceTitle(payload);
 
     return logEvent(payload);
   };
