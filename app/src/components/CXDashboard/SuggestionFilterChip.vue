@@ -52,7 +52,19 @@ const onClick = () => {
   emit("filter-selected", props.filter);
 };
 
-const filterLabel = computed(() => props.filter.chipLabel);
+const filterLabel = computed(() => {
+  const selectedSubFilter = props.filter.subFilters.find((subFilter) =>
+    props.isSelected(subFilter)
+  );
+
+  let label = props.filter.chipLabel;
+
+  if (selectedSubFilter) {
+    label += `/${getSubFilterLabel(selectedSubFilter)}`;
+  }
+
+  return label;
+});
 
 /**
  * @param {SuggestionFilter} subFilter

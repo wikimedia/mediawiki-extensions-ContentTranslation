@@ -14,12 +14,10 @@ const props = defineProps({
   },
   expandable: {
     type: Boolean,
-    required: false,
     default: false,
   },
   expanded: {
     type: Boolean,
-    required: false,
     default: false,
   },
 });
@@ -41,7 +39,7 @@ const expandIcon = computed(() =>
     @keyup.enter="$emit('click')"
   >
     <template v-if="slashIndex === -1">
-      {{ content }}
+      <span>{{ content }}</span>
       <cdx-icon v-if="expandable" :icon="expandIcon"></cdx-icon>
     </template>
     <template v-else>
@@ -65,10 +63,16 @@ const expandIcon = computed(() =>
 .cdx-info-chip {
   &.custom-info-chip {
     width: auto;
+    .cdx-icon {
+      margin-inline-start: @spacing-25;
+    }
 
     .cdx-info-chip__text {
       &.custom-info-chip__with-slash {
         display: flex;
+        .cdx-icon {
+          align-self: center;
+        }
       }
       &.custom-info-chip__with-slash__first,
       &.custom-info-chip__with-slash__second {
