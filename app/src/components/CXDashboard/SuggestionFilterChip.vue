@@ -102,6 +102,7 @@ const handleViewMore = () => {
     :icon="filter.expandable ? filter.expandableIcon : filter.icon"
     :content="filterLabel"
     :expandable="!!filter.expandable"
+    :expanded="isExpanded"
     @click="onClick"
   ></custom-info-chip>
   <div
