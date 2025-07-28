@@ -44,7 +44,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Le codice del lingua de origine.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Le codice del lingua de destination.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Le numero maxime de traductiones a obtener.",
-	"apihelp-query+cxpublishedtranslations-example-1": "Obtener tote le traductiones publicate",
+	"apihelp-query+cxpublishedtranslations-example-1": "Obtener tote le traductiones publicate, traducite ab anglese in espaniol",
 	"apihelp-cxtoken-summary": "Obtener tokens JWT pro authenticar con cxserver.",
 	"apihelp-cxtoken-example-1": "Obtener le token de authentication pro cxserver",
 	"apihelp-cxdelete-summary": "Deler un esbosso de traduction create usante le extension Content Translation.",
