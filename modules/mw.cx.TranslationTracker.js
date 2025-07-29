@@ -466,6 +466,10 @@ mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber
 		sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber ),
 		sourceTokens = this.constructor.static.getSectionNodeValidationTokens( sectionModel, this.sourceLanguage );
 
+	if ( !sectionModel ) {
+		return false;
+	}
+
 	// Check if mt-abuse issue is already suppressed (marked as resolved)
 	// If so, skip validation to respect user's decision
 	const existingMTAbuseIssue = sectionModel.translationIssues.find( ( issue ) => issue.name === 'mt-abuse' );
@@ -482,10 +486,6 @@ mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber
 };
 
 mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel ) {
-	if ( !sectionModel ) {
-		return;
-	}
-
 	const sectionState = this.sections[ sectionModel.getSectionNumber() ];
 	const percentage = mw.language.convertNumber(
 		Math.round( sectionState.getUnmodifiedPercentage() * 100 ) );
