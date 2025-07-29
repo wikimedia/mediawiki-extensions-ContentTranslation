@@ -16,7 +16,8 @@
 			"Norhorn",
 			"Protnet",
 			"Spyridon Eftychios Kokotos",
-			"Stam.nikos"
+			"Stam.nikos",
+			"Warudo"
 		]
 	},
 	"cx": "Μετάφραση σελίδας",
@@ -263,9 +264,9 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "Η μετάφρασή σας θα επεκτείνει την υπάρχουσα ενότητα. Απορρίψτε την εάν οι ενότητες δε σχετίζονται.",
 	"cx-sx-translation-confirmer-title": "Νέα μετάφραση",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 εμφάνιση ανά|$1 εμφανίσεις ανά|0=Χωρίς εμφανίσεις αυτή την}} εβδομάδα",
-	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 ώρα|$1 ώρα|0={{PLURAL:$2|$2 λεπτά|$2 λεπτά}}}} για να μεταφράσετε την εισαγωγική ενότητα.",
-	"cx-sx-translation-confirmer-translation-time-single-section": "{{PLURAL:$1|$1 ώρα|$1 ώρα|0={{PLURAL:$2|$2 λεπτά|$2 λεπτά}}}} για να μεταφράσετε αυτήν την ενότητα",
-	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 ώρα|$1 ώρα|0={{PLURAL:$2|$2 λεπτά|$2 λεπτά}}}} για μετάφραση",
+	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 ώρα|$1 ώρες|0={{PLURAL:$2|$2 λεπτό|$2 λεπτά}}}} για να μεταφράσετε την εισαγωγική ενότητα.",
+	"cx-sx-translation-confirmer-translation-time-single-section": "{{PLURAL:$1|$1 ώρα|$1 ώρες|0={{PLURAL:$2|$2 λεπτό|$2 λεπτά}}}} για να μεταφράσετε αυτήν την ενότητα",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 ώρα|$1 ώρες|0={{PLURAL:$2|$2 λεπτό|$2 λεπτά}}}} για μετάφραση",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Σελιδοδείκτης",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Η μετάφρασή σας θα δημοσιευτεί ως ανεξάρτητη νέα ενότητα.",
 	"cx-sx-content-comparator-discarded-section-label": "(απορρίφθηκε)",

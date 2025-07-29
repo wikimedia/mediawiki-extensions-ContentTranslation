@@ -185,5 +185,7 @@
 	"cx-mt-abuse-publish-error": "La traducción nun pue publicase porque contién demasiáu testu ensin cambios.",
 	"cx-unreviewed-translation-category": "Páxines con traducciones ensin revisar",
 	"cx-unreviewed-translation-category-desc": "Páxines traducíes cola ferramienta de Traducción de Conteníu que contienen una gran cantidá de conteníu por revisar",
-	"cx-preference-enable-entrypoints": "Aporta a [[$1|principiar una traducción]] dende la páxina de contribuciones, la llista de llingües, y les creaciones de páxines nueves."
+	"cx-preference-enable-entrypoints": "Aporta a [[$1|principiar una traducción]] dende la páxina de contribuciones, la llista de llingües, y les creaciones de páxines nueves.",
+	"cx-contributecard-entrypoint-desc": "Traduz una sección o un artículu completu. Fai más conteníu disponible en más llingües.",
+	"cx-contributecard-entrypoint-cta": "Empezar una traducción"
 }
