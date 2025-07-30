@@ -107,21 +107,6 @@ const startTranslation = (sectionTitle) => {
               <cdx-icon :icon="cdxIconEllipsis" />
             </cdx-button>
           </div>
-          <div v-else>
-            <cdx-button
-              class="cx-published-translation__start-new-translation-button flex items-center pa-0"
-              weight="quiet"
-              action="progressive"
-              @click.stop="startTranslation(null)"
-            >
-              <cdx-icon class="me-1" :icon="cdxIconAdd" />
-              <span>
-                {{
-                  $i18n("sx-published-translation-new-translation-button-label")
-                }}
-              </span>
-            </cdx-button>
-          </div>
         </mw-col>
       </mw-row>
     </template>
