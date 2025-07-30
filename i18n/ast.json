@@ -257,5 +257,7 @@
 	"cx-preference-enable-entrypoints": "Aporta a [[$1|principiar una traducción]] dende la páxina de contribuciones, la llista de llingües, y les creaciones de páxines nueves.",
 	"cx-feature-discovery-title": "Traduz en cualquier momentu",
 	"cx-feature-discovery-content": "Pues principiar o siguir traduciendo en cualquier momentu dende la páxina {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "Bien, entendío"
+	"cx-feature-discovery-dismiss": "Bien, entendío",
+	"cx-contributecard-entrypoint-desc": "Traduz una sección o un artículu completu. Fai más conteníu disponible en más llingües.",
+	"cx-contributecard-entrypoint-cta": "Empezar una traducción"
 }

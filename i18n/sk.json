@@ -10,7 +10,8 @@
 			"TomášPolonec",
 			"Urbanecm",
 			"Vegetator",
-			"Vlad5250"
+			"Vlad5250",
+			"AlesFiala2002"
 		]
 	},
 	"cx": "Preložiť stránku",
@@ -247,7 +248,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Existuje v $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sekcia v $1",
 	"cx-sx-translation-confirmer-title": "Nový preklad",
-	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 zobrazenie/|$1 zobrazenia/|$1 zobrazení/|0=Źiadne zobrazenia tento }}týždeň",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 zobrazenie/|$1 zobrazenia/|$1 zobrazení/|0=Žiadne zobrazenia tento }}týždeň",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 hodina||$1 hodiny|$1 hodín|0={{PLURAL:$2|$2 minúta|$2 minúty|$2 minút}}}} prekladania",
 	"cx-sx-translation-confirmer-translation-time-single-section-minute": "{{PLURAL:$1|$1 minúta|$1 minúty|$1 minút}} na preklad tejto sekcie",
 	"cx-sx-translation-confirmer-translation-time-single-section-hour": "{{PLURAL:$1|$1 hodina|$1 hodiny|$1 hodín}} na preklad tejto sekcie",
