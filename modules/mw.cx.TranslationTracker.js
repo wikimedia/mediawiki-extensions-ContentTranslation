@@ -287,7 +287,17 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
  */
 mw.cx.TranslationTracker.prototype.attachEventListeners = function ( sections ) {
 	// Register event listeners for 'focus' and 'update' events on restored sections
-	sections.map( ( sectionModel ) => sectionModel.getId() ).forEach( this.registerEventListenersForSection.bind( this ) );
+	sections.forEach( ( section ) => {
+		const sectionNumber = section.getSectionNumber();
+		const result = this.registerEventListenersForSection( sectionNumber );
+		if ( result === false ) {
+			const error = new Error(
+				'No event listener registered for section ' + sectionNumber + '. Section details: ' +
+				JSON.stringify( section.getElement().attribute ) + ', type: ' + section.getType()
+			);
+			mw.errorLogger.logError( error, 'error.contenttranslation' );
+		}
+	} );
 
 	// Register event listeners for 'focus' event for every newly added section
 	this.veTarget.connect( this, { changeContentSource: 'registerEventListenersForSection' } );
@@ -630,12 +640,24 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = func
 
 /**
  * @param {number} sectionNumber
+ * @return {boolean}
  */
 mw.cx.TranslationTracker.prototype.registerEventListenersForSection = function ( sectionNumber ) {
 	/* @type {ve.ce.CXSectionNode} */
 	const sectionNode = this.veTarget.getTargetSectionElementFromSectionNumber( sectionNumber );
 	/* @type {ve.dm.CXSectionNode} */
 	const sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
+
+	if ( !sectionModel || !sectionNode ) {
+		const error = new Error(
+			'[CX] Skipping event listener registration for section ' + sectionNumber +
+			' because sectionModel or sectionNode is null. ' +
+			'sectionModel: ' + ( sectionModel ? 'exists' : 'null' ) +
+			', sectionNode: ' + ( sectionNode ? 'exists' : 'null' )
+		);
+		mw.errorLogger.logError( error, 'error.contenttranslation' );
+		return false;
+	}
 
 	const focusHandler = function () {
 		// Validate every sections except the current section
@@ -659,6 +681,8 @@ mw.cx.TranslationTracker.prototype.registerEventListenersForSection = function (
 
 	sectionModel.connect( this, { update: changeHandler } );
 	sectionNode.connect( this, { focus: focusHandler } );
+
+	return true;
 };
 
 /**
