@@ -5,7 +5,11 @@ import { computed, ref } from "vue";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
 import useSectionSuggestionForPublishedFetch from "./useSectionSuggestionForPublishedFetch";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
-import { cdxIconAdd, cdxIconEllipsis } from "@wikimedia/codex-icons";
+import {
+  cdxIconAdd,
+  cdxIconEllipsis,
+  cdxIconUserAvatar,
+} from "@wikimedia/codex-icons";
 import useURLHandler from "@/composables/useURLHandler";
 import useTranslationStart from "@/composables/useTranslationStart";
 
@@ -59,6 +63,14 @@ const startTranslation = (sectionTitle) => {
     setSectionURLParam(sectionTitle);
   }
 };
+
+const namespaceIds = mw.config.get("wgNamespaceIds");
+
+const isUserNamespace = computed(() => {
+  const targetMwTitle = new mw.Title(props.translation.targetTitle);
+
+  return targetMwTitle.getNamespaceId() === namespaceIds.user;
+});
 </script>
 
 <template>
@@ -80,6 +92,13 @@ const startTranslation = (sectionTitle) => {
     <template #mid-content>
       <mw-row class="ma-0">
         <mw-col>
+          <div
+            v-if="isUserNamespace"
+            class="cx-published-translation__personal-draft-indicator"
+          >
+            <cdx-icon :icon="cdxIconUserAvatar" class="me-1" size="small" />
+            {{ $i18n("sx-published-translation-personal-draft-indicator") }}
+          </div>
           <mw-spinner v-if="suggestionLoading" />
           <div v-else-if="!!missingSections" class="flex">
             <cdx-button
@@ -133,6 +152,14 @@ const startTranslation = (sectionTitle) => {
   & &__start-new-translation-button {
     span {
       line-height: normal;
+    }
+  }
+
+  & &__personal-draft-indicator {
+    color: @color-placeholder;
+    font-size: @font-size-small;
+    .cdx-icon {
+      color: @color-placeholder;
     }
   }
 }
