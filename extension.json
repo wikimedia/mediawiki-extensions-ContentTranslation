@@ -424,19 +424,6 @@
 				]
 			}
 		},
-		"ContentTranslationExcludedNamespaces": {
-			"description": "Array with keys as canonical namespaces(English names) excluded from translating. Matching is case insensitive. All talk namespaces(with odd number ids) are excluded.",
-			"value": {
-				"File": true,
-				"Gadget definition": true,
-				"Gadget": true,
-				"MediaWiki": true,
-				"Module": true,
-				"Template": true,
-				"Topic": true,
-				"Translations": true
-			}
-		},
 		"ContentTranslationEnableAnonSectionTranslation": {
 			"description": "Whether section translation is enabled for anonymous users",
 			"value": false
@@ -451,10 +438,6 @@
 		},
 		"ContentTranslationDevMode": {
 			"description": "Whether Content translation need to run in dev mode with features like Hot Module Replacement",
-			"value": false
-		},
-		"ContentTranslationEnableUnifiedDashboard": {
-			"description": "Whether the unified dashboard should be used for Content Translation",
 			"value": false
 		},
 		"DraftMaxAge": {

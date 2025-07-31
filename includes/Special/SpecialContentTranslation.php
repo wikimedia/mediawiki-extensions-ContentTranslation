@@ -300,12 +300,7 @@ class SpecialContentTranslation extends SpecialPage {
 			] );
 
 		} else {
-			$out->addJsConfigVars( [
-				'wgRecommendToolAPIURL' => $config->get( 'RecommendToolAPIURL' ),
-				'wgContentTranslationExcludedNamespaces' => $config->get( 'ContentTranslationExcludedNamespaces' ),
-				'wgContentTranslationEnableUnifiedDashboard' =>
-					$config->get( 'ContentTranslationEnableUnifiedDashboard' )
-			] );
+			$out->addJsConfigVars( [ 'wgRecommendToolAPIURL' => $config->get( 'RecommendToolAPIURL' ) ] );
 		}
 	}
 
