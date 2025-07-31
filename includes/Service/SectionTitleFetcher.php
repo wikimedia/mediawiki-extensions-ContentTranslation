@@ -9,13 +9,16 @@ use InvalidArgumentException;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Title\Title;
+use Psr\Log\LoggerInterface;
 
 class SectionTitleFetcher {
 
 	private HttpRequestFactory $httpRequestFactory;
+	private LoggerInterface $logger;
 
-	public function __construct( HttpRequestFactory $httpRequestFactory ) {
+	public function __construct( HttpRequestFactory $httpRequestFactory, LoggerInterface $logger ) {
 		$this->httpRequestFactory = $httpRequestFactory;
+		$this->logger = $logger;
 	}
 
 	/**
@@ -62,11 +65,15 @@ class SectionTitleFetcher {
 
 		try {
 			$response = $this->httpRequestFactory->get( $url, [], __METHOD__ );
-		} catch ( \Exception ) {
+		} catch ( \Exception $e ) {
+			$logParams = [ 'url' => $url, 'exception' => $e->getMessage() ];
+			$this->logger->info( 'Request to fetch section titles failed', $logParams );
+
 			return [];
 		}
 
 		if ( !$response ) {
+			$this->logger->info( 'Request to fetch section titles returned empty response', [ 'url' => $url ] );
 			return null;
 		}
 		$json = FormatJson::decode( $response, true );

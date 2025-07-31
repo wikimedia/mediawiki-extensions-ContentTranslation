@@ -120,12 +120,16 @@ return [
 		static function ( MediaWikiServices $services ): SectionPositionCalculator {
 			return new SectionPositionCalculator(
 				$services->getHttpRequestFactory(),
-				$services->getService( 'ContentTranslation.SectionTitleFetcher' )
+				$services->getService( 'ContentTranslation.SectionTitleFetcher' ),
+				LoggerFactory::getInstance( LogNames::MAIN )
 			);
 		},
 	'ContentTranslation.SectionTitleFetcher' =>
 		static function ( MediaWikiServices $services ): SectionTitleFetcher {
-			return new SectionTitleFetcher( $services->getHttpRequestFactory() );
+			return new SectionTitleFetcher(
+				$services->getHttpRequestFactory(),
+				LoggerFactory::getInstance( LogNames::MAIN )
+			);
 		},
 	'ContentTranslation.SectionTranslationStore' =>
 		static function ( MediaWikiServices $services ): SectionTranslationStore {

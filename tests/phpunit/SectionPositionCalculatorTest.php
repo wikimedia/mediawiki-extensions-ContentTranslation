@@ -8,6 +8,7 @@ use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Title\Title;
+use Psr\Log\LoggerInterface;
 
 /**
  * @covers \ContentTranslation\Service\SectionPositionCalculator
@@ -42,12 +43,17 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
 		$mockSectionTitleFetcher = $this->createMock( SectionTitleFetcher::class );
+		$mockLoggerInterface = $this->createMock( LoggerInterface::class );
 
 		$mockSectionTitleFetcher->method( 'fetchSectionTitles' )
 			->with( $targetLanguage, $title )
 			->willReturn( $responseSections );
 
-		$sectionPositionCalculator = new SectionPositionCalculator( $mockHttpRequestFactory, $mockSectionTitleFetcher );
+		$sectionPositionCalculator = new SectionPositionCalculator(
+			$mockHttpRequestFactory,
+			$mockSectionTitleFetcher,
+			$mockLoggerInterface
+		);
 
 		$position = $sectionPositionCalculator->calculateSectionPosition( $title, $targetLanguage, false );
 		$this->assertEquals( $expectedPosition, $position );
@@ -58,8 +64,13 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 		$targetLanguage = 'en';
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
 		$mockSectionTitleFetcher = $this->createMock( SectionTitleFetcher::class );
+		$mockLoggerInterface = $this->createMock( LoggerInterface::class );
 
-		$sectionPositionCalculator = new SectionPositionCalculator( $mockHttpRequestFactory, $mockSectionTitleFetcher );
+		$sectionPositionCalculator = new SectionPositionCalculator(
+			$mockHttpRequestFactory,
+			$mockSectionTitleFetcher,
+			$mockLoggerInterface
+		);
 
 		$position = $sectionPositionCalculator->calculateSectionPosition( $title, $targetLanguage, true );
 		$this->assertEquals( "new", $position );
@@ -71,8 +82,13 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 		$targetLanguage = 'en';
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
 		$mockSectionTitleFetcher = $this->createMock( SectionTitleFetcher::class );
+		$mockLoggerInterface = $this->createMock( LoggerInterface::class );
 
-		$sectionPositionCalculator = new SectionPositionCalculator( $mockHttpRequestFactory, $mockSectionTitleFetcher );
+		$sectionPositionCalculator = new SectionPositionCalculator(
+			$mockHttpRequestFactory,
+			$mockSectionTitleFetcher,
+			$mockLoggerInterface
+		);
 
 		$position = $sectionPositionCalculator->calculateSectionPosition( $title, $targetLanguage, false );
 		$this->assertSame( 0, $position );

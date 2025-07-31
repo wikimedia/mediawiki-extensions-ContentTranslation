@@ -7,6 +7,7 @@ use ContentTranslation\SiteMapper;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Title\Title;
+use Psr\Log\LoggerInterface;
 
 class SectionPositionCalculator {
 	private const APPENDIX_TITLES = [
@@ -92,10 +93,16 @@ class SectionPositionCalculator {
 
 	private HttpRequestFactory $httpRequestFactory;
 	private SectionTitleFetcher $sectionTitleFetcher;
+	private LoggerInterface $logger;
 
-	public function __construct( HttpRequestFactory $httpRequestFactory, SectionTitleFetcher $sectionTitleFetcher ) {
+	public function __construct(
+		HttpRequestFactory $httpRequestFactory,
+		SectionTitleFetcher $sectionTitleFetcher,
+		LoggerInterface $logger
+	) {
 		$this->httpRequestFactory = $httpRequestFactory;
 		$this->sectionTitleFetcher = $sectionTitleFetcher;
+		$this->logger = $logger;
 	}
 
 	/**
@@ -170,11 +177,15 @@ class SectionPositionCalculator {
 		$cxServerUrl = SiteMapper::getCXServerUrl( $baseUrl, $params );
 		try {
 			$response = $this->httpRequestFactory->get( $cxServerUrl, [], __METHOD__ );
-		} catch ( \Exception ) {
+		} catch ( \Exception $exception ) {
+			$logParams = [ 'url' => $cxServerUrl, 'exception' => $exception->getMessage() ];
+			$this->logger->info( 'Request to fetch appendix titles failed', $logParams );
 			return [];
 		}
 
 		if ( !$response ) {
+			$logParams = [ 'url' => $cxServerUrl ];
+			$this->logger->info( 'Request to fetch section titles returned empty response', $logParams );
 			return [];
 		}
 
