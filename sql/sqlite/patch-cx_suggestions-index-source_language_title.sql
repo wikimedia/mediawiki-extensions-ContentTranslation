@@ -9,18 +9,20 @@ SELECT
   cxs_target_language,
   cxs_title
 FROM /*_*/cx_suggestions;
+
 DROP TABLE /*_*/cx_suggestions;
 
 
 CREATE TABLE /*_*/cx_suggestions (
-    cxs_list_id INTEGER NOT NULL, cxs_source_language BLOB NOT NULL,
-    cxs_target_language BLOB DEFAULT NULL,
-    cxs_title BLOB NOT NULL
-  );
+  cxs_list_id INTEGER NOT NULL, cxs_source_language BLOB NOT NULL,
+  cxs_target_language BLOB DEFAULT NULL,
+  cxs_title BLOB NOT NULL
+);
+
 INSERT INTO /*_*/cx_suggestions (
-    cxs_list_id, cxs_source_language,
-    cxs_target_language, cxs_title
-  )
+  cxs_list_id, cxs_source_language,
+  cxs_target_language, cxs_title
+)
 SELECT
   cxs_list_id,
   cxs_source_language,
@@ -28,11 +30,12 @@ SELECT
   cxs_title
 FROM
   /*_*/__temp__cx_suggestions;
+
 DROP TABLE /*_*/__temp__cx_suggestions;
 
 CREATE INDEX cx_suggestions_by_lang ON /*_*/cx_suggestions (
-    cxs_list_id, cxs_source_language,
-    cxs_target_language
-  );
+  cxs_list_id, cxs_source_language,
+  cxs_target_language
+);
 
 CREATE INDEX cx_suggestions_source_language_title ON /*_*/cx_suggestions (cxs_source_language, cxs_title);

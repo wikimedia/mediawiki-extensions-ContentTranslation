@@ -63,7 +63,7 @@
 				"type": "mwenum",
 				"options": {
 					"notnull": false,
-					"CustomSchemaOptions": {
+					"PlatformOptions": {
 						"enum_values": [ "draft", "published", "deleted" ]
 					}
 				}
@@ -182,7 +182,7 @@
 				"type": "mwenum",
 				"options": {
 					"notnull": false,
-					"CustomSchemaOptions": {
+					"PlatformOptions": {
 						"enum_values": [ "draft", "published", "deleted" ]
 					}
 				}

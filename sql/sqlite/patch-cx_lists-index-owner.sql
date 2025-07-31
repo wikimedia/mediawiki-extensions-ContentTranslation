@@ -13,21 +13,23 @@ SELECT
   cxl_name,
   cxl_info
 FROM /*_*/cx_lists;
+
 DROP TABLE /*_*/cx_lists;
 
 
 CREATE TABLE /*_*/cx_lists (
-    cxl_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    cxl_type INTEGER DEFAULT 0, cxl_owner INTEGER NOT NULL,
-    cxl_public SMALLINT NOT NULL, cxl_start_time BLOB DEFAULT NULL,
-    cxl_end_time BLOB DEFAULT NULL, cxl_name BLOB NOT NULL,
-    cxl_info BLOB DEFAULT NULL
-  );
+  cxl_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  cxl_type INTEGER DEFAULT 0, cxl_owner INTEGER NOT NULL,
+  cxl_public SMALLINT NOT NULL, cxl_start_time BLOB DEFAULT NULL,
+  cxl_end_time BLOB DEFAULT NULL, cxl_name BLOB NOT NULL,
+  cxl_info BLOB DEFAULT NULL
+);
+
 INSERT INTO /*_*/cx_lists (
-    cxl_id, cxl_type, cxl_owner, cxl_public,
-    cxl_start_time, cxl_end_time, cxl_name,
-    cxl_info
-  )
+  cxl_id, cxl_type, cxl_owner, cxl_public,
+  cxl_start_time, cxl_end_time, cxl_name,
+  cxl_info
+)
 SELECT
   cxl_id,
   cxl_type,
@@ -39,11 +41,12 @@ SELECT
   cxl_info
 FROM
   /*_*/__temp__cx_lists;
+
 DROP TABLE /*_*/__temp__cx_lists;
 
 CREATE UNIQUE INDEX cx_lists_relevant ON /*_*/cx_lists (
-    cxl_type, cxl_public, cxl_start_time,
-    cxl_end_time
-  );
+  cxl_type, cxl_public, cxl_start_time,
+  cxl_end_time
+);
 
 CREATE INDEX cx_lists_owner ON /*_*/cx_lists (cxl_owner);

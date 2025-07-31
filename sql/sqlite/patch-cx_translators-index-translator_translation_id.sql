@@ -7,24 +7,27 @@ SELECT
   translator_user_id,
   translator_translation_id
 FROM /*_*/cx_translators;
+
 DROP TABLE /*_*/cx_translators;
 
 
 CREATE TABLE /*_*/cx_translators (
-    translator_user_id INTEGER NOT NULL,
-    translator_translation_id INTEGER NOT NULL,
-    PRIMARY KEY(
-      translator_user_id, translator_translation_id
-    )
-  );
-INSERT INTO /*_*/cx_translators (
+  translator_user_id INTEGER NOT NULL,
+  translator_translation_id INTEGER NOT NULL,
+  PRIMARY KEY(
     translator_user_id, translator_translation_id
   )
+);
+
+INSERT INTO /*_*/cx_translators (
+  translator_user_id, translator_translation_id
+)
 SELECT
   translator_user_id,
   translator_translation_id
 FROM
   /*_*/__temp__cx_translators;
+
 DROP TABLE /*_*/__temp__cx_translators;
 
 CREATE INDEX cx_translators_translation_id ON /*_*/cx_translators (translator_translation_id);
