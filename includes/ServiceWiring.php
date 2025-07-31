@@ -12,6 +12,7 @@ use ContentTranslation\Service\ContentCompressionService;
 use ContentTranslation\Service\EditedSectionFinder;
 use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionContentEvaluator;
+use ContentTranslation\Service\SectionMappingFetcher;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
 use ContentTranslation\Service\TranslationSplitter;
@@ -116,11 +117,19 @@ return [
 				$services->getService( 'ContentTranslation.ParsoidClientFactory' )
 			);
 		},
+	'ContentTranslation.SectionMappingFetcher' =>
+		static function ( MediaWikiServices $services ): SectionMappingFetcher {
+			return new SectionMappingFetcher(
+				$services->getHttpRequestFactory(),
+				LoggerFactory::getInstance( LogNames::MAIN )
+			);
+		},
 	'ContentTranslation.SectionPositionCalculator' =>
 		static function ( MediaWikiServices $services ): SectionPositionCalculator {
 			return new SectionPositionCalculator(
 				$services->getHttpRequestFactory(),
 				$services->getService( 'ContentTranslation.SectionTitleFetcher' ),
+				$services->getService( 'ContentTranslation.SectionMappingFetcher' ),
 				LoggerFactory::getInstance( LogNames::MAIN )
 			);
 		},

@@ -226,12 +226,18 @@ class ApiSectionTranslationPublish extends ApiBase {
 		'@phan-var Title $targetTitle';
 		$hookRunner->onSectionTranslationBeforePublish( $targetTitle, $targetLanguage, $user );
 
-		$existingSectionTitle = $params['existingsectiontitle'];
+		$existingTargetSectionTitle = $params['existingsectiontitle'];
+		$sourceSectionTitle = $params['sourcesectiontitle'];
+		$sourceLanguage = $params['sourcelanguage'];
+		$sourceTitle = $params['sourcetitle'];
 		$sectionNumber = $this->sectionPositionCalculator->calculateSectionPosition(
 			$targetTitle,
 			$targetLanguage,
 			$isSandbox,
-			$existingSectionTitle
+			$sourceLanguage,
+			$sourceTitle,
+			$sourceSectionTitle,
+			$existingTargetSectionTitle,
 		);
 
 		$targetSectionTitle = $params['targetsectiontitle'];
@@ -241,7 +247,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 				$targetTitle,
 				$sectionNumber,
 				$targetSectionTitle,
-				$existingSectionTitle
+				$existingTargetSectionTitle
 			);
 		} catch ( ApiUsageException $e ) {
 			throw $e;
