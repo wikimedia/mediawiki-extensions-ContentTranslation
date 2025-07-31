@@ -22,7 +22,7 @@
 		"@wdio/mocha-framework": "7.40.0",
 		"@wdio/spec-reporter": "7.40.0",
 		"dotenv": "^16.3.1",
-		"eslint-config-wikimedia": "0.30.0",
+		"eslint-config-wikimedia": "0.31.0",
 		"grunt-banana-checker": "0.13.0",
 		"pre-commit": "^1.2.2",
 		"stylelint-config-wikimedia": "0.18.0",

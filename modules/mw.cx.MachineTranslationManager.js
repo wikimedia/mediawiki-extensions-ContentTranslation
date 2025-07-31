@@ -108,6 +108,7 @@ class MwCxMachineTranslationManager {
 	}
 
 	/**
+	 * @param {string} provider
 	 * @return {string}
 	 */
 	static getProviderForInstrumentation( provider ) {
