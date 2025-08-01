@@ -210,7 +210,6 @@
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 ዓመት|$1 ዓመታት}}",
 	"sx-confirm-draft-translation-start-button-label": "ሕራይ",
 	"sx-published-translation-start-section-translation-button-aria-label": "ትርጉም ክፍሊ ጀምር",
-	"sx-published-translation-new-translation-button-label": "ሓድሽ ትርጉም",
 	"cx-mflanguagesearcher-entrypoint-card-title": "ሓድሽ ትርጉም ወስኽ",
 	"cx-unreviewed-translation-dialog-review-translation-button-label": "ትርጉም ገምግም",
 	"cx-unreviewed-translation-dialog-close-button-label": "ዕጸው",

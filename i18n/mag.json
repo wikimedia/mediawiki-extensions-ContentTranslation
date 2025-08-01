@@ -199,6 +199,5 @@
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 दिन|0=आज}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 माह}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 बरिस}}",
-	"sx-confirm-draft-translation-start-button-label": "ठीक हे",
-	"sx-published-translation-new-translation-button-label": "नया अनुवाद"
+	"sx-confirm-draft-translation-start-button-label": "ठीक हे"
 }

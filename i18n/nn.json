@@ -394,6 +394,5 @@
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 dag|$1 dagar|0=I dag}}",
 	"cx-sx-translation-work-months-since-started": "$1 {{PLURAL:$1|månad|månadar}}",
 	"cx-sx-translation-work-years-since-started": "$1 {{PLURAL:$1|år}}",
-	"sx-confirm-draft-translation-start-button-label": "OK",
-	"sx-published-translation-new-translation-button-label": "Ny omsetjing"
+	"sx-confirm-draft-translation-start-button-label": "OK"
 }

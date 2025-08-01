@@ -53,7 +53,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "رمز لغة الأصل",
 	"apihelp-query+cxpublishedtranslations-param-to": "رمز لغة الترجمة",
 	"apihelp-query+cxpublishedtranslations-param-limit": "الحد الأقصى لعدد الترجمات لجلبها.",
-	"apihelp-query+cxpublishedtranslations-example-1": "الحصول على كل الترجمات المنشورة",
+	"apihelp-query+cxpublishedtranslations-example-1": "جلب جميع الترجمات المنشورة، المترجمة من الإنجليزية إلى الإسبانية",
 	"apihelp-cxtoken-summary": "الحصول على رموز JWT للمصادقة مع cxserver.",
 	"apihelp-cxtoken-example-1": "جلب رمز المصادقة لـcxserver",
 	"apihelp-cxdelete-summary": "احذف مسودة الترجمة التي تم إنشاؤها باستخدام إضافة ترجمة المحتوى.",

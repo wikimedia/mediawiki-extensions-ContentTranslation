@@ -449,7 +449,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Mache dir keine Sorgen. Die restlichen Abschnitte sind nicht verloren. Sie sind jetzt in der Liste deiner laufenden Übersetzungen verfügbar und können zur Erweiterung des bestehenden Artikels verwendet werden. Du findest eine neue in Arbeit befindliche Übersetzug mit dem Inhalt jedes Abschnitts.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-start-section-translation-button-aria-label": "Abschnittsübersetzung beginnen",
-	"sx-published-translation-new-translation-button-label": "Neue Übersetzung",
+	"sx-published-translation-personal-draft-indicator": "Veröffentlicht als persönlicher Entwurf",
 	"sx-section-selector-close-button-aria-label": "Geh zur Schaltfläche Bestätigung.",
 	"sx-section-selector-next-button-aria-label": "Zum Inhaltsvergleich",
 	"sx-quick-tutorial-next-button-aria-label": "Gehe zur nächsten Tutorial-Seite",

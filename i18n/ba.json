@@ -405,7 +405,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Башҡа бүлектәр ҡайҙа?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Борсолмағыҙ. Ҡалған бүлектәр юғалмаған. Хәҙер улар һеҙ эшләгән тәржемәләр исемлегендә бар һәм уларҙы мәҡәләне киңәйтеү өсөн ҡулланып була. Һеҙ бында һәр бүлек эстәлеге менән бергә башҡарылған тәржемәләрҙе таба алаһығыҙ.",
 	"sx-confirm-draft-translation-start-button-label": "Ярай",
-	"sx-published-translation-new-translation-button-label": "Яңы тәржемә",
 	"sx-section-selector-close-button-aria-label": "Ҡулланыуҙы раҫлау төймәһенә күсергә",
 	"sx-quick-tutorial-next-button-aria-label": "Киләһе һабаҡ битенә күсер"
 }

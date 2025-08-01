@@ -438,7 +438,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "চিন্তা করবেন না। বাকি অনুচ্ছেদগুলি হারিয়ে যায়নি। আপনি বর্তমান অনুবাদটি একটি নতুন নিবন্ধ হিসেবে প্রকাশ করার পর সেগুলি সেখানে পাওয়া যাবে। প্রকাশ করার পর, আপনি প্রতিটি অনুচ্ছেদের বিষয়বস্তুর জন্য নতুন অগ্রগতিতে থাকা অনুবাদ বোতাম পাবেন।",
 	"sx-confirm-draft-translation-start-button-label": "ঠিক আছে",
 	"sx-published-translation-start-section-translation-button-aria-label": "অনুচ্ছেদ অনুবাদ শুরু করুন",
-	"sx-published-translation-new-translation-button-label": "নতুন অনুবাদ",
 	"sx-section-selector-close-button-aria-label": "নিশ্চিতকরণ ধাপের বোতামে যান",
 	"sx-quick-tutorial-next-button-aria-label": "পরবর্তী টিউটোরিয়াল পাতায় যান",
 	"cx-mflanguagesearcher-entrypoint-card-title": "নতুন অনুবাদ শুরু করুন",

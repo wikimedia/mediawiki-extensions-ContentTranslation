@@ -423,7 +423,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "కాంగారు పడకండి. మిగిలిన విభాగాలు ఎక్కడికీ పోలేదు. అవి పురోగతిలో ఉన్న అనువాదాల జాబితాలో అందుబాటులో ఉన్నాయి. వాటితో ఇప్పటికే ఉన్న వ్యాసాన్ని విస్తరించవచ్చు. ప్రతి విభాగానికీ, సంబంధిత విషయాలతో పురోగతిలో ఉన్న అనువాదం మీకు కనిపిస్తుంది.",
 	"sx-confirm-draft-translation-start-button-label": "సరే",
 	"sx-published-translation-start-section-translation-button-aria-label": "విభాగ అనువాదం మొదలుపెట్టండి",
-	"sx-published-translation-new-translation-button-label": "కొత్త అనువాదం",
 	"cx-mflanguagesearcher-entrypoint-card-title": "కొత్త అనువాదం రాయండి",
 	"cx-mflanguagesearcher-entrypoint-card-description": "మీ భాషలో కొత్త పేజీని సృష్టించడానికి అంచెలంచెల అనువాద ప్రక్రియ.",
 	"mint-mflanguagesearcher-entrypoint-card-title": "ఆటోమేటిక్ అనువాదం చదవండి",

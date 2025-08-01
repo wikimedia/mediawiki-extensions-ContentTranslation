@@ -303,7 +303,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Dove sono le altre sezioni?",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-start-section-translation-button-aria-label": "Inizia traduzione della sezione",
-	"sx-published-translation-new-translation-button-label": "Nuova traduzione",
+	"sx-published-translation-personal-draft-indicator": "Pubblicato come bozza personale",
 	"sx-section-selector-next-button-aria-label": "Vai al comparatore di contenuti",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Scrivi una nuova traduzione",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Processo di traduzione passo dopo passo per creare una nuova pagina nella tua lingua.",

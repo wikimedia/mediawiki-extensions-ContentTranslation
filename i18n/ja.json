@@ -463,7 +463,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "心配しないでください。残りの節は失われません。進行中の翻訳のリストで利用でき、既存の記事を拡張するために使用できます。各節の内容を含む新しい進行中の翻訳が見つかります。",
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-start-section-translation-button-aria-label": "セクション翻訳を開始",
-	"sx-published-translation-new-translation-button-label": "新しい翻訳",
 	"sx-section-selector-close-button-aria-label": "確認手順に進むボタン",
 	"sx-section-selector-next-button-aria-label": "コンテンツ比較へ進む",
 	"sx-quick-tutorial-next-button-aria-label": "次のチュートリアルページへ進む",

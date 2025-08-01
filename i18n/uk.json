@@ -454,7 +454,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не хвилюйтеся. Решта розділів не втрачені. Вони доступні у списку ваших поточних перекладів і їх можна використати для розширення наявної статті. Ви побачите нові незавершені переклади з вмістом кожного розділу.",
 	"sx-confirm-draft-translation-start-button-label": "Гаразд",
 	"sx-published-translation-start-section-translation-button-aria-label": "Почати переклад розділу",
-	"sx-published-translation-new-translation-button-label": "Новий переклад",
 	"sx-section-selector-close-button-aria-label": "Перейти до кнопки підтвердження",
 	"sx-section-selector-next-button-aria-label": "Перейти до порівняння вмісту",
 	"sx-quick-tutorial-next-button-aria-label": "Перейти до наступної сторінки посібника",

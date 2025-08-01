@@ -449,7 +449,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Nie martw się. Pozostałe sekcje nie zostały utracone. Są teraz dostępne na liście Twoich tłumaczeń będących w toku i mogą być wykorzystane do rozbudowy artykułu. Zobaczysz tam tłumaczenia w toku z treścią dla każdej sekcji.",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-start-section-translation-button-aria-label": "Rozpocznij tłumaczenie sekcji",
-	"sx-published-translation-new-translation-button-label": "Nowe tłumaczenie",
 	"sx-section-selector-close-button-aria-label": "Przycisk przejścia do kroku z potwierdzeniem",
 	"sx-section-selector-next-button-aria-label": "Przejdź do porównywarki treści",
 	"sx-quick-tutorial-next-button-aria-label": "Przejdź do następnej strony samouczka",

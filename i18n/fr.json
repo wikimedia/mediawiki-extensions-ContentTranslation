@@ -495,7 +495,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Pas de souci. Les sections restantes ne sont pas perdues. Elles sont désormais disponibles dans la liste de vos traductions en cours et peuvent être utilisées pour étendre l'article existant. Vous trouverez une nouvelle traduction en cours avec le contenu de chaque section.",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-start-section-translation-button-aria-label": "Commencez la traduction de la section",
-	"sx-published-translation-new-translation-button-label": "Nouvelle traduction",
 	"sx-section-selector-close-button-aria-label": "Aller au bouton de l'étape de confirmation",
 	"sx-section-selector-next-button-aria-label": "Accéder au comparateur de contenu",
 	"sx-quick-tutorial-next-button-aria-label": "Allez à la page de tutoriel suivante",

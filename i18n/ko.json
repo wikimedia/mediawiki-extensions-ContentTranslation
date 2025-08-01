@@ -421,7 +421,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "걱정하지 마세요. 나머지 문단은 사라지지 않습니다. 지금은 진행 중인 번역 란에서 확인할 수 있으며 이곳에서 기존 문서의 내용을 추가하실 수 있습니다. 각 문단의 내용이 새로운 진행 중인 번역으로 추가된 것을 확인하실 수 있습니다.",
 	"sx-confirm-draft-translation-start-button-label": "확인",
 	"sx-published-translation-start-section-translation-button-aria-label": "문단 번역 시작",
-	"sx-published-translation-new-translation-button-label": "새 번역",
 	"sx-section-selector-close-button-aria-label": "확인 단계 버튼으로 이동",
 	"sx-quick-tutorial-next-button-aria-label": "다음 튜토리얼 페이지로 이동",
 	"cx-mflanguagesearcher-entrypoint-card-title": "새 번역 작성하기",

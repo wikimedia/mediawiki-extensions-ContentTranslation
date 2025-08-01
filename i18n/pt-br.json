@@ -448,7 +448,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Não se preocupe. As seções restantes não foram perdidas. Elas agora estão disponíveis na sua lista de traduções em curso e podem ser usadas para expandir o artigo existente. Você encontrará uma nova tradução em curso com o conteúdo de cada seção.",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-start-section-translation-button-aria-label": "Iniciar tradução da seção",
-	"sx-published-translation-new-translation-button-label": "Nova tradução",
 	"sx-section-selector-close-button-aria-label": "Ir para o botão da etapa de confirmação",
 	"sx-section-selector-next-button-aria-label": "Ir para o comparador de conteúdo",
 	"sx-quick-tutorial-next-button-aria-label": "Ir para a próxima página do tutorial",

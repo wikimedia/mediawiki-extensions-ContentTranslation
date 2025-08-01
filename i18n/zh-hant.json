@@ -449,7 +449,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "請不用擔心，剩餘的章節部分並不會遺失。他們在您的進行中翻譯清單裡可用，能用於擴充現有的條目。您可找到一個新的、帶有各章節內容的進行中翻譯。",
 	"sx-confirm-draft-translation-start-button-label": "確定",
 	"sx-published-translation-start-section-translation-button-aria-label": "開始章節翻譯",
-	"sx-published-translation-new-translation-button-label": "新增譯文",
 	"sx-section-selector-close-button-aria-label": "跳到確認步驟按鈕",
 	"sx-section-selector-next-button-aria-label": "前往內容比較工具",
 	"sx-quick-tutorial-next-button-aria-label": "跳到下一個教學頁面",

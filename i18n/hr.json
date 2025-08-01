@@ -346,7 +346,6 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mjesec|$1 mjeseca|$1 mjeseci}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 godina|$1 godine|$1 godina}}",
 	"sx-confirm-draft-translation-start-button-label": "U redu",
-	"sx-published-translation-new-translation-button-label": "Novi prijevod",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Napišite novi prijevod",
 	"cx-unreviewed-translation-dialog-close-button-label": "Zatvori",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Saznajte više"

@@ -442,7 +442,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "אל {{GENDER:|תדאג|תדאגי}}. הקטעים הנותרים לא הלכו לאיבוד. הם זמינים כעת ברשימת התרגומים שהתחלת וניתן להשתמש בהם כדי להרחיב את הערך הקיים. {{GENDER:|תמצא|תמצאי}} תרגום חדש בתהליך עם התוכן של כל פרק.",
 	"sx-confirm-draft-translation-start-button-label": "בסדר",
 	"sx-published-translation-start-section-translation-button-aria-label": "להתחיל תרגום פרק",
-	"sx-published-translation-new-translation-button-label": "תרגום חדש",
 	"sx-section-selector-close-button-aria-label": "לעבור אל לחצן שלב האישור",
 	"sx-section-selector-next-button-aria-label": "לעבור להשוואת תוכן",
 	"sx-quick-tutorial-next-button-aria-label": "מעבר לדף ההדרכה הבא",

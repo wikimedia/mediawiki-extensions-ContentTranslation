@@ -264,6 +264,5 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|един месец|$1 месеца}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|една година|$1 години}}",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Къде са другите раздели?",
-	"sx-confirm-draft-translation-start-button-label": "Добре",
-	"sx-published-translation-new-translation-button-label": "Нов превод"
+	"sx-confirm-draft-translation-start-button-label": "Добре"
 }

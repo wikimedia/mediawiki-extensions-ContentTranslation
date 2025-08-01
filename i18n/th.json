@@ -390,7 +390,6 @@
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 ปี}}",
 	"sx-confirm-draft-translation-start-dialog-title": "แปลต่อบนมือถือ",
 	"sx-confirm-draft-translation-start-button-label": "ตกลง",
-	"sx-published-translation-new-translation-button-label": "การแปลใหม่",
 	"cx-mflanguagesearcher-entrypoint-card-title": "เขียนการแปลใหม่",
 	"cx-mflanguagesearcher-entrypoint-card-description": "กระบวนการแปลเป็นขั้นเป็นตอนเพื่อสร้างหน้าใหม่ในภาษาของคุณ",
 	"cx-unreviewed-translation-dialog-close-button-label": "ปิด",
