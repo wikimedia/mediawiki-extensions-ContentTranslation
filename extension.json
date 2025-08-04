@@ -813,7 +813,9 @@
 				"cx-publish-permission-warning",
 				"cx-publish-permission-warning-link-label",
 				"cx-publish-permission-error",
-				"cx-publish-permission-error-title"
+				"cx-publish-permission-error-title",
+				"cx-tools-linter-invalid-character",
+				"cx-tools-linter-invalid-character-message"
 			],
 			"noflip": true
 		},

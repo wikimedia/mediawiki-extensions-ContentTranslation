@@ -3,11 +3,13 @@ import useMtValidate from "./useMtValidate";
 import canUserPublish from "@/utils/userPublishingPermissions";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import usePublishTarget from "@/composables/usePublishTarget";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const usePublishFeedbackMessages = () => {
   const validateMT = useMtValidate();
 
   const { target, PUBLISHING_TARGETS } = usePublishTarget();
+  const { targetPageTitleForPublishing } = useCurrentPageSection();
 
   /**
    * Feedback messages that contain publishing-related warnings or errors. If only
@@ -50,6 +52,17 @@ const usePublishFeedbackMessages = () => {
 
     if (mtValidationMessage) {
       addPublishFeedbackMessage(mtValidationMessage);
+    }
+
+    if (!mw.Title.newFromText(targetPageTitleForPublishing.value)) {
+      addPublishFeedbackMessage(
+        new PublishFeedbackMessage({
+          text: mw.message("cx-tools-linter-invalid-character-message").text(),
+          title: mw.message("cx-tools-linter-invalid-character").text(),
+          type: "generic",
+          status: "error",
+        })
+      );
     }
   };
 
