@@ -465,6 +465,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Geen zorgen. De overige secties gaan niet verloren. Ze zijn nu beschikbaar in de lijst van uw lopende vertalingen en kunnen worden gebruikt om het bestaande artikel uit te breiden. U vindt een nieuwe lopende vertaling met de inhoud voor elke sectie.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-start-section-translation-button-aria-label": "Sectievertaling beginnen",
+	"sx-published-translation-personal-draft-indicator": "Gepubliceerd als persoonlijke conceptversie",
 	"sx-section-selector-close-button-aria-label": "Knop om naar de bevestigingsstap te gaan",
 	"sx-section-selector-next-button-aria-label": "Naar de inhoudsvergelijker",
 	"sx-quick-tutorial-next-button-aria-label": "Naar de volgende tutorialpagina gaan",

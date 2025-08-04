@@ -451,6 +451,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Älä huoli. Loput osiot ovat tallessa. Ne ovat nyt saatavilla luettelossa keskeneräisistä käännöksistäsi, ja niitä voi käyttää olemassa olevan artikkelin laajentamiseen. Löydät uuden keskeneräisen käännöksen jokaisen osion sisällölle.",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-start-section-translation-button-aria-label": "Aloita osion kääntäminen",
+	"sx-published-translation-personal-draft-indicator": "Julkaistu henkilökohtaisena luonnoksena",
 	"sx-section-selector-close-button-aria-label": "Siirry vahvistusvaiheen painikkeeseen",
 	"sx-section-selector-next-button-aria-label": "Siirry sisällön vertailuun",
 	"sx-quick-tutorial-next-button-aria-label": "Siirry seuraavalle tutoriaalisivulle",

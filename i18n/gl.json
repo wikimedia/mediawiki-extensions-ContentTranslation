@@ -444,6 +444,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Non te preocupes. As seccións restantes non se perden. Agora están dispoñibles na lista das túas traducións en curso e pódense utilizar para ampliar o artigo. Atoparás unha nova tradución en curso cos contidos de cada sección.",
 	"sx-confirm-draft-translation-start-button-label": "Aceptar",
 	"sx-published-translation-start-section-translation-button-aria-label": "Iniciar a tradución da sección",
+	"sx-published-translation-personal-draft-indicator": "Publicada como borrador persoal",
 	"sx-section-selector-close-button-aria-label": "Ir ao botón do paso de confirmación",
 	"sx-section-selector-next-button-aria-label": "Ir ao comparador de contidos",
 	"sx-quick-tutorial-next-button-aria-label": "Ir á seguinte páxina da guía",
