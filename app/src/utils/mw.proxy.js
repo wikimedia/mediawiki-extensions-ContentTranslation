@@ -92,13 +92,50 @@ const mw = {
       }
     },
   },
-  message: (message) => ({
-    toString: () => message,
-    params: (param) => ({ parse: () => message }),
-    parse: () => message,
-    plain: () => message,
-  }),
-  Message: class {},
+  message: (...args) => new mw.Message(...args),
+  Message: class {
+    static messages = {};
+
+    static getMessages() {
+      return self.messages;
+    }
+
+    static setMessages(value) {
+      self.messages = value;
+    }
+
+    constructor(...args) {
+      const [key, ...messageArgs] = args;
+      this.key = key;
+      this.messageArgs = messageArgs;
+    }
+
+    toString() {
+      return this.key;
+    }
+
+    params(param) {
+      return { parse: () => this.parse() };
+    }
+
+    parse() {
+      let message = this.key;
+
+      if (this.key in (self.messages || {})) {
+        message = self.messages[this.key];
+
+        for (let i = 0; i < this.messageArgs.length; i++) {
+          message = message.replace(`$${i + 1}`, this.messageArgs[i]);
+        }
+      }
+
+      return message;
+    }
+
+    plain() {
+      return this.key;
+    }
+  },
   cookie: {
     get: (key) =>
       [{ key: "GeoIP", value: "FI:Helsinki:60.1756:24.9342:v4" }].find(

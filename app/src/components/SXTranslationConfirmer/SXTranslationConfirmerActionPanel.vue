@@ -80,7 +80,7 @@ watchEffect(() => {
   }
 });
 const {
-  actionInformationMessageArgs,
+  actionInformationMessage,
   getActionButtonLabel,
   isProgressiveButton,
   targetArticlePath,
@@ -90,10 +90,6 @@ const bananaI18n = useI18n();
 
 const actionButtonLabel = computed(() =>
   bananaI18n.i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
-);
-
-const actionInformationMessage = computed(() =>
-  bananaI18n.i18n(...actionInformationMessageArgs.value)
 );
 
 const onMoreSectionsClick = async () => {
@@ -152,7 +148,9 @@ const shouldDisplayNewTranslationButton = computed(() => {
       </mw-row>
       <mw-row class="ma-0">
         <mw-col>
-          <span v-text="actionInformationMessage" />
+          <!--eslint-disable vue/no-v-text-v-html-on-component vue/no-v-html -->
+          <span v-html="actionInformationMessage" />
+          <!--eslint-enable vue/no-v-text-v-html-on-component vue/no-v-html -->
         </mw-col>
       </mw-row>
     </section>

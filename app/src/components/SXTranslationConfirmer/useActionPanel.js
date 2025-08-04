@@ -6,7 +6,7 @@ import useURLHandler from "@/composables/useURLHandler";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 
 /**
- * @return {{isProgressiveButton: ComputedRef<boolean>, targetArticlePath: ComputedRef<string>, actionInformationMessageArgs: ComputedRef<string[]>, getActionButtonLabel: ((function(*): (string|undefined))|*)}}
+ * @return {{isProgressiveButton: ComputedRef<boolean>, targetArticlePath: ComputedRef<string>, actionInformationMessage: ComputedRef<string>, getActionButtonLabel: ((function(*): (string|undefined))|*)}}
  */
 const useActionPanel = () => {
   const { sectionSuggestion } = useCurrentSectionSuggestion();
@@ -69,36 +69,51 @@ const useActionPanel = () => {
     }
   };
 
-  const actionInformationMessageArgs = computed(() => {
-    let i18nArgs;
-
+  /**
+   * Here, we use "mw.message().parse()" to get the information message, as bananaI18n
+   * has currently some security issues when used with v-html (or v-i18n-html), as it
+   * doesn't properly escape unsafe messages (e.g. "<img src="x" onerror="alert('XSS')">)
+   * At the same time, we do not pass the section title argument to "mw.message" as it
+   * doesn't support HTML strings for message arguments. This is why we do a manual
+   * replacement of the first ($1) argument with the section title.
+   *
+   * The finally produced string, is safe to be used with v-html, as the main part of
+   * the message is safely escaped by "mw.message().parse()" and the section title
+   * is safe to be used with v-html, given that it directly comes from cxserver and
+   * is a valid page section title.
+   *
+   * @type {ComputedRef<string>}
+   */
+  const actionInformationMessage = computed(() => {
     if (missingCount.value > 1) {
-      i18nArgs = [
-        "cx-sx-existing-translation-additional-info",
-        `"${firstMissingSectionTitle.value}"`,
-        missingCount.value - 1,
-      ];
-    } else if (missingCount.value === 1 && presentCount.value > 0) {
-      i18nArgs = [
-        "cx-sx-translation-confirmer-action-message-single-missing-multiple-present",
-        `"${firstMissingSectionTitle.value}"`,
-      ];
-    } else if (missingCount.value === 1 && presentCount.value === 0) {
-      i18nArgs = [
-        "cx-sx-translation-confirmer-action-message-single-missing-none-present",
-        `"${firstMissingSectionTitle.value}"`,
-      ];
-    } else if (presentCount.value > 0) {
-      i18nArgs = [
-        "cx-sx-translation-confirmer-action-message-none-missing-multiple-present",
-      ];
-    } else {
-      i18nArgs = [
-        "cx-sx-translation-confirmer-action-message-none-missing-none-present",
-      ];
-    }
+      const messageKey = "cx-sx-existing-translation-additional-info";
+      const messageArgs = ["$1", missingCount.value - 1];
+      const message = mw.message(messageKey, ...messageArgs).parse();
 
-    return i18nArgs;
+      return message.replace("$1", `"${firstMissingSectionTitle.value}"`);
+    } else if (missingCount.value === 1 && presentCount.value > 0) {
+      const messageKey =
+        "cx-sx-translation-confirmer-action-message-single-missing-multiple-present";
+      const message = mw.message(messageKey, "$1").parse();
+
+      return message.replace("$1", `"${firstMissingSectionTitle.value}"`);
+    } else if (missingCount.value === 1 && presentCount.value === 0) {
+      const messageKey =
+        "cx-sx-translation-confirmer-action-message-single-missing-none-present";
+      const message = mw.message(messageKey, "$1").parse();
+
+      return message.replace("$1", `"${firstMissingSectionTitle.value}"`);
+    } else if (presentCount.value > 0) {
+      const messageKey =
+        "cx-sx-translation-confirmer-action-message-none-missing-multiple-present";
+
+      return mw.message(messageKey).parse();
+    } else {
+      const messageKey =
+        "cx-sx-translation-confirmer-action-message-none-missing-none-present";
+
+      return mw.message(messageKey).parse();
+    }
   });
 
   const isProgressiveButton = computed(
@@ -108,7 +123,7 @@ const useActionPanel = () => {
   );
 
   return {
-    actionInformationMessageArgs,
+    actionInformationMessage,
     getActionButtonLabel,
     isProgressiveButton,
     targetArticlePath,

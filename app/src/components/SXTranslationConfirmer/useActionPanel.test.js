@@ -1,10 +1,11 @@
 import useActionPanel from "./useActionPanel";
-import { createApp, ref } from "vue";
+import { ref } from "vue";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { createStore } from "vuex";
 import mediawikiGetters from "@/store/modules/mediawiki/getters";
 import LanguageTitleGroup from "@/wiki/mw/models/languageTitleGroup";
 import DraftTranslation from "@/wiki/cx/models/draftTranslation";
+import { loadTestComposable } from "@/utils/loadTestComposable";
 
 jest.mock("@/composables/useURLHandler", () => () => ({
   sourceLanguageURLParameter: { value: "en" },
@@ -26,11 +27,6 @@ const mockSectionSuggestion = ref(
   new SectionSuggestion({
     targetLanguage: "en",
     targetTitle: "Test target title",
-    missing: {
-      source2: "target2",
-      source1: "target1",
-      source3: "target3",
-    },
     sourceSections: ["source1", "source2", "source3"],
   })
 );
@@ -51,54 +47,52 @@ const mockStore = createStore({
   },
 });
 
-const mockLoadComposableInApp = () => {
-  let result;
-  const app = createApp({
-    setup() {
-      result = useActionPanel();
-
-      // suppress missing template warning
-      return () => {};
-    },
-  });
-  app.use(mockStore);
-  app.mount(document.createElement("div"));
-
-  return { result, app };
+const messages = {
+  "cx-sx-existing-translation-additional-info":
+    "Expand with $1 and $2 more sections",
+  "cx-sx-translation-confirmer-action-message-single-missing-multiple-present":
+    "Expand with $1 or check existing sections",
+  "cx-sx-translation-confirmer-action-message-single-missing-none-present":
+    "Expand with $1 section.",
 };
 
-describe("actionInformationMessageArgs test", () => {
-  const data = mockLoadComposableInApp();
-  const { actionInformationMessageArgs } = data.result;
+mw.Message.setMessages(messages);
+
+describe("actionInformationMessage test", () => {
+  const data = loadTestComposable(() => useActionPanel(), [mockStore]);
+
+  const { actionInformationMessage } = data.result;
   it("case: missing > 1", () => {
-    expect(actionInformationMessageArgs.value).toStrictEqual([
-      "cx-sx-existing-translation-additional-info",
-      `"source1"`,
-      2,
-    ]);
+    mockSectionSuggestion.value.missingSections = {
+      source2: "target2",
+      "Empresaria<sup><span>[</span>1<span>]</span></sup>": "target1",
+      source3: "target3",
+    };
+
+    expect(actionInformationMessage.value).toBe(
+      `Expand with \"Empresaria<sup><span>[</span>1<span>]</span></sup>\" and 2 more sections`
+    );
   });
 
   it("case: missing = 1 & present > 0", () => {
     mockSectionSuggestion.value.missingSections = {
-      source1: "target1",
+      "<i>Char Bagh</i>": "target1",
     };
 
     mockSectionSuggestion.value.presentSections = {
       "Test present section 1": "test",
     };
-    expect(actionInformationMessageArgs.value).toStrictEqual([
-      "cx-sx-translation-confirmer-action-message-single-missing-multiple-present",
-      `"source1"`,
-    ]);
+    expect(actionInformationMessage.value).toBe(
+      'Expand with "<i>Char Bagh</i>" or check existing sections'
+    );
   });
 
   it("case: missing = 1 & present = 0", () => {
     mockSectionSuggestion.value.presentSections = {};
 
-    expect(actionInformationMessageArgs.value).toStrictEqual([
-      "cx-sx-translation-confirmer-action-message-single-missing-none-present",
-      `"source1"`,
-    ]);
+    expect(actionInformationMessage.value).toBe(
+      'Expand with "<i>Char Bagh</i>" section.'
+    );
   });
 
   it("case: missing = 0 & present > 0", () => {
@@ -106,22 +100,22 @@ describe("actionInformationMessageArgs test", () => {
     mockSectionSuggestion.value.presentSections = {
       "Test present section 1": "test",
     };
-    expect(actionInformationMessageArgs.value).toStrictEqual([
-      "cx-sx-translation-confirmer-action-message-none-missing-multiple-present",
-    ]);
+    expect(actionInformationMessage.value).toBe(
+      "cx-sx-translation-confirmer-action-message-none-missing-multiple-present"
+    );
   });
 
   it("case: missing = 0 & present = 0", () => {
     mockSectionSuggestion.value.missingSections = {};
     mockSectionSuggestion.value.presentSections = {};
-    expect(actionInformationMessageArgs.value).toStrictEqual([
-      "cx-sx-translation-confirmer-action-message-none-missing-none-present",
-    ]);
+    expect(actionInformationMessage.value).toBe(
+      "cx-sx-translation-confirmer-action-message-none-missing-none-present"
+    );
   });
 });
 
 describe("Test 'getActionButtonLabel' method", () => {
-  const data = mockLoadComposableInApp();
+  const data = loadTestComposable(() => useActionPanel(), [mockStore]);
   const { getActionButtonLabel } = data.result;
   it("case: prefilled section", () => {
     expect(getActionButtonLabel(true)).toBe(

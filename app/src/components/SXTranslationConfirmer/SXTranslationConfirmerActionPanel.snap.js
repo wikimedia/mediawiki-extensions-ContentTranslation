@@ -60,9 +60,11 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
           class="col"
         >
           
+          <!--eslint-disable vue/no-v-text-v-html-on-component vue/no-v-html -->
           <span>
             cx-sx-existing-translation-additional-info
           </span>
+          <!--eslint-enable vue/no-v-text-v-html-on-component vue/no-v-html -->
           
         </div>
         
@@ -168,9 +170,11 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
           class="col"
         >
           
+          <!--eslint-disable vue/no-v-text-v-html-on-component vue/no-v-html -->
           <span>
             cx-sx-existing-translation-additional-info
           </span>
+          <!--eslint-enable vue/no-v-text-v-html-on-component vue/no-v-html -->
           
         </div>
         
