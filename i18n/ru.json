@@ -317,6 +317,7 @@
 	"cx-mt-failed": "Ошибка машинного перевода",
 	"cx-unreviewed-translation-category": "Страницы с непроверенными переводами",
 	"cx-unreviewed-translation-category-desc": "Страницы, переведённые с помощью инструмента «Перевод содержимого», которые имеют значительное количество непроверенного содержимого",
+	"cx-preference-enable-entrypoints": "Доступ к [[$1|началу перевода]] со страницы вкладов, списка языков и при создании новых страниц.",
 	"cx-feature-discovery-title": "Переводите в любое время",
 	"cx-feature-discovery-dismiss": "Понятно",
 	"cx-suggestionlist-expand-sections-title": "Расширить новыми разделами",
