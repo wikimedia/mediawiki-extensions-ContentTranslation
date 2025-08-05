@@ -476,6 +476,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Kaygılanmayın. Kalan bölümler kaybolmaz. Yapım aşamasında olan çeviriler listesinde bulunurlar ve varolan maddeyi geliştirmek için kullanılabilirler. Her bölümün içeriğiyle yapım aşamasında olan yeni bir çeviri bulabilirsiniz.",
 	"sx-confirm-draft-translation-start-button-label": "Tamam",
 	"sx-published-translation-start-section-translation-button-aria-label": "Bölüm çevirisine başla",
+	"sx-published-translation-personal-draft-indicator": "Kişisel taslak olarak yayımlandı",
 	"sx-section-selector-close-button-aria-label": "Onay adımı düğmesine git",
 	"sx-section-selector-next-button-aria-label": "İçerik karşılaştırıcısına git",
 	"sx-quick-tutorial-next-button-aria-label": "Sonraki eğitim sayfasına git",
