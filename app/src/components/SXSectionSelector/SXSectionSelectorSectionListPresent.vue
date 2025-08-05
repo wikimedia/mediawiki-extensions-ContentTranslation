@@ -27,18 +27,20 @@ const targetLanguageAutonym = computed(() => getAutonym(targetLanguage.value));
     >
       <template #default="{ sourceSection, targetSection }">
         <div class="sx-section-selector__present-section-button-content">
+          <!-- eslint-disable vue/no-v-html -->
           <h5
             class="sx-section-selector__present-section-button-source"
             :lang="suggestion?.sourceLanguage"
             :dir="getDir(suggestion?.sourceLanguage)"
-            v-text="sourceSection"
+            v-html="sourceSection"
           />
           <h6
             class="sx-section-selector__present-section-button-target"
             :lang="suggestion?.targetLanguage"
             :dir="getDir(suggestion?.targetLanguage)"
-            v-text="targetSection"
+            v-html="targetSection"
           />
+          <!-- eslint-enable vue/no-v-html -->
         </div>
       </template>
     </sx-section-selector-section-list>

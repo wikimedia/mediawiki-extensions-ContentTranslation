@@ -33,12 +33,14 @@ const noMissingSectionExists = computed(
       @select-section="$emit('select-section', $event)"
     >
       <template #default="{ sourceSection }">
+        <!-- eslint-disable vue/no-v-html -->
         <h5
           class="ma-0"
           :lang="suggestion?.sourceLanguage"
           :dir="getDir(suggestion?.sourceLanguage)"
-          v-text="sourceSection"
+          v-html="sourceSection"
         />
+        <!-- eslint-enable vue/no-v-html -->
       </template>
     </sx-section-selector-section-list>
     <mw-row

@@ -26,6 +26,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
         <div
           class="sx-section-selector__present-section-button-content"
         >
+          <!-- eslint-disable vue/no-v-html -->
           <h5
             class="sx-section-selector__present-section-button-source"
             dir="ltr"
@@ -39,6 +40,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
           >
             target section 0
           </h6>
+          <!-- eslint-enable vue/no-v-html -->
         </div>
         
         <span
@@ -77,6 +79,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
         <div
           class="sx-section-selector__present-section-button-content"
         >
+          <!-- eslint-disable vue/no-v-html -->
           <h5
             class="sx-section-selector__present-section-button-source"
             dir="ltr"
@@ -90,6 +93,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
           >
             target section 1
           </h6>
+          <!-- eslint-enable vue/no-v-html -->
         </div>
         
         <span
@@ -128,6 +132,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
         <div
           class="sx-section-selector__present-section-button-content"
         >
+          <!-- eslint-disable vue/no-v-html -->
           <h5
             class="sx-section-selector__present-section-button-source"
             dir="ltr"
@@ -141,6 +146,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
           >
             target section 2
           </h6>
+          <!-- eslint-enable vue/no-v-html -->
         </div>
         
         <span
@@ -179,6 +185,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
         <div
           class="sx-section-selector__present-section-button-content"
         >
+          <!-- eslint-disable vue/no-v-html -->
           <h5
             class="sx-section-selector__present-section-button-source"
             dir="ltr"
@@ -192,6 +199,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
           >
             target section 3
           </h6>
+          <!-- eslint-enable vue/no-v-html -->
         </div>
         
         <span
