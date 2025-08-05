@@ -308,7 +308,7 @@
 	"cx-sx-sentence-selector-header-title": "Versti skyrių",
 	"cx-sx-sentence-selector-done-button-label": "Atlikta",
 	"cx-sx-sentence-selector-suggested-translation-title": "Siūlomas vertimas iš $1",
-	"cx-sx-proposed-translation-not-available-message": "Mašininis vertimas šiuo metu nepasiekiamas",
+	"cx-sx-proposed-translation-not-available-message": "Šiuo metu nepasiekiamas",
 	"cx-sx-proposed-translation-retry-button": "Bandyti dar kartą",
 	"cx-sx-proposed-translation-other-options-button": "Kiti variantai",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Redaguoti vertimą",
