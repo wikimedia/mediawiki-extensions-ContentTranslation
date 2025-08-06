@@ -45,7 +45,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "קוד שפת המקור.",
 	"apihelp-query+cxpublishedtranslations-param-to": "קוד שפת היעד.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "המספר המרבי של תרגומים שיישלפו.",
-	"apihelp-query+cxpublishedtranslations-example-1": "אחזור כל התרגומים שפורסמו",
+	"apihelp-query+cxpublishedtranslations-example-1": "אחזור כל התרגומים שפורסמו, ושתורגמו מאנגלית לספרדית",
 	"apihelp-cxtoken-summary": "קבלת אסימון JWT לאימות מול cxserver.",
 	"apihelp-cxtoken-example-1": "אחזור אסימון האימות עבור cxserver",
 	"apihelp-cxdelete-summary": "מחיקת תרגום במצב טיוטה שנוצר באמצעות ההרחבה ContentTranslation.",

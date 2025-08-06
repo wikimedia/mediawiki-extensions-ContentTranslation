@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Charunandan16",
+			"Ganesh Paudel",
 			"NehalDaveND"
 		]
 	},
 	"cx": "पृष्ठम् अनुद्यताम्",
+	"cx-javascript": "एतत् साधनं जावास्क्रिप्ट विना कार्यं न करोति । जावास्क्रिप्ट् अक्षमऽस्ति, कार्यं कर्तुं असफलः, अथवा अयं ब्राउजर् असमर्थितः अस्ति ।",
 	"cx-header-all-translations": "सर्वे अनुवादाः",
 	"cx-source-view-page": "पृष्ठं दृश्यताम्",
 	"cx-publish-summary": "\"$1\" पृष्ठस्य अनुवादं कृत्वा निर्मितम्",

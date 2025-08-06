@@ -419,7 +419,7 @@
 	"sx-confirm-back-navigation-dialog-discard-button-label": "棄置變更",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "繼續編輯",
 	"cx-sx-login-dialog-title": "你個工作階段已經過咗期",
-	"cx-sx-login-dialog-body": "除非你喺另一個視窗重新簽到，否則你嘅編輯內容唔可以些乎同埋歸因於你嘅帳戶",
+	"cx-sx-login-dialog-body": "除非你喺另一個視窗重新簽到，否則你嘅編輯內容儲存唔到，記唔到落你嘅戶口名下",
 	"cx-sx-login-dialog-button-label": "簽到",
 	"sx-confirm-translation-deletion-dialog-body": "你確定你想永久刪除呢個翻譯？",
 	"sx-translation-deletion-cancel-button-label": "取消",
