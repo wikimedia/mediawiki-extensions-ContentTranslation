@@ -35,7 +35,7 @@ import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 import usePublishTarget from "@/composables/usePublishTarget";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
 import canUserPublish from "@/utils/userPublishingPermissions";
-import usePermissionWarningDismiss from "@/composables/usePermissionWarningDismiss";
+import usePublishWarnings from "@/composables/usePublishWarnings";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
@@ -62,8 +62,11 @@ if (!target.value) {
   ).then(() => resetPublishTarget());
 }
 
-const { sourceSection: currentPageSection, selectedContentTranslationUnit } =
-  useCurrentPageSection();
+const {
+  sourceSection: currentPageSection,
+  selectedContentTranslationUnit,
+  targetPageTitleForPublishing,
+} = useCurrentPageSection();
 
 const translationDataStatus = ref({
   pageContent: false,
@@ -291,16 +294,27 @@ const isBlockTemplateSelected = computed(
 const verifyBackNavigationDialogOn = ref(false);
 
 const {
-  isDismissed: isPermissionWarningDismissed,
-  dismiss: dismissPermissionWarning,
-  reset: resetPermissionWarningDismissed,
-} = usePermissionWarningDismiss();
+  isPermissionWarningDismissed,
+  dismissPermissionWarning,
+  resetPermissionWarning,
+} = usePublishWarnings();
+
+const { isTitleErrorDismissed, dismissTitleError, resetTitleError } =
+  usePublishWarnings();
 
 if (isBeginningToEdit()) {
-  resetPermissionWarningDismissed();
+  resetPermissionWarning();
+  resetTitleError();
 }
 const showPermissionWarning = computed(
   () => !canUserPublish() && !isPermissionWarningDismissed.value
+);
+
+const showTitleError = computed(
+  () =>
+    !isTitleErrorDismissed.value &&
+    currentPageSection.value?.isLeadSection &&
+    !mw.Title.newFromText(targetPageTitleForPublishing.value)
 );
 </script>
 
@@ -367,6 +381,18 @@ const showPermissionWarning = computed(
               >
             </strong>
           </p>
+        </cdx-message>
+        <cdx-message
+          v-if="showTitleError"
+          type="error"
+          :allow-user-dismiss="true"
+          class="mx-4 mt-4"
+          @user-dismissed="dismissTitleError"
+        >
+          <p>
+            <strong>{{ $i18n("cx-tools-linter-invalid-character") }}</strong>
+          </p>
+          <p>{{ $i18n("cx-tools-linter-invalid-character-message") }}</p>
         </cdx-message>
         <sx-sentence-selector-content-header />
         <div class="sx-sentence-selector__section-contents px-4">
