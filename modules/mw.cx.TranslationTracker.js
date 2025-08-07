@@ -262,9 +262,10 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 
 			// Check if there is significant variance, and if so, log it.
 			if ( significantVariance ) {
-				const mismatchError = '[CX] Mismatch in restored translation progress. Saved progress was: ' +
+				const mismatchError = 'Mismatch in restored translation progress. Saved progress was: ' +
 					JSON.stringify( translationModel.progress ) + '. ' +
-					'Restored translation progress is: ' + JSON.stringify( progress ) + '.';
+					'Restored translation progress is: ' + JSON.stringify( progress ) +
+					`. Translation changed significantly: ${ translationModel.isChangedSignificantly() }`;
 
 				mw.errorLogger.logError( new Error( mismatchError ), 'error.contenttranslation' );
 				mw.log.error( mismatchError );
