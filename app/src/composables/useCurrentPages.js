@@ -21,18 +21,20 @@ const useCurrentPages = () => {
     )
   );
 
-  const currentTargetPage = computed(() => {
-    const title =
+  const currentTargetPageTitle = computed(
+    () =>
       sectionSuggestion.value?.targetTitle ||
-      currentTranslation.value?.targetTitle;
+      currentTranslation.value?.targetTitle
+  );
 
-    return store.getters["mediawiki/getPage"](
+  const currentTargetPage = computed(() =>
+    store.getters["mediawiki/getPage"](
       targetLanguageURLParameter.value,
-      title
-    );
-  });
+      currentTargetPageTitle.value
+    )
+  );
 
-  return { currentSourcePage, currentTargetPage };
+  return { currentSourcePage, currentTargetPage, currentTargetPageTitle };
 };
 
 export default useCurrentPages;

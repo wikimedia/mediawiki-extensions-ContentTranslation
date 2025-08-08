@@ -11,8 +11,8 @@ const useEditorInstrument = () => {
   const store = useStore();
 
   const { currentTranslation } = useCurrentDraftTranslation();
-  const { currentMTProvider, previousRoute } = useApplicationState(store);
-  const { currentTargetPage } = useCurrentPages();
+  const { currentMTProvider } = useApplicationState(store);
+  const { currentTargetPageTitle } = useCurrentPages();
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
@@ -42,7 +42,7 @@ const useEditorInstrument = () => {
       //   `dashboard_delete_translation`). In section translation, if the user discards the mapping
       //   to an existing target section, the value should change to false in future events.
 
-      // translation_target_exists: !!currentTargetPage.value,
+      // translation_target_exists: !!currentTargetPageTitle.value,
     };
 
     // if section title URL param is set, this is a section translation
@@ -113,8 +113,8 @@ const useEditorInstrument = () => {
         //   `dashboard_delete_translation`). Omitted if the user has not yet translated the section title.
         payload.translation_target_section = targetSectionTitle;
       }
-    } else if (currentTargetPage.value) {
-      payload.translation_target_title = currentTargetPage.value?.title;
+    } else if (currentTargetPageTitle.value) {
+      payload.translation_target_title = currentTargetPageTitle.value;
     }
 
     // we should wait for MT providers to be initialized, so that currentMTProvider is set
