@@ -47,6 +47,19 @@ watchEffect(() => {
     // Border color should be Gray200 `#eaecf0`
     border-top: @border-style-base @border-width-base @border-color-disabled;
     border-bottom: @border-style-base @border-width-base @border-color-disabled;
+    .mw-ui-button-group {
+      flex-wrap: nowrap;
+      .mw-ui-button {
+        padding-inline: @spacing-100;
+        padding-block: @spacing-100;
+        .mw-ui-button__content {
+          flex: 1;
+          .mw-ui-button__label {
+            white-space: normal;
+          }
+        }
+      }
+    }
   }
 }
 </style>

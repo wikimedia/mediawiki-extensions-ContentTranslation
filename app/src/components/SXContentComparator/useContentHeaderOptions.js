@@ -36,7 +36,6 @@ const useContentHeaderOptions = () => {
           sourceLanguageAutonym.value
         ),
         type: "text",
-        class: "px-0 py-4 mx-4",
       },
     };
 
@@ -51,7 +50,6 @@ const useContentHeaderOptions = () => {
             targetLanguageAutonym.value
           ),
           type: "text",
-          class: "px-0 py-4 mx-4",
         },
       };
     } else {
@@ -63,7 +61,6 @@ const useContentHeaderOptions = () => {
             targetLanguageAutonym.value
           ),
           type: "text",
-          class: "px-0 py-4 mx-4",
         },
       };
     }
