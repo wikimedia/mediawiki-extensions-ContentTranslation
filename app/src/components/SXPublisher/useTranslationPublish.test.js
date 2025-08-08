@@ -74,11 +74,11 @@ sectionSentence.mtProviderUsed = "empty";
 const SOURCE_SECTION_TITLE = "Test section title 1";
 const currentSourceSection = new PageSection({
   id: 1,
-  title: SOURCE_SECTION_TITLE,
   subSections: [
     new SubSection({ node: subSectionNode, sentences: [sectionSentence] }),
   ],
 });
+currentSourceSection.originalTitle = SOURCE_SECTION_TITLE;
 currentSourceSection.translatedTitle = "Test target section title 1";
 
 const mockCurrentPageSectionValues = {

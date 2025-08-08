@@ -36,15 +36,16 @@ const convertSegmentedContentToPageSections = (
     (sectionNodes) => {
       /** First node in array is a DOM node for h2, containing section title */
       const [firstNode, ...contentNodes] = sectionNodes;
-      let title = "";
+      let isLeadSection;
       const id = firstNode.dataset.mwSectionNumber;
 
       // If firstNode is an h2 element then current section is a regular section.
       // If not, current section is a lead section since only lead sections do not
       // have a section title
       if (firstNode.querySelector("h2")) {
-        title = firstNode.textContent.trim();
+        isLeadSection = false;
       } else {
+        isLeadSection = true;
         contentNodes.unshift(firstNode);
       }
       const subSections = contentNodes.map(
@@ -59,9 +60,7 @@ const convertSegmentedContentToPageSections = (
           })
       );
 
-      const isLeadSection = !title;
-
-      return new PageSection({ id, title, subSections, isLeadSection });
+      return new PageSection({ id, subSections, isLeadSection });
     }
   );
 };

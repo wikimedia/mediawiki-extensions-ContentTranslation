@@ -59,16 +59,16 @@ const createPageWithSubSection = () => {
   );
   const subSection = createSubSectionModel(sentence);
 
+  const pageSection = new PageSection({
+    id: 101,
+    subSections: [subSection],
+  });
+  pageSection.originalTitle = "My useEditTranslation section title";
+
   return new Page({
     pagelanguage: "en",
     title: "Source title",
-    sections: [
-      new PageSection({
-        id: 101,
-        title: "My useEditTranslation section title",
-        subSections: [subSection],
-      }),
-    ],
+    sections: [pageSection],
   });
 };
 /**
@@ -93,7 +93,6 @@ const mockStore = createStore({
       getters: {
         getLanguageTitleGroup: mediawikiGetters.getLanguageTitleGroup,
       },
-      mutations: { setPreviousRoute: () => {} }, // for Vue router navigation guard
     },
   },
 });

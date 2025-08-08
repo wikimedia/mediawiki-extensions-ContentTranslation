@@ -4,12 +4,10 @@ import PageSection from "@/wiki/cx/models/pageSection";
 import Page from "@/wiki/mw/models/page";
 import { ref } from "vue";
 
+const rawSection = new PageSection();
+rawSection.originalTitle = "Test source section title";
 const mockValues = {
-  sourceSection: ref(
-    new PageSection({
-      title: "Test source section title",
-    })
-  ),
+  sourceSection: ref(rawSection),
   isSectionTitleSelected: ref(false),
 };
 

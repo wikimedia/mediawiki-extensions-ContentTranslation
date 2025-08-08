@@ -17,6 +17,11 @@ const createSectionNode = (nodeHtml, id, sectionNumber) => {
   return section;
 };
 
+const nodeHtml0 = `
+  <p id="mwGw-0">
+    <span class="cx-segment" data-segmentid="123">${testContent0}</span>
+  </p>
+`;
 const nodeHtml1 = `
   <h2>
     <span class="cx-segment" data-segmentid="89">${testTitle0}</span>
@@ -39,7 +44,8 @@ const nodeHtml5 = `
   </p>
 `;
 const mockNodes = [
-  createSectionNode(nodeHtml1, "cxSourceSection0", 1),
+  createSectionNode(nodeHtml0, "cxSourceSection0", 0),
+  createSectionNode(nodeHtml1, "cxSourceSection1", 1),
   createSectionNode(nodeHtml2, "cxSourceSection2", 1),
   createSectionNode(nodeHtml3, "cxSourceSection3", 2),
   createSectionNode(nodeHtml4, "cxSourceSection4", 2),
@@ -61,7 +67,7 @@ describe("SegmentedContentConverter test", () => {
     expect(
       pageSections.every((pageSection) => pageSection instanceof PageSection)
     ).toBe(true);
-    expect(pageSections[0].title).toBe(testTitle0);
-    expect(pageSections[1].title).toBe(testTitle1);
+    expect(pageSections[0].isLeadSection).toBe(true);
+    expect(pageSections[1].isLeadSection).toBe(false);
   });
 });

@@ -159,23 +159,56 @@ const fetchPageContent = (
   sourceTitle,
   revision = null
 ) => {
-  return fetchSegmentedContent(
+  const sectionTitlesPromise = new Promise((resolve) => {
+    const params = {
+      action: "parse",
+      page: sourceTitle,
+      meta: "siteinfo",
+      prop: "sections",
+      format: "json",
+      redirects: true,
+      formatversion: 2,
+    };
+
+    const jQueryPromise = siteMapper.getApi(sourceLanguage).get(params);
+
+    jQueryPromise
+      .then((response) => resolve(response?.parse?.sections || []))
+      .fail(() => resolve([]));
+  }).then((sections) =>
+    sections.map((section) => ({
+      title: section.line,
+      id: section.index,
+    }))
+  );
+
+  const segmentedContentPromise = fetchSegmentedContent(
     sourceLanguage,
     targetLanguage,
     sourceTitle,
     revision
-  ).then(
-    (segmentedContent) =>
-      new Page({
-        sections:
-          segmentedContentConverter.convertSegmentedContentToPageSections(
-            segmentedContent,
-            false // No need to resolve references. Content can be used as it is
-          ),
+  );
+
+  return Promise.all([segmentedContentPromise, sectionTitlesPromise]).then(
+    ([segmentedContent, sectionTitles]) => {
+      const sections =
+        segmentedContentConverter.convertSegmentedContentToPageSections(
+          segmentedContent,
+          false // No need to resolve references. Content can be used as it is
+        );
+
+      sections.forEach((section) => {
+        const sectionTitle = sectionTitles.find((obj) => obj.id === section.id);
+        section.originalTitle = sectionTitle?.title || "";
+      });
+
+      return new Page({
+        sections,
         content: segmentedContent,
         pagelanguage: sourceLanguage,
         title: sourceTitle,
-      })
+      });
+    }
   );
 };
 
@@ -304,7 +337,6 @@ export default {
   fetchPages,
   fetchLanguageTitles,
   fetchPageContent,
-  fetchSegmentedContent,
   fetchNearbyPages,
   searchPagesByTitlePrefix,
   fetchLanguageLinksForLanguage,

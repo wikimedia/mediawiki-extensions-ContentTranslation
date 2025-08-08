@@ -28,11 +28,11 @@ sectionSentence.mtProviderUsed = "empty";
 const sectionNode = createEl("section");
 const currentSourceSection = new PageSection({
   id: 1,
-  title: "Test section title 1",
   subSections: [
     new SubSection({ node: sectionNode, sentences: [sectionSentence] }),
   ],
 });
+currentSourceSection.originalTitle = "Test section title 1";
 currentSourceSection.translatedTitle = "Test target section title 1";
 
 const mockValues = {

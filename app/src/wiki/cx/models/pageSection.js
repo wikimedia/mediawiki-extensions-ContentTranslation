@@ -16,20 +16,17 @@ export default class PageSection {
    * Creates an instance of PageSection.
    * @param {Object} options
    * @param {string} [options.id]
-   * @param {string|null} [options.title] the title of the section or the page title when section is a lead section
    * @param {boolean} [options.isLeadSection]
    * @param {SubSection[]} [options.subSections]
    */
   constructor({
     id,
-    title = null,
     subSections = [],
     isLeadSection = false,
     isTitleSelected = false,
   } = {}) {
     this.id = id;
     this.proposedTitleTranslations = {
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: title,
       [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: "",
     };
     this.mtProviderUsedForTitle = "";
