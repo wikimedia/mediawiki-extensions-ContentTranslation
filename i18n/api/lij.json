@@ -44,7 +44,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "O còdice da léngoa d'òrìgine.",
 	"apihelp-query+cxpublishedtranslations-param-to": "O còdice da léngoa de destinaçión.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "O nùmero màscimo de traduçioìn da repigiâ.",
-	"apihelp-query+cxpublishedtranslations-example-1": "Repìggia tùtte e traduçioìn pubricæ",
+	"apihelp-query+cxpublishedtranslations-example-1": "Repìggia tùtte e traduçioìn pubricæ, tradûte da l'ingléize a-o spagnòllo",
 	"apihelp-cxtoken-summary": "Òtêgne i token JWT pe l'outenticaçión con cxserver.",
 	"apihelp-cxtoken-example-1": "Repìggia i token pe l'outenticaçión con cxserver.",
 	"apihelp-cxdelete-summary": "Scancélla 'na bòssa de traduçión creâ dêuviàndo l'estensción Traduçión Contegnûi.",
