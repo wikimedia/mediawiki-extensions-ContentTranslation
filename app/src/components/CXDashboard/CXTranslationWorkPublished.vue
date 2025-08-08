@@ -108,9 +108,9 @@ const isUserNamespace = computed(() => {
               @click.stop="startTranslation(firstMissingSection)"
             >
               <cdx-icon class="me-1" :icon="cdxIconAdd" />
-              <span>
-                {{ firstMissingSection }}
-              </span>
+              <!--eslint-disable vue/no-v-html -->
+              <span v-html="firstMissingSection" />
+              <!--eslint-enable vue/no-v-html -->
             </cdx-button>
             <cdx-button
               class="cx-published-translation__start-new-translation-button pa-0 ms-4"
