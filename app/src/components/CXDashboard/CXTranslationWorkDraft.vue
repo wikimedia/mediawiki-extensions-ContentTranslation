@@ -48,12 +48,14 @@ const goToConfirmationStep = () => {
         :lang="translation.sourceLanguage"
         v-text="translation.sourceTitle"
       />
+      <!--eslint-disable vue/no-v-html -->
       <h6
         v-if="!translation.isLeadSectionTranslation"
         class="cx-translation__source-section-title cx-translation__primary-title"
         :lang="translation.sourceLanguage"
-        v-text="translation.sourceSectionTitle"
+        v-html="translation.sourceSectionTitle"
       />
+      <!--eslint-enable vue/no-v-html -->
     </template>
     <template #mid-content>
       <mw-row v-if="!!translation.progress" class="ma-0 py-2">
