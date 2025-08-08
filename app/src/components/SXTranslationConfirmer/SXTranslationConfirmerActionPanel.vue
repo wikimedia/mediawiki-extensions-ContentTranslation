@@ -1,6 +1,6 @@
 <script setup>
 import { MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { computed, inject, ref, watchEffect } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
@@ -17,13 +17,14 @@ import translator from "@/wiki/cx/api/translator";
 import UnreviewedTranslationDialog from "./UnreviewedTranslationDialog.vue";
 import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
 import useEditorNavigation from "@/composables/useEditorNavigation";
+import useSectionTitleValidate from "./useSectionTitleValidate";
 
 const router = useRouter();
 const store = useStore();
-const colors = inject("colors");
 const { sectionSuggestion } = useCurrentSectionSuggestion();
 const { targetLanguageAutonym } = useApplicationState(store);
-const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
+const { sectionURLParameter: preFilledSectionTitle, clearSectionURLParameter } =
+  useURLHandler();
 const { logDashboardTranslationStartEvent } =
   useDashboardTranslationStartInstrument();
 const navigateToEditor = useEditorNavigation();
@@ -115,18 +116,31 @@ const shouldDisplayNewTranslationButton = computed(() => {
     !preFilledSectionTitle.value && targetPageExists.value && isDesktopSite
   );
 });
+const validateSectionTitle = useSectionTitleValidate();
+const prefilledSectionTitleValidated = ref(false);
+validateSectionTitle().then((isValid) => {
+  if (!isValid) {
+    clearSectionURLParameter();
+  }
+  prefilledSectionTitleValidated.value = true;
+});
 </script>
 
 <template>
   <section class="sx-translation-confirmer-body pb-4">
     <section
-      v-if="!!preFilledSectionTitle"
+      v-if="!!preFilledSectionTitle && prefilledSectionTitleValidated"
       class="sx-translation-confirmer-body__pre-filled-banner pa-4 ma-0"
     >
       <h6 v-i18n:cx-sx-translation-confirmer-prefilled-section-heading />
-      <h5 class="ma-0" v-text="preFilledSectionTitle" />
+      <!-- eslint-disable vue/no-v-html -->
+      <h5 class="ma-0" v-html="preFilledSectionTitle" />
+      <!-- eslint-enable vue/no-v-html -->
     </section>
-    <section v-else-if="targetPageExists" class="mt-1 px-4 pt-4">
+    <section
+      v-else-if="targetPageExists && !preFilledSectionTitle"
+      class="mt-1 px-4 pt-4"
+    >
       <mw-row
         class="sx-translation-confirmer__translation-status ma-0 pb-2"
         justify="between"

@@ -25,7 +25,7 @@ const useSuggestionLoad = () => {
    * @param {string} sourceLanguage
    * @param {string} targetLanguage
    * @param {string} sourceTitle
-   * {Promise<SectionSuggestion|ArticleSuggestion|null>}
+   * {Promise<SectionSuggestion|ArticleSuggestion>}
    */
   return async (sourceLanguage, targetLanguage, sourceTitle) => {
     /** @type {SectionSuggestion|null} */

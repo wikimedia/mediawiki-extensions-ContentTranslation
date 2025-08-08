@@ -50,6 +50,11 @@ jest.mock("@/composables/useURLHandler", () => () => {
   };
 });
 
+jest.mock(
+  "./useSectionTitleValidate",
+  () => () => jest.fn(() => Promise.resolve(true))
+);
+
 const languageTitleGroup = new LanguageTitleGroup("1", [
   { lang: "en", title: "Test target title" },
   { lang: "el", title: "Test source title" },

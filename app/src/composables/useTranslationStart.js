@@ -40,16 +40,12 @@ const useTranslationStart = () => {
     setStartTranslationEventSource(eventSource);
     setStartTranslationEventContext(eventContext);
 
-    /** @type {SectionSuggestion|ArticleSuggestion|null} */
+    /** @type {SectionSuggestion|ArticleSuggestion} */
     const suggestion = await loadSuggestion(
       sourceLanguage,
       targetLanguage,
       title
     );
-
-    if (!suggestion) {
-      return;
-    }
 
     setTranslationURLParams(suggestion);
 
