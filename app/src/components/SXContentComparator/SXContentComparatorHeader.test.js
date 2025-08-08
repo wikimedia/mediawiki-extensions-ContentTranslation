@@ -16,6 +16,7 @@ jest.mock("@/composables/useCurrentPageSection", () => () => ({
 const mockSectionSuggestion = ref({
   sourceLanguage: "en",
   sourceTitle: "Moon",
+  sourceSections: ["Early life", "History"],
   missingSections: { "Early life": {} },
   presentSections: { History: {} },
 });

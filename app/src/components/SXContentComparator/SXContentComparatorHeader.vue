@@ -29,6 +29,12 @@ const sectionSourceTitles = computed(() => [
   ...Object.keys(suggestion.value.missingSections),
   ...Object.keys(suggestion.value.presentSections),
 ]);
+
+const sectionTitleValid = computed(() =>
+  (suggestion.value?.sourceSections || []).find(
+    (sectionTitle) => sectionTitle === sourceSectionTitle.value
+  )
+);
 </script>
 
 <template>
@@ -52,13 +58,14 @@ const sectionSourceTitles = computed(() => [
           >
             {{ suggestion.sourceTitle }}
           </h4>
+          <!-- eslint-disable vue/no-v-html -->
           <h2
             class="sx-content-comparator-header__section-title pa-0 ma-0"
             :lang="suggestion.sourceLanguage"
             :dir="getDir(suggestion.sourceLanguage)"
-          >
-            {{ sourceSectionTitle }}
-          </h2>
+            v-html="sectionTitleValid"
+          />
+          <!-- eslint-enable vue/no-v-html -->
         </div>
         <sx-content-comparator-header-navigation
           :section-source-titles="sectionSourceTitles"

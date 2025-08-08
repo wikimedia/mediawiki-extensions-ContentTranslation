@@ -30,19 +30,24 @@ const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 
 const { sectionURLParameter } = useURLHandler();
 const sourceSectionAnchor = computed(() =>
-  (sectionURLParameter.value || "").replace(/ /g, "_")
+  (sectionTitleValid.value || "").replace(/ /g, "_")
 );
 
 const updateSelection = (selection) =>
   emit("update:contentTypeSelection", selection);
 
 const { activeSectionTargetTitle, targetSectionAnchor } = useCompareContents();
+const sectionTitleValid = computed(() =>
+  (suggestion.value?.sourceSections || []).find(
+    (sectionTitle) => sectionTitle === sectionURLParameter.value
+  )
+);
 
 const activeContent = computed(() => {
   switch (props.contentTypeSelection) {
     case "source_section":
       return {
-        title: sectionURLParameter.value,
+        title: sectionTitleValid.value,
         path: `${siteMapper.getPageUrl(
           suggestion.value.sourceLanguage,
           suggestion.value.sourceTitle
@@ -109,12 +114,14 @@ onMounted(() => {
       class="sx-content-comparator__content-header-title mx-4 my-0 pt-4 pb-2"
     >
       <mw-col>
+        <!-- eslint-disable vue/no-v-html -->
         <h3
           :lang="activeContent.lang"
           :dir="activeContent.dir"
           class="ma-0 pa-0"
-          v-text="activeContent.title"
+          v-html="activeContent.title"
         />
+        <!-- eslint-enable vue/no-v-html -->
       </mw-col>
       <mw-col shrink>
         <mw-button

@@ -33,6 +33,7 @@ exports[`SxContentComparatorHeader matches snapshot 1`] = `
         >
           Moon
         </h4>
+        <!-- eslint-disable vue/no-v-html -->
         <h2
           class="sx-content-comparator-header__section-title pa-0 ma-0"
           dir="ltr"
@@ -40,6 +41,7 @@ exports[`SxContentComparatorHeader matches snapshot 1`] = `
         >
           Early life
         </h2>
+        <!-- eslint-enable vue/no-v-html -->
       </div>
       <sx-content-comparator-header-navigation-stub
         sectionsourcetitles="Early life,History"
