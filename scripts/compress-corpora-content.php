@@ -43,6 +43,13 @@ class CompressCorporaContent extends Maintenance {
 		);
 
 		$this->addOption(
+			'sleep',
+			'(optional) Wait given seconds between processing of batches',
+			false,
+			true
+		);
+
+		$this->addOption(
 			'start-from',
 			'(optional) Start processing from a specific cxc_id',
 			false,
@@ -52,6 +59,7 @@ class CompressCorporaContent extends Maintenance {
 
 	public function execute() {
 		$this->dryRun = !$this->hasOption( 'really' );
+		$sleepSeconds = (int)$this->getOption( 'sleep', 0 );
 		$lang = $this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' );
 
 		/** @var IConnectionProvider $connectionProvider */
@@ -133,7 +141,9 @@ class CompressCorporaContent extends Maintenance {
 			$this->commitTransactionRound( __METHOD__ );
 			$this->output( "Batch completed. Processed: $processed, Compressed: $compressed records so far\n" );
 			$this->output( "Last processed ID: $lastId\n\n" );
-
+			if ( $sleepSeconds ) {
+				sleep( $sleepSeconds );
+			}
 		} while ( $batchCount === $this->getBatchSize() );
 
 		$this->output(
