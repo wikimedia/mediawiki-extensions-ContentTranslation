@@ -56,6 +56,7 @@ class DateManipulator {
 		$interval = new \DateInterval( 'P1D' );
 
 		$steps = [];
+		// @phan-suppress-next-line PhanPossiblyInfiniteLoop
 		do {
 			$id = $this->getIntervalIdentifier( $current );
 			$steps[ $id->format( 'Y-m-d' ) ] = $id;
