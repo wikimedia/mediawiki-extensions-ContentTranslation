@@ -161,7 +161,7 @@
 	"cx-translation-status-deleted": "Odstraněno",
 	"cx-translation-label-draft": "Probíhající překlady",
 	"cx-translation-label-published": "Zveřejněné překlady",
-	"cx-translation-already-in-progress": "{{GENDER:$2|Wikipedista|Wikipedistka}} $1 překládá tuto stránku. Pokud je překlad aktivní, můžete zahájit nový až po jednom dni. Zkuste to prosím znovu za 24 hodin nebo se domluvte s {{GENDER:$2|redaktorem, který začal|redaktorkou, která začala}} aktuální překlad.",
+	"cx-translation-already-in-progress": "{{GENDER:$2|Wikipedista|Wikipedistka}} $1 překládá tuto stránku. Pokud je překlad aktivní, můžete zahájit nový až po jednom dni. Zkuste to prosím znovu za 24 hodin nebo se domluvte s {{GENDER:$2|wikipedistou, který začal|wikipedistkou, která začala}} aktuální překlad.",
 	"cx-translation-already-in-progress-unknown": "Na tomto překladu pracuje neznámý uživatel. Pokud je překlad aktivní, můžete zahájit nový až po jednom dni. Zkuste to prosím znovu za 24 hodin nebo se domluvte s uživatelem, který začal aktuální překlad.",
 	"cx-feedback-link": "Poskytnout zpětnou vazbu",
 	"cx-stats-published-translations-title": "Zveřejněné překlady",
