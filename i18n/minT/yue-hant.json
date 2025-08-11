@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"JeffreyKim"
+			"JeffreyKim",
+			"Ktchankt"
 		]
 	},
 	"automatic-translation-special-page-description": "自動翻譯",
@@ -11,7 +12,7 @@
 	"mint-translation-list-all-languages-option-label": "全部",
 	"mint-home-info-panel-text": "維基百科上面有幾百萬個主題可以自動轉換成 $1。",
 	"mint-home-random-topic-button-label": "隨機主題",
-	"ax-home-random-topic-loading-label": "撈緊入去…",
+	"ax-home-random-topic-loading-label": "載入緊…",
 	"ax-home-random-topic-error": "擷取隨機主題嗰陣遇到錯誤",
 	"ax-home-error-title": "攞文章嗰陣遇到錯誤 $1。",
 	"mint-home-experimental-note": "自動翻譯支援仲係實驗性嘅。[$1知多啲]",

@@ -4,7 +4,8 @@
 			"H78c67c",
 			"JeffreyKim",
 			"Ktchankt",
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
 	"cx": "翻譯頁",
@@ -31,8 +32,8 @@
 	"cx-publish-permission-error": "呢個社群決定將出版物限制喺有經驗嘅編輯者身上。你需要先喺呢度進行更多編輯，但係你可以儲存為草稿或者試下其他語言。",
 	"cx-publish-permission-error-title": "只允許有經驗嘅編輯發佈",
 	"cx-lost-session": "你個工作階段已經過咗期",
-	"cx-lost-session-draft": "你個工作階段已經過咗期。 除非你喺另一個視窗再次登入，否則你嘅編輯內容就唔可以儲存。",
-	"cx-lost-session-publish": "你嘅工作階段已經過期，你要喺另一個視窗重新登入之前發佈唔到翻譯。",
+	"cx-lost-session-draft": "你個工作階段已經過咗期。 除非你喺另一個視窗再次簽到，否則你嘅編輯內容就唔可以儲存。",
+	"cx-lost-session-publish": "你嘅工作階段已經過咗期，你要喺另一個視窗重新簽到，先至可以發佈到翻譯。",
 	"cx-publish-summary": "由翻譯版《$1》去建立",
 	"cx-translation-add-translation": "加翻譯",
 	"cx-translation-target-page-exists": "目標 wiki 入面有個標題係 [$1 $2] 嘅頁面，可以考慮畀個標題唔同嘅。",
@@ -111,8 +112,8 @@
 	"cx-overwriting-with-issues": "你嘅翻譯會用仍然存在潛在問題嘅內容覆寫現有頁面。喺發佈之前，請考慮檢查啲問題。",
 	"cx-translation-label-draft": "搞緊嘅翻譯",
 	"cx-translation-label-published": "發佈咗嘅翻譯",
-	"cx-translation-already-in-progress": "呢個係一個持續嘅翻譯{{GENDER:$2|由}}$1。當有一個有效嘅翻譯，你只可以喺一日之後開始一個新嘅翻譯。請喺24小時內重試，或者同開始目前翻譯嘅使用者協調。",
-	"cx-translation-already-in-progress-unknown": "呢個係由未知用戶進行緊嘅翻譯。當有一個有效嘅翻譯，你只可以喺一日之後開始一個新嘅翻譯。請喺24小時內再試一次，或者同開始目前翻譯嘅使用者協調。",
+	"cx-translation-already-in-progress": "呢個係一個{{GENDER:$2|由}}$1持續搞緊嘅翻譯。當已經有一個有效嘅翻譯，你只可以喺一日之後開始一個新嘅翻譯。請喺24小時後再試一次，或者同而家開始翻譯緊嘅用戶協調。",
+	"cx-translation-already-in-progress-unknown": "呢個係由未知用戶進行緊嘅翻譯。當已經有一個有效嘅翻譯，你只可以喺一日之後開始一個新嘅翻譯。請喺24小時後再試一次，或者同而家開始翻譯緊嘅用戶協調。",
 	"cx-feedback-link": "畀意見",
 	"cx-draft-cancel-button-label": "取消",
 	"cx-beta-feature-enabled-notification": "呢個wiki開咗內容翻譯功能。",

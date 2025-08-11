@@ -466,6 +466,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "لا تقلق، فالأقسام المتبقية لم تُفقَد، فهي متاحة الآن في قائمة الترجمات الجارية ويمكن استخدامها لتوسيع المقالة الحالية. ستجد ترجمة جديدة جارية تتضمن محتويات كل قسم.",
 	"sx-confirm-draft-translation-start-button-label": "حسنا",
 	"sx-published-translation-start-section-translation-button-aria-label": "بدء ترجمة القسم",
+	"sx-published-translation-personal-draft-indicator": "نُشرت كمسودة شخصية",
 	"sx-section-selector-close-button-aria-label": "زر الانتقال إلى خطوة التأكيد",
 	"sx-section-selector-next-button-aria-label": "انتقل إلى مقارنة المحتوى",
 	"sx-quick-tutorial-next-button-aria-label": "انتقل إلى صفحة البرنامج التعليمي التالية",
