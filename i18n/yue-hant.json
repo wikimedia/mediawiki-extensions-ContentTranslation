@@ -161,7 +161,7 @@
 	"cx-tools-linter-invalid-character-message": "由於技術原因，部分字元用唔到喺頁面標題入面。\n\n請編輯標題，避免出現有問題嘅字元。",
 	"cx-tools-linter-page-exists": "頁面已經存在",
 	"cx-tools-linter-page-exists-message": "標題 $1 已經存在嘅頁面。發佈你嘅翻譯會覆寫現有嘅內容\n\n檢查係咪可以取代現有嘅頁面，或者考慮重新命名你嘅翻譯。",
-	"cx-tools-linter-cannot-publish-title": "只允許有經驗嘅使用者發佈",
+	"cx-tools-linter-cannot-publish-title": "只係俾有經驗嘅用戶發佈",
 	"cx-tools-linter-cannot-publish-message": "呢個社群決定將翻譯嘅出版限制喺有經驗嘅編輯。\n喺你喺呢個 wiki 有更多編輯經驗之前，你唔可以發佈呢個翻譯，但係你可以：<ul><li>將你嘅翻譯以草稿形式發佈，然後用常規嘅編輯工具嚟創作文章。</li><li>喺冇呢個限制嘅情況下，將呢篇文章翻譯成唔同嘅語言。</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "設定為以草稿形式發佈",
 	"cx-tools-linter-template": "冇模",

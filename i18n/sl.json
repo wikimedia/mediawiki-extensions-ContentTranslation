@@ -479,7 +479,7 @@
 	"cx-sx-suggestions-filter-search-results-topics-alternative-description": "Brskanje po člankih",
 	"cx-sx-suggestions-filter-search-results-regions-default-description": "Regija ⋅ Brskanje po člankih",
 	"cx-sx-suggestions-filter-search-results-regions-alternative-description": "Brskanje po člankih",
-	"cx-sx-suggestions-filter-search-results-collections-default-description": "Zbirka ⋅ {{PLURAL:$1|$1 članek|$1 članka|$1 članki|$1 člankov|=Noben članek}}",
+	"cx-sx-suggestions-filter-search-results-collections-default-description": "Zbirka ⋅ {{PLURAL:$1|$1 članek|$1 članka|$1 članki|$1 člankov|0=Noben članek}}",
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 članek|$1 članka|$1 članki|$1 člankov|0=Noben članek}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Ni najdenih zadetkov",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Poskusite z drugimi iskalnimi izrazi ali preverite druge zavihke",
