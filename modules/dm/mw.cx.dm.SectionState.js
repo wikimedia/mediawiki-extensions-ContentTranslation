@@ -129,7 +129,11 @@ mw.cx.dm.SectionState.prototype.markUserTranslationSaved = function () {
 
 mw.cx.dm.SectionState.prototype.markUnmodifiedMTSaved = function () {
 	if ( !this.currentMTProvider ) {
-		throw new Error( 'Attempting to set unmodified MT saved without an MT provider' );
+		throw new Error(
+			'Attempting to set unmodified MT saved without an MT provider ' +
+			`section# ${ this.sectionNumber }; ` +
+			`Unmodified MT: ${ Object.keys( this.unmodifiedMT ).join( ', ' ) }`
+		);
 	}
 	this.unmodifiedMT[ this.currentMTProvider ].saved = true;
 };
