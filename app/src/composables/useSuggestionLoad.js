@@ -3,6 +3,9 @@ import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import { useStore } from "vuex";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 
+// A cache for in-progress promises
+const pendingRequests = new Map();
+
 const useSuggestionLoad = () => {
   const store = useStore();
   const fetchPageMetadata = usePageMetadataFetch();
@@ -28,49 +31,67 @@ const useSuggestionLoad = () => {
    * {Promise<SectionSuggestion|ArticleSuggestion>}
    */
   return async (sourceLanguage, targetLanguage, sourceTitle) => {
-    /** @type {SectionSuggestion|null} */
-    let suggestion = store.getters[
-      "suggestions/getSectionSuggestionsForArticle"
-    ](sourceLanguage, targetLanguage, sourceTitle);
+    const key = `${sourceLanguage}:${targetLanguage}:${sourceTitle}`;
 
-    if (!suggestion) {
-      /** @type {SectionSuggestion|null} */
-      suggestion = await cxSuggestionsApi.fetchSectionSuggestion(
-        sourceLanguage,
-        sourceTitle,
-        targetLanguage
-      );
-
-      try {
-        await fetchPageMetadata(sourceLanguage, [sourceTitle]);
-
-        if (!suggestion) {
-          const page = store.getters["mediawiki/getPage"](
-            sourceLanguage,
-            sourceTitle
-          );
-
-          return new ArticleSuggestion({
-            sourceLanguage,
-            targetLanguage,
-            sourceTitle,
-            langLinksCount: page.langLinksCount,
-            wikidataId: page.wikidataId,
-          });
-        } else {
-          suggestion.isListable = false;
-          store.commit("suggestions/addSectionSuggestion", suggestion);
-        }
-      } catch (e) {
-        const error = new Error(
-          `No page metadata found for title ${sourceTitle} and language pair ${sourceLanguage}-${targetLanguage}. ${e}`
-        );
-        mw.errorLogger.logError(error, "error.contenttranslation");
-        throw error;
-      }
+    // If a request for the same key is already in progress, return that promise
+    if (pendingRequests.has(key)) {
+      return pendingRequests.get(key);
     }
 
-    return suggestion;
+    const doLoadSuggestion = async () => {
+      /** @type {SectionSuggestion|null} */
+      let suggestion = store.getters[
+        "suggestions/getSectionSuggestionsForArticle"
+      ](sourceLanguage, targetLanguage, sourceTitle);
+
+      if (!suggestion) {
+        /** @type {SectionSuggestion|null} */
+        suggestion = await cxSuggestionsApi.fetchSectionSuggestion(
+          sourceLanguage,
+          sourceTitle,
+          targetLanguage
+        );
+
+        try {
+          await fetchPageMetadata(sourceLanguage, [sourceTitle]);
+
+          if (!suggestion) {
+            const page = store.getters["mediawiki/getPage"](
+              sourceLanguage,
+              sourceTitle
+            );
+
+            return new ArticleSuggestion({
+              sourceLanguage,
+              targetLanguage,
+              sourceTitle,
+              langLinksCount: page.langLinksCount,
+              wikidataId: page.wikidataId,
+            });
+          } else {
+            suggestion.isListable = false;
+            store.commit("suggestions/addSectionSuggestion", suggestion);
+          }
+        } catch (e) {
+          const error = new Error(
+            `No page metadata found for title ${sourceTitle} and language pair ${sourceLanguage}-${targetLanguage}. ${e}`
+          );
+          mw.errorLogger.logError(error, "error.contenttranslation");
+          throw error;
+        }
+      }
+
+      return suggestion;
+    };
+
+    const loadPromise = doLoadSuggestion();
+
+    // Store in pendingRequests until it finishes
+    pendingRequests.set(key, loadPromise);
+
+    return loadPromise.finally(() => {
+      pendingRequests.delete(key);
+    });
   };
 };
 
