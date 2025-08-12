@@ -120,13 +120,6 @@ mw.cx.dm.SectionState.prototype.isSourceSaved = function () {
 	return this.source.saved;
 };
 
-mw.cx.dm.SectionState.prototype.markUserTranslationSaved = function () {
-	if ( !this.userTranslation ) {
-		throw new Error( 'Attempting to set user translation when it is not present.' );
-	}
-	this.userTranslation.saved = true;
-};
-
 mw.cx.dm.SectionState.prototype.markUnmodifiedMTSaved = function () {
 	if ( !this.currentMTProvider ) {
 		throw new Error(
