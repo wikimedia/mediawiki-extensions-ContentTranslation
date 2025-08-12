@@ -3,8 +3,8 @@ ifndef MW_INSTALL_PATH
 endif
 
 default:
-	php ${MW_INSTALL_PATH}/tests/phpunit/phpunit.php .
+	${MW_INSTALL_PATH}/vendor/bin/phpunit .
 
 .PHONY: *Test.php
 *Test.php:
-	php ${MW_INSTALL_PATH}/tests/phpunit/phpunit.php $@
+	${MW_INSTALL_PATH}/vendor/bin/phpunit $@
