@@ -1,6 +1,8 @@
 ( function () {
 	'use strict';
 
+	const MWReferenceContextItem = ve.ui.contextItemFactory.lookup( 'reference' );
+
 	/* Override for ve.ui.MWReferenceContextItem.prototype.getRendering as it creates
 	 * a ve.ui.MWPreviewElement with default parameters. ve.ui.MWPreviewElement has
 	 * useView configuration as false by default and causes not rendering the references
@@ -11,7 +13,8 @@
 	 * @private
 	 * @return {jQuery} DOM rendering of reference
 	**/
-	ve.ui.MWReferenceContextItem.prototype.getRendering = function getReferenceRendering() {
+	// FIXME: This hack breaks SOLID rules and is unstable and unreliable!
+	MWReferenceContextItem.prototype.getRendering = function getReferenceRendering() {
 		const refNode = this.getReferenceNode();
 		if ( refNode ) {
 			this.view = new ve.ui.MWPreviewElement( refNode, {
@@ -51,6 +54,7 @@
 		ve.ui.contextItemFactory.register( contextItem );
 	}
 
+	// FIXME: This should use some kind of require() and not rely on a globally exposed variable
 	ve.ui.mwCitationTools.forEach( ( tool ) => {
 		const contextName = 'cite-' + tool.name;
 		const parentContextItem = ve.ui.contextItemFactory.lookup( contextName );

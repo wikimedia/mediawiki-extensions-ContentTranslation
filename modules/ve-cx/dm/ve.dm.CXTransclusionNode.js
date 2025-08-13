@@ -323,7 +323,8 @@ ve.dm.modelRegistry.register( ve.dm.CXTransclusionInlineNode );
 
 // Re-register ve.dm.MWReferencesListNode so that it gets high rank in
 // ve.dm.modelRegistry.matchElement. See T206756
-if ( ve.dm.MWReferencesListNode ) {
-	ve.dm.modelRegistry.unregister( ve.dm.MWReferencesListNode );
-	ve.dm.modelRegistry.register( ve.dm.MWReferencesListNode );
+const MWReferencesListNode = ve.dm.modelRegistry.lookup( 'mwReferencesList' );
+if ( MWReferencesListNode ) {
+	ve.dm.modelRegistry.unregister( MWReferencesListNode );
+	ve.dm.modelRegistry.register( MWReferencesListNode );
 }

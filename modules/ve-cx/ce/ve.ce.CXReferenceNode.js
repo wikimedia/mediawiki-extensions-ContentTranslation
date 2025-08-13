@@ -17,7 +17,8 @@ ve.ce.CXReferenceNode = function VeCeCXReferenceNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.ce.CXReferenceNode, ve.ce.MWReferenceNode );
+const MWReferenceNode = ve.ce.nodeFactory.lookup( 'mwReference' );
+OO.inheritClass( ve.ce.CXReferenceNode, MWReferenceNode );
 
 /* Methods */
 

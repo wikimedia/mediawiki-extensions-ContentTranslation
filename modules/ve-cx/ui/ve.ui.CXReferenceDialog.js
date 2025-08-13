@@ -17,7 +17,8 @@ ve.ui.CXReferenceDialog = function VeUiCXReferenceDialog() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.ui.CXReferenceDialog, ve.ui.MWReferenceDialog );
+const MWReferenceDialog = ve.ui.windowFactory.lookup( 'reference' );
+OO.inheritClass( ve.ui.CXReferenceDialog, MWReferenceDialog );
 
 /* Methods */
 
@@ -26,7 +27,8 @@ OO.inheritClass( ve.ui.CXReferenceDialog, ve.ui.MWReferenceDialog );
  */
 ve.ui.CXReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'done' ) {
-		if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
+		const MWReferenceNode = ve.dm.modelRegistry.lookup( 'mwReference' );
+		if ( this.selectedNode instanceof MWReferenceNode ) {
 			const cxData = this.selectedNode.getAttribute( 'cx' ) || {};
 
 			if ( cxData.adapted === false ) {

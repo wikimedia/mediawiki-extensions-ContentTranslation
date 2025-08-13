@@ -115,8 +115,10 @@ export default {
         props.language,
         props.dir
       );
-      ve.ui.MWReferenceContextItem.prototype.getRendering =
-        getReferenceRendering;
+      const MWReferenceContextItem =
+        ve.ui.contextItemFactory.lookup("reference");
+      // FIXME: This hack breaks SOLID rules and is unstable and unreliable!
+      MWReferenceContextItem.prototype.getRendering = getReferenceRendering;
 
       // Focus on the editor
       veSurface.focus();

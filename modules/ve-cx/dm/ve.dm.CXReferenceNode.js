@@ -27,7 +27,8 @@ ve.dm.CXReferenceNode = function VeDmCXReferenceNode() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.dm.CXReferenceNode, ve.dm.MWReferenceNode );
+const MWReferenceModelNode = ve.dm.modelRegistry.lookup( 'mwReference' );
+OO.inheritClass( ve.dm.CXReferenceNode, MWReferenceModelNode );
 OO.mixinClass( ve.dm.CXReferenceNode, ve.dm.CXLintableNode );
 
 /* Static Methods */
