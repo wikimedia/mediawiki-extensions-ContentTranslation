@@ -36,7 +36,7 @@
 	"cx-publish-summary": "Napravljeno prevođenjem stranice \"$1\"",
 	"cx-translation-add-translation": "Dodaj prijevod",
 	"cx-translation-target-page-exists": "Na odredišnom wikiju već postoji stranica sa naslovom [$1 $2]. Dajte joj drugi naslov.",
-	"tag-contenttranslation": "Prevodilac sadržine",
+	"tag-contenttranslation": "Prevodilac sadržaja",
 	"tag-contenttranslation-description": "Sadržaj je preveden sa drugog jezika korišćenjem alatke „Prevođenje sadržaja”",
 	"tag-contenttranslation-v2-description": "Sadržaj je preveden sa drugog jezika korišćenjem druge verzije alatke „Prevođenje sadržaja”",
 	"tag-sectiontranslation": "prijevod odjeljka",

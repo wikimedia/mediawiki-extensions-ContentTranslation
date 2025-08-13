@@ -33,7 +33,8 @@
 			"沈澄心",
 			"밥풀떼기",
 			"아라",
-			"콩가루"
+			"콩가루",
+			"YeBoy371"
 		]
 	},
 	"cx": "문서 번역",
@@ -154,7 +155,7 @@
 	"cx-save-draft-saving": "저장 중...",
 	"cx-save-draft-shortcut-label": "초안 저장",
 	"cx-save-draft-tooltip": "번역 초안은 자동으로 저장됩니다",
-	"cx-save-draft-error": "문서를 저장하는 도중 오류가 발생했습니다.",
+	"cx-save-draft-error": "초안을 저장하는 도중 오류가 발생했습니다.",
 	"cx-contributions-new-contributions": "새 기여",
 	"cx-contributions-new-article": "새 문서",
 	"cx-contributions-translation": "번역",
