@@ -23,7 +23,7 @@ class Suggestion {
 
 	/**
 	 * @param \stdClass $row
-	 * @return Suggestion
+	 * @return self
 	 */
 	public static function newFromRow( $row ) {
 		$params = [
@@ -33,7 +33,7 @@ class Suggestion {
 			'targetLanguage' => $row->cxs_target_language,
 		];
 
-		return new Suggestion( $params );
+		return new self( $params );
 	}
 
 	/**

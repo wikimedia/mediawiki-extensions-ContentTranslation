@@ -60,7 +60,7 @@ class Translation {
 
 	/**
 	 * @param \stdClass $row
-	 * @return Translation
+	 * @return self
 	 */
 	public static function newFromRow( $row ) {
 		$fields = [
@@ -87,6 +87,6 @@ class Translation {
 			$fields['cxVersion'] = (int)$row->translation_cx_version;
 		}
 
-		return new Translation( $fields );
+		return new self( $fields );
 	}
 }

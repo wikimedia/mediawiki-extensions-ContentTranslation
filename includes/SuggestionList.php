@@ -67,7 +67,7 @@ class SuggestionList {
 
 	/**
 	 * @param \stdClass $row
-	 * @return SuggestionList
+	 * @return self
 	 */
 	public static function newFromRow( $row ) {
 		$params = [
@@ -80,7 +80,7 @@ class SuggestionList {
 			'type' => $row->cxl_type,
 		];
 
-		return new SuggestionList( $params );
+		return new self( $params );
 	}
 
 	/**
