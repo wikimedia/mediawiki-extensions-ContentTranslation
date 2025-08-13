@@ -14,10 +14,6 @@ class WikidataIdFetcher {
 		$this->httpRequestFactory = $httpRequestFactory;
 	}
 
-	/**
-	 * @param string $title
-	 * @return array
-	 */
 	protected function getQuery( string $title ): array {
 		return [
 			'action' => 'query',

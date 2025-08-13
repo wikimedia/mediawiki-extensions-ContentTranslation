@@ -588,7 +588,6 @@ function fetchAppendixTargetSectionTitles(targetLanguage) {
 }
 
 /**
- *
  * @param {string} sourceTitle
  * @param {string} sourceLanguage
  * @param {string} targetLanguage

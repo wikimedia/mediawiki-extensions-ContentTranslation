@@ -331,7 +331,6 @@ export default class SubSection {
   }
 
   /**
-   *
    * @param {string} baseSectionId the base section id that will be used as "cxsx_section_id" inside "cx_section_translations"
    * @returns {TranslationUnitPayload[]}
    */

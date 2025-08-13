@@ -11,7 +11,6 @@ class Notification {
 
 	/**
 	 * Notify the user on the first published translation.
-	 * @param User $recipient
 	 */
 	public static function firstTranslation( User $recipient ) {
 		Event::create( [
@@ -24,7 +23,6 @@ class Notification {
 
 	/**
 	 * Notify the user on the 10th published translation.
-	 * @param User $recipient
 	 */
 	public static function tenthTranslation( User $recipient ) {
 		Event::create( [
@@ -37,7 +35,6 @@ class Notification {
 
 	/**
 	 * Notify the user on the 100th published translation.
-	 * @param User $recipient
 	 */
 	public static function hundredthTranslation( User $recipient ) {
 		Event::create( [

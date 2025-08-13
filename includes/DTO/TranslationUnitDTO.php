@@ -89,7 +89,6 @@ class TranslationUnitDTO {
 
 	/**
 	 * This method returns a boolean indicating whether the translation unit has user provided input.
-	 * @return bool
 	 */
 	public function hasUserBlob(): bool {
 		return $this->user !== null;
@@ -97,7 +96,6 @@ class TranslationUnitDTO {
 
 	/**
 	 * This method returns a boolean indicating whether the translation unit has source content
-	 * @return bool
 	 */
 	public function hasSourceBlob(): bool {
 		return $this->source !== null;

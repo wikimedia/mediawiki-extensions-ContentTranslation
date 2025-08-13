@@ -70,8 +70,6 @@ class RecentSignificantEditStore {
 	 * this method updates the corresponding row inside the database,
 	 * with the current values of the model and an updated edit
 	 * timestamp.
-	 *
-	 * @param RecentSignificantEdit $edit
 	 */
 	public function update( RecentSignificantEdit $edit ): void {
 		if ( $edit->getId() === null ) {
@@ -95,8 +93,6 @@ class RecentSignificantEditStore {
 	 * this user, if there are more than the limit. This way
 	 * we ensure that the "cx_significant_edits" table will not
 	 * store more than specified number of edit records per user.
-	 *
-	 * @param int $userId
 	 */
 	private function deleteOldEditsByUser( int $userId ) {
 		$edits = $this->findEditsByUser( $userId );

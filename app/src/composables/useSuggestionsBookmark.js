@@ -9,7 +9,6 @@ const useSuggestionsBookmark = () => {
     useSuggestionsFetch();
 
   /**
-   *
    * @param sourceLanguage
    * @param targetLanguage
    * @param sourceTitle

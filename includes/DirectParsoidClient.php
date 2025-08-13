@@ -39,10 +39,6 @@ class DirectParsoidClient implements ParsoidClient {
 	/** @var Authority */
 	private $performer;
 
-	/**
-	 * @param PageRestHelperFactory $helperFactory
-	 * @param Authority $performer
-	 */
 	public function __construct(
 		PageRestHelperFactory $helperFactory,
 		Authority $performer
@@ -191,11 +187,6 @@ class DirectParsoidClient implements ParsoidClient {
 		];
 	}
 
-	/**
-	 * @param Exception $ex
-	 *
-	 * @return array
-	 */
 	private function fakeRESTbaseError( Exception $ex ): array {
 		if ( $ex instanceof LocalizedHttpException ) {
 			$msg = $ex->getMessageValue();

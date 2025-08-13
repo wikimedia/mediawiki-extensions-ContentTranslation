@@ -13,9 +13,6 @@ use MediaWikiIntegrationTestCase;
  */
 class DirectParsoidClientTest extends MediaWikiIntegrationTestCase {
 
-	/**
-	 * @return DirectParsoidClient
-	 */
 	private function createDirectClient(): DirectParsoidClient {
 		$services = $this->getServiceContainer();
 		$directClient = new DirectParsoidClient(

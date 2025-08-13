@@ -9,16 +9,12 @@ class ParsoidClientFactory {
 
 	/**
 	 * @internal For use by ServiceWiring.php only or when locating the service
-	 * @var string
 	 */
 	public const SERVICE_NAME = 'ContentTranslation.ParsoidClientFactory';
 
 	/** @var PageRestHelperFactory */
 	private $pageRestHelperFactory;
 
-	/**
-	 * @param PageRestHelperFactory $pageRestHelperFactory
-	 */
 	public function __construct(
 		PageRestHelperFactory $pageRestHelperFactory
 	) {
@@ -27,8 +23,6 @@ class ParsoidClientFactory {
 
 	/**
 	 * Create a ParsoidClient for accessing Parsoid.
-	 *
-	 * @return ParsoidClient
 	 */
 	public function createParsoidClient(): ParsoidClient {
 		return $this->createDirectClient();
@@ -36,8 +30,6 @@ class ParsoidClientFactory {
 
 	/**
 	 * Create a ParsoidClient for accessing Parsoid.
-	 *
-	 * @return ParsoidClient
 	 */
 	private function createDirectClient(): ParsoidClient {
 		$performer = RequestContext::getMain()->getAuthority();
