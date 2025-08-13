@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"automatic-translation-special-page-description": "خپلسري ژباړه",
+	"automatic-translation-desc": "منځپانگيزو مخونو ته [[Special:AutomaticTranslation|خپلسرې ژباړه]] چمتو کوي.",
+	"mint-home-header-title": "خپلسرې ژباړه",
+	"mint-home-input-placeholder": "يوه سکالو پلټل",
+	"mint-translation-list-all-languages-option-label": "ټول",
+	"mint-home-info-panel-text": "په ويکيپېډيا کې په میلیونونو سکالوگانې په خپلسري ډول $1 ته ژباړل کېدای شي.",
+	"mint-home-random-topic-button-label": "ناټاکلې سکالو",
+	"ax-home-random-topic-loading-label": "بارېږي...",
+	"ax-home-random-topic-error": "د یوې ناټاکلې سکالو د ترلاسه کولو پر مهال تېروتنه وشوه",
+	"ax-home-error-title": "د $1 ليکنې د ترلاسه کولو پر مهال تېروتنه رامنځته شوه.",
+	"mint-home-experimental-note": "د خپلکاري ژباړه ملاتړ ازمېښتي دی. [$1 نور زده کړئ]",
+	"mint-language-selector-title": "ژبې",
+	"mint-language-selector-suggestions-header": "وړانديزشوی",
+	"mint-language-selector-all-languages-header": "ټولې ژبې",
+	"mint-language-selector-input-placeholder": "يوه ژبه وټاکئ",
+	"mint-language-selector-no-search-results": "هېڅ پايلې نشته",
+	"mint-search-topic-page-header": "يوه سکالو پلټل",
+	"mint-search-topic-page-input-placeholder": "يوه سکالو پلټل",
+	"mint-search-topic-page-input-aria-label": "MinT پلټنې ننوتنه",
+	"mint-search-topic-page-results-container-empty": "د هرې سکالو پلټنه وکړئ. د يوې سکالو منځپانگې په هره ژبه کې توپير کولی شي.",
+	"mint-confirm-topic-page-header": "خپلسرې ژباړه",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "خپلسرې ژباړه کتل",
+	"mint-confirm-topic-page-language-selector-explanation": "[$1 له ويکيپېډيا نه په $2 کې] ژباړه. وڅېړئ چې دا سکالو په {{PLURAL:$3|بله ژبه |$3 نورو ژبو}} کې څنگه پوښل شوې ده.",
+	"mint-confirm-topic-page-go-to-search-button-label": "يوه بله سکالو پلټل",
+	"mint-confirm-topic-page-target-article-link-container-header": "په $1 کې د سمونگرو له خوا ليکل شوې",
+	"mint-confirm-topic-page-target-article-link-container-details": "دا سکالو په $1 کې د انساني سمونگرو له خوا ليکل شوې. تاسو کولی شئ د منځپانگې ښه کولو لپاره ورسره يوځای شئ.",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "ليکنه لوستل",
+	"mint-view-translation-page-header": "خپلسرې ژباړه",
+	"mint-view-translation-page-disclaimer-header": "خپلکاره منځپانگې ښايي ناسمې وي",
+	"mint-view-translation-page-disclaimer-body": "دا مخ د هغه منځپانگې خپلسرې ژباړې ده چې په اصل کې په $1 کې ليکل شوې وه."
+}
