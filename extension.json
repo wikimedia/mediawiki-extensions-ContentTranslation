@@ -366,7 +366,7 @@
 				"action": "https://$1.wikipedia.org/w/index.php?title=$2",
 				"api": "https://$1.wikipedia.org/w/api.php",
 				"cx": "http://localhost:8080/v1",
-				"cookieDomain": null
+				"cookieDomain": false
 			}
 		},
 		"ContentTranslationTranslateInTarget": {

@@ -277,13 +277,7 @@ mw.cx.SiteMapper = class {
 			secure: true
 		};
 
-		// BC with old default behavior
-		if ( this.siteTemplates.cookieDomain === null ) {
-			// Save that information in a domain cookie.
-			options.domain = location.hostname.indexOf( '.' ) > 0 ?
-				'.' + location.hostname.split( '.' ).splice( 1 ).join( '.' ) :
-				null; // Mostly for domains like "localhost"
-		} else if ( typeof this.siteTemplates.cookieDomain === 'string' ) {
+		if ( typeof this.siteTemplates.cookieDomain === 'string' ) {
 			// Explicit domain cookie, preferred way
 			options.domain = this.siteTemplates.cookieDomain;
 		}
