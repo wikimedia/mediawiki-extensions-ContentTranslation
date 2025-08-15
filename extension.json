@@ -1884,7 +1884,7 @@
 		}
 	},
 	"ConfigRegistry": {
-		"ArticleFooterEntrypoint": "GlobalVarConfig::newInstance"
+		"ArticleFooterEntrypoint": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
