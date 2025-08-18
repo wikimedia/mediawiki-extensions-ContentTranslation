@@ -5,7 +5,7 @@ import useApplicationState from "@/composables/useApplicationState";
 
 const getErrorMessages = (eventType, missingField, previousRoute) => [
   `Event ${eventType} is missing ${missingField}.`,
-  `Current URL params: ${location.href}`,
+  `Current URL params: ${location.href}.`,
   `Previous route: ${previousRoute}`,
 ];
 
@@ -21,7 +21,7 @@ const useEventLogging = () => {
   ];
 
   const assertNonNullFields = (payload) => {
-    for (const field in nonNullFields) {
+    for (const field of nonNullFields) {
       if (payload[field] === null) {
         const errorMessages = getErrorMessages(
           payload.event_type,
