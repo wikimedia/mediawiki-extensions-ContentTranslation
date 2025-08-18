@@ -419,7 +419,7 @@
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Redakto faqen",
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Hap faqen origjinale në $1",
 	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Zgjero këtë faqe duke përkthyer seksionet që ka në gjuhë të tjera që di.",
-	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Përkthe një seksion të ri",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Përkthe një pjesë të re",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Përkthe \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Përkthe \"$1\" dhe \"$2\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Përkthe \"$1\", \"$2\" dhe më shumë",
