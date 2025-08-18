@@ -16,7 +16,7 @@
 	"cx-desc": "[[Special:ContentTranslation|翻譯]]內容頁面更加簡單",
 	"cx-header-all-translations": "所有翻譯",
 	"cx-source-view-page": "睇頁",
-	"cx-target-view-page": "觀看頁",
+	"cx-target-view-page": "睇呢頁",
 	"cx-publish-page-success": "呢頁喺 $1 發佈",
 	"cx-publish-error-abuse-filter": "自動編輯篩選器喺你嘅翻譯入面發現咗有問題嘅內容。過濾器命中率：$1",
 	"cx-publish-error-empty": "伺服器已經回應，但係冇任何資料。",
