@@ -8,7 +8,8 @@
 			"Meraki25",
 			"Meya",
 			"Teresita29",
-			"Kikis14"
+			"Kikis14",
+			"Kantun 71"
 		]
 	},
 	"cx": "wáal sutbilt'aan",
@@ -45,5 +46,11 @@
 	"tag-contenttranslation-v2-description": "Le ba'ax ku ya'ala'alo' ts'o'ok u su'utul ti' uláak' t'aan yéetel u versión 2 ti' le nu'ukula' u sutk'esiko'ob ba'alo'ob.",
 	"tag-sectiontranslation": "U kùuchil sut ts`ìib",
 	"tag-sectiontranslation-description": "Le ba'ax ku ya'ala'alo' sut ts`ìibta`an ti' jump'éel sección ti' uláak' t'aano' ku meyajta`al u làak`características ti sut ts`ìibt tu kuuchulil  nu'ukula' traducción contenido.",
-	"tag-contenttranslation-high-unmodified-mt-text-description": "Le traducción publicada utilizando ContentTranslation yaan ti' ka'anal porcentaje u traducción automática ma' modificada"
+	"tag-contenttranslation-high-unmodified-mt-text-description": "Le traducción publicada utilizando ContentTranslation yaan ti' ka'anal porcentaje u traducción automática ma' modificada",
+	"cx-source-loading": "Táan u kuuchchik $1",
+	"cx-beta": "U suutul   le ba'ax  tsola'ano'",
+	"cx-beta-desc": "jump'éel nu'ukul uti'al u jáan suutul ju'unilo'ob ich a t'aan. Káajsik le suutul t'aan tak [[Special:MyContributions|a ju'unilo'ob ti'al áantajo'ob ],  yéetel ka utskinaj  k eet editor chen beeta'an  ti'al  u suutul jump'éel  t'aanil. Yaan jujunpéel   nu'ukulo'ob je'el u páajtal u yantal ts'akaan chéen uti'al jujump'éel t'aano'ob.",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Le juuna' mix yaani' ti' $1 tak bejla'e'. {{GENDER:|tech}} a k'áat a beetej?",
+	"cx-entrypoint-dialog-button-translate-from": "Suutk'esik tak $1",
+	"cx-entrypoint-dialog-desc": "Je'el u páajtal a wáantik Wikipedia ikil a sutk'esik le u ju'unilo'oba'.  U sutk'esik jump'éel t'aane' jump'éel ba'al chen  ch'a'abil u beeta'al túumben ba'alo'ob yaan ichil a t'aan."
 }
