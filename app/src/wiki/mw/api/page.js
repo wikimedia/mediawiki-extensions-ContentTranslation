@@ -176,10 +176,12 @@ const fetchPageContent = (
       .then((response) => resolve(response?.parse?.sections || []))
       .fail(() => resolve([]));
   }).then((sections) =>
-    sections.map((section) => ({
-      title: section.line,
-      id: section.index,
-    }))
+    sections
+      .filter((section) => section.toclevel === 1)
+      .map((section) => ({
+        title: section.line,
+        id: section.number,
+      }))
   );
 
   const segmentedContentPromise = fetchSegmentedContent(
