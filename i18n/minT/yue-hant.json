@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"JeffreyKim",
-			"Ktchankt"
+			"Ktchankt",
+			"Yueman"
 		]
 	},
 	"automatic-translation-special-page-description": "自動翻譯",
@@ -54,8 +55,8 @@
 	"mint-explore-languages-search-input-placeholder": "呢個主題嘅所有語言",
 	"mint-explore-languages-explanation-banner-title": "喺其他語言入面學多啲",
 	"mint-explore-languages-explanation-banner-text": "唔同語言嘅編輯以唔同方式報導呢個主題。",
-	"mint-explore-languages-language-card-container-title": "\"$1\"覆蓋率最高嘅語言",
-	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 section|$1 部分|0=冇部分}}",
+	"mint-explore-languages-language-card-container-title": "「$1」嘅覆蓋率最高嘅語言",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1個章節|0=冇章節}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "最詳細嘅",
 	"mint-explore-languages-loading-error": "預覽唔到每種語言可用嘅內容。揀一種要用嚟做自動翻譯嘅語言。",
 	"mint-explore-languages-open-language-selector": "揀一種語言",
