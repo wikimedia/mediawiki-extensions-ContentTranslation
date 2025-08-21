@@ -42,47 +42,24 @@ use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationPublish extends ApiBase {
-
-	private TitleFactory $titleFactory;
-	private HookContainer $hookContainer;
-	private LanguageNameUtils $languageNameUtils;
-	private SectionContentEvaluator $sectionContentEvaluator;
-	private SectionPositionCalculator $sectionPositionCalculator;
-	private SandboxTitleMaker $sandboxTitleMaker;
-	private SectionTranslationStore $sectionTranslationStore;
-	private TranslationStore $translationStore;
-	private TranslationTargetUrlCreator $targetUrlCreator;
-	private UserPermissionChecker $userPermissionChecker;
-	private ChangeTagsStore $changeTagsStore;
 	private LoggerInterface $logger;
 
 	public function __construct(
 		ApiMain $main,
 		string $action,
-		TitleFactory $titleFactory,
-		HookContainer $hookContainer,
-		LanguageNameUtils $languageNameUtils,
-		SectionContentEvaluator $sectionContentEvaluator,
-		SectionPositionCalculator $sectionPositionCalculator,
-		SandboxTitleMaker $sandboxTitleMaker,
-		SectionTranslationStore $sectionTranslationStore,
-		TranslationStore $translationStore,
-		TranslationTargetUrlCreator $targetUrlCreator,
-		UserPermissionChecker $userPermissionChecker,
-		ChangeTagsStore $changeTagsStore
+		private readonly TitleFactory $titleFactory,
+		private readonly HookContainer $hookContainer,
+		private readonly LanguageNameUtils $languageNameUtils,
+		private readonly SectionContentEvaluator $sectionContentEvaluator,
+		private readonly SectionPositionCalculator $sectionPositionCalculator,
+		private readonly SandboxTitleMaker $sandboxTitleMaker,
+		private readonly SectionTranslationStore $sectionTranslationStore,
+		private readonly TranslationStore $translationStore,
+		private readonly TranslationTargetUrlCreator $targetUrlCreator,
+		private readonly UserPermissionChecker $userPermissionChecker,
+		private readonly ChangeTagsStore $changeTagsStore
 	) {
 		parent::__construct( $main, $action );
-		$this->titleFactory = $titleFactory;
-		$this->hookContainer = $hookContainer;
-		$this->languageNameUtils = $languageNameUtils;
-		$this->sectionContentEvaluator = $sectionContentEvaluator;
-		$this->sectionPositionCalculator = $sectionPositionCalculator;
-		$this->sandboxTitleMaker = $sandboxTitleMaker;
-		$this->sectionTranslationStore = $sectionTranslationStore;
-		$this->translationStore = $translationStore;
-		$this->targetUrlCreator = $targetUrlCreator;
-		$this->userPermissionChecker = $userPermissionChecker;
-		$this->changeTagsStore = $changeTagsStore;
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
 

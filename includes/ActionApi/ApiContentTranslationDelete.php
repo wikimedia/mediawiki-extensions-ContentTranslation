@@ -15,18 +15,13 @@ use MediaWiki\Api\ApiMain;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiContentTranslationDelete extends ApiBase {
-	private TranslationCorporaStore $corporaStore;
-	private TranslationStore $translationStore;
-
 	public function __construct(
 		ApiMain $mainModule,
 		string $action,
-		TranslationCorporaStore $corporaStore,
-		TranslationStore $translationStore
+		private readonly TranslationCorporaStore $corporaStore,
+		private readonly TranslationStore $translationStore
 	) {
 		parent::__construct( $mainModule, $action );
-		$this->corporaStore = $corporaStore;
-		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {

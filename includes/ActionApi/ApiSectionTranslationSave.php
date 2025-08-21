@@ -29,34 +29,20 @@ use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\IConnectionProvider;
 
 class ApiSectionTranslationSave extends ApiBase {
-	private TranslationCorporaManager $corporaManager;
-	private IConnectionProvider $connectionProvider;
-	private SectionTranslationStore $sectionTranslationStore;
-	private SandboxTitleMaker $sandboxTitleMaker;
-	private TitleFactory $titleFactory;
-	private LanguageNameUtils $languageNameUtils;
-	private TranslationStore $translationStore;
 	private LoggerInterface $logger;
 
 	public function __construct(
 		ApiMain $mainModule,
 		string $action,
-		TranslationCorporaManager $corporaManager,
-		IConnectionProvider $connectionProvider,
-		SectionTranslationStore $sectionTranslationStore,
-		SandboxTitleMaker $sandboxTitleMaker,
-		TitleFactory $titleFactory,
-		LanguageNameUtils $languageNameUtils,
-		TranslationStore $translationStore
+		private readonly TranslationCorporaManager $corporaManager,
+		private readonly IConnectionProvider $connectionProvider,
+		private readonly SectionTranslationStore $sectionTranslationStore,
+		private readonly SandboxTitleMaker $sandboxTitleMaker,
+		private readonly TitleFactory $titleFactory,
+		private readonly LanguageNameUtils $languageNameUtils,
+		private readonly TranslationStore $translationStore
 	) {
 		parent::__construct( $mainModule, $action );
-		$this->corporaManager = $corporaManager;
-		$this->connectionProvider = $connectionProvider;
-		$this->sectionTranslationStore = $sectionTranslationStore;
-		$this->sandboxTitleMaker = $sandboxTitleMaker;
-		$this->titleFactory = $titleFactory;
-		$this->languageNameUtils = $languageNameUtils;
-		$this->translationStore = $translationStore;
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
 

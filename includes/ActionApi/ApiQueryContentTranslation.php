@@ -24,26 +24,15 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  * Api module for querying ContentTranslation.
  */
 class ApiQueryContentTranslation extends ApiQueryBase {
-
-	private SectionTranslationStore $sectionTranslationStore;
-	private TranslationCorporaManager $corporaManager;
-	private UserService $userService;
-	private TranslationStore $translationStore;
-
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		SectionTranslationStore $sectionTranslationStore,
-		TranslationCorporaManager $corporaManager,
-		UserService $userService,
-		TranslationStore $translationStore
+		private readonly SectionTranslationStore $sectionTranslationStore,
+		private readonly TranslationCorporaManager $corporaManager,
+		private readonly UserService $userService,
+		private readonly TranslationStore $translationStore
 	) {
 		parent::__construct( $query, $moduleName );
-
-		$this->sectionTranslationStore = $sectionTranslationStore;
-		$this->corporaManager = $corporaManager;
-		$this->userService = $userService;
-		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {

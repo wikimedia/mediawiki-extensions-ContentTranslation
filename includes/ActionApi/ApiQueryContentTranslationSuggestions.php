@@ -25,18 +25,13 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  * Api module for querying translation suggestions.
  */
 class ApiQueryContentTranslationSuggestions extends ApiQueryBase {
-	private UserService $userService;
-	private TranslationStore $translationStore;
-
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		UserService $userService,
-		TranslationStore $translationStore
+		private readonly UserService $userService,
+		private readonly TranslationStore $translationStore
 	) {
 		parent::__construct( $query, $moduleName );
-		$this->userService = $userService;
-		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {

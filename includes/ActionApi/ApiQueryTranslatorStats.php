@@ -18,19 +18,13 @@ use MediaWiki\User\User;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryTranslatorStats extends ApiQueryBase {
-
-	private UserService $userService;
-	private TranslationStore $translationStore;
-
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		UserService $userService,
-		TranslationStore $translationStore,
+		private readonly UserService $userService,
+		private readonly TranslationStore $translationStore,
 	) {
 		parent::__construct( $query, $moduleName );
-		$this->userService = $userService;
-		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {

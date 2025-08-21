@@ -17,16 +17,12 @@ use Wikimedia\ParamValidator\ParamValidator;
  * Api module for querying Content Translation parallel corpora.
  */
 class ApiQueryContentTranslationCorpora extends ApiQueryBase {
-	private TranslationCorporaManager $corporaManager;
-
 	public function __construct(
 		ApiQuery $queryModule,
 		string $moduleName,
-		TranslationCorporaManager $corporaManager
+		private readonly TranslationCorporaManager $corporaManager
 	) {
 		parent::__construct( $queryModule, $moduleName );
-
-		$this->corporaManager = $corporaManager;
 	}
 
 	public function execute() {

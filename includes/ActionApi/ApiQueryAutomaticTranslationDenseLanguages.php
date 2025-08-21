@@ -19,24 +19,18 @@ use Wikimedia\ParamValidator\ParamValidator;
  * @since 2024.06
  */
 class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryBase {
-
 	private const WIKIPEDIA_API_URL = 'https://en.wikipedia.org/w/api.php';
 	private const WIKIDATA_API_URL = 'https://www.wikidata.org/w/api.php';
 	private const WIKIPEDIA_URL_FRAGMENT = 'wikipedia';
 	private const ARTICLE_SITE_LINK_LIMIT = 15;
 
-	private HttpRequestFactory $httpRequestFactory;
-	private WANObjectCache $cache;
-
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		HttpRequestFactory $httpRequestFactory,
-		WANObjectCache $cache
+		private readonly HttpRequestFactory $httpRequestFactory,
+		private readonly WANObjectCache $cache
 	) {
 		parent::__construct( $query, $moduleName );
-		$this->httpRequestFactory = $httpRequestFactory;
-		$this->cache = $cache;
 	}
 
 	/**

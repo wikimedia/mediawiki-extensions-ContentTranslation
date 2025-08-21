@@ -21,24 +21,15 @@ use Wikimedia\Rdbms\IConnectionProvider;
  * @since 2024.01
  */
 class ApiContentTranslationSplit extends ApiBase {
-	private TranslationSplitter $translationSplitter;
-	private TranslationStore $translationStore;
-	private SectionTranslationStore $sectionTranslationStore;
-	private IConnectionProvider $connectionProvider;
-
 	public function __construct(
 		ApiMain $mainModule,
 		string $action,
-		IConnectionProvider $connectionProvider,
-		TranslationSplitter $translationSplitter,
-		TranslationStore $translationStore,
-		SectionTranslationStore $sectionTranslationStore
+		private readonly IConnectionProvider $connectionProvider,
+		private readonly TranslationSplitter $translationSplitter,
+		private readonly TranslationStore $translationStore,
+		private readonly SectionTranslationStore $sectionTranslationStore
 	) {
 		parent::__construct( $mainModule, $action );
-		$this->connectionProvider = $connectionProvider;
-		$this->translationSplitter = $translationSplitter;
-		$this->translationStore = $translationStore;
-		$this->sectionTranslationStore = $sectionTranslationStore;
 	}
 
 	/**

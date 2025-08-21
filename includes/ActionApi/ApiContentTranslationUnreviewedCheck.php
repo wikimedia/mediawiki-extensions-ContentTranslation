@@ -24,21 +24,14 @@ use MediaWiki\Api\ApiMain;
  * @since 2024.03
  */
 class ApiContentTranslationUnreviewedCheck extends ApiBase {
-	private UserService $userService;
-	private TranslationStore $translationStore;
-	private TranslationCorporaStore $corporaStore;
-
 	public function __construct(
 		ApiMain $mainModule,
 		string $action,
-		TranslationStore $translationStore,
-		TranslationCorporaStore $corporaStore,
-		UserService $userService
+		private readonly TranslationStore $translationStore,
+		private readonly TranslationCorporaStore $corporaStore,
+		private readonly UserService $userService
 	) {
 		parent::__construct( $mainModule, $action );
-		$this->translationStore = $translationStore;
-		$this->userService = $userService;
-		$this->corporaStore = $corporaStore;
 	}
 
 	private function validateRequest(): void {

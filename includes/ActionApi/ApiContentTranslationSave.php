@@ -30,11 +30,6 @@ use Wikimedia\ParamValidator\TypeDef\StringDef;
 use Wikimedia\Rdbms\IConnectionProvider;
 
 class ApiContentTranslationSave extends ApiBase {
-	private TranslationCorporaManager $corporaManager;
-	private IConnectionProvider $connectionProvider;
-	private TranslationUnitValidator $translationUnitValidator;
-	private LanguageNameUtils $languageNameUtils;
-	private TranslationStore $translationStore;
 	private LoggerInterface $logger;
 	/**
 	 * 64KB
@@ -44,18 +39,13 @@ class ApiContentTranslationSave extends ApiBase {
 	public function __construct(
 		ApiMain $mainModule,
 		string $action,
-		TranslationCorporaManager $corporaManager,
-		IConnectionProvider $connectionProvider,
-		TranslationUnitValidator $translationUnitValidator,
-		LanguageNameUtils $languageNameUtils,
-		TranslationStore $translationStore
+		private readonly TranslationCorporaManager $corporaManager,
+		private readonly IConnectionProvider $connectionProvider,
+		private readonly TranslationUnitValidator $translationUnitValidator,
+		private readonly LanguageNameUtils $languageNameUtils,
+		private readonly TranslationStore $translationStore
 	) {
 		parent::__construct( $mainModule, $action );
-		$this->corporaManager = $corporaManager;
-		$this->connectionProvider = $connectionProvider;
-		$this->translationUnitValidator = $translationUnitValidator;
-		$this->languageNameUtils = $languageNameUtils;
-		$this->translationStore = $translationStore;
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
 

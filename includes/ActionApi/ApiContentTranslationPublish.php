@@ -47,39 +47,22 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\Stats\StatsFactory;
 
 class ApiContentTranslationPublish extends ApiBase {
-
-	protected ParsoidClientFactory $parsoidClientFactory;
-	protected ?Translation $translation;
-	private LanguageFactory $languageFactory;
-	private StatsFactory $statsFactory;
-	private LanguageNameUtils $languageNameUtils;
-	private TranslationStore $translationStore;
-	private TranslationTargetUrlCreator $targetUrlCreator;
-	private UserPermissionChecker $userPermissionChecker;
-	private ChangeTagsStore $changeTagsStore;
+	private ?Translation $translation;
 	private LoggerInterface $logger;
 
 	public function __construct(
 		ApiMain $main,
 		string $name,
-		ParsoidClientFactory $parsoidClientFactory,
-		LanguageFactory $languageFactory,
-		StatsFactory $statsFactory,
-		LanguageNameUtils $languageNameUtils,
-		TranslationStore $translationStore,
-		TranslationTargetUrlCreator $targetUrlCreator,
-		UserPermissionChecker $userPermissionChecker,
-		ChangeTagsStore $changeTagsStore
+		private readonly ParsoidClientFactory $parsoidClientFactory,
+		private readonly LanguageFactory $languageFactory,
+		private readonly StatsFactory $statsFactory,
+		private readonly LanguageNameUtils $languageNameUtils,
+		private readonly TranslationStore $translationStore,
+		private readonly TranslationTargetUrlCreator $targetUrlCreator,
+		private readonly UserPermissionChecker $userPermissionChecker,
+		private readonly ChangeTagsStore $changeTagsStore
 	) {
 		parent::__construct( $main, $name );
-		$this->parsoidClientFactory = $parsoidClientFactory;
-		$this->languageFactory = $languageFactory;
-		$this->statsFactory = $statsFactory;
-		$this->languageNameUtils = $languageNameUtils;
-		$this->translationStore = $translationStore;
-		$this->targetUrlCreator = $targetUrlCreator;
-		$this->userPermissionChecker = $userPermissionChecker;
-		$this->changeTagsStore = $changeTagsStore;
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
 

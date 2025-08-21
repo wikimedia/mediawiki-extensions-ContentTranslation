@@ -17,19 +17,13 @@ use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiQueryPublishedTranslations extends ApiQueryBase {
-
-	private LanguageNameUtils $languageNameUtils;
-	private TranslationStore $translationStore;
-
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		LanguageNameUtils $languageNameUtils,
-		TranslationStore $translationStore,
+		private readonly LanguageNameUtils $languageNameUtils,
+		private readonly TranslationStore $translationStore,
 	) {
 		parent::__construct( $query, $moduleName );
-		$this->languageNameUtils = $languageNameUtils;
-		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {

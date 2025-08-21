@@ -18,24 +18,15 @@ use Wikimedia\ParamValidator\ParamValidator;
  * @since 2025.06
  */
 class ApiContentTranslationFavoriteSuggestions extends ApiBase {
-	private FavoriteSuggestionStore $favoriteSuggestionStore;
-	private UserService $userService;
-	private TitleFactory $titleFactory;
-	private LanguageNameUtils $languageNameUtils;
-
 	public function __construct(
 		ApiMain $mainModule,
 		string $action,
-		FavoriteSuggestionStore $favoriteSuggestionStore,
-		UserService $userService,
-		TitleFactory $titleFactory,
-		LanguageNameUtils $languageNameUtils
+		private readonly FavoriteSuggestionStore $favoriteSuggestionStore,
+		private readonly UserService $userService,
+		private readonly TitleFactory $titleFactory,
+		private readonly LanguageNameUtils $languageNameUtils
 	) {
 		parent::__construct( $mainModule, $action );
-		$this->userService = $userService;
-		$this->favoriteSuggestionStore = $favoriteSuggestionStore;
-		$this->titleFactory = $titleFactory;
-		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	/**
