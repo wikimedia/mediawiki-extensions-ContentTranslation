@@ -10001,9 +10001,9 @@ const w_ = (e) => {
       return r(((i = d == null ? void 0 : d.parse) == null ? void 0 : i.sections) || []);
     }).fail(() => r([]));
   }).then(
-    (r) => r.map((l) => ({
+    (r) => r.filter((l) => l.toclevel === 1).map((l) => ({
       title: l.line,
-      id: l.index
+      id: l.number
     }))
   ), a = $_(
     e,
@@ -17384,7 +17384,9 @@ const wV = {
         e.content,
         e.language,
         e.dir
-      ), ve.ui.MWReferenceContextItem.prototype.getRendering = dV, o.focus();
+      );
+      const c = ve.ui.contextItemFactory.lookup("reference");
+      c.prototype.getRendering = dV, o.focus();
     })), { sxeditor: n };
   }
 }, zi = window.Vue.createElementVNode, vV = window.Vue.openBlock, _V = window.Vue.createElementBlock, SV = ["lang", "dir"], yV = /* @__PURE__ */ zi("div", { class: "overlay-header-container" }, [
