@@ -1,8 +1,3 @@
-import {
-  AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
-  COLLECTIONS_SUGGESTION_PROVIDER,
-} from "@/utils/suggestionFilterProviders";
-
 export default class SectionSuggestion {
   /**
    * Creates an instance of SectionSuggestion.
@@ -13,6 +8,7 @@ export default class SectionSuggestion {
    * @param {string} options.targetTitle
    * @param {Object<string, string>} options.present Object that maps section titles in source article to already existing section titles in target article
    * @param {Object<string, string>} options.missing
+   * @param {Object<string, {difficulty: string, size: number}>} options.sourceSectionInfo
    * @param {string[]} options.sourceSections Array of all section titles in source article ordered by their order of appearance in the article
    * @param {string[]} options.targetSections Array of all section titles in target article ordered by their order of appearance in the article
    * @param {string|null} options.suggestionSeed
@@ -26,6 +22,7 @@ export default class SectionSuggestion {
     targetTitle,
     present,
     missing,
+    sourceSectionInfo = {},
     sourceSections = [],
     targetSections = [],
     suggestionSeed = null,
@@ -38,6 +35,7 @@ export default class SectionSuggestion {
     this.targetTitle = targetTitle;
     this.missingSections = missing;
     this.presentSections = present;
+    this.sourceSectionInfo = sourceSectionInfo;
     this.sourceSections = sourceSections;
     this.targetSections = targetSections;
     this.suggestionSeed = suggestionSeed;
@@ -86,6 +84,13 @@ export default class SectionSuggestion {
    */
   get missingSectionsCount() {
     return Object.keys(this.missingSections || {}).length;
+  }
+
+  get easyMissingSectionsCount() {
+    return Object.keys(this.missingSections || {}).filter(
+      (missingSection) =>
+        this.sourceSectionInfo[missingSection]?.difficulty === "easy"
+    ).length;
   }
 
   /**

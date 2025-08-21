@@ -44,6 +44,10 @@ const missingSectionsCount = computed(
   () => suggestion.value?.missingSectionsCount
 );
 
+const easyMissingSectionsCount = computed(
+  () => suggestion.value?.easyMissingSectionsCount
+);
+
 const description = computed(() => page.value?.description);
 
 const isSectionSuggestion = computed(
@@ -122,12 +126,23 @@ defineEmits(["close", "bookmark"]);
         </mw-col>
         <mw-col
           v-if="isSectionSuggestion"
-          class="cx-suggestion__information-panel__bottom cx-suggestion__missing-sections"
+          class="cx-suggestion__information-panel__bottom"
           shrink
         >
           <small
             v-i18n:cx-sx-translation-suggestion-info="[missingSectionsCount]"
+            class="cx-suggestion__missing-sections"
           />
+          <small
+            v-if="easyMissingSectionsCount"
+            class="cx-suggestion__easy-sections"
+          >
+            (<span
+              v-i18n:cx-sx-translation-suggestion-easy-sections="[
+                easyMissingSectionsCount,
+              ]"
+            />)</small
+          >
         </mw-col>
         <mw-col
           v-else-if="isFavoriteSuggestion"
@@ -229,10 +244,16 @@ defineEmits(["close", "bookmark"]);
         }
       }
     }
+    &__bottom {
+      margin-top: auto;
+    }
   }
   &__missing-sections {
-    margin-top: auto;
     color: #72777d;
+  }
+  &__easy-sections {
+    color: @color-success;
+    font-weight: @font-weight-bold;
   }
   &__favorite-missing-sections {
     color: #72777d;

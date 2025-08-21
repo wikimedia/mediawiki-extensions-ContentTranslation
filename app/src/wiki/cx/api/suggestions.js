@@ -181,6 +181,7 @@ const fetchMostPopularSectionSuggestions = async (
           targetSections: recommendation.target_sections,
           present: recommendation.present,
           missing: recommendation.missing,
+          sourceSectionInfo: recommendation.source_section_info,
         })
     )
   );
@@ -265,6 +266,7 @@ const fetchSectionSuggestionsByCollections = async (
           present: recommendation.present,
           missing: recommendation.missing,
           collection: recommendation.collection,
+          sourceSectionInfo: recommendation.source_section_info,
         })
     )
   );
@@ -341,6 +343,7 @@ async function fetchSectionSuggestions(
           targetSections: recommendation.target_sections,
           present: recommendation.present,
           missing: recommendation.missing,
+          sourceSectionInfo: recommendation.source_section_info,
           seed,
         })
     )
@@ -419,6 +422,7 @@ async function fetchSectionSuggestionsByTopics(
           targetSections: recommendation.target_sections,
           present: recommendation.present,
           missing: recommendation.missing,
+          sourceSectionInfo: recommendation.source_section_info,
         })
     )
   );
@@ -496,6 +500,7 @@ async function fetchSectionSuggestionsByCountries(
           targetSections: recommendation.target_sections,
           present: recommendation.present,
           missing: recommendation.missing,
+          sourceSectionInfo: recommendation.source_section_info,
         })
     )
   );
