@@ -4,13 +4,19 @@
 			"Умар"
 		]
 	},
+	"apihelp-cxpublish-summary": "Гочдар шордаран гӀоьнца кхоьллина агӀо Ӏалашйар.",
 	"apihelp-cxpublish-param-html": "Чулацам Ӏалашбан.",
 	"apihelp-cxpublish-param-from": "ДӀаболалун меттан код.",
 	"apihelp-cxpublish-param-to": "Ӏалашонан меттан код",
 	"apihelp-cxpublish-param-sourcetitle": "ДӀайолалун агӀонан цӀе.",
 	"apihelp-query+contenttranslation-param-translationid": "Гочдаран ID.",
+	"apihelp-query+contenttranslation-param-from": "Йуьхьанцара меттан код.",
+	"apihelp-query+contenttranslation-param-to": "Ӏалашонан меттан код.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "ДӀайолалун агӀонан цӀе.",
 	"apihelp-query+contenttranslation-param-type": "Гочдаран статус.",
+	"apihelp-query+contenttranslationcorpora-summary": "Деллачу гочдарна дакъошна йукъахь параллелан текст схьаэца. Хьажа кхин а <code>list=cxpublishedtranslations</code>. Дампаш тайп-тайпанчу форматашца луш йу, йоккхачу барамехь лела йиш йолуш.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Гочдаран идентификатор.",
+	"apihelp-query+contenttranslationcorpora-param-types": "Ӏад йитаран кепаца, хьуна хир йу кхаа а вариант, нагахь санна уьш йелахь: оригиналан текст, машенан гочдар, декъашхочун гочдар. Оцу параметро аьтто бо цхьадолу тайпанаш йуха ца дерзо.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Хьостан меттан код.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Ӏалашонан меттан код.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Хьостан меттан код.",
@@ -43,5 +49,6 @@
 	"apihelp-sxsave-param-sourcetitle": "ДӀайолалун агӀонан цӀе.",
 	"apihelp-sxsave-param-sourcerevision": "АгӀонан хьостан кодан версин ID.",
 	"apierror-cxpublishsection-translationnotfound": "Гочдар ца карийна.",
-	"apihelp-query+automatictranslationdenselanguages-param-qid": "Викихаамийн идентификатор"
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "Викихаамийн идентификатор",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "«Бутт» йаззамна сайтан хьажоргийн могӀам схьаэца, цу йукъахь дакъойн цӀераш а йолуш, массо а лелочу меттанашкахь, йаззаман барамца дӀасакъаьстина."
 }
