@@ -4,6 +4,8 @@ import { useI18n } from "vue-banana-i18n";
 import { useStore } from "vuex";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useCurrentPages from "@/composables/useCurrentPages";
+import useURLHandler from "@/composables/useURLHandler";
+import findNextSectionForPlaceholder from "./findNextSectionForPlaceholder";
 
 /**
  * @return {ComputedRef<string>}
@@ -12,6 +14,7 @@ const useTargetArticlePreview = () => {
   const store = useStore();
   const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
   const { currentTargetPage: targetPage } = useCurrentPages();
+  const { sectionURLParameter } = useURLHandler();
 
   const bananaI18n = useI18n();
 
@@ -28,10 +31,28 @@ const useTargetArticlePreview = () => {
     return placeholderInstance.mount(document.createElement("div")).$el;
   };
 
-  const getFirstAppendixTitleBySectionSuggestion = (suggestion) =>
-    store.getters["suggestions/getFirstAppendixTitleBySectionSuggestion"](
-      suggestion
-    );
+  const appendixSectionTitles = computed(() => {
+    const { appendixSectionTitles } = store.state.suggestions;
+
+    return appendixSectionTitles[suggestion.value.targetLanguage] || [];
+  });
+
+  /**
+   * This getter returns the section title, before which we need to position the new section placeholder.
+   * If none such section is found (and new section should be published at the end of the target page as "new"),
+   * it returns null
+   *
+   * @returns {string|null}
+   */
+  const nextSectionTitleForPlaceholder = computed(() =>
+    findNextSectionForPlaceholder({
+      sourceSectionTitle: sectionURLParameter.value,
+      sourceSectionTitles: suggestion.value.sourceSections,
+      targetSectionTitles: suggestion.value.targetSections,
+      presentSectionMappings: suggestion.value.presentSections,
+      targetAppendixSectionTitles: appendixSectionTitles.value,
+    })
+  );
 
   // <base> elements mess with Vue Router, affecting history.pushState() calls
   // Reference: https://router.vuejs.org/api/#createwebhashhistory
@@ -44,31 +65,31 @@ const useTargetArticlePreview = () => {
   };
 
   return computed(() => {
+    if (!targetPage.value?.content) {
+      return null;
+    }
     // Create new div with target page content
     const contentDiv = document.createElement("div");
-    contentDiv.innerHTML = targetPage.value?.content;
+    contentDiv.innerHTML = targetPage.value.content;
 
     removeBaseElements(contentDiv);
     const placeholderEl = createNewSectionPlaceholderElement();
-    // If "References" section (or a similar one - e.g "See also" etc)
-    // is present, position new section placeholder before that section
-    const firstAppendixTitle = getFirstAppendixTitleBySectionSuggestion(
-      suggestion.value
-    );
 
-    if (firstAppendixTitle) {
-      // Find first appendix section header element
+    if (nextSectionTitleForPlaceholder.value) {
+      // Find next section header element
       const matchedHeaders = Array.from(
         contentDiv.querySelectorAll("h2")
-      ).filter((h2) => h2.textContent.match(firstAppendixTitle));
+      ).filter((h2) =>
+        h2.textContent.match(nextSectionTitleForPlaceholder.value)
+      );
 
       if (matchedHeaders && matchedHeaders.length) {
-        const firstAppendixSectionHeader = matchedHeaders[0].parentNode;
+        const nextSectionHeader = matchedHeaders[0].parentNode;
 
         // Insert placeholder element before first appendix section header
-        firstAppendixSectionHeader.parentNode.insertBefore(
+        nextSectionHeader.parentNode.insertBefore(
           placeholderEl,
-          firstAppendixSectionHeader
+          nextSectionHeader
         );
       }
     } else {
