@@ -10,28 +10,23 @@ namespace ContentTranslation\DTO;
  * for exporting draft translation data to views.
  */
 class DraftTranslationDTO extends AbstractTranslationDTO {
-	private ?int $sectionTranslationId;
-	private ?string $sectionId;
-	private string $status;
-	private ?string $sourceSectionTitle;
-	private ?string $targetSectionTitle;
 	private ?array $progress;
 
 	public function __construct(
-		?int $sectionTranslationId,
+		private readonly ?int $sectionTranslationId,
 		int $translationId,
-		?string $sectionId,
+		private readonly ?string $sectionId,
 		string $sourceTitle,
 		string $sourceLanguage,
 		string $targetLanguage,
 		string $startTimestamp,
 		string $lastUpdatedTimestamp,
-		string $status,
+		private readonly string $status,
 		string $pageRevision,
 		?string $progress,
 		?string $targetTitle,
-		?string $sourceSectionTitle,
-		?string $targetSectionTitle
+		private readonly ?string $sourceSectionTitle,
+		private readonly ?string $targetSectionTitle
 	) {
 		parent::__construct(
 			$translationId,
@@ -43,11 +38,6 @@ class DraftTranslationDTO extends AbstractTranslationDTO {
 			$pageRevision,
 			$targetTitle
 		);
-		$this->sectionTranslationId = $sectionTranslationId;
-		$this->sectionId = $sectionId;
-		$this->status = $status;
-		$this->sourceSectionTitle = $sourceSectionTitle;
-		$this->targetSectionTitle = $targetSectionTitle;
 		$progress = $progress ? json_decode( $progress, true ) : null;
 		$this->progress = $progress;
 	}

@@ -13,42 +13,19 @@ use ContentTranslation\Translation;
  * @since 2023.10
  */
 class CXDraftTranslationDTO {
-	private int $id;
-	private string $targetTitle;
-	private string $status;
-	private string $progress;
-	private ?int $sectionTranslationId;
-	private ?string $targetURL;
-	private ?string $sourceRevisionId;
-	private ?string $targetRevisionId;
-	private ?string $targetSectionTitle;
-	private ?array $translationUnits;
-	private ?string $targetCategories;
-
 	public function __construct(
-		int $id,
-		string $targetTitle,
-		string $status,
-		string $progress,
-		?int $sectionTranslationId,
-		?string $targetURL,
-		?string $sourceRevisionId,
-		?string $targetRevisionId,
-		?string $targetSectionTitle,
-		?array $translationUnits,
-		?string $targetCategories
+		private readonly int $id,
+		private readonly string $targetTitle,
+		private readonly string $status,
+		private readonly string $progress,
+		private readonly ?int $sectionTranslationId,
+		private readonly ?string $targetURL,
+		private readonly ?string $sourceRevisionId,
+		private readonly ?string $targetRevisionId,
+		private readonly ?string $targetSectionTitle,
+		private readonly ?array $translationUnits,
+		private readonly ?string $targetCategories
 	) {
-		$this->id = $id;
-		$this->targetTitle = $targetTitle;
-		$this->status = $status;
-		$this->progress = $progress;
-		$this->sectionTranslationId = $sectionTranslationId;
-		$this->targetURL = $targetURL;
-		$this->sourceRevisionId = $sourceRevisionId;
-		$this->targetRevisionId = $targetRevisionId;
-		$this->targetSectionTitle = $targetSectionTitle;
-		$this->translationUnits = $translationUnits;
-		$this->targetCategories = $targetCategories;
 	}
 
 	public static function createFromTranslation( Translation $translation ): self {

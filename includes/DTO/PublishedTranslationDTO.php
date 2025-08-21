@@ -12,10 +12,6 @@ namespace ContentTranslation\DTO;
  * @license GPL-2.0-or-later
  */
 class PublishedTranslationDTO extends AbstractTranslationDTO {
-	/** @var PublishedSectionTranslationDTO[] */
-	private array $sectionTranslations;
-	private ?string $targetUrl;
-
 	public function __construct(
 		int $translationId,
 		string $sourceTitle,
@@ -31,8 +27,9 @@ class PublishedTranslationDTO extends AbstractTranslationDTO {
 		// string under normal circumstances. However, apparently, there might be cases that for unknown
 		// reasons the target URL remains null, even for published translations. For this reason, let this
 		// field be nullable to avoid errors.
-		?string $targetUrl,
-		array $sectionTranslations
+		private readonly ?string $targetUrl,
+		/* @var PublishedSectionTranslationDTO[] */
+		private readonly array $sectionTranslations
 	) {
 		parent::__construct(
 			$translationId,
@@ -44,9 +41,6 @@ class PublishedTranslationDTO extends AbstractTranslationDTO {
 			$pageRevision,
 			$targetTitle,
 		);
-
-		$this->sectionTranslations = $sectionTranslations;
-		$this->targetUrl = $targetUrl;
 	}
 
 	public function toArray(): array {

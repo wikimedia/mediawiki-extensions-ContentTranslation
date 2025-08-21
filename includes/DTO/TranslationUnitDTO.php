@@ -18,33 +18,16 @@ class TranslationUnitDTO {
 		self::TYPE_USER
 	];
 
-	private ?int $sequenceId;
-	/**
-	 * Fields: [ 'engine' => null, 'content' => string, timestamp: ISO string ]
-	 */
-	private ?array $source;
-	/**
-	 * Fields: [ 'engine' => string (e.g. "Google"), 'content' => string, timestamp: ISO string ]
-	 */
-	private ?array $mt;
-	/**
-	 * Fields: [ 'engine' => null, 'content' => string, timestamp: ISO string ]
-	 */
-	private ?array $user;
-	private string $sectionId;
-
 	public function __construct(
-		string $sectionId,
-		?int $sequenceId,
-		?array $source = null,
-		?array $mt = null,
-		?array $user = null
+		private readonly string $sectionId,
+		private readonly ?int $sequenceId,
+		/** Fields: [ 'engine' => null, 'content' => string, timestamp: ISO string ] */
+		private readonly ?array $source = null,
+		/** Fields: [ 'engine' => string (e.g. "Google"), 'content' => string, timestamp: ISO string ] */
+		private readonly ?array $mt = null,
+		/** Fields: [ 'engine' => null, 'content' => string, timestamp: ISO string ] */
+		private readonly ?array $user = null
 	) {
-		$this->sectionId = $sectionId;
-		$this->sequenceId = $sequenceId;
-		$this->source = $source;
-		$this->mt = $mt;
-		$this->user = $user;
 	}
 
 	/**

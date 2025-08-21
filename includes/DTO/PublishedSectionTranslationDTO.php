@@ -14,27 +14,14 @@ namespace ContentTranslation\DTO;
  * @license GPL-2.0-or-later
  */
 class PublishedSectionTranslationDTO {
-	private int $sectionTranslationId;
-	private string $sectionId;
-	private string $startTimestamp;
-	private string $lastUpdatedTimestamp;
-	private string $sourceSectionTitle;
-	private string $targetSectionTitle;
-
 	public function __construct(
-		int $sectionTranslationId,
-		string $sectionId,
-		string $startTimestamp,
-		string $lastUpdatedTimestamp,
-		string $sourceSectionTitle,
-		string $targetSectionTitle
+		private readonly int $sectionTranslationId,
+		private readonly string $sectionId,
+		private readonly string $startTimestamp,
+		private readonly string $lastUpdatedTimestamp,
+		private readonly string $sourceSectionTitle,
+		private readonly string $targetSectionTitle
 	) {
-		$this->sectionTranslationId = $sectionTranslationId;
-		$this->sectionId = $sectionId;
-		$this->startTimestamp = $startTimestamp;
-		$this->lastUpdatedTimestamp = $lastUpdatedTimestamp;
-		$this->sourceSectionTitle = $sourceSectionTitle;
-		$this->targetSectionTitle = $targetSectionTitle;
 	}
 
 	public function toArray(): array {
