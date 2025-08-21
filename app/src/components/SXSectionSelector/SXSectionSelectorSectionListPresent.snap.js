@@ -19,7 +19,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
       
       <button
         aria-label="sx-section-selector-next-button-aria-label"
-        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-between items-center py-3 px-4"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-start items-center py-3 px-4"
       >
         
         
@@ -44,7 +44,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
         </div>
         
         <span
-          class="cdx-icon cdx-icon--medium"
+          class="cdx-icon cdx-icon--medium ms-auto"
         >
           <svg
             aria-hidden="true"
@@ -72,7 +72,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
       
       <button
         aria-label="sx-section-selector-next-button-aria-label"
-        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-between items-center py-3 px-4"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-start items-center py-3 px-4"
       >
         
         
@@ -97,7 +97,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
         </div>
         
         <span
-          class="cdx-icon cdx-icon--medium"
+          class="cdx-icon cdx-icon--medium ms-auto"
         >
           <svg
             aria-hidden="true"
@@ -125,7 +125,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
       
       <button
         aria-label="sx-section-selector-next-button-aria-label"
-        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-between items-center py-3 px-4"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-start items-center py-3 px-4"
       >
         
         
@@ -150,7 +150,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
         </div>
         
         <span
-          class="cdx-icon cdx-icon--medium"
+          class="cdx-icon cdx-icon--medium ms-auto"
         >
           <svg
             aria-hidden="true"
@@ -178,7 +178,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
       
       <button
         aria-label="sx-section-selector-next-button-aria-label"
-        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-between items-center py-3 px-4"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-start items-center py-3 px-4"
       >
         
         
@@ -203,7 +203,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
         </div>
         
         <span
-          class="cdx-icon cdx-icon--medium"
+          class="cdx-icon cdx-icon--medium ms-auto"
         >
           <svg
             aria-hidden="true"

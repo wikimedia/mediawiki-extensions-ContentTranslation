@@ -11,13 +11,13 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     
     <button
       aria-label="sx-section-selector-next-button-aria-label"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-between items-center py-3 px-4"
+      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-start items-center py-3 px-4"
     >
       
       
       
       <span
-        class="cdx-icon cdx-icon--medium"
+        class="cdx-icon cdx-icon--medium ms-auto"
       >
         <svg
           aria-hidden="true"
@@ -45,13 +45,13 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     
     <button
       aria-label="sx-section-selector-next-button-aria-label"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-between items-center py-3 px-4"
+      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-start items-center py-3 px-4"
     >
       
       
       
       <span
-        class="cdx-icon cdx-icon--medium"
+        class="cdx-icon cdx-icon--medium ms-auto"
       >
         <svg
           aria-hidden="true"
@@ -79,13 +79,13 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     
     <button
       aria-label="sx-section-selector-next-button-aria-label"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-between items-center py-3 px-4"
+      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-start items-center py-3 px-4"
     >
       
       
       
       <span
-        class="cdx-icon cdx-icon--medium"
+        class="cdx-icon cdx-icon--medium ms-auto"
       >
         <svg
           aria-hidden="true"
@@ -113,13 +113,13 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     
     <button
       aria-label="sx-section-selector-next-button-aria-label"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-between items-center py-3 px-4"
+      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-start items-center py-3 px-4"
     >
       
       
       
       <span
-        class="cdx-icon cdx-icon--medium"
+        class="cdx-icon cdx-icon--medium ms-auto"
       >
         <svg
           aria-hidden="true"
@@ -156,13 +156,13 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     
     <button
       aria-label="sx-section-selector-next-button-aria-label"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-between items-center py-3 px-4"
+      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-start items-center py-3 px-4"
     >
       
       
       
       <span
-        class="cdx-icon cdx-icon--medium"
+        class="cdx-icon cdx-icon--medium ms-auto"
       >
         <svg
           aria-hidden="true"
@@ -190,13 +190,13 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     
     <button
       aria-label="sx-section-selector-next-button-aria-label"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-between items-center py-3 px-4"
+      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-start items-center py-3 px-4"
     >
       
       
       
       <span
-        class="cdx-icon cdx-icon--medium"
+        class="cdx-icon cdx-icon--medium ms-auto"
       >
         <svg
           aria-hidden="true"
@@ -224,13 +224,13 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     
     <button
       aria-label="sx-section-selector-next-button-aria-label"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-between items-center py-3 px-4"
+      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-start items-center py-3 px-4"
     >
       
       
       
       <span
-        class="cdx-icon cdx-icon--medium"
+        class="cdx-icon cdx-icon--medium ms-auto"
       >
         <svg
           aria-hidden="true"
@@ -258,13 +258,13 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     
     <button
       aria-label="sx-section-selector-next-button-aria-label"
-      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-between items-center py-3 px-4"
+      class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only col justify-start items-center py-3 px-4"
     >
       
       
       
       <span
-        class="cdx-icon cdx-icon--medium"
+        class="cdx-icon cdx-icon--medium ms-auto"
       >
         <svg
           aria-hidden="true"

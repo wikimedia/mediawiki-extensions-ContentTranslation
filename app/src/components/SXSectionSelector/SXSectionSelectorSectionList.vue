@@ -5,7 +5,7 @@ import { cdxIconNext } from "@wikimedia/codex-icons";
 
 defineProps({
   /**
-   * @type {{targetTitle: string, sourceTitle: string}[]}
+   * @type {{targetTitle: string, sourceTitle: string, isEasy: boolean}[]}
    */
   sections: {
     type: Array,
@@ -26,16 +26,17 @@ defineEmits(["select-section"]);
     >
       <cdx-button
         weight="quiet"
-        class="col justify-between items-center py-3 px-4"
+        class="col justify-start items-center py-3 px-4"
         :aria-label="$i18n('sx-section-selector-next-button-aria-label')"
         @click="$emit('select-section', section.sourceTitle)"
       >
         <slot
           :target-section="section.targetTitle"
           :source-section="section.sourceTitle"
+          :is-easy="section.isEasy"
         >
         </slot>
-        <cdx-icon :icon="cdxIconNext" />
+        <cdx-icon :icon="cdxIconNext" class="ms-auto" />
       </cdx-button>
     </mw-row>
   </ul>

@@ -288,7 +288,7 @@ async function fetchSectionSuggestion(
   );
   // Example: https://cxserver.wikimedia.org/v2/suggest/sections/Sitar/en/ml
   const cxserverAPI = siteMapper.getCXServerUrl(
-    `/suggest/sections/${cxServerParams.join("/")}`
+    `/suggest/sections/${cxServerParams.join("/")}?include_section_sizes=true`
   );
   const suggestedSectionResult = await fetch(cxserverAPI)
     .then((response) =>

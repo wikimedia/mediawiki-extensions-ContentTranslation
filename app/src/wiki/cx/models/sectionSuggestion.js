@@ -9,6 +9,7 @@ export default class SectionSuggestion {
    * @param {Object<string, string>} options.present Object that maps section titles in source article to already existing section titles in target article
    * @param {Object<string, string>} options.missing
    * @param {Object<string, {difficulty: string, size: number}>} options.sourceSectionInfo
+   * @param {Object<string, number>} options.sourceSectionSizes
    * @param {string[]} options.sourceSections Array of all section titles in source article ordered by their order of appearance in the article
    * @param {string[]} options.targetSections Array of all section titles in target article ordered by their order of appearance in the article
    * @param {string|null} options.suggestionSeed
@@ -23,6 +24,7 @@ export default class SectionSuggestion {
     present,
     missing,
     sourceSectionInfo = {},
+    sourceSectionSizes = {},
     sourceSections = [],
     targetSections = [],
     suggestionSeed = null,
@@ -36,6 +38,7 @@ export default class SectionSuggestion {
     this.missingSections = missing;
     this.presentSections = present;
     this.sourceSectionInfo = sourceSectionInfo;
+    this.sourceSectionSizes = sourceSectionSizes;
     this.sourceSections = sourceSections;
     this.targetSections = targetSections;
     this.suggestionSeed = suggestionSeed;
@@ -79,6 +82,24 @@ export default class SectionSuggestion {
     return this.missingCoreSectionsCount(appendixTargetTitles) > 0;
   }
 
+  isEasy(sectionTitle) {
+    if (this.sourceSectionInfo[sectionTitle]) {
+      return this.sourceSectionInfo[sectionTitle].difficulty === "easy";
+    }
+
+    // When the sectionSuggestion object is created from the section selection
+    // screen with data from cxserver instead of rec-api, we don't have
+    // sourceSectionInfo but we have sourceSectionSizes.
+    // Unfortunately, we have to duplicate the easy section thresholds here.
+    if (this.sourceSectionSizes[sectionTitle]) {
+      const size = this.sourceSectionSizes[sectionTitle];
+
+      return size >= 1000 && size < 3000;
+    }
+
+    return false;
+  }
+
   /**
    * @return {number}
    */
@@ -87,9 +108,8 @@ export default class SectionSuggestion {
   }
 
   get easyMissingSectionsCount() {
-    return Object.keys(this.missingSections || {}).filter(
-      (missingSection) =>
-        this.sourceSectionInfo[missingSection]?.difficulty === "easy"
+    return Object.keys(this.missingSections || {}).filter((missingSection) =>
+      this.isEasy(missingSection)
     ).length;
   }
 
@@ -101,13 +121,14 @@ export default class SectionSuggestion {
   }
 
   /**
-   * @return {{targetTitle: string, sourceTitle: string}[]}
+   * @return {{targetTitle: string, sourceTitle: string, isEasy: boolean}[]}
    */
   get orderedMissingSections() {
     return Object.entries(this.missingSections || {})
       .map((missing) => ({
         sourceTitle: missing[0],
         targetTitle: missing[1],
+        isEasy: this.isEasy(missing[0]),
       }))
       .sort(
         (section1, section2) =>

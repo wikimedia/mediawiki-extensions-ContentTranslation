@@ -4,7 +4,7 @@ import { getAutonym, getDir } from "@wikimedia/language-data";
 import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList.vue";
 import sadRobotSVG from "../../assets/sad-robot.svg?raw";
 import { computed } from "vue";
-import { CdxButton } from "@wikimedia/codex";
+import { CdxButton, CdxInfoChip } from "@wikimedia/codex";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useURLHandler from "@/composables/useURLHandler";
 
@@ -32,7 +32,7 @@ const noMissingSectionExists = computed(
       :sections="suggestion.orderedMissingSections"
       @select-section="$emit('select-section', $event)"
     >
-      <template #default="{ sourceSection }">
+      <template #default="{ sourceSection, isEasy }">
         <!-- eslint-disable vue/no-v-html -->
         <h5
           class="ma-0"
@@ -41,6 +41,11 @@ const noMissingSectionExists = computed(
           v-html="sourceSection"
         />
         <!-- eslint-enable vue/no-v-html -->
+        <cdx-info-chip
+          v-if="isEasy"
+          v-i18n:cx-sx-section-selector-easy-section-badge
+          class="sx-section-selector__easy-section-badge"
+        />
       </template>
     </sx-section-selector-section-list>
     <mw-row
@@ -88,5 +93,12 @@ const noMissingSectionExists = computed(
       font-weight: @font-weight-bold;
     }
   }
+}
+
+.sx-section-selector__easy-section-badge {
+  border: 0;
+  background-color: @background-color-success-subtle;
+  font-size: @font-size-small;
+  font-weight: @font-weight-normal;
 }
 </style>
