@@ -9,28 +9,17 @@
 namespace ContentTranslation\Entity;
 
 class TranslationUnit {
-	protected int $translationId;
-	/** @var string */
-	protected $sectionId;
-	/** @var string */
-	protected $origin;
-	/** @var int|null */
-	protected $sequenceId;
-	/** @var string */
-	protected $content;
-	/** @var string */
-	protected $timestamp;
-	/** @var bool|null */
-	protected $validate;
+	private string $sectionId;
+	private string $timestamp;
 
 	public function __construct(
 		string $sectionId,
-		string $origin,
-		?int $sequenceId,
-		string $content,
-		int $translationId,
+		private readonly string $origin,
+		private readonly ?int $sequenceId,
+		private readonly string $content,
+		private readonly int $translationId,
 		?string $timestamp = null,
-		?bool $validate = false
+		private readonly ?bool $validate = false
 	) {
 		// Truncate section id to fit in the database column. The frontend is aware of this
 		// limitation and checks the id from content itself if the length is 30 bytes. Also
@@ -38,12 +27,7 @@ class TranslationUnit {
 		// 30 bytes. Also, the database does not actually complain unless it is in a strict
 		// mode, which is not yet the case for Wikimedia deployment.
 		$this->sectionId = substr( $sectionId, 0, 30 );
-		$this->origin = $origin;
-		$this->sequenceId = $sequenceId;
-		$this->content = $content;
-		$this->translationId = $translationId;
 		$this->timestamp = $timestamp ?? wfTimestamp();
-		$this->validate = $validate;
 	}
 
 	public function getTranslationId(): int {

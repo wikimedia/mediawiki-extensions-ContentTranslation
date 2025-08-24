@@ -5,45 +5,17 @@ declare( strict_types=1 );
 namespace ContentTranslation\Entity;
 
 class RecentSignificantEdit {
-	/** @var int|null */
-	private $id;
-
-	/** @var int */
-	private $userId;
-
-	/** @var int */
-	private $pageWikidataId;
-
-	/**
-	 * @var string language code (e.g. "en")
-	 */
-	private $language;
-
-	/** @var string */
-	private $pageTitle;
-
-	/** @var string[] */
-	private $sectionTitles;
-
-	/** @var string|null */
-	private $timestamp;
 
 	public function __construct(
-		?int $id,
-		int $userId,
-		int $pageWikidataId,
-		string $language,
-		string $pageTitle,
-		array $sectionTitles,
-		?string $timestamp
+		private ?int $id,
+		private readonly int $userId,
+		private readonly int $pageWikidataId,
+		private readonly string $language,
+		private readonly string $pageTitle,
+		/** @var string[] */
+		private array $sectionTitles,
+		private readonly ?string $timestamp
 	) {
-		$this->id = $id;
-		$this->userId = $userId;
-		$this->pageWikidataId = $pageWikidataId;
-		$this->language = $language;
-		$this->pageTitle = $pageTitle;
-		$this->sectionTitles = $sectionTitles;
-		$this->timestamp = $timestamp;
 	}
 
 	public function setId( int $id ): void {
