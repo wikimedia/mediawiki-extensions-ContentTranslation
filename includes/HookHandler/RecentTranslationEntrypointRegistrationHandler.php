@@ -16,23 +16,12 @@ use MobileContext;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 class RecentTranslationEntrypointRegistrationHandler implements BeforePageDisplayHook {
-	/** @var ILoadBalancer */
-	private $loadBalancer;
-
-	/** @var RevisionStore */
-	private $revisionStore;
-
-	/** @var TranslationStore */
-	private $translationStore;
 
 	public function __construct(
-		ILoadBalancer $loadBalancer,
-		RevisionStore $revisionStore,
-		TranslationStore $translationStore
+		private readonly ILoadBalancer $loadBalancer,
+		private readonly RevisionStore $revisionStore,
+		private readonly TranslationStore $translationStore
 	) {
-		$this->loadBalancer = $loadBalancer;
-		$this->revisionStore = $revisionStore;
-		$this->translationStore = $translationStore;
 	}
 
 	/**

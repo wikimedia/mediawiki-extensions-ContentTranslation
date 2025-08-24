@@ -14,16 +14,10 @@ use MobileContext;
 
 class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisplayHook {
 
-	private LanguageFactory $languageFactory;
-
-	private LanguageNameUtils $languageNameUtils;
-
 	public function __construct(
-		LanguageFactory $languageFactory,
-		LanguageNameUtils $languageNameUtils
+		private readonly LanguageFactory $languageFactory,
+		private readonly LanguageNameUtils $languageNameUtils
 	) {
-		$this->languageFactory = $languageFactory;
-		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	/** @inheritDoc */

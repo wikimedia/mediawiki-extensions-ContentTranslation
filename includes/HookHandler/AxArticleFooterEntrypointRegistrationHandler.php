@@ -23,24 +23,16 @@ use MediaWiki\Title\Title;
  * @since 2024.07
  */
 class AxArticleFooterEntrypointRegistrationHandler implements BeforePageDisplayHook, SkinAfterContentHook {
-
 	private const ALLOWED_SKINS = [ 'minerva' ];
 	private Config $contentTranslationConfig;
-	private Language $contentLanguage;
-
-	/**
-	 * Either a Lookup from the Disambiguator extension, or null if that is not installed
-	 */
-	private ?Lookup $disambiguatorLookup;
 
 	public function __construct(
 		ConfigFactory $configFactory,
-		Language $contentLanguage,
-		?Lookup $disambiguatorLookup
+		private readonly Language $contentLanguage,
+		/** Either a Lookup from the Disambiguator extension, or null if that is not installed */
+		private readonly ?Lookup $disambiguatorLookup
 	) {
 		$this->contentTranslationConfig = $configFactory->makeConfig( 'ArticleFooterEntrypoint' );
-		$this->disambiguatorLookup = $disambiguatorLookup;
-		$this->contentLanguage = $contentLanguage;
 	}
 
 	private function isEntrypointAllowedOnSkin( Skin $skin ): bool {

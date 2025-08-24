@@ -15,18 +15,11 @@ use MediaWiki\Skin\Skin;
 use MobileContext;
 
 class RecentEditEntrypointRegistrationHandler implements BeforePageDisplayHook {
-	/** @var RecentSignificantEditStore */
-	private $significantEditStore;
-
-	/** @var WikidataIdFetcher */
-	private $wikidataIdFetcher;
 
 	public function __construct(
-		RecentSignificantEditStore $significantEditStore,
-		WikidataIdFetcher $wikidataIdFetcher
+		private readonly RecentSignificantEditStore $significantEditStore,
+		private readonly WikidataIdFetcher $wikidataIdFetcher
 	) {
-		$this->significantEditStore = $significantEditStore;
-		$this->wikidataIdFetcher = $wikidataIdFetcher;
 	}
 
 	/**
@@ -115,8 +108,8 @@ class RecentEditEntrypointRegistrationHandler implements BeforePageDisplayHook {
 		// We want to group the edited sections by language. For that reason, group the above
 		// RecentSignificantEdit instances to an associative array, that follow the below form:
 		// [
-		//    "en" => [ "language" => "en", "page" => "Moon", "sections" => ["Formation"] ],
-		//    "es" => [ "language" => "es", "page" => "Luna", "sections" => ["Formación"] ]
+		// "en" => [ "language" => "en", "page" => "Moon", "sections" => ["Formation"] ],
+		// "es" => [ "language" => "es", "page" => "Luna", "sections" => ["Formación"] ]
 		// ]
 		$recentUserEdits = [];
 		foreach ( $edits as $edit ) {

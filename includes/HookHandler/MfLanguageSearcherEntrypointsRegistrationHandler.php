@@ -25,10 +25,7 @@ use MediaWiki\User\User;
  */
 class MfLanguageSearcherEntrypointsRegistrationHandler implements BeforePageDisplayHook {
 
-	private PreferenceHelper $preferenceHelper;
-
-	public function __construct( PreferenceHelper $preferenceHelper ) {
-		$this->preferenceHelper = $preferenceHelper;
+	public function __construct( private readonly PreferenceHelper $preferenceHelper ) {
 	}
 
 	/**

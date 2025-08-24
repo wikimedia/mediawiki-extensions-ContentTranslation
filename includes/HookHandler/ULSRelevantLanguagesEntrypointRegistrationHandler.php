@@ -14,11 +14,7 @@ use MobileContext;
 
 class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDisplayHook {
 
-	/** @var PreferenceHelper */
-	private $preferenceHelper;
-
-	public function __construct( PreferenceHelper $preferenceHelper ) {
-		$this->preferenceHelper = $preferenceHelper;
+	public function __construct( private readonly PreferenceHelper $preferenceHelper ) {
 	}
 
 	/** @inheritDoc */

@@ -9,11 +9,7 @@ use MediaWiki\Output\Hook\BeforePageDisplayHook;
 
 class ULSQuickActionEntrypointRegistrationHandler implements BeforePageDisplayHook {
 
-	/** @var ActionFactory */
-	private $actionFactory;
-
-	public function __construct( ActionFactory $actionFactory ) {
-		$this->actionFactory = $actionFactory;
+	public function __construct( private readonly ActionFactory $actionFactory ) {
 	}
 
 	/** @inheritDoc */
