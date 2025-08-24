@@ -23,22 +23,14 @@ use MediaWiki\Revision\RevisionStore;
  * @license GPL-2.0-or-later
  */
 class SignificantEditEventIngress extends DomainEventIngress {
-	private RevisionStore $revisionStore;
-	private RecentSignificantEditStore $significantEditStore;
-	private EditedSectionFinder $editedSectionFinder;
-	private WikidataIdFetcher $wikidataIdFetcher;
 	private const MINIMUM_MODIFIED_BYTES = 500;
 
 	public function __construct(
-		RevisionStore $revisionStore,
-		RecentSignificantEditStore $significantEditStore,
-		EditedSectionFinder $editedSectionFinder,
-		WikidataIdFetcher $wikidataIdFetcher
+		private readonly RevisionStore $revisionStore,
+		private readonly RecentSignificantEditStore $significantEditStore,
+		private readonly EditedSectionFinder $editedSectionFinder,
+		private readonly WikidataIdFetcher $wikidataIdFetcher
 	) {
-		$this->revisionStore = $revisionStore;
-		$this->significantEditStore = $significantEditStore;
-		$this->editedSectionFinder = $editedSectionFinder;
-		$this->wikidataIdFetcher = $wikidataIdFetcher;
 	}
 
 	/**
