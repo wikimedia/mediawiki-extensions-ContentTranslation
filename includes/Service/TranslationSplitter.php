@@ -23,12 +23,10 @@ use DOMDocument;
 class TranslationSplitter {
 	private const LEAD_SECTION_DUMMY_TITLE = '__LEAD_SECTION__';
 
-	private TranslationCorporaManager $corporaManager;
-	private SectionTitleFetcher $sectionTitleFetcher;
-
-	public function __construct( TranslationCorporaManager $corporaManager, SectionTitleFetcher $sectionTitleFetcher ) {
-		$this->corporaManager = $corporaManager;
-		$this->sectionTitleFetcher = $sectionTitleFetcher;
+	public function __construct(
+		private readonly TranslationCorporaManager $corporaManager,
+		private readonly SectionTitleFetcher $sectionTitleFetcher
+	) {
 	}
 
 	/**

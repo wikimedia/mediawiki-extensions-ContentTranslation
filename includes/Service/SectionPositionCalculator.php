@@ -91,21 +91,12 @@ class SectionPositionCalculator {
 		]
 	];
 
-	private HttpRequestFactory $httpRequestFactory;
-	private SectionTitleFetcher $sectionTitleFetcher;
-	private LoggerInterface $logger;
-	private SectionMappingFetcher $sectionMappingFetcher;
-
 	public function __construct(
-		HttpRequestFactory $httpRequestFactory,
-		SectionTitleFetcher $sectionTitleFetcher,
-		SectionMappingFetcher $sectionMappingFetcher,
-		LoggerInterface $logger
+		private readonly HttpRequestFactory $httpRequestFactory,
+		private readonly SectionTitleFetcher $sectionTitleFetcher,
+		private readonly SectionMappingFetcher $sectionMappingFetcher,
+		private readonly LoggerInterface $logger
 	) {
-		$this->httpRequestFactory = $httpRequestFactory;
-		$this->sectionTitleFetcher = $sectionTitleFetcher;
-		$this->logger = $logger;
-		$this->sectionMappingFetcher = $sectionMappingFetcher;
 	}
 
 	/**

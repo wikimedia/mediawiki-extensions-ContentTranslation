@@ -22,12 +22,11 @@ use Wikimedia\Rdbms\IDBAccessObject;
  * @since 2025.06
  */
 class SectionContentEvaluator {
-	private WikiPageFactory $wikiPageFactory;
-	private ParsoidClientFactory $parsoidClientFactory;
 
-	public function __construct( WikiPageFactory $wikiPageFactory, ParsoidClientFactory $parsoidClientFactory ) {
-		$this->wikiPageFactory = $wikiPageFactory;
-		$this->parsoidClientFactory = $parsoidClientFactory;
+	public function __construct(
+		private readonly WikiPageFactory $wikiPageFactory,
+		private readonly ParsoidClientFactory $parsoidClientFactory
+	) {
 	}
 
 	/**

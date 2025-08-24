@@ -16,11 +16,8 @@ use MediaWiki\User\UserGroupManager;
 
 class UserPermissionChecker {
 
-	private TitleFactory $titleFactory;
-	private UserGroupManager $userGroupManager;
-
 	/**
-	 * @var string[] Members of any of these groups can publish translations
+	 * @var string[] Members of these groups can publish translations
 	 */
 	private array $publishGroups;
 
@@ -32,13 +29,10 @@ class UserPermissionChecker {
 	];
 
 	public function __construct(
-		TitleFactory $titleFactory,
-		UserGroupManager $userGroupManager,
+		private readonly TitleFactory $titleFactory,
+		private readonly UserGroupManager $userGroupManager,
 		ServiceOptions $options
 	) {
-		$this->titleFactory = $titleFactory;
-		$this->userGroupManager = $userGroupManager;
-
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 
 		$publishRequirements = $options->get( 'ContentTranslationPublishRequirements' );

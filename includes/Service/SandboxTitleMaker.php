@@ -8,12 +8,11 @@ use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
 
 class SandboxTitleMaker {
-	private TitleFactory $titleFactory;
-	private bool $isSandboxLinkLoaded;
 
-	public function __construct( TitleFactory $titleFactory, bool $isSandboxLinkLoaded ) {
-		$this->titleFactory = $titleFactory;
-		$this->isSandboxLinkLoaded = $isSandboxLinkLoaded;
+	public function __construct(
+		private readonly TitleFactory $titleFactory,
+		private readonly bool $isSandboxLinkLoaded
+	) {
 	}
 
 	/**

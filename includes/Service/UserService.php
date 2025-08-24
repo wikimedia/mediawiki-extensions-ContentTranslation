@@ -16,12 +16,11 @@ use MediaWiki\User\UserIdentity;
  * @since 2023.10
  */
 class UserService {
-	private CentralIdLookup $centralIdLookup;
-	private GenderCache $genderCache;
 
-	public function __construct( CentralIdLookup $centralIdLookup, GenderCache $genderCache ) {
-		$this->centralIdLookup = $centralIdLookup;
-		$this->genderCache = $genderCache;
+	public function __construct(
+		private readonly CentralIdLookup $centralIdLookup,
+		private readonly GenderCache $genderCache
+	) {
 	}
 
 	public function getGlobalUserId( UserIdentity $user ): int {

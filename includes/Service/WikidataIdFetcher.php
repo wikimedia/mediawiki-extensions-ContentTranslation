@@ -8,10 +8,10 @@ use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 
 class WikidataIdFetcher {
-	private HttpRequestFactory $httpRequestFactory;
 
-	public function __construct( HttpRequestFactory $httpRequestFactory ) {
-		$this->httpRequestFactory = $httpRequestFactory;
+	public function __construct(
+		private readonly HttpRequestFactory $httpRequestFactory
+	) {
 	}
 
 	protected function getQuery( string $title ): array {

@@ -9,12 +9,10 @@ use MediaWiki\User\User;
 
 class TranslatorService {
 
-	private UserService $userService;
-	private TranslationStore $translationStore;
-
-	public function __construct( UserService $userService, TranslationStore $translationStore ) {
-		$this->userService = $userService;
-		$this->translationStore = $translationStore;
+	public function __construct(
+		private readonly UserService $userService,
+		private readonly TranslationStore $translationStore
+	) {
 	}
 
 	/**

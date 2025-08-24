@@ -16,9 +16,7 @@ use MediaWiki\Title\TitleFactory;
  * redirection after successful publishing.
  */
 class TranslationTargetUrlCreator {
-	private TitleFactory $titleFactory;
-	/** @var bool */
-	private $contentTranslationTranslateInTarget;
+	private bool $contentTranslationTranslateInTarget;
 
 	/**
 	 * @internal For use by ServiceWiring
@@ -27,10 +25,9 @@ class TranslationTargetUrlCreator {
 		'ContentTranslationTranslateInTarget'
 	];
 
-	public function __construct( TitleFactory $titleFactory, ServiceOptions $options ) {
+	public function __construct( private readonly TitleFactory $titleFactory, ServiceOptions $options ) {
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 
-		$this->titleFactory = $titleFactory;
 		$this->contentTranslationTranslateInTarget = $options->get( 'ContentTranslationTranslateInTarget' );
 	}
 

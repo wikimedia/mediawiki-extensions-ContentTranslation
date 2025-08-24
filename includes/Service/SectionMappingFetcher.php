@@ -19,12 +19,10 @@ use Psr\Log\LoggerInterface;
  */
 class SectionMappingFetcher {
 
-	private HttpRequestFactory $httpRequestFactory;
-	private LoggerInterface $logger;
-
-	public function __construct( HttpRequestFactory $httpRequestFactory, LoggerInterface $logger ) {
-		$this->httpRequestFactory = $httpRequestFactory;
-		$this->logger = $logger;
+	public function __construct(
+		private readonly HttpRequestFactory $httpRequestFactory,
+		private readonly LoggerInterface $logger
+	) {
 	}
 
 	/**
