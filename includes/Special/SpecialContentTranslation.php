@@ -25,24 +25,12 @@ use MobileContext;
  * a special page that shows Content Translation user interface.
  */
 class SpecialContentTranslation extends SpecialPage {
-	/**
-	 * @var SkinFactory
-	 */
-	private $skinFactory;
 
-	/**
-	 * @var PreferenceHelper
-	 */
-	private $preferenceHelper;
-
-	/**
-	 * @param SkinFactory $skinFactory
-	 * @param PreferenceHelper $preferenceHelper
-	 */
-	public function __construct( SkinFactory $skinFactory, PreferenceHelper $preferenceHelper ) {
+	public function __construct(
+		private readonly SkinFactory $skinFactory,
+		private readonly PreferenceHelper $preferenceHelper
+	) {
 		parent::__construct( 'ContentTranslation' );
-		$this->skinFactory = $skinFactory;
-		$this->preferenceHelper = $preferenceHelper;
 	}
 
 	/** @inheritDoc */

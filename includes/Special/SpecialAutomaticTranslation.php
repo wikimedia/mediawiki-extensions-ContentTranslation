@@ -21,11 +21,8 @@ use MediaWiki\SpecialPage\SpecialPage;
  */
 class SpecialAutomaticTranslation extends SpecialPage {
 
-	private LanguageNameUtils $languageNameUtils;
-
-	public function __construct( LanguageNameUtils $languageNameUtils ) {
+	public function __construct( private readonly LanguageNameUtils $languageNameUtils ) {
 		parent::__construct( 'AutomaticTranslation' );
-		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	/** @inheritDoc */
