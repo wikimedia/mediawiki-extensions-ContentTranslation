@@ -15,11 +15,9 @@ use Exception;
  * @since 2023.11
  */
 class InvalidNotificationTitleException extends Exception {
-	private string $title;
 
-	public function __construct( string $title ) {
+	public function __construct( private string $title ) {
 		parent::__construct();
-		$this->title = $title;
 	}
 
 	public function getTitle(): string {
