@@ -26,10 +26,7 @@ class TranslationCorporaManager {
 
 	private const CATEGORIES = 'CX_CATEGORY_METADATA';
 
-	private TranslationCorporaStore $corporaStore;
-
-	public function __construct( TranslationCorporaStore $corporaStore ) {
-		$this->corporaStore = $corporaStore;
+	public function __construct( private readonly TranslationCorporaStore $corporaStore ) {
 	}
 
 	public function getCorporaDumpArraysByTranslationId( int $translationId, bool $sanitize ): array {
