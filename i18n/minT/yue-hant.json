@@ -28,7 +28,7 @@
 	"mint-search-topic-page-results-container-empty": "搵任何主題。每種語言嘅主題內容可能都唔同。",
 	"mint-confirm-topic-page-header": "自動翻譯",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "睇一個自動翻譯",
-	"mint-confirm-topic-page-language-selector-explanation": "翻譯 [$1 嚟自維基百科，用 $2 ] 。探索呢個主題係點樣用{{PLURAL:$3|another language|$3其他語言}}覆蓋。",
+	"mint-confirm-topic-page-language-selector-explanation": "翻譯係[$1 嚟自$2維基百科]。探索呢個主題係點樣用{{PLURAL:$3|另一種語言|另外$3種語言}}覆蓋。",
 	"mint-confirm-topic-page-go-to-search-button-label": "搵個另一個主題",
 	"mint-confirm-topic-page-target-article-link-container-header": "由編輯用 $1 寫",
 	"mint-confirm-topic-page-target-article-link-container-details": "呢篇文章係由人工編輯用 $1 寫嘅，你可以加入佢哋嚟改善內容。",
