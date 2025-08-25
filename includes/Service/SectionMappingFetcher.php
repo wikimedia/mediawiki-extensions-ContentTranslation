@@ -41,7 +41,7 @@ class SectionMappingFetcher {
 		string $sourceTitle,
 		string $targetLanguage
 	): ?array {
-		$baseUrl = "/suggest/sections/" . urlencode( $sourceTitle ) . "/$sourceLanguage/$targetLanguage";
+		$baseUrl = "/suggest/sections/" . rawurlencode( $sourceTitle ) . "/$sourceLanguage/$targetLanguage";
 		$cxServerUrl = SiteMapper::getCXServerUrl( $baseUrl );
 
 		try {
