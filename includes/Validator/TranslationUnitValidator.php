@@ -17,15 +17,11 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
 class TranslationUnitValidator {
-	/** @var AbuseFilterChecker */
-	private $abuseFilterChecker;
 
-	/** @var ParsoidClientFactory */
-	protected $parsoidClientFactory;
-
-	public function __construct( AbuseFilterChecker $abuseFilterChecker, ParsoidClientFactory $parsoidClientFactory ) {
-		$this->abuseFilterChecker = $abuseFilterChecker;
-		$this->parsoidClientFactory = $parsoidClientFactory;
+	public function __construct(
+		private readonly AbuseFilterChecker $abuseFilterChecker,
+		private readonly ParsoidClientFactory $parsoidClientFactory
+	) {
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
