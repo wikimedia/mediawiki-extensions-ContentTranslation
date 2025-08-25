@@ -12,10 +12,8 @@ use Wikimedia\Rdbms\IReadableDatabase;
  */
 class ConnectionProvider implements IConnectionProvider {
 	public const VIRTUAL_DOMAIN = 'virtual-cx';
-	private IConnectionProvider $inner;
 
-	public function __construct( IConnectionProvider $inner ) {
-		$this->inner = $inner;
+	public function __construct( private readonly IConnectionProvider $inner ) {
 	}
 
 	/** @inheritDoc */

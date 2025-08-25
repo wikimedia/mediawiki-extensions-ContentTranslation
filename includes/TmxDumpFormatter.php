@@ -11,15 +11,7 @@ class TmxDumpFormatter {
 	/** @var XMLWriter */
 	private $xml;
 
-	/** @var string */
-	private $sourceLanguage;
-
-	/**
-	 * @param string $sourceLanguage
-	 */
-	public function __construct( $sourceLanguage ) {
-		$this->sourceLanguage = $sourceLanguage;
-
+	public function __construct( private readonly string $sourceLanguage ) {
 		$this->xml = new XMLWriter();
 		$this->xml->openMemory();
 		$this->xml->setIndent( true );

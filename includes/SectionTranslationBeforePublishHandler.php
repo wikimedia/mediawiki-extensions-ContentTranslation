@@ -13,34 +13,12 @@ use MediaWiki\User\User;
 
 class SectionTranslationBeforePublishHandler implements SectionTranslationBeforePublishHook {
 
-	/** @var ContentHandlerFactory */
-	private $contentHandlerFactory;
-
-	/** @var HttpRequestFactory */
-	private $httpRequestFactory;
-
-	/** @var WikiPageFactory */
-	private $wikiPageFactory;
-
-	/** @var Config */
-	private $config;
-
-	/**
-	 * @param ContentHandlerFactory $contentHandlerFactory
-	 * @param HttpRequestFactory $httpRequestFactory
-	 * @param WikiPageFactory $wikiPageFactory
-	 * @param Config $config
-	 */
 	public function __construct(
-		ContentHandlerFactory $contentHandlerFactory,
-		HttpRequestFactory $httpRequestFactory,
-		WikiPageFactory $wikiPageFactory,
-		Config $config
+		private readonly ContentHandlerFactory $contentHandlerFactory,
+		private readonly HttpRequestFactory $httpRequestFactory,
+		private readonly WikiPageFactory $wikiPageFactory,
+		private readonly Config $config
 	) {
-		$this->contentHandlerFactory = $contentHandlerFactory;
-		$this->httpRequestFactory = $httpRequestFactory;
-		$this->wikiPageFactory = $wikiPageFactory;
-		$this->config = $config;
 	}
 
 	/** @inheritDoc */

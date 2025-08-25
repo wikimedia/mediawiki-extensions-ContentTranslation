@@ -20,19 +20,7 @@ use MediaWiki\User\UserIdentity;
 class PreferenceHelper {
 
 	/** @var bool */
-	private $contentTranslationAsBetaFeature;
-
-	/** @var bool */
-	private $isBetaFeaturesLoaded;
-
-	/** @var bool */
-	private $isGlobalPreferencesLoaded;
-
-	/** @var PreferencesFactory */
-	private $preferencesFactory;
-
-	/** @var UserOptionsLookup */
-	private $userOptionsLookup;
+	private bool $contentTranslationAsBetaFeature;
 
 	/**
 	 * @internal For use by ServiceWiring
@@ -40,19 +28,15 @@ class PreferenceHelper {
 	public const CONSTRUCTOR_OPTIONS = [ 'ContentTranslationAsBetaFeature' ];
 
 	public function __construct(
-		PreferencesFactory $preferencesFactory,
-		UserOptionsLookup $userOptionsLookup,
+		private readonly PreferencesFactory $preferencesFactory,
+		private readonly UserOptionsLookup $userOptionsLookup,
 		ServiceOptions $options,
-		bool $isBetaFeaturesLoaded,
-		bool $isGlobalPreferencesLoaded
+		private readonly bool $isBetaFeaturesLoaded,
+		private readonly bool $isGlobalPreferencesLoaded
 	) {
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 
-		$this->preferencesFactory = $preferencesFactory;
-		$this->userOptionsLookup = $userOptionsLookup;
 		$this->contentTranslationAsBetaFeature = $options->get( 'ContentTranslationAsBetaFeature' );
-		$this->isBetaFeaturesLoaded = $isBetaFeaturesLoaded;
-		$this->isGlobalPreferencesLoaded = $isGlobalPreferencesLoaded;
 	}
 
 	/**

@@ -10,10 +10,7 @@ use Wikimedia\Rdbms\IConnectionProvider;
 
 class Translator {
 
-	private User $user;
-
-	public function __construct( User $user ) {
-		$this->user = $user;
+	public function __construct( private readonly User $user ) {
 	}
 
 	private function getGlobalUserId(): int {

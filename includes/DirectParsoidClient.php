@@ -33,18 +33,10 @@ class DirectParsoidClient implements ParsoidClient {
 	 */
 	public const PARSOID_VERSION = '2.6.0';
 
-	/** @var PageRestHelperFactory */
-	private $helperFactory;
-
-	/** @var Authority */
-	private $performer;
-
 	public function __construct(
-		PageRestHelperFactory $helperFactory,
-		Authority $performer
+		private readonly PageRestHelperFactory $helperFactory,
+		private readonly Authority $performer
 	) {
-		$this->helperFactory = $helperFactory;
-		$this->performer = $performer;
 	}
 
 	/**

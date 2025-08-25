@@ -5,14 +5,7 @@ namespace ContentTranslation;
 class Translation {
 	private bool $isNew = false;
 
-	/** @var array */
-	public $translation;
-
-	/**
-	 * @param array $translation
-	 */
-	public function __construct( $translation ) {
-		$this->translation = $translation;
+	public function __construct( public array $translation ) {
 	}
 
 	/**

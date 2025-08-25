@@ -21,15 +21,15 @@ use MediaWiki\User\User;
  * different actions the rules would cause. Those can be tag, warn,
  * disallow and others. Example:
  * @code
- * array = [
- *   'rule1' => [
- *     'warn' => [
- *       'action' => 'warn',
- *       'parameters' => [ 'abusefilter-warning' ]
- *     ]
- *   ]
- * ];
- * @endcode
+ * * array = [
+ * *   'rule1' => [
+ * *     'warn' => [
+ * *       'action' => 'warn',
+ * *       'parameters' => [ 'abusefilter-warning' ]
+ * *     ]
+ * *   ]
+ * * ];
+ * * @endcode
  *
  * With type 'warn' there is also warning_html for html warning message.
  *
@@ -37,32 +37,15 @@ use MediaWiki\User\User;
  * @license GPL-2.0-or-later
  */
 class AbuseFilterChecker {
-	private ?VariableGeneratorFactory $variableGeneratorFactory;
-
-	private bool $isAbuseFilterExtensionLoaded;
-
-	private WikiPageFactory $wikiPageFactory;
-
-	private ?ConsequencesLookup $consequencesLookup;
-
-	private ?FilterLookup $filterLookup;
-
-	private ?FilterRunnerFactory $filterRunnerFactory;
 
 	public function __construct(
-		bool $isAbuseFilterExtensionLoaded,
-		WikiPageFactory $wikiPageFactory,
-		?VariableGeneratorFactory $variableGeneratorFactory,
-		?ConsequencesLookup $consequencesLookup,
-		?FilterLookup $filterLookup,
-		?FilterRunnerFactory $filterRunnerFactory
+		private readonly bool $isAbuseFilterExtensionLoaded,
+		private readonly WikiPageFactory $wikiPageFactory,
+		private readonly ?VariableGeneratorFactory $variableGeneratorFactory,
+		private readonly ?ConsequencesLookup $consequencesLookup,
+		private readonly ?FilterLookup $filterLookup,
+		private readonly ?FilterRunnerFactory $filterRunnerFactory
 	) {
-		$this->isAbuseFilterExtensionLoaded = $isAbuseFilterExtensionLoaded;
-		$this->wikiPageFactory = $wikiPageFactory;
-		$this->variableGeneratorFactory = $variableGeneratorFactory;
-		$this->consequencesLookup = $consequencesLookup;
-		$this->filterLookup = $filterLookup;
-		$this->filterRunnerFactory = $filterRunnerFactory;
 	}
 
 	/**

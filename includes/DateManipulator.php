@@ -10,9 +10,7 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
 class DateManipulator {
 	public const WEEK = 'week';
 	public const MONTH = 'month';
-
-	/** @var string */
-	private $interval;
+	private string $interval;
 
 	public function __construct( string $interval ) {
 		if ( $interval === self::WEEK || $interval === self::MONTH ) {

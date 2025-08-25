@@ -12,13 +12,7 @@ class ParsoidClientFactory {
 	 */
 	public const SERVICE_NAME = 'ContentTranslation.ParsoidClientFactory';
 
-	/** @var PageRestHelperFactory */
-	private $pageRestHelperFactory;
-
-	public function __construct(
-		PageRestHelperFactory $pageRestHelperFactory
-	) {
-		$this->pageRestHelperFactory = $pageRestHelperFactory;
+	public function __construct( private readonly PageRestHelperFactory $pageRestHelperFactory ) {
 	}
 
 	/**
