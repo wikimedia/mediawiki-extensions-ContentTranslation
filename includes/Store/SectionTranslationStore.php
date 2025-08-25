@@ -32,11 +32,7 @@ class SectionTranslationStore {
 		2 => self::TRANSLATION_STATUS_DELETED,
 	];
 
-	/** @var IConnectionProvider */
-	private $connectionProvider;
-
-	public function __construct( IConnectionProvider $connectionProvider ) {
-		$this->connectionProvider = $connectionProvider;
+	public function __construct( private readonly IConnectionProvider $connectionProvider ) {
 	}
 
 	public function insertTranslation( SectionTranslation $translation ) {

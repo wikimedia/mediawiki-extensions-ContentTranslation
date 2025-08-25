@@ -29,21 +29,13 @@ use Wikimedia\Rdbms\SelectQueryBuilder;
  * TranslationCorporaManager service to interact with the database.
  */
 class TranslationCorporaStore {
-
-	/** @var IConnectionProvider */
-	private $connectionProvider;
-	private LoggerInterface $logger;
-	private ContentCompressionService $compressionService;
 	public const TABLE_NAME = 'cx_corpora';
 
 	public function __construct(
-		IConnectionProvider $connectionProvider,
-		LoggerInterface $logger,
-		ContentCompressionService $compressionService
+		private readonly IConnectionProvider $connectionProvider,
+		private readonly LoggerInterface $logger,
+		private readonly ContentCompressionService $compressionService
 	) {
-		$this->connectionProvider = $connectionProvider;
-		$this->logger = $logger;
-		$this->compressionService = $compressionService;
 	}
 
 	/**

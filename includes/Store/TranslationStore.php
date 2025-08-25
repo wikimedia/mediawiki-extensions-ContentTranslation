@@ -22,12 +22,10 @@ class TranslationStore {
 	public const TRANSLATION_STATUS_PUBLISHED = 'published';
 	public const TRANSLATION_STATUS_DELETED = 'deleted';
 
-	private IConnectionProvider $connectionProvider;
-	private UserService $userService;
-
-	public function __construct( IConnectionProvider $connectionProvider, UserService $userService ) {
-		$this->connectionProvider = $connectionProvider;
-		$this->userService = $userService;
+	public function __construct(
+		private readonly IConnectionProvider $connectionProvider,
+		private readonly UserService $userService
+	) {
 	}
 
 	public function unlinkTranslationFromTranslator( int $translationId ) {

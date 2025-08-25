@@ -27,11 +27,10 @@ class RecentSignificantEditStore {
 	 */
 	private $currentWikiFamilyKey;
 
-	/** @var IConnectionProvider */
-	private $connectionProvider;
-
-	public function __construct( IConnectionProvider $connectionProvider, ?string $currentWikiFamily ) {
-		$this->connectionProvider = $connectionProvider;
+	public function __construct(
+		private readonly IConnectionProvider $connectionProvider,
+		?string $currentWikiFamily
+	) {
 		$currentWikiFamily ??= self::DEFAULT_WIKI_FAMILY;
 		$this->currentWikiFamilyKey = array_search( $currentWikiFamily, self::SUPPORTED_WIKI_FAMILIES );
 	}

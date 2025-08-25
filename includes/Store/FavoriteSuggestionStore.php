@@ -17,10 +17,7 @@ class FavoriteSuggestionStore {
 	public const FAVORITE_LIST_NAME = 'cx-suggestionlist-favorite';
 	public const FAVORITE_LIST_TYPE = 3; // As defined in legacy SuggestionList.php
 
-	private IConnectionProvider $connectionProvider;
-
-	public function __construct( IConnectionProvider $connectionProvider ) {
-		$this->connectionProvider = $connectionProvider;
+	public function __construct( private readonly IConnectionProvider $connectionProvider ) {
 	}
 
 	public function createList( int $translatorUserId ): int {
