@@ -95,10 +95,12 @@ const noMissingSectionExists = computed(
   }
 }
 
-.sx-section-selector__easy-section-badge {
-  border: 0;
-  background-color: @background-color-success-subtle;
-  font-size: @font-size-small;
-  font-weight: @font-weight-normal;
+.cdx-info-chip {
+  &.sx-section-selector__easy-section-badge {
+    border: 0;
+    background-color: @background-color-success-subtle;
+    font-size: @font-size-small;
+    font-weight: @font-weight-normal;
+  }
 }
 </style>
