@@ -9,7 +9,9 @@
 			"Meya",
 			"Teresita29",
 			"Kikis14",
-			"Kantun 71"
+			"Kantun 71",
+			"Ebenezer",
+			"Lucero09"
 		]
 	},
 	"cx": "wáal sutbilt'aan",
@@ -25,7 +27,7 @@
 	"cx-header-all-translations": "tuláakal a traducciones",
 	"cx-source-view-page": "il wáal",
 	"cx-target-view-page": "il wáal",
-	"cx-publish-page-success": "wáalju'un oochel jun $1",
+	"cx-publish-page-success": "wáalju'un na'aksa'an $1",
 	"cx-publish-error-abuse-filter": " u jeel tu'ux ku maansa'al a meyajo' ts'o'ok u yilik jump'éel talamil ti' a suut t'aano'. deteccion del filtro:$1",
 	"cx-publish-error-empty": "le servidoro' ts'o'ok u nuuki'ik chen ba'ale ma' u tuuxtik mix ba'al.",
 	"cx-publish-error-readonly": "ma' tu cha'abal u beeta'al u jeel ts'iib ti' wiki.",
@@ -46,11 +48,15 @@
 	"tag-contenttranslation-v2-description": "Le ba'ax ku ya'ala'alo' ts'o'ok u su'utul ti' uláak' t'aan yéetel u versión 2 ti' le nu'ukula' u sutk'esiko'ob ba'alo'ob.",
 	"tag-sectiontranslation": "U kùuchil sut ts`ìib",
 	"tag-sectiontranslation-description": "Le ba'ax ku ya'ala'alo' sut ts`ìibta`an ti' jump'éel sección ti' uláak' t'aano' ku meyajta`al u làak`características ti sut ts`ìibt tu kuuchulil  nu'ukula' traducción contenido.",
-	"tag-contenttranslation-high-unmodified-mt-text-description": "Le traducción publicada utilizando ContentTranslation yaan ti' ka'anal porcentaje u traducción automática ma' modificada",
-	"cx-source-loading": "Táan u kuuchchik $1",
-	"cx-beta": "U suutul   le ba'ax  tsola'ano'",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "Le k'eex t'áan publicada utilizando ContentTranslation yaan ti' ka'anal porcentaje u traducción automática ma' modificadaí",
+	"cx-source-loading": "Táan u kuuchik $1",
+	"cx-beta": "U suutul   le ba'ax  yáano'",
 	"cx-beta-desc": "jump'éel nu'ukul uti'al u jáan suutul ju'unilo'ob ich a t'aan. Káajsik le suutul t'aan tak [[Special:MyContributions|a ju'unilo'ob ti'al áantajo'ob ],  yéetel ka utskinaj  k eet editor chen beeta'an  ti'al  u suutul jump'éel  t'aanil. Yaan jujunpéel   nu'ukulo'ob je'el u páajtal u yantal ts'akaan chéen uti'al jujump'éel t'aano'ob.",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Le juuna' mix yaani' ti' $1 tak bejla'e'. {{GENDER:|tech}} a k'áat a beetej?",
+	"cx-entrypoint-title": "A $1 u maansa'al le wáala'",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Le linka' mina'an ti' $1 tak bejla'e'. {{GENDER:|tech}} a k'áat a beet?",
 	"cx-entrypoint-dialog-button-translate-from": "Suutk'esik tak $1",
-	"cx-entrypoint-dialog-desc": "Je'el u páajtal a wáantik Wikipedia ikil a sutk'esik le u ju'unilo'oba'.  U sutk'esik jump'éel t'aane' jump'éel ba'al chen  ch'a'abil u beeta'al túumben ba'alo'ob yaan ichil a t'aan."
+	"cx-entrypoint-dialog-desc": "Je'el u páajtal a wáantik Wikipedia ikil a sutk'esik le u ju'unilo'oba'.  U sutk'esik jump'éel t'aane' jump'éel ba'al chen  ch'a'abil u beeta'al túumben ba'alo'ob yaan ichil a t'aan.",
+	"cx-campaign-newbytranslation-title": "Kaajsik yéetel jump'éel maansaj t'aan tu yóok'lal?",
+	"cx-campaign-newbytranslation-search": "Kaxaant u láak' wáalal utia'al a maansik ti' u láak' t'aan",
+	"cx-campaign-newbytranslation-start": "Káas a ts'íib ti' u láak' t'aan"
 }
