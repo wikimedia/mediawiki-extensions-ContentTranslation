@@ -19,6 +19,11 @@ global.mw = {
 
 global.fetch = jest.fn();
 
+// mock isNewcomerUser
+jest.mock("@/utils/userEditCountBucket", () => ({
+  isNewcomerUser: jest.fn(() => Promise.resolve(false)),
+}));
+
 describe("fetchMostPopularPageSuggestions", () => {
   beforeEach(() => {
     jest.clearAllMocks();

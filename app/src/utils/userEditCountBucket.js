@@ -70,4 +70,18 @@ const getUserEditCountBucket = (editCount) => {
   return "1000+ edits";
 };
 
-export { fetchGlobalEditCount, getUserEditCountBucket };
+/**
+ * @returns {Promise<boolean>}
+ */
+const isNewcomerUser = async () => {
+  if (mw.user.isAnon()) {
+    return false;
+  }
+  const userName = mw.user.getName();
+
+  const count = await fetchGlobalEditCount(userName);
+
+  return count < 100;
+};
+
+export { fetchGlobalEditCount, getUserEditCountBucket, isNewcomerUser };

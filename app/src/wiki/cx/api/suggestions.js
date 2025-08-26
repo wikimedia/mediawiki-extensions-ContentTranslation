@@ -6,7 +6,36 @@ import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import PageCollection from "@/wiki/cx/models/pageCollection";
 import CollectionArticleSuggestion from "@/wiki/cx/models/collectionArticleSuggestion";
 import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSuggestion";
+import { isNewcomerUser } from "@/utils/userEditCountBucket";
+import {
+  DifficultyEnum,
+  ArticleDifficultyThresholdEnum,
+  SectionDifficultyThresholdEnum,
+} from "@/utils/translationDifficulty";
 const appendixSectionTitlesInEnglish = en;
+
+const considerSizeRestrictions = async (urlPostfix, urlParams) => {
+  const newcomer = await isNewcomerUser();
+
+  if (!newcomer) {
+    return;
+  }
+
+  let thresholds;
+
+  if (!urlPostfix) {
+    // article suggestions
+    thresholds = ArticleDifficultyThresholdEnum;
+  } else if (urlPostfix === "/sections") {
+    // section suggestions
+    thresholds = SectionDifficultyThresholdEnum;
+  }
+
+  if (thresholds) {
+    urlParams.min_size = thresholds[DifficultyEnum.easy];
+    urlParams.max_size = thresholds[DifficultyEnum.medium] - 1;
+  }
+};
 
 /**
  * @param {string|null} urlPostfix
@@ -20,6 +49,8 @@ const appendixSectionTitlesInEnglish = en;
  */
 const requestToRecommendationApi = async ({ urlPostfix = null, urlParams }) => {
   let stringUrl = mw.config.get("wgRecommendToolAPIURL");
+
+  await considerSizeRestrictions(urlPostfix, urlParams);
 
   if (urlPostfix) {
     stringUrl += urlPostfix;
