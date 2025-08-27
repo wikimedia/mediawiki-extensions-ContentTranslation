@@ -240,6 +240,7 @@
 	"cx-sx-published-section-invitation-title": "Traduci un'altra sezione",
 	"cx-sx-publisher-mt-abuse-message-title": "La tua traduzione contiene $1% di testo non modificato",
 	"cx-sx-publisher-mt-abuse-error-title": "La tua traduzione non può essere pubblicata: contiene $1% di testo non modificato",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sezione|$1 sezioni|0=Nessuna sezione}} da tradurre",
 	"cx-sx-article-search-input-placeholder": "Cerca una pagina da tradurre",
 	"cx-sx-article-search-nearby-title": "Nelle vicinanze",
 	"sx-article-search-language-selector-dialog-title": "Lingue",

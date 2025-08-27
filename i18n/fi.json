@@ -337,7 +337,7 @@
 	"cx-sx-publisher-mt-abuse-error-title": "Käännöstäsi ei voida julkaista, koska se sisältää $1 % muokkaamatonta tekstiä.",
 	"cx-sx-publisher-mt-abuse-message-body": "Konekäännös on vain lähtökohta. Voit silti julkaista sen, mutta varmista, että käännöksesi on sujuva kielelläsi.",
 	"cx-sx-publisher-mt-abuse-error-body": "Konekäännös on vain lähtökohta. Varmista, että käännöksesi on sujuva kielelläsi.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 osio|$1 osiota|0=Ei osioita}}",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 osio|$1 osiota|0=Ei osioita}} käännettäväksi",
 	"cx-sx-translation-suggestion-quick": "Pikakäännös",
 	"cx-sx-article-search-input-placeholder": "Etsi sivua käännettäväksi",
 	"cx-sx-article-search-recently-edited-title": "Viime aikoina muokkaamiasi",
