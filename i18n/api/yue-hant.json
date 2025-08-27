@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Winston Sung",
-			"JeffreyKim"
+			"JeffreyKim",
+			"Yueman"
 		]
 	},
 	"apihelp-query+contenttranslation-param-translationid": "翻譯ID",
