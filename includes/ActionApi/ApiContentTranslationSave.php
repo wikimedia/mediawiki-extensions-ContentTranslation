@@ -190,10 +190,10 @@ class ApiContentTranslationSave extends ApiBase {
 	/**
 	 * Validate categories JSON param.
 	 *
-	 * @param string $categories JSON encoded array of categories
+	 * @param ?string $categories JSON encoded array of categories
 	 * @return bool
 	 */
-	protected function isValidCategoriesJSON( $categories ) {
+	protected function isValidCategoriesJSON( ?string $categories ): bool {
 		// Categories are optional, so empty categories param is valid.
 		if ( $categories === null || $categories === '' ) {
 			return true;
