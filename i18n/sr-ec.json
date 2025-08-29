@@ -323,7 +323,7 @@
 	"cx-sx-publisher-mt-abuse-error-title": "Ваш превод не може бити објављен: садржи $1% неизмењеног текста.",
 	"cx-sx-publisher-mt-abuse-message-body": "Машински превод је само полазна основа. Иако и сада можете објавити свој превод, потрудите се да он звучи природно на вашем језику.",
 	"cx-sx-publisher-mt-abuse-error-body": "Машински превод је само полазна основа. Потрудите се да превод звучи природно на вашем језику.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 одељак|$1 одељка|$1 одељака|0=Нема одељака}}",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 одељак|$1 одељка|$1 одељака|0=Нема одељака}} за превод",
 	"cx-sx-translation-suggestion-quick": "Брзо превођење",
 	"cx-sx-article-search-input-placeholder": "Потражите страницу за превођење",
 	"cx-sx-article-search-recently-edited-title": "Ваше недавне измене",

@@ -57,7 +57,7 @@
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 дакъа|0=Дакъош дац}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Уггаре а мадарра",
 	"mint-explore-languages-loading-error": "ХӀора маттахь болу чулацам хьалха хьажа аьтто ца баьлла. Авто гочдаран хьостан санна лело мотт харжа.",
-	"mint-explore-languages-open-language-selector": "Харжа мотт",
+	"mint-explore-languages-open-language-selector": "Мотт харжа",
 	"mint-explore-languages-more-results": "$1 кхин а {{PLURAL:$1|мотт|меттанаш}} тӀекхочуш бу",
 	"ax-cx-introduction-dialog-title": "Гочдарш хьажар а, нисдар а",
 	"ax-cx-introduction-summary": "Шайн маттахь болу чулацам тобе. Цул дика гочдар йаздина Википеди тӀехь дӀайазде.",
