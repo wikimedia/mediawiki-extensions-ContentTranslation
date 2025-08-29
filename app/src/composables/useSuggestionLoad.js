@@ -66,6 +66,7 @@ const useSuggestionLoad = () => {
               targetLanguage,
               sourceTitle,
               langLinksCount: page.langLinksCount,
+              size: page.articleSize,
               wikidataId: page.wikidataId,
             });
           } else {

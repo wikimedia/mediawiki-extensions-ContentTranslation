@@ -1,8 +1,4 @@
-import {
-  AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
-  COLLECTIONS_SUGGESTION_PROVIDER,
-} from "@/utils/suggestionFilterProviders";
-
+import { getArticleDifficultyBySize } from "@/utils/translationDifficulty";
 /**
  * Model representing an article suggestion for translation.
  */
@@ -15,6 +11,7 @@ export default class ArticleSuggestion {
    * @param {string} [options.targetTitle]
    * @param {number} options.langLinksCount
    * @param {string} options.wikidataId
+   * @param {number} options.size
    * @param {string|null} options.suggestionSeed
    * @param {{ type: String, id: String }|null} options.suggestionProvider
    */
@@ -25,6 +22,7 @@ export default class ArticleSuggestion {
     targetTitle,
     langLinksCount,
     wikidataId,
+    size,
     suggestionSeed = null,
     suggestionProvider = null,
   }) {
@@ -33,6 +31,8 @@ export default class ArticleSuggestion {
     this.sourceTitle = sourceTitle;
     this.targetTitle = targetTitle;
     this.wikidataId = wikidataId;
+    this.size = size;
+    this.difficulty = getArticleDifficultyBySize(size);
     this.langLinksCount = langLinksCount;
     /** @type {{type: String, id: String}|null} */
     this.suggestionProvider = suggestionProvider;

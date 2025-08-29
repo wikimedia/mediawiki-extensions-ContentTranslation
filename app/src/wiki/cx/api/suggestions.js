@@ -112,6 +112,7 @@ async function fetchPageSuggestions(
         sourceLanguage,
         targetLanguage,
         wikidataId: item.wikidata_id,
+        size: item.size,
         langLinksCount: parseInt(item.sitelink_count),
         suggestionSeed: seedArticleTitle,
       })
@@ -143,6 +144,7 @@ const fetchMostPopularPageSuggestions = async (
         sourceLanguage,
         targetLanguage,
         wikidataId: item.wikidata_id,
+        size: item.size,
         langLinksCount: parseInt(item.langlinks_count),
       })
   );
@@ -380,6 +382,7 @@ async function fetchPageSuggestionsByTopics(
         sourceLanguage,
         targetLanguage,
         wikidataId: item.wikidata_id,
+        size: item.size,
         langLinksCount: parseInt(item.sitelink_count),
       })
   );
@@ -458,6 +461,7 @@ async function fetchPageSuggestionsByCountries(
         sourceLanguage,
         targetLanguage,
         wikidataId: item.wikidata_id,
+        size: item.size,
         langLinksCount: parseInt(item.sitelink_count),
       })
   );

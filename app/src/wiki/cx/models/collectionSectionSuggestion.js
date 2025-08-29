@@ -10,7 +10,7 @@ export default class CollectionSectionSuggestion extends SectionSuggestion {
    * @param {string} options.targetTitle
    * @param {Object<string, string>} options.present Object that maps section titles in source article to already existing section titles in target article
    * @param {Object<string, string>} options.missing
-   * @param {Object<string, {difficulty: string, size: number}>} options.sourceSectionInfo
+   * @param {Object<string, {size: number}>} options.sourceSectionInfo
    * @param {string[]} options.sourceSections Array of all section titles in source article ordered by their order of appearance in the article
    * @param {string[]} options.targetSections Array of all section titles in target article ordered by their order of appearance in the article
    * @param {boolean} options.isListable A boolean indicating whether we should display this section suggestion inside dashboard suggestion list

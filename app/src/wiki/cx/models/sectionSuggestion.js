@@ -1,3 +1,7 @@
+import {
+  DifficultyEnum,
+  getSectionDifficultyBySize,
+} from "@/utils/translationDifficulty";
 export default class SectionSuggestion {
   /**
    * Creates an instance of SectionSuggestion.
@@ -8,7 +12,7 @@ export default class SectionSuggestion {
    * @param {string} options.targetTitle
    * @param {Object<string, string>} options.present Object that maps section titles in source article to already existing section titles in target article
    * @param {Object<string, string>} options.missing
-   * @param {Object<string, {difficulty: string, size: number}>} options.sourceSectionInfo
+   * @param {Object<string, {size: number}>} options.sourceSectionInfo
    * @param {Object<string, number>} options.sourceSectionSizes
    * @param {string[]} options.sourceSections Array of all section titles in source article ordered by their order of appearance in the article
    * @param {string[]} options.targetSections Array of all section titles in target article ordered by their order of appearance in the article
@@ -82,22 +86,17 @@ export default class SectionSuggestion {
     return this.missingCoreSectionsCount(appendixTargetTitles) > 0;
   }
 
+  getSectionDifficultyLevel(sectionTitle) {
+    // TODO: update rec-api to return sourceSectionSize exactly like cx-server
+    const sectionSize =
+      this.sourceSectionInfo?.[sectionTitle]?.size ||
+      this.sourceSectionSizes?.[sectionTitle];
+
+    return getSectionDifficultyBySize(sectionSize);
+  }
+
   isEasy(sectionTitle) {
-    if (this.sourceSectionInfo[sectionTitle]) {
-      return this.sourceSectionInfo[sectionTitle].difficulty === "easy";
-    }
-
-    // When the sectionSuggestion object is created from the section selection
-    // screen with data from cxserver instead of rec-api, we don't have
-    // sourceSectionInfo but we have sourceSectionSizes.
-    // Unfortunately, we have to duplicate the easy section thresholds here.
-    if (this.sourceSectionSizes[sectionTitle]) {
-      const size = this.sourceSectionSizes[sectionTitle];
-
-      return size >= 1000 && size < 3000;
-    }
-
-    return false;
+    return this.getSectionDifficultyLevel(sectionTitle) === DifficultyEnum.easy;
   }
 
   /**

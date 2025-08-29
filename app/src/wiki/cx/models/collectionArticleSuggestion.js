@@ -10,6 +10,7 @@ export default class CollectionArticleSuggestion extends ArticleSuggestion {
    * @param {string} [options.targetTitle]
    * @param {number} options.langLinksCount
    * @param {string} options.wikidataId
+   * @param {string} options.size
    * @param {{ type: string, id: string }|null} options.suggestionProvider
    * @param {{ name: string, description: string|null, end_date: string|null, articles_count: number, articles_by_language_count: object }} collection
    */
@@ -20,6 +21,7 @@ export default class CollectionArticleSuggestion extends ArticleSuggestion {
     targetTitle,
     langLinksCount,
     wikidataId,
+    size,
     suggestionProvider = null,
     collection = {},
   }) {
@@ -30,6 +32,7 @@ export default class CollectionArticleSuggestion extends ArticleSuggestion {
       targetTitle,
       langLinksCount,
       wikidataId,
+      size,
       suggestionProvider,
     });
 
