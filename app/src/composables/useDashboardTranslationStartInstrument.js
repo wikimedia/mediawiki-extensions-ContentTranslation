@@ -1,6 +1,12 @@
 import useURLHandler from "@/composables/useURLHandler";
 import { ref } from "vue";
 import useEventLogging from "@/composables/useEventLogging";
+import {
+  DifficultyEnum,
+  getArticleDifficultyBySize,
+} from "@/utils/translationDifficulty";
+import useCurrentPages from "@/composables/useCurrentPages";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 // DOCUMENTATION: https://gitlab.wikimedia.org/repos/data-engineering/schemas-event-secondary/-/tree/master/jsonschema/analytics/mediawiki/content_translation_event#dashboard_translation_start
 
@@ -67,6 +73,26 @@ const useDashboardTranslationStartInstrument = () => {
   } = useURLHandler();
 
   const logEvent = useEventLogging();
+  const { currentSourcePage } = useCurrentPages();
+  const { sectionSuggestion } = useCurrentSectionSuggestion();
+
+  /**
+   * Extract difficulty level from a suggestion object
+   * @return {string}
+   */
+  const getDifficulty = () => {
+    if (!!sectionSuggestion.value && sourceSectionTitle.value) {
+      return sectionSuggestion.value.getSectionDifficultyLevel(
+        sourceSectionTitle.value
+      );
+    }
+
+    if (!!currentSourcePage.value?.articleSize) {
+      return getArticleDifficultyBySize(currentSourcePage.value?.articleSize);
+    }
+
+    return DifficultyEnum.unknown;
+  };
 
   /**
    * @returns {Promise}
@@ -93,6 +119,8 @@ const useDashboardTranslationStartInstrument = () => {
     if (startTranslationEventContext.value) {
       payload.event_context = startTranslationEventContext.value;
     }
+
+    payload.translation_difficulty_level = getDifficulty();
 
     // if section title URL param is set, this is a section translation
     if (sourceSectionTitle.value) {
