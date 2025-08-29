@@ -245,7 +245,7 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {Number} publishParams.revision
  * @param {String} publishParams.captchaId
  * @param {String} publishParams.captchaWord
- * @param {boolean} publishParams.isSandbox
+ * @param {boolean} publishParams.publishTarget
  * @param {Number|null} publishParams.sectionTranslationId
  * @param {string|undefined} publishParams.existingSectionTitle
  * @return {Promise<{
@@ -267,7 +267,7 @@ const publishTranslation = ({
   revision,
   captchaId,
   captchaWord,
-  isSandbox,
+  publishTarget,
   sectionTranslationId,
   existingSectionTitle,
 }) => {
@@ -282,7 +282,7 @@ const publishTranslation = ({
     targetsectiontitle: targetSectionTitle,
     sourcelanguage: sourceLanguage,
     targetlanguage: targetLanguage,
-    issandbox: isSandbox,
+    publishtarget: publishTarget,
     sectiontranslationid: sectionTranslationId,
     existingsectiontitle: existingSectionTitle,
   };

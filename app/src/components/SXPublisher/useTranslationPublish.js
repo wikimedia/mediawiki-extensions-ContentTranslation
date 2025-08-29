@@ -93,14 +93,11 @@ const useTranslationPublish = () => {
       sourceLanguage: sourceLanguage.value,
       targetLanguage: targetLanguage.value,
       revision: revision.value,
-      isSandbox: publishTarget.value === PUBLISHING_TARGETS.SANDBOX,
+      publishTarget: publishTarget.value,
       sectionTranslationId,
     };
 
-    if (
-      !!existingTargetSectionTitle.value &&
-      publishTarget.value === PUBLISHING_TARGETS.EXPAND
-    ) {
+    if (!!existingTargetSectionTitle.value) {
       publishPayload.existingSectionTitle = existingTargetSectionTitle.value;
     }
 

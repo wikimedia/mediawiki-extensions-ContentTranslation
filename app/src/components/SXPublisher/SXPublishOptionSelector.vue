@@ -60,6 +60,13 @@ const publishOptions = computed(() => {
       value: PUBLISHING_TARGETS.EXPAND,
       disabled: false,
     });
+
+    options.push({
+      label: bananaI18n.i18n("cx-sx-publisher-replace-option-label"),
+      description: bananaI18n.i18n("cx-sx-publisher-replace-option-details"),
+      value: PUBLISHING_TARGETS.REPLACE,
+      disabled: false,
+    });
   }
 
   return options;

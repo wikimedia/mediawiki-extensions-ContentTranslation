@@ -142,7 +142,7 @@ class SectionPositionCalculator {
 		}
 
 		if ( $targetSectionTitles ) {
-			// If expanding existing section, use its current position
+			// If expanding or replacing existing section, use its current position
 			if ( $existingTargetSectionTitle !== null ) {
 				$existingSectionPosition = array_search( $existingTargetSectionTitle, $targetSectionTitles );
 				if ( $existingSectionPosition !== false ) {

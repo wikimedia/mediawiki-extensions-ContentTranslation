@@ -145,7 +145,7 @@ ve.ui.CXPublishSettingsDialog.prototype.getInitialOptionWidgets = function () {
 	return widgets;
 };
 
-ve.ui.CXPublishSettingsDialog.prototype.updateOptionWidgets = function () {
+ve.ui.CXPublishSettingsDialog.prototype.setSectionTranslationOptionWidgets = function () {
 	if ( this.isSectionTranslation() ) {
 		this.publishOptionSelector.clearItems();
 		const widgets = [
@@ -166,12 +166,19 @@ ve.ui.CXPublishSettingsDialog.prototype.updateOptionWidgets = function () {
 		);
 
 		if ( isCurrentSectionPresent ) {
-			const widget = this.createRadioOptionWidget(
-				mw.msg( 'cx-publish-destination-section-expand' ),
-				mw.msg( 'cx-publish-destination-section-expand-description' ),
-				'EXPAND'
-			);
-			widgets.push( widget );
+			const mappedSectionWidgets = [
+				this.createRadioOptionWidget(
+					mw.msg( 'cx-publish-destination-section-expand' ),
+					mw.msg( 'cx-publish-destination-section-expand-description' ),
+					'EXPAND'
+				),
+				this.createRadioOptionWidget(
+					mw.msg( 'cx-publish-destination-section-replace' ),
+					mw.msg( 'cx-publish-destination-section-replace-description' ),
+					'REPLACE'
+				)
+			];
+			widgets.push( ...mappedSectionWidgets );
 		}
 
 		this.publishOptionSelector.addItems( widgets );
@@ -204,7 +211,7 @@ ve.ui.CXPublishSettingsDialog.prototype.getSetupProcess = function ( data ) {
 					this.translation.getTargetLanguage()
 				);
 
-				this.updateOptionWidgets();
+				this.setSectionTranslationOptionWidgets();
 				if ( this.isSectionTranslation() ) {
 					this.publishOptionSelector.selectItemByData( this.initialPublishTarget );
 				}

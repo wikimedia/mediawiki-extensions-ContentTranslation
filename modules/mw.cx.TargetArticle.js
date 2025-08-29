@@ -191,7 +191,7 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 			targetsectiontitle: this.veTarget.translationView.targetColumn.getTitle(),
 			sourcelanguage: this.sourceLanguage,
 			targetlanguage: this.targetLanguage,
-			issandbox: mw.cx.isSandboxTarget( publishTarget ),
+			publishtarget: publishTarget,
 			sectiontranslationid: this.translation.getSectionTranslationId()
 		};
 
@@ -199,10 +199,7 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 			sourceSectionTitle
 		);
 
-		if (
-			!!existingTargetSectionTitle &&
-			mw.cx.isExpandTarget( publishTarget )
-		) {
+		if ( existingTargetSectionTitle ) {
 			params.existingsectiontitle = existingTargetSectionTitle;
 		}
 

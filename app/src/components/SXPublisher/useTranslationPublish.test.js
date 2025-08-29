@@ -71,15 +71,19 @@ const sectionSentence = new SectionSentence({
 });
 sectionSentence.mtProviderUsed = "empty";
 
-const SOURCE_SECTION_TITLE = "Test section title 1";
+const MISSING_SOURCE_SECTION_TITLE = "Test section title 1";
+const MISSING_SOURCE_SECTION_TITLE_TRANSLATION = "Test target section title 1";
+const PRESENT_SOURCE_SECTION_TITLE = "Present section title 1";
+const PRESENT_SOURCE_SECTION_TITLE_TRANSLATION =
+  "Present target section title 1";
 const currentSourceSection = new PageSection({
   id: 1,
   subSections: [
     new SubSection({ node: subSectionNode, sentences: [sectionSentence] }),
   ],
 });
-currentSourceSection.originalTitle = SOURCE_SECTION_TITLE;
-currentSourceSection.translatedTitle = "Test target section title 1";
+currentSourceSection.originalTitle = MISSING_SOURCE_SECTION_TITLE;
+currentSourceSection.translatedTitle = MISSING_SOURCE_SECTION_TITLE_TRANSLATION;
 
 const mockCurrentPageSectionValues = {
   sourceSection: ref(currentSourceSection),
@@ -108,7 +112,9 @@ jest.mock(
 const mockCurrentSectionSuggestionValues = {
   sectionSuggestion: ref(
     new SectionSuggestion({
-      present: { [SOURCE_SECTION_TITLE]: "Existing section title 1" },
+      present: {
+        [PRESENT_SOURCE_SECTION_TITLE]: "Existing target section title 1",
+      },
     })
   ),
 };
@@ -158,12 +164,12 @@ describe(" test `useTranslationPublish` composable", () => {
       html: '<span class="cx-segment">Target translated sentence 1</span>',
       sourceTitle: "Test source title 1",
       targetTitle: "Test target article title 1",
-      sourceSectionTitle: SOURCE_SECTION_TITLE,
+      sourceSectionTitle: MISSING_SOURCE_SECTION_TITLE,
       targetSectionTitle: "Test target section title 1",
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 11,
-      isSandbox: false,
+      publishTarget: "NEW_SECTION",
       sectionTranslationId: 1234,
     });
   });
@@ -176,32 +182,36 @@ describe(" test `useTranslationPublish` composable", () => {
       html: '<span class="cx-segment">Target translated sentence 1</span>',
       sourceTitle: "Test source title 1",
       targetTitle: "Test target article title 1",
-      sourceSectionTitle: SOURCE_SECTION_TITLE,
+      sourceSectionTitle: MISSING_SOURCE_SECTION_TITLE,
       targetSectionTitle: "Test target section title 1",
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 11,
-      isSandbox: true,
+      publishTarget: "SANDBOX",
       sectionTranslationId: 1234,
     });
   });
 
   it("should call publishTranslation method with existing section title if 'expand' option is selected", async () => {
     mockPublishTargetValues.target.value = "EXPAND";
+    mockCurrentPageSectionValues.sourceSection.value.originalTitle =
+      PRESENT_SOURCE_SECTION_TITLE;
+    mockCurrentPageSectionValues.sourceSection.value.translatedTitle =
+      PRESENT_SOURCE_SECTION_TITLE_TRANSLATION;
     await doPublish();
 
     expect(cxTranslatorApi.publishTranslation).toHaveBeenLastCalledWith({
       html: '<span class="cx-segment">Target translated sentence 1</span>',
       sourceTitle: "Test source title 1",
       targetTitle: "Test target article title 1",
-      sourceSectionTitle: SOURCE_SECTION_TITLE,
-      targetSectionTitle: "Test target section title 1",
+      sourceSectionTitle: PRESENT_SOURCE_SECTION_TITLE,
+      targetSectionTitle: PRESENT_SOURCE_SECTION_TITLE_TRANSLATION,
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 11,
-      isSandbox: false,
+      publishTarget: "EXPAND",
       sectionTranslationId: 1234,
-      existingSectionTitle: "Existing section title 1",
+      existingSectionTitle: "Existing target section title 1",
     });
   });
 

@@ -80,7 +80,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	): string {
 		$sourceLink = "[[:{$sourceLanguage}:Special:Redirect/revision/{$sourceRevId}|{$sourceTitle}]]";
 		// if the published section is a lead section, the summary should be slightly different
-		if ( $sectionAction === SectionAction::CREATE_LEAD_SECTION ) {
+		if ( $sectionAction->isNewLeadSection() ) {
 			$message = $this->msg( 'cx-sx-publish-lead-section-summary', $sourceLink );
 		} else {
 			$message = $this->msg( 'cx-sx-publish-summary', $sourceSectionTitle, $sourceLink );
@@ -101,8 +101,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 	protected function submitEditAction( Title $title, string $wikitext, $sectionNumber ) {
 		$params = $this->extractRequestParams();
 		[ 'sourcelanguage' => $from, 'sourcerevid' => $sourceRevId, 'sourcetitle' => $sourceTitle ] = $params;
-		$existingSectionTitle = $params['existingsectiontitle'];
-		$sectionAction = SectionAction::fromData( $sectionNumber, $existingSectionTitle );
+		$publishTarget = $params['publishtarget'];
+		$sectionAction = SectionAction::fromData( $sectionNumber, $publishTarget );
 		$summary = $this->getPublishSummary(
 			$from,
 			$sourceRevId,
@@ -121,7 +121,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			'captchaword' => $params['captchaword'],
 		];
 
-		if ( $sectionAction === SectionAction::CREATE_NUMBERED_SECTION ) {
+		if ( $sectionAction->isNewNumberedSection() ) {
 			$apiParams['prependtext'] = $wikitext;
 		} else {
 			$apiParams['text'] = $wikitext;
@@ -173,7 +173,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			!$this->userPermissionChecker->checkUserCanPublish(
 				$this->getUser(),
 				$params['title'],
-				$params['issandbox'] ?? false
+				$this->isSandbox()
 			)
 		) {
 			$this->dieWithError( 'apierror-cx-publish-usergroup-required', 'usergroup-required' );
@@ -186,7 +186,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		$targetTitleRaw = $params['title'];
-		$isSandbox = $params['issandbox'];
+		$isSandbox = $this->isSandbox();
 		$user = $this->getUser();
 		if ( $isSandbox ) {
 			$targetTitle = $this->sandboxTitleMaker->makeSandboxTitle( $user, $targetTitleRaw );
@@ -224,6 +224,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 				$targetTitle,
 				$sectionNumber,
 				$targetSectionTitle,
+				$params['publishtarget'],
 				$existingTargetSectionTitle
 			);
 		} catch ( ApiUsageException $e ) {
@@ -329,6 +330,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param Title $targetTitle
 	 * @param int|string $sectionNumber
 	 * @param string $targetSectionTitle
+	 * @param string $publishTarget
 	 * @param string|null $existingSectionTitle
 	 * @return mixed
 	 * @throws ApiUsageException
@@ -338,9 +340,10 @@ class ApiSectionTranslationPublish extends ApiBase {
 		Title $targetTitle,
 		$sectionNumber,
 		string $targetSectionTitle,
+		string $publishTarget,
 		?string $existingSectionTitle = null
 	) {
-		$sectionAction = SectionAction::fromData( $sectionNumber, $existingSectionTitle );
+		$sectionAction = SectionAction::fromData( $sectionNumber, $publishTarget );
 		try {
 			$wikitext = $this->sectionContentEvaluator->calculateSectionContent(
 				$html,
@@ -393,6 +396,14 @@ class ApiSectionTranslationPublish extends ApiBase {
 		DeferredUpdates::addCallableUpdate( function () use ( $newRevId, $tags ) {
 			$this->changeTagsStore->addTags( $tags, null, $newRevId, null );
 		} );
+	}
+
+	private function isSandbox(): bool {
+		$params = $this->extractRequestParams();
+		// section number is not used for sandbox publishing
+		$sectionAction = SectionAction::fromData( '', $params['publishtarget'] );
+
+		return $sectionAction->isSandboxAction();
 	}
 
 	/**
@@ -454,8 +465,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 				ParamValidator::PARAM_TYPE => 'integer',
 				ParamValidator::PARAM_REQUIRED => true,
 			],
-			'issandbox' => [
-				ParamValidator::PARAM_TYPE => 'boolean',
+			'publishtarget' => [
+				ParamValidator::PARAM_TYPE => [ 'NEW_SECTION', 'EXPAND', 'REPLACE', 'SANDBOX' ],
 				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'existingsectiontitle' => [
