@@ -440,6 +440,10 @@
 			"description": "Whether Content translation need to run in dev mode with features like Hot Module Replacement",
 			"value": false
 		},
+		"ContentTranslationCxServerHost": {
+			"description": "Base URL for cxserver used for internal requests from ContentTranslation backend",
+			"value": "http://localhost:8080"
+		},
 		"DraftMaxAge": {
 			"description": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
 			"value": 456

@@ -70,27 +70,6 @@ class SiteMapper {
 	}
 
 	/**
-	 * @param string $module
-	 * @param array $params
-	 * @return string
-	 */
-	public static function getCXServerURL( string $module, array $params = [] ): string {
-		global $wgContentTranslationSiteTemplates;
-		global $wgContentTranslationVersion;
-
-		$cxserverURL = $wgContentTranslationSiteTemplates['cx'] . $module;
-		if ( (int)$wgContentTranslationVersion === 2 ) {
-			$cxserverURL = str_replace( 'v1', 'v2', $cxserverURL );
-		}
-		$parsedUrl = parse_url( $cxserverURL );
-		if ( !isset( $parsedUrl['scheme'] ) ) {
-			$cxserverURL = 'https:' . $cxserverURL;
-		}
-
-		return wfAppendQuery( $cxserverURL, $params );
-	}
-
-	/**
 	 * Get the URL for Special:CX on the needed wiki
 	 * according to given source and target title and the target language.
 	 *

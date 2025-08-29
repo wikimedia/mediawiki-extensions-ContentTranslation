@@ -4,13 +4,12 @@ declare( strict_types=1 );
 
 namespace ContentTranslation\Tests;
 
+use ContentTranslation\Service\CxServerClient;
 use ContentTranslation\Service\SectionMappingFetcher;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
-use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Title\Title;
 use PHPUnit\Framework\MockObject\MockObject;
-use Psr\Log\LoggerInterface;
 
 /**
  * @covers \ContentTranslation\Service\SectionPositionCalculator
@@ -36,8 +35,8 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 	/** @var Title&MockObject */
 	private $mockTargetTitle;
 
-	/** @var HttpRequestFactory&MockObject */
-	private $mockHttpRequestFactory;
+	/** @var CxServerClient&MockObject */
+	private $mockCxServerClient;
 
 	/** @var SectionTitleFetcher&MockObject */
 	private $mockSectionTitleFetcher;
@@ -45,18 +44,14 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 	/** @var SectionMappingFetcher&MockObject */
 	private $mockSectionMappingFetcher;
 
-	/** @var LoggerInterface&MockObject */
-	private $mockLoggerInterface;
-
 	protected function setUp(): void {
 		parent::setUp();
 		$this->mockTargetTitle = $this->createMock( Title::class );
 		$this->mockTargetTitle->method( 'getPrefixedDBKey' )->willReturn( 'Test target article' );
 
-		$this->mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
+		$this->mockCxServerClient = $this->createMock( CxServerClient::class );
 		$this->mockSectionTitleFetcher = $this->createMock( SectionTitleFetcher::class );
 		$this->mockSectionMappingFetcher = $this->createMock( SectionMappingFetcher::class );
-		$this->mockLoggerInterface = $this->createMock( LoggerInterface::class );
 	}
 
 	/**
@@ -310,10 +305,9 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 		$this->mockSectionTitleFetcher->method( 'fetchSectionTitles' )->willReturn( $responseSections );
 
 		$sectionPositionCalculator = new SectionPositionCalculator(
-			$this->mockHttpRequestFactory,
+			$this->mockCxServerClient,
 			$this->mockSectionTitleFetcher,
 			$this->mockSectionMappingFetcher,
-			$this->mockLoggerInterface
 		);
 		$position = $sectionPositionCalculator->calculateSectionPosition(
 			$this->mockTargetTitle,
@@ -405,10 +399,9 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 		$this->mockSectionTitleFetcher->method( 'fetchSectionTitles' )->willReturn( $targetSections );
 
 		return new SectionPositionCalculator(
-			$this->mockHttpRequestFactory,
+			$this->mockCxServerClient,
 			$this->mockSectionTitleFetcher,
 			$this->mockSectionMappingFetcher,
-			$this->mockLoggerInterface
 		);
 	}
 

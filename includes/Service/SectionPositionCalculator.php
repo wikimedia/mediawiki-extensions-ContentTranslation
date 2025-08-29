@@ -3,11 +3,8 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Service;
 
-use ContentTranslation\SiteMapper;
-use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Title\Title;
-use Psr\Log\LoggerInterface;
 
 class SectionPositionCalculator {
 	private const APPENDIX_TITLES = [
@@ -92,10 +89,9 @@ class SectionPositionCalculator {
 	];
 
 	public function __construct(
-		private readonly HttpRequestFactory $httpRequestFactory,
+		private readonly CxServerClient $cxServerClient,
 		private readonly SectionTitleFetcher $sectionTitleFetcher,
-		private readonly SectionMappingFetcher $sectionMappingFetcher,
-		private readonly LoggerInterface $logger
+		private readonly SectionMappingFetcher $sectionMappingFetcher
 	) {
 	}
 
@@ -293,20 +289,13 @@ class SectionPositionCalculator {
 			return self::APPENDIX_TITLES[$targetLanguage];
 		}
 
-		$baseUrl = "/suggest/sections/titles/en/$targetLanguage";
+		$basePath = "/suggest/sections/titles/en/$targetLanguage";
 		$params = [ 'titles' => implode( '|', self::APPENDIX_TITLES['en'] ) ];
-		$cxServerUrl = SiteMapper::getCXServerUrl( $baseUrl, $params );
-		try {
-			$response = $this->httpRequestFactory->get( $cxServerUrl, [], __METHOD__ );
-		} catch ( \Exception $exception ) {
-			$logParams = [ 'url' => $cxServerUrl, 'exception' => $exception->getMessage() ];
-			$this->logger->info( 'Request to fetch appendix titles failed', $logParams );
-			return [];
-		}
+		$path = wfAppendQuery( $basePath, $params );
+
+		$response = $this->cxServerClient->get( $path );
 
 		if ( !$response ) {
-			$logParams = [ 'url' => $cxServerUrl ];
-			$this->logger->info( 'Request to fetch section titles returned empty response', $logParams );
 			return [];
 		}
 

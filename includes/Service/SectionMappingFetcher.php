@@ -3,8 +3,6 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Service;
 
-use ContentTranslation\SiteMapper;
-use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use Psr\Log\LoggerInterface;
 
@@ -20,7 +18,7 @@ use Psr\Log\LoggerInterface;
 class SectionMappingFetcher {
 
 	public function __construct(
-		private readonly HttpRequestFactory $httpRequestFactory,
+		private readonly CxServerClient $cxServerClient,
 		private readonly LoggerInterface $logger
 	) {
 	}
@@ -39,35 +37,10 @@ class SectionMappingFetcher {
 		string $sourceTitle,
 		string $targetLanguage
 	): ?array {
-		$baseUrl = "/suggest/sections/" . rawurlencode( $sourceTitle ) . "/$sourceLanguage/$targetLanguage";
-		$cxServerUrl = SiteMapper::getCXServerUrl( $baseUrl );
-
-		try {
-			$response = $this->httpRequestFactory->get( $cxServerUrl, [], __METHOD__ );
-		} catch ( \Exception $exception ) {
-			$this->logger->info(
-				'CX server request failed for section mappings',
-				[
-					'sourceTitle' => $sourceTitle,
-					'sourceLanguage' => $sourceLanguage,
-					'targetLanguage' => $targetLanguage,
-					'url' => $cxServerUrl,
-					'exception' => $exception->getMessage()
-				]
-			);
-			return null;
-		}
+		$path = "/suggest/sections/" . rawurlencode( $sourceTitle ) . "/$sourceLanguage/$targetLanguage";
+		$response = $this->cxServerClient->get( $path );
 
 		if ( !$response ) {
-			$this->logger->info(
-				'CX server returned empty response for section mappings',
-				[
-					'sourceTitle' => $sourceTitle,
-					'sourceLanguage' => $sourceLanguage,
-					'targetLanguage' => $targetLanguage,
-					'url' => $cxServerUrl
-				]
-			);
 			return null;
 		}
 

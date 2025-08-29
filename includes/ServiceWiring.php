@@ -9,6 +9,7 @@ use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\Service\ContentCompressionService;
+use ContentTranslation\Service\CxServerClient;
 use ContentTranslation\Service\EditedSectionFinder;
 use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionContentEvaluator;
@@ -71,6 +72,14 @@ return [
 		static function (): ContentCompressionService {
 			return new ContentCompressionService();
 		},
+	'ContentTranslation.CxServerClient' =>
+		static function ( MediaWikiServices $services ): CxServerClient {
+			return new CxServerClient(
+				$services->getHttpRequestFactory(),
+				LoggerFactory::getInstance( LogNames::MAIN ),
+				new ServiceOptions( CxServerClient::CONSTRUCTOR_OPTIONS, $services->getMainConfig() )
+			);
+		},
 	'ContentTranslation.EditedSectionFinder' =>
 		static function (): EditedSectionFinder {
 			return new EditedSectionFinder();
@@ -120,17 +129,16 @@ return [
 	'ContentTranslation.SectionMappingFetcher' =>
 		static function ( MediaWikiServices $services ): SectionMappingFetcher {
 			return new SectionMappingFetcher(
-				$services->getHttpRequestFactory(),
+				$services->getService( 'ContentTranslation.CxServerClient' ),
 				LoggerFactory::getInstance( LogNames::MAIN )
 			);
 		},
 	'ContentTranslation.SectionPositionCalculator' =>
 		static function ( MediaWikiServices $services ): SectionPositionCalculator {
 			return new SectionPositionCalculator(
-				$services->getHttpRequestFactory(),
+				$services->getService( 'ContentTranslation.CxServerClient' ),
 				$services->getService( 'ContentTranslation.SectionTitleFetcher' ),
 				$services->getService( 'ContentTranslation.SectionMappingFetcher' ),
-				LoggerFactory::getInstance( LogNames::MAIN )
 			);
 		},
 	'ContentTranslation.SectionTitleFetcher' =>
