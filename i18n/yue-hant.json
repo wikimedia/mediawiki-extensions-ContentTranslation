@@ -194,7 +194,7 @@
 	"cx-tools-linter-page-exists": "頁面已經存在",
 	"cx-tools-linter-page-exists-message": "標題 $1 已經存在嘅頁面。發佈你嘅翻譯會衾咗現有嘅內容\n\n檢查係咪可以取代現有嘅頁面，或者考慮幫你嘅翻譯改過個名。",
 	"cx-tools-linter-cannot-publish-title": "只係俾有經驗嘅用戶發佈",
-	"cx-tools-linter-cannot-publish-message": "呢個社群決定將翻譯嘅出版限制喺有經驗嘅編輯。\n喺你喺呢個 wiki 有更多編輯經驗之前，你唔可以發佈呢個翻譯，但係你可以：<ul><li>將你嘅翻譯以草稿形式發佈，然後用常規嘅編輯工具嚟創作文章。</li><li>喺冇呢個限制嘅情況下，將呢篇文章翻譯成唔同嘅語言。</li></ul>",
+	"cx-tools-linter-cannot-publish-message": "呢個社群決定將翻譯嘅發佈限制喺有經驗嘅編輯。\n喺你喺呢個 wiki 有更多編輯經驗之前，你唔可以發佈呢個翻譯，但係你可以：<ul><li>將你嘅翻譯以草稿形式發佈，然後用常規嘅編輯工具嚟創作文章。</li><li>喺冇呢個限制嘅情況下，將呢篇文章翻譯成唔同嘅語言。</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "設定為以草稿形式發佈",
 	"cx-tools-linter-template": "冇模",
 	"cx-tools-linter-template-block-message": "原文嗰版用咗一個模，係目標維基冇嘅。\n\n呢個模跳過咗，但你可以加料，彌補唔見咗嘅資訊。",

@@ -3,7 +3,8 @@
 		"authors": [
 			"Belkacem77",
 			"Bilalbill",
-			"YouvaDjouadi"
+			"YouvaDjouadi",
+			"ButterflyOfFire"
 		]
 	},
 	"cx": "Suqel asebter",
@@ -27,6 +28,7 @@
 	"cx-beta": "Tasuqilt n ugbur",
 	"cx-entrypoint-title": "Suqel asebter-agi ar $1",
 	"cx-entrypoint-dialog-button-translate-from": "Suqel si $1",
+	"cx-campaign-newbytranslation-start": "Bdu asuqqel",
 	"cx-special-login-error": "Yessefk ad teqqneḍ akken ad tsuqleḍ asebter-agi. [$1 Tuqqna]",
 	"cx-tools-instructions-text1": "{{GENDER:|Sit}} ɣef tseddaṛin ara tsuqleḍ",
 	"cx-tools-instructions-text2": "{{GENDER:|}} Ur tesriḍ ara ad ten-ternud meṛṛa",
@@ -46,6 +48,7 @@
 	"cx-selected-source-page-start-translation-button": "Senker tasuqilt",
 	"cx-selected-source-page-error-page-exists": "Asebter [$1 yella yakan] di $2",
 	"cx-selected-source-page-error-title-in-use": "Azwel n usebter amaynut [$1 yettwaseqdac yakan]",
+	"cx-captcha-dialog-cancel": "Semmet",
 	"cx-dashboard-sidebar-stats": "Tidaddanin",
 	"cx-translation-filter-published-translations": "Teffeɣ-d",
 	"cx-translation-filter-draft-translations": "Tetteddu",
@@ -86,6 +89,7 @@
 	"cx-campaign-try": "Ɛreḍ tasuqilt n ugbur",
 	"cx-campaign-contributionsmenu-mycontributions": "Ittekkiyen",
 	"cx-campaign-contributionsmenu-mytranslations": "Tisuqilin",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Rnu tasuqilt tamaynut",
 	"cx-campaign-contributionsmenu-myuploads": "Ifuyla yulin",
 	"cx-trend-deletions": "Tisuqilin yettwakksen",
 	"cx-trend-translations-to": "Tisuqilin ar $1",
@@ -103,7 +107,7 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 n tsuqilt|$1 n tsuqilin}}",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Creḍ}} yettwattu",
 	"echo-category-title-cx": "Tisuqilin",
-	"cx-contributions-link": "Ittekkiyen-ik",
+	"cx-contributions-link": "Ittekkiyen-ik·im",
 	"cx-your-translations-link": "Tisiqilin-{{GENDER:$1|ik|im}}",
 	"cx-translationlist-empty-title": "Ulac acu ara tsuqleḍ?",
 	"cx-draft-restoring": "Asali n tsuqilt tettwasekles...",
@@ -112,6 +116,8 @@
 	"cx-suggestionlist-expand": "Sjen i meṛṛa",
 	"cx-suggestionlist-collapse": "Sken drus",
 	"cx-suggestionlist-refresh": "Smiren isumar",
+	"cx-tools-linter-learn-more": "Issin ugar",
+	"cx-tools-linter-restart-translation-cancel": "Semmet",
 	"cx-translator-header": "Tidaddanin-ik",
 	"cx-translator-month-stats-label": "Aggur-agi",
 	"cx-translator-total-translations-label": "Amatu",
@@ -121,5 +127,13 @@
 	"cx-publish-destination-namespace-main": "Asebter amaynut",
 	"cx-publish-destination-namespace-user": "Asumer udmawan",
 	"cx-publish-destination-namespace-draft": "Asumer n tmezdagnut",
-	"cx-sx-language-selector-dialog-title": "Nadi ɣef tutlayt"
+	"cx-sx-language-selector-dialog-title": "Nadi ɣef tutlayt",
+	"cx-translation-list-all-languages-option-label": "Akk",
+	"sx-article-search-language-selector-dialog-title": "Tutlayin",
+	"cx-sx-language-selector-placeholder": "Nadi ɣef tutlayt",
+	"cx-sx-language-selector-all-languages": "Akk tutlayin",
+	"cx-sx-language-selector-suggestions": "Yettusumer",
+	"cx-sx-language-selector-no-search-results": "Ulac igmaḍ",
+	"sx-translation-list-language-selector-dialog-title": "Tutlayin",
+	"cx-uls-relevant-languages-panel-header": "Suqel asebter-a"
 }
