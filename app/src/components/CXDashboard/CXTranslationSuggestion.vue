@@ -19,6 +19,7 @@ import { isQuickTranslationByBytes } from "@/utils/translationTimeEstimator";
 import CollectionArticleSuggestion from "@/wiki/cx/models/collectionArticleSuggestion";
 import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSuggestion";
 import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
+import { useI18n } from "vue-banana-i18n";
 
 const props = defineProps({
   suggestion: {
@@ -47,6 +48,17 @@ const missingSectionsCount = computed(
 const easyMissingSectionsCount = computed(
   () => suggestion.value?.easyMissingSectionsCount
 );
+
+const bananaI18n = useI18n();
+
+const easyMissingSectionsCountMsg = computed(() => {
+  const innerMsg = bananaI18n.i18n(
+    "cx-sx-translation-suggestion-easy-sections",
+    [easyMissingSectionsCount.value]
+  );
+
+  return bananaI18n.i18n("parentheses", [innerMsg]);
+});
 
 const description = computed(() => page.value?.description);
 
@@ -135,14 +147,10 @@ defineEmits(["close", "bookmark"]);
           />
           <small
             v-if="easyMissingSectionsCount"
-            class="cx-suggestion__easy-sections"
+            class="cx-suggestion__easy-sections ms-1"
           >
-            (<span
-              v-i18n:cx-sx-translation-suggestion-easy-sections="[
-                easyMissingSectionsCount,
-              ]"
-            />)</small
-          >
+            {{ easyMissingSectionsCountMsg }}
+          </small>
         </mw-col>
         <mw-col
           v-else-if="isFavoriteSuggestion"
