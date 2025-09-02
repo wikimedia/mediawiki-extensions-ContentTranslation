@@ -123,10 +123,10 @@
 	"cx-contributions-new-contributions": "Novi doprinos",
 	"cx-contributions-new-article": "Nova stranica",
 	"cx-contributions-translation": "Prijevod",
-	"cx-contributions-upload": "Otpremi datoteku",
+	"cx-contributions-upload": "Postavi datoteku",
 	"cx-contributions-new-article-tooltip": "Započnite pisati novu stranicu",
 	"cx-contributions-translation-tooltip": "Prevedite postojeće stranice",
-	"cx-contributions-upload-tooltip": "Otpremite slike, zvučne i videozapise za korištenje na stranicama",
+	"cx-contributions-upload-tooltip": "Postavite slike, audiozapise i videosnimke za upotrebu na stranicama",
 	"cx-publishing-dialog-publish-anyway-button": "Svejedno objavi",
 	"cx-publishing-dialog-title": "Presnimi postojeću stranicu?",
 	"cx-publishing-dialog-sub-title": "Vaš će prijevod prepisati postojeću stranicu. Molimo, budite sigurni da je u redu da se postojeća stranica zamijeni Vašim prijevodom.",
@@ -259,5 +259,6 @@
 	"cx-sx-publisher-captcha-dialog-header-title": "Provjera da niste robot",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Objavi",
 	"cx-contributecard-entrypoint-title": "Prijevodi",
-	"cx-contributecard-entrypoint-cta": "Započnite s prevođenjem"
+	"cx-contributecard-entrypoint-desc": "Prevedite odjeljak ili cijeli članak. Proširite dostupnost sadržaja na više jezika.",
+	"cx-contributecard-entrypoint-cta": "Započni prevođenje"
 }
