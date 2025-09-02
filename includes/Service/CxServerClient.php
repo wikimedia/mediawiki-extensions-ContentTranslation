@@ -45,14 +45,14 @@ class CxServerClient {
 			$response = $this->httpRequestFactory->get( $url, [], __METHOD__ );
 		} catch ( \Exception $exception ) {
 			$this->logger->error(
-				'CX server request to {path} failed because of exception: {exception}',
-				[ 'path' => $path, 'exception' => $exception->getMessage() ]
+				'CX server request to {url} failed because of exception: {exception}',
+				[ 'url' => $url, 'exception' => $exception->getMessage() ]
 			);
 			return null;
 		}
 
 		if ( !$response ) {
-			$this->logger->error( 'CX server request to {path} returned an empty response', [ 'path' => $path ] );
+			$this->logger->error( 'CX server request to {url} returned an empty response', [ 'url' => $url ] );
 			return null;
 		}
 
