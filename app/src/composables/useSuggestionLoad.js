@@ -3,8 +3,12 @@ import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import { useStore } from "vuex";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 
-// A cache for in-progress promises
-const pendingRequests = new Map();
+/**
+ * A cache for previous (or in-progress) promises
+ *
+ * @type {Map<string, Promise<SectionSuggestion|ArticleSuggestion>>}
+ */
+const previousRequests = new Map();
 
 const useSuggestionLoad = () => {
   const store = useStore();
@@ -34,8 +38,8 @@ const useSuggestionLoad = () => {
     const key = `${sourceLanguage}:${targetLanguage}:${sourceTitle}`;
 
     // If a request for the same key is already in progress, return that promise
-    if (pendingRequests.has(key)) {
-      return pendingRequests.get(key);
+    if (previousRequests.has(key)) {
+      return previousRequests.get(key);
     }
 
     const doLoadSuggestion = async () => {
@@ -87,12 +91,10 @@ const useSuggestionLoad = () => {
 
     const loadPromise = doLoadSuggestion();
 
-    // Store in pendingRequests until it finishes
-    pendingRequests.set(key, loadPromise);
+    // Store in previousRequests
+    previousRequests.set(key, loadPromise);
 
-    return loadPromise.finally(() => {
-      pendingRequests.delete(key);
-    });
+    return loadPromise;
   };
 };
 
