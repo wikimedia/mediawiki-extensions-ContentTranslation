@@ -293,7 +293,7 @@ mw.cx.TranslationTracker.prototype.attachEventListeners = function ( sections ) 
 		if ( result === false ) {
 			const error = new Error(
 				'No event listener registered for section ' + sectionNumber + '. Section details: ' +
-				JSON.stringify( section.getElement().attribute ) + ', type: ' + section.getType()
+				JSON.stringify( section.getElement().attributes ) + ', type: ' + section.getType()
 			);
 			mw.errorLogger.logError( error, 'error.contenttranslation' );
 		}
