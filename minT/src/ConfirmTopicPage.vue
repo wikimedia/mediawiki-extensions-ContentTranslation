@@ -392,10 +392,12 @@ module.exports = defineComponent( {
   }
 
   & &__translation-container {
-    &__source-title {
-      margin-top: @spacing-100;
-      padding: @spacing-0;
-    }
+		&__source-title {
+			margin-top: @spacing-100;
+			padding: @spacing-0;
+			padding-bottom: @spacing-50;
+			border-bottom: @border-base;
+		}
     &__target-title {
       padding: @spacing-0;
     }
