@@ -3,7 +3,8 @@
 		"authors": [
 			"Kosovastar",
 			"Kushtrim",
-			"Vyolla"
+			"Vyolla",
+			"Xhulianoo"
 		]
 	},
 	"apihelp-cxpublish-summary": "Ruani faqen e krijuar duke përdorur zgjatimin e Përkthimit të Përmbajtjes.",
@@ -75,7 +76,7 @@
 	"apihelp-cxsave-summary": "Ky modul lejon ruajtjen e drafteve të përkthimeve sipas seksioneve për të ruajtur gjerësinë e etiketave dhe për të mbledhur korporata paralele.",
 	"apihelp-cxsave-param-sourcerevision": "Rishikimi i faqes burimore.",
 	"apihelp-cxsave-param-progress": "Informacion në lidhje me përfundimin e përkthimit (progresi). JSON me tastet <code>çdo</code>, <code>njerëzor</code>, <code>mt</code> dhe <code>mtNumërimiseksioneve</code>. Vlerat e tasteve janë përqindje.",
-	"apihelp-cxsave-param-content": "Të dhënat e seksionit të koduara nga JSON. Çdo seksion është një objekt dhe ka çelësat e mëposhtëm: përmbajtja, Id seksioni, Id sekuenca, Id sekuenca, origjina",
+	"apihelp-cxsave-param-content": "Të dhëna pjese të koduara në JSON. Çdo pjesë është një objekt dhe ka çelësat e mëposhtëm: content, sectionId, sequenceId, sequenceId, origin",
 	"apihelp-cxsave-param-title": "Titulli i faqes për të kryer veprime.",
 	"apihelp-cxsave-param-from": "Kodi i gjuhës burimore.",
 	"apihelp-cxsave-param-to": "Kodi i gjuhës së synuar.",
