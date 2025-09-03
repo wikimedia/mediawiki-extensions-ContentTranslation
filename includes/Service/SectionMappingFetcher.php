@@ -37,7 +37,7 @@ class SectionMappingFetcher {
 		string $sourceTitle,
 		string $targetLanguage
 	): ?array {
-		$path = "/suggest/sections/" . rawurlencode( $sourceTitle ) . "/$sourceLanguage/$targetLanguage";
+		$path = "/v2/suggest/sections/" . rawurlencode( $sourceTitle ) . "/$sourceLanguage/$targetLanguage";
 		$response = $this->cxServerClient->get( $path );
 
 		if ( !$response ) {
