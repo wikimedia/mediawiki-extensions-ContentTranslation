@@ -22,11 +22,11 @@ class TranslationUnitDTO {
 		private readonly string $sectionId,
 		private readonly ?int $sequenceId,
 		/** Fields: [ 'engine' => null, 'content' => string, timestamp: ISO string ] */
-		private readonly ?array $source = null,
+		private ?array $source = null,
 		/** Fields: [ 'engine' => string (e.g. "Google"), 'content' => string, timestamp: ISO string ] */
-		private readonly ?array $mt = null,
+		private ?array $mt = null,
 		/** Fields: [ 'engine' => null, 'content' => string, timestamp: ISO string ] */
-		private readonly ?array $user = null
+		private ?array $user = null
 	) {
 	}
 
