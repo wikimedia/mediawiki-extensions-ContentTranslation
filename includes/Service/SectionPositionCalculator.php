@@ -289,7 +289,7 @@ class SectionPositionCalculator {
 			return self::APPENDIX_TITLES[$targetLanguage];
 		}
 
-		$basePath = "/suggest/sections/titles/en/$targetLanguage";
+		$basePath = "/v2/suggest/sections/titles/en/$targetLanguage";
 		$params = [ 'titles' => implode( '|', self::APPENDIX_TITLES['en'] ) ];
 		$path = wfAppendQuery( $basePath, $params );
 
