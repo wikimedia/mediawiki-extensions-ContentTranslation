@@ -3,6 +3,7 @@
 declare( strict_types=1 );
 
 use ContentTranslation\AbuseFilterChecker;
+use ContentTranslation\CategoryStore;
 use ContentTranslation\ConnectionProvider;
 use ContentTranslation\LogNames;
 use ContentTranslation\Manager\TranslationCorporaManager;
@@ -66,6 +67,10 @@ return [
 				$filterLookup,
 				$filterRunnerFactory
 			);
+		},
+	'ContentTranslation.CategoryStore' =>
+		static function ( MediaWikiServices $services ): CategoryStore {
+			return new CategoryStore( $services->getService( 'ContentTranslation.ConnectionProvider' ) );
 		},
 	'ContentTranslation.ConnectionProvider' => static function ( MediaWikiServices $services ): IConnectionProvider {
 		return new ConnectionProvider( $services->getConnectionProvider() );

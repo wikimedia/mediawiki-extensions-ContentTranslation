@@ -6,7 +6,7 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ContentTranslation\CategoriesStorageManager;
+use ContentTranslation\CategoryStore;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\Exception\TranslationSaveException;
 use ContentTranslation\LogNames;
@@ -45,7 +45,8 @@ class ApiContentTranslationSave extends ApiBase {
 		private readonly TranslationUnitValidator $translationUnitValidator,
 		private readonly LanguageNameUtils $languageNameUtils,
 		private readonly TranslationStore $translationStore,
-		private readonly TranslatorStore $translatorStore
+		private readonly TranslatorStore $translatorStore,
+		private readonly CategoryStore $categoryStore
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
@@ -204,22 +205,21 @@ class ApiContentTranslationSave extends ApiBase {
 
 	/**
 	 * Save categories in cx_corpora table, if any are supplied.
-	 *
-	 * @param string $sourceCategories JSON encoded array of source categories
-	 * @param string $targetCategories JSON encoded array of target categories
-	 * @param Translation $translation Recently saved parent translation object
 	 */
 	protected function saveCategories(
-		$sourceCategories, $targetCategories, Translation $translation
-	) {
-		if ( !$sourceCategories && !$targetCategories ) {
+		?string $sourceCategories,
+		?string $targetCategories,
+		Translation $translation
+	): void {
+		// source categories can be null, but if target categories are null, there is nothing to be done here
+		if ( !$targetCategories ) {
 			return;
 		}
 
 		$translationId = $translation->getTranslationId();
 		$newTranslation = $translation->isNew();
 
-		CategoriesStorageManager::save(
+		$this->categoryStore->save(
 			$translationId,
 			$sourceCategories,
 			$targetCategories,

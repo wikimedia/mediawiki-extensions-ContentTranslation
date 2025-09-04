@@ -209,7 +209,8 @@
 				"ContentTranslation.TranslationUnitValidator",
 				"LanguageNameUtils",
 				"ContentTranslation.TranslationStore",
-				"ContentTranslation.TranslatorStore"
+				"ContentTranslation.TranslatorStore",
+				"ContentTranslation.CategoryStore"
 			]
 		},
 		"sxsave": {
