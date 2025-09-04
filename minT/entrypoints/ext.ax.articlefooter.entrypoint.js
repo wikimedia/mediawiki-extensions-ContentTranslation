@@ -37,11 +37,12 @@ if ( qid ) {
 		};
 
 		api.get( infoParams ).then( ( thumbnailResponse ) => {
-			const thumbnailObject = thumbnailResponse.query.pages[ 0 ].thumbnail;
+			const page = thumbnailResponse.query.pages[ 0 ];
+			const thumbnailObject = page && page.thumbnail;
 			const thumbnail = {
 				height: thumbnailSize,
 				width: thumbnailSize,
-				url: thumbnailObject.source
+				url: thumbnailObject && thumbnailObject.source
 			};
 
 			const { createMwApp } = require( 'vue' );
