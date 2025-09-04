@@ -27,6 +27,7 @@ use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
+use ContentTranslation\Store\TranslatorStore;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Logger\LoggerFactory;
@@ -201,6 +202,13 @@ return [
 			return new TranslatorService(
 				$services->getService( 'ContentTranslation.UserService' ),
 				$services->getService( 'ContentTranslation.TranslationStore' )
+			);
+		},
+	'ContentTranslation.TranslatorStore' =>
+		static function ( MediaWikiServices $services ): TranslatorStore {
+			return new TranslatorStore(
+				$services->getService( 'ContentTranslation.ConnectionProvider' ),
+				$services->getService( 'ContentTranslation.UserService' )
 			);
 		},
 	'ContentTranslation.UserPermissionChecker' =>

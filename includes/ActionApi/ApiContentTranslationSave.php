@@ -13,8 +13,8 @@ use ContentTranslation\LogNames;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationStore;
+use ContentTranslation\Store\TranslatorStore;
 use ContentTranslation\Translation;
-use ContentTranslation\Translator;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use Deflate;
 use MediaWiki\Api\ApiBase;
@@ -23,6 +23,7 @@ use MediaWiki\Json\FormatJson;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
@@ -43,7 +44,8 @@ class ApiContentTranslationSave extends ApiBase {
 		private readonly IConnectionProvider $connectionProvider,
 		private readonly TranslationUnitValidator $translationUnitValidator,
 		private readonly LanguageNameUtils $languageNameUtils,
-		private readonly TranslationStore $translationStore
+		private readonly TranslationStore $translationStore,
+		private readonly TranslatorStore $translatorStore
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
@@ -88,9 +90,8 @@ class ApiContentTranslationSave extends ApiBase {
 			$this->dieWithError( 'apierror-cx-invalidtargetcategories', 'invalidtargetcategories' );
 		}
 
-		$translator = new Translator( $user );
 		try {
-			$translation = $this->saveTranslation( $params, $translator );
+			$translation = $this->saveTranslation( $params, $user );
 		} catch ( TranslationSaveException $e ) {
 			$this->logger->info(
 				'Error saving translation: {sourcelanguage} -> {targetlanguage}, ' .
@@ -136,10 +137,10 @@ class ApiContentTranslationSave extends ApiBase {
 	/**
 	 * @throws TranslationSaveException
 	 */
-	private function saveTranslation( array $params, Translator $translator ): Translation {
+	private function saveTranslation( array $params, UserIdentity $user ): Translation {
 		[ 'sourcetitle' => $sourceTitle, 'from' => $sourceLanguage, 'to' => $targetLanguage ] = $params;
 		$existingTranslation = $this->translationStore->findTranslationByUser(
-			$translator->getUser(),
+			$user,
 			$sourceTitle,
 			$sourceLanguage,
 			$targetLanguage
@@ -176,11 +177,11 @@ class ApiContentTranslationSave extends ApiBase {
 
 		// Save the translation
 		$translation = new Translation( $data );
-		$this->translationStore->saveTranslation( $translation, $translator->getUser() );
+		$this->translationStore->saveTranslation( $translation, $user );
 
 		// Associate the translation with the translator
 		$translationId = $translation->getTranslationId();
-		$translator->addTranslation( $translationId );
+		$this->translatorStore->linkTranslationToTranslator( $translationId, $user );
 
 		return $translation;
 	}

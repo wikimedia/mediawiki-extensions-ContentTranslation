@@ -26,8 +26,8 @@ use ContentTranslation\Service\TranslationTargetUrlCreator;
 use ContentTranslation\Service\UserPermissionChecker;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationStore;
+use ContentTranslation\Store\TranslatorStore;
 use ContentTranslation\Translation;
-use ContentTranslation\Translator;
 use Deflate;
 use Exception;
 use MediaWiki\Api\ApiBase;
@@ -60,7 +60,8 @@ class ApiContentTranslationPublish extends ApiBase {
 		private readonly TranslationStore $translationStore,
 		private readonly TranslationTargetUrlCreator $targetUrlCreator,
 		private readonly UserPermissionChecker $userPermissionChecker,
-		private readonly ChangeTagsStore $changeTagsStore
+		private readonly ChangeTagsStore $changeTagsStore,
+		private readonly TranslatorStore $translatorStore
 	) {
 		parent::__construct( $main, $name );
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
@@ -348,8 +349,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		$user = $this->getUser();
-		$translator = new Translator( $user );
-		$translationCount = $translator->getTranslationsCount();
+		$translationCount = $this->translatorStore->getTranslationCountForTranslator( $user );
 
 		switch ( $translationCount ) {
 			case 1:

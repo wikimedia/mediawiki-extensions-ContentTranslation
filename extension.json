@@ -181,7 +181,8 @@
 				"ContentTranslation.TranslationStore",
 				"ContentTranslation.TranslationTargetUrlCreator",
 				"ContentTranslation.UserPermissionChecker",
-				"ChangeTagsStore"
+				"ChangeTagsStore",
+				"ContentTranslation.TranslatorStore"
 			]
 		},
 		"cxpublishsection": {
@@ -207,7 +208,8 @@
 				"ContentTranslation.ConnectionProvider",
 				"ContentTranslation.TranslationUnitValidator",
 				"LanguageNameUtils",
-				"ContentTranslation.TranslationStore"
+				"ContentTranslation.TranslationStore",
+				"ContentTranslation.TranslatorStore"
 			]
 		},
 		"sxsave": {
@@ -219,7 +221,8 @@
 				"ContentTranslation.SandboxTitleMaker",
 				"TitleFactory",
 				"LanguageNameUtils",
-				"ContentTranslation.TranslationStore"
+				"ContentTranslation.TranslationStore",
+				"ContentTranslation.TranslatorStore"
 			]
 		},
 		"cxsplit": {

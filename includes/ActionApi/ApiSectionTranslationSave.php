@@ -15,8 +15,8 @@ use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
+use ContentTranslation\Store\TranslatorStore;
 use ContentTranslation\Translation;
-use ContentTranslation\Translator;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiUsageException;
@@ -40,7 +40,8 @@ class ApiSectionTranslationSave extends ApiBase {
 		private readonly SandboxTitleMaker $sandboxTitleMaker,
 		private readonly TitleFactory $titleFactory,
 		private readonly LanguageNameUtils $languageNameUtils,
-		private readonly TranslationStore $translationStore
+		private readonly TranslationStore $translationStore,
+		private readonly TranslatorStore $translatorStore
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
@@ -212,9 +213,8 @@ class ApiSectionTranslationSave extends ApiBase {
 		$this->translationStore->saveTranslation( $translation, $user );
 
 		// Associate the translation with the translator
-		$translator = new Translator( $user );
 		$translationId = $translation->getTranslationId();
-		$translator->addTranslation( $translationId );
+		$this->translatorStore->linkTranslationToTranslator( $translationId, $user );
 
 		return $translation;
 	}
