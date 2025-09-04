@@ -345,6 +345,7 @@
 	"cx-sx-suggestions-filter-search-input-placeholder-topics": "No engem Theema sichen…",
 	"cx-sx-suggestions-filter-search-results-collections-alternative-description": "{{PLURAL:$1|$1 Artikel|$1 Artikelen|0=Keng Artikelen}}",
 	"cx-sx-suggestions-filter-search-results-empty-primary": "Keng Resultater fonnt",
+	"cx-sx-suggestions-filter-search-results-loading": "Sichresultater gi gelueden…",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 Dag|$1 Deeg|0=Keen Dag}} iwwreg",
 	"cx-page-collection-dialog-page-suggestions-header": "Nei Säiten",
 	"cx-page-collection-dialog-section-suggestions-header": "Nei Abschnitter",
