@@ -2,12 +2,14 @@
 
 namespace ContentTranslation;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class SuggestionListManager {
+	public function __construct( private readonly IConnectionProvider $connectionProvider ) {
+	}
+
 	/**
 	 * @param string $sourceLanguage
 	 * @param array $titles
@@ -17,9 +19,7 @@ class SuggestionListManager {
 			return;
 		}
 
-		/** @var IConnectionProvider $connectionProvider */
-		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
-		$dbw = $connectionProvider->getPrimaryDatabase();
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( 'cx_suggestions' )
 			->where( [
@@ -34,10 +34,8 @@ class SuggestionListManager {
 	 * @param array $conds
 	 * @return SuggestionList|null
 	 */
-	protected function getListByConds( array $conds ) {
-		/** @var IConnectionProvider $connectionProvider */
-		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
-		$dbr = $connectionProvider->getReplicaDatabase();
+	private function getListByConds( array $conds ) {
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 		$row = $dbr->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'cx_lists' )
@@ -57,7 +55,7 @@ class SuggestionListManager {
 	 * @param int $owner
 	 * @return SuggestionList|null
 	 */
-	public function getListByName( $name, $owner = 0 ) {
+	private function getListByName( $name, $owner = 0 ) {
 		$conds = [
 			'cxl_name' => $name,
 			'cxl_owner' => $owner,
@@ -132,9 +130,7 @@ class SuggestionListManager {
 	 * @return Suggestion[] Suggestions
 	 */
 	private function getSuggestionsByListName( $owner, $listName, $from = null, $to = null ) {
-		/** @var IConnectionProvider $connectionProvider */
-		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
-		$dbr = $connectionProvider->getReplicaDatabase();
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 		$suggestions = [];
 		$conds = [
 			'cxl_name' => $listName,
@@ -198,10 +194,8 @@ class SuggestionListManager {
 	 * @param int|null $seed Seed to use with randomizing of results.
 	 * @return array Lists and suggestions
 	 */
-	public function getSuggestionsByType( $type, $from, $to, $limit, $offset = null, $seed = null ) {
-		/** @var IConnectionProvider $connectionProvider */
-		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
-		$dbr = $connectionProvider->getReplicaDatabase();
+	private function getSuggestionsByType( $type, $from, $to, $limit, $offset = null, $seed = null ) {
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 
 		$lists = [];
 		$suggestions = [];
@@ -251,9 +245,7 @@ class SuggestionListManager {
 	 */
 	public function getSuggestionsInList( $listId, $from, $to, $limit, $offset, $seed ) {
 		$suggestions = [];
-		/** @var IConnectionProvider $connectionProvider */
-		$connectionProvider = MediaWikiServices::getInstance()->getService( 'ContentTranslation.ConnectionProvider' );
-		$dbr = $connectionProvider->getReplicaDatabase();
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 
 		$seed = (int)$seed;
 

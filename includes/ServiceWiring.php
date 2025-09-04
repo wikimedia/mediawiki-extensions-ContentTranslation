@@ -28,6 +28,7 @@ use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Store\TranslatorStore;
+use ContentTranslation\SuggestionListManager;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Logger\LoggerFactory;
@@ -152,6 +153,12 @@ return [
 	'ContentTranslation.SectionTranslationStore' =>
 		static function ( MediaWikiServices $services ): SectionTranslationStore {
 			return new SectionTranslationStore(
+				$services->getService( 'ContentTranslation.ConnectionProvider' )
+			);
+		},
+	'ContentTranslation.SuggestionListManager' =>
+		static function ( MediaWikiServices $services ): SuggestionListManager {
+			return new SuggestionListManager(
 				$services->getService( 'ContentTranslation.ConnectionProvider' )
 			);
 		},

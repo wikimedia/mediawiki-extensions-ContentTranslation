@@ -29,7 +29,8 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryBase {
 		ApiQuery $query,
 		string $moduleName,
 		private readonly UserService $userService,
-		private readonly TranslationStore $translationStore
+		private readonly TranslationStore $translationStore,
+		private readonly SuggestionListManager $suggestionListManager
 	) {
 		parent::__construct( $query, $moduleName );
 	}
@@ -55,13 +56,12 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryBase {
 			$this->dieWithError( 'apierror-cx-samelanguages', 'invalidparam' );
 		}
 		$translatorUserId = $this->userService->getGlobalUserId( $user );
-		$manager = new SuggestionListManager();
 
 		// Get personalized suggestions.
 		// We do not want to send personalized suggestions in paginated results
-		// other than the first page. Hence checking offset.
+		// other than the first page. Hence, checking offset.
 		if ( $params['listid'] !== null ) {
-			$list = $manager->getListById( $params['listid'] );
+			$list = $this->suggestionListManager->getListById( $params['listid'] );
 			if ( $list === null ) {
 				$this->dieWithError(
 					[ 'apierror-badparameter', $this->encodeParamName( 'listid' ) ],
@@ -69,7 +69,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryBase {
 				);
 			}
 
-			$suggestions = $manager->getSuggestionsInList(
+			$suggestions = $this->suggestionListManager->getSuggestionsInList(
 				$list->getId(),
 				$from,
 				$to,
@@ -82,13 +82,13 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryBase {
 				'suggestions' => $suggestions,
 			];
 		} else {
-			$personalizedSuggestions = $manager->getFavoriteSuggestions( $translatorUserId );
+			$personalizedSuggestions = $this->suggestionListManager->getFavoriteSuggestions( $translatorUserId );
 
 			$data = $personalizedSuggestions;
 
 			if ( $from !== '' && $to !== '' ) {
 				// Get non-personalized suggestions
-				$publicSuggestions = $manager->getPublicSuggestions(
+				$publicSuggestions = $this->suggestionListManager->getPublicSuggestions(
 					$from,
 					$to,
 					$params['limit'],
@@ -110,7 +110,11 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryBase {
 			// Find the titles to filter out from suggestions.
 			$ongoingTranslations = $this->getOngoingTranslations( $suggestions );
 			$existingTitles = $this->getExistingTitles( $suggestions );
-			$discardedSuggestions = $manager->getDiscardedSuggestions( $translatorUserId, $from, $to );
+			$discardedSuggestions = $this->suggestionListManager->getDiscardedSuggestions(
+				$translatorUserId,
+				$from,
+				$to
+			);
 			$suggestions = $this->filterSuggestions(
 				$suggestions,
 				array_merge( $existingTitles, $ongoingTranslations, $discardedSuggestions )
@@ -241,11 +245,10 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryBase {
 		);
 	}
 
-	private function removeInvalidSuggestions( string $sourceLanguage, array $existingTitles ) {
-		DeferredUpdates::addCallableUpdate( static function () use ( $sourceLanguage, $existingTitles ) {
+	private function removeInvalidSuggestions( string $sourceLanguage, array $existingTitles ): void {
+		DeferredUpdates::addCallableUpdate( function () use ( $sourceLanguage, $existingTitles ) {
 			// Remove the already existing links from cx_suggestion table
-			$manager = new SuggestionListManager();
-			$manager->removeTitles( $sourceLanguage, $existingTitles );
+			$this->suggestionListManager->removeTitles( $sourceLanguage, $existingTitles );
 		} );
 	}
 
