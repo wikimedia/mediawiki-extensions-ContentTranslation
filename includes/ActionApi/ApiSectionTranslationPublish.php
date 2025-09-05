@@ -261,6 +261,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			if ( isset( $editResult['newrevid'] ) ) {
 				// Add the tags post-send, after RC row insertion
 				$newRevId = intval( $editResult['newrevid'] );
+				$result['newrevid'] = $newRevId;
 				$this->storeTags( $newRevId );
 
 				$translation = $this->translationStore->findTranslationByUser(
@@ -291,6 +292,10 @@ class ApiSectionTranslationPublish extends ApiBase {
 					$params['sectiontranslationid'],
 					$publishedStatusIndex
 				);
+			}
+
+			if ( isset( $editResult['pageid'] ) ) {
+				$result['pageid'] = intval( $editResult['pageid'] );
 			}
 		} else {
 			$result = [

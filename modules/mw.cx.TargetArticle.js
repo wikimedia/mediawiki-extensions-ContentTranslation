@@ -219,6 +219,8 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
 
 	if ( publishResult.result === 'success' ) {
 		this.translation.setTargetURL( publishResult.targeturl );
+		this.translation.setTargetRevisionId( publishResult.newrevid );
+		this.translation.setTargetPageId( publishResult.pageid );
 		return this.publishComplete( publishResult.targettitle || null );
 	}
 
