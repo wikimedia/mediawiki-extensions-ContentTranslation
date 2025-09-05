@@ -7,15 +7,15 @@ const DifficultyEnum = {
 };
 
 const ArticleDifficultyThresholdEnum = {
-  easy: 1000,
-  medium: 3000,
-  hard: 10000,
+  easy: 2500,
+  medium: 10000,
+  hard: 40000,
 };
 
 const SectionDifficultyThresholdEnum = {
-  easy: 500,
-  medium: 1500,
-  hard: 3000,
+  easy: 1000,
+  medium: 4000,
+  hard: 12000,
 };
 
 const getDifficultyBySize = (size, thresholds) => {

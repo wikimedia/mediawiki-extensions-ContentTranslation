@@ -52,7 +52,7 @@ describe("useTranslationSize", () => {
     // section suggestion is null and article size is 50000 bytes
     expect(result.sizeInBytes.value).toBe(50000);
     expect(result.isQuickTranslation.value).toBe(false);
-    expect(result.difficulty.value).toBe(DifficultyEnum.hard); // 50000 bytes > 10000 hard threshold
+    expect(result.difficulty.value).toBe(DifficultyEnum.hard); // 50000 bytes > 40000 hard threshold
   });
 
   it("returns size for specific section if URL param exists", async () => {
@@ -67,7 +67,7 @@ describe("useTranslationSize", () => {
     expect(result.sizeInBytes.value).toBe(400);
 
     expect(result.isQuickTranslation.value).toBe(true); // stub difficulty = quick
-    expect(result.difficulty.value).toBe(DifficultyEnum.stub); // 400 bytes < 500 section threshold
+    expect(result.difficulty.value).toBe(DifficultyEnum.stub); // 400 bytes < 1000 section threshold
   });
 
   it("uses lead section if not desktop and no suggestion", async () => {
@@ -89,15 +89,15 @@ describe("useTranslationSize", () => {
     await flushPromises();
 
     expect(result.sizeInBytes.value).toBe(800);
-    expect(result.isQuickTranslation.value).toBe(true); // easy difficulty = quick
-    expect(result.difficulty.value).toBe(DifficultyEnum.easy); // 800 bytes >= 500 section threshold
+    expect(result.isQuickTranslation.value).toBe(true); // stub difficulty = quick
+    expect(result.difficulty.value).toBe(DifficultyEnum.stub); // 800 bytes < 1000 section threshold
   });
 
   it("correctly identifies easy article difficulty on desktop", async () => {
     mockSourcePage.value = {
       title: "Small_Article",
       language: "en",
-      articleSize: 1500, // between 1000 (easy) and 3000 (medium) thresholds for articles
+      articleSize: 1500, // between stub and easy (< 2500) thresholds for articles
     };
     mockSectionSuggestion.value = null;
     mockSectionURLParameter.value = null;
@@ -107,7 +107,7 @@ describe("useTranslationSize", () => {
 
     await flushPromises();
 
-    expect(result.difficulty.value).toBe(DifficultyEnum.easy);
+    expect(result.difficulty.value).toBe(DifficultyEnum.stub);
     expect(result.isQuickTranslation.value).toBe(true);
   });
 
@@ -116,7 +116,7 @@ describe("useTranslationSize", () => {
     mockSectionURLParameter.value = null;
     mockSectionSuggestion.value = null;
 
-    // Use a size that would be "stub" for articles (< 1000) but "easy" for sections (>= 500)
+    // Use a size that would be "stub" for articles (< 2500) but "stub" for sections (< 1000)
     cxSuggestionsApi.fetchArticleSections.mockResolvedValue({
       sections: [
         {
@@ -130,7 +130,7 @@ describe("useTranslationSize", () => {
     const { result } = loadTestComposable(() => useTranslationSize(), [i18n]);
     await flushPromises();
 
-    // This should use section thresholds (500/1500/3000), not article thresholds (1000/3000/10000)
-    expect(result.difficulty.value).toBe(DifficultyEnum.easy); // 1600 >= 1500 section threshold
+    // This should use section thresholds (1000/4000/12000), not article thresholds (2500/10000/40000)
+    expect(result.difficulty.value).toBe(DifficultyEnum.stub); // 700 < 1000 section threshold
   });
 });
