@@ -27,6 +27,7 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.targetURL = null;
 	this.sourceRevisionId = this.sourceWikiPage.getRevision();
 	this.targetRevisionId = this.targetWikiPage.getRevision();
+	this.targetPageId = null;
 	this.status = 'draft';
 	this.sectionsChanged = false;
 	this.changedSignificantly = false;
@@ -546,6 +547,15 @@ mw.cx.dm.Translation.prototype.getSourceRevisionId = function () {
  */
 mw.cx.dm.Translation.prototype.setTargetRevisionId = function ( revisionId ) {
 	this.targetRevisionId = revisionId;
+};
+
+/**
+ * Set target page id
+ *
+ * @param {string} pageId page Id
+ */
+mw.cx.dm.Translation.prototype.setTargetPageId = function ( pageId ) {
+	this.targetPageId = pageId;
 };
 
 /**

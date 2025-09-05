@@ -1034,6 +1034,16 @@ mw.cx.TranslationController.prototype.logTranslationControllerEvent = function (
 		event.translation_id = this.translation.id;
 	}
 
+	if ( this.translation.targetRevisionId ) {
+		// eslint-disable-next-line camelcase
+		event.published_revision_id = this.translation.targetRevisionId;
+	}
+
+	if ( this.translation.targetPageId ) {
+		// eslint-disable-next-line camelcase
+		event.published_page_id = this.translation.targetPageId;
+	}
+
 	if ( this.translation.isSectionTranslation() ) {
 		// eslint-disable-next-line camelcase
 		event.translation_source_section = this.translation.sourceWikiPage.getSectionTitle();

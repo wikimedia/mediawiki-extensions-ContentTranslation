@@ -311,6 +311,10 @@ class ApiContentTranslationPublish extends ApiBase {
 				$this->translation->translation['targetRevisionId'] = $result['newrevid'];
 			}
 
+			if ( isset( $saveResult['edit']['pageid'] ) ) {
+				$result['pageid'] = intval( $saveResult['edit']['pageid'] );
+			}
+
 			// Save the translation history.
 			$this->translationStore->saveTranslation( $this->translation, $user );
 
