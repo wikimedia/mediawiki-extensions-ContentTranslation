@@ -67,7 +67,7 @@ describe("useTranslationSize", () => {
     };
     mockSectionURLParameter.value = "History";
 
-    translationTimeEstimator.calculateSectionsSize.mockResolvedValue(10000); // equals 10 minutes
+    translationTimeEstimator.calculateSectionsSize.mockResolvedValue(1000); // 1000/5/15 = 13.33 → 14 minutes (< 15, so quick)
 
     const { result } = loadTestComposable(() => useTranslationSize(), [i18n]);
 
@@ -88,7 +88,7 @@ describe("useTranslationSize", () => {
     mockSectionURLParameter.value = null;
     mockSectionSuggestion.value = null;
 
-    translationTimeEstimator.calculateSectionsSize.mockResolvedValue(3000); // equals 3 minutes
+    translationTimeEstimator.calculateSectionsSize.mockResolvedValue(900); // 900/5/15 = 12 minutes (< 15, so quick)
     const { result } = loadTestComposable(() => useTranslationSize(), [i18n]);
 
     await new Promise((resolve) => setTimeout(resolve));

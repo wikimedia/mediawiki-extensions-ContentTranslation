@@ -48,12 +48,13 @@ const calculateSectionsSize = async (sourceArticle, sectionTitles) => {
  */
 const bytesToMinutes = (byteSize) => {
   const averageWordLengthInBytes = 5;
-  const averageReadingSpeedInWordsPerMinute = 200;
+  const averageTranslationSpeedInWordsPerMinute = 15;
 
   const wordCount = byteSize / averageWordLengthInBytes;
-  const readingTimeInMinutes = wordCount / averageReadingSpeedInWordsPerMinute;
+  const translationTimeInMinutes =
+    wordCount / averageTranslationSpeedInWordsPerMinute;
 
-  return Math.ceil(readingTimeInMinutes);
+  return Math.ceil(translationTimeInMinutes);
 };
 
 /**

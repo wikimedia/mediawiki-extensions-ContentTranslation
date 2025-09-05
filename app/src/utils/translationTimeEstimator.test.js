@@ -12,21 +12,21 @@ jest.mock("@/wiki/cx/api/suggestions");
 describe("test translationTimeEstimator", () => {
   describe("bytesToMinutes", () => {
     it("converts bytes to reading minutes correctly", () => {
-      expect(bytesToMinutes(1000)).toBe(1); // 1000 / 5 / 200 = 1 minute
-      expect(bytesToMinutes(6000)).toBe(6); // 6 minutes
+      expect(bytesToMinutes(1000)).toBe(14); // 1000 / 5 / 15 = 13.33 → 14 minutes
+      expect(bytesToMinutes(6000)).toBe(80); // 6000 / 5 / 15 = 80 minutes
       expect(bytesToMinutes(0)).toBe(0);
     });
   });
 
   describe("test isQuickTranslationByBytes", () => {
     it("returns true if estimated reading time is less than 15 minutes", () => {
-      expect(isQuickTranslationByBytes(1000)).toBe(true); // 1 minute
-      expect(isQuickTranslationByBytes(13999)).toBe(true); // still <= 14 minutes
+      expect(isQuickTranslationByBytes(1000)).toBe(true); // 1000/5/15 = 13.33 → 14 minutes (< 15)
+      expect(isQuickTranslationByBytes(1050)).toBe(true); // 1050/5/15 = 14 minutes exactly (< 15)
     });
 
     it("returns false if estimated reading time is 15 minutes or more", () => {
-      expect(isQuickTranslationByBytes(140001)).toBe(false); // just above 14 minutes
-      expect(isQuickTranslationByBytes(30000)).toBe(false);
+      expect(isQuickTranslationByBytes(1125)).toBe(false); // 1125/5/15 = 15 minutes exactly
+      expect(isQuickTranslationByBytes(30000)).toBe(false); // 30000/5/15 = 400 minutes
     });
   });
 
