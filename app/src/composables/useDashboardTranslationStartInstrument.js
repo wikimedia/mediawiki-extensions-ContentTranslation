@@ -1,5 +1,4 @@
 import useURLHandler from "@/composables/useURLHandler";
-import { ref } from "vue";
 import useEventLogging from "@/composables/useEventLogging";
 import {
   DifficultyEnum,
@@ -7,6 +6,10 @@ import {
 } from "@/utils/translationDifficulty";
 import useCurrentPages from "@/composables/useCurrentPages";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import {
+  startTranslationEventSource,
+  startTranslationEventContext,
+} from "@/composables/useDashboardTranslationStartInstrumentState";
 
 // DOCUMENTATION: https://gitlab.wikimedia.org/repos/data-engineering/schemas-event-secondary/-/tree/master/jsonschema/analytics/mediawiki/content_translation_event#dashboard_translation_start
 
@@ -46,23 +49,6 @@ import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggesti
 // 10. search_result:
 // 		description: the user chooses a translation that appeared in the results of a search
 // 		status: SUPPORTED. Used when a search result suggestion is selected, inside "Search for an article" screen.
-
-const startTranslationEventSource = ref(null);
-const startTranslationEventContext = ref(null);
-
-const setStartTranslationEventSource = (eventSource) => {
-  if (!eventSource) {
-    mw.errorLogger.logError(
-      new Error("[CX] Empty event source set"),
-      "error.contenttranslation"
-    );
-  }
-  startTranslationEventSource.value = eventSource;
-};
-
-const setStartTranslationEventContext = (eventContext) => {
-  startTranslationEventContext.value = eventContext;
-};
 
 const useDashboardTranslationStartInstrument = () => {
   const {
@@ -135,8 +121,6 @@ const useDashboardTranslationStartInstrument = () => {
 
   return {
     logDashboardTranslationStartEvent,
-    setStartTranslationEventSource,
-    setStartTranslationEventContext,
   };
 };
 

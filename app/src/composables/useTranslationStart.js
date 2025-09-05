@@ -1,7 +1,10 @@
 import { useRouter } from "vue-router";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
 import useURLHandler from "@/composables/useURLHandler";
-import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
+import {
+  setStartTranslationEventSource,
+  setStartTranslationEventContext,
+} from "@/composables/useDashboardTranslationStartInstrumentState";
 
 /**
  * This composable returns a function that, based on the provided parameters, loads
@@ -18,8 +21,6 @@ const useTranslationStart = () => {
   const router = useRouter();
   const loadSuggestion = useSuggestionLoad();
   const { setTranslationURLParams } = useURLHandler();
-  const { setStartTranslationEventSource, setStartTranslationEventContext } =
-    useDashboardTranslationStartInstrument();
 
   /**
    * @param {string} title
