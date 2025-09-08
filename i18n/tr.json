@@ -363,6 +363,8 @@
 	"cx-sx-publisher-mt-abuse-message-body": "Makine çevirisi sadece bir başlangıçtır. Bu şekilde yayımlayabilirsiniz ancak çevirinizin dilinizde doğal bir şekilde okunabildiğinden emin olun.",
 	"cx-sx-publisher-mt-abuse-error-body": "Otomatik çeviri yalnızca bir başlangıç ​​noktasıdır. Çevirinizin kendi dilinizde doğal bir şekilde okunduğundan emin olun",
 	"cx-sx-translation-suggestion-info": "Çevirilecek {{PLURAL:$1|$1 bölüm|0=bölüm yok}}",
+	"cx-sx-translation-suggestion-easy-sections": "{{PLURAL:$1|$1 çabuk}}",
+	"cx-sx-section-selector-easy-section-badge": "Çabuk",
 	"cx-sx-translation-suggestion-quick": "Hızlı çeviri",
 	"cx-sx-article-search-input-placeholder": "Çevirmek için bir sayfa arayın",
 	"cx-sx-article-search-recently-edited-title": "Son zamanlarda sizin tarafınızdan düzenlendi",
