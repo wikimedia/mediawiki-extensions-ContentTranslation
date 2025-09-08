@@ -90,7 +90,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "{{doc-apierror}}",
 	"apierror-cx-mustbeloggedin-viewtranslations": "{{doc-apierror}}",
 	"apierror-cx-samelanguages": "{{doc-apierror}}",
-	"apierror-cx-suggestionsdisabled": "{{doc-apierror}}",
 	"apierror-cx-translationnotfound": "{{doc-apierror}}",
 	"apierror-cx-publish-usergroup-required": "{{doc-apierror}}\n\nError message when a user tries to publish a translation to the main namespace but doesn't belong to any of the required user groups configured in the ContentTranslationPublishRequirements setting.",
 	"apihelp-query+langlinkscount-summary": "{{doc-apihelp-summary|query+langlinkscount}}",

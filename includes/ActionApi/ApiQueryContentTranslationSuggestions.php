@@ -36,11 +36,6 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryBase {
 	}
 
 	public function execute() {
-		$config = $this->getConfig();
-		if ( !$config->get( 'ContentTranslationEnableSuggestions' ) ) {
-			$this->dieWithError( 'apierror-cx-suggestionsdisabled', 'suggestionsdisabled' );
-		}
-
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 		$user = $this->getUser();

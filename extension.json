@@ -402,9 +402,6 @@
 				"age": "3600"
 			}
 		},
-		"ContentTranslationEnableSuggestions": {
-			"value": true
-		},
 		"ContentTranslationEnableMT": {
 			"description": "Whether Machine Translation services are enabled for this target wiki",
 			"value": true
