@@ -14,7 +14,11 @@ import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import { computed, inject } from "vue";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import { useStore } from "vuex";
-import { isQuickTranslationByBytes } from "@/utils/translationTimeEstimator";
+import useApplicationState from "../../composables/useApplicationState";
+import {
+  isEasyOrStubArticleTranslation,
+  isEasySectionTranslation,
+} from "@/utils/translationDifficulty";
 import CollectionArticleSuggestion from "@/wiki/cx/models/collectionArticleSuggestion";
 import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSuggestion";
 import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
@@ -44,9 +48,20 @@ const missingSectionsCount = computed(
   () => suggestion.value?.missingSectionsCount
 );
 
-const easyMissingSectionsCount = computed(
-  () => suggestion.value?.easyMissingSectionsCount
-);
+const easyMissingSectionsCount = computed(() => {
+  if (
+    !(suggestion.value instanceof SectionSuggestion) ||
+    !suggestion.value.orderedMissingSections
+  ) {
+    return 0;
+  }
+
+  return suggestion.value.orderedMissingSections.filter((section) => {
+    const sectionSize = suggestion.value.getSectionSize(section.sourceTitle);
+
+    return isEasySectionTranslation(sectionSize);
+  }).length;
+});
 
 const bananaI18n = useI18n();
 
@@ -86,7 +101,7 @@ const bookmarkIconColor = computed(() =>
 );
 
 const isQuickTranslation = computed(() =>
-  isQuickTranslationByBytes(page.value?.articleSize)
+  isEasyOrStubArticleTranslation(page.value?.articleSize)
 );
 
 const isCollectionSuggestion = computed(

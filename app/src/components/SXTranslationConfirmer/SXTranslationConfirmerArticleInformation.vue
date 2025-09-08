@@ -1,12 +1,12 @@
 <script setup>
 import { MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
-import { siteMapper } from "@/utils/mediawikiHelper";
+import { isDesktopSite, siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "vue";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import { useStore } from "vuex";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
-import useTranslationSize from "./useTranslationSize";
+import useTranslationSize from "@/composables/useTranslationSize";
 import {
   cdxIconBookmark,
   cdxIconBookmarkOutline,
@@ -17,14 +17,19 @@ import {
 } from "@wikimedia/codex-icons";
 import useURLHandler from "@/composables/useURLHandler";
 import useCurrentPages from "@/composables/useCurrentPages";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import { useI18n } from "vue-banana-i18n";
+import { bytesToMinutes } from "@/utils/translationTimeEstimator";
 
 const store = useStore();
 
 const { currentSourcePage: sourceArticle } = useCurrentPages();
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,
   pageURLParameter: sourceTitle,
+  sectionURLParameter: sectionTitle,
 } = useURLHandler();
 const favorites = computed(() => store.state.suggestions.favorites || []);
 
@@ -104,7 +109,45 @@ const weeklyViews = computed(() => {
   return formatPageViews(views);
 });
 
-const { timeEstimateMessage, isQuickTranslation } = useTranslationSize();
+const { isQuickTranslation, sizeInBytes } = useTranslationSize();
+const bananaI18n = useI18n();
+
+const timeEstimateMessage = computed(() => {
+  if ((!suggestion.value && !sourceArticle.value) || !sizeInBytes.value) {
+    return "";
+  }
+
+  const minutes = bytesToMinutes(sizeInBytes.value);
+  const hours = minutes >= 60 ? minutes / 60 : 0;
+  const roundedHours = Math.round(hours * 2) / 2; // Round to nearest 0.5 hours
+
+  if (!suggestion.value && isDesktopSite) {
+    return bananaI18n.i18n(
+      "cx-sx-translation-confirmer-translation-time-whole-article",
+      roundedHours,
+      minutes
+    );
+  } else if (!suggestion.value) {
+    return bananaI18n.i18n(
+      "cx-sx-translation-confirmer-translation-time-lead-section",
+      roundedHours,
+      minutes
+    );
+  } else if (sectionTitle.value) {
+    return bananaI18n.i18n(
+      "cx-sx-translation-confirmer-translation-time-single-section",
+      roundedHours,
+      minutes
+    );
+  }
+
+  return bananaI18n.i18n(
+    "cx-sx-translation-confirmer-translation-time-sections",
+    roundedHours,
+    minutes,
+    Object.keys(suggestion.value.missingSections).length
+  );
+});
 </script>
 
 <template>

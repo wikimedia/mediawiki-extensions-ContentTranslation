@@ -4,6 +4,8 @@ import {
   SectionDifficultyThresholdEnum,
   getArticleDifficultyBySize,
   getSectionDifficultyBySize,
+  isEasyOrStubArticleTranslation,
+  isEasySectionTranslation,
 } from "./translationDifficulty";
 
 describe("translationDifficulty", () => {
@@ -56,6 +58,28 @@ describe("translationDifficulty", () => {
         ) - 1;
       expect(getArticleDifficultyBySize(testSize)).toBe(DifficultyEnum.stub);
       expect(getSectionDifficultyBySize(testSize)).toBe(DifficultyEnum.easy);
+    });
+  });
+
+  describe("isEasyOrStubArticleTranslation", () => {
+    it("works correctly for articles", () => {
+      // Article thresholds: 1000/3000/10000
+      expect(isEasyOrStubArticleTranslation(500)).toBe(true); // stub
+      expect(isEasyOrStubArticleTranslation(1500)).toBe(true); // easy
+      expect(isEasyOrStubArticleTranslation(5000)).toBe(false); // medium
+      expect(isEasyOrStubArticleTranslation(15000)).toBe(false); // hard
+      expect(isEasyOrStubArticleTranslation(null)).toBe(false); // no size
+    });
+  });
+
+  describe("isEasySectionTranslation", () => {
+    it("works correctly", () => {
+      // Section thresholds: 500/1500/3000
+      expect(isEasySectionTranslation(300)).toBe(false); // stub
+      expect(isEasySectionTranslation(800)).toBe(true); // easy
+      expect(isEasySectionTranslation(2000)).toBe(false); // medium
+      expect(isEasySectionTranslation(4000)).toBe(false); // hard
+      expect(isEasySectionTranslation(null)).toBe(false); // no size
     });
   });
 });

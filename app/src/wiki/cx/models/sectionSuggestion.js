@@ -1,7 +1,3 @@
-import {
-  DifficultyEnum,
-  getSectionDifficultyBySize,
-} from "@/utils/translationDifficulty";
 export default class SectionSuggestion {
   /**
    * Creates an instance of SectionSuggestion.
@@ -86,30 +82,11 @@ export default class SectionSuggestion {
     return this.missingCoreSectionsCount(appendixTargetTitles) > 0;
   }
 
-  getSectionDifficultyLevel(sectionTitle) {
-    // TODO: update rec-api to return sourceSectionSize exactly like cx-server
-    const sectionSize =
-      this.sourceSectionInfo?.[sectionTitle]?.size ||
-      this.sourceSectionSizes?.[sectionTitle];
-
-    return getSectionDifficultyBySize(sectionSize);
-  }
-
-  isEasy(sectionTitle) {
-    return this.getSectionDifficultyLevel(sectionTitle) === DifficultyEnum.easy;
-  }
-
   /**
    * @return {number}
    */
   get missingSectionsCount() {
     return Object.keys(this.missingSections || {}).length;
-  }
-
-  get easyMissingSectionsCount() {
-    return Object.keys(this.missingSections || {}).filter((missingSection) =>
-      this.isEasy(missingSection)
-    ).length;
   }
 
   /**
@@ -120,20 +97,32 @@ export default class SectionSuggestion {
   }
 
   /**
-   * @return {{targetTitle: string, sourceTitle: string, isEasy: boolean}[]}
+   * @return {{targetTitle: string, sourceTitle: string}[]}
    */
   get orderedMissingSections() {
     return Object.entries(this.missingSections || {})
       .map((missing) => ({
         sourceTitle: missing[0],
         targetTitle: missing[1],
-        isEasy: this.isEasy(missing[0]),
       }))
       .sort(
         (section1, section2) =>
           this.sourceSections.indexOf(section1.sourceTitle) -
           this.sourceSections.indexOf(section2.sourceTitle)
       );
+  }
+
+  /**
+   * Get the size of a specific section
+   * @param {string} sectionTitle - The title of the section
+   * @returns {number} The size of the section in bytes
+   */
+  getSectionSize(sectionTitle) {
+    // TODO: update rec-api to return sourceSectionSize exactly like cx-server
+    return (
+      this.sourceSectionInfo?.[sectionTitle]?.size ||
+      this.sourceSectionSizes?.[sectionTitle]
+    );
   }
 
   /**

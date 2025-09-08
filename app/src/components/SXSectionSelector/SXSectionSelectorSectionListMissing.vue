@@ -6,6 +6,7 @@ import sadRobotSVG from "../../assets/sad-robot.svg?raw";
 import { computed } from "vue";
 import { CdxButton, CdxInfoChip } from "@wikimedia/codex";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import { isEasySectionTranslation } from "@/utils/translationDifficulty";
 import useURLHandler from "@/composables/useURLHandler";
 
 const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
@@ -17,6 +18,19 @@ const targetLanguageAutonym = computed(() => getAutonym(targetLanguage.value));
 const noMissingSectionExists = computed(
   () => Object.keys(suggestion.value?.missingSections || {}).length === 0
 );
+
+const orderedMissingSections = computed(() => {
+  if (!suggestion.value?.orderedMissingSections) {
+    return [];
+  }
+
+  return suggestion.value.orderedMissingSections.map((section) => ({
+    ...section,
+    isEasy: isEasySectionTranslation(
+      suggestion.value.getSectionSize(section.sourceTitle)
+    ),
+  }));
+});
 </script>
 
 <template>
@@ -29,7 +43,7 @@ const noMissingSectionExists = computed(
     />
     <sx-section-selector-section-list
       v-if="!noMissingSectionExists"
-      :sections="suggestion.orderedMissingSections"
+      :sections="orderedMissingSections"
       @select-section="$emit('select-section', $event)"
     >
       <template #default="{ sourceSection, isEasy }">

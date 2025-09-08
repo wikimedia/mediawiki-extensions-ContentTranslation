@@ -1,11 +1,6 @@
 import useURLHandler from "@/composables/useURLHandler";
 import useEventLogging from "@/composables/useEventLogging";
-import {
-  DifficultyEnum,
-  getArticleDifficultyBySize,
-} from "@/utils/translationDifficulty";
-import useCurrentPages from "@/composables/useCurrentPages";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useTranslationSize from "@/composables/useTranslationSize";
 import {
   startTranslationEventSource,
   startTranslationEventContext,
@@ -59,26 +54,7 @@ const useDashboardTranslationStartInstrument = () => {
   } = useURLHandler();
 
   const logEvent = useEventLogging();
-  const { currentSourcePage } = useCurrentPages();
-  const { sectionSuggestion } = useCurrentSectionSuggestion();
-
-  /**
-   * Extract difficulty level from a suggestion object
-   * @return {string}
-   */
-  const getDifficulty = () => {
-    if (!!sectionSuggestion.value && sourceSectionTitle.value) {
-      return sectionSuggestion.value.getSectionDifficultyLevel(
-        sourceSectionTitle.value
-      );
-    }
-
-    if (!!currentSourcePage.value?.articleSize) {
-      return getArticleDifficultyBySize(currentSourcePage.value?.articleSize);
-    }
-
-    return DifficultyEnum.unknown;
-  };
+  const { difficulty } = useTranslationSize();
 
   /**
    * @returns {Promise}
@@ -90,6 +66,7 @@ const useDashboardTranslationStartInstrument = () => {
       translation_source_language: sourceLanguage.value,
       translation_target_language: targetLanguage.value,
       translation_source_title: sourceTitle.value,
+      translation_difficulty_level: difficulty.value,
       // translation_target_exists:
       // 	description:
       // 		Whether the target article or section already exists. Applies only to
@@ -105,8 +82,6 @@ const useDashboardTranslationStartInstrument = () => {
     if (startTranslationEventContext.value) {
       payload.event_context = startTranslationEventContext.value;
     }
-
-    payload.translation_difficulty_level = getDifficulty();
 
     // if section title URL param is set, this is a section translation
     if (sourceSectionTitle.value) {

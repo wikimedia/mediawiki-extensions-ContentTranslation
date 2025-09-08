@@ -1,4 +1,3 @@
-import { getArticleDifficultyBySize } from "@/utils/translationDifficulty";
 /**
  * Model representing an article suggestion for translation.
  */
@@ -32,7 +31,6 @@ export default class ArticleSuggestion {
     this.targetTitle = targetTitle;
     this.wikidataId = wikidataId;
     this.size = size;
-    this.difficulty = getArticleDifficultyBySize(size);
     this.langLinksCount = langLinksCount;
     /** @type {{type: String, id: String}|null} */
     this.suggestionProvider = suggestionProvider;

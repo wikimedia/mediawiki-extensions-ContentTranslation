@@ -34,6 +34,16 @@ jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
   },
 }));
 
+jest.mock("@/composables/useCurrentPages", () => () => ({
+  currentSourcePage: {
+    value: {
+      title: "Test source title",
+      language: "el",
+      articleSize: 5000,
+    },
+  },
+}));
+
 const mockCurrentTranslation = ref(null);
 jest.mock("@/composables/useCurrentDraftTranslation", () => () => ({
   currentTranslation: mockCurrentTranslation,
