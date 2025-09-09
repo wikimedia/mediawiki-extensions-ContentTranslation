@@ -12,6 +12,8 @@ import {
   ArticleDifficultyThresholdEnum,
   SectionDifficultyThresholdEnum,
 } from "@/utils/translationDifficulty";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
+
 const appendixSectionTitlesInEnglish = en;
 
 const considerSizeRestrictions = async (urlPostfix, urlParams) => {
@@ -26,6 +28,12 @@ const considerSizeRestrictions = async (urlPostfix, urlParams) => {
   if (!urlPostfix) {
     // article suggestions
     thresholds = ArticleDifficultyThresholdEnum;
+
+    // On mobile, article translation is lead section translation
+    // so request that the size filters be applied to the lead section
+    if (!isDesktopSite) {
+      urlParams["lead_section"] = true;
+    }
   } else if (urlPostfix === "/sections") {
     // section suggestions
     thresholds = SectionDifficultyThresholdEnum;
