@@ -204,6 +204,11 @@ const {
 // once sites are loaded, redirect if loaded
 Vue.watch( sites, () => {
 	if ( !!title && !!step ) {
-		openPageTitle( title, urlSourceLanguage, step );
+		// prevent crawler access https://phabricator.wikimedia.org/T403389
+		if ( step === 'translation' ) {
+			openPageTitle( title, urlSourceLanguage, 'confirm' );
+		} else {
+			openPageTitle( title, urlSourceLanguage, step );
+		}
 	}
 } );
