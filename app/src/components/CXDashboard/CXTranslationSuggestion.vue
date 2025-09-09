@@ -12,9 +12,8 @@ import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import { computed, inject } from "vue";
-import { getDir } from "@wikimedia/language-data";
+import { getAutonym, getDir } from "@wikimedia/language-data";
 import { useStore } from "vuex";
-import useApplicationState from "../../composables/useApplicationState";
 import { isQuickTranslationByBytes } from "@/utils/translationTimeEstimator";
 import CollectionArticleSuggestion from "@/wiki/cx/models/collectionArticleSuggestion";
 import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSuggestion";
@@ -70,8 +69,12 @@ const isFavoriteSuggestion = computed(
   () => suggestion.value instanceof FavoriteSuggestion
 );
 
-const { sourceLanguageAutonym, targetLanguageAutonym } =
-  useApplicationState(store);
+const sourceLanguageAutonym = computed(() =>
+  getAutonym(suggestion.value.sourceLanguage)
+);
+const targetLanguageAutonym = computed(() =>
+  getAutonym(suggestion.value.targetLanguage)
+);
 
 const bookmarkIcon = computed(() =>
   isFavoriteSuggestion.value ? cdxIconBookmark : cdxIconBookmarkOutline
