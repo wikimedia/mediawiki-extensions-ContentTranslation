@@ -82,7 +82,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Tu a trasè pe pigghià le suggereminde de traduzione.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Pe 'ndrucà le traduziune tune, a trasè.",
 	"apierror-cx-samelanguages": "Lènghe de origgene e destinazione non ge ponne essere le stesse.",
-	"apierror-cx-suggestionsdisabled": "Le suggereminde non ge sò abbilitate pe sta uicchi.",
 	"apierror-cx-translationnotfound": "Traduzione none acchiate.",
 	"apihelp-query+langlinkscount-summary": "Pigghie 'u numere de le versiune jndr'à l'otre lènghe.",
 	"apihelp-query+langlinkscount-example-1": "Pigghie 'u numere de le versiune jndr'à l'otre lènghe pa pàgene 'Cane'",

@@ -66,7 +66,6 @@
 	"apierror-cx-missingdraft": "La bozza non esiste",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Per vedere le tue traduzioni, devi accedere.",
 	"apierror-cx-samelanguages": "Le lingue di origine e destinazione non possono essere le stesse.",
-	"apierror-cx-suggestionsdisabled": "I suggerimenti non sono abilitati per questo wiki.",
 	"apierror-cx-translationnotfound": "Traduzione non trovata.",
 	"apihelp-cxpublishsection-param-title": "Il titolo della pagina su cui eseguire le azioni.",
 	"apihelp-cxpublishsection-param-html": "Il contenuto da salvare.",

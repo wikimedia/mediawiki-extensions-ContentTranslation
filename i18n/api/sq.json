@@ -85,7 +85,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Duhet të jeni të regjistruar për të marrë sugjerime përkthimi.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Për të parë përkthimet tuaja, duhet të identifikoheni.",
 	"apierror-cx-samelanguages": "Gjuhët burimore dhe ato të synuara nuk mund të jenë të njëjta.",
-	"apierror-cx-suggestionsdisabled": "Sugjerimet nuk janë aktivizuar për këtë wiki.",
 	"apierror-cx-translationnotfound": "Përkthimi nuk gjendet.",
 	"apihelp-query+langlinkscount-summary": "Merrni numrin e versioneve të gjuhëve të tjera.",
 	"apihelp-query+langlinkscount-example-1": "Merrni numrin e versioneve në gjuhë të tjera për faqen 'Dog'",

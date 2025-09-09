@@ -87,7 +87,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "您必須登入才能取得翻譯建議。",
 	"apierror-cx-mustbeloggedin-viewtranslations": "您必須登入才能檢視您的翻譯。",
 	"apierror-cx-samelanguages": "來源與目標語言不能是同一個。",
-	"apierror-cx-suggestionsdisabled": "此 wiki 未啟用建議功能。",
 	"apierror-cx-translationnotfound": "找不到翻譯。",
 	"apihelp-query+langlinkscount-summary": "取得其它語言版本的數目。",
 	"apihelp-query+langlinkscount-example-1": "取得「Dog」頁面在條其它語言版本的數量",

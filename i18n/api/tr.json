@@ -93,7 +93,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Çeviri önerileri almak için oturum açmanız gerekir.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Çevirilerinizi görüntülemek için oturum açmalısınız.",
 	"apierror-cx-samelanguages": "Kaynak ve hedef diller aynı olamaz.",
-	"apierror-cx-suggestionsdisabled": "Öneriler bu viki için etkin değil.",
 	"apierror-cx-translationnotfound": "Çeviri bulunamadı.",
 	"apihelp-query+langlinkscount-summary": "Diğer dil sürümlerinin sayısını alın.",
 	"apihelp-query+langlinkscount-example-1": "'Dog' sayfasının diğer dil sürümlerinin sayısını alın",

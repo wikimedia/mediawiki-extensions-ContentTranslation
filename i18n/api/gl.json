@@ -88,7 +88,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Cómpre ter a sesión iniciada para recibir suxestións de tradución.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Para ver as súas traducións debe estar autenticado.",
 	"apierror-cx-samelanguages": "As linguas fonte e obxectivo non poden ser a mesma.",
-	"apierror-cx-suggestionsdisabled": "As suxestións non están activadas neste wiki.",
 	"apierror-cx-translationnotfound": "Non se atopou a tradución.",
 	"apierror-cx-publish-usergroup-required": "Non tes os permisos de grupo de usuarios necesarios para publicares traducións no espazo de nomes principal.",
 	"apihelp-query+langlinkscount-summary": "Obter o número doutras versións lingüísticas.",

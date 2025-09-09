@@ -89,7 +89,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Anda harus masuk log untuk mendapatkan saran terjemahan.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Untuk melihat terjemahan Anda, Anda harus masuk log.",
 	"apierror-cx-samelanguages": "Bahasa sumber dan tujuan tidak boleh sama.",
-	"apierror-cx-suggestionsdisabled": "Saran tidak diaktifkan untuk wiki ini.",
 	"apierror-cx-translationnotfound": "Terjemahan tidak ditemukan.",
 	"apihelp-query+langlinkscount-summary": "Dapatkan banyak versi bahasa lain.",
 	"apihelp-query+langlinkscount-example-1": "Dapatkan banyak versi bahasa lain dari halaman 'Dog'",

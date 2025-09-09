@@ -86,7 +86,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Tu debe aperir session pro obtener suggestiones de traduction.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Pro vider tu traductiones, tu debe aperir session.",
 	"apierror-cx-samelanguages": "Le linguas de origine e de destination non pote esser le mesme.",
-	"apierror-cx-suggestionsdisabled": "Le suggestiones non ha essite activate pro iste wiki.",
 	"apierror-cx-translationnotfound": "Traduction non trovate.",
 	"apierror-cx-publish-usergroup-required": "Tu non ha le permissiones de gruppo de usator necessari pro publicar traductiones in le spatio de nomines principal.",
 	"apihelp-query+langlinkscount-summary": "Obtener le numero de versiones in altere linguas.",

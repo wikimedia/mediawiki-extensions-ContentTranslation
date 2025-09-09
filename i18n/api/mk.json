@@ -86,7 +86,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Мора да сте најавени за да добивате преводни предлози.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "За да ги погледате вашите преводи, ќе мора прво да се најавите.",
 	"apierror-cx-samelanguages": "Изворниот и целниот јазик не можат да бидат исти.",
-	"apierror-cx-suggestionsdisabled": "Предлозите не се овозможени на ова вики.",
 	"apierror-cx-translationnotfound": "Преводот не е пронајден",
 	"apierror-cx-publish-usergroup-required": "Ги немате потребните дозволи од корисничка група за да објавувате предлози во главниот именски простор.",
 	"apihelp-query+langlinkscount-summary": "Дај го бројот на другите јазични верзии.",

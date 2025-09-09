@@ -72,7 +72,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "অনুবাদের পরামর্শ পেতে আপনাকে অবশ্যই প্রবেশ করতে হবে।",
 	"apierror-cx-mustbeloggedin-viewtranslations": "আপনার অনুবাদগুলি দেখতে, আপনাকে অবশ্যই প্রবেশ করতে হবে।",
 	"apierror-cx-samelanguages": "উত্স এবং লক্ষ্য ভাষা একই হতে পারে না।",
-	"apierror-cx-suggestionsdisabled": "এই উইকির জন্য পরামর্শ সক্রিয় করা হয়নি।",
 	"apierror-cx-translationnotfound": "অনুবাদ পাওয়া যায়নি।",
 	"apihelp-query+langlinkscount-example-1": "'কুকুর' নামক পাতার জন্য অন্যান্য ভাষার সংস্করণের সংখ্যা দেখুন",
 	"apihelp-cxpublishsection-param-title": "পাতার শিরোনাম যেটিতে ক্রিয়া সঞ্চালন হবে।",

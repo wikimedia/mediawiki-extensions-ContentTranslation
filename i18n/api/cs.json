@@ -82,7 +82,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "Pro spravování návrhů musíte být přihlášeni.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Pro zobrazení Vašich překladů musíte být přihlášeni.",
 	"apierror-cx-samelanguages": "Zdrojový a cílový jazyk nemůže být stejný.",
-	"apierror-cx-suggestionsdisabled": "Návrhy nejsou na této wiki povoleny.",
 	"apierror-cx-translationnotfound": "Překlad nebyl nalezen.",
 	"apihelp-query+langlinkscount-summary": "Získejte číslo ostatních jazykových verzí.",
 	"apihelp-query+langlinkscount-example-1": "Získejte číslo dalších jazykových verzí pro stránku „Pes“"

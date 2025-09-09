@@ -78,7 +78,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "برای دریافت ترجمه‌های پیشنهادی خود باید به سامانه وارد شوید.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "برای دیدن ترجمه‌هایتان، باید وارد سامانه شوید.",
 	"apierror-cx-samelanguages": "زبان‌های منبع و هدف نباید یکی باشند.",
-	"apierror-cx-suggestionsdisabled": "پیشنهادها برای این ویکی فعال نشده است",
 	"apierror-cx-translationnotfound": "ترجمه یافت نشد.",
 	"apihelp-query+langlinkscount-summary": "تعداد نسخه‌های زبان‌های دیگر را بگیر",
 	"apihelp-query+langlinkscount-example-1": "دریافت تعداد سایر نسخه‌های زبانی صفحهٔ «Dog»",

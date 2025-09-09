@@ -66,7 +66,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "Морате бити пријављени да бисте управљали вашим предлозима.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Да бисте видели своје преводе, морате се пријавити.",
 	"apierror-cx-samelanguages": "Изворни и циљни језици не смеју бити исти.",
-	"apierror-cx-suggestionsdisabled": "Предлози нису доступни за овај вики.",
 	"apierror-cx-translationnotfound": "Превод није пронађен.",
 	"apihelp-query+langlinkscount-summary": "Број верзија у другим језицима.",
 	"apihelp-query+langlinkscount-example-1": "Број верзија у другим језицима за страницу 'Dog'",

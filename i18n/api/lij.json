@@ -86,7 +86,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Ti gh'æ da intrâ p'òtegnî di conséggi de traduçión.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Ti gh'æ da intrâ pe védde e tò traduçioìn.",
 	"apierror-cx-samelanguages": "E léngoe d'òrìgine e de destinaçión no pêuan êse a mæxima.",
-	"apierror-cx-suggestionsdisabled": "I conséggi no són ativæ in sce sta wiki chi.",
 	"apierror-cx-translationnotfound": "Traduçión no trovâ.",
 	"apierror-cx-publish-usergroup-required": "Ti no gh'æ i permìssi do grùppo d'uténte necesâio pe pubricâ de traduçioìn into namespace prinçipâ.",
 	"apihelp-query+langlinkscount-summary": "Òtegnî o nùmero de verscioìn inte âtre léngoe.",

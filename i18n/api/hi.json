@@ -56,6 +56,5 @@
 	"apierror-cx-mustbeloggedin-suggestions": "सुझाव व्यवस्थित करने हेतु आपको खाते में प्रवेश करना होगा।",
 	"apierror-cx-mustbeloggedin-viewtranslations": "अपने अनुवादों ओ देखने के लिए आपको खाते में प्रवेश करना होगा।",
 	"apierror-cx-samelanguages": "स्रोत और लक्ष्य भाषा समान नहीं हो सकती है।",
-	"apierror-cx-suggestionsdisabled": "इस विकि हेतु सुझाव सक्रिय नहीं किया गया है।",
 	"apierror-cx-translationnotfound": "अनुवाद नहीं मिला"
 }

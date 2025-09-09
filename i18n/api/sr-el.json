@@ -58,7 +58,6 @@
 	"apierror-cx-mustbeloggedin-suggestions": "Morate biti prijavljeni da biste upravljali vašim predlozima.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Da biste videli svoje prevode, morate se prijaviti.",
 	"apierror-cx-samelanguages": "Izvorni i ciljni jezici ne smeju biti isti.",
-	"apierror-cx-suggestionsdisabled": "Predlozi nisu dostupni za ovaj viki.",
 	"apierror-cx-translationnotfound": "Prevod nije pronađen.",
 	"apihelp-query+langlinkscount-summary": "Broj verzija u drugim jezicima.",
 	"apihelp-query+langlinkscount-example-1": "Broj verzija u drugim jezicima za stranicu 'Dog'",

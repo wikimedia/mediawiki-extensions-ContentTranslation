@@ -28,6 +28,5 @@
 	"apihelp-cxsave-param-from": "Jatorrizko hizkuntzaren kodea.",
 	"apihelp-cxsave-param-to": "Helburu den hizkuntzaren kodea.",
 	"apihelp-cxsave-param-sourcetitle": "Jatorrizko orriaren izenburua.",
-	"apierror-cx-suggestionsdisabled": "Iradokizunak ez daude wiki honetarako gaituta.",
 	"apierror-cx-translationnotfound": "Itzulpena ez da aurkitu"
 }

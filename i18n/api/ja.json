@@ -95,7 +95,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "翻訳候補を取得するにはログインしてください。",
 	"apierror-cx-mustbeloggedin-viewtranslations": "ご自分の翻訳を閲覧するには、ログインしてください。",
 	"apierror-cx-samelanguages": "翻訳元と翻訳先に同じ言語は指定できません。",
-	"apierror-cx-suggestionsdisabled": "このウィキでは翻訳候補の提案は受け付けていません。",
 	"apierror-cx-translationnotfound": "翻訳が見つかりませんでした。",
 	"apihelp-query+langlinkscount-summary": "他言語版の件数を取得する。",
 	"apihelp-query+langlinkscount-example-1": "'Dog' のページの他言語版の件数を取得する。",

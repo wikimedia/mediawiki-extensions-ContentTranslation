@@ -86,7 +86,6 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Ахь системин тӀехь авторизаци йан йеза, гочдаран предложенеш схьаэца.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Хьан гочдарш хьажа, ахь системин тӀехь авторизаци йан йеза.",
 	"apierror-cx-samelanguages": "Йуьхьанцара а, Ӏалашонан а меттанаш цхьатерра хила йиш йац.",
-	"apierror-cx-suggestionsdisabled": "Хетарш йукъадаьхна дац хӀокху викина.",
 	"apierror-cx-translationnotfound": "Гочдар ца карийна.",
 	"apierror-cx-publish-usergroup-required": "Хьан йац оьшуш йолу дкеъашхочун тобанан бакъонаш коьрта цӀерийн меттиге гочдарш публикаци дан.",
 	"apihelp-query+langlinkscount-summary": "Кхечу меттанийн версийн дукхалла схьаэца.",
