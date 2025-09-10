@@ -823,7 +823,8 @@
 				"cx-publish-permission-error",
 				"cx-publish-permission-error-title",
 				"cx-tools-linter-invalid-character",
-				"cx-tools-linter-invalid-character-message"
+				"cx-tools-linter-invalid-character-message",
+				"parentheses"
 			],
 			"noflip": true
 		},

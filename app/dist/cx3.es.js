@@ -1,16 +1,16 @@
-var aw = Object.defineProperty, iw = Object.defineProperties;
-var rw = Object.getOwnPropertyDescriptors;
-var Du = Object.getOwnPropertySymbols;
-var lw = Object.prototype.hasOwnProperty, cw = Object.prototype.propertyIsEnumerable;
-var Pu = (e, t, n) => t in e ? aw(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n, pe = (e, t) => {
+var cw = Object.defineProperty, uw = Object.defineProperties;
+var dw = Object.getOwnPropertyDescriptors;
+var Pu = Object.getOwnPropertySymbols;
+var gw = Object.prototype.hasOwnProperty, pw = Object.prototype.propertyIsEnumerable;
+var Bu = (e, t, n) => t in e ? cw(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n, ue = (e, t) => {
   for (var n in t || (t = {}))
-    lw.call(t, n) && Pu(e, n, t[n]);
-  if (Du)
-    for (var n of Du(t))
-      cw.call(t, n) && Pu(e, n, t[n]);
+    gw.call(t, n) && Bu(e, n, t[n]);
+  if (Pu)
+    for (var n of Pu(t))
+      pw.call(t, n) && Bu(e, n, t[n]);
   return e;
-}, tt = (e, t) => iw(e, rw(t));
-var C = (e, t, n) => new Promise((s, o) => {
+}, Ye = (e, t) => uw(e, dw(t));
+var x = (e, t, n) => new Promise((s, o) => {
   var a = (u) => {
     try {
       l(n.next(u));
@@ -57,12 +57,12 @@ window.Vuex = require("vuex");
     CdxRadio: c
   };
 }
-const de = (e, t) => {
+const ge = (e, t) => {
   const n = e.__vccOpts || e;
   for (const [s, o] of t)
     n[s] = o;
   return n;
-}, uw = {
+}, hw = {
   name: "MWIcon",
   props: {
     /**
@@ -113,12 +113,12 @@ const de = (e, t) => {
       this.$emit("click", e);
     }
   }
-}, dw = window.Vue.toDisplayString, vr = window.Vue.openBlock, _r = window.Vue.createElementBlock, gw = window.Vue.createCommentVNode, Bu = window.Vue.createElementVNode, pw = window.Vue.normalizeClass, hw = ["width", "height", "aria-labelledby"], fw = ["id"], ww = ["fill"], vw = ["d"];
-function _w(e, t, n, s, o, a) {
-  return vr(), _r("span", {
-    class: pw(["mw-ui-icon notranslate", a.classes])
+}, fw = window.Vue.toDisplayString, mr = window.Vue.openBlock, hr = window.Vue.createElementBlock, ww = window.Vue.createCommentVNode, Fu = window.Vue.createElementVNode, vw = window.Vue.normalizeClass, _w = ["width", "height", "aria-labelledby"], Sw = ["id"], yw = ["fill"], xw = ["d"];
+function Cw(e, t, n, s, o, a) {
+  return mr(), hr("span", {
+    class: vw(["mw-ui-icon notranslate", a.classes])
   }, [
-    (vr(), _r("svg", {
+    (mr(), hr("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: n.size,
       height: n.size,
@@ -128,21 +128,21 @@ function _w(e, t, n, s, o, a) {
       role: "presentation",
       onClick: t[0] || (t[0] = (...r) => a.handleClick && a.handleClick(...r))
     }, [
-      n.iconName ? (vr(), _r("title", {
+      n.iconName ? (mr(), hr("title", {
         key: 0,
         id: n.iconName
-      }, dw(n.iconName), 9, fw)) : gw("", !0),
-      Bu("g", { fill: n.iconColor }, [
-        Bu("path", { d: a.iconImagePath }, null, 8, vw)
-      ], 8, ww)
-    ], 8, hw))
+      }, fw(n.iconName), 9, Sw)) : ww("", !0),
+      Fu("g", { fill: n.iconColor }, [
+        Fu("path", { d: a.iconImagePath }, null, 8, xw)
+      ], 8, yw)
+    ], 8, _w))
   ], 2);
 }
-const Je = /* @__PURE__ */ de(uw, [["render", _w]]);
-const Sw = {
+const et = /* @__PURE__ */ ge(hw, [["render", Cw]]);
+const bw = {
   name: "MwButton",
   components: {
-    MwIcon: Je
+    MwIcon: et
   },
   props: {
     /**
@@ -222,47 +222,47 @@ const Sw = {
     indicatorClass: (e) => !e.isIcon && "ps-2",
     indicatorClickEvent: (e) => e.hasIndicatorClickListener ? "click" : null
   }
-}, yw = window.Vue.renderSlot, xw = window.Vue.resolveComponent, Fu = window.Vue.normalizeClass, $a = window.Vue.openBlock, Sr = window.Vue.createBlock, yr = window.Vue.createCommentVNode, Cw = window.Vue.toDisplayString, bw = window.Vue.createElementBlock, kw = window.Vue.toHandlerKey, $w = window.Vue.withModifiers, Ew = window.Vue.mergeProps, Vw = window.Vue.createElementVNode, Lw = window.Vue.resolveDynamicComponent, Tw = window.Vue.withCtx, Aw = { class: "mw-ui-button__content" }, Dw = ["textContent"];
-function Pw(e, t, n, s, o, a) {
-  const r = xw("mw-icon");
-  return $a(), Sr(Lw(a.component), {
-    class: Fu(["mw-ui-button", a.classes]),
+}, kw = window.Vue.renderSlot, $w = window.Vue.resolveComponent, Nu = window.Vue.normalizeClass, $a = window.Vue.openBlock, fr = window.Vue.createBlock, wr = window.Vue.createCommentVNode, Vw = window.Vue.toDisplayString, Ew = window.Vue.createElementBlock, Lw = window.Vue.toHandlerKey, Tw = window.Vue.withModifiers, Aw = window.Vue.mergeProps, Dw = window.Vue.createElementVNode, Pw = window.Vue.resolveDynamicComponent, Bw = window.Vue.withCtx, Fw = { class: "mw-ui-button__content" }, Nw = ["textContent"];
+function Mw(e, t, n, s, o, a) {
+  const r = $w("mw-icon");
+  return $a(), fr(Pw(a.component), {
+    class: Nu(["mw-ui-button", a.classes]),
     href: n.href,
     disabled: n.disabled || null
   }, {
-    default: Tw(() => [
-      yw(e.$slots, "default", {}, () => [
-        Vw("span", Aw, [
-          n.icon ? ($a(), Sr(r, {
+    default: Bw(() => [
+      kw(e.$slots, "default", {}, () => [
+        Dw("span", Fw, [
+          n.icon ? ($a(), fr(r, {
             key: 0,
             icon: n.icon,
             size: n.large ? 28 : n.iconSize,
-            class: Fu(["mw-ui-button__icon", a.iconClass])
-          }, null, 8, ["icon", "size", "class"])) : yr("", !0),
-          !a.isIcon && n.label ? ($a(), bw("span", {
+            class: Nu(["mw-ui-button__icon", a.iconClass])
+          }, null, 8, ["icon", "size", "class"])) : wr("", !0),
+          !a.isIcon && n.label ? ($a(), Ew("span", {
             key: 1,
             class: "mw-ui-button__label",
-            textContent: Cw(n.label)
-          }, null, 8, Dw)) : yr("", !0),
-          n.indicator ? ($a(), Sr(r, Ew({
+            textContent: Vw(n.label)
+          }, null, 8, Nw)) : wr("", !0),
+          n.indicator ? ($a(), fr(r, Aw({
             key: 2,
             icon: n.indicator,
             size: n.large ? 28 : n.indicatorSize,
             class: ["mw-ui-button__indicator", a.indicatorClass]
           }, {
-            [kw(a.indicatorClickEvent)]: t[0] || (t[0] = $w((l) => e.$emit("indicator-icon-clicked"), ["stop"]))
-          }), null, 16, ["icon", "size", "class"])) : yr("", !0)
+            [Lw(a.indicatorClickEvent)]: t[0] || (t[0] = Tw((l) => e.$emit("indicator-icon-clicked"), ["stop"]))
+          }), null, 16, ["icon", "size", "class"])) : wr("", !0)
         ])
       ])
     ]),
     _: 3
   }, 8, ["class", "href", "disabled"]);
 }
-const Ge = /* @__PURE__ */ de(Sw, [["render", Pw]]);
-const Bw = {
+const Xe = /* @__PURE__ */ ge(bw, [["render", Mw]]);
+const Uw = {
   name: "MwButtonGroup",
   components: {
-    MwButton: Ge
+    MwButton: Xe
   },
   props: {
     /**
@@ -301,11 +301,11 @@ const Bw = {
       };
     }
   }
-}, Fw = window.Vue.renderList, Nw = window.Vue.Fragment, xr = window.Vue.openBlock, Nu = window.Vue.createElementBlock, Mw = window.Vue.resolveComponent, Uw = window.Vue.withModifiers, Iw = window.Vue.mergeProps, Rw = window.Vue.createBlock, zw = { class: "row mw-ui-button-group ma-0 pa-0" };
-function Ow(e, t, n, s, o, a) {
-  const r = Mw("mw-button");
-  return xr(), Nu("div", zw, [
-    (xr(!0), Nu(Nw, null, Fw(n.items, (l) => (xr(), Rw(r, Iw({
+}, Iw = window.Vue.renderList, Rw = window.Vue.Fragment, vr = window.Vue.openBlock, Mu = window.Vue.createElementBlock, zw = window.Vue.resolveComponent, Ow = window.Vue.withModifiers, Hw = window.Vue.mergeProps, jw = window.Vue.createBlock, qw = { class: "row mw-ui-button-group ma-0 pa-0" };
+function Gw(e, t, n, s, o, a) {
+  const r = zw("mw-button");
+  return vr(), Mu("div", qw, [
+    (vr(!0), Mu(Rw, null, Iw(n.items, (l) => (vr(), jw(r, Hw({
       key: l.value,
       value: l.value,
       "aria-selected": a.isActive(l) || null,
@@ -313,12 +313,12 @@ function Ow(e, t, n, s, o, a) {
     }, l.props, {
       class: ["ma-0", a.buttonClasses(l)],
       style: a.activeIndicatorStyle(l),
-      onClick: Uw((u) => e.$emit("select", l.value), ["stop"])
+      onClick: Ow((u) => e.$emit("select", l.value), ["stop"])
     }), null, 16, ["value", "aria-selected", "class", "style", "onClick"]))), 128))
   ]);
 }
-const ma = /* @__PURE__ */ de(Bw, [["render", Ow]]);
-const jw = {
+const ma = /* @__PURE__ */ ge(Uw, [["render", Gw]]);
+const Xw = {
   name: "MwCard",
   props: {
     /**
@@ -329,28 +329,28 @@ const jw = {
       default: null
     }
   }
-}, Mu = window.Vue.renderSlot, Hw = window.Vue.toDisplayString, Uu = window.Vue.openBlock, Iu = window.Vue.createElementBlock, qw = window.Vue.createCommentVNode, Gw = window.Vue.createElementVNode, Xw = { class: "mw-ui-card" }, Ww = ["textContent"], Kw = { class: "mw-ui-card__content" };
-function Yw(e, t, n, s, o, a) {
-  return Uu(), Iu("div", Xw, [
-    Mu(e.$slots, "header", {}, () => [
-      n.title ? (Uu(), Iu("div", {
+}, Uu = window.Vue.renderSlot, Ww = window.Vue.toDisplayString, Iu = window.Vue.openBlock, Ru = window.Vue.createElementBlock, Kw = window.Vue.createCommentVNode, Yw = window.Vue.createElementVNode, Qw = { class: "mw-ui-card" }, Jw = ["textContent"], Zw = { class: "mw-ui-card__content" };
+function e0(e, t, n, s, o, a) {
+  return Iu(), Ru("div", Qw, [
+    Uu(e.$slots, "header", {}, () => [
+      n.title ? (Iu(), Ru("div", {
         key: 0,
         class: "mw-ui-card__title title",
-        textContent: Hw(n.title)
-      }, null, 8, Ww)) : qw("", !0)
+        textContent: Ww(n.title)
+      }, null, 8, Jw)) : Kw("", !0)
     ]),
-    Gw("div", Kw, [
-      Mu(e.$slots, "default")
+    Yw("div", Zw, [
+      Uu(e.$slots, "default")
     ])
   ]);
 }
-const Qe = /* @__PURE__ */ de(jw, [["render", Yw]]);
-const Qw = {}, Jw = window.Vue.openBlock, Zw = window.Vue.createElementBlock, e0 = { class: "mw-ui-divider row" };
-function t0(e, t) {
-  return Jw(), Zw("div", e0);
+const Ze = /* @__PURE__ */ ge(Xw, [["render", e0]]);
+const t0 = {}, n0 = window.Vue.openBlock, s0 = window.Vue.createElementBlock, o0 = { class: "mw-ui-divider row" };
+function a0(e, t) {
+  return n0(), s0("div", o0);
 }
-const Ki = /* @__PURE__ */ de(Qw, [["render", t0]]);
-const n0 = {
+const Gi = /* @__PURE__ */ ge(t0, [["render", a0]]);
+const i0 = {
   name: "MWGrid",
   props: {
     tag: {
@@ -358,16 +358,16 @@ const n0 = {
       default: "div"
     }
   }
-}, s0 = window.Vue.renderSlot, o0 = window.Vue.resolveDynamicComponent, a0 = window.Vue.withCtx, i0 = window.Vue.openBlock, r0 = window.Vue.createBlock;
-function l0(e, t, n, s, o, a) {
-  return i0(), r0(o0(n.tag), { class: "mw-grid container" }, {
-    default: a0(() => [
-      s0(e.$slots, "default")
+}, r0 = window.Vue.renderSlot, l0 = window.Vue.resolveDynamicComponent, c0 = window.Vue.withCtx, u0 = window.Vue.openBlock, d0 = window.Vue.createBlock;
+function g0(e, t, n, s, o, a) {
+  return u0(), d0(l0(n.tag), { class: "mw-grid container" }, {
+    default: c0(() => [
+      r0(e.$slots, "default")
     ]),
     _: 3
   });
 }
-const c0 = /* @__PURE__ */ de(n0, [["render", l0]]), u0 = {
+const p0 = /* @__PURE__ */ ge(i0, [["render", g0]]), m0 = {
   name: "MwRow",
   props: {
     /**
@@ -417,28 +417,28 @@ const c0 = /* @__PURE__ */ de(n0, [["render", l0]]), u0 = {
       return this.reverse && e.push("reverse"), e;
     }
   }
-}, d0 = window.Vue.renderSlot, g0 = window.Vue.resolveDynamicComponent, p0 = window.Vue.normalizeClass, m0 = window.Vue.withCtx, h0 = window.Vue.openBlock, f0 = window.Vue.createBlock;
-function w0(e, t, n, s, o, a) {
-  return h0(), f0(g0(n.tag), {
-    class: p0(a.classes)
+}, h0 = window.Vue.renderSlot, f0 = window.Vue.resolveDynamicComponent, w0 = window.Vue.normalizeClass, v0 = window.Vue.withCtx, _0 = window.Vue.openBlock, S0 = window.Vue.createBlock;
+function y0(e, t, n, s, o, a) {
+  return _0(), S0(f0(n.tag), {
+    class: w0(a.classes)
   }, {
-    default: m0(() => [
-      d0(e.$slots, "default")
+    default: v0(() => [
+      h0(e.$slots, "default")
     ]),
     _: 3
   }, 8, ["class"]);
 }
-const N = /* @__PURE__ */ de(u0, [["render", w0]]), Mc = ["mobile", "tablet", "desktop", "desktop-wide"], v0 = Mc.reduce(
-  (e, t) => tt(pe({}, e), {
+const M = /* @__PURE__ */ ge(m0, [["render", y0]]), Nc = ["mobile", "tablet", "desktop", "desktop-wide"], x0 = Nc.reduce(
+  (e, t) => Ye(ue({}, e), {
     [t]: {
       type: [String, Number],
       default: null
     }
   }),
   {}
-), _0 = {
+), C0 = {
   name: "MwCol",
-  props: tt(pe({}, v0), {
+  props: Ye(ue({}, x0), {
     /**
      * Sets the default number of columns the component extends.
      * Available options are 1 -> 12
@@ -475,8 +475,8 @@ const N = /* @__PURE__ */ de(u0, [["render", w0]]), Mc = ["mobile", "tablet", "d
   computed: {
     classes() {
       let e = [];
-      for (let n = 0; n < Mc.length; n++) {
-        let s = Mc[n], o = this.$props[s];
+      for (let n = 0; n < Nc.length; n++) {
+        let s = Nc[n], o = this.$props[s];
         o && e.push(`col-${s}-${o}`);
       }
       this.cols && e.push(`col-${this.cols}`);
@@ -491,35 +491,35 @@ const N = /* @__PURE__ */ de(u0, [["render", w0]]), Mc = ["mobile", "tablet", "d
       }), e;
     }
   }
-}, S0 = window.Vue.renderSlot, y0 = window.Vue.resolveDynamicComponent, x0 = window.Vue.normalizeClass, C0 = window.Vue.withCtx, b0 = window.Vue.openBlock, k0 = window.Vue.createBlock;
-function $0(e, t, n, s, o, a) {
-  return b0(), k0(y0(n.tag), {
-    class: x0(a.classes)
+}, b0 = window.Vue.renderSlot, k0 = window.Vue.resolveDynamicComponent, $0 = window.Vue.normalizeClass, V0 = window.Vue.withCtx, E0 = window.Vue.openBlock, L0 = window.Vue.createBlock;
+function T0(e, t, n, s, o, a) {
+  return E0(), L0(k0(n.tag), {
+    class: $0(a.classes)
   }, {
-    default: C0(() => [
-      S0(e.$slots, "default")
+    default: V0(() => [
+      b0(e.$slots, "default")
     ]),
     _: 3
   }, 8, ["class"]);
 }
-const k = /* @__PURE__ */ de(_0, [["render", $0]]), E0 = "M11 9V4H9v5H4v2h5v5h2v-5h5V9z", V0 = "M9.5 16A6.61 6.61 0 0 1 3 9.5 6.61 6.61 0 0 1 9.5 3 6.61 6.61 0 0 1 16 9.5 6.63 6.63 0 0 1 9.5 16zm0-14A7.5 7.5 0 1 0 17 9.5 7.5 7.5 0 0 0 9.5 2zm.5 6v4.08h1V13H8.07v-.92H9V9H8V8zM9 6h1v1H9z", Yi = "M16.77 8l1.94-2a1 1 0 0 0 0-1.41l-3.34-3.3a1 1 0 0 0-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z", L0 = {
+const k = /* @__PURE__ */ ge(C0, [["render", T0]]), A0 = "M11 9V4H9v5H4v2h5v5h2v-5h5V9z", D0 = "M9.5 16A6.61 6.61 0 0 1 3 9.5 6.61 6.61 0 0 1 9.5 3 6.61 6.61 0 0 1 16 9.5 6.63 6.63 0 0 1 9.5 16zm0-14A7.5 7.5 0 1 0 17 9.5 7.5 7.5 0 0 0 9.5 2zm.5 6v4.08h1V13H8.07v-.92H9V9H8V8zM9 6h1v1H9z", Xi = "M16.77 8l1.94-2a1 1 0 0 0 0-1.41l-3.34-3.3a1 1 0 0 0-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z", P0 = {
   path: "M9 17l-4.59-4.59L5.83 11 9 14.17l8-8V3a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z",
   flippable: !1
-}, T0 = "M8 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1H8zm9-12a7 7 0 1 0-12 4.9S7 14 7 15v1a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1c0-1 2-3.1 2-3.1A7 7 0 0 0 17 7z", uh = "M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5H4z", A0 = "M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z", D0 = "M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z", Qi = "M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z", P0 = "M4 10l9 9 1.4-1.5L7 10l7.4-7.5L13 1z", B0 = "M5.83 9l5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z", F0 = "M8.59 3.42L14.17 9H2v2h12.17l-5.58 5.59L10 18l8-8-8-8z", Ru = "M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46A7.432 7.432 0 0 1 7.5 15C3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z", N0 = "M20 18h-1.44a.61.61 0 0 1-.4-.12.81.81 0 0 1-.23-.31L17 15h-5l-1 2.54a.77.77 0 0 1-.22.3.59.59 0 0 1-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a11.62 11.62 0 0 1-.39-1.24q-.09.37-.19.69l-.19.56-1.58 4.19zm-6.3-1.58a13.43 13.43 0 0 1-2.91-1.41 11.46 11.46 0 0 0 2.81-5.37H12V4H7.31a4 4 0 0 0-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 0 0 5 10.7a17.19 17.19 0 0 1-5 2.1q.56.82.87 1.38a23.28 23.28 0 0 0 5.22-2.51 15.64 15.64 0 0 0 3.56 1.77zM3.63 5.33h4.91a8.11 8.11 0 0 1-2.45 4.45 9.11 9.11 0 0 1-2.46-4.45z", dh = "M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z", M0 = "M13 7.61V3h1V1H6v2h1v4.61l-5.86 9.88A1 1 0 002 19h16a1 1 0 00.86-1.51zm-4.2.88a1 1 0 00.2-.6V3h2v4.89a1 1 0 00.14.51l2.14 3.6H6.72z", U0 = "M10.5 5h6.505C18.107 5 19 5.896 19 6.997V14h-7v2h5.005c1.102 0 1.995.888 1.995 2v2H1v-2c0-1.105.893-2 1.995-2H8v-2H1V6.997C1 5.894 1.893 5 2.995 5H9.5V2.915a1.5 1.5 0 111 0zm-4 6a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm7 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z", I0 = "M10 14.5a4.5 4.5 0 114.5-4.5 4.5 4.5 0 01-4.5 4.5zM10 3C3 3 0 10 0 10s3 7 10 7 10-7 10-7-3-7-10-7z M 10, 10  m -2.5, 0 a 2.5, 2.5 0 1,0 5,0 a 2.5,2.5 0 1,0 -5,0", R0 = "m 19,10 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 M 5,10 A 2,2 0 0 1 3,12 2,2 0 0 1 1,10 2,2 0 0 1 3,8 2,2 0 0 1 5,10 m 7,0 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2", z0 = "M1 8.5L8 14v-4h1c4 0 7 2 7 6v1h3v-1c0-6-5-9-10-9H8V3z", Uc = {
+}, B0 = "M8 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1H8zm9-12a7 7 0 1 0-12 4.9S7 14 7 15v1a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1c0-1 2-3.1 2-3.1A7 7 0 0 0 17 7z", ch = "M17 2h-3.5l-1-1h-5l-1 1H3v2h14zM4 17a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5H4z", F0 = "M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z", N0 = "M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z", Wi = "M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z", M0 = "M4 10l9 9 1.4-1.5L7 10l7.4-7.5L13 1z", U0 = "M5.83 9l5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z", I0 = "M8.59 3.42L14.17 9H2v2h12.17l-5.58 5.59L10 18l8-8-8-8z", zu = "M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46A7.432 7.432 0 0 1 7.5 15C3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z", R0 = "M20 18h-1.44a.61.61 0 0 1-.4-.12.81.81 0 0 1-.23-.31L17 15h-5l-1 2.54a.77.77 0 0 1-.22.3.59.59 0 0 1-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a11.62 11.62 0 0 1-.39-1.24q-.09.37-.19.69l-.19.56-1.58 4.19zm-6.3-1.58a13.43 13.43 0 0 1-2.91-1.41 11.46 11.46 0 0 0 2.81-5.37H12V4H7.31a4 4 0 0 0-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 0 0 5 10.7a17.19 17.19 0 0 1-5 2.1q.56.82.87 1.38a23.28 23.28 0 0 0 5.22-2.51 15.64 15.64 0 0 0 3.56 1.77zM3.63 5.33h4.91a8.11 8.11 0 0 1-2.45 4.45 9.11 9.11 0 0 1-2.46-4.45z", uh = "M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z", z0 = "M13 7.61V3h1V1H6v2h1v4.61l-5.86 9.88A1 1 0 002 19h16a1 1 0 00.86-1.51zm-4.2.88a1 1 0 00.2-.6V3h2v4.89a1 1 0 00.14.51l2.14 3.6H6.72z", O0 = "M10.5 5h6.505C18.107 5 19 5.896 19 6.997V14h-7v2h5.005c1.102 0 1.995.888 1.995 2v2H1v-2c0-1.105.893-2 1.995-2H8v-2H1V6.997C1 5.894 1.893 5 2.995 5H9.5V2.915a1.5 1.5 0 111 0zm-4 6a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm7 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z", H0 = "M10 14.5a4.5 4.5 0 114.5-4.5 4.5 4.5 0 01-4.5 4.5zM10 3C3 3 0 10 0 10s3 7 10 7 10-7 10-7-3-7-10-7z M 10, 10  m -2.5, 0 a 2.5, 2.5 0 1,0 5,0 a 2.5,2.5 0 1,0 -5,0", j0 = "m 19,10 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 M 5,10 A 2,2 0 0 1 3,12 2,2 0 0 1 1,10 2,2 0 0 1 3,8 2,2 0 0 1 5,10 m 7,0 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2", q0 = "M1 8.5L8 14v-4h1c4 0 7 2 7 6v1h3v-1c0-6-5-9-10-9H8V3z", Mc = {
   path: "M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z",
   flippable: !1
-}, O0 = {
+}, G0 = {
   path: "M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z"
-}, j0 = {
+}, X0 = {
   path: "M2.5 15.25l7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z"
-}, gh = "M5 1a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2zm0 3h5v1H5zm0 2h5v1H5zm0 2h5v1H5zm10 7H5v-1h10zm0-2H5v-1h10zm0-2H5v-1h10zm0-2h-4V4h4z", H0 = "m 15.17,5 h -2.91 a 4.88,4.88 0 0 1 1.55,2 H 15 a 3,3 0 1 1 0,6 H 12 A 3,3 0 0 1 9.18,9 H 7.08 A 4.82,4.82 0 0 0 7,9.83 v 0.34 A 4.83,4.83 0 0 0 11.83,15 h 3.34 A 4.83,4.83 0 0 0 20,10.17 V 9.83 A 4.83,4.83 0 0 0 15.17,5 Z M 4.83,15 H 7.74 A 4.88,4.88 0 0 1 6.19,13 H 5 A 3,3 0 1 1 5,7 h 3 a 3,3 0 0 1 2.82,4 h 2.1 A 4.82,4.82 0 0 0 13,10.17 V 9.83 A 4.83,4.83 0 0 0 8.17,5 H 4.83 A 4.83,4.83 0 0 0 0,9.83 v 0.34 A 4.83,4.83 0 0 0 4.83,15 Z";
-const Cr = window.Vue.computed, q0 = window.Vue.watch, G0 = window.Vue.ref, X0 = window.Vue.nextTick, W0 = {
+}, dh = "M5 1a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2zm0 3h5v1H5zm0 2h5v1H5zm0 2h5v1H5zm10 7H5v-1h10zm0-2H5v-1h10zm0-2H5v-1h10zm0-2h-4V4h4z", W0 = "m 15.17,5 h -2.91 a 4.88,4.88 0 0 1 1.55,2 H 15 a 3,3 0 1 1 0,6 H 12 A 3,3 0 0 1 9.18,9 H 7.08 A 4.82,4.82 0 0 0 7,9.83 v 0.34 A 4.83,4.83 0 0 0 11.83,15 h 3.34 A 4.83,4.83 0 0 0 20,10.17 V 9.83 A 4.83,4.83 0 0 0 15.17,5 Z M 4.83,15 H 7.74 A 4.88,4.88 0 0 1 6.19,13 H 5 A 3,3 0 1 1 5,7 h 3 a 3,3 0 0 1 2.82,4 h 2.1 A 4.82,4.82 0 0 0 13,10.17 V 9.83 A 4.83,4.83 0 0 0 8.17,5 H 4.83 A 4.83,4.83 0 0 0 0,9.83 v 0.34 A 4.83,4.83 0 0 0 4.83,15 Z";
+const _r = window.Vue.computed, K0 = window.Vue.watch, Y0 = window.Vue.ref, Q0 = window.Vue.nextTick, J0 = {
   name: "MwDialog",
   components: {
-    MwButton: Ge,
-    MwRow: N,
+    MwButton: Xe,
+    MwRow: M,
     MwCol: k,
-    MwDivider: Ki
+    MwDivider: Gi
   },
   props: {
     /**
@@ -578,25 +578,25 @@ const Cr = window.Vue.computed, q0 = window.Vue.watch, G0 = window.Vue.ref, X0 =
   },
   emits: ["input", "close"],
   setup(e, t) {
-    const n = G0(null), s = Cr(() => ({
+    const n = Y0(null), s = _r(() => ({
       "mw-ui-dialog--fullscreen": e.fullscreen,
       "mw-ui-dialog--dialog": !e.fullscreen
-    })), o = Cr(
+    })), o = _r(
       () => `mw-ui-dialog__overlay--${e.overlayMode}`
     ), a = () => {
       document.body.classList.remove("mw-ui-dialog--open"), t.emit("input", !1), t.emit("close");
     }, r = () => {
       document.body.classList.add("mw-ui-dialog--open");
     };
-    q0(
+    K0(
       () => e.value,
       (u) => {
-        u ? (r(), X0(() => {
+        u ? (r(), Q0(() => {
           n.value.focus();
         })) : a();
       }
     );
-    const l = Cr(() => ({
+    const l = _r(() => ({
       "--dialog-min-height": e.minHeight
     }));
     return {
@@ -604,46 +604,46 @@ const Cr = window.Vue.computed, q0 = window.Vue.watch, G0 = window.Vue.ref, X0 =
       classes: s,
       cssVars: l,
       overlayClass: o,
-      mwIconClose: Qi,
+      mwIconClose: Wi,
       root: n
     };
   }
-}, zu = window.Vue.normalizeClass, br = window.Vue.createElementVNode, kr = window.Vue.renderSlot, Ea = window.Vue.resolveComponent, ro = window.Vue.createVNode, $r = window.Vue.withCtx, Ou = window.Vue.createCommentVNode, K0 = window.Vue.withKeys, ju = window.Vue.openBlock, Y0 = window.Vue.createElementBlock, Q0 = window.Vue.Transition, J0 = window.Vue.normalizeStyle, Z0 = window.Vue.createBlock, e1 = { class: "mw-ui-dialog__shell items-stretch" }, t1 = { class: "mw-ui-dialog__body" };
-function n1(e, t, n, s, o, a) {
-  const r = Ea("mw-col"), l = Ea("mw-button"), u = Ea("mw-row"), d = Ea("mw-divider");
-  return ju(), Z0(Q0, {
+}, Ou = window.Vue.normalizeClass, Sr = window.Vue.createElementVNode, yr = window.Vue.renderSlot, Va = window.Vue.resolveComponent, io = window.Vue.createVNode, xr = window.Vue.withCtx, Hu = window.Vue.createCommentVNode, Z0 = window.Vue.withKeys, ju = window.Vue.openBlock, ev = window.Vue.createElementBlock, tv = window.Vue.Transition, nv = window.Vue.normalizeStyle, sv = window.Vue.createBlock, ov = { class: "mw-ui-dialog__shell items-stretch" }, av = { class: "mw-ui-dialog__body" };
+function iv(e, t, n, s, o, a) {
+  const r = Va("mw-col"), l = Va("mw-button"), u = Va("mw-row"), d = Va("mw-divider");
+  return ju(), sv(tv, {
     name: "mw-ui-animation-fade",
-    style: J0(s.cssVars)
+    style: nv(s.cssVars)
   }, {
-    default: $r(() => [
-      n.value ? (ju(), Y0("div", {
+    default: xr(() => [
+      n.value ? (ju(), ev("div", {
         key: 0,
         ref: "root",
-        class: zu(["mw-ui-dialog", s.classes]),
+        class: Ou(["mw-ui-dialog", s.classes]),
         tabindex: "0",
         role: "dialog",
         "aria-modal": "true",
-        onKeyup: t[1] || (t[1] = K0((i) => n.closeOnEscapeKey && s.close(), ["esc"]))
+        onKeyup: t[1] || (t[1] = Z0((i) => n.closeOnEscapeKey && s.close(), ["esc"]))
       }, [
-        br("div", {
-          class: zu(["mw-ui-dialog__overlay", s.overlayClass]),
+        Sr("div", {
+          class: Ou(["mw-ui-dialog__overlay", s.overlayClass]),
           onClick: t[0] || (t[0] = (i) => !n.persistent && s.close())
         }, null, 2),
-        br("div", e1, [
-          n.header ? kr(e.$slots, "header", { key: 0 }, () => [
-            ro(u, { class: "mw-ui-dialog__header" }, {
-              default: $r(() => [
-                ro(r, {
+        Sr("div", ov, [
+          n.header ? yr(e.$slots, "header", { key: 0 }, () => [
+            io(u, { class: "mw-ui-dialog__header" }, {
+              default: xr(() => [
+                io(r, {
                   grow: "",
                   class: "items-center mw-ui-dialog__header-title justify-start",
                   innerHTML: n.title
                 }, null, 8, ["innerHTML"]),
-                ro(r, {
+                io(r, {
                   shrink: "",
                   class: "justify-center"
                 }, {
-                  default: $r(() => [
-                    ro(l, {
+                  default: xr(() => [
+                    io(l, {
                       type: "icon",
                       icon: s.mwIconClose,
                       onClick: s.close
@@ -654,23 +654,23 @@ function n1(e, t, n, s, o, a) {
               ]),
               _: 1
             }),
-            ro(d)
-          ]) : Ou("", !0),
-          br("div", t1, [
-            kr(e.$slots, "default")
+            io(d)
+          ]) : Hu("", !0),
+          Sr("div", av, [
+            yr(e.$slots, "default")
           ]),
-          kr(e.$slots, "footer")
+          yr(e.$slots, "footer")
         ])
-      ], 34)) : Ou("", !0)
+      ], 34)) : Hu("", !0)
     ]),
     _: 3
   }, 8, ["style"]);
 }
-const Ct = /* @__PURE__ */ de(W0, [["render", n1]]);
-const s1 = {
+const Ct = /* @__PURE__ */ ge(J0, [["render", iv]]);
+const rv = {
   name: "MwInput",
   components: {
-    MwIcon: Je
+    MwIcon: et
   },
   props: {
     disabled: Boolean,
@@ -725,7 +725,7 @@ const s1 = {
       };
     },
     customAttrs: (e) => {
-      const t = pe({}, e.$attrs);
+      const t = ue({}, e.$attrs);
       return delete t.class, t;
     }
   },
@@ -744,23 +744,23 @@ const s1 = {
       this.focused = !0, this.$emit("focus", e);
     }
   }
-}, Hu = window.Vue.renderSlot, o1 = window.Vue.resolveComponent, Va = window.Vue.openBlock, Er = window.Vue.createBlock, qu = window.Vue.createCommentVNode, a1 = window.Vue.resolveDynamicComponent, i1 = window.Vue.toDisplayString, r1 = window.Vue.mergeProps, l1 = window.Vue.withModifiers, c1 = window.Vue.createElementVNode, u1 = window.Vue.normalizeClass, d1 = window.Vue.createElementBlock, g1 = { class: "mw-ui-input__content" };
-function p1(e, t, n, s, o, a) {
-  const r = o1("mw-icon");
-  return Va(), d1("div", {
-    class: u1(a.classes),
+}, qu = window.Vue.renderSlot, lv = window.Vue.resolveComponent, Ea = window.Vue.openBlock, Cr = window.Vue.createBlock, Gu = window.Vue.createCommentVNode, cv = window.Vue.resolveDynamicComponent, uv = window.Vue.toDisplayString, dv = window.Vue.mergeProps, gv = window.Vue.withModifiers, pv = window.Vue.createElementVNode, mv = window.Vue.normalizeClass, hv = window.Vue.createElementBlock, fv = { class: "mw-ui-input__content" };
+function wv(e, t, n, s, o, a) {
+  const r = lv("mw-icon");
+  return Ea(), hv("div", {
+    class: mv(a.classes),
     onClick: t[2] || (t[2] = (l) => a.focus())
   }, [
-    c1("div", g1, [
-      Hu(e.$slots, "icon", {}, () => [
-        n.icon ? (Va(), Er(r, {
+    pv("div", fv, [
+      qu(e.$slots, "icon", {}, () => [
+        n.icon ? (Ea(), Cr(r, {
           key: 0,
           icon: n.icon,
           size: n.large ? 28 : n.iconSize,
           class: "mw-ui-input__icon"
-        }, null, 8, ["icon", "size"])) : qu("", !0)
+        }, null, 8, ["icon", "size"])) : Gu("", !0)
       ]),
-      (Va(), Er(a1(n.type === "textarea" ? n.type : "input"), r1({
+      (Ea(), Cr(cv(n.type === "textarea" ? n.type : "input"), dv({
         ref: "input",
         class: "mw-ui-input__input",
         disabled: n.disabled || null,
@@ -773,21 +773,21 @@ function p1(e, t, n, s, o, a) {
         onFocus: a.onFocus,
         onBlur: a.onBlur,
         onClick: a.onClick,
-        textContent: i1(n.value)
+        textContent: uv(n.value)
       }), null, 48, ["disabled", "aria-disabled", ".value", "placeholder", "type", "onFocus", "onBlur", "onClick", "textContent"])),
-      Hu(e.$slots, "indicator", {}, () => [
-        n.indicator ? (Va(), Er(r, {
+      qu(e.$slots, "indicator", {}, () => [
+        n.indicator ? (Ea(), Cr(r, {
           key: 0,
           icon: n.indicator,
           size: n.large ? 28 : n.indicatorSize || n.iconSize,
           class: "mw-ui-input__indicator",
-          onClick: t[1] || (t[1] = l1((l) => e.$emit("indicator-clicked"), ["stop"]))
-        }, null, 8, ["icon", "size"])) : qu("", !0)
+          onClick: t[1] || (t[1] = gv((l) => e.$emit("indicator-clicked"), ["stop"]))
+        }, null, 8, ["icon", "size"])) : Gu("", !0)
       ])
     ])
   ], 2);
 }
-const Ic = /* @__PURE__ */ de(s1, [["render", p1]]);
+const Uc = /* @__PURE__ */ ge(rv, [["render", wv]]);
 window.Vue.renderSlot;
 window.Vue.resolveComponent;
 window.Vue.withModifiers;
@@ -808,13 +808,13 @@ window.Vue.Fragment;
 window.Vue.createTextVNode;
 window.Vue.normalizeClass;
 window.Vue.vShow;
-const m1 = {}, h1 = window.Vue.createElementVNode, f1 = window.Vue.openBlock, w1 = window.Vue.createElementBlock, v1 = { class: "mw-ui-spinner" }, _1 = /* @__PURE__ */ h1("div", { class: "mw-ui-spinner__bounce" }, null, -1), S1 = [
-  _1
+const vv = {}, _v = window.Vue.createElementVNode, Sv = window.Vue.openBlock, yv = window.Vue.createElementBlock, xv = { class: "mw-ui-spinner" }, Cv = /* @__PURE__ */ _v("div", { class: "mw-ui-spinner__bounce" }, null, -1), bv = [
+  Cv
 ];
-function y1(e, t) {
-  return f1(), w1("div", v1, S1);
+function kv(e, t) {
+  return Sv(), yv("div", xv, bv);
 }
-const ct = /* @__PURE__ */ de(m1, [["render", y1]]), St = {
+const dt = /* @__PURE__ */ ge(vv, [["render", kv]]), St = {
   gray200: "#eaecf0",
   gray300: "#c8ccd1",
   gray500: "#72777d",
@@ -827,9 +827,9 @@ const ct = /* @__PURE__ */ de(m1, [["render", y1]]), St = {
   yellow500: "#fc3",
   yellow700: "#ac6600"
 };
-const x1 = window.Vue.computed, C1 = {
+const $v = window.Vue.computed, Vv = {
   name: "MwUiThumbnail",
-  components: { MwUiIcon: Je },
+  components: { MwUiIcon: et },
   props: {
     thumbnail: {
       type: Object,
@@ -841,7 +841,7 @@ const x1 = window.Vue.computed, C1 = {
     },
     placeholderIcon: {
       type: String,
-      default: gh
+      default: dh
     },
     placeholderIconSize: {
       type: Number,
@@ -858,7 +858,7 @@ const x1 = window.Vue.computed, C1 = {
   },
   emits: ["click"],
   setup(e, { emit: t }) {
-    const n = x1(() => {
+    const n = $v(() => {
       var a;
       const o = {
         height: `${e.thumbnailSize}px`,
@@ -871,24 +871,24 @@ const x1 = window.Vue.computed, C1 = {
       style: n
     };
   }
-}, Gu = window.Vue.normalizeStyle, Xu = window.Vue.openBlock, b1 = window.Vue.createElementBlock;
+}, Xu = window.Vue.normalizeStyle, Wu = window.Vue.openBlock, Ev = window.Vue.createElementBlock;
 window.Vue.createCommentVNode;
-const k1 = window.Vue.resolveComponent, $1 = window.Vue.createBlock;
-function E1(e, t, n, s, o, a) {
-  const r = k1("mw-ui-icon");
-  return n.thumbnail ? (Xu(), b1("div", {
+const Lv = window.Vue.resolveComponent, Tv = window.Vue.createBlock;
+function Av(e, t, n, s, o, a) {
+  const r = Lv("mw-ui-icon");
+  return n.thumbnail ? (Wu(), Ev("div", {
     key: 0,
     class: "mw-ui-thumbnail",
-    style: Gu(s.style)
-  }, null, 4)) : (Xu(), $1(r, {
+    style: Xu(s.style)
+  }, null, 4)) : (Wu(), Tv(r, {
     key: 1,
     class: "mw-ui-thumbnail mw-ui-thumbnail--missing justify-center",
-    style: Gu(s.style),
+    style: Xu(s.style),
     icon: n.placeholderIcon,
     size: n.placeholderIconSize
   }, null, 8, ["style", "icon", "size"]));
 }
-const Qc = /* @__PURE__ */ de(C1, [["render", E1]]);
+const Qc = /* @__PURE__ */ ge(Vv, [["render", Av]]);
 window.Vue.vModelRadio;
 window.Vue.createElementVNode;
 window.Vue.withDirectives;
@@ -899,7 +899,7 @@ window.Vue.withCtx;
 window.Vue.openBlock;
 window.Vue.createBlock;
 window.Vue.h;
-const V1 = {
+const Dv = {
   name: "MwProgressBar",
   props: {
     value: {
@@ -957,23 +957,23 @@ const V1 = {
       "mw-progress-bar__bar--indeterminate": e.indeterminate
     })
   }
-}, Wu = window.Vue.normalizeClass, Ku = window.Vue.normalizeStyle, L1 = window.Vue.createElementVNode, T1 = window.Vue.openBlock, A1 = window.Vue.createElementBlock, D1 = ["aria-valuenow", "aria-valuemin", "aria-valuemax"];
-function P1(e, t, n, s, o, a) {
-  return T1(), A1("div", {
-    class: Wu(["mw-progress-bar", a.containerClass]),
+}, Ku = window.Vue.normalizeClass, Yu = window.Vue.normalizeStyle, Pv = window.Vue.createElementVNode, Bv = window.Vue.openBlock, Fv = window.Vue.createElementBlock, Nv = ["aria-valuenow", "aria-valuemin", "aria-valuemax"];
+function Mv(e, t, n, s, o, a) {
+  return Bv(), Fv("div", {
+    class: Ku(["mw-progress-bar", a.containerClass]),
     role: "progressbar",
     "aria-valuenow": n.value,
     "aria-valuemin": n.minValue,
     "aria-valuemax": n.maxValue,
-    style: Ku(a.containerStyles)
+    style: Yu(a.containerStyles)
   }, [
-    L1("div", {
-      class: Wu(["mw-progress-bar__bar", a.barClass]),
-      style: Ku(a.barStyles)
+    Pv("div", {
+      class: Ku(["mw-progress-bar__bar", a.barClass]),
+      style: Yu(a.barStyles)
     }, null, 6)
-  ], 14, D1);
+  ], 14, Nv);
 }
-const ph = /* @__PURE__ */ de(V1, [["render", P1]]), B1 = (e, t, n, s) => (o) => {
+const gh = /* @__PURE__ */ ge(Dv, [["render", Mv]]), Uv = (e, t, n, s) => (o) => {
   const a = o.clientY, r = parseInt(
     document.defaultView.getComputedStyle(n.value).height,
     10
@@ -996,15 +996,15 @@ const ph = /* @__PURE__ */ de(V1, [["render", P1]]), B1 = (e, t, n, s) => (o) =>
     );
   };
   document.documentElement.addEventListener("pointermove", l, !1), document.documentElement.addEventListener("pointerup", u, !1);
-}, F1 = (e, t, n, s) => ({ initiateDrag: B1(
+}, Iv = (e, t, n, s) => ({ initiateDrag: Uv(
   e,
   t,
   n,
   s
-) }), N1 = window.Vue.ref, Yu = window.Vue.computed, M1 = (e, t, n, s) => {
-  const o = N1(0), a = Yu(
+) }), Rv = window.Vue.ref, Qu = window.Vue.computed, zv = (e, t, n, s) => {
+  const o = Rv(0), a = Qu(
     () => t.value > e.value
-  ), r = Yu(
+  ), r = Qu(
     () => t.value <= e.value * (o.value + 1)
   ), l = (d) => {
     o.value = d, n.value.scroll(0, e.value * o.value);
@@ -1023,10 +1023,10 @@ const ph = /* @__PURE__ */ de(V1, [["render", P1]]), B1 = (e, t, n, s) => (o) =>
     scrollIndex: o
   };
 };
-const La = window.Vue.ref, U1 = window.Vue.onMounted, Qu = window.Vue.computed, I1 = window.Vue.nextTick, R1 = {
+const La = window.Vue.ref, Ov = window.Vue.onMounted, Ju = window.Vue.computed, Hv = window.Vue.nextTick, jv = {
   name: "MwExpandableContent",
   components: {
-    MwButton: Ge
+    MwButton: Xe
   },
   props: {
     /**
@@ -1046,9 +1046,9 @@ const La = window.Vue.ref, U1 = window.Vue.onMounted, Qu = window.Vue.computed, 
     }
   },
   setup(e) {
-    const t = La(!0), n = La(null), s = Qu(
+    const t = La(!0), n = La(null), s = Ju(
       () => Math.min(e.minHeight, o.value)
-    ), o = La(1), { initiateDrag: a } = F1(
+    ), o = La(1), { initiateDrag: a } = Iv(
       o,
       s,
       n,
@@ -1059,7 +1059,7 @@ const La = window.Vue.ref, U1 = window.Vue.onMounted, Qu = window.Vue.computed, 
       scrollIndex: u,
       scrollToStepByIndex: d,
       handleArrowUpClick: i
-    } = M1(s, o, n, t), c = () => d(u.value + 1), g = La(null), p = Qu(() => ({
+    } = zv(s, o, n, t), c = () => d(u.value + 1), g = La(null), p = Ju(() => ({
       "--collapsed-height": s.value + "px"
     })), m = () => {
       if (!n.value)
@@ -1070,9 +1070,9 @@ const La = window.Vue.ref, U1 = window.Vue.onMounted, Qu = window.Vue.computed, 
         w = Math.max(w, s.value), w === s.value && (t.value = !0), n.value.style.height = w + "px";
       }
     };
-    return U1(() => C(this, null, function* () {
+    return Ov(() => x(this, null, function* () {
       var f;
-      yield I1(), o.value = n.value.scrollHeight, (f = g.value) == null || f.addEventListener(
+      yield Hv(), o.value = n.value.scrollHeight, (f = g.value) == null || f.addEventListener(
         "pointerdown",
         a,
         !1
@@ -1084,8 +1084,8 @@ const La = window.Vue.ref, U1 = window.Vue.onMounted, Qu = window.Vue.computed, 
       handleArrowUpClick: i,
       isCollapsed: t,
       isScrolledToEnd: r,
-      mwIconCollapse: j0,
-      mwIconExpand: A0,
+      mwIconCollapse: X0,
+      mwIconExpand: F0,
       onDragButtonClicked: () => {
         t.value || (n.value.style.removeProperty("height"), d(0)), t.value = !t.value;
       },
@@ -1094,47 +1094,47 @@ const La = window.Vue.ref, U1 = window.Vue.onMounted, Qu = window.Vue.computed, 
       scrollToNextStep: c
     };
   }
-}, z1 = window.Vue.renderSlot, O1 = window.Vue.normalizeClass, Ta = window.Vue.createElementVNode, j1 = window.Vue.resolveComponent, H1 = window.Vue.createVNode, Vr = window.Vue.openBlock, q1 = window.Vue.createBlock, Ju = window.Vue.createCommentVNode, Zu = window.Vue.createElementBlock, G1 = window.Vue.normalizeStyle, X1 = { class: "mw-ui-expandable-content__container" }, W1 = {
+}, qv = window.Vue.renderSlot, Gv = window.Vue.normalizeClass, Ta = window.Vue.createElementVNode, Xv = window.Vue.resolveComponent, Wv = window.Vue.createVNode, br = window.Vue.openBlock, Kv = window.Vue.createBlock, Zu = window.Vue.createCommentVNode, ed = window.Vue.createElementBlock, Yv = window.Vue.normalizeStyle, Qv = { class: "mw-ui-expandable-content__container" }, Jv = {
   key: 0,
   class: "mw-ui-expandable-content__scroll"
-}, K1 = {
+}, Zv = {
   ref: "dragIndicatorRef",
   class: "mw-ui-expandable-content__drag-button"
 };
-function Y1(e, t, n, s, o, a) {
-  const r = j1("mw-button");
-  return Vr(), Zu("div", {
+function e1(e, t, n, s, o, a) {
+  const r = Xv("mw-button");
+  return br(), ed("div", {
     class: "mw-ui-expandable-content",
-    style: G1(s.cssVars)
+    style: Yv(s.cssVars)
   }, [
-    Ta("div", X1, [
+    Ta("div", Qv, [
       Ta("div", {
         ref: "contentRef",
-        class: O1(["mw-ui-expandable-content__body", {
+        class: Gv(["mw-ui-expandable-content__body", {
           "mw-ui-expandable-content__body--collapsed": s.isCollapsed
         }])
       }, [
-        z1(e.$slots, "default")
+        qv(e.$slots, "default")
       ], 2),
-      n.scroll && s.scrollable ? (Vr(), Zu("div", W1, [
-        H1(r, {
+      n.scroll && s.scrollable ? (br(), ed("div", Jv, [
+        Wv(r, {
           type: "icon",
           icon: s.mwIconCollapse,
           disabled: s.isCollapsed && s.scrollIndex === 0,
           class: "mw-ui-expandable-content__scroll-control mw-ui-expandable-content__scroll-control--up",
           onClick: s.handleArrowUpClick
         }, null, 8, ["icon", "disabled", "onClick"]),
-        s.isCollapsed ? (Vr(), q1(r, {
+        s.isCollapsed ? (br(), Kv(r, {
           key: 0,
           type: "icon",
           icon: s.mwIconExpand,
           class: "mw-ui-expandable-content__scroll-control mw-ui-expandable-content__scroll-control--down",
           disabled: s.isScrolledToEnd,
           onClick: s.scrollToNextStep
-        }, null, 8, ["icon", "disabled", "onClick"])) : Ju("", !0)
-      ])) : Ju("", !0)
+        }, null, 8, ["icon", "disabled", "onClick"])) : Zu("", !0)
+      ])) : Zu("", !0)
     ]),
-    Ta("div", K1, [
+    Ta("div", Zv, [
       Ta("span", {
         class: "mw-ui-expandable-content__drag-button__icon",
         onClick: t[0] || (t[0] = (...l) => s.onDragButtonClicked && s.onDragButtonClicked(...l))
@@ -1142,8 +1142,8 @@ function Y1(e, t, n, s, o, a) {
     ], 512)
   ], 4);
 }
-const Q1 = /* @__PURE__ */ de(R1, [["render", Y1]]);
-const Aa = window.Vue.computed, J1 = {
+const t1 = /* @__PURE__ */ ge(jv, [["render", e1]]);
+const Aa = window.Vue.computed, n1 = {
   name: "MwCircleProgressBar",
   props: {
     size: {
@@ -1183,17 +1183,17 @@ const Aa = window.Vue.computed, J1 = {
       strokeDashOffset: s
     };
   }
-}, ed = window.Vue.createElementVNode, td = window.Vue.normalizeStyle, Z1 = window.Vue.openBlock, ev = window.Vue.createElementBlock, tv = ["width", "height", "viewport"], nv = ["r", "cx", "cy", "stroke-dasharray"], sv = ["r", "cx", "cy", "stroke-dasharray"];
-function ov(e, t, n, s, o, a) {
-  return Z1(), ev("svg", {
+}, td = window.Vue.createElementVNode, nd = window.Vue.normalizeStyle, s1 = window.Vue.openBlock, o1 = window.Vue.createElementBlock, a1 = ["width", "height", "viewport"], i1 = ["r", "cx", "cy", "stroke-dasharray"], r1 = ["r", "cx", "cy", "stroke-dasharray"];
+function l1(e, t, n, s, o, a) {
+  return s1(), o1("svg", {
     class: "mw-circle-progress-bar",
     width: n.size,
     height: n.size,
     xmlns: "http://www.w3.org/2000/svg",
     viewport: `0 0 ${n.size} ${n.size}`,
-    style: td(s.cssVars)
+    style: nd(s.cssVars)
   }, [
-    ed("circle", {
+    td("circle", {
       class: "mw-circle-progress-bar__circle mw-circle-progress-bar__circle--inactive",
       r: s.radius,
       cx: n.size / 2,
@@ -1201,8 +1201,8 @@ function ov(e, t, n, s, o, a) {
       fill: "transparent",
       "stroke-dasharray": s.dashArray,
       "stroke-dashoffset": "0"
-    }, null, 8, nv),
-    ed("circle", {
+    }, null, 8, i1),
+    td("circle", {
       class: "mw-circle-progress-bar__circle mw-circle-progress-bar__circle--active",
       r: s.radius,
       cx: n.size / 2,
@@ -1210,11 +1210,11 @@ function ov(e, t, n, s, o, a) {
       fill: "transparent",
       "stroke-dasharray": s.dashArray,
       "stroke-dashoffset": "0",
-      style: td({ strokeDashoffset: `${s.strokeDashOffset}px` })
-    }, null, 12, sv)
-  ], 12, tv);
+      style: nd({ strokeDashoffset: `${s.strokeDashOffset}px` })
+    }, null, 12, r1)
+  ], 12, a1);
 }
-const av = /* @__PURE__ */ de(J1, [["render", ov]]), iv = window.Vue.ref, vn = {
+const c1 = /* @__PURE__ */ ge(n1, [["render", l1]]), u1 = window.Vue.ref, _n = {
   mobile: 320,
   // min-width-breakpoint-mobile
   tablet: 640,
@@ -1226,14 +1226,14 @@ const av = /* @__PURE__ */ de(J1, [["render", ov]]), iv = window.Vue.ref, vn = {
 }, kn = {
   print: "only print",
   screen: "only screen",
-  mobile: `only screen and (max-width: ${vn.tablet - 1}px)`,
-  tablet: `only screen and (min-width: ${vn.tablet}px) and (max-width: ${vn.desktop - 1}px)`,
-  "tablet-and-down": `only screen and (max-width: ${vn.desktop - 1}px)`,
-  "tablet-and-up": `only screen and (min-width: ${vn.tablet}px)`,
-  "desktop-and-down": `only screen and (max-width: ${vn["desktop-wide"] - 1}px)`,
-  "desktop-and-up": `only screen and (min-width: ${vn.desktop}px)`,
-  "desktop-wide": `only screen and (min-width: ${vn["desktop-wide"]}px)`
-}, Lr = {
+  mobile: `only screen and (max-width: ${_n.tablet - 1}px)`,
+  tablet: `only screen and (min-width: ${_n.tablet}px) and (max-width: ${_n.desktop - 1}px)`,
+  "tablet-and-down": `only screen and (max-width: ${_n.desktop - 1}px)`,
+  "tablet-and-up": `only screen and (min-width: ${_n.tablet}px)`,
+  "desktop-and-down": `only screen and (max-width: ${_n["desktop-wide"] - 1}px)`,
+  "desktop-and-up": `only screen and (min-width: ${_n.desktop}px)`,
+  "desktop-wide": `only screen and (min-width: ${_n["desktop-wide"]}px)`
+}, kr = {
   mobile: () => matchMedia(kn.mobile).matches,
   tablet: () => matchMedia(kn.tablet).matches,
   desktop: () => matchMedia(kn.desktop).matches,
@@ -1242,83 +1242,83 @@ const av = /* @__PURE__ */ de(J1, [["render", ov]]), iv = window.Vue.ref, vn = {
   tabletAndDown: () => matchMedia(kn["tablet-and-down"]).matches,
   desktopAndUp: () => matchMedia(kn["desktop-and-up"]).matches,
   desktopAndDown: () => matchMedia(kn["desktop-and-down"]).matches
-}, rv = (e) => {
-  const t = Object.values(vn);
+}, d1 = (e) => {
+  const t = Object.values(_n);
   for (let n = 0; n < t.length; n++)
     if (e < t[n])
       return t[n];
   return null;
-}, lv = {
+}, g1 = {
   install: (e) => {
-    const t = iv({
+    const t = u1({
       nextBreakpoint: null
     }), n = () => {
       const s = window.innerWidth;
-      for (let o in Lr)
-        Lr.hasOwnProperty(o) && (t.value[o] = Lr[o]());
-      t.value.nextBreakpoint = rv(s);
+      for (let o in kr)
+        kr.hasOwnProperty(o) && (t.value[o] = kr[o]());
+      t.value.nextBreakpoint = d1(s);
     };
-    n(), window.addEventListener("resize", n), e.config.globalProperties.$mwui = tt(pe({}, e.config.globalProperties.$mwui || {}), {
+    n(), window.addEventListener("resize", n), e.config.globalProperties.$mwui = Ye(ue({}, e.config.globalProperties.$mwui || {}), {
       breakpoint: t.value
     }), e.provide("breakpoints", t);
   }
-}, cv = {
+}, p1 = {
   install: (e) => {
-    e.config.globalProperties.$mwui = tt(pe({}, e.config.globalProperties.$mwui || {}), {
+    e.config.globalProperties.$mwui = Ye(ue({}, e.config.globalProperties.$mwui || {}), {
       colors: St
     }), e.provide("colors", St);
   }
 };
 class Xs extends Error {
 }
-const uv = () => new mw.Api().get({ assert: "user" }).catch((e) => {
+const m1 = () => new mw.Api().get({ assert: "user" }).catch((e) => {
   if (e === "assertuserfailed")
     throw new Xs();
-}), mh = { assertUser: uv };
-const dv = window.Vue.resolveDirective, lo = window.Vue.createElementVNode, nd = window.Vue.withDirectives, gv = window.Vue.toDisplayString, pv = window.Vue.unref, sd = window.Vue.withCtx, mv = window.Vue.openBlock, hv = window.Vue.createBlock, fv = window.Vue.createCommentVNode, wv = { class: "pa-4 sx-login-dialog__header" }, vv = { class: "sx-login-dialog__body px-6 pb-4" }, _v = { class: "sx-login-dialog__footer px-4 py-2 flex justify-center" }, Sv = ["href"], yv = window.Vue.computed, xv = window.Vue.ref, Cv = window.Vuex.useStore, bv = {
+}), ph = { assertUser: m1 };
+const h1 = window.Vue.resolveDirective, ro = window.Vue.createElementVNode, sd = window.Vue.withDirectives, f1 = window.Vue.toDisplayString, w1 = window.Vue.unref, od = window.Vue.withCtx, v1 = window.Vue.openBlock, _1 = window.Vue.createBlock, S1 = window.Vue.createCommentVNode, y1 = { class: "pa-4 sx-login-dialog__header" }, x1 = { class: "sx-login-dialog__body px-6 pb-4" }, C1 = { class: "sx-login-dialog__footer px-4 py-2 flex justify-center" }, b1 = ["href"], k1 = window.Vue.computed, $1 = window.Vue.ref, V1 = window.Vuex.useStore, E1 = {
   __name: "SXLoginDialog",
   setup(e) {
-    const t = Cv(), n = yv(() => t.state.application.isLoginDialogOn), s = () => t.commit("application/setIsLoginDialogOn", !1), o = xv(mw.util.getUrl("Special:UserLogin"));
+    const t = V1(), n = k1(() => t.state.application.isLoginDialogOn), s = () => t.commit("application/setIsLoginDialogOn", !1), o = $1(mw.util.getUrl("Special:UserLogin"));
     return (a, r) => {
-      const l = dv("i18n");
-      return n.value ? (mv(), hv(pv(Ct), {
+      const l = h1("i18n");
+      return n.value ? (v1(), _1(w1(Ct), {
         key: 0,
         "close-on-escape-key": !1,
         persistent: "",
         class: "sx-login-dialog",
         onClose: s
       }, {
-        header: sd(() => [
-          lo("div", wv, [
-            nd(lo("h4", null, null, 512), [
+        header: od(() => [
+          ro("div", y1, [
+            sd(ro("h4", null, null, 512), [
               [l, void 0, "cx-sx-login-dialog-title"]
             ])
           ])
         ]),
-        default: sd(() => [
-          nd(lo("div", vv, null, 512), [
+        default: od(() => [
+          sd(ro("div", x1, null, 512), [
             [l, void 0, "cx-sx-login-dialog-body"]
           ]),
-          lo("div", _v, [
-            lo("a", {
+          ro("div", C1, [
+            ro("a", {
               class: "py-1",
               href: o.value,
               target: "_blank"
-            }, gv(a.$i18n("cx-sx-login-dialog-button-label")), 9, Sv)
+            }, f1(a.$i18n("cx-sx-login-dialog-button-label")), 9, b1)
           ])
         ]),
         _: 1
-      })) : fv("", !0);
+      })) : S1("", !0);
     };
   }
-}, K = new mw.cx.SiteMapper(), kv = mw.util.getUrl, $v = () => {
+}, K = new mw.cx.SiteMapper(), L1 = mw.util.getUrl, T1 = () => {
   let e = mw.cookie.get("GeoIP", "");
   const t = e && e.match(/\d+\.?\d*:\d+\.?\d*/g), n = t && t[0].replace(":", "|");
   if (n)
     return n;
   const s = JSON.parse(mw.cookie.get("ULSGeo"));
   return s && s.latitude + "|" + s.longitude;
-}, Ws = !mw.config.get("wgMFMode");
+}, qn = !mw.config.get("wgMFMode");
 class Jc {
   /**
    * @param {number} translationId
@@ -1345,7 +1345,7 @@ class Jc {
     this.translationId = t, this.sourceTitle = n, this.sourceLanguage = s, this.targetLanguage = o, this.startTimestamp = a, this.lastUpdatedTimestamp = r, this.pageRevision = l, this.status = u, this.targetTitle = d;
   }
 }
-const Da = "original", Pa = "empty", Ev = {
+const Da = "original", Pa = "empty", A1 = {
   Elia: "Elia.eus",
   Google: "Google Translate",
   Yandex: "Yandex.Translate"
@@ -1370,7 +1370,7 @@ class re {
    * @return {string}
    */
   static getMTProviderLabel(t) {
-    return Ev[t] || t;
+    return A1[t] || t;
   }
   /**
    * Given a language pair, this static method returns the key to be used to store the
@@ -1398,7 +1398,7 @@ class re {
     return t === Pa ? "blank" : t === Da ? "source" : t.toLowerCase();
   }
 }
-class zn {
+class Hn {
   /**
    * @param {Object} options
    * @param {string} options.id
@@ -1416,7 +1416,7 @@ class zn {
     proposedTranslations: a = {},
     selected: r = !1
   } = {}) {
-    this.id = t, this.translatedContent = s, this.mtProviderUsed = "", this.node = o, this.proposedTranslations = tt(pe({}, a), {
+    this.id = t, this.translatedContent = s, this.mtProviderUsed = "", this.node = o, this.proposedTranslations = Ye(ue({}, a), {
       [re.ORIGINAL_TEXT_PROVIDER_KEY]: n,
       [re.EMPTY_TEXT_PROVIDER_KEY]: ""
     }), this.selected = r;
@@ -1459,16 +1459,16 @@ class zn {
     this.originalContent.endsWith(" ") && !n.endsWith(" ") && (n += " "), this.proposedTranslations[t] = n;
   }
 }
-const od = (e) => {
+const ad = (e) => {
   var n;
-  const t = Gi(e);
+  const t = Hi(e);
   return ((n = t == null ? void 0 : t.target) == null ? void 0 : n.wt) || null;
-}, Gi = (e) => {
+}, Hi = (e) => {
   var n, s, o;
   const t = JSON.parse(((n = e.dataset) == null ? void 0 : n.mw) || "{}");
   return ((o = (s = t == null ? void 0 : t.parts) == null ? void 0 : s[0]) == null ? void 0 : o.template) || null;
-}, is = (e) => !!(e.attributes.about || e.attributes.typeof && e.getAttribute("typeof").match(/(^|\s)(mw:Transclusion|mw:Placeholder)\b/)), hh = (e) => {
-  const t = Gi(e);
+}, ls = (e) => !!(e.attributes.about || e.attributes.typeof && e.getAttribute("typeof").match(/(^|\s)(mw:Transclusion|mw:Placeholder)\b/)), mh = (e) => {
+  const t = Hi(e);
   if (!(t != null && t.target))
     return null;
   let n = t.target.wt;
@@ -1476,11 +1476,11 @@ const od = (e) => {
   if (!s)
     return `{{${n}}}`;
   for (const o in s) {
-    const a = Vv(s[o].wt);
+    const a = D1(s[o].wt);
     n += ` | ${o} = ${a}`;
   }
   return `{{${n}}}`;
-}, Vv = (e) => {
+}, D1 = (e) => {
   let t = e, n = "", s = !1, o = 0, a = 0;
   for (; t.length > 0; ) {
     const r = t.match(
@@ -1498,15 +1498,15 @@ const od = (e) => {
     }
   }
   return n;
-}, fh = (e) => {
+}, hh = (e) => {
   var n;
   const t = JSON.parse(((n = e.dataset) == null ? void 0 : n.cx) || "{}");
   return (t == null ? void 0 : t[0]) || null;
-}, wh = (e) => {
-  const t = fh(e);
+}, fh = (e) => {
+  const t = hh(e);
   return t == null ? void 0 : t.targetExists;
 };
-class Tr {
+class $r {
   /**
    * @param {string} baseSectionId the base section id that will be used as "cxsx_section_id" inside "cx_section_translations" for the page section that the translation unit belongs to
    * @param {string} subSectionId the id of the subsection that the translation unit belongs to
@@ -1544,7 +1544,7 @@ class Tr {
     };
   }
 }
-class lt {
+class ct {
   /**
    * @param {Object} options
    * @param {SectionSentence[]} options.sentences
@@ -1572,9 +1572,9 @@ class lt {
     let s = document.createElement("div");
     s.innerHTML = n, s.firstElementChild.getAttribute("rel") === "cx:Section" && (s = s.firstElementChild);
     const o = Array.from(s.children).find(
-      (a) => is(a)
+      (a) => ls(a)
     );
-    o && wh(o) && (this.blockTemplateAdaptationInfo[t] = fh(o));
+    o && fh(o) && (this.blockTemplateAdaptationInfo[t] = hh(o));
   }
   get originalHtml() {
     return this.node.outerHTML;
@@ -1669,7 +1669,7 @@ class lt {
    */
   get transclusionNode() {
     return Array.from(this.node.children).find(
-      (t) => is(t)
+      (t) => ls(t)
     );
   }
   /**
@@ -1680,7 +1680,7 @@ class lt {
    * @return {object}
    */
   get sourceTemplateParams() {
-    const t = Gi(this.transclusionNode);
+    const t = Hi(this.transclusionNode);
     return (t == null ? void 0 : t.params) || {};
   }
   /**
@@ -1690,7 +1690,7 @@ class lt {
    * @return {string|null}
    */
   get sourceBlockTemplateName() {
-    return this.isBlockTemplate ? od(this.transclusionNode) : null;
+    return this.isBlockTemplate ? ad(this.transclusionNode) : null;
   }
   /**
    * Given an MT provider, this method returns an object containing the
@@ -1704,7 +1704,7 @@ class lt {
     if (!this.blockTemplateProposedTranslations[t])
       return null;
     const n = document.createElement("div");
-    return n.innerHTML = this.blockTemplateProposedTranslations[t], Array.from(n.children).find((s) => is(s));
+    return n.innerHTML = this.blockTemplateProposedTranslations[t], Array.from(n.children).find((s) => ls(s));
   }
   /**
    * Given an MT provider, this method returns the template
@@ -1719,7 +1719,7 @@ class lt {
    */
   getTargetBlockTemplateNameByProvider(t) {
     const n = this.getTargetTemplateNodeByProvider(t);
-    return n && od(n) || "";
+    return n && ad(n) || "";
   }
   /**
    * Given an MT provider, this method returns an object containing the
@@ -1733,7 +1733,7 @@ class lt {
     const n = this.getTargetTemplateNodeByProvider(t);
     if (!n)
       return null;
-    const s = Gi(n);
+    const s = Hi(n);
     return (s == null ? void 0 : s.params) || null;
   }
   /**
@@ -1759,19 +1759,19 @@ class lt {
       this.mtProviderUsed
     ), n.innerHTML = this.translatedContent;
     const s = Array.from(n.children).find(
-      (a) => is(a)
+      (a) => ls(a)
     );
     this.isBlockTemplate && s && (s.dataset.cx = JSON.stringify([
       this.blockTemplateAdaptationInfo[this.mtProviderUsed]
     ]));
     const o = [
-      new Tr({
+      new $r({
         baseSectionId: t,
         subSectionId: this.id,
         content: this.originalHtml,
         origin: "source"
       }),
-      new Tr({
+      new $r({
         baseSectionId: t,
         subSectionId: this.id,
         content: n.outerHTML,
@@ -1779,7 +1779,7 @@ class lt {
       })
     ];
     return this.parallelCorporaMTContent && o.push(
-      new Tr({
+      new $r({
         baseSectionId: t,
         subSectionId: this.id,
         content: this.parallelCorporaMTContent,
@@ -1810,7 +1810,7 @@ class lt {
     if (this.isBlockTemplate) {
       n.innerHTML = this.blockTemplateProposedTranslations[t];
       const s = Array.from(n.children).find(
-        (o) => is(o)
+        (o) => ls(o)
       );
       s && (s.dataset.cx = JSON.stringify([
         this.blockTemplateAdaptationInfo[t]
@@ -1837,27 +1837,27 @@ class lt {
 const Zc = mw.config.get(
   "wgContentTranslationUnmodifiedMTThresholdForPublish",
   95
-), Lv = Zc - 10, Tv = [
+), P1 = Zc - 10, B1 = [
   { status: "failure", value: 100 - Zc },
-  { status: "warning", value: 100 - Lv },
+  { status: "warning", value: 100 - P1 },
   { status: "success", value: 100 }
-], vh = (e, t, n) => {
-  const s = ad(e).textContent, o = ad(t).textContent, a = 100 - 100 * mw.cx.calculateUnmodifiedContent(o, s, n);
+], wh = (e, t, n) => {
+  const s = id(e).textContent, o = id(t).textContent, a = 100 - 100 * mw.cx.calculateUnmodifiedContent(o, s, n);
   return Math.ceil(a);
-}, Av = (e) => Tv.find((t) => e <= t.value).status, Dv = (e, t) => vh(
+}, F1 = (e) => B1.find((t) => e <= t.value).status, N1 = (e, t) => wh(
   e.translationHtml,
   e.proposedTranslationHTMLForMTValidation,
   t
-), Pv = () => (100 - Zc) / 100, ad = (e) => {
+), M1 = () => (100 - Zc) / 100, id = (e) => {
   const t = document.createElement("div");
   return t.innerHTML = e, t;
-}, Zt = {
-  calculateScore: vh,
-  getScoreStatus: Av,
-  getMTScoreForPageSection: Dv,
-  getMtModificationThreshold: Pv
+}, tn = {
+  calculateScore: wh,
+  getScoreStatus: F1,
+  getMTScoreForPageSection: N1,
+  getMtModificationThreshold: M1
 }, Ba = "__LEAD_SECTION__";
-class js {
+class Ic {
   /**
    * Creates an instance of PageSection.
    * @param {Object} options
@@ -2037,7 +2037,7 @@ class js {
     if (t === 0)
       return this.originalTitle;
     const n = this.getContentTranslationUnitById(t);
-    return n instanceof lt ? n.transclusionNode.outerHTML : n instanceof zn ? n.originalContent : null;
+    return n instanceof ct ? n.transclusionNode.outerHTML : n instanceof Hn ? n.originalContent : null;
   }
   get selectedTranslationUnitOriginalContent() {
     return this.getOriginalContentByTranslationUnitId(
@@ -2046,7 +2046,7 @@ class js {
   }
   resetSelection() {
     this.isTitleSelected = !1, this.contentTranslationUnits.forEach((t) => {
-      t instanceof lt ? t.blockTemplateSelected = !1 : t instanceof zn && (t.selected = !1);
+      t instanceof ct ? t.blockTemplateSelected = !1 : t instanceof Hn && (t.selected = !1);
     });
   }
   selectTranslationUnitById(t) {
@@ -2055,7 +2055,7 @@ class js {
       return;
     }
     const n = this.getContentTranslationUnitById(t);
-    n instanceof lt ? n.blockTemplateSelected = !0 : n instanceof zn && (n.selected = !0);
+    n instanceof ct ? n.blockTemplateSelected = !0 : n instanceof Hn && (n.selected = !0);
   }
   /**
    * Given a translation unit id (or 0 for section title)
@@ -2074,11 +2074,11 @@ class js {
     if (t === 0)
       return this.proposedTitleTranslations.hasOwnProperty(n);
     const s = this.getContentTranslationUnitById(t);
-    if (s instanceof lt)
+    if (s instanceof ct)
       return !!s.blockTemplateProposedTranslations.hasOwnProperty(
         n
       );
-    if (s instanceof zn)
+    if (s instanceof Hn)
       return s.proposedTranslations.hasOwnProperty(n);
   }
   /**
@@ -2089,7 +2089,7 @@ class js {
    */
   getProposedTranslationByMtProvider(t) {
     const n = this.selectedContentTranslationUnit;
-    return this.isTitleSelected ? this.proposedTitleTranslations[t] || "" : n instanceof lt ? n.blockTemplateProposedTranslations[t] || "" : n instanceof zn ? n.proposedTranslations[t] || "" : null;
+    return this.isTitleSelected ? this.proposedTitleTranslations[t] || "" : n instanceof ct ? n.blockTemplateProposedTranslations[t] || "" : n instanceof Hn ? n.proposedTranslations[t] || "" : null;
   }
   /**
    * This method sets the applied translation and the MT provider used
@@ -2102,12 +2102,12 @@ class js {
       this.translatedTitle = t, this.mtProviderUsedForTitle = n;
       return;
     }
-    this.selectedContentTranslationUnit instanceof lt ? (this.selectedContentTranslationUnit.blockTemplateTranslatedContent = t, this.selectedContentTranslationUnit.blockTemplateMTProviderUsed = n) : this.selectedContentTranslationUnit instanceof zn && (this.selectedContentTranslationUnit.translatedContent = t, this.selectedContentTranslationUnit.mtProviderUsed = n);
+    this.selectedContentTranslationUnit instanceof ct ? (this.selectedContentTranslationUnit.blockTemplateTranslatedContent = t, this.selectedContentTranslationUnit.blockTemplateMTProviderUsed = n) : this.selectedContentTranslationUnit instanceof Hn && (this.selectedContentTranslationUnit.translatedContent = t, this.selectedContentTranslationUnit.mtProviderUsed = n);
   }
   getTranslationProgress(t) {
     const s = this.subSections.filter(
       (a) => a.isTranslated
-    ).length / this.subSections.length, o = Zt.getMTScoreForPageSection(this, t) / 100;
+    ).length / this.subSections.length, o = tn.getMTScoreForPageSection(this, t) / 100;
     return { any: s, mt: 1 - o, human: o };
   }
   /**
@@ -2159,7 +2159,7 @@ class js {
     );
   }
 }
-class Ji extends Jc {
+class Ki extends Jc {
   /**
    * @param {number|null} sectionTranslationId
    * @param {number} translationId
@@ -2229,21 +2229,21 @@ class Ji extends Jc {
    * @return {boolean}
    */
   get isLeadSectionTranslation() {
-    return js.isSectionLead(this.sourceSectionTitle);
+    return Ic.isSectionLead(this.sourceSectionTitle);
   }
   sectionTitleMatches(t) {
-    return this.isLeadSectionTranslation ? js.isSectionLead(t) : this.sourceSectionTitle === t;
+    return this.isLeadSectionTranslation ? Ic.isSectionLead(t) : this.sourceSectionTitle === t;
   }
 }
-const en = "previous-edits", yn = "popular", Xe = "topic", Ve = "geography", ee = "collections", Ye = "automatic", yt = "seed", id = window.Vue.ref, { topics: Bv, regions: Fv } = mw.loader.require(
+const nn = "previous-edits", xn = "popular", We = "topic", Ve = "geography", ee = "collections", Je = "automatic", yt = "seed", rd = window.Vue.ref, { topics: U1, regions: I1 } = mw.loader.require(
   "ext.cx.articlefilters"
 ), Fa = {
-  type: Ye,
-  id: en
+  type: Je,
+  id: nn
 }, eu = () => {
-  const e = id(
-    Bv.flatMap((l) => l.topics).map((l) => l.topicId.toLowerCase())
-  ), t = id(!1), n = (l, u) => e.value.includes(u) ? { type: Xe, id: u } : null, s = (l, u) => Fv.some(
+  const e = rd(
+    U1.flatMap((l) => l.topics).map((l) => l.topicId.toLowerCase())
+  ), t = rd(!1), n = (l, u) => e.value.includes(u) ? { type: We, id: u } : null, s = (l, u) => I1.some(
     (i) => i.id.toLowerCase() === u || i.countries.some(
       (c) => c.id.toLowerCase() === u
     )
@@ -2251,22 +2251,22 @@ const en = "previous-edits", yn = "popular", Xe = "topic", Ve = "geography", ee 
   return { filtersValidatorError: t, validateFilters: ({ type: l, id: u }, d = !1) => {
     t.value = !1;
     const i = l == null ? void 0 : l.toLowerCase(), c = u == null ? void 0 : u.toLowerCase();
-    if (c === en)
+    if (c === nn)
       return {
-        type: Ye,
-        id: en
+        type: Je,
+        id: nn
       };
-    if (c === yn)
+    if (c === xn)
       return {
-        type: Ye,
-        id: yn
+        type: Je,
+        id: xn
       };
     if (c === ee)
       return d && !d.length ? (t.value = !0, Fa) : {
-        type: Ye,
+        type: Je,
         id: ee
       };
-    if (i === Xe) {
+    if (i === We) {
       const g = n(u, c);
       if (g)
         return g;
@@ -2289,12 +2289,12 @@ const en = "previous-edits", yn = "popular", Xe = "topic", Ve = "geography", ee 
       return { type: yt, id: u };
     return Fa;
   }, isDefaultFilter: ({ type: l, id: u }) => l === Fa.type && u === Fa.id };
-}, Nv = window.Vue.inject, Mv = window.Vue.reactive;
-var Uv = typeof globalThis != "undefined" ? globalThis : typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : {}, _h = { exports: {} };
+}, R1 = window.Vue.inject, z1 = window.Vue.reactive;
+var O1 = typeof globalThis != "undefined" ? globalThis : typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : {}, vh = { exports: {} };
 (function(e, t) {
   (function(n, s) {
     e.exports = s();
-  })(Uv, function() {
+  })(O1, function() {
     var n = { ar: "٠١٢٣٤٥٦٧٨٩", fa: "۰۱۲۳۴۵۶۷۸۹", ml: "൦൧൨൩൪൫൬൭൮൯", kn: "೦೧೨೩೪೫೬೭೮೯", lo: "໐໑໒໓໔໕໖໗໘໙", or: "୦୧୨୩୪୫୬୭୮୯", kh: "០១២៣៤៥៦៧៨៩", nqo: "߀߁߂߃߄߅߆߇߈߉", pa: "੦੧੨੩੪੫੬੭੮੯", gu: "૦૧૨૩૪૫૬૭૮૯", hi: "०१२३४५६७८९", my: "၀၁၂၃၄၅၆၇၈၉", ta: "௦௧௨௩௪௫௬௭௮௯", te: "౦౧౨౩౪౫౬౭౮౯", th: "๐๑๒๓๔๕๖๗๘๙", bo: "༠༡༢༣༤༥༦༧༨༩" }, s = { ab: ["ru"], abs: ["id"], ace: ["id"], ady: ["ady-cyrl"], aeb: ["aeb-arab"], "aeb-arab": ["ar"], aln: ["sq"], alt: ["ru"], ami: ["zh-hant"], an: ["es"], anp: ["hi"], arn: ["es"], arq: ["ar"], ary: ["ar"], arz: ["ar"], ast: ["es"], atj: ["fr"], av: ["ru"], avk: ["fr", "es", "ru"], awa: ["hi"], ay: ["es"], azb: ["fa"], ba: ["ru"], ban: ["id"], "ban-bali": ["ban"], bar: ["de"], bbc: ["bbc-latn"], "bbc-latn": ["id"], bcc: ["fa"], "be-tarask": ["be"], bgn: ["fa"], bh: ["bho"], bi: ["en"], bjn: ["id"], bm: ["fr"], bpy: ["bn"], bqi: ["fa"], br: ["fr"], btm: ["id"], bug: ["id"], bxr: ["ru"], ca: ["oc"], "cbk-zam": ["es"], cdo: ["nan", "zh-hant"], ce: ["ru"], co: ["it"], crh: ["crh-latn"], "crh-cyrl": ["ru"], cs: ["sk"], csb: ["pl"], cv: ["ru"], "de-at": ["de"], "de-ch": ["de"], "de-formal": ["de"], dsb: ["hsb", "de"], dtp: ["ms"], dty: ["ne"], egl: ["it"], eml: ["it"], "en-ca": ["en"], "en-gb": ["en"], "es-419": ["es"], "es-formal": ["es"], ext: ["es"], ff: ["fr"], fit: ["fi"], frc: ["fr"], frp: ["fr"], frr: ["de"], fur: ["it"], gag: ["tr"], gan: ["gan-hant", "zh-hant", "zh-hans"], "gan-hans": ["zh-hans"], "gan-hant": ["zh-hant", "zh-hans"], gcr: ["fr"], gl: ["pt"], glk: ["fa"], gn: ["es"], gom: ["gom-deva"], "gom-deva": ["hi"], gor: ["id"], gsw: ["de"], guc: ["es"], hak: ["zh-hant"], hif: ["hif-latn"], hrx: ["de"], hsb: ["dsb", "de"], ht: ["fr"], "hu-formal": ["hu"], hyw: ["hy"], ii: ["zh-cn", "zh-hans"], inh: ["ru"], io: ["eo"], iu: ["ike-cans"], jam: ["en"], jut: ["da"], jv: ["id"], kaa: ["kk-latn", "kk-cyrl"], kab: ["fr"], kbd: ["kbd-cyrl"], kbp: ["fr"], khw: ["ur"], kiu: ["tr"], kjp: ["my"], kk: ["kk-cyrl"], "kk-arab": ["kk-cyrl"], "kk-cn": ["kk-arab", "kk-cyrl"], "kk-kz": ["kk-cyrl"], "kk-latn": ["kk-cyrl"], "kk-tr": ["kk-latn", "kk-cyrl"], kl: ["da"], "ko-kp": ["ko"], koi: ["ru"], krc: ["ru"], krl: ["fi"], ks: ["ks-arab"], ksh: ["de"], ku: ["ku-latn"], "ku-arab": ["ckb"], kum: ["ru"], kv: ["ru"], lad: ["es"], lb: ["de"], lbe: ["ru"], lez: ["ru", "az"], li: ["nl"], lij: ["it"], liv: ["et"], lki: ["fa"], lld: ["it", "rm", "fur"], lmo: ["pms", "eml", "lij", "vec", "it"], ln: ["fr"], lrc: ["fa"], ltg: ["lv"], luz: ["fa"], lzh: ["zh-hant"], lzz: ["tr"], mad: ["id"], mai: ["hi"], "map-bms": ["jv", "id"], mdf: ["myv", "ru"], mg: ["fr"], mhr: ["mrj", "ru"], min: ["id"], mnw: ["my"], mo: ["ro"], mrj: ["mhr", "ru"], "ms-arab": ["ms"], mwl: ["pt"], myv: ["mdf", "ru"], mzn: ["fa"], nah: ["es"], nan: ["cdo", "zh-hant"], nap: ["it"], nb: ["nn"], nds: ["de"], "nds-nl": ["nl"], nia: ["id"], "nl-informal": ["nl"], nn: ["nb"], nrm: ["fr"], oc: ["ca", "fr"], olo: ["fi"], os: ["ru"], pcd: ["fr"], pdc: ["de"], pdt: ["de"], pfl: ["de"], pih: ["en"], pms: ["it"], pnt: ["el"], pt: ["pt-br"], "pt-br": ["pt"], qu: ["qug", "es"], qug: ["qu", "es"], rgn: ["it"], rmy: ["ro"], "roa-tara": ["it"], rue: ["uk", "ru"], rup: ["ro"], ruq: ["ruq-latn", "ro"], "ruq-cyrl": ["mk"], "ruq-latn": ["ro"], sa: ["hi"], sah: ["ru"], scn: ["it"], sco: ["en"], sdc: ["it"], sdh: ["cbk", "fa"], ses: ["fr"], sg: ["fr"], sgs: ["lt"], sh: ["bs", "sr-el", "hr"], shi: ["fr"], shy: ["shy-latn"], "shy-latn": ["fr"], sk: ["cs"], skr: ["skr-arab"], "skr-arab": ["ur", "pnb"], sli: ["de"], smn: ["fi"], sr: ["sr-ec"], srn: ["nl"], stq: ["de"], sty: ["ru"], su: ["id"], szl: ["pl"], szy: ["zh-tw", "zh-hant", "zh-hans"], tay: ["zh-tw", "zh-hant", "zh-hans"], tcy: ["kn"], tet: ["pt"], tg: ["tg-cyrl"], trv: ["zh-tw", "zh-hant", "zh-hans"], tt: ["tt-cyrl", "ru"], "tt-cyrl": ["ru"], ty: ["fr"], tyv: ["ru"], udm: ["ru"], ug: ["ug-arab"], vec: ["it"], vep: ["et"], vls: ["nl"], vmf: ["de"], vot: ["fi"], vro: ["et"], wa: ["fr"], wo: ["fr"], wuu: ["zh-hans"], xal: ["ru"], xmf: ["ka"], yi: ["he"], za: ["zh-hans"], zea: ["nl"], zgh: ["kab"], zh: ["zh-hans"], "zh-cn": ["zh-hans"], "zh-hant": ["zh-hans"], "zh-hk": ["zh-hant", "zh-hans"], "zh-mo": ["zh-hk", "zh-hant", "zh-hans"], "zh-my": ["zh-sg", "zh-hans"], "zh-sg": ["zh-hans"], "zh-tw": ["zh-hant", "zh-hans"] };
     class o {
       constructor(c) {
@@ -2625,171 +2625,171 @@ var Uv = typeof globalThis != "undefined" ? globalThis : typeof window != "undef
         if (c.includes("{{") || c.includes("<") || this.wikilinks && c.includes("[")) {
           const p = function(m, { wikilinks: h = !1 } = {}) {
             let f = 0;
-            function w(E) {
+            function w(L) {
               return () => {
-                for (let O = 0; O < E.length; O++) {
-                  const Ne = E[O]();
+                for (let H = 0; H < L.length; H++) {
+                  const Ne = L[H]();
                   if (Ne !== null)
                     return Ne;
                 }
                 return null;
               };
             }
-            function v(E) {
-              const O = f, Ne = [];
-              for (let G = 0; G < E.length; G++) {
-                const ze = E[G]();
+            function _(L) {
+              const H = f, Ne = [];
+              for (let G = 0; G < L.length; G++) {
+                const ze = L[G]();
                 if (ze === null)
-                  return f = O, null;
+                  return f = H, null;
                 Ne.push(ze);
               }
               return Ne;
             }
-            function y(E, O) {
+            function C(L, H) {
               return () => {
                 const Ne = f, G = [];
-                let ze = O();
+                let ze = H();
                 for (; ze !== null; )
-                  G.push(ze), ze = O();
-                return G.length < E ? (f = Ne, null) : G;
+                  G.push(ze), ze = H();
+                return G.length < L ? (f = Ne, null) : G;
               };
             }
-            function S(E) {
-              const O = E.length;
+            function S(L) {
+              const H = L.length;
               return () => {
                 let Ne = null;
-                return m.slice(f, f + O) === E && (Ne = E, f += O), Ne;
+                return m.slice(f, f + H) === L && (Ne = L, f += H), Ne;
               };
             }
-            function b(E) {
+            function b(L) {
               return () => {
-                const O = m.slice(f).match(E);
-                return O === null ? null : (f += O[0].length, O[0]);
+                const H = m.slice(f).match(L);
+                return H === null ? null : (f += H[0].length, H[0]);
               };
             }
-            const V = b(/^\s+/), x = S("|"), I = S(":"), L = S("\\"), P = b(/^./), H = S("$"), se = b(/^\d+/), ae = S('"'), te = S("'"), R = b(h ? /^[^{}[\]$<\\]/ : /^[^{}$<\\]/), J = b(h ? /^[^{}[\]$\\|]/ : /^[^{}$\\|]/), oe = w([le, b(h ? /^[^{}[\]$\s]/ : /^[^{}$\s]/)]);
+            const A = b(/^\s+/), y = S("|"), B = S(":"), V = S("\\"), E = b(/^./), j = S("$"), se = b(/^\d+/), ae = S('"'), te = S("'"), z = b(h ? /^[^{}[\]$<\\]/ : /^[^{}$<\\]/), J = b(h ? /^[^{}[\]$\\|]/ : /^[^{}$\\|]/), oe = w([le, b(h ? /^[^{}[\]$\s]/ : /^[^{}$\s]/)]);
             function le() {
-              const E = v([L, P]);
-              return E === null ? null : E[1];
+              const L = _([V, E]);
+              return L === null ? null : L[1];
             }
-            const ke = w([le, J]), We = w([le, R]);
+            const ke = w([le, J]), Ke = w([le, z]);
             function Pe() {
-              const E = v([H, se]);
-              return E === null ? null : ["REPLACE", parseInt(E[1], 10) - 1];
+              const L = _([j, se]);
+              return L === null ? null : ["REPLACE", parseInt(L[1], 10) - 1];
             }
-            const Z = (U = b(/^[ !"$&'()*,./0-9;=?@A-Z^_`a-z~\x80-\xFF+-]+/), B = function(E) {
-              return E.toString();
+            const Z = (I = b(/^[ !"$&'()*,./0-9;=?@A-Z^_`a-z~\x80-\xFF+-]+/), F = function(L) {
+              return L.toString();
             }, () => {
-              const E = U();
-              return E === null ? null : B(E);
+              const L = I();
+              return L === null ? null : F(L);
             });
-            var U, B;
-            function M() {
-              const E = v([x, y(0, ms)]);
-              if (E === null)
+            var I, F;
+            function U() {
+              const L = _([y, C(0, fs)]);
+              if (L === null)
                 return null;
-              const O = E[1];
-              return O.length > 1 ? ["CONCAT"].concat(O) : O[0];
+              const H = L[1];
+              return H.length > 1 ? ["CONCAT"].concat(H) : H[0];
             }
             function Y() {
-              const E = v([Z, I, Pe]);
-              return E === null ? null : [E[0], E[2]];
+              const L = _([Z, B, Pe]);
+              return L === null ? null : [L[0], L[2]];
             }
-            function _() {
-              const E = v([Z, I, ms]);
-              return E === null ? null : [E[0], E[2]];
+            function v() {
+              const L = _([Z, B, fs]);
+              return L === null ? null : [L[0], L[2]];
             }
             function T() {
-              const E = v([Z, I]);
-              return E === null ? null : [E[0], ""];
+              const L = _([Z, B]);
+              return L === null ? null : [L[0], ""];
             }
-            const D = w([function() {
-              const E = v([w([Y, _, T]), y(0, M)]);
-              return E === null ? null : E[0].concat(E[1]);
+            const P = w([function() {
+              const L = _([w([Y, v, T]), C(0, U)]);
+              return L === null ? null : L[0].concat(L[1]);
             }, function() {
-              const E = v([Z, y(0, M)]);
-              return E === null ? null : [E[0]].concat(E[1]);
-            }]), F = S("{{"), X = S("}}"), ge = S("[["), q = S("]]"), z = S("["), ie = S("]");
-            function et() {
-              const E = v([F, D, X]);
-              return E === null ? null : E[1];
+              const L = _([Z, C(0, U)]);
+              return L === null ? null : [L[0]].concat(L[1]);
+            }]), N = S("{{"), X = S("}}"), pe = S("[["), q = S("]]"), O = S("["), ie = S("]");
+            function nt() {
+              const L = _([N, P, X]);
+              return L === null ? null : L[1];
             }
             const $e = w([function() {
-              const E = v([y(1, ms), x, y(1, ps)]);
-              return E === null ? null : [["CONCAT"].concat(E[0]), ["CONCAT"].concat(E[2])];
+              const L = _([C(1, fs), y, C(1, hs)]);
+              return L === null ? null : [["CONCAT"].concat(L[0]), ["CONCAT"].concat(L[2])];
             }, function() {
-              const E = v([y(1, ms)]);
-              return E === null ? null : [["CONCAT"].concat(E[0])];
+              const L = _([C(1, fs)]);
+              return L === null ? null : [["CONCAT"].concat(L[0])];
             }]);
             function xa() {
-              let E = null;
-              const O = v([ge, $e, q]);
-              if (O !== null) {
-                const Ne = O[1];
-                E = ["WIKILINK"].concat(Ne);
+              let L = null;
+              const H = _([pe, $e, q]);
+              if (H !== null) {
+                const Ne = H[1];
+                L = ["WIKILINK"].concat(Ne);
               }
-              return E;
+              return L;
             }
-            function gs() {
-              let E = null;
-              const O = v([z, y(1, mr), V, y(1, ps), ie]);
-              return O !== null && (E = ["EXTLINK", O[1].length === 1 ? O[1][0] : ["CONCAT"].concat(O[1]), ["CONCAT"].concat(O[3])]), E;
+            function ms() {
+              let L = null;
+              const H = _([O, C(1, ur), A, C(1, hs), ie]);
+              return H !== null && (L = ["EXTLINK", H[1].length === 1 ? H[1][0] : ["CONCAT"].concat(H[1]), ["CONCAT"].concat(H[3])]), L;
             }
-            const no = b(/^[A-Za-z]+/);
-            function gr() {
-              const E = b(/^[^"]*/), O = v([ae, E, ae]);
-              return O === null ? null : O[1];
+            const to = b(/^[A-Za-z]+/);
+            function lr() {
+              const L = b(/^[^"]*/), H = _([ae, L, ae]);
+              return H === null ? null : H[1];
+            }
+            function no() {
+              const L = b(/^[^']*/), H = _([te, L, te]);
+              return H === null ? null : H[1];
             }
             function so() {
-              const E = b(/^[^']*/), O = v([te, E, te]);
-              return O === null ? null : O[1];
+              const L = b(/^\s*=\s*/), H = _([A, to, L, w([lr, no])]);
+              return H === null ? null : [H[1], H[3]];
             }
-            function oo() {
-              const E = b(/^\s*=\s*/), O = v([V, no, E, w([gr, so])]);
-              return O === null ? null : [O[1], O[3]];
+            function cr() {
+              const L = C(0, so)();
+              return Array.prototype.concat.apply(["HTMLATTRIBUTES"], L);
             }
-            function pr() {
-              const E = y(0, oo)();
-              return Array.prototype.concat.apply(["HTMLATTRIBUTES"], E);
-            }
-            const mr = w([et, Pe, xa, gs, function() {
-              const E = y(1, oe)();
-              return E === null ? null : E.join("");
-            }]), ps = w([et, Pe, xa, gs, function() {
-              let E = null;
-              const O = f, Ne = S("<"), G = b(/^\/?/), ze = b(/^\s*>/), tn = v([Ne, no, pr, G, ze]);
-              if (tn === null)
+            const ur = w([nt, Pe, xa, ms, function() {
+              const L = C(1, oe)();
+              return L === null ? null : L.join("");
+            }]), hs = w([nt, Pe, xa, ms, function() {
+              let L = null;
+              const H = f, Ne = S("<"), G = b(/^\/?/), ze = b(/^\s*>/), sn = _([Ne, to, cr, G, ze]);
+              if (sn === null)
                 return null;
-              const gt = f, ao = tn[1], io = y(0, ps)(), ew = f, Tu = v([S("</"), no, ze]);
-              if (Tu === null)
-                return ["CONCAT", m.slice(O, gt)].concat(io);
-              const tw = f, nw = Tu[1], Au = tn[2];
-              if (function(Gn, ba, hr, fr = { allowedHtmlElements: ["b", "bdi", "del", "i", "ins", "u", "font", "big", "small", "sub", "sup", "h1", "h2", "h3", "h4", "h5", "h6", "cite", "code", "em", "s", "strike", "strong", "tt", "var", "div", "center", "blockquote", "ol", "ul", "dl", "table", "caption", "pre", "ruby", "rb", "rp", "rt", "rtc", "p", "span", "abbr", "dfn", "kbd", "samp", "data", "time", "mark", "li", "dt", "dd"], allowedHtmlCommonAttributes: ["id", "class", "style", "lang", "dir", "title", "aria-describedby", "aria-flowto", "aria-hidden", "aria-label", "aria-labelledby", "aria-owns", "role", "about", "property", "resource", "datatype", "typeof", "itemid", "itemprop", "itemref", "itemscope", "itemtype"], allowedHtmlAttributesByElement: {} }) {
-                if ((Gn = Gn.toLowerCase()) !== (ba = ba.toLowerCase()) || fr.allowedHtmlElements.indexOf(Gn) === -1)
+              const mt = f, oo = sn[1], ao = C(0, hs)(), ow = f, Au = _([S("</"), to, ze]);
+              if (Au === null)
+                return ["CONCAT", m.slice(H, mt)].concat(ao);
+              const aw = f, iw = Au[1], Du = sn[2];
+              if (function(Kn, ba, dr, gr = { allowedHtmlElements: ["b", "bdi", "del", "i", "ins", "u", "font", "big", "small", "sub", "sup", "h1", "h2", "h3", "h4", "h5", "h6", "cite", "code", "em", "s", "strike", "strong", "tt", "var", "div", "center", "blockquote", "ol", "ul", "dl", "table", "caption", "pre", "ruby", "rb", "rp", "rt", "rtc", "p", "span", "abbr", "dfn", "kbd", "samp", "data", "time", "mark", "li", "dt", "dd"], allowedHtmlCommonAttributes: ["id", "class", "style", "lang", "dir", "title", "aria-describedby", "aria-flowto", "aria-hidden", "aria-label", "aria-labelledby", "aria-owns", "role", "about", "property", "resource", "datatype", "typeof", "itemid", "itemprop", "itemref", "itemscope", "itemtype"], allowedHtmlAttributesByElement: {} }) {
+                if ((Kn = Kn.toLowerCase()) !== (ba = ba.toLowerCase()) || gr.allowedHtmlElements.indexOf(Kn) === -1)
                   return !1;
-                const sw = /[\000-\010\013\016-\037\177]|expression|filter\s*:|accelerator\s*:|-o-link\s*:|-o-link-source\s*:|-o-replace\s*:|url\s*\(|image\s*\(|image-set\s*\(/i;
-                for (let ka = 0, ow = hr.length; ka < ow; ka += 2) {
-                  const wr = hr[ka];
-                  if (fr.allowedHtmlCommonAttributes.indexOf(wr) === -1 && (fr.allowedHtmlAttributesByElement[Gn] || []).indexOf(wr) === -1 || wr === "style" && hr[ka + 1].search(sw) !== -1)
+                const rw = /[\000-\010\013\016-\037\177]|expression|filter\s*:|accelerator\s*:|-o-link\s*:|-o-link-source\s*:|-o-replace\s*:|url\s*\(|image\s*\(|image-set\s*\(/i;
+                for (let ka = 0, lw = dr.length; ka < lw; ka += 2) {
+                  const pr = dr[ka];
+                  if (gr.allowedHtmlCommonAttributes.indexOf(pr) === -1 && (gr.allowedHtmlAttributesByElement[Kn] || []).indexOf(pr) === -1 || pr === "style" && dr[ka + 1].search(rw) !== -1)
                     return !1;
                 }
                 return !0;
-              }(ao, nw, Au.slice(1)))
-                E = ["HTMLELEMENT", ao, Au].concat(io);
+              }(oo, iw, Du.slice(1)))
+                L = ["HTMLELEMENT", oo, Du].concat(ao);
               else {
-                const Gn = (ba) => ba.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-                E = ["CONCAT", Gn(m.slice(O, gt))].concat(io, Gn(m.slice(ew, tw)));
+                const Kn = (ba) => ba.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+                L = ["CONCAT", Kn(m.slice(H, mt))].concat(ao, Kn(m.slice(ow, aw)));
               }
-              return E;
+              return L;
             }, function() {
-              const E = y(1, We)();
-              return E === null ? null : E.join("");
-            }]), ms = w([et, Pe, function() {
-              const E = y(1, ke)();
-              return E === null ? null : E.join("");
+              const L = C(1, Ke)();
+              return L === null ? null : L.join("");
+            }]), fs = w([nt, Pe, function() {
+              const L = C(1, ke)();
+              return L === null ? null : L.join("");
             }]), Ca = function() {
-              const E = y(0, ps)();
-              return E === null ? null : ["CONCAT"].concat(E);
+              const L = C(0, hs)();
+              return L === null ? null : ["CONCAT"].concat(L);
             }();
             if (Ca === null || f !== m.length)
               throw new Error("Parse error at position " + f.toString() + " in input: " + m);
@@ -2874,119 +2874,119 @@ var Uv = typeof globalThis != "undefined" ? globalThis : typeof window != "undef
       }
     };
   });
-})(_h);
-var Iv = _h.exports;
-const rd = (e) => {
+})(vh);
+var H1 = vh.exports;
+const ld = (e) => {
   let t, n;
   if (Array.isArray(e.value) ? (t = e.arg, n = e.value) : e.value !== null && typeof e.value == "object" ? (t = e.value.msg, n = e.value.params) : t = e.arg || e.value, n = n || [], Array.isArray(n) || (n = [n]), !t)
     throw new Error(`${e.rawName} used with parameter array but without message key`);
   return { msg: t, params: n };
-}, Sh = Symbol("banana-context");
-function we() {
-  const e = Nv(Sh);
+}, _h = Symbol("banana-context");
+function he() {
+  const e = R1(_h);
   if (!e)
     throw new Error("No i18n provided!!!");
   return e;
 }
-function Rv(e = { messages: {}, locale: "en", wikilinks: !0 }) {
-  const t = Mv(new Iv(e.locale, e));
+function j1(e = { messages: {}, locale: "en", wikilinks: !0 }) {
+  const t = z1(new H1(e.locale, e));
   return {
     install: (n) => {
-      n.provide(Sh, t), n.config.globalProperties.$i18n = (s, o) => (o = o || [], Array.isArray(o) || (o = [o]), t.i18n(s, ...o)), n.provide("setLocale", (s) => {
+      n.provide(_h, t), n.config.globalProperties.$i18n = (s, o) => (o = o || [], Array.isArray(o) || (o = [o]), t.i18n(s, ...o)), n.provide("setLocale", (s) => {
         t.setLocale(s);
       }), n.directive("i18n", (s, o) => {
-        const { msg: a, params: r } = rd(o);
+        const { msg: a, params: r } = ld(o);
         o.modifiers.html ? s.innerHTML = t.i18n(a, ...r) : s.textContent = t.i18n(a, ...r);
       }), n.directive("i18n-html", (s, o) => {
-        const { msg: a, params: r } = rd(o);
+        const { msg: a, params: r } = ld(o);
         s.innerHTML = t.i18n(a, ...r);
       });
     }
   };
 }
-const Cn = window.Vue.ref, zv = window.Vue.computed, Zi = Cn(null), er = Cn(null), tr = Cn(null), ha = Cn(null), tu = Cn(null), nr = Cn(null), yh = Cn(null), xh = Cn(null), nu = Cn(null), { validateFilters: Ov, filtersValidatorError: jv } = eu(), Ch = {
-  from: Zi,
-  to: er,
+const Cn = window.Vue.ref, q1 = window.Vue.computed, Yi = Cn(null), Qi = Cn(null), Ji = Cn(null), ha = Cn(null), tu = Cn(null), Zi = Cn(null), Sh = Cn(null), yh = Cn(null), nu = Cn(null), { validateFilters: G1, filtersValidatorError: X1 } = eu(), xh = {
+  from: Yi,
+  to: Qi,
   section: ha,
   draft: tu,
-  page: tr,
-  revision: nr,
+  page: Ji,
+  revision: Zi,
   "active-list": nu
-}, Hv = zv(() => ({
-  type: yh.value,
-  id: xh.value
-})), bh = (e, t) => {
-  yh.value = e, xh.value = t, Xi("filter-type", e), t && Xi("filter-id", t);
-}, qv = (e) => {
+}, W1 = q1(() => ({
+  type: Sh.value,
+  id: yh.value
+})), Ch = (e, t) => {
+  Sh.value = e, yh.value = t, ji("filter-type", e), t && ji("filter-id", t);
+}, K1 = (e) => {
   const t = new URLSearchParams(location.search), n = {
     page: e == null ? void 0 : e.sourceTitle,
     from: e == null ? void 0 : e.sourceLanguage,
     to: e == null ? void 0 : e.targetLanguage
   };
-  e instanceof Ji && (n.draft = !0, n.revision = e.pageRevision, e.isLeadSectionTranslation || (n.section = e.sourceSectionTitle));
+  e instanceof Ki && (n.draft = !0, n.revision = e.pageRevision, e.isLeadSectionTranslation || (n.section = e.sourceSectionTitle));
   for (const s in n) {
     const o = n[s];
-    t.set(s, o), Ch[s].value = o;
+    t.set(s, o), xh[s].value = o;
   }
   t.delete("title"), fa(Object.fromEntries(t));
 }, su = (e, t) => {
-  Ch[e].value = t, Xi(e, t);
-}, Gv = (e) => {
+  xh[e].value = t, ji(e, t);
+}, Y1 = (e) => {
   su("section", e);
-}, Xv = (e) => {
+}, Q1 = (e) => {
   su("page", e);
-}, Wv = (e) => {
+}, J1 = (e) => {
   su("active-list", e);
 }, fa = (e, t = location.hash) => {
   history.replaceState(
     {},
     document.title,
-    kv(`Special:ContentTranslation${t}`, e)
+    L1(`Special:ContentTranslation${t}`, e)
   );
-}, Kv = () => {
-  const e = we(), t = new URLSearchParams(location.search);
-  tr.value = t.get("page"), Zi.value = t.get("from"), er.value = t.get("to"), ha.value = t.get("section"), nr.value = t.get("revision"), nu.value = t.get("active-list") || location.hash.slice(2).toLowerCase();
-  const n = Ov({
+}, Z1 = () => {
+  const e = he(), t = new URLSearchParams(location.search);
+  Ji.value = t.get("page"), Yi.value = t.get("from"), Qi.value = t.get("to"), ha.value = t.get("section"), Zi.value = t.get("revision"), nu.value = t.get("active-list") || location.hash.slice(2).toLowerCase();
+  const n = G1({
     type: t.get("filter-type"),
     id: t.get("filter-id")
   });
-  bh(n.type, n.id), jv.value && mw.notify(e.i18n("cx-sx-suggestions-filters-invalid-url"));
-}, Yv = () => {
+  Ch(n.type, n.id), X1.value && mw.notify(e.i18n("cx-sx-suggestions-filters-invalid-url"));
+}, e_ = () => {
   const e = new URLSearchParams(location.search);
   ha.value = null, e.delete("section"), e.delete("title"), fa(Object.fromEntries(e));
-}, Xi = (e, t) => {
+}, ji = (e, t) => {
   const n = new URLSearchParams(location.search);
   t == null ? n.delete(e) : n.set(e, t), n.delete("title"), fa(Object.fromEntries(n));
-}, Qv = (e) => new URLSearchParams(location.search).get(e), Jv = (e, t) => {
+}, t_ = (e) => new URLSearchParams(location.search).get(e), n_ = (e, t) => {
   const n = new URLSearchParams(location.search);
-  n.set("from", e), n.set("to", t), Zi.value = e, er.value = t, n.delete("title"), fa(Object.fromEntries(n));
-}, Zv = () => {
+  n.set("from", e), n.set("to", t), Yi.value = e, Qi.value = t, n.delete("title"), fa(Object.fromEntries(n));
+}, s_ = () => {
   const e = new URLSearchParams(location.search);
-  tr.value = null, ha.value = null, tu.value = null, nr.value = null, e.delete("page"), e.delete("section"), e.delete("draft"), e.delete("revision"), e.delete("title"), fa(Object.fromEntries(e));
-}, e_ = () => new URLSearchParams(location.search).get("force-quick-tutorial"), A = () => ({
-  isQuickTutorialForced: e_,
-  setLanguageURLParams: Jv,
-  setSectionURLParam: Gv,
-  setTranslationURLParams: qv,
-  initializeURLState: Kv,
-  clearTranslationURLParameters: Zv,
-  clearSectionURLParameter: Yv,
-  setUrlParam: Xi,
-  getUrlParam: Qv,
-  pageURLParameter: tr,
-  sourceLanguageURLParameter: Zi,
-  targetLanguageURLParameter: er,
+  Ji.value = null, ha.value = null, tu.value = null, Zi.value = null, e.delete("page"), e.delete("section"), e.delete("draft"), e.delete("revision"), e.delete("title"), fa(Object.fromEntries(e));
+}, o_ = () => new URLSearchParams(location.search).get("force-quick-tutorial"), D = () => ({
+  isQuickTutorialForced: o_,
+  setLanguageURLParams: n_,
+  setSectionURLParam: Y1,
+  setTranslationURLParams: K1,
+  initializeURLState: Z1,
+  clearTranslationURLParameters: s_,
+  clearSectionURLParameter: e_,
+  setUrlParam: ji,
+  getUrlParam: t_,
+  pageURLParameter: Ji,
+  sourceLanguageURLParameter: Yi,
+  targetLanguageURLParameter: Qi,
   sectionURLParameter: ha,
   draftURLParameter: tu,
-  revisionURLParameter: nr,
-  setPageURLParam: Xv,
-  currentSuggestionFilters: Hv,
-  setFilterURLParams: bh,
+  revisionURLParameter: Zi,
+  setPageURLParam: Q1,
+  currentSuggestionFilters: W1,
+  setFilterURLParams: Ch,
   activeDashboardTabParameter: nu,
-  setActiveDashboardTabParameter: Wv
-}), t_ = () => K.getLanguagePairs();
-function n_(e, t) {
-  return C(this, null, function* () {
+  setActiveDashboardTabParameter: J1
+}), a_ = () => K.getLanguagePairs();
+function i_(e, t) {
+  return x(this, null, function* () {
     const n = K.getCXServerUrl(
       `/list/pair/${e}/${t}`
     );
@@ -2997,13 +2997,13 @@ function n_(e, t) {
     );
   });
 }
-function s_() {
+function r_() {
   return new mw.Api().postWithToken("csrf", {
     action: "cxtoken",
     assert: "user"
   });
 }
-function o_(e, t, n, s) {
+function l_(e, t, n, s) {
   if (!mw.config.get("wgContentTranslationTranslateInTarget"))
     return Promise.resolve();
   const o = mw.config.get("wgWikiID"), a = K.getWikiDomainCode(e), r = K.getWikiDomainCode(t), l = {
@@ -3022,26 +3022,26 @@ function o_(e, t, n, s) {
     return Promise.resolve(u.postWithToken("csrf", c));
   });
 }
-const sr = {
-  fetchSupportedLanguageCodes: t_,
-  fetchSupportedMTProviders: n_,
-  fetchCXServerToken: s_,
-  addWikibaseLink: o_
-}, ou = window.Vue.ref, ld = ou([]), cd = ou([]), ud = ou(!1);
+const er = {
+  fetchSupportedLanguageCodes: a_,
+  fetchSupportedMTProviders: i_,
+  fetchCXServerToken: r_,
+  addWikibaseLink: l_
+}, ou = window.Vue.ref, cd = ou([]), ud = ou([]), dd = ou(!1);
 function wa() {
   return {
-    fetchSupportedLanguageCodes: () => C(this, null, function* () {
-      if (!ud.value) {
-        ud.value = !0;
-        const t = yield sr.fetchSupportedLanguageCodes();
-        ld.value = t.sourceLanguages, cd.value = t.targetLanguages;
+    fetchSupportedLanguageCodes: () => x(this, null, function* () {
+      if (!dd.value) {
+        dd.value = !0;
+        const t = yield er.fetchSupportedLanguageCodes();
+        cd.value = t.sourceLanguages, ud.value = t.targetLanguages;
       }
     }),
-    supportedSourceLanguageCodes: ld,
-    supportedTargetLanguageCodes: cd
+    supportedSourceLanguageCodes: cd,
+    supportedTargetLanguageCodes: ud
   };
 }
-const a_ = {
+const c_ = {
   aa: [
     "Latn",
     [
@@ -7819,7 +7819,7 @@ const a_ = {
     ],
     "Shiwi'ma"
   ]
-}, i_ = {
+}, u_ = {
   Latin: [
     "Latn",
     "Goth"
@@ -7902,14 +7902,14 @@ const a_ = {
   Special: [
     "Zyyy"
   ]
-}, r_ = [
+}, d_ = [
   "Arab",
   "Hebr",
   "Syrc",
   "Nkoo",
   "Rohg",
   "Thaa"
-], l_ = {
+], g_ = {
   WW: 1,
   SP: 1,
   AM: 2,
@@ -7918,7 +7918,7 @@ const a_ = {
   AF: 3,
   AS: 4,
   PA: 4
-}, c_ = {
+}, p_ = {
   AC: [
     "en"
   ],
@@ -9596,45 +9596,45 @@ const a_ = {
     "ve",
     "tn"
   ]
-}, u_ = {
-  languages: a_,
-  scriptgroups: i_,
-  rtlscripts: r_,
-  regiongroups: l_,
-  territories: c_
+}, m_ = {
+  languages: c_,
+  scriptgroups: u_,
+  rtlscripts: d_,
+  regiongroups: g_,
+  territories: p_
 };
-var Re = u_;
+var Re = m_;
 function va(e) {
   return !!Re.languages[e];
 }
-function qn(e) {
+function Wn(e) {
   return va(e) && Re.languages[e].length === 1 ? Re.languages[e][0] : !1;
 }
-function d_() {
+function h_() {
   return Re.languages;
 }
 function _a(e) {
-  var t = qn(e);
+  var t = Wn(e);
   return t ? _a(t) : va(e) ? Re.languages[e][0] : "Zyyy";
 }
 function au(e) {
-  var t = qn(e);
+  var t = Wn(e);
   return t ? au(t) : va(e) && Re.languages[e][1] || "UNKNOWN";
 }
 function da(e) {
-  var t = qn(e);
+  var t = Wn(e);
   return t ? da(t) : va(e) && Re.languages[e][2] || e;
 }
-function g_() {
+function f_() {
   var e, t = {};
   for (e in Re.languages)
-    qn(e) || (t[e] = da(e));
+    Wn(e) || (t[e] = da(e));
   return t;
 }
-function kh(e) {
+function bh(e) {
   var t, n, s = [];
   for (t in Re.languages)
-    if (!qn(t)) {
+    if (!Wn(t)) {
       for (n = 0; n < e.length; n++)
         if (e[n] === _a(t)) {
           s.push(t);
@@ -9643,10 +9643,10 @@ function kh(e) {
     }
   return s;
 }
-function p_(e) {
-  return kh([e]);
+function w_(e) {
+  return bh([e]);
 }
-function $h(e) {
+function kh(e) {
   var t;
   for (t in Re.scriptgroups)
     if (Re.scriptgroups[t].includes(e))
@@ -9654,18 +9654,18 @@ function $h(e) {
   return "Other";
 }
 function iu(e) {
-  return $h(_a(e));
+  return kh(_a(e));
 }
-function Eh(e) {
+function $h(e) {
   var t = {}, n, s, o, a;
   for (s = 0; s < e.length; s++)
-    n = e[s], o = qn(n) || n, a = iu(o), t[a] || (t[a] = []), t[a].push(n);
+    n = e[s], o = Wn(n) || n, a = iu(o), t[a] || (t[a] = []), t[a].push(n);
   return t;
 }
 function Vh(e) {
   var t, n, s, o = {};
   for (t in Re.languages)
-    if (!qn(t)) {
+    if (!Wn(t)) {
       for (n = 0; n < e.length; n++)
         if (au(t).includes(e[n])) {
           s = iu(t), o[s] === void 0 && (o[s] = []), o[s].push(t);
@@ -9674,62 +9674,62 @@ function Vh(e) {
     }
   return o;
 }
-function m_(e) {
+function v_(e) {
   return Vh([e]);
 }
-function h_(e) {
+function __(e) {
   var t, n, s, o = [];
-  for (t = Eh(e), n = Object.keys(t).sort(), s = 0; s < n.length; s++)
+  for (t = $h(e), n = Object.keys(t).sort(), s = 0; s < n.length; s++)
     o = o.concat(t[n[s]]);
   return o;
 }
-function f_(e, t) {
+function S_(e, t) {
   var n = da(e) || e, s = da(t) || t;
   return n.toLowerCase() < s.toLowerCase() ? -1 : 1;
 }
-function Lh(e) {
+function Eh(e) {
   return Re.rtlscripts.includes(_a(e));
 }
-function w_(e) {
-  return Lh(e) ? "rtl" : "ltr";
+function y_(e) {
+  return Eh(e) ? "rtl" : "ltr";
 }
-function v_(e) {
+function x_(e) {
   return Re.territories[e] || [];
 }
-function __(e, t) {
+function C_(e, t) {
   t.target ? Re.languages[e] = [t.target] : Re.languages[e] = [t.script, t.regions, t.autonym];
 }
-var j = {
-  addLanguage: __,
+var R = {
+  addLanguage: C_,
   getAutonym: da,
-  getAutonyms: g_,
-  getDir: w_,
-  getGroupOfScript: $h,
-  getLanguages: d_,
-  getLanguagesByScriptGroup: Eh,
-  getLanguagesByScriptGroupInRegion: m_,
+  getAutonyms: f_,
+  getDir: y_,
+  getGroupOfScript: kh,
+  getLanguages: h_,
+  getLanguagesByScriptGroup: $h,
+  getLanguagesByScriptGroupInRegion: v_,
   getLanguagesByScriptGroupInRegions: Vh,
-  getLanguagesInScript: p_,
-  getLanguagesInScripts: kh,
-  getLanguagesInTerritory: v_,
+  getLanguagesInScript: w_,
+  getLanguagesInScripts: bh,
+  getLanguagesInTerritory: x_,
   getRegions: au,
   getScript: _a,
   getScriptGroupOfLanguage: iu,
   isKnown: va,
-  isRedirect: qn,
-  isRtl: Lh,
-  sortByScriptGroup: h_,
-  sortByAutonym: f_
+  isRedirect: Wn,
+  isRtl: Eh,
+  sortByScriptGroup: __,
+  sortByAutonym: S_
 };
-const hs = window.Vue.computed;
-function Le(e) {
-  const t = hs(() => e.state.application.sourceLanguage), n = hs(() => e.state.application.targetLanguage), s = hs(
+const ws = window.Vue.computed;
+function Ae(e) {
+  const t = ws(() => e.state.application.sourceLanguage), n = ws(() => e.state.application.targetLanguage), s = ws(
     () => e.state.application.currentMTProvider
-  ), o = hs(
-    () => j.getAutonym(t.value)
-  ), a = hs(
-    () => j.getAutonym(n.value)
-  ), r = hs(() => e.state.application.previousRoute);
+  ), o = ws(
+    () => R.getAutonym(t.value)
+  ), a = ws(
+    () => R.getAutonym(n.value)
+  ), r = ws(() => e.state.application.previousRoute);
   return {
     currentMTProvider: s,
     previousRoute: r,
@@ -9739,7 +9739,7 @@ function Le(e) {
     targetLanguageAutonym: a
   };
 }
-class Ks {
+class Ws {
   /**
    * @param {Object} options
    * @param {string} [options.description]
@@ -9827,7 +9827,7 @@ class Ks {
     return n.replace(s, `/${t}px-${this.imageName}`);
   }
 }
-class S_ {
+class b_ {
   /**
    * @param {string} wikidataId
    * @param {{ lang: string, title: string}[]} titles
@@ -9851,22 +9851,22 @@ class S_ {
     return this.titles.some((n) => n.lang === t);
   }
 }
-function y_() {
+function k_() {
   const e = "cx:Section";
   ve.dm.SectionNode.static.matchRdfaTypes = ve.dm.SectionNode.static.matchRdfaTypes || [], ve.dm.SectionNode.static.matchRdfaTypes.includes(e) || (ve.dm.SectionNode.static.matchRdfaTypes.push(e), ve.dm.modelRegistry.unregister(ve.dm.SectionNode), ve.dm.modelRegistry.register(ve.dm.SectionNode));
 }
-const x_ = (e) => {
+const $_ = (e) => {
   const t = document.createElement("div");
   t.classList.add("surface");
   const n = document.createElement("div");
-  n.appendChild(t), n.$el = $(n), y_();
+  n.appendChild(t), n.$el = $(n), k_();
   const s = new ve.init.mw.MobileArticleTarget(n), o = ve.dm.converter.getModelFromDom(
     ve.createDocumentFromHtml(e)
   ), a = s.createSurface(o);
   return a.setReadOnly(!0), s.surfaces.push(a), s.setSurface(a), a.initialize(), a;
-}, C_ = (e, t) => {
+}, V_ = (e, t) => {
   let n, s;
-  return t ? (n = x_(e), s = n.$element.find(
+  return t ? (n = $_(e), s = n.$element.find(
     "section[rel='cx:Section']"
   ).map((a, r) => {
     const l = $(r).data("view").getModel();
@@ -9878,11 +9878,11 @@ const x_ = (e) => {
         ve.dm.Converter.static.CLIPBOARD_MODE
       ).body.children[0];
   }), n.destroy()) : s = $(e).filter("section[rel='cx:Section']"), s;
-}, b_ = (e, t) => {
+}, E_ = (e, t) => {
   const n = Array.from(
-    C_(e, t)
+    V_(e, t)
   );
-  return k_(n).map(
+  return L_(n).map(
     /**
      * @param {Node[]} sectionNodes
      * @return {PageSection}
@@ -9897,29 +9897,29 @@ const x_ = (e) => {
          * @param {Node} node
          * @return {SubSection}
          */
-        (i) => new lt({
-          sentences: $_(i),
+        (i) => new ct({
+          sentences: T_(i),
           node: i
         })
       );
-      return new js({ id: u, subSections: d, isLeadSection: l });
+      return new Ic({ id: u, subSections: d, isLeadSection: l });
     }
   );
-}, k_ = (e) => {
+}, L_ = (e) => {
   const t = e.reduce((n, s) => {
     const o = s.dataset.mwSectionNumber;
     return n[o] = n[o] ? [...n[o], s] : [s], n;
   }, {});
   return Object.values(t);
-}, $_ = (e) => Array.from(e.getElementsByClassName("cx-segment")).map(
-  (t) => new zn({
+}, T_ = (e) => Array.from(e.getElementsByClassName("cx-segment")).map(
+  (t) => new Hn({
     id: t.dataset.segmentid,
     originalContent: t.innerHTML,
     node: t
   })
-), Th = {
-  convertSegmentedContentToPageSections: b_
-}, ru = 120, E_ = (e, t) => {
+), Lh = {
+  convertSegmentedContentToPageSections: E_
+}, ru = 120, A_ = (e, t) => {
   const n = {
     action: "query",
     format: "json",
@@ -9936,20 +9936,20 @@ const x_ = (e) => {
   };
   return K.getApi(e).get(n).then((o) => {
     const a = o.query.pages, l = (o.query.redirects || []).reduce(
-      (i, c) => tt(pe({}, i), { [c.to]: c.from }),
+      (i, c) => Ye(ue({}, i), { [c.to]: c.from }),
       {}
     ), d = (o.query.normalized || []).reduce(
-      (i, c) => tt(pe({}, i), {
+      (i, c) => Ye(ue({}, i), {
         [c.to]: c.from
       }),
       {}
     );
     return a.map((i) => {
       const c = d[i.title] || l[i.title] || null;
-      return new Ks(tt(pe({}, i), { _alias: c }));
+      return new Ws(Ye(ue({}, i), { _alias: c }));
     });
   });
-}, V_ = (e, t) => {
+}, D_ = (e, t) => {
   const n = {
     action: "query",
     format: "json",
@@ -9968,9 +9968,9 @@ const x_ = (e) => {
     if (!a || !a.length || (u = a[0]) != null && u.missing)
       return null;
     const r = [{ lang: e, title: t }, ...a[0].langlinks || []], l = (d = a[0].pageprops) == null ? void 0 : d.wikibase_item;
-    return l ? Object.freeze(new S_(l, r)) : null;
+    return l ? Object.freeze(new b_(l, r)) : null;
   });
-}, L_ = (e, t, n) => {
+}, P_ = (e, t, n) => {
   const s = {
     action: "query",
     format: "json",
@@ -9985,7 +9985,7 @@ const x_ = (e) => {
     var u, d;
     return (d = (u = l.langlinks) == null ? void 0 : u[0]) == null ? void 0 : d["*"];
   }).filter((l) => !!l));
-}, T_ = (e, t, n, s = null) => {
+}, B_ = (e, t, n, s = null) => {
   const o = new Promise((r) => {
     const l = {
       action: "parse",
@@ -10005,7 +10005,7 @@ const x_ = (e) => {
       title: l.line,
       id: l.number
     }))
-  ), a = A_(
+  ), a = F_(
     e,
     t,
     n,
@@ -10013,7 +10013,7 @@ const x_ = (e) => {
   );
   return Promise.all([a, o]).then(
     ([r, l]) => {
-      const u = Th.convertSegmentedContentToPageSections(
+      const u = Lh.convertSegmentedContentToPageSections(
         r,
         !1
         // No need to resolve references. Content can be used as it is
@@ -10021,7 +10021,7 @@ const x_ = (e) => {
       return u.forEach((d) => {
         const i = l.find((c) => c.id === d.id);
         d.originalTitle = (i == null ? void 0 : i.title) || "";
-      }), new Ks({
+      }), new Ws({
         sections: u,
         content: r,
         pagelanguage: e,
@@ -10029,7 +10029,7 @@ const x_ = (e) => {
       });
     }
   );
-}, A_ = (e, t, n, s = null) => {
+}, F_ = (e, t, n, s = null) => {
   const o = K.getWikiDomainCode(e), a = K.getWikiDomainCode(t), r = {
     $sourcelanguage: o,
     $targetlanguage: a,
@@ -10043,8 +10043,8 @@ const x_ = (e) => {
     r
   );
   return fetch(u).then((d) => d.json()).then((d) => d.segmentedContent);
-}, D_ = (e) => {
-  const t = $v();
+}, N_ = (e) => {
+  const t = T1();
   if (!t)
     return Promise.resolve([]);
   const n = {
@@ -10069,8 +10069,8 @@ const x_ = (e) => {
       var r;
       return s(((r = a == null ? void 0 : a.query) == null ? void 0 : r.pages) || []);
     }).fail(() => s([]));
-  }).then((s) => s.map((o) => new Ks(o)));
-}, P_ = (e, t) => {
+  }).then((s) => s.map((o) => new Ws(o)));
+}, M_ = (e, t) => {
   const s = {
     action: "query",
     generator: "prefixsearch",
@@ -10088,25 +10088,25 @@ const x_ = (e) => {
     return ((a = o.query) == null ? void 0 : a.pages) || [];
   }).then(
     (o) => o.sort((a, r) => a.index - r.index).map(
-      (a) => new Ks(Object.assign(a, { pagelanguage: t }))
+      (a) => new Ws(Object.assign(a, { pagelanguage: t }))
     )
   ).catch((o) => []);
-}, cs = {
-  fetchPages: E_,
-  fetchLanguageTitles: V_,
-  fetchPageContent: T_,
-  fetchNearbyPages: D_,
-  searchPagesByTitlePrefix: P_,
-  fetchLanguageLinksForLanguage: L_
-}, B_ = window.Vuex.useStore, Ys = () => {
-  const e = B_();
+}, ds = {
+  fetchPages: A_,
+  fetchLanguageTitles: D_,
+  fetchPageContent: B_,
+  fetchNearbyPages: N_,
+  searchPagesByTitlePrefix: M_,
+  fetchLanguageLinksForLanguage: P_
+}, U_ = window.Vuex.useStore, Ks = () => {
+  const e = U_();
   return (t, n) => {
     n = n.filter(
       (a) => !!a && !e.getters["mediawiki/getPage"](t, a)
     );
     const s = 50, o = [];
     for (let a = 0; a < n.length; a += s) {
-      const r = n.slice(a, a + s), l = cs.fetchPages(t, r).then(
+      const r = n.slice(a, a + s), l = ds.fetchPages(t, r).then(
         (u) => u.forEach(
           (d) => e.commit("mediawiki/addPage", d)
         )
@@ -10115,12 +10115,12 @@ const x_ = (e) => {
     }
     return Promise.all(o);
   };
-}, F_ = window.Vuex.useStore, lu = () => {
-  const e = F_(), {
+}, I_ = window.Vuex.useStore, lu = () => {
+  const e = I_(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     currentSuggestionFilters: s
-  } = A(), { maxSuggestionsPerSlice: o } = e.state.suggestions, a = () => e.getters["suggestions/getSectionSuggestionsForPair"](t.value, n.value).filter(
+  } = D(), { maxSuggestionsPerSlice: o } = e.state.suggestions, a = () => e.getters["suggestions/getSectionSuggestionsForPair"](t.value, n.value).filter(
     (i) => i.matchesFilter(s.value)
   ), r = (d) => a().slice(
     o * d,
@@ -10137,22 +10137,8 @@ const x_ = (e) => {
     ),
     getSectionSuggestionsSliceByIndex: r
   };
-}, Os = {
-  stub: "stub",
-  easy: "easy",
-  medium: "medium",
-  hard: "hard",
-  unknown: "unknown"
-}, N_ = {
-  easy: 1e3,
-  medium: 3e3,
-  hard: 1e4
-}, M_ = {
-  easy: 500,
-  medium: 1500,
-  hard: 3e3
-}, Ah = (e, t) => !e || e < 0 ? Os.unknown : e < t.easy ? Os.stub : e < t.medium ? Os.easy : e < t.hard ? Os.medium : Os.hard, U_ = (e) => Ah(e, N_), I_ = (e) => Ah(e, M_);
-class us {
+};
+class gs {
   /**
    * @param {Object} options
    * @param {string} options.sourceLanguage
@@ -10176,7 +10162,7 @@ class us {
     suggestionSeed: u = null,
     suggestionProvider: d = null
   }) {
-    this.sourceLanguage = t, this.targetLanguage = n, this.sourceTitle = s, this.targetTitle = o, this.wikidataId = r, this.size = l, this.difficulty = U_(l), this.langLinksCount = a, this.suggestionProvider = d, this.suggestionSeed = u, this.isListable = !0;
+    this.sourceLanguage = t, this.targetLanguage = n, this.sourceTitle = s, this.targetTitle = o, this.wikidataId = r, this.size = l, this.langLinksCount = a, this.suggestionProvider = d, this.suggestionSeed = u, this.isListable = !0;
   }
   /**
    * @returns {string}
@@ -10192,7 +10178,7 @@ class us {
     return ((n = this.suggestionProvider) == null ? void 0 : n.type) === t.type && ((s = this.suggestionProvider) == null ? void 0 : s.id) === t.id;
   }
 }
-class xn {
+class en {
   /**
    * Creates an instance of SectionSuggestion.
    * @param {Object} options
@@ -10259,24 +10245,11 @@ class xn {
   isValid(t) {
     return this.missingCoreSectionsCount(t) > 0;
   }
-  getSectionDifficultyLevel(t) {
-    var s, o, a;
-    const n = ((o = (s = this.sourceSectionInfo) == null ? void 0 : s[t]) == null ? void 0 : o.size) || ((a = this.sourceSectionSizes) == null ? void 0 : a[t]);
-    return I_(n);
-  }
-  isEasy(t) {
-    return this.getSectionDifficultyLevel(t) === Os.easy;
-  }
   /**
    * @return {number}
    */
   get missingSectionsCount() {
     return Object.keys(this.missingSections || {}).length;
-  }
-  get easyMissingSectionsCount() {
-    return Object.keys(this.missingSections || {}).filter(
-      (t) => this.isEasy(t)
-    ).length;
   }
   /**
    * @return {number}
@@ -10285,16 +10258,24 @@ class xn {
     return Object.keys(this.presentSections || {}).length;
   }
   /**
-   * @return {{targetTitle: string, sourceTitle: string, isEasy: boolean}[]}
+   * @return {{targetTitle: string, sourceTitle: string}[]}
    */
   get orderedMissingSections() {
     return Object.entries(this.missingSections || {}).map((t) => ({
       sourceTitle: t[0],
-      targetTitle: t[1],
-      isEasy: this.isEasy(t[0])
+      targetTitle: t[1]
     })).sort(
       (t, n) => this.sourceSections.indexOf(t.sourceTitle) - this.sourceSections.indexOf(n.sourceTitle)
     );
+  }
+  /**
+   * Get the size of a specific section
+   * @param {string} sectionTitle - The title of the section
+   * @returns {number} The size of the section in bytes
+   */
+  getSectionSize(t) {
+    var n, s, o;
+    return ((s = (n = this.sourceSectionInfo) == null ? void 0 : n[t]) == null ? void 0 : s.size) || ((o = this.sourceSectionSizes) == null ? void 0 : o[t]);
   }
   /**
    * @return {{targetTitle: string, sourceTitle: string}[]}
@@ -10315,7 +10296,7 @@ class xn {
     return ((n = this.suggestionProvider) == null ? void 0 : n.type) === t.type && ((s = this.suggestionProvider) == null ? void 0 : s.id) === t.id;
   }
 }
-const Dh = [
+const Th = [
   "Works",
   "Publications",
   "Bibliography",
@@ -10372,7 +10353,7 @@ const Dh = [
   "Liens externes",
   "Principales publications",
   "Voir aussi"
-], j_ = [
+], H_ = [
   "Literatur",
   "Bibliographie",
   "Anmerkungen",
@@ -10388,14 +10369,14 @@ const Dh = [
   "Einzelnachweise",
   "Arbeit",
   "Siehe auch"
-], H_ = {
-  en: Dh,
+], j_ = {
+  en: Th,
   es: R_,
   bn: z_,
   fr: O_,
-  de: j_
+  de: H_
 };
-class Hs {
+class js {
   constructor({
     title: t,
     sourceLanguage: n,
@@ -10423,7 +10404,7 @@ class cu {
     this.name = t, this.description = n, this.endDate = s, this.articlesCount = o, this.articlesByLanguageCount = a;
   }
 }
-class Ph extends us {
+class Ah extends gs {
   /**
    * @param {Object} options
    * @param {string} options.sourceLanguage
@@ -10459,7 +10440,7 @@ class Ph extends us {
     }), this.collection = new cu(d);
   }
 }
-class Bh extends xn {
+class Dh extends en {
   /**
    * @param {Object} options
    * @param {string} options.sourceLanguage
@@ -10507,9 +10488,54 @@ class Bh extends xn {
     }), this.collection = new cu(p);
   }
 }
-const q_ = Dh, It = (n) => C(void 0, [n], function* ({ urlPostfix: e = null, urlParams: t }) {
+let Na = null;
+const Ph = (e) => {
+  if (Na)
+    return Promise.resolve(Na);
+  const t = "https://en.wikipedia.org/w/api.php", n = new URLSearchParams({
+    action: "query",
+    meta: "globaluserinfo",
+    guiuser: e,
+    guiprop: "editcount",
+    formatversion: 2,
+    origin: "*",
+    format: "json"
+  }), s = t + "?" + n;
+  return fetch(s).then((o) => o.json()).then((o) => (Na = o.query.globaluserinfo.editcount, Na)).catch((o) => {
+    mw.log.error("Error while fetching global edit count for user. ", o);
+  });
+}, q_ = (e) => e === null ? null : e === 0 ? "0 edits" : e < 5 ? "1-4 edits" : e < 100 ? "5-99 edits" : e < 1e3 ? "100-999 edits" : "1000+ edits", G_ = () => x(void 0, null, function* () {
+  if (mw.user.isAnon())
+    return !1;
+  const e = mw.user.getName();
+  return (yield Ph(e)) < 100;
+}), ut = {
+  stub: "stub",
+  easy: "easy",
+  medium: "medium",
+  hard: "hard",
+  unknown: "unknown"
+}, Bh = {
+  easy: 2500,
+  medium: 1e4,
+  hard: 4e4
+}, Fh = {
+  easy: 1e3,
+  medium: 4e3,
+  hard: 12e3
+}, Nh = (e, t) => !e || e < 0 ? ut.unknown : e < t.easy ? ut.stub : e < t.medium ? ut.easy : e < t.hard ? ut.medium : ut.hard, Mh = (e) => Nh(e, Bh), Uh = (e) => Nh(e, Fh), X_ = (e) => {
+  if (!e)
+    return !1;
+  const t = Mh(e);
+  return t === ut.stub || t === ut.easy;
+}, Ih = (e) => e ? Uh(e) === ut.easy : !1, W_ = Th, K_ = (e, t) => x(void 0, null, function* () {
+  if (!(yield G_()))
+    return;
+  let s;
+  e ? e === "/sections" && (s = Fh) : s = Bh, s && (t.min_size = s[ut.easy], t.max_size = s[ut.medium] - 1);
+}), Rt = (n) => x(void 0, [n], function* ({ urlPostfix: e = null, urlParams: t }) {
   let s = mw.config.get("wgRecommendToolAPIURL");
-  e && (s += e);
+  yield K_(e, t), e && (s += e);
   const o = new URL(s);
   Object.keys(t).forEach((a) => {
     t[a] && o.searchParams.append(a, t[a]);
@@ -10526,11 +10552,11 @@ const q_ = Dh, It = (n) => C(void 0, [n], function* ({ urlPostfix: e = null, url
     ), null;
   }
 });
-function G_() {
-  return C(this, null, function* () {
+function Y_() {
+  return x(this, null, function* () {
     const e = {}, t = "/page-collection-groups";
     try {
-      const n = (yield It({ urlPostfix: t, urlParams: e })) || [], s = {};
+      const n = (yield Rt({ urlPostfix: t, urlParams: e })) || [], s = {};
       for (const o in n)
         s[o] = n[o].map(
           (a) => new cu(a)
@@ -10544,15 +10570,15 @@ function G_() {
     }
   });
 }
-function X_(e, t, n = null, s = 24) {
-  return C(this, null, function* () {
+function Q_(e, t, n = null, s = 24) {
+  return x(this, null, function* () {
     const o = {
       source: e,
       target: t,
       count: s
     };
-    return n && (o.seed = n), ((yield It({ urlParams: o })) || []).map(
-      (r) => new us({
+    return n && (o.seed = n), ((yield Rt({ urlParams: o })) || []).map(
+      (r) => new gs({
         sourceTitle: r.title.replace(/_/g, " "),
         sourceLanguage: e,
         targetLanguage: t,
@@ -10564,14 +10590,14 @@ function X_(e, t, n = null, s = 24) {
     );
   });
 }
-const W_ = (e, t) => C(void 0, null, function* () {
-  return ((yield It({ urlParams: {
+const J_ = (e, t) => x(void 0, null, function* () {
+  return ((yield Rt({ urlParams: {
     source: e,
     target: t,
     count: 24,
     search_algorithm: "mostpopular"
   } })) || []).map(
-    (o) => new us({
+    (o) => new gs({
       sourceTitle: o.title.replace(/_/g, " "),
       sourceLanguage: e,
       targetLanguage: t,
@@ -10580,15 +10606,15 @@ const W_ = (e, t) => C(void 0, null, function* () {
       langLinksCount: parseInt(o.langlinks_count)
     })
   );
-}), K_ = (e, t) => C(void 0, null, function* () {
-  const o = (yield It({ urlParams: {
+}), Z_ = (e, t) => x(void 0, null, function* () {
+  const o = (yield Rt({ urlParams: {
     source: e,
     target: t,
     count: 24,
     search_algorithm: "mostpopular"
   }, urlPostfix: "/sections" })) || [];
   return o && o.map(
-    (a) => new xn({
+    (a) => new en({
       sourceLanguage: e,
       targetLanguage: t,
       sourceTitle: a.source_title,
@@ -10601,15 +10627,15 @@ const W_ = (e, t) => C(void 0, null, function* () {
       sourceSectionSizes: a.source_section_sizes
     })
   );
-}), Y_ = (e, t, n = null) => C(void 0, null, function* () {
+}), eS = (e, t, n = null) => x(void 0, null, function* () {
   const s = {
     source: e,
     target: t,
     count: 24,
     collections: !0
   };
-  return n && (s.seed = n), ((yield It({ urlParams: s })) || []).map(
-    (a) => new Ph({
+  return n && (s.seed = n), ((yield Rt({ urlParams: s })) || []).map(
+    (a) => new Ah({
       sourceTitle: a.title.replace(/_/g, " "),
       sourceLanguage: e,
       targetLanguage: t,
@@ -10618,7 +10644,7 @@ const W_ = (e, t) => C(void 0, null, function* () {
       collection: a.collection
     })
   );
-}), Q_ = (e, t, n = null) => C(void 0, null, function* () {
+}), tS = (e, t, n = null) => x(void 0, null, function* () {
   const s = {
     source: e,
     target: t,
@@ -10626,9 +10652,9 @@ const W_ = (e, t) => C(void 0, null, function* () {
     collections: !0
   };
   n && (s.seed = n);
-  const a = (yield It({ urlPostfix: "/sections", urlParams: s })) || [];
+  const a = (yield Rt({ urlPostfix: "/sections", urlParams: s })) || [];
   return a && a.map(
-    (r) => new Bh({
+    (r) => new Dh({
       sourceLanguage: e,
       targetLanguage: t,
       sourceTitle: r.source_title,
@@ -10643,8 +10669,8 @@ const W_ = (e, t) => C(void 0, null, function* () {
     })
   );
 });
-function J_(e, t, n) {
-  return C(this, null, function* () {
+function nS(e, t, n) {
+  return x(this, null, function* () {
     const s = [t, e, n].map(
       (r) => encodeURIComponent(r)
     ), o = K.getCXServerUrl(
@@ -10652,20 +10678,20 @@ function J_(e, t, n) {
     ), a = yield fetch(o).then(
       (r) => r.ok ? r.json() : Promise.reject(new Error("Failed to load data from server"))
     ).then((r) => r == null ? void 0 : r.sections).catch((r) => null);
-    return a ? new xn(a) : null;
+    return a ? new en(a) : null;
   });
 }
-function Z_(e, t, n = null) {
-  return C(this, null, function* () {
+function sS(e, t, n = null) {
+  return x(this, null, function* () {
     const s = {
       source: e,
       target: t,
       count: 24
     };
     n && (s.seed = n);
-    const a = (yield It({ urlPostfix: "/sections", urlParams: s })) || [];
+    const a = (yield Rt({ urlPostfix: "/sections", urlParams: s })) || [];
     return a && a.map(
-      (r) => new xn({
+      (r) => new en({
         sourceLanguage: e,
         targetLanguage: t,
         sourceTitle: r.source_title,
@@ -10681,16 +10707,16 @@ function Z_(e, t, n = null) {
     );
   });
 }
-function eS(e, t, n, s = 24) {
-  return C(this, null, function* () {
+function oS(e, t, n, s = 24) {
+  return x(this, null, function* () {
     const o = {
       source: e,
       target: t,
       topic: n.join("|"),
       count: s
     };
-    return ((yield It({ urlParams: o })) || []).map(
-      (r) => new us({
+    return ((yield Rt({ urlParams: o })) || []).map(
+      (r) => new gs({
         sourceTitle: r.title.replace(/_/g, " "),
         sourceLanguage: e,
         targetLanguage: t,
@@ -10701,16 +10727,16 @@ function eS(e, t, n, s = 24) {
     );
   });
 }
-function tS(e, t, n, s = 24) {
-  return C(this, null, function* () {
+function aS(e, t, n, s = 24) {
+  return x(this, null, function* () {
     const o = {
       source: e,
       target: t,
       topic: n.join("|"),
       count: s
-    }, r = (yield It({ urlPostfix: "/sections", urlParams: o })) || [];
+    }, r = (yield Rt({ urlPostfix: "/sections", urlParams: o })) || [];
     return r && r.map(
-      (l) => new xn({
+      (l) => new en({
         sourceLanguage: e,
         targetLanguage: t,
         sourceTitle: l.source_title,
@@ -10725,16 +10751,16 @@ function tS(e, t, n, s = 24) {
     );
   });
 }
-function nS(e, t, n, s = 24) {
-  return C(this, null, function* () {
+function iS(e, t, n, s = 24) {
+  return x(this, null, function* () {
     const o = {
       source: e,
       target: t,
       country: n.join("|"),
       count: s
     };
-    return ((yield It({ urlParams: o })) || []).map(
-      (r) => new us({
+    return ((yield Rt({ urlParams: o })) || []).map(
+      (r) => new gs({
         sourceTitle: r.title.replace(/_/g, " "),
         sourceLanguage: e,
         targetLanguage: t,
@@ -10745,16 +10771,16 @@ function nS(e, t, n, s = 24) {
     );
   });
 }
-function sS(e, t, n, s = 24) {
-  return C(this, null, function* () {
+function rS(e, t, n, s = 24) {
+  return x(this, null, function* () {
     const o = {
       source: e,
       target: t,
       country: n.join("|"),
       count: s
-    }, r = (yield It({ urlPostfix: "/sections", urlParams: o })) || [];
+    }, r = (yield Rt({ urlPostfix: "/sections", urlParams: o })) || [];
     return r && r.map(
-      (l) => new xn({
+      (l) => new en({
         sourceLanguage: e,
         targetLanguage: t,
         sourceTitle: l.source_title,
@@ -10769,8 +10795,8 @@ function sS(e, t, n, s = 24) {
     );
   });
 }
-function oS(e) {
-  return C(this, null, function* () {
+function lS(e) {
+  return x(this, null, function* () {
     if (mw.user.isAnon())
       return [];
     const t = {
@@ -10793,8 +10819,8 @@ function oS(e) {
     }
   });
 }
-function aS(e, t) {
-  return C(this, null, function* () {
+function cS(e, t) {
+  return x(this, null, function* () {
     const n = {
       action: "parse",
       format: "json",
@@ -10809,8 +10835,8 @@ function aS(e, t) {
     }
   });
 }
-function iS(e) {
-  const t = q_.map((s) => encodeURIComponent(s)).join("|"), n = K.getCXServerUrl(
+function uS(e) {
+  const t = W_.map((s) => encodeURIComponent(s)).join("|"), n = K.getCXServerUrl(
     `/suggest/sections/titles/en/${e}?titles=${t}`
   );
   return fetch(n).then(
@@ -10821,7 +10847,7 @@ function iS(e) {
     )
   ).then((s) => Object.values(s).flat()).catch((s) => []);
 }
-const rS = (e, t, n) => {
+const dS = (e, t, n) => {
   const s = {
     assert: "user",
     action: "cxfavoritesuggestions",
@@ -10833,7 +10859,7 @@ const rS = (e, t, n) => {
   return Promise.resolve(o.postWithToken("csrf", s)).catch((a) => {
     mw.log.error("Error while marking suggestion as favorite", a);
   });
-}, lS = (e) => {
+}, gS = (e) => {
   const t = {
     assert: "user",
     action: "cxfavoritesuggestions",
@@ -10845,7 +10871,7 @@ const rS = (e, t, n) => {
   return Promise.resolve(n.postWithToken("csrf", t)).catch((s) => {
     mw.log.error("Error while unmarking favorite suggestion", s);
   });
-}, cS = () => {
+}, pS = () => {
   const e = {
     assert: "user",
     action: "query",
@@ -10854,31 +10880,31 @@ const rS = (e, t, n) => {
   return Promise.resolve(t.postWithToken("csrf", e)).then((n) => {
     var a, r;
     const s = n.query.contenttranslationsuggestions.lists || {};
-    return (((r = (a = Object.values(s)) == null ? void 0 : a[0]) == null ? void 0 : r.suggestions) || []).map((l) => new Hs(l));
+    return (((r = (a = Object.values(s)) == null ? void 0 : a[0]) == null ? void 0 : r.suggestions) || []).map((l) => new js(l));
   }).catch((n) => {
     mw.log.error("Error while fetching favorite suggestions", n);
   });
 }, me = {
-  fetchFavorites: cS,
-  fetchPageSuggestions: X_,
-  fetchSectionSuggestion: J_,
-  fetchSectionSuggestions: Z_,
-  fetchAppendixTargetSectionTitles: iS,
-  fetchArticleSections: aS,
-  markFavorite: rS,
-  unmarkFavorite: lS,
-  fetchUserEdits: oS,
-  fetchMostPopularPageSuggestions: W_,
-  fetchMostPopularSectionSuggestions: K_,
-  fetchPageSuggestionsByTopics: eS,
-  fetchSectionSuggestionsByTopics: tS,
-  fetchPageSuggestionsByCountries: nS,
-  fetchSectionSuggestionsByCountries: sS,
-  fetchPageCollectionGroups: G_,
-  fetchPageSuggestionsByCollections: Y_,
-  fetchSectionSuggestionsByCollections: Q_
-}, uS = window.Vuex.useStore, Qs = () => {
-  const e = uS(), { sourceLanguage: t, targetLanguage: n } = Le(e), s = (l) => {
+  fetchFavorites: pS,
+  fetchPageSuggestions: Q_,
+  fetchSectionSuggestion: nS,
+  fetchSectionSuggestions: sS,
+  fetchAppendixTargetSectionTitles: uS,
+  fetchArticleSections: cS,
+  markFavorite: dS,
+  unmarkFavorite: gS,
+  fetchUserEdits: lS,
+  fetchMostPopularPageSuggestions: J_,
+  fetchMostPopularSectionSuggestions: Z_,
+  fetchPageSuggestionsByTopics: oS,
+  fetchSectionSuggestionsByTopics: aS,
+  fetchPageSuggestionsByCountries: iS,
+  fetchSectionSuggestionsByCountries: rS,
+  fetchPageCollectionGroups: Y_,
+  fetchPageSuggestionsByCollections: eS,
+  fetchSectionSuggestionsByCollections: tS
+}, mS = window.Vuex.useStore, Ys = () => {
+  const e = mS(), { sourceLanguage: t, targetLanguage: n } = Ae(e), s = (l) => {
     if (!l)
       return !1;
     const u = e.getters["suggestions/getFavoriteTitlesByLanguagePair"](t.value, n.value), i = e.getters["translator/getTranslationsForLanguagePair"](t.value, n.value).map((c) => c.sourceTitle);
@@ -10902,7 +10928,7 @@ const rS = (e, t, n) => {
     sectionSuggestionExists: a
   };
 };
-class dS {
+class hS {
   /**
    * Creates an instance of SuggestionSeedCollection.
    * @param {Object} options
@@ -10931,33 +10957,33 @@ class dS {
     return this.seeds.shift();
   }
 }
-const gS = window.Vuex.useStore, uu = window.Vue.ref, pS = uu([]), mS = uu([]);
-let Ar = !1, Dr = !1, dd = !1;
-const Na = uu([]);
-let co = null;
-const Pr = {
-  page: pS,
-  section: mS
-}, Fh = () => {
-  const e = gS(), {
+const fS = window.Vuex.useStore, uu = window.Vue.ref, wS = uu([]), vS = uu([]);
+let Vr = !1, Er = !1, gd = !1;
+const Ma = uu([]);
+let lo = null;
+const Lr = {
+  page: wS,
+  section: vS
+}, Rh = () => {
+  const e = fS(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n
-  } = A(), s = () => C(void 0, null, function* () {
-    Dr || (Na.value = yield me.fetchUserEdits(t.value).then((d) => (Dr = !0, d)));
-  }), o = () => C(void 0, null, function* () {
+  } = D(), s = () => x(void 0, null, function* () {
+    Er || (Ma.value = yield me.fetchUserEdits(t.value).then((d) => (Er = !0, d)));
+  }), o = () => x(void 0, null, function* () {
     let d = e.getters["translator/getTranslationsByStatus"]("published");
     if (d = d.filter(
       (i) => i.sourceLanguage === t.value
-    ), d.length && !Ar)
-      return Ar = !0, d.map(
+    ), d.length && !Vr)
+      return Vr = !0, d.map(
         (i) => i.sourceTitle
       );
-    if (Ar = !0, !Dr && (yield s(), Na.value.length > 0))
-      return Na.value;
-    if (!dd) {
-      const i = yield me.fetchUserEdits(n.value).then((c) => (dd = !0, c));
+    if (Vr = !0, !Er && (yield s(), Ma.value.length > 0))
+      return Ma.value;
+    if (!gd) {
+      const i = yield me.fetchUserEdits(n.value).then((c) => (gd = !0, c));
       if (i.length)
-        return cs.fetchLanguageLinksForLanguage(
+        return ds.fetchLanguageLinksForLanguage(
           n.value,
           t.value,
           i
@@ -10965,18 +10991,18 @@ const Pr = {
     }
     return null;
   }), a = (d) => {
-    let i = Pr[d].value.find(
+    let i = Lr[d].value.find(
       (c) => c.matchesLanguagePair(t.value, n.value)
     );
-    return i || (i = new dS({
+    return i || (i = new hS({
       sourceLanguage: t.value,
       targetLanguage: n.value
-    }), Pr[d].value.push(i)), i;
-  }, r = () => C(void 0, null, function* () {
+    }), Lr[d].value.push(i)), i;
+  }, r = () => x(void 0, null, function* () {
     let d = !1, i = [];
     do {
       i = yield o(), i || (d = !0);
-      for (const c in Pr) {
+      for (const c in Lr) {
         const g = a(c);
         g.seeds = [
           ...g.seeds,
@@ -10984,42 +11010,42 @@ const Pr = {
         ];
       }
     } while (!d && !(i != null && i.length));
-  }), l = () => co || (co = r(), co.finally(() => {
-    co = null;
+  }), l = () => lo || (lo = r(), lo.finally(() => {
+    lo = null;
   }));
   return {
-    getSuggestionSeed: (d) => C(void 0, null, function* () {
+    getSuggestionSeed: (d) => x(void 0, null, function* () {
       let i = a(d);
       return i.seeds.length || (yield l()), i.shiftSeeds();
     }),
     fetchPreviousEditsInSource: s,
-    previousEditsInSource: Na
+    previousEditsInSource: Ma
   };
-}, hS = 5;
-function ls(e) {
-  return C(this, null, function* () {
+}, _S = 5;
+function us(e) {
+  return x(this, null, function* () {
     let t = 0, n;
     do
       n = yield e();
-    while (!n && ++t < hS);
+    while (!n && ++t < _S);
   });
 }
-const fS = window.Vuex.useStore, wS = () => {
-  const e = fS(), {
+const SS = window.Vuex.useStore, yS = () => {
+  const e = SS(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n
-  } = A(), { getSuggestionSeed: s } = Fh(), {
+  } = D(), { getSuggestionSeed: s } = Rh(), {
     isSectionSuggestionValid: o,
     isPageSuggestionValid: a,
     sectionSuggestionExists: r
-  } = Qs(), l = {
-    id: en,
-    type: Ye
+  } = Ys(), l = {
+    id: nn,
+    type: Je
   };
   return {
-    fetchPageSuggestionsBasedOnEdits: (i) => C(void 0, null, function* () {
+    fetchPageSuggestionsBasedOnEdits: (i) => x(void 0, null, function* () {
       const c = [];
-      return yield ls(() => C(void 0, null, function* () {
+      return yield us(() => x(void 0, null, function* () {
         const g = yield s("page");
         let p = yield me.fetchPageSuggestions(
           t.value,
@@ -11033,9 +11059,9 @@ const fS = window.Vuex.useStore, wS = () => {
         (g) => g.suggestionProvider = l
       ), c;
     }),
-    fetchSectionSuggestionsBasedOnEdits: (i) => C(void 0, null, function* () {
+    fetchSectionSuggestionsBasedOnEdits: (i) => x(void 0, null, function* () {
       const c = [];
-      return yield ls(() => C(void 0, null, function* () {
+      return yield us(() => x(void 0, null, function* () {
         const g = yield s("section"), p = yield me.fetchSectionSuggestions(
           t.value,
           n.value,
@@ -11057,21 +11083,21 @@ const fS = window.Vuex.useStore, wS = () => {
       ), c;
     })
   };
-}, vS = window.Vuex.useStore, _S = () => {
-  const e = vS(), {
+}, xS = window.Vuex.useStore, CS = () => {
+  const e = xS(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n
-  } = A(), s = {
-    id: yn,
-    type: Ye
+  } = D(), s = {
+    id: xn,
+    type: Je
   }, {
     isSectionSuggestionValid: o,
     isPageSuggestionValid: a,
     sectionSuggestionExists: r
-  } = Qs();
-  return { fetchSectionSuggestionsPopular: (d) => C(void 0, null, function* () {
+  } = Ys();
+  return { fetchSectionSuggestionsPopular: (d) => x(void 0, null, function* () {
     const i = [];
-    return yield ls(() => C(void 0, null, function* () {
+    return yield us(() => x(void 0, null, function* () {
       const c = yield me.fetchMostPopularSectionSuggestions(
         t.value,
         n.value
@@ -11088,9 +11114,9 @@ const fS = window.Vuex.useStore, wS = () => {
     })), i.forEach(
       (c) => c.suggestionProvider = s
     ), i;
-  }), fetchPageSuggestionsPopular: (d) => C(void 0, null, function* () {
+  }), fetchPageSuggestionsPopular: (d) => x(void 0, null, function* () {
     const i = [];
-    return yield ls(() => C(void 0, null, function* () {
+    return yield us(() => x(void 0, null, function* () {
       let c = yield me.fetchMostPopularPageSuggestions(
         t.value,
         n.value
@@ -11102,21 +11128,21 @@ const fS = window.Vuex.useStore, wS = () => {
       (c) => c.suggestionProvider = s
     ), i;
   }) };
-}, Nh = window.Vue.ref, uo = "ungrouped", gd = Nh({}), pd = Nh(!1), du = () => ({
-  fetchPageCollectionGroups: () => C(void 0, null, function* () {
+}, zh = window.Vue.ref, co = "ungrouped", pd = zh({}), md = zh(!1), du = () => ({
+  fetchPageCollectionGroups: () => x(void 0, null, function* () {
     try {
       const t = yield me.fetchPageCollectionGroups(), n = Object.fromEntries(
-        Object.keys(t).sort((s, o) => s === uo ? 1 : o === uo ? -1 : s.localeCompare(o)).map((s) => [s, t[s]])
+        Object.keys(t).sort((s, o) => s === co ? 1 : o === co ? -1 : s.localeCompare(o)).map((s) => [s, t[s]])
       );
-      n[uo] && (n[uo] = n[uo].sort(
+      n[co] && (n[co] = n[co].sort(
         (s, o) => s.name.localeCompare(o.name)
-      )), gd.value = n, pd.value = !0;
+      )), pd.value = n, md.value = !0;
     } catch (t) {
       mw.log.error("Failed to fetch page collections", t);
     }
   }),
-  pageCollectionGroupsFetched: pd,
-  pageCollectionGroups: gd
+  pageCollectionGroupsFetched: md,
+  pageCollectionGroups: pd
 });
 class ra {
   /**
@@ -11129,52 +11155,52 @@ class ra {
     this.id = t, this.label = n, this.type = s, this.filters = o;
   }
 }
-const SS = '<path d="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"/>', yS = '<path d="M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z"/>', xS = '<path d="M8.59 3.42 14.17 9H2v2h12.17l-5.58 5.59L10 18l8-8-8-8z"/>', CS = '<path d="m5.83 9 5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z"/>', bS = '<path d="M7 0a2 2 0 00-2 2h9a2 2 0 012 2v12a2 2 0 002-2V2a2 2 0 00-2-2z"/><path d="M13 20a2 2 0 002-2V5a2 2 0 00-2-2H4a2 2 0 00-2 2v13a2 2 0 002 2zM9 5h4v5H9zM4 5h4v1H4zm0 2h4v1H4zm0 2h4v1H4zm0 2h9v1H4zm0 2h9v1H4zm0 2h9v1H4z"/>', kS = '<path d="M5 1a2 2 0 00-2 2v16l7-5 7 5V3a2 2 0 00-2-2z"/>', $S = '<path d="M5 1a2 2 0 00-2 2v16l7-5 7 5V3a2 2 0 00-2-2zm10 14.25-5-3.5-5 3.5V3h10z"/>', ES = '<path d="M3 3H1v16h18v-2H3z"/><path d="M11 11 8 9l-4 4v3h14V5z"/>', VS = '<path d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"/>', LS = '<path d="M10 0a10 10 0 1010 10A10 10 0 0010 0m2.5 14.5L9 11V4h2v6l3 3z"/>', TS = '<path d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"/><path d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"/>', AS = '<path d="m2.5 15.25 7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z"/>', DS = '<path d="m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z"/>', PS = '<circle cx="10" cy="10" r="2"/><circle cx="3" cy="10" r="2"/><circle cx="17" cy="10" r="2"/>', BS = '<path d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"/>', FS = '<path d="M10 14.5a4.5 4.5 0 114.5-4.5 4.5 4.5 0 01-4.5 4.5M10 3C3 3 0 10 0 10s3 7 10 7 10-7 10-7-3-7-10-7"/><circle cx="10" cy="10" r="2.5"/>', NS = '<path d="M19 16 2 12a3.83 3.83 0 01-1-2.5A3.83 3.83 0 012 7l17-4z"/><rect width="4" height="8" x="4" y="9" rx="2"/>', MS = '<path d="M8 2H2a2 2 0 00-2 2v2h12z"/><rect width="20" height="14" y="4" rx="2"/>', US = '<path d="M14.75 1A5.24 5.24 0 0010 4 5.24 5.24 0 000 6.25C0 11.75 10 19 10 19s10-7.25 10-12.75A5.25 5.25 0 0014.75 1"/>', Mh = '<path d="M8 19a1 1 0 001 1h2a1 1 0 001-1v-1H8zm9-12a7 7 0 10-12 4.9S7 14 7 15v1a1 1 0 001 1h4a1 1 0 001-1v-1c0-1 2-3.1 2-3.1A7 7 0 0017 7"/>', IS = '<path d="M4 10a6 6 0 1012 0 6 6 0 00-12 0m6-8a8 8 0 110 16 8 8 0 010-16m1 7v5H9V9zm0-1V6H9v2z"/>', RS = '<path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"/>', zS = '<path d="M20 18h-1.44a.6.6 0 01-.4-.12.8.8 0 01-.23-.31L17 15h-5l-1 2.54a.8.8 0 01-.22.3.6.6 0 01-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a12 12 0 01-.39-1.24q-.09.37-.19.69l-.19.56-1.58 4.19zm-6.3-1.58a13.4 13.4 0 01-2.91-1.41 11.46 11.46 0 002.81-5.37H12V4H7.31a4 4 0 00-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 005 10.7a17.2 17.2 0 01-5 2.1q.56.82.87 1.38a23.3 23.3 0 005.22-2.51 15.6 15.6 0 003.56 1.77zM3.63 5.33h4.91a8.1 8.1 0 01-2.45 4.45 9.1 9.1 0 01-2.46-4.45"/>', OS = '<path d="M19 1h-8l3.286 3.286L6 12l1.371 1.472 8.332-7.77.007.008L19 9zM2 5h4v2H3v10h10v-4.004h2V18a1 1 0 01-1 1H2a1 1 0 01-1-1V6a1 1 0 011-1"/>', jS = '<path d="M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8m0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25"/>', HS = '<path d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/>', qS = '<path d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"/>', GS = '<path d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"/>', XS = '<circle cx="17" cy="10" r="3"/><path d="M10.58 3A3 3 0 0111 4.5a3 3 0 01-6 0A3 3 0 015.42 3H1v12a2 2 0 002 2h12V3z"/>', WS = '<path d="M15.65 4.35A8 8 0 1017.4 13h-2.22a6 6 0 11-1-7.22L11 9h7V2z"/>', KS = '<path d="M10.5 5h6.505C18.107 5 19 5.896 19 6.997V14h-7v2h5.005c1.102 0 1.995.888 1.995 2v2H1v-2c0-1.105.893-2 1.995-2H8v-2H1V6.997C1 5.894 1.893 5 2.995 5H9.5V2.915a1.5 1.5 0 111 0zm-4 6a1.5 1.5 0 100-3 1.5 1.5 0 000 3m7 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3"/>', YS = '<path d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"/>', QS = '<g transform="translate(10 10)"><path id="cdx-icon-settings-a" d="M1.5-10h-3l-1 6.5h5m0 7h-5l1 6.5h3"/><use xlink:href="#cdx-icon-settings-a" transform="rotate(45)"/><use xlink:href="#cdx-icon-settings-a" transform="rotate(90)"/><use xlink:href="#cdx-icon-settings-a" transform="rotate(135)"/></g><path d="M10 2.5a7.5 7.5 0 000 15 7.5 7.5 0 000-15v4a3.5 3.5 0 010 7 3.5 3.5 0 010-7"/>', JS = '<path d="M10 12.5c-5.92 0-9 3.5-9 5.5v1h18v-1c0-2-3.08-5.5-9-5.5"/><circle cx="10" cy="6" r="5"/>', ZS = '<path d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5"/><circle cx="10" cy="5.5" r="4.5"/>', Uh = SS, ey = yS, Ih = {
-  ltr: xS,
+const bS = '<path d="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"/>', kS = '<path d="M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z"/>', $S = '<path d="M8.59 3.42 14.17 9H2v2h12.17l-5.58 5.59L10 18l8-8-8-8z"/>', VS = '<path d="m5.83 9 5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z"/>', ES = '<path d="M7 0a2 2 0 00-2 2h9a2 2 0 012 2v12a2 2 0 002-2V2a2 2 0 00-2-2z"/><path d="M13 20a2 2 0 002-2V5a2 2 0 00-2-2H4a2 2 0 00-2 2v13a2 2 0 002 2zM9 5h4v5H9zM4 5h4v1H4zm0 2h4v1H4zm0 2h4v1H4zm0 2h9v1H4zm0 2h9v1H4zm0 2h9v1H4z"/>', LS = '<path d="M5 1a2 2 0 00-2 2v16l7-5 7 5V3a2 2 0 00-2-2z"/>', TS = '<path d="M5 1a2 2 0 00-2 2v16l7-5 7 5V3a2 2 0 00-2-2zm10 14.25-5-3.5-5 3.5V3h10z"/>', AS = '<path d="M3 3H1v16h18v-2H3z"/><path d="M11 11 8 9l-4 4v3h14V5z"/>', DS = '<path d="M7 14.17 2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"/>', PS = '<path d="M10 0a10 10 0 1010 10A10 10 0 0010 0m2.5 14.5L9 11V4h2v6l3 3z"/>', BS = '<path d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"/><path d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"/>', FS = '<path d="m2.5 15.25 7.5-7.5 7.5 7.5 1.5-1.5-9-9-9 9z"/>', NS = '<path d="m16.77 8 1.94-2a1 1 0 000-1.41l-3.34-3.3a1 1 0 00-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z"/>', MS = '<circle cx="10" cy="10" r="2"/><circle cx="3" cy="10" r="2"/><circle cx="17" cy="10" r="2"/>', US = '<path d="m17.5 4.75-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"/>', IS = '<path d="M10 14.5a4.5 4.5 0 114.5-4.5 4.5 4.5 0 01-4.5 4.5M10 3C3 3 0 10 0 10s3 7 10 7 10-7 10-7-3-7-10-7"/><circle cx="10" cy="10" r="2.5"/>', RS = '<path d="M19 16 2 12a3.83 3.83 0 01-1-2.5A3.83 3.83 0 012 7l17-4z"/><rect width="4" height="8" x="4" y="9" rx="2"/>', zS = '<path d="M8 2H2a2 2 0 00-2 2v2h12z"/><rect width="20" height="14" y="4" rx="2"/>', OS = '<path d="M14.75 1A5.24 5.24 0 0010 4 5.24 5.24 0 000 6.25C0 11.75 10 19 10 19s10-7.25 10-12.75A5.25 5.25 0 0014.75 1"/>', Oh = '<path d="M8 19a1 1 0 001 1h2a1 1 0 001-1v-1H8zm9-12a7 7 0 10-12 4.9S7 14 7 15v1a1 1 0 001 1h4a1 1 0 001-1v-1c0-1 2-3.1 2-3.1A7 7 0 0017 7"/>', HS = '<path d="M4 10a6 6 0 1012 0 6 6 0 00-12 0m6-8a8 8 0 110 16 8 8 0 010-16m1 7v5H9V9zm0-1V6H9v2z"/>', jS = '<path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0M9 5h2v2H9zm0 4h2v6H9z"/>', qS = '<path d="M20 18h-1.44a.6.6 0 01-.4-.12.8.8 0 01-.23-.31L17 15h-5l-1 2.54a.8.8 0 01-.22.3.6.6 0 01-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a12 12 0 01-.39-1.24q-.09.37-.19.69l-.19.56-1.58 4.19zm-6.3-1.58a13.4 13.4 0 01-2.91-1.41 11.46 11.46 0 002.81-5.37H12V4H7.31a4 4 0 00-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 005 10.7a17.2 17.2 0 01-5 2.1q.56.82.87 1.38a23.3 23.3 0 005.22-2.51 15.6 15.6 0 003.56 1.77zM3.63 5.33h4.91a8.1 8.1 0 01-2.45 4.45 9.1 9.1 0 01-2.46-4.45"/>', GS = '<path d="M19 1h-8l3.286 3.286L6 12l1.371 1.472 8.332-7.77.007.008L19 9zM2 5h4v2H3v10h10v-4.004h2V18a1 1 0 01-1 1H2a1 1 0 01-1-1V6a1 1 0 011-1"/>', XS = '<path d="M10 0a7.65 7.65 0 00-8 8c0 2.52 2 5 3 6s5 6 5 6 4-5 5-6 3-3.48 3-6a7.65 7.65 0 00-8-8m0 11.25A3.25 3.25 0 1113.25 8 3.25 3.25 0 0110 11.25"/>', WS = '<path d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/>', KS = '<path d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"/>', YS = '<path d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"/>', QS = '<circle cx="17" cy="10" r="3"/><path d="M10.58 3A3 3 0 0111 4.5a3 3 0 01-6 0A3 3 0 015.42 3H1v12a2 2 0 002 2h12V3z"/>', JS = '<path d="M15.65 4.35A8 8 0 1017.4 13h-2.22a6 6 0 11-1-7.22L11 9h7V2z"/>', ZS = '<path d="M10.5 5h6.505C18.107 5 19 5.896 19 6.997V14h-7v2h5.005c1.102 0 1.995.888 1.995 2v2H1v-2c0-1.105.893-2 1.995-2H8v-2H1V6.997C1 5.894 1.893 5 2.995 5H9.5V2.915a1.5 1.5 0 111 0zm-4 6a1.5 1.5 0 100-3 1.5 1.5 0 000 3m7 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3"/>', ey = '<path d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"/>', ty = '<g transform="translate(10 10)"><path id="cdx-icon-settings-a" d="M1.5-10h-3l-1 6.5h5m0 7h-5l1 6.5h3"/><use xlink:href="#cdx-icon-settings-a" transform="rotate(45)"/><use xlink:href="#cdx-icon-settings-a" transform="rotate(90)"/><use xlink:href="#cdx-icon-settings-a" transform="rotate(135)"/></g><path d="M10 2.5a7.5 7.5 0 000 15 7.5 7.5 0 000-15v4a3.5 3.5 0 010 7 3.5 3.5 0 010-7"/>', ny = '<path d="M10 12.5c-5.92 0-9 3.5-9 5.5v1h18v-1c0-2-3.08-5.5-9-5.5"/><circle cx="10" cy="6" r="5"/>', sy = '<path d="M10 11c-5.92 0-8 3-8 5v3h16v-3c0-2-2.08-5-8-5"/><circle cx="10" cy="5.5" r="4.5"/>', Hh = bS, oy = kS, jh = {
+  ltr: $S,
   shouldFlip: !0
-}, Rh = {
-  ltr: CS,
+}, qh = {
+  ltr: VS,
   shouldFlip: !0
 }, gu = {
-  ltr: bS,
+  ltr: ES,
   shouldFlip: !0
-}, zh = kS, Oh = $S, ty = ES, ny = VS, sy = LS, Js = TS, oy = AS, pu = DS, mu = PS, Rc = BS, ay = FS, iy = {
-  ltr: NS,
+}, Gh = LS, Xh = TS, ay = AS, iy = DS, ry = PS, Qs = BS, ly = FS, pu = NS, mu = MS, Rc = US, cy = IS, uy = {
+  ltr: RS,
   shouldFlip: !0
-}, ry = {
-  ltr: MS,
+}, dy = {
+  ltr: zS,
   shouldFlip: !0
-}, ly = US, cy = {
+}, gy = OS, py = {
   langCodeMap: {
-    ar: Mh
+    ar: Oh
   },
-  default: IS
-}, uy = {
+  default: HS
+}, my = {
   langCodeMap: {
-    ar: Mh
+    ar: Oh
   },
-  default: RS
-}, jh = zS, or = {
-  ltr: OS,
-  shouldFlip: !0
-}, dy = jS, gy = HS, Sa = {
-  ltr: qS,
-  shouldFlip: !0
-}, hu = {
+  default: jS
+}, Wh = qS, tr = {
   ltr: GS,
   shouldFlip: !0
-}, py = {
-  ltr: XS,
+}, hy = XS, fy = WS, Sa = {
+  ltr: KS,
   shouldFlip: !0
-}, Hh = WS, my = KS, zc = YS, hy = QS, fy = JS, qh = ZS, wy = {
-  [en]: qh,
-  [yn]: ly,
+}, hu = {
+  ltr: YS,
+  shouldFlip: !0
+}, wy = {
+  ltr: QS,
+  shouldFlip: !0
+}, Kh = JS, vy = ZS, zc = ey, _y = ty, Sy = ny, Yh = sy, yy = {
+  [nn]: Yh,
+  [xn]: gy,
   [ee]: gu
-}, vy = {
-  [ee]: ry,
-  [Ve]: dy
+}, xy = {
+  [ee]: dy,
+  [Ve]: hy
 };
-class Ut {
+class It {
   /**
    * @param {string} id
    * @param {string} label
@@ -11191,77 +11217,77 @@ class Ut {
     return this.expandable ? `${this.label} (${this.subFilters.length})` : this.label;
   }
   get provider() {
-    return this.type === Ye ? this.id : this.type;
+    return this.type === Je ? this.id : this.type;
   }
   get icon() {
-    return wy[this.provider] || null;
+    return yy[this.provider] || null;
   }
   get expandableIcon() {
-    return vy[this.provider] || this.icon;
+    return xy[this.provider] || this.icon;
   }
 }
-const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
+const uo = window.Vue.computed, { topics: hd, regions: fd } = mw.loader.require(
   "ext.cx.articlefilters"
-), _y = (e) => new ra({
+), Cy = (e) => new ra({
   id: e.groupId,
   label: e.label,
-  type: Xe,
+  type: We,
   filters: e.topics.map(
-    (t) => new Ut({
+    (t) => new It({
       id: t.topicId,
       label: t.label,
-      type: Xe
+      type: We
     })
   )
-}), ar = () => {
-  const e = we(), { currentSuggestionFilters: t, setFilterURLParams: n } = A(), { validateFilters: s, filtersValidatorError: o } = eu(), a = new Ut({
-    id: en,
-    type: Ye,
+}), nr = () => {
+  const e = he(), { currentSuggestionFilters: t, setFilterURLParams: n } = D(), { validateFilters: s, filtersValidatorError: o } = eu(), a = new It({
+    id: nn,
+    type: Je,
     label: e.i18n("cx-sx-suggestions-filter-user-edit-label")
-  }), r = new Ut({
-    id: yn,
-    type: Ye,
+  }), r = new It({
+    id: xn,
+    type: Je,
     label: e.i18n("cx-sx-suggestions-filter-most-popular-label")
-  }), l = new Ut({
+  }), l = new It({
     id: ee,
-    type: Ye,
+    type: Je,
     label: e.i18n("cx-sx-suggestions-filter-page-collection-label")
-  }), { pageCollectionGroups: u, pageCollectionGroupsFetched: d } = du(), i = go(() => {
-    const x = new ra({
-      id: Ye,
-      type: Ye,
+  }), { pageCollectionGroups: u, pageCollectionGroupsFetched: d } = du(), i = uo(() => {
+    const y = new ra({
+      id: Je,
+      type: Je,
       label: e.i18n("cx-sx-suggestions-filter-default-group-label"),
       filters: [a, r]
     });
-    return Object.keys(u.value).length > 1 && x.filters.push(l), x;
+    return Object.keys(u.value).length > 1 && y.filters.push(l), y;
   }), c = () => {
-    const x = pe({}, u.value);
-    delete x.ungrouped;
-    const I = [];
-    for (const P in x) {
-      const H = x[P].map(
-        (ae) => new Ut({
+    const y = ue({}, u.value);
+    delete y.ungrouped;
+    const B = [];
+    for (const E in y) {
+      const j = y[E].map(
+        (ae) => new It({
           id: ae.name,
           label: ae.name,
           type: ee
         })
-      ), se = new Ut({
-        id: P,
-        label: P,
+      ), se = new It({
+        id: E,
+        label: E,
         type: ee,
-        subFilters: H
+        subFilters: j
       });
-      I.push(se);
+      B.push(se);
     }
-    const L = (u.value.ungrouped || []).map(
-      (P) => new Ut({
-        id: P.name,
-        label: P.name,
+    const V = (u.value.ungrouped || []).map(
+      (E) => new It({
+        id: E.name,
+        label: E.name,
         type: ee
       })
     );
-    return [...I, ...L];
-  }, g = go(
+    return [...B, ...V];
+  }, g = uo(
     () => new ra({
       id: ee,
       type: ee,
@@ -11270,90 +11296,90 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
       ),
       filters: c()
     })
-  ), p = go(() => new ra({
+  ), p = uo(() => new ra({
     id: Ve,
     type: Ve,
     label: e.i18n("cx-sx-suggestions-filters-tab-regions"),
-    filters: hd.map(
-      (x) => new Ut({
-        id: x.id,
-        label: x.label,
+    filters: fd.map(
+      (y) => new It({
+        id: y.id,
+        label: y.label,
         type: Ve,
-        subFilters: x.countries.map(
-          (I) => new Ut({
-            id: I.id,
-            label: I.label,
+        subFilters: y.countries.map(
+          (B) => new It({
+            id: B.id,
+            label: B.label,
             type: Ve
           })
         )
       })
     )
-  })), m = go(() => {
-    const x = [
+  })), m = uo(() => {
+    const y = [
       i.value,
-      ...md.map(_y),
+      ...hd.map(Cy),
       p.value
     ];
-    return g.value.filters.length && x.splice(1, 0, g.value), x;
-  }), h = go(
+    return g.value.filters.length && y.splice(1, 0, g.value), y;
+  }), h = uo(
     () => [t.value.type, t.value.id].includes(
       ee
     ) && !d.value
   ), f = () => {
     if (h.value)
       return [];
-    const x = v();
-    return x.type === Xe || x.type === Ve || x.type === yt || x.type === ee || x.id === ee ? [x, a] : [a, r];
-  }, w = (x) => {
-    n(x.type, x.id);
-  }, v = () => t.value.type === yt ? new Ut({
+    const y = _();
+    return y.type === We || y.type === Ve || y.type === yt || y.type === ee || y.id === ee ? [y, a] : [a, r];
+  }, w = (y) => {
+    n(y.type, y.id);
+  }, _ = () => t.value.type === yt ? new It({
     id: t.value.id,
     label: t.value.id,
     type: t.value.type
-  }) : m.value.flatMap((x) => x.filters).flatMap((x) => [x, ...x.subFilters || []]).find(y), y = (x) => t.value.id === x.id;
+  }) : m.value.flatMap((y) => y.filters).flatMap((y) => [y, ...y.subFilters || []]).find(C), C = (y) => t.value.id === y.id;
   return {
     allFilters: m,
     getFiltersSummary: f,
     selectFilter: w,
-    isFilterSelected: y,
-    getArticleTopics: (x) => {
-      const L = md.flatMap((P) => P.topics).find((P) => P.topicId === x);
-      return L ? L.articletopics : [];
+    isFilterSelected: C,
+    getArticleTopics: (y) => {
+      const V = hd.flatMap((E) => E.topics).find((E) => E.topicId === y);
+      return V ? V.articletopics : [];
     },
     waitingForPageCollectionsFetch: h,
-    findSelectedFilter: v,
+    findSelectedFilter: _,
     validateURLFilterWithCollections: () => {
       if (!d.value)
         return;
-      const x = Object.values(u.value).flat(), I = s(
+      const y = Object.values(u.value).flat(), B = s(
         {
           type: t.value.type,
           id: t.value.id
         },
-        x
+        y
       );
-      n(I.type, I.id), o.value && mw.notify(e.i18n("cx-sx-suggestions-filters-invalid-url"));
+      n(B.type, B.id), o.value && mw.notify(e.i18n("cx-sx-suggestions-filters-invalid-url"));
     },
-    getCountries: (x) => {
-      const I = hd.find((L) => L.id === x);
-      return I ? I.countries.map((L) => L.id) : [x];
+    getCountries: (y) => {
+      const B = fd.find((V) => V.id === y);
+      return B ? B.countries.map((V) => V.id) : [y];
     }
   };
-}, Sy = window.Vuex.useStore, yy = () => {
-  const e = Sy(), {
+}, by = window.Vuex.useStore, ky = () => {
+  const e = by(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     currentSuggestionFilters: s
-  } = A(), {
+  } = D(), {
     isSectionSuggestionValid: o,
     isPageSuggestionValid: a,
     sectionSuggestionExists: r
-  } = Qs(), { getArticleTopics: l } = ar();
+  } = Ys(), { getArticleTopics: l } = nr();
   return {
-    fetchPageSuggestionsByTopics: (i) => C(void 0, null, function* () {
+    fetchPageSuggestionsByTopics: (i) => x(void 0, null, function* () {
       const c = s.value.id, g = {
         id: c,
-        type: Xe
+        type: We
       }, p = l(c);
       let m = yield me.fetchPageSuggestionsByTopics(
         t.value,
@@ -11366,43 +11392,43 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
         (h) => h.suggestionProvider = g
       ), m;
     }),
-    fetchSectionSuggestionsByTopics: (i) => C(void 0, null, function* () {
+    fetchSectionSuggestionsByTopics: (i) => x(void 0, null, function* () {
       const c = s.value.id, g = {
         id: c,
-        type: Xe
+        type: We
       }, p = l(c), m = [];
-      return yield ls(() => C(void 0, null, function* () {
+      return yield us(() => x(void 0, null, function* () {
         const h = yield me.fetchSectionSuggestionsByTopics(
           t.value,
           n.value,
           p
         );
         let f = h.filter(
-          (v) => o(v)
+          (_) => o(_)
         );
         const w = h.filter(
-          (v) => !o(v)
+          (_) => !o(_)
         );
-        return f = f.slice(0, i), m.push(...f), w.forEach((v) => {
-          v && !r(v) && (v.isListable = !1, e.commit("suggestions/addSectionSuggestion", v));
+        return f = f.slice(0, i), m.push(...f), w.forEach((_) => {
+          _ && !r(_) && (_.isListable = !1, e.commit("suggestions/addSectionSuggestion", _));
         }), m.length >= i;
       })), m.forEach(
         (h) => h.suggestionProvider = g
       ), m;
     })
   };
-}, xy = window.Vuex.useStore, Cy = () => {
-  const e = xy(), {
+}, $y = window.Vuex.useStore, Vy = () => {
+  const e = $y(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     currentSuggestionFilters: s
-  } = A(), {
+  } = D(), {
     isSectionSuggestionValid: o,
     isPageSuggestionValid: a,
     sectionSuggestionExists: r
-  } = Qs(), { getCountries: l } = ar();
+  } = Ys(), { getCountries: l } = nr();
   return {
-    fetchPageSuggestionsByCountries: (i) => C(void 0, null, function* () {
+    fetchPageSuggestionsByCountries: (i) => x(void 0, null, function* () {
       let c = yield me.fetchPageSuggestionsByCountries(
         t.value,
         n.value,
@@ -11414,9 +11440,9 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
         (g) => g.suggestionProvider = s.value
       ), c;
     }),
-    fetchSectionSuggestionsByCountries: (i) => C(void 0, null, function* () {
+    fetchSectionSuggestionsByCountries: (i) => x(void 0, null, function* () {
       const c = [];
-      return yield ls(() => C(void 0, null, function* () {
+      return yield us(() => x(void 0, null, function* () {
         const g = yield me.fetchSectionSuggestionsByCountries(
           t.value,
           n.value,
@@ -11436,21 +11462,21 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
       ), c;
     })
   };
-}, by = window.Vuex.useStore, ky = window.Vue.computed, $y = () => {
-  const e = by(), {
+}, Ey = window.Vuex.useStore, Ly = window.Vue.computed, Ty = () => {
+  const e = Ey(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     currentSuggestionFilters: s
-  } = A(), o = ky(() => {
+  } = D(), o = Ly(() => {
     var i;
     return ((i = s.value) == null ? void 0 : i.type) !== ee ? null : s.value.id;
   }), {
     isSectionSuggestionValid: a,
     isPageSuggestionValid: r,
     sectionSuggestionExists: l
-  } = Qs();
+  } = Ys();
   return {
-    fetchSectionSuggestionsByCollections: () => C(void 0, null, function* () {
+    fetchSectionSuggestionsByCollections: () => x(void 0, null, function* () {
       const i = [], c = yield me.fetchSectionSuggestionsByCollections(
         t.value,
         n.value,
@@ -11468,7 +11494,7 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
         (m) => m.suggestionProvider = s.value
       ), i;
     }),
-    fetchPageSuggestionsByCollections: () => C(void 0, null, function* () {
+    fetchPageSuggestionsByCollections: () => x(void 0, null, function* () {
       const i = [];
       let c = yield me.fetchPageSuggestionsByCollections(
         t.value,
@@ -11482,18 +11508,18 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
       ), i;
     })
   };
-}, Ey = window.Vuex.useStore, Vy = () => {
-  const e = Ey(), {
+}, Ay = window.Vuex.useStore, Dy = () => {
+  const e = Ay(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     currentSuggestionFilters: s
-  } = A(), {
+  } = D(), {
     isSectionSuggestionValid: o,
     isPageSuggestionValid: a,
     sectionSuggestionExists: r
-  } = Qs();
+  } = Ys();
   return {
-    fetchPageSuggestionsBySeed: (d) => C(void 0, null, function* () {
+    fetchPageSuggestionsBySeed: (d) => x(void 0, null, function* () {
       const i = s.value.id;
       let c = yield me.fetchPageSuggestions(
         t.value,
@@ -11509,9 +11535,9 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
         }
       ), c;
     }),
-    fetchSectionSuggestionsBySeed: (d) => C(void 0, null, function* () {
+    fetchSectionSuggestionsBySeed: (d) => x(void 0, null, function* () {
       const i = [], c = s.value.id;
-      return yield ls(() => C(void 0, null, function* () {
+      return yield us(() => x(void 0, null, function* () {
         const g = yield me.fetchSectionSuggestions(
           t.value,
           n.value,
@@ -11536,37 +11562,37 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
       ), i;
     })
   };
-}, Ly = () => {
-  const { currentSuggestionFilters: e } = A(), {
+}, Py = () => {
+  const { currentSuggestionFilters: e } = D(), {
     fetchPageSuggestionsBasedOnEdits: t,
     fetchSectionSuggestionsBasedOnEdits: n
-  } = wS(), { fetchPageSuggestionsPopular: s, fetchSectionSuggestionsPopular: o } = _S(), { fetchPageSuggestionsByTopics: a, fetchSectionSuggestionsByTopics: r } = yy(), {
+  } = yS(), { fetchPageSuggestionsPopular: s, fetchSectionSuggestionsPopular: o } = CS(), { fetchPageSuggestionsByTopics: a, fetchSectionSuggestionsByTopics: r } = ky(), {
     fetchPageSuggestionsByCountries: l,
     fetchSectionSuggestionsByCountries: u
-  } = Cy(), {
+  } = Vy(), {
     fetchPageSuggestionsByCollections: d,
     fetchSectionSuggestionsByCollections: i
-  } = $y(), { fetchPageSuggestionsBySeed: c, fetchSectionSuggestionsBySeed: g } = Vy(), p = {
-    [en]: t,
-    [yn]: s,
+  } = Ty(), { fetchPageSuggestionsBySeed: c, fetchSectionSuggestionsBySeed: g } = Dy(), p = {
+    [nn]: t,
+    [xn]: s,
     [ee]: d,
-    [Xe]: a,
+    [We]: a,
     [Ve]: l,
     [yt]: c
   }, m = {
-    [en]: n,
-    [yn]: o,
+    [nn]: n,
+    [xn]: o,
     [ee]: i,
-    [Xe]: r,
+    [We]: r,
     [Ve]: u,
     [yt]: g
-  }, h = (v) => v.type === Ye ? v.id : v.type;
+  }, h = (_) => _.type === Je ? _.id : _.type;
   return {
     getCurrentPageSuggestionProvider: () => p[h(e.value)],
     getCurrentSectionSuggestionProvider: () => m[h(e.value)]
   };
-}, Ty = window.Vuex.useStore, fu = () => {
-  const e = Ty(), { getFilteredSectionSuggestions: t, getFilteredPageSuggestions: n } = lu(), { sourceLanguageURLParameter: s } = A(), o = Ys(), a = () => {
+}, By = window.Vuex.useStore, fu = () => {
+  const e = By(), { getFilteredSectionSuggestions: t, getFilteredPageSuggestions: n } = lu(), { sourceLanguageURLParameter: s } = D(), o = Ks(), a = () => {
     const g = t(), p = e.state.suggestions.maxSuggestionsPerSlice;
     return p - g.length % p;
   }, r = () => {
@@ -11575,7 +11601,7 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
   }, {
     getCurrentPageSuggestionProvider: l,
     getCurrentSectionSuggestionProvider: u
-  } = Ly(), d = (g) => {
+  } = Py(), d = (g) => {
     try {
       const p = g.map((m) => m.sourceTitle);
       if (p.length)
@@ -11585,7 +11611,7 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
     }
   };
   return {
-    fetchNextSectionSuggestionsSlice: () => C(void 0, null, function* () {
+    fetchNextSectionSuggestionsSlice: () => x(void 0, null, function* () {
       e.commit("suggestions/setIsSectionSuggestionsFetchPending", !1), e.commit("suggestions/increaseSectionSuggestionsLoadingCount");
       const g = a(), m = yield u()(
         g
@@ -11594,7 +11620,7 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
         (h) => e.commit("suggestions/addSectionSuggestion", h)
       ), d(m), e.commit("suggestions/decreaseSectionSuggestionsLoadingCount");
     }),
-    fetchNextPageSuggestionsSlice: () => C(void 0, null, function* () {
+    fetchNextPageSuggestionsSlice: () => x(void 0, null, function* () {
       e.commit("suggestions/setIsPageSuggestionsFetchPending", !1), e.commit("suggestions/increasePageSuggestionsLoadingCount");
       const g = r(), m = yield l()(
         g
@@ -11604,9 +11630,9 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
       ), d(m), e.commit("suggestions/decreasePageSuggestionsLoadingCount");
     })
   };
-}, Ay = window.Vuex.useStore, Gh = () => {
-  const e = Ay();
-  return (t) => C(void 0, null, function* () {
+}, Fy = window.Vuex.useStore, Qh = () => {
+  const e = Fy();
+  return (t) => x(void 0, null, function* () {
     if (e.getters["suggestions/appendixTitlesExistForLanguage"](t))
       return;
     const n = yield me.fetchAppendixTargetSectionTitles(t);
@@ -11615,19 +11641,19 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
       titles: n
     });
   });
-}, Dy = window.Vuex.useStore, Xh = () => {
-  const e = Dy(), { fetchNextSectionSuggestionsSlice: t, fetchNextPageSuggestionsSlice: n } = fu(), { getPageSuggestionsSliceByIndex: s, getSectionSuggestionsSliceByIndex: o } = lu(), { targetLanguageURLParameter: a } = A(), r = Gh();
-  return () => C(void 0, null, function* () {
+}, Ny = window.Vuex.useStore, Jh = () => {
+  const e = Ny(), { fetchNextSectionSuggestionsSlice: t, fetchNextPageSuggestionsSlice: n } = fu(), { getPageSuggestionsSliceByIndex: s, getSectionSuggestionsSliceByIndex: o } = lu(), { targetLanguageURLParameter: a } = D(), r = Qh();
+  return () => x(void 0, null, function* () {
     const l = o(0), u = s(0), { maxSuggestionsPerSlice: d } = e.state.suggestions, i = l.length === d, c = u.length === d;
     i && c || (yield r(a.value), t(), n());
   });
-}, Py = window.Vuex.useStore, Ma = /* @__PURE__ */ new Map(), ir = () => {
-  const e = Py(), t = Ys();
-  return (n, s, o) => C(void 0, null, function* () {
+}, My = window.Vuex.useStore, Tr = /* @__PURE__ */ new Map(), sr = () => {
+  const e = My(), t = Ks();
+  return (n, s, o) => x(void 0, null, function* () {
     const a = `${n}:${s}:${o}`;
-    if (Ma.has(a))
-      return Ma.get(a);
-    const l = (() => C(void 0, null, function* () {
+    if (Tr.has(a))
+      return Tr.get(a);
+    const l = (() => x(void 0, null, function* () {
       let u = e.getters["suggestions/getSectionSuggestionsForArticle"](n, s, o);
       if (!u) {
         u = yield me.fetchSectionSuggestion(
@@ -11643,7 +11669,7 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
               n,
               o
             );
-            return new us({
+            return new gs({
               sourceLanguage: n,
               targetLanguage: s,
               sourceTitle: o,
@@ -11661,43 +11687,41 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
       }
       return u;
     }))();
-    return Ma.set(a, l), l.finally(() => {
-      Ma.delete(a);
-    });
+    return Tr.set(a, l), l;
   });
-}, fd = window.Vue.computed, By = window.Vuex.useStore, bn = () => {
-  const e = By(), {
+}, wd = window.Vue.computed, Uy = window.Vuex.useStore, bn = () => {
+  const e = Uy(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     pageURLParameter: s
-  } = A(), o = fd(
+  } = D(), o = wd(
     () => e.getters["mediawiki/getLanguageTitleGroup"](
       t.value,
       s.value
     )
-  ), a = fd(() => o.value ? o.value.hasLanguage(n.value) : !1);
+  ), a = wd(() => o.value ? o.value.hasLanguage(n.value) : !1);
   return {
     currentLanguageTitleGroup: o,
     targetPageExists: a,
     getCurrentTitleByLanguage: (l, u) => o.value.getTitleForLanguage(l) || o.value.getTitleForLanguage(u)
   };
-}, Wh = window.Vuex.useStore, { setLanguageURLParams: Fy } = A(), wu = (e, t, n) => {
-  e.commit("application/setSourceLanguage", t), e.commit("application/setTargetLanguage", n), Fy(t, n), mw.storage.set("cxSourceLanguage", t), mw.storage.set("cxTargetLanguage", n);
-}, Kh = () => {
-  const e = Wh(), t = Xh();
+}, Zh = window.Vuex.useStore, { setLanguageURLParams: Iy } = D(), wu = (e, t, n) => {
+  e.commit("application/setSourceLanguage", t), e.commit("application/setTargetLanguage", n), Iy(t, n), mw.storage.set("cxSourceLanguage", t), mw.storage.set("cxTargetLanguage", n);
+}, ef = () => {
+  const e = Zh(), t = Jh();
   return (n, s) => {
-    const { sourceLanguage: o, targetLanguage: a } = Le(e);
+    const { sourceLanguage: o, targetLanguage: a } = Ae(e);
     n === s && (n = a.value, s = o.value), wu(e, n, s), t();
   };
-}, Ny = () => {
-  const e = Wh(), t = ir(), { currentLanguageTitleGroup: n, targetPageExists: s } = bn(), o = Ys();
-  return (a, r) => C(void 0, null, function* () {
+}, Ry = () => {
+  const e = Zh(), t = sr(), { currentLanguageTitleGroup: n, targetPageExists: s } = bn(), o = Ks();
+  return (a, r) => x(void 0, null, function* () {
     const {
       sourceLanguageURLParameter: l,
       targetLanguageURLParameter: u,
       setPageURLParam: d,
       clearSectionURLParameter: i
-    } = A();
+    } = D();
     a === r && (a = u.value, r = l.value);
     const c = n.value.getTitleForLanguage(a);
     wu(e, a, r), d(c), s.value ? (i(), yield t(
@@ -11706,12 +11730,12 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
       c
     )) : yield o(l.value, [c]);
   });
-}, My = window.Vuex.useStore, Uy = window.Vue.ref, wd = Uy(!1), Yh = () => {
-  const e = My(), {
+}, zy = window.Vuex.useStore, Oy = window.Vue.ref, vd = Oy(!1), tf = () => {
+  const e = zy(), {
     supportedSourceLanguageCodes: t,
     supportedTargetLanguageCodes: n,
     fetchSupportedLanguageCodes: s
-  } = wa(), { sourceLanguageURLParameter: o, targetLanguageURLParameter: a } = A(), r = () => {
+  } = wa(), { sourceLanguageURLParameter: o, targetLanguageURLParameter: a } = D(), r = () => {
     const u = K.getCurrentWikiLanguageCode(), d = (f) => t.value.includes(f), i = (f) => n.value.includes(f), c = {
       sourceLanguage: "en",
       targetLanguage: "es"
@@ -11733,50 +11757,50 @@ const go = window.Vue.computed, { topics: md, regions: hd } = mw.loader.require(
       (f) => d(f) && f !== m
     ), targetLanguage: m };
   };
-  return { initializeApplicationLanguages: () => C(void 0, null, function* () {
+  return { initializeApplicationLanguages: () => x(void 0, null, function* () {
     yield s();
     const { sourceLanguage: u, targetLanguage: d } = r();
-    wu(e, u, d), wd.value = !0;
-  }), applicationLanguagesInitialized: wd };
+    wu(e, u, d), vd.value = !0;
+  }), applicationLanguagesInitialized: vd };
 };
-const Iy = window.Vue.resolveDynamicComponent, vd = window.Vue.openBlock, _d = window.Vue.createBlock, Ry = window.Vue.Transition, po = window.Vue.withCtx, mo = window.Vue.createVNode, zy = window.Vue.resolveComponent, Br = window.Vue.unref, Oy = window.Vuex.useStore, Sd = window.Vue.computed, jy = window.Vue.onMounted, Hy = window.Vue.inject, qy = {
+const Hy = window.Vue.resolveDynamicComponent, _d = window.Vue.openBlock, Sd = window.Vue.createBlock, jy = window.Vue.Transition, go = window.Vue.withCtx, po = window.Vue.createVNode, qy = window.Vue.resolveComponent, Ar = window.Vue.unref, Gy = window.Vuex.useStore, yd = window.Vue.computed, Xy = window.Vue.onMounted, Wy = window.Vue.inject, Ky = {
   __name: "App",
   setup(e) {
-    const { initializeURLState: t } = A(), { initializeApplicationLanguages: n } = Yh();
+    const { initializeURLState: t } = D(), { initializeApplicationLanguages: n } = tf();
     t(), n();
-    const s = Hy("breakpoints"), o = Sd(() => s.value.mobile), a = Oy(), r = Sd(
+    const s = Wy("breakpoints"), o = yd(() => s.value.mobile), a = Gy(), r = yd(
       () => a.state.application.autoSavePending
     );
-    return jy(() => {
+    return Xy(() => {
       window.addEventListener("beforeunload", (l) => {
         r.value && (l.preventDefault(), l.returnValue = "");
       }), mw.user.isAnon() || window.addEventListener("visibilitychange", (l) => {
-        document.visibilityState === "visible" && mh.assertUser().then(() => a.commit("application/setIsLoginDialogOn", !1)).catch((u) => {
+        document.visibilityState === "visible" && ph.assertUser().then(() => a.commit("application/setIsLoginDialogOn", !1)).catch((u) => {
           u instanceof Xs && a.commit("application/setIsLoginDialogOn", !0);
         });
       });
     }), (l, u) => {
-      const d = zy("router-view");
-      return vd(), _d(Br(c0), { id: "contenttranslation" }, {
-        default: po(() => [
-          mo(Br(N), { class: "cx-container" }, {
-            default: po(() => [
-              mo(Br(k), {
+      const d = qy("router-view");
+      return _d(), Sd(Ar(p0), { id: "contenttranslation" }, {
+        default: go(() => [
+          po(Ar(M), { class: "cx-container" }, {
+            default: go(() => [
+              po(Ar(k), {
                 class: "cx-container__wrapper-col",
                 cols: "12"
               }, {
-                default: po(() => [
-                  mo(d, null, {
-                    default: po(({ Component: i, route: c }) => [
-                      mo(Ry, {
+                default: go(() => [
+                  po(d, null, {
+                    default: go(({ Component: i, route: c }) => [
+                      po(jy, {
                         name: o.value ? c.meta.transitionName : ""
                       }, {
-                        default: po(() => [
-                          (vd(), _d(Iy(i)))
+                        default: go(() => [
+                          (_d(), Sd(Hy(i)))
                         ]),
                         _: 2
                       }, 1032, ["name"]),
-                      mo(bv)
+                      po(E1)
                     ]),
                     _: 1
                   })
@@ -11791,13 +11815,13 @@ const Iy = window.Vue.resolveDynamicComponent, vd = window.Vue.openBlock, _d = w
       });
     };
   }
-}, Gy = {
+}, Yy = {
   username: mw.config.get("wgUserName"),
   isAnon: mw.user.isAnon(),
   /** @type Translation[] */
   translations: [],
   translatorStats: null
-}, Xy = {
+}, Qy = {
   getTranslationsByStatus: (e) => (
     /**
      * @param {"draft"|"published"} status
@@ -11818,12 +11842,12 @@ const Iy = window.Vue.resolveDynamicComponent, vd = window.Vue.openBlock, _d = w
     (s) => s.sourceLanguage === t && s.targetLanguage === n
   )
 };
-class Qh {
+class nf {
   constructor({ id: t, type: n, question: s, url: o }) {
     this.id = t, this.type = n, this.question = s, this.url = o;
   }
 }
-class jn {
+class Gn {
   /**
    * @param {Object} options
    * @param {string} [options.text] Plain text (HTML not accepted)
@@ -11839,7 +11863,7 @@ class jn {
     status: o,
     details: a = null
   }) {
-    this.text = t, this.title = n, this.type = s, this.status = o, this.details = a && new Qh(a);
+    this.text = t, this.title = n, this.type = s, this.status = o, this.details = a && new nf(a);
   }
   get isMTMessage() {
     return this.type === "mt";
@@ -11848,20 +11872,20 @@ class jn {
     return this.status === "error";
   }
 }
-const yd = (e) => {
+const xd = (e) => {
   if (!e)
     return {};
   const t = document.createElement("div");
   t.innerHTML = e;
   const n = t.firstChild;
   return Array.from(n.getElementsByClassName("cx-segment")).reduce(
-    (o, a) => tt(pe({}, o), {
+    (o, a) => Ye(ue({}, o), {
       [a.dataset.segmentid]: a
     }),
     {}
   );
 };
-class Wy {
+class Jy {
   /**
    * @param {{user, source, mt, sequenceId}} unit
    * @param {{engine: null, content: string, timestamp: string}} unit.user
@@ -11893,7 +11917,7 @@ class Wy {
    */
   get segments() {
     var o, a;
-    const t = yd((o = this.user) == null ? void 0 : o.content), n = yd((a = this.mt) == null ? void 0 : a.content);
+    const t = xd((o = this.user) == null ? void 0 : o.content), n = xd((a = this.mt) == null ? void 0 : a.content);
     return [
       .../* @__PURE__ */ new Set([
         ...Object.keys(t),
@@ -11946,12 +11970,12 @@ class vu extends Jc {
     }), this.targetUrl = i, this.sectionTranslations = c;
   }
 }
-const rr = mw.user.isAnon() ? void 0 : "user", Jh = (e) => {
+const or = mw.user.isAnon() ? void 0 : "user", sf = (e) => {
   if (e === "assertuserfailed")
     throw new Xs();
 };
-function Zh(e, t = null) {
-  return C(this, null, function* () {
+function of(e, t = null) {
+  return x(this, null, function* () {
     if (mw.user.isAnon())
       return Promise.resolve([]);
     const n = {
@@ -11963,16 +11987,16 @@ function Zh(e, t = null) {
       usecase: "unified-dashboard",
       type: e
     };
-    return t && (n.offset = t), new mw.Api().get(n).then((o) => C(this, null, function* () {
+    return t && (n.offset = t), new mw.Api().get(n).then((o) => x(this, null, function* () {
       var l;
       const a = o.query.contenttranslation.translations;
       let r;
       if (e === "draft" ? r = a.map(
-        (u) => new Ji(tt(pe({}, u), { status: e }))
+        (u) => new Ki(Ye(ue({}, u), { status: e }))
       ) : r = a.map(
-        (u) => new vu(tt(pe({}, u), { status: e }))
+        (u) => new vu(Ye(ue({}, u), { status: e }))
       ), (l = o.continue) != null && l.offset) {
-        const u = yield Zh(
+        const u = yield of(
           e,
           o.continue.offset
         );
@@ -11982,7 +12006,7 @@ function Zh(e, t = null) {
     }));
   });
 }
-function Ky(e) {
+function Zy(e) {
   if (mw.user.isAnon())
     return Promise.resolve([]);
   const t = {
@@ -11997,12 +12021,12 @@ function Ky(e) {
   return new mw.Api().get(t).then((s) => {
     const { translation: o } = s.query.contenttranslation;
     return Object.values(o.translationUnits).map(
-      (a) => new Wy(a)
+      (a) => new Jy(a)
     );
   });
 }
-function Yy(e, t, n, s, o) {
-  return C(this, null, function* () {
+function ex(e, t, n, s, o) {
+  return x(this, null, function* () {
     if (!s)
       return "";
     let a = `/translate/${e}/${t}`;
@@ -12024,7 +12048,7 @@ function Yy(e, t, n, s, o) {
     }).catch((l) => Promise.reject(l));
   });
 }
-const Qy = (e, t, n) => {
+const tx = (e, t, n) => {
   const s = K.getApi(t);
   return Promise.resolve(
     s.post({
@@ -12036,7 +12060,7 @@ const Qy = (e, t, n) => {
       pst: !0
     })
   ).then((o) => o.visualeditor.content).catch((o) => (mw.log.error(o), Promise.reject(o)));
-}, Jy = ({
+}, nx = ({
   html: e,
   sourceTitle: t,
   targetTitle: n,
@@ -12052,7 +12076,7 @@ const Qy = (e, t, n) => {
   existingSectionTitle: g
 }) => {
   const p = {
-    assert: rr,
+    assert: or,
     action: "cxpublishsection",
     title: n,
     html: e,
@@ -12070,7 +12094,7 @@ const Qy = (e, t, n) => {
     if (h = h.cxpublishsection, h.result === "error") {
       if (h.edit.captcha)
         return {
-          publishFeedbackMessage: new jn({
+          publishFeedbackMessage: new Gn({
             type: "captcha",
             status: "error",
             details: h.edit.captcha
@@ -12086,17 +12110,17 @@ const Qy = (e, t, n) => {
       revisionId: h.edit.newrevid
     };
   }).catch((h, f) => {
-    Jh(h);
+    sf(h);
     let w;
     return f = f || {}, f.exception ? w = f.exception.message : f.error ? w = f.error.info : w = "Unknown error", {
-      publishFeedbackMessage: new jn({
+      publishFeedbackMessage: new Gn({
         text: w,
         status: "error"
       }),
       targetTitle: null
     };
   });
-}, Zy = ({
+}, sx = ({
   sourceTitle: e,
   targetTitle: t,
   sourceSectionTitle: n,
@@ -12110,7 +12134,7 @@ const Qy = (e, t, n) => {
   progress: i
 }) => {
   const c = {
-    assert: rr,
+    assert: or,
     action: "sxsave",
     targettitle: t,
     sourcetitle: e,
@@ -12125,26 +12149,26 @@ const Qy = (e, t, n) => {
     progress: JSON.stringify(i)
   };
   return new mw.Api().postWithToken("csrf", c).then((p) => p.sxsave.sectiontranslationid).catch((p, m) => {
-    Jh(p);
+    sf(p);
     let h;
-    return m.exception ? h = m.exception.message : m.error ? h = m.error.info : h = "Unknown error", new jn({ text: h, status: "error" });
+    return m.exception ? h = m.exception.message : m.error ? h = m.error.info : h = "Unknown error", new Gn({ text: h, status: "error" });
   });
-}, ex = (e) => {
+}, ox = (e) => {
   const t = {
-    assert: rr,
+    assert: or,
     action: "cxsplit",
     translationid: e
   };
   return new mw.Api().postWithToken("csrf", t).then((s) => s.cxsplit.result === "success");
-}, tx = () => {
+}, ax = () => {
   const e = {
-    assert: rr,
+    assert: or,
     action: "cxcheckunreviewed"
   };
   return new mw.Api().get(e).then(
     (n) => n.cxcheckunreviewed.result === "success" || new vu(n.cxcheckunreviewed.translation)
   );
-}, nx = (e, t, n) => {
+}, ix = (e, t, n) => {
   const s = {
     action: "sxdelete",
     sectiontranslationid: e,
@@ -12152,7 +12176,7 @@ const Qy = (e, t, n) => {
     sectionid: n
   };
   return new mw.Api().postWithToken("csrf", s).then(() => !0).catch(() => !1);
-}, sx = (e) => {
+}, rx = (e) => {
   const t = {
     assert: "user",
     action: "cxdelete",
@@ -12161,31 +12185,31 @@ const Qy = (e, t, n) => {
     sourcetitle: e.sourceTitle
   };
   return new mw.Api().postWithToken("csrf", t).then(() => !0).catch(() => !1);
-}, ox = () => new mw.Api().get({ action: "query", list: "cxtranslatorstats" }).then((t) => {
+}, lx = () => new mw.Api().get({ action: "query", list: "cxtranslatorstats" }).then((t) => {
   var n;
   return (n = t.cxtranslatorstats) == null ? void 0 : n.publishTrend;
 }).catch((t) => (mw.log.error("[CX] Fetching translator stats failed", t), null)), xt = {
-  fetchTranslations: Zh,
-  fetchTranslationUnits: Ky,
-  fetchSegmentTranslation: Yy,
-  parseTemplateWikitext: Qy,
-  publishTranslation: Jy,
-  saveTranslation: Zy,
-  deleteTranslation: nx,
-  fetchTranslatorStats: ox,
-  deleteCXTranslation: sx,
-  splitTranslation: ex,
-  checkUnreviewedTranslations: tx
+  fetchTranslations: of,
+  fetchTranslationUnits: Zy,
+  fetchSegmentTranslation: ex,
+  parseTemplateWikitext: tx,
+  publishTranslation: nx,
+  saveTranslation: sx,
+  deleteTranslation: ix,
+  fetchTranslatorStats: lx,
+  deleteCXTranslation: rx,
+  splitTranslation: ox,
+  checkUnreviewedTranslations: ax
 };
-function ax(t) {
-  return C(this, arguments, function* ({ commit: e }) {
+function cx(t) {
+  return x(this, arguments, function* ({ commit: e }) {
     const n = yield xt.fetchTranslatorStats();
     e("setTranslatorStats", n);
   });
 }
-const ix = {
-  fetchTranslatorStats: ax
-}, rx = {
+const ux = {
+  fetchTranslatorStats: cx
+}, dx = {
   clearTranslationsByStatus(e, t) {
     e.translations = e.translations.filter(
       (n) => n.status !== t
@@ -12207,13 +12231,13 @@ const ix = {
   setTranslatorStats: (e, t) => {
     e.translatorStats = t;
   }
-}, lx = {
+}, gx = {
   namespaced: !0,
-  state: Gy,
-  getters: Xy,
-  actions: ix,
-  mutations: rx
-}, cx = {
+  state: Yy,
+  getters: Qy,
+  actions: ux,
+  mutations: dx
+}, px = {
   /** @type ArticleSuggestion[] */
   pageSuggestions: [],
   /** @type SectionSuggestion[] */
@@ -12259,8 +12283,8 @@ const ix = {
    * Stores appendix section titles, grouped by language
    * @type Object - { language1: [titles1], ... }
    */
-  appendixSectionTitles: H_
-}, ux = {
+  appendixSectionTitles: j_
+}, mx = {
   getFavoriteTitlesByLanguagePair: (e) => (t, n) => e.favorites.filter(
     (s) => s.sourceLanguage === t && s.targetLanguage === n
   ).map((s) => s.title),
@@ -12281,7 +12305,7 @@ const ix = {
     var n;
     return (((n = e.appendixSectionTitles) == null ? void 0 : n[t]) || []).length > 0;
   }
-}, dx = {
+}, hx = {
   /**
    * @param {object} state
    * @param {ArticleSuggestion} suggestion
@@ -12344,13 +12368,13 @@ const ix = {
   setIsSectionSuggestionsFetchPending(e, t) {
     e.isSectionSuggestionsFetchPending = t;
   }
-}, gx = {
+}, fx = {
   namespaced: !0,
-  state: cx,
-  getters: ux,
+  state: px,
+  getters: mx,
   actions: {},
-  mutations: dx
-}, px = {
+  mutations: hx
+}, wx = {
   /** @type {Page[]} */
   pages: [],
   languageTitleGroups: [],
@@ -12361,7 +12385,7 @@ const ix = {
    * @type {Object}
    */
   nearbyPages: {}
-}, mx = {
+}, vx = {
   /**
    * In case of a null or empty title, this getter should
    * return null
@@ -12405,17 +12429,17 @@ const ix = {
     return e.nearbyPages[s];
   }
 };
-function hx(s) {
-  return C(this, arguments, function* ({ commit: e, rootState: t, state: n }) {
+function _x(s) {
+  return x(this, arguments, function* ({ commit: e, rootState: t, state: n }) {
     var r;
     const { sourceLanguage: o } = t.application;
     if ((r = n.nearbyPages[o]) != null && r.length)
       return;
-    const a = yield cs.fetchNearbyPages(o);
+    const a = yield ds.fetchNearbyPages(o);
     e("addNearbyPages", { language: o, pages: a });
   });
 }
-const fx = { fetchNearbyPages: hx }, wx = {
+const Sx = { fetchNearbyPages: _x }, yx = {
   addPage(e, t) {
     e.pages.push(t);
   },
@@ -12448,13 +12472,13 @@ const fx = { fetchNearbyPages: hx }, wx = {
   addNearbyPages(e, { language: t, pages: n }) {
     e.nearbyPages[t] = n;
   }
-}, vx = {
+}, xx = {
   namespaced: !0,
-  state: px,
-  getters: mx,
-  actions: fx,
-  mutations: wx
-}, _x = {
+  state: wx,
+  getters: vx,
+  actions: Sx,
+  mutations: yx
+}, Cx = {
   /**@type Array */
   mtRequestsPending: [],
   /** @type String */
@@ -12490,7 +12514,7 @@ const fx = { fetchNearbyPages: hx }, wx = {
    * @type String
    */
   previousRoute: null
-}, Sx = {
+}, bx = {
   /**
    * @param state
    * @param {string|0} value
@@ -12545,29 +12569,29 @@ const fx = { fetchNearbyPages: hx }, wx = {
   setPreviousRoute: (e, t) => {
     e.previousRoute = t;
   }
-}, yx = {
+}, kx = {
   namespaced: !0,
-  state: _x,
-  mutations: Sx
-}, xx = window.Vuex.createStore, Cx = xx({
-  modules: { translator: lx, suggestions: gx, mediawiki: vx, application: yx }
+  state: Cx,
+  mutations: bx
+}, $x = window.Vuex.createStore, Vx = $x({
+  modules: { translator: gx, suggestions: fx, mediawiki: xx, application: kx }
 });
-function bx() {
-  return ef().__VUE_DEVTOOLS_GLOBAL_HOOK__;
+function Ex() {
+  return af().__VUE_DEVTOOLS_GLOBAL_HOOK__;
 }
-function ef() {
+function af() {
   return typeof navigator != "undefined" && typeof window != "undefined" ? window : typeof global != "undefined" ? global : {};
 }
-const kx = typeof Proxy == "function", $x = "devtools-plugin:setup", Ex = "plugin:settings:set";
-let fs, Oc;
-function Vx() {
+const Lx = typeof Proxy == "function", Tx = "devtools-plugin:setup", Ax = "plugin:settings:set";
+let vs, Oc;
+function Dx() {
   var e;
-  return fs !== void 0 || (typeof window != "undefined" && window.performance ? (fs = !0, Oc = window.performance) : typeof global != "undefined" && (!((e = global.perf_hooks) === null || e === void 0) && e.performance) ? (fs = !0, Oc = global.perf_hooks.performance) : fs = !1), fs;
+  return vs !== void 0 || (typeof window != "undefined" && window.performance ? (vs = !0, Oc = window.performance) : typeof global != "undefined" && (!((e = global.perf_hooks) === null || e === void 0) && e.performance) ? (vs = !0, Oc = global.perf_hooks.performance) : vs = !1), vs;
 }
-function Lx() {
-  return Vx() ? Oc.now() : Date.now();
+function Px() {
+  return Dx() ? Oc.now() : Date.now();
 }
-class Tx {
+class Bx {
   constructor(t, n) {
     this.target = null, this.targetQueue = [], this.onQueue = [], this.plugin = t, this.hook = n;
     const s = {};
@@ -12595,9 +12619,9 @@ class Tx {
         a = r;
       },
       now() {
-        return Lx();
+        return Px();
       }
-    }, n && n.on(Ex, (r, l) => {
+    }, n && n.on(Ax, (r, l) => {
       r === this.plugin.id && this.fallbacks.setSettings(l);
     }), this.proxiedOn = new Proxy({}, {
       get: (r, l) => this.target ? this.target.on[l] : (...u) => {
@@ -12622,7 +12646,7 @@ class Tx {
     });
   }
   setRealTarget(t) {
-    return C(this, null, function* () {
+    return x(this, null, function* () {
       this.target = t;
       for (const n of this.onQueue)
         this.target.on[n.method](...n.args);
@@ -12631,12 +12655,12 @@ class Tx {
     });
   }
 }
-function Ax(e, t) {
-  const n = e, s = ef(), o = bx(), a = kx && n.enableEarlyProxy;
+function Fx(e, t) {
+  const n = e, s = af(), o = Ex(), a = Lx && n.enableEarlyProxy;
   if (o && (s.__VUE_DEVTOOLS_PLUGIN_API_AVAILABLE__ || !a))
-    o.emit($x, e, t);
+    o.emit(Tx, e, t);
   else {
-    const r = a ? new Tx(n, o) : null;
+    const r = a ? new Bx(n, o) : null;
     (s.__VUE_DEVTOOLS_PLUGINS__ = s.__VUE_DEVTOOLS_PLUGINS__ || []).push({
       pluginDescriptor: n,
       setupFn: t,
@@ -12649,70 +12673,70 @@ function Ax(e, t) {
   * (c) 2023 Eduardo San Martin Morote
   * @license MIT
   */
-const tf = window.Vue.getCurrentInstance, qs = window.Vue.inject;
+const rf = window.Vue.getCurrentInstance, qs = window.Vue.inject;
 window.Vue.onUnmounted;
 window.Vue.onDeactivated;
 window.Vue.onActivated;
-const Jt = window.Vue.computed, la = window.Vue.unref, Dx = window.Vue.watchEffect, nf = window.Vue.defineComponent, Px = window.Vue.reactive, sf = window.Vue.h, Fr = window.Vue.provide, Bx = window.Vue.ref, of = window.Vue.watch, Fx = window.Vue.shallowRef, Nx = window.Vue.shallowReactive, Mx = window.Vue.nextTick, Sn = typeof window != "undefined";
-function Ux(e) {
+const Zt = window.Vue.computed, la = window.Vue.unref, Nx = window.Vue.watchEffect, lf = window.Vue.defineComponent, Mx = window.Vue.reactive, cf = window.Vue.h, Dr = window.Vue.provide, Ux = window.Vue.ref, uf = window.Vue.watch, Ix = window.Vue.shallowRef, Rx = window.Vue.shallowReactive, zx = window.Vue.nextTick, yn = typeof window != "undefined";
+function Ox(e) {
   return e.__esModule || e[Symbol.toStringTag] === "Module";
 }
 const Q = Object.assign;
-function Nr(e, t) {
+function Pr(e, t) {
   const n = {};
   for (const s in t) {
     const o = t[s];
-    n[s] = ut(o) ? o.map(e) : e(o);
+    n[s] = gt(o) ? o.map(e) : e(o);
   }
   return n;
 }
 const ca = () => {
-}, ut = Array.isArray;
+}, gt = Array.isArray;
 function W(e) {
   const t = Array.from(arguments).slice(1);
   console.warn.apply(console, ["[Vue Router warn]: " + e].concat(t));
 }
-const Ix = /\/$/, Rx = (e) => e.replace(Ix, "");
-function Mr(e, t, n = "/") {
+const Hx = /\/$/, jx = (e) => e.replace(Hx, "");
+function Br(e, t, n = "/") {
   let s, o = {}, a = "", r = "";
   const l = t.indexOf("#");
   let u = t.indexOf("?");
-  return l < u && l >= 0 && (u = -1), u > -1 && (s = t.slice(0, u), a = t.slice(u + 1, l > -1 ? l : t.length), o = e(a)), l > -1 && (s = s || t.slice(0, l), r = t.slice(l, t.length)), s = jx(s != null ? s : t, n), {
+  return l < u && l >= 0 && (u = -1), u > -1 && (s = t.slice(0, u), a = t.slice(u + 1, l > -1 ? l : t.length), o = e(a)), l > -1 && (s = s || t.slice(0, l), r = t.slice(l, t.length)), s = Xx(s != null ? s : t, n), {
     fullPath: s + (a && "?") + a + r,
     path: s,
     query: o,
     hash: r
   };
 }
-function zx(e, t) {
+function qx(e, t) {
   const n = t.query ? e(t.query) : "";
   return t.path + (n && "?") + n + (t.hash || "");
 }
-function xd(e, t) {
+function Cd(e, t) {
   return !t || !e.toLowerCase().startsWith(t.toLowerCase()) ? e : e.slice(t.length) || "/";
 }
-function Cd(e, t, n) {
+function bd(e, t, n) {
   const s = t.matched.length - 1, o = n.matched.length - 1;
-  return s > -1 && s === o && Hn(t.matched[s], n.matched[o]) && af(t.params, n.params) && e(t.query) === e(n.query) && t.hash === n.hash;
+  return s > -1 && s === o && Xn(t.matched[s], n.matched[o]) && df(t.params, n.params) && e(t.query) === e(n.query) && t.hash === n.hash;
 }
-function Hn(e, t) {
+function Xn(e, t) {
   return (e.aliasOf || e) === (t.aliasOf || t);
 }
-function af(e, t) {
+function df(e, t) {
   if (Object.keys(e).length !== Object.keys(t).length)
     return !1;
   for (const n in e)
-    if (!Ox(e[n], t[n]))
+    if (!Gx(e[n], t[n]))
       return !1;
   return !0;
 }
-function Ox(e, t) {
-  return ut(e) ? bd(e, t) : ut(t) ? bd(t, e) : e === t;
+function Gx(e, t) {
+  return gt(e) ? kd(e, t) : gt(t) ? kd(t, e) : e === t;
 }
-function bd(e, t) {
-  return ut(t) ? e.length === t.length && e.every((n, s) => n === t[s]) : e.length === 1 && e[0] === t;
+function kd(e, t) {
+  return gt(t) ? e.length === t.length && e.every((n, s) => n === t[s]) : e.length === 1 && e[0] === t;
 }
-function jx(e, t) {
+function Xx(e, t) {
   if (e.startsWith("/"))
     return e;
   if ({}.NODE_ENV !== "production" && !t.startsWith("/"))
@@ -12738,20 +12762,20 @@ var ua;
 (function(e) {
   e.back = "back", e.forward = "forward", e.unknown = "";
 })(ua || (ua = {}));
-function Hx(e) {
+function Wx(e) {
   if (!e)
-    if (Sn) {
+    if (yn) {
       const t = document.querySelector("base");
       e = t && t.getAttribute("href") || "/", e = e.replace(/^\w+:\/\/[^\/]+/, "");
     } else
       e = "/";
-  return e[0] !== "/" && e[0] !== "#" && (e = "/" + e), Rx(e);
+  return e[0] !== "/" && e[0] !== "#" && (e = "/" + e), jx(e);
 }
-const qx = /^[^#]+#/;
-function Gx(e, t) {
-  return e.replace(qx, "#") + t;
+const Kx = /^[^#]+#/;
+function Yx(e, t) {
+  return e.replace(Kx, "#") + t;
 }
-function Xx(e, t) {
+function Qx(e, t) {
   const n = document.documentElement.getBoundingClientRect(), s = e.getBoundingClientRect();
   return {
     behavior: t.behavior,
@@ -12759,11 +12783,11 @@ function Xx(e, t) {
     top: s.top - n.top - (t.top || 0)
   };
 }
-const lr = () => ({
+const ar = () => ({
   left: window.pageXOffset,
   top: window.pageYOffset
 });
-function Wx(e) {
+function Jx(e) {
   let t;
   if ("el" in e) {
     const n = e.el, s = typeof n == "string" && n.startsWith("#");
@@ -12783,35 +12807,35 @@ function Wx(e) {
       ({}).NODE_ENV !== "production" && W(`Couldn't find element using selector "${e.el}" returned by scrollBehavior.`);
       return;
     }
-    t = Xx(o, e);
+    t = Qx(o, e);
   } else
     t = e;
   "scrollBehavior" in document.documentElement.style ? window.scrollTo(t) : window.scrollTo(t.left != null ? t.left : window.pageXOffset, t.top != null ? t.top : window.pageYOffset);
 }
-function kd(e, t) {
+function $d(e, t) {
   return (history.state ? history.state.position - t : -1) + e;
 }
-const jc = /* @__PURE__ */ new Map();
-function Kx(e, t) {
-  jc.set(e, t);
+const Hc = /* @__PURE__ */ new Map();
+function Zx(e, t) {
+  Hc.set(e, t);
 }
-function Yx(e) {
-  const t = jc.get(e);
-  return jc.delete(e), t;
+function eC(e) {
+  const t = Hc.get(e);
+  return Hc.delete(e), t;
 }
-let Qx = () => location.protocol + "//" + location.host;
-function rf(e, t) {
+let tC = () => location.protocol + "//" + location.host;
+function gf(e, t) {
   const { pathname: n, search: s, hash: o } = t, a = e.indexOf("#");
   if (a > -1) {
     let l = o.includes(e.slice(a)) ? e.slice(a).length : 1, u = o.slice(l);
-    return u[0] !== "/" && (u = "/" + u), xd(u, "");
+    return u[0] !== "/" && (u = "/" + u), Cd(u, "");
   }
-  return xd(n, e) + s + o;
+  return Cd(n, e) + s + o;
 }
-function Jx(e, t, n, s) {
+function nC(e, t, n, s) {
   let o = [], a = [], r = null;
   const l = ({ state: g }) => {
-    const p = rf(e, location), m = n.value, h = t.value;
+    const p = gf(e, location), m = n.value, h = t.value;
     let f = 0;
     if (g) {
       if (n.value = p, t.value = g, r && r === m) {
@@ -12842,7 +12866,7 @@ function Jx(e, t, n, s) {
   }
   function i() {
     const { history: g } = window;
-    g.state && g.replaceState(Q({}, g.state, { scroll: lr() }), "");
+    g.state && g.replaceState(Q({}, g.state, { scroll: ar() }), "");
   }
   function c() {
     for (const g of a)
@@ -12857,19 +12881,19 @@ function Jx(e, t, n, s) {
     destroy: c
   };
 }
-function $d(e, t, n, s = !1, o = !1) {
+function Vd(e, t, n, s = !1, o = !1) {
   return {
     back: e,
     current: t,
     forward: n,
     replaced: s,
     position: window.history.length,
-    scroll: o ? lr() : null
+    scroll: o ? ar() : null
   };
 }
-function Zx(e) {
+function sC(e) {
   const { history: t, location: n } = window, s = {
-    value: rf(e, n)
+    value: gf(e, n)
   }, o = { value: t.state };
   o.value || a(s.value, {
     back: null,
@@ -12883,7 +12907,7 @@ function Zx(e) {
     scroll: null
   }, !0);
   function a(u, d, i) {
-    const c = e.indexOf("#"), g = c > -1 ? (n.host && document.querySelector("base") ? e : e.slice(c)) + u : Qx() + e + u;
+    const c = e.indexOf("#"), g = c > -1 ? (n.host && document.querySelector("base") ? e : e.slice(c)) + u : tC() + e + u;
     try {
       t[i ? "replaceState" : "pushState"](d, "", g), o.value = d;
     } catch (p) {
@@ -12891,7 +12915,7 @@ function Zx(e) {
     }
   }
   function r(u, d) {
-    const i = Q({}, t.state, $d(
+    const i = Q({}, t.state, Vd(
       o.value.back,
       // keep back and forward entries but override current position
       u,
@@ -12910,7 +12934,7 @@ function Zx(e) {
       t.state,
       {
         forward: u,
-        scroll: lr()
+        scroll: ar()
       }
     );
     ({}).NODE_ENV !== "production" && !t.state && W(`history.state seems to have been manually replaced without preserving the necessary values. Make sure to preserve existing history state if you are manually calling history.replaceState:
@@ -12918,7 +12942,7 @@ function Zx(e) {
 history.replaceState(history.state, '', url)
 
 You can find more information at https://next.router.vuejs.org/guide/migration/#usage-of-history-state.`), a(i.current, i, !0);
-    const c = Q({}, $d(s.value, u, null), { position: i.position + 1 }, d);
+    const c = Q({}, Vd(s.value, u, null), { position: i.position + 1 }, d);
     a(u, c, !1), s.value = u;
   }
   return {
@@ -12928,9 +12952,9 @@ You can find more information at https://next.router.vuejs.org/guide/migration/#
     replace: r
   };
 }
-function eC(e) {
-  e = Hx(e);
-  const t = Zx(e), n = Jx(e, t.state, t.location, t.replace);
+function oC(e) {
+  e = Wx(e);
+  const t = sC(e), n = nC(e, t.state, t.location, t.replace);
   function s(a, r = !0) {
     r || n.pauseListeners(), history.go(a);
   }
@@ -12939,7 +12963,7 @@ function eC(e) {
     location: "",
     base: e,
     go: s,
-    createHref: Gx.bind(null, e)
+    createHref: Yx.bind(null, e)
   }, t, n);
   return Object.defineProperty(o, "location", {
     enumerable: !0,
@@ -12949,14 +12973,14 @@ function eC(e) {
     get: () => t.state.value
   }), o;
 }
-function tC(e) {
+function aC(e) {
   return e = location.host ? e || location.pathname + location.search : "", e.includes("#") || (e += "#"), {}.NODE_ENV !== "production" && !e.endsWith("#/") && !e.endsWith("#") && W(`A hash base must end with a "#":
-"${e}" should be "${e.replace(/#.*$/, "#")}".`), eC(e);
+"${e}" should be "${e.replace(/#.*$/, "#")}".`), oC(e);
 }
-function nC(e) {
+function iC(e) {
   return typeof e == "string" || e && typeof e == "object";
 }
-function lf(e) {
+function pf(e) {
   return typeof e == "string" || typeof e == "symbol";
 }
 const $n = {
@@ -12969,12 +12993,12 @@ const $n = {
   matched: [],
   meta: {},
   redirectedFrom: void 0
-}, Hc = Symbol({}.NODE_ENV !== "production" ? "navigation failure" : "");
+}, jc = Symbol({}.NODE_ENV !== "production" ? "navigation failure" : "");
 var Ed;
 (function(e) {
   e[e.aborted = 4] = "aborted", e[e.cancelled = 8] = "cancelled", e[e.duplicated = 16] = "duplicated";
 })(Ed || (Ed = {}));
-const sC = {
+const rC = {
   1({ location: e, currentLocation: t }) {
     return `No match for
  ${JSON.stringify(e)}${t ? `
@@ -12982,7 +13006,7 @@ while being at
 ` + JSON.stringify(t) : ""}`;
   },
   2({ from: e, to: t }) {
-    return `Redirected from "${e.fullPath}" to "${aC(t)}" via a navigation guard.`;
+    return `Redirected from "${e.fullPath}" to "${cC(t)}" via a navigation guard.`;
   },
   4({ from: e, to: t }) {
     return `Navigation aborted from "${e.fullPath}" to "${t.fullPath}" via a navigation guard.`;
@@ -12995,36 +13019,36 @@ while being at
   }
 };
 function Gs(e, t) {
-  return {}.NODE_ENV !== "production" ? Q(new Error(sC[e](t)), {
+  return {}.NODE_ENV !== "production" ? Q(new Error(rC[e](t)), {
     type: e,
-    [Hc]: !0
+    [jc]: !0
   }, t) : Q(new Error(), {
     type: e,
-    [Hc]: !0
+    [jc]: !0
   }, t);
 }
-function nn(e, t) {
-  return e instanceof Error && Hc in e && (t == null || !!(e.type & t));
+function on(e, t) {
+  return e instanceof Error && jc in e && (t == null || !!(e.type & t));
 }
-const oC = ["params", "query", "hash"];
-function aC(e) {
+const lC = ["params", "query", "hash"];
+function cC(e) {
   if (typeof e == "string")
     return e;
   if ("path" in e)
     return e.path;
   const t = {};
-  for (const n of oC)
+  for (const n of lC)
     n in e && (t[n] = e[n]);
   return JSON.stringify(t, null, 2);
 }
-const Vd = "[^/]+?", iC = {
+const Ld = "[^/]+?", uC = {
   sensitive: !1,
   strict: !1,
   start: !0,
   end: !0
-}, rC = /[.+*?^${}()[\]/\\]/g;
-function lC(e, t) {
-  const n = Q({}, iC, t), s = [];
+}, dC = /[.+*?^${}()[\]/\\]/g;
+function gC(e, t) {
+  const n = Q({}, uC, t), s = [];
   let o = n.start ? "^" : "";
   const a = [];
   for (const d of e) {
@@ -13037,7 +13061,7 @@ function lC(e, t) {
       const g = d[c];
       let p = 40 + (n.sensitive ? 0.25 : 0);
       if (g.type === 0)
-        c || (o += "/"), o += g.value.replace(rC, "\\$&"), p += 40;
+        c || (o += "/"), o += g.value.replace(dC, "\\$&"), p += 40;
       else if (g.type === 1) {
         const { value: m, repeatable: h, optional: f, regexp: w } = g;
         a.push({
@@ -13045,19 +13069,19 @@ function lC(e, t) {
           repeatable: h,
           optional: f
         });
-        const v = w || Vd;
-        if (v !== Vd) {
+        const _ = w || Ld;
+        if (_ !== Ld) {
           p += 10;
           try {
-            new RegExp(`(${v})`);
+            new RegExp(`(${_})`);
           } catch (S) {
-            throw new Error(`Invalid custom RegExp for param "${m}" (${v}): ` + S.message);
+            throw new Error(`Invalid custom RegExp for param "${m}" (${_}): ` + S.message);
           }
         }
-        let y = h ? `((?:${v})(?:/(?:${v}))*)` : `(${v})`;
-        c || (y = // avoid an optional / if there are more segments e.g. /:p?-static
+        let C = h ? `((?:${_})(?:/(?:${_}))*)` : `(${_})`;
+        c || (C = // avoid an optional / if there are more segments e.g. /:p?-static
         // or /:p?-:p2
-        f && d.length < 2 ? `(?:/${y})` : "/" + y), f && (y += "?"), o += y, p += 20, f && (p += -8), h && (p += -20), v === ".*" && (p += -50);
+        f && d.length < 2 ? `(?:/${C})` : "/" + C), f && (C += "?"), o += C, p += 20, f && (p += -8), h && (p += -20), _ === ".*" && (p += -50);
       }
       i.push(p);
     }
@@ -13088,15 +13112,15 @@ function lC(e, t) {
           i += p.value;
         else if (p.type === 1) {
           const { value: m, repeatable: h, optional: f } = p, w = m in d ? d[m] : "";
-          if (ut(w) && !h)
+          if (gt(w) && !h)
             throw new Error(`Provided param "${m}" is an array but it is not repeatable (* or + modifiers)`);
-          const v = ut(w) ? w.join("/") : w;
-          if (!v)
+          const _ = gt(w) ? w.join("/") : w;
+          if (!_)
             if (f)
               g.length < 2 && (i.endsWith("/") ? i = i.slice(0, -1) : c = !0);
             else
               throw new Error(`Missing required param "${m}"`);
-          i += v;
+          i += _;
         }
     }
     return i || "/";
@@ -13109,7 +13133,7 @@ function lC(e, t) {
     stringify: u
   };
 }
-function cC(e, t) {
+function pC(e, t) {
   let n = 0;
   for (; n < e.length && n < t.length; ) {
     const s = t[n] - e[n];
@@ -13119,36 +13143,36 @@ function cC(e, t) {
   }
   return e.length < t.length ? e.length === 1 && e[0] === 40 + 40 ? -1 : 1 : e.length > t.length ? t.length === 1 && t[0] === 40 + 40 ? 1 : -1 : 0;
 }
-function uC(e, t) {
+function mC(e, t) {
   let n = 0;
   const s = e.score, o = t.score;
   for (; n < s.length && n < o.length; ) {
-    const a = cC(s[n], o[n]);
+    const a = pC(s[n], o[n]);
     if (a)
       return a;
     n++;
   }
   if (Math.abs(o.length - s.length) === 1) {
-    if (Ld(s))
+    if (Td(s))
       return 1;
-    if (Ld(o))
+    if (Td(o))
       return -1;
   }
   return o.length - s.length;
 }
-function Ld(e) {
+function Td(e) {
   const t = e[e.length - 1];
   return e.length > 0 && t[t.length - 1] < 0;
 }
-const dC = {
+const hC = {
   type: 0,
   value: ""
-}, gC = /[a-zA-Z0-9_]/;
-function pC(e) {
+}, fC = /[a-zA-Z0-9_]/;
+function wC(e) {
   if (!e)
     return [[]];
   if (e === "/")
-    return [[dC]];
+    return [[hC]];
   if (!e.startsWith("/"))
     throw new Error({}.NODE_ENV !== "production" ? `Route paths should start with a "/": "${e}" should be "/${e}".` : `Invalid path "${e}"`);
   function t(p) {
@@ -13189,7 +13213,7 @@ function pC(e) {
         g(), n = s;
         break;
       case 1:
-        u === "(" ? n = 2 : gC.test(u) ? g() : (c(), n = 0, u !== "*" && u !== "?" && u !== "+" && l--);
+        u === "(" ? n = 2 : fC.test(u) ? g() : (c(), n = 0, u !== "*" && u !== "?" && u !== "+" && l--);
         break;
       case 2:
         u === ")" ? i[i.length - 1] == "\\" ? i = i.slice(0, -1) + u : n = 3 : i += u;
@@ -13204,8 +13228,8 @@ function pC(e) {
   }
   return n === 2 && t(`Unfinished custom RegExp for param "${d}"`), c(), r(), o;
 }
-function mC(e, t, n) {
-  const s = lC(pC(e.path), n);
+function vC(e, t, n) {
+  const s = gC(wC(e.path), n);
   if ({}.NODE_ENV !== "production") {
     const a = /* @__PURE__ */ new Set();
     for (const r of s.keys)
@@ -13220,21 +13244,21 @@ function mC(e, t, n) {
   });
   return t && !o.record.aliasOf == !t.record.aliasOf && t.children.push(o), o;
 }
-function hC(e, t) {
+function _C(e, t) {
   const n = [], s = /* @__PURE__ */ new Map();
-  t = Dd({ strict: !1, end: !0, sensitive: !1 }, t);
+  t = Pd({ strict: !1, end: !0, sensitive: !1 }, t);
   function o(i) {
     return s.get(i);
   }
   function a(i, c, g) {
-    const p = !g, m = fC(i);
-    ({}).NODE_ENV !== "production" && SC(m, c), m.aliasOf = g && g.record;
-    const h = Dd(t, i), f = [
+    const p = !g, m = SC(i);
+    ({}).NODE_ENV !== "production" && bC(m, c), m.aliasOf = g && g.record;
+    const h = Pd(t, i), f = [
       m
     ];
     if ("alias" in i) {
-      const y = typeof i.alias == "string" ? [i.alias] : i.alias;
-      for (const S of y)
+      const C = typeof i.alias == "string" ? [i.alias] : i.alias;
+      for (const S of C)
         f.push(Q({}, m, {
           // this allows us to hold a copy of the `components` option
           // so that async components cache is hold on the original record
@@ -13246,29 +13270,29 @@ function hC(e, t) {
           // are defined on the same record
         }));
     }
-    let w, v;
-    for (const y of f) {
-      const { path: S } = y;
+    let w, _;
+    for (const C of f) {
+      const { path: S } = C;
       if (c && S[0] !== "/") {
-        const b = c.record.path, V = b[b.length - 1] === "/" ? "" : "/";
-        y.path = c.record.path + (S && V + S);
+        const b = c.record.path, A = b[b.length - 1] === "/" ? "" : "/";
+        C.path = c.record.path + (S && A + S);
       }
-      if ({}.NODE_ENV !== "production" && y.path === "*")
+      if ({}.NODE_ENV !== "production" && C.path === "*")
         throw new Error(`Catch all routes ("*") must now be defined using a param with a custom regexp.
 See more at https://next.router.vuejs.org/guide/migration/#removed-star-or-catch-all-routes.`);
-      if (w = mC(y, c, h), {}.NODE_ENV !== "production" && c && S[0] === "/" && yC(w, c), g ? (g.alias.push(w), {}.NODE_ENV !== "production" && _C(g, w)) : (v = v || w, v !== w && v.alias.push(w), p && i.name && !Ad(w) && r(i.name)), m.children) {
+      if (w = vC(C, c, h), {}.NODE_ENV !== "production" && c && S[0] === "/" && kC(w, c), g ? (g.alias.push(w), {}.NODE_ENV !== "production" && CC(g, w)) : (_ = _ || w, _ !== w && _.alias.push(w), p && i.name && !Dd(w) && r(i.name)), m.children) {
         const b = m.children;
-        for (let V = 0; V < b.length; V++)
-          a(b[V], w, g && g.children[V]);
+        for (let A = 0; A < b.length; A++)
+          a(b[A], w, g && g.children[A]);
       }
       g = g || w, (w.record.components && Object.keys(w.record.components).length || w.record.name || w.record.redirect) && u(w);
     }
-    return v ? () => {
-      r(v);
+    return _ ? () => {
+      r(_);
     } : ca;
   }
   function r(i) {
-    if (lf(i)) {
+    if (pf(i)) {
       const c = s.get(i);
       c && (s.delete(i), n.splice(n.indexOf(c), 1), c.children.forEach(r), c.alias.forEach(r));
     } else {
@@ -13281,11 +13305,11 @@ See more at https://next.router.vuejs.org/guide/migration/#removed-star-or-catch
   }
   function u(i) {
     let c = 0;
-    for (; c < n.length && uC(i, n[c]) >= 0 && // Adding children with empty path should still appear before the parent
+    for (; c < n.length && mC(i, n[c]) >= 0 && // Adding children with empty path should still appear before the parent
     // https://github.com/vuejs/router/issues/1124
-    (i.record.path !== n[c].record.path || !cf(i, n[c])); )
+    (i.record.path !== n[c].record.path || !mf(i, n[c])); )
       c++;
-    n.splice(c, 0, i), i.record.name && !Ad(i) && s.set(i.record.name, i);
+    n.splice(c, 0, i), i.record.name && !Dd(i) && s.set(i.record.name, i);
   }
   function d(i, c) {
     let g, p = {}, m, h;
@@ -13295,25 +13319,25 @@ See more at https://next.router.vuejs.org/guide/migration/#removed-star-or-catch
           location: i
         });
       if ({}.NODE_ENV !== "production") {
-        const v = Object.keys(i.params || {}).filter((y) => !g.keys.find((S) => S.name === y));
-        v.length && W(`Discarded invalid param(s) "${v.join('", "')}" when navigating. See https://github.com/vuejs/router/blob/main/packages/router/CHANGELOG.md#414-2022-08-22 for more details.`);
+        const _ = Object.keys(i.params || {}).filter((C) => !g.keys.find((S) => S.name === C));
+        _.length && W(`Discarded invalid param(s) "${_.join('", "')}" when navigating. See https://github.com/vuejs/router/blob/main/packages/router/CHANGELOG.md#414-2022-08-22 for more details.`);
       }
       h = g.record.name, p = Q(
         // paramsFromLocation is a new object
-        Td(
+        Ad(
           c.params,
           // only keep params that exist in the resolved location
           // TODO: only keep optional params coming from a parent record
-          g.keys.filter((v) => !v.optional).map((v) => v.name)
+          g.keys.filter((_) => !_.optional).map((_) => _.name)
         ),
         // discard any existing params in the current location that do not exist here
         // #1497 this ensures better active/exact matching
-        i.params && Td(i.params, g.keys.map((v) => v.name))
+        i.params && Ad(i.params, g.keys.map((_) => _.name))
       ), m = g.stringify(p);
     } else if ("path" in i)
-      m = i.path, {}.NODE_ENV !== "production" && !m.startsWith("/") && W(`The Matcher cannot resolve relative paths but received "${m}". Unless you directly called \`matcher.resolve("${m}")\`, this is probably a bug in vue-router. Please open an issue at https://github.com/vuejs/router/issues/new/choose.`), g = n.find((v) => v.re.test(m)), g && (p = g.parse(m), h = g.record.name);
+      m = i.path, {}.NODE_ENV !== "production" && !m.startsWith("/") && W(`The Matcher cannot resolve relative paths but received "${m}". Unless you directly called \`matcher.resolve("${m}")\`, this is probably a bug in vue-router. Please open an issue at https://github.com/vuejs/router/issues/new/choose.`), g = n.find((_) => _.re.test(m)), g && (p = g.parse(m), h = g.record.name);
     else {
-      if (g = c.name ? s.get(c.name) : n.find((v) => v.re.test(c.path)), !g)
+      if (g = c.name ? s.get(c.name) : n.find((_) => _.re.test(c.path)), !g)
         throw Gs(1, {
           location: i,
           currentLocation: c
@@ -13329,18 +13353,18 @@ See more at https://next.router.vuejs.org/guide/migration/#removed-star-or-catch
       path: m,
       params: p,
       matched: f,
-      meta: vC(f)
+      meta: xC(f)
     };
   }
   return e.forEach((i) => a(i)), { addRoute: a, resolve: d, removeRoute: r, getRoutes: l, getRecordMatcher: o };
 }
-function Td(e, t) {
+function Ad(e, t) {
   const n = {};
   for (const s of t)
     s in e && (n[s] = e[s]);
   return n;
 }
-function fC(e) {
+function SC(e) {
   return {
     path: e.path,
     redirect: e.redirect,
@@ -13348,7 +13372,7 @@ function fC(e) {
     meta: e.meta || {},
     aliasOf: void 0,
     beforeEnter: e.beforeEnter,
-    props: wC(e),
+    props: yC(e),
     children: e.children || [],
     instances: {},
     leaveGuards: /* @__PURE__ */ new Set(),
@@ -13357,7 +13381,7 @@ function fC(e) {
     components: "components" in e ? e.components || null : e.component && { default: e.component }
   };
 }
-function wC(e) {
+function yC(e) {
   const t = {}, n = e.props || !1;
   if ("component" in e)
     t.default = n;
@@ -13366,7 +13390,7 @@ function wC(e) {
       t[s] = typeof n == "object" ? n[s] : n;
   return t;
 }
-function Ad(e) {
+function Dd(e) {
   for (; e; ) {
     if (e.record.aliasOf)
       return !0;
@@ -13374,10 +13398,10 @@ function Ad(e) {
   }
   return !1;
 }
-function vC(e) {
+function xC(e) {
   return e.reduce((t, n) => Q(t, n.meta), {});
 }
-function Dd(e, t) {
+function Pd(e, t) {
   const n = {};
   for (const s in e)
     n[s] = s in t ? t[s] : e[s];
@@ -13386,7 +13410,7 @@ function Dd(e, t) {
 function qc(e, t) {
   return e.name === t.name && e.optional === t.optional && e.repeatable === t.repeatable;
 }
-function _C(e, t) {
+function CC(e, t) {
   for (const n of e.keys)
     if (!n.optional && !t.keys.find(qc.bind(null, n)))
       return W(`Alias "${t.record.path}" and the original record: "${e.record.path}" must have the exact same param named "${n.name}"`);
@@ -13394,35 +13418,35 @@ function _C(e, t) {
     if (!n.optional && !e.keys.find(qc.bind(null, n)))
       return W(`Alias "${t.record.path}" and the original record: "${e.record.path}" must have the exact same param named "${n.name}"`);
 }
-function SC(e, t) {
+function bC(e, t) {
   t && t.record.name && !e.name && !e.path && W(`The route named "${String(t.record.name)}" has a child without a name and an empty path. Using that name won't render the empty path child so you probably want to move the name to the child instead. If this is intentional, add a name to the child route to remove the warning.`);
 }
-function yC(e, t) {
+function kC(e, t) {
   for (const n of t.keys)
     if (!e.keys.find(qc.bind(null, n)))
       return W(`Absolute path "${e.record.path}" must have the exact same param named "${n.name}" as its parent "${t.record.path}".`);
 }
-function cf(e, t) {
-  return t.children.some((n) => n === e || cf(e, n));
+function mf(e, t) {
+  return t.children.some((n) => n === e || mf(e, n));
 }
-const uf = /#/g, xC = /&/g, CC = /\//g, bC = /=/g, kC = /\?/g, df = /\+/g, $C = /%5B/g, EC = /%5D/g, gf = /%5E/g, VC = /%60/g, pf = /%7B/g, LC = /%7C/g, mf = /%7D/g, TC = /%20/g;
+const hf = /#/g, $C = /&/g, VC = /\//g, EC = /=/g, LC = /\?/g, ff = /\+/g, TC = /%5B/g, AC = /%5D/g, wf = /%5E/g, DC = /%60/g, vf = /%7B/g, PC = /%7C/g, _f = /%7D/g, BC = /%20/g;
 function _u(e) {
-  return encodeURI("" + e).replace(LC, "|").replace($C, "[").replace(EC, "]");
+  return encodeURI("" + e).replace(PC, "|").replace(TC, "[").replace(AC, "]");
 }
-function AC(e) {
-  return _u(e).replace(pf, "{").replace(mf, "}").replace(gf, "^");
+function FC(e) {
+  return _u(e).replace(vf, "{").replace(_f, "}").replace(wf, "^");
 }
 function Gc(e) {
-  return _u(e).replace(df, "%2B").replace(TC, "+").replace(uf, "%23").replace(xC, "%26").replace(VC, "`").replace(pf, "{").replace(mf, "}").replace(gf, "^");
+  return _u(e).replace(ff, "%2B").replace(BC, "+").replace(hf, "%23").replace($C, "%26").replace(DC, "`").replace(vf, "{").replace(_f, "}").replace(wf, "^");
 }
-function DC(e) {
-  return Gc(e).replace(bC, "%3D");
+function NC(e) {
+  return Gc(e).replace(EC, "%3D");
 }
-function PC(e) {
-  return _u(e).replace(uf, "%23").replace(kC, "%3F");
+function MC(e) {
+  return _u(e).replace(hf, "%23").replace(LC, "%3F");
 }
-function BC(e) {
-  return e == null ? "" : PC(e).replace(CC, "%2F");
+function UC(e) {
+  return e == null ? "" : MC(e).replace(VC, "%2F");
 }
 function pa(e) {
   try {
@@ -13432,45 +13456,45 @@ function pa(e) {
   }
   return "" + e;
 }
-function FC(e) {
+function IC(e) {
   const t = {};
   if (e === "" || e === "?")
     return t;
   const s = (e[0] === "?" ? e.slice(1) : e).split("&");
   for (let o = 0; o < s.length; ++o) {
-    const a = s[o].replace(df, " "), r = a.indexOf("="), l = pa(r < 0 ? a : a.slice(0, r)), u = r < 0 ? null : pa(a.slice(r + 1));
+    const a = s[o].replace(ff, " "), r = a.indexOf("="), l = pa(r < 0 ? a : a.slice(0, r)), u = r < 0 ? null : pa(a.slice(r + 1));
     if (l in t) {
       let d = t[l];
-      ut(d) || (d = t[l] = [d]), d.push(u);
+      gt(d) || (d = t[l] = [d]), d.push(u);
     } else
       t[l] = u;
   }
   return t;
 }
-function Pd(e) {
+function Bd(e) {
   let t = "";
   for (let n in e) {
     const s = e[n];
-    if (n = DC(n), s == null) {
+    if (n = NC(n), s == null) {
       s !== void 0 && (t += (t.length ? "&" : "") + n);
       continue;
     }
-    (ut(s) ? s.map((a) => a && Gc(a)) : [s && Gc(s)]).forEach((a) => {
+    (gt(s) ? s.map((a) => a && Gc(a)) : [s && Gc(s)]).forEach((a) => {
       a !== void 0 && (t += (t.length ? "&" : "") + n, a != null && (t += "=" + a));
     });
   }
   return t;
 }
-function NC(e) {
+function RC(e) {
   const t = {};
   for (const n in e) {
     const s = e[n];
-    s !== void 0 && (t[n] = ut(s) ? s.map((o) => o == null ? null : "" + o) : s == null ? s : "" + s);
+    s !== void 0 && (t[n] = gt(s) ? s.map((o) => o == null ? null : "" + o) : s == null ? s : "" + s);
   }
   return t;
 }
-const MC = Symbol({}.NODE_ENV !== "production" ? "router view location matched" : ""), Bd = Symbol({}.NODE_ENV !== "production" ? "router view depth" : ""), cr = Symbol({}.NODE_ENV !== "production" ? "router" : ""), hf = Symbol({}.NODE_ENV !== "production" ? "route location" : ""), Xc = Symbol({}.NODE_ENV !== "production" ? "router view location" : "");
-function ho() {
+const zC = Symbol({}.NODE_ENV !== "production" ? "router view location matched" : ""), Fd = Symbol({}.NODE_ENV !== "production" ? "router view depth" : ""), ir = Symbol({}.NODE_ENV !== "production" ? "router" : ""), Sf = Symbol({}.NODE_ENV !== "production" ? "route location" : ""), Xc = Symbol({}.NODE_ENV !== "production" ? "router view location" : "");
+function mo() {
   let e = [];
   function t(s) {
     return e.push(s), () => {
@@ -13487,7 +13511,7 @@ function ho() {
     reset: n
   };
 }
-function On(e, t, n, s, o) {
+function jn(e, t, n, s, o) {
   const a = s && // name is defined if record is because of the function overload
   (s.enterCallbacks[o] = s.enterCallbacks[o] || []);
   return () => new Promise((r, l) => {
@@ -13495,12 +13519,12 @@ function On(e, t, n, s, o) {
       c === !1 ? l(Gs(4, {
         from: n,
         to: t
-      })) : c instanceof Error ? l(c) : nC(c) ? l(Gs(2, {
+      })) : c instanceof Error ? l(c) : iC(c) ? l(Gs(2, {
         from: t,
         to: c
       })) : (a && // since enterCallbackArray is truthy, both record and name also are
       s.enterCallbacks[o] === a && typeof c == "function" && a.push(c), r());
-    }, d = e.call(s && s.instances[o], t, n, {}.NODE_ENV !== "production" ? UC(u, t, n) : u);
+    }, d = e.call(s && s.instances[o], t, n, {}.NODE_ENV !== "production" ? OC(u, t, n) : u);
     let i = Promise.resolve(d);
     if (e.length < 3 && (i = i.then(u)), {}.NODE_ENV !== "production" && e.length > 2) {
       const c = `The "next" callback was never called inside of ${e.name ? '"' + e.name + '"' : ""}:
@@ -13516,13 +13540,13 @@ ${e.toString()}
     i.catch((c) => l(c));
   });
 }
-function UC(e, t, n) {
+function OC(e, t, n) {
   let s = 0;
   return function() {
     s++ === 1 && W(`The "next" callback was called more than once in one navigation guard when going from "${n.fullPath}" to "${t.fullPath}". It should be called exactly one time in each navigation guard. This will fail in production.`), e._called = !0, s === 1 && e.apply(null, arguments);
   };
 }
-function Ur(e, t, n, s) {
+function Fr(e, t, n, s) {
   const o = [];
   for (const a of e) {
     ({}).NODE_ENV !== "production" && !a.components && !a.children.length && W(`Record with path "${a.path}" is either missing a "component(s)" or "children" property.`);
@@ -13540,73 +13564,73 @@ function Ur(e, t, n, s) {
           !l.__warnedDefineAsync && (l.__warnedDefineAsync = !0, W(`Component "${r}" in record with path "${a.path}" is defined using "defineAsyncComponent()". Write "() => import('./MyPage.vue')" instead of "defineAsyncComponent(() => import('./MyPage.vue'))".`));
       }
       if (!(t !== "beforeRouteEnter" && !a.instances[r]))
-        if (IC(l)) {
+        if (HC(l)) {
           const d = (l.__vccOpts || l)[t];
-          d && o.push(On(d, n, s, a, r));
+          d && o.push(jn(d, n, s, a, r));
         } else {
           let u = l();
           ({}).NODE_ENV !== "production" && !("catch" in u) && (W(`Component "${r}" in record with path "${a.path}" is a function that does not return a Promise. If you were passing a functional component, make sure to add a "displayName" to the component. This will break in production if not fixed.`), u = Promise.resolve(u)), o.push(() => u.then((d) => {
             if (!d)
               return Promise.reject(new Error(`Couldn't resolve component "${r}" at "${a.path}"`));
-            const i = Ux(d) ? d.default : d;
+            const i = Ox(d) ? d.default : d;
             a.components[r] = i;
             const g = (i.__vccOpts || i)[t];
-            return g && On(g, n, s, a, r)();
+            return g && jn(g, n, s, a, r)();
           }));
         }
     }
   }
   return o;
 }
-function IC(e) {
+function HC(e) {
   return typeof e == "object" || "displayName" in e || "props" in e || "__vccOpts" in e;
 }
-function Fd(e) {
-  const t = qs(cr), n = qs(hf), s = Jt(() => t.resolve(la(e.to))), o = Jt(() => {
+function Nd(e) {
+  const t = qs(ir), n = qs(Sf), s = Zt(() => t.resolve(la(e.to))), o = Zt(() => {
     const { matched: u } = s.value, { length: d } = u, i = u[d - 1], c = n.matched;
     if (!i || !c.length)
       return -1;
-    const g = c.findIndex(Hn.bind(null, i));
+    const g = c.findIndex(Xn.bind(null, i));
     if (g > -1)
       return g;
-    const p = Nd(u[d - 2]);
+    const p = Md(u[d - 2]);
     return (
       // we are dealing with nested routes
       d > 1 && // if the parent and matched route have the same path, this link is
       // referring to the empty child. Or we currently are on a different
       // child of the same parent
-      Nd(i) === p && // avoid comparing the child with its parent
-      c[c.length - 1].path !== p ? c.findIndex(Hn.bind(null, u[d - 2])) : g
+      Md(i) === p && // avoid comparing the child with its parent
+      c[c.length - 1].path !== p ? c.findIndex(Xn.bind(null, u[d - 2])) : g
     );
-  }), a = Jt(() => o.value > -1 && jC(n.params, s.value.params)), r = Jt(() => o.value > -1 && o.value === n.matched.length - 1 && af(n.params, s.value.params));
+  }), a = Zt(() => o.value > -1 && XC(n.params, s.value.params)), r = Zt(() => o.value > -1 && o.value === n.matched.length - 1 && df(n.params, s.value.params));
   function l(u = {}) {
-    return OC(u) ? t[la(e.replace) ? "replace" : "push"](
+    return GC(u) ? t[la(e.replace) ? "replace" : "push"](
       la(e.to)
       // avoid uncaught errors are they are logged anyway
     ).catch(ca) : Promise.resolve();
   }
-  if ({}.NODE_ENV !== "production" && Sn) {
-    const u = tf();
+  if ({}.NODE_ENV !== "production" && yn) {
+    const u = rf();
     if (u) {
       const d = {
         route: s.value,
         isActive: a.value,
         isExactActive: r.value
       };
-      u.__vrl_devtools = u.__vrl_devtools || [], u.__vrl_devtools.push(d), Dx(() => {
+      u.__vrl_devtools = u.__vrl_devtools || [], u.__vrl_devtools.push(d), Nx(() => {
         d.route = s.value, d.isActive = a.value, d.isExactActive = r.value;
       }, { flush: "post" });
     }
   }
   return {
     route: s,
-    href: Jt(() => s.value.href),
+    href: Zt(() => s.value.href),
     isActive: a,
     isExactActive: r,
     navigate: l
   };
 }
-const RC = /* @__PURE__ */ nf({
+const jC = /* @__PURE__ */ lf({
   name: "RouterLink",
   compatConfig: { MODE: 3 },
   props: {
@@ -13624,20 +13648,20 @@ const RC = /* @__PURE__ */ nf({
       default: "page"
     }
   },
-  useLink: Fd,
+  useLink: Nd,
   setup(e, { slots: t }) {
-    const n = Px(Fd(e)), { options: s } = qs(cr), o = Jt(() => ({
-      [Md(e.activeClass, s.linkActiveClass, "router-link-active")]: n.isActive,
+    const n = Mx(Nd(e)), { options: s } = qs(ir), o = Zt(() => ({
+      [Ud(e.activeClass, s.linkActiveClass, "router-link-active")]: n.isActive,
       // [getLinkClass(
       //   props.inactiveClass,
       //   options.linkInactiveClass,
       //   'router-link-inactive'
       // )]: !link.isExactActive,
-      [Md(e.exactActiveClass, s.linkExactActiveClass, "router-link-exact-active")]: n.isExactActive
+      [Ud(e.exactActiveClass, s.linkExactActiveClass, "router-link-exact-active")]: n.isExactActive
     }));
     return () => {
       const a = t.default && t.default(n);
-      return e.custom ? a : sf("a", {
+      return e.custom ? a : cf("a", {
         "aria-current": n.isExactActive ? e.ariaCurrentValue : null,
         href: n.href,
         // this would override user added attrs but Vue will still add
@@ -13647,8 +13671,8 @@ const RC = /* @__PURE__ */ nf({
       }, a);
     };
   }
-}), zC = RC;
-function OC(e) {
+}), qC = jC;
+function GC(e) {
   if (!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) && !e.defaultPrevented && !(e.button !== void 0 && e.button !== 0)) {
     if (e.currentTarget && e.currentTarget.getAttribute) {
       const t = e.currentTarget.getAttribute("target");
@@ -13658,21 +13682,21 @@ function OC(e) {
     return e.preventDefault && e.preventDefault(), !0;
   }
 }
-function jC(e, t) {
+function XC(e, t) {
   for (const n in t) {
     const s = t[n], o = e[n];
     if (typeof s == "string") {
       if (s !== o)
         return !1;
-    } else if (!ut(o) || o.length !== s.length || s.some((a, r) => a !== o[r]))
+    } else if (!gt(o) || o.length !== s.length || s.some((a, r) => a !== o[r]))
       return !1;
   }
   return !0;
 }
-function Nd(e) {
+function Md(e) {
   return e ? e.aliasOf ? e.aliasOf.path : e.path : "";
 }
-const Md = (e, t, n) => e != null ? e : t != null ? t : n, HC = /* @__PURE__ */ nf({
+const Ud = (e, t, n) => e != null ? e : t != null ? t : n, WC = /* @__PURE__ */ lf({
   name: "RouterView",
   // #674 we manually inherit them
   inheritAttrs: !1,
@@ -13687,59 +13711,59 @@ const Md = (e, t, n) => e != null ? e : t != null ? t : n, HC = /* @__PURE__ */ 
   // https://github.com/vuejs/router/issues/1315
   compatConfig: { MODE: 3 },
   setup(e, { attrs: t, slots: n }) {
-    ({}).NODE_ENV !== "production" && GC();
-    const s = qs(Xc), o = Jt(() => e.route || s.value), a = qs(Bd, 0), r = Jt(() => {
+    ({}).NODE_ENV !== "production" && YC();
+    const s = qs(Xc), o = Zt(() => e.route || s.value), a = qs(Fd, 0), r = Zt(() => {
       let d = la(a);
       const { matched: i } = o.value;
       let c;
       for (; (c = i[d]) && !c.components; )
         d++;
       return d;
-    }), l = Jt(() => o.value.matched[r.value]);
-    Fr(Bd, Jt(() => r.value + 1)), Fr(MC, l), Fr(Xc, o);
-    const u = Bx();
-    return of(() => [u.value, l.value, e.name], ([d, i, c], [g, p, m]) => {
+    }), l = Zt(() => o.value.matched[r.value]);
+    Dr(Fd, Zt(() => r.value + 1)), Dr(zC, l), Dr(Xc, o);
+    const u = Ux();
+    return uf(() => [u.value, l.value, e.name], ([d, i, c], [g, p, m]) => {
       i && (i.instances[c] = d, p && p !== i && d && d === g && (i.leaveGuards.size || (i.leaveGuards = p.leaveGuards), i.updateGuards.size || (i.updateGuards = p.updateGuards))), d && i && // if there is no instance but to and from are the same this might be
       // the first visit
-      (!p || !Hn(i, p) || !g) && (i.enterCallbacks[c] || []).forEach((h) => h(d));
+      (!p || !Xn(i, p) || !g) && (i.enterCallbacks[c] || []).forEach((h) => h(d));
     }, { flush: "post" }), () => {
       const d = o.value, i = e.name, c = l.value, g = c && c.components[i];
       if (!g)
-        return Ud(n.default, { Component: g, route: d });
-      const p = c.props[i], m = p ? p === !0 ? d.params : typeof p == "function" ? p(d) : p : null, f = sf(g, Q({}, m, t, {
+        return Id(n.default, { Component: g, route: d });
+      const p = c.props[i], m = p ? p === !0 ? d.params : typeof p == "function" ? p(d) : p : null, f = cf(g, Q({}, m, t, {
         onVnodeUnmounted: (w) => {
           w.component.isUnmounted && (c.instances[i] = null);
         },
         ref: u
       }));
-      if ({}.NODE_ENV !== "production" && Sn && f.ref) {
+      if ({}.NODE_ENV !== "production" && yn && f.ref) {
         const w = {
           depth: r.value,
           name: c.name,
           path: c.path,
           meta: c.meta
         };
-        (ut(f.ref) ? f.ref.map((y) => y.i) : [f.ref.i]).forEach((y) => {
-          y.__vrv_devtools = w;
+        (gt(f.ref) ? f.ref.map((C) => C.i) : [f.ref.i]).forEach((C) => {
+          C.__vrv_devtools = w;
         });
       }
       return (
         // pass the vnode to the slot as a prop.
         // h and <component :is="..."> both accept vnodes
-        Ud(n.default, { Component: f, route: d }) || f
+        Id(n.default, { Component: f, route: d }) || f
       );
     };
   }
 });
-function Ud(e, t) {
+function Id(e, t) {
   if (!e)
     return null;
   const n = e(t);
   return n.length === 1 ? n[0] : n;
 }
-const qC = HC;
-function GC() {
-  const e = tf(), t = e.parent && e.parent.type.name, n = e.parent && e.parent.subTree && e.parent.subTree.type;
+const KC = WC;
+function YC() {
+  const e = rf(), t = e.parent && e.parent.type.name, n = e.parent && e.parent.subTree && e.parent.subTree.type;
   if (t && (t === "KeepAlive" || t.includes("Transition")) && typeof n == "object" && n.name === "RouterView") {
     const s = t === "KeepAlive" ? "keep-alive" : "transition";
     W(`<router-view> can no longer be used directly inside <transition> or <keep-alive>.
@@ -13752,10 +13776,10 @@ Use slot props instead:
 </router-view>`);
   }
 }
-function fo(e, t) {
+function ho(e, t) {
   const n = Q({}, e, {
     // remove variables that can contain vue instances
-    matched: e.matched.map((s) => tb(s, ["instances", "children", "aliasOf"]))
+    matched: e.matched.map((s) => ab(s, ["instances", "children", "aliasOf"]))
   });
   return {
     _custom: {
@@ -13774,13 +13798,13 @@ function Ua(e) {
     }
   };
 }
-let XC = 0;
-function WC(e, t, n) {
+let QC = 0;
+function JC(e, t, n) {
   if (t.__hasDevtools)
     return;
   t.__hasDevtools = !0;
-  const s = XC++;
-  Ax({
+  const s = QC++;
+  Fx({
     id: "org.vuejs.router" + (s ? "." + s : ""),
     label: "Vue Router",
     packageName: "vue-router",
@@ -13794,7 +13818,7 @@ function WC(e, t, n) {
         type: "Routing",
         key: "$route",
         editable: !1,
-        value: fo(t.currentRoute.value, "Current Route")
+        value: ho(t.currentRoute.value, "Current Route")
       });
     }), o.on.visitComponentTree(({ treeNode: i, componentInstance: c }) => {
       if (c.__vrv_devtools) {
@@ -13803,19 +13827,19 @@ function WC(e, t, n) {
           label: (g.name ? `${g.name.toString()}: ` : "") + g.path,
           textColor: 0,
           tooltip: "This component is rendered by &lt;router-view&gt;",
-          backgroundColor: ff
+          backgroundColor: yf
         });
       }
-      ut(c.__vrl_devtools) && (c.__devtoolsApi = o, c.__vrl_devtools.forEach((g) => {
-        let p = _f, m = "";
-        g.isExactActive ? (p = vf, m = "This is exactly active") : g.isActive && (p = wf, m = "This link is active"), i.tags.push({
+      gt(c.__vrl_devtools) && (c.__devtoolsApi = o, c.__vrl_devtools.forEach((g) => {
+        let p = bf, m = "";
+        g.isExactActive ? (p = Cf, m = "This is exactly active") : g.isActive && (p = xf, m = "This link is active"), i.tags.push({
           label: g.route.path,
           textColor: 0,
           tooltip: m,
           backgroundColor: p
         });
       }));
-    }), of(t.currentRoute, () => {
+    }), uf(t.currentRoute, () => {
       u(), o.notifyComponentUpdate(), o.sendInspectorTree(l), o.sendInspectorState(l);
     });
     const a = "router:navigations:" + s;
@@ -13840,8 +13864,8 @@ function WC(e, t, n) {
     t.beforeEach((i, c) => {
       const g = {
         guard: Ua("beforeEach"),
-        from: fo(c, "Current Location during this navigation"),
-        to: fo(i, "Target location")
+        from: ho(c, "Current Location during this navigation"),
+        to: ho(i, "Target location")
       };
       Object.defineProperty(i.meta, "__navigationId", {
         value: r++
@@ -13867,7 +13891,7 @@ function WC(e, t, n) {
           tooltip: "Navigation Failure",
           value: g
         }
-      }, p.status = Ua("❌")) : p.status = Ua("✅"), p.from = fo(c, "Current Location during this navigation"), p.to = fo(i, "Target location"), o.addTimelineEvent({
+      }, p.status = Ua("❌")) : p.status = Ua("✅"), p.from = ho(c, "Current Location during this navigation"), p.to = ho(i, "Target location"), o.addTimelineEvent({
         layerId: a,
         event: {
           title: "End of navigation",
@@ -13891,10 +13915,10 @@ function WC(e, t, n) {
         return;
       const i = d;
       let c = n.getRoutes().filter((g) => !g.parent);
-      c.forEach(xf), i.filter && (c = c.filter((g) => (
+      c.forEach(Vf), i.filter && (c = c.filter((g) => (
         // save matches state based on the payload
         Wc(g, i.filter.toLowerCase())
-      ))), c.forEach((g) => yf(g, t.currentRoute.value)), i.rootNodes = c.map(Sf);
+      ))), c.forEach((g) => $f(g, t.currentRoute.value)), i.rootNodes = c.map(kf);
     }
     let d;
     o.on.getInspectorTree((i) => {
@@ -13903,16 +13927,16 @@ function WC(e, t, n) {
       if (i.app === e && i.inspectorId === l) {
         const g = n.getRoutes().find((p) => p.record.__vd_id === i.nodeId);
         g && (i.state = {
-          options: YC(g)
+          options: eb(g)
         });
       }
     }), o.sendInspectorTree(l), o.sendInspectorState(l);
   });
 }
-function KC(e) {
+function ZC(e) {
   return e.optional ? e.repeatable ? "*" : "?" : e.repeatable ? "+" : "";
 }
-function YC(e) {
+function eb(e) {
   const { record: t } = e, n = [
     { editable: !1, key: "path", value: t.path }
   ];
@@ -13927,7 +13951,7 @@ function YC(e) {
       _custom: {
         type: null,
         readOnly: !0,
-        display: e.keys.map((s) => `${s.name}${KC(s)}`).join(" "),
+        display: e.keys.map((s) => `${s.name}${ZC(s)}`).join(" "),
         tooltip: "Param keys",
         value: e.keys
       }
@@ -13958,53 +13982,53 @@ function YC(e) {
     }
   }), n;
 }
-const ff = 15485081, wf = 2450411, vf = 8702998, QC = 2282478, _f = 16486972, JC = 6710886;
-function Sf(e) {
+const yf = 15485081, xf = 2450411, Cf = 8702998, tb = 2282478, bf = 16486972, nb = 6710886;
+function kf(e) {
   const t = [], { record: n } = e;
   n.name != null && t.push({
     label: String(n.name),
     textColor: 0,
-    backgroundColor: QC
+    backgroundColor: tb
   }), n.aliasOf && t.push({
     label: "alias",
     textColor: 0,
-    backgroundColor: _f
+    backgroundColor: bf
   }), e.__vd_match && t.push({
     label: "matches",
     textColor: 0,
-    backgroundColor: ff
+    backgroundColor: yf
   }), e.__vd_exactActive && t.push({
     label: "exact",
     textColor: 0,
-    backgroundColor: vf
+    backgroundColor: Cf
   }), e.__vd_active && t.push({
     label: "active",
     textColor: 0,
-    backgroundColor: wf
+    backgroundColor: xf
   }), n.redirect && t.push({
     label: typeof n.redirect == "string" ? `redirect: ${n.redirect}` : "redirects",
     textColor: 16777215,
-    backgroundColor: JC
+    backgroundColor: nb
   });
   let s = n.__vd_id;
-  return s == null && (s = String(ZC++), n.__vd_id = s), {
+  return s == null && (s = String(sb++), n.__vd_id = s), {
     id: s,
     label: n.path,
     tags: t,
-    children: e.children.map(Sf)
+    children: e.children.map(kf)
   };
 }
-let ZC = 0;
-const eb = /^\/(.*)\/([a-z]*)$/;
-function yf(e, t) {
-  const n = t.matched.length && Hn(t.matched[t.matched.length - 1], e.record);
-  e.__vd_exactActive = e.__vd_active = n, n || (e.__vd_active = t.matched.some((s) => Hn(s, e.record))), e.children.forEach((s) => yf(s, t));
+let sb = 0;
+const ob = /^\/(.*)\/([a-z]*)$/;
+function $f(e, t) {
+  const n = t.matched.length && Xn(t.matched[t.matched.length - 1], e.record);
+  e.__vd_exactActive = e.__vd_active = n, n || (e.__vd_active = t.matched.some((s) => Xn(s, e.record))), e.children.forEach((s) => $f(s, t));
 }
-function xf(e) {
-  e.__vd_match = !1, e.children.forEach(xf);
+function Vf(e) {
+  e.__vd_match = !1, e.children.forEach(Vf);
 }
 function Wc(e, t) {
-  const n = String(e.re).match(eb);
+  const n = String(e.re).match(ob);
   if (e.__vd_match = !1, !n || n.length < 3)
     return !1;
   if (new RegExp(n[1].replace(/\$$/, ""), n[2]).test(t))
@@ -14012,69 +14036,69 @@ function Wc(e, t) {
   const o = e.record.path.toLowerCase(), a = pa(o);
   return !t.startsWith("/") && (a.includes(t) || o.includes(t)) || a.startsWith(t) || o.startsWith(t) || e.record.name && String(e.record.name).includes(t) ? !0 : e.children.some((r) => Wc(r, t));
 }
-function tb(e, t) {
+function ab(e, t) {
   const n = {};
   for (const s in e)
     t.includes(s) || (n[s] = e[s]);
   return n;
 }
-function nb(e) {
-  const t = hC(e.routes, e), n = e.parseQuery || FC, s = e.stringifyQuery || Pd, o = e.history;
+function ib(e) {
+  const t = _C(e.routes, e), n = e.parseQuery || IC, s = e.stringifyQuery || Bd, o = e.history;
   if ({}.NODE_ENV !== "production" && !o)
     throw new Error('Provide the "history" option when calling "createRouter()": https://next.router.vuejs.org/api/#history.');
-  const a = ho(), r = ho(), l = ho(), u = Fx($n);
+  const a = mo(), r = mo(), l = mo(), u = Ix($n);
   let d = $n;
-  Sn && e.scrollBehavior && "scrollRestoration" in history && (history.scrollRestoration = "manual");
-  const i = Nr.bind(null, (_) => "" + _), c = Nr.bind(null, BC), g = (
+  yn && e.scrollBehavior && "scrollRestoration" in history && (history.scrollRestoration = "manual");
+  const i = Pr.bind(null, (v) => "" + v), c = Pr.bind(null, UC), g = (
     // @ts-expect-error: intentionally avoid the type check
-    Nr.bind(null, pa)
+    Pr.bind(null, pa)
   );
-  function p(_, T) {
-    let D, F;
-    return lf(_) ? (D = t.getRecordMatcher(_), F = T) : F = _, t.addRoute(F, D);
+  function p(v, T) {
+    let P, N;
+    return pf(v) ? (P = t.getRecordMatcher(v), N = T) : N = v, t.addRoute(N, P);
   }
-  function m(_) {
-    const T = t.getRecordMatcher(_);
-    T ? t.removeRoute(T) : {}.NODE_ENV !== "production" && W(`Cannot remove non-existent route "${String(_)}"`);
+  function m(v) {
+    const T = t.getRecordMatcher(v);
+    T ? t.removeRoute(T) : {}.NODE_ENV !== "production" && W(`Cannot remove non-existent route "${String(v)}"`);
   }
   function h() {
-    return t.getRoutes().map((_) => _.record);
+    return t.getRoutes().map((v) => v.record);
   }
-  function f(_) {
-    return !!t.getRecordMatcher(_);
+  function f(v) {
+    return !!t.getRecordMatcher(v);
   }
-  function w(_, T) {
-    if (T = Q({}, T || u.value), typeof _ == "string") {
-      const z = Mr(n, _, T.path), ie = t.resolve({ path: z.path }, T), et = o.createHref(z.fullPath);
-      return {}.NODE_ENV !== "production" && (et.startsWith("//") ? W(`Location "${_}" resolved to "${et}". A resolved location cannot start with multiple slashes.`) : ie.matched.length || W(`No match found for location with path "${_}"`)), Q(z, ie, {
+  function w(v, T) {
+    if (T = Q({}, T || u.value), typeof v == "string") {
+      const O = Br(n, v, T.path), ie = t.resolve({ path: O.path }, T), nt = o.createHref(O.fullPath);
+      return {}.NODE_ENV !== "production" && (nt.startsWith("//") ? W(`Location "${v}" resolved to "${nt}". A resolved location cannot start with multiple slashes.`) : ie.matched.length || W(`No match found for location with path "${v}"`)), Q(O, ie, {
         params: g(ie.params),
-        hash: pa(z.hash),
+        hash: pa(O.hash),
         redirectedFrom: void 0,
-        href: et
+        href: nt
       });
     }
-    let D;
-    if ("path" in _)
-      ({}).NODE_ENV !== "production" && "params" in _ && !("name" in _) && // @ts-expect-error: the type is never
-      Object.keys(_.params).length && W(`Path "${_.path}" was passed with params but they will be ignored. Use a named route alongside params instead.`), D = Q({}, _, {
-        path: Mr(n, _.path, T.path).path
+    let P;
+    if ("path" in v)
+      ({}).NODE_ENV !== "production" && "params" in v && !("name" in v) && // @ts-expect-error: the type is never
+      Object.keys(v.params).length && W(`Path "${v.path}" was passed with params but they will be ignored. Use a named route alongside params instead.`), P = Q({}, v, {
+        path: Br(n, v.path, T.path).path
       });
     else {
-      const z = Q({}, _.params);
-      for (const ie in z)
-        z[ie] == null && delete z[ie];
-      D = Q({}, _, {
-        params: c(z)
+      const O = Q({}, v.params);
+      for (const ie in O)
+        O[ie] == null && delete O[ie];
+      P = Q({}, v, {
+        params: c(O)
       }), T.params = c(T.params);
     }
-    const F = t.resolve(D, T), X = _.hash || "";
-    ({}).NODE_ENV !== "production" && X && !X.startsWith("#") && W(`A \`hash\` should always start with the character "#". Replace "${X}" with "#${X}".`), F.params = i(g(F.params));
-    const ge = zx(s, Q({}, _, {
-      hash: AC(X),
-      path: F.path
-    })), q = o.createHref(ge);
-    return {}.NODE_ENV !== "production" && (q.startsWith("//") ? W(`Location "${_}" resolved to "${q}". A resolved location cannot start with multiple slashes.`) : F.matched.length || W(`No match found for location with path "${"path" in _ ? _.path : _}"`)), Q({
-      fullPath: ge,
+    const N = t.resolve(P, T), X = v.hash || "";
+    ({}).NODE_ENV !== "production" && X && !X.startsWith("#") && W(`A \`hash\` should always start with the character "#". Replace "${X}" with "#${X}".`), N.params = i(g(N.params));
+    const pe = qx(s, Q({}, v, {
+      hash: FC(X),
+      path: N.path
+    })), q = o.createHref(pe);
+    return {}.NODE_ENV !== "production" && (q.startsWith("//") ? W(`Location "${v}" resolved to "${q}". A resolved location cannot start with multiple slashes.`) : N.matched.length || W(`No match found for location with path "${"path" in v ? v.path : v}"`)), Q({
+      fullPath: pe,
       // keep the hash encoded so fullPath is effectively path + encodedQuery +
       // hash
       hash: X,
@@ -14084,250 +14108,250 @@ function nb(e) {
         // numbers at `$route.query`, but at the point, the user will have to
         // use their own type anyway.
         // https://github.com/vuejs/router/issues/328#issuecomment-649481567
-        s === Pd ? NC(_.query) : _.query || {}
+        s === Bd ? RC(v.query) : v.query || {}
       )
-    }, F, {
+    }, N, {
       redirectedFrom: void 0,
       href: q
     });
   }
-  function v(_) {
-    return typeof _ == "string" ? Mr(n, _, u.value.path) : Q({}, _);
+  function _(v) {
+    return typeof v == "string" ? Br(n, v, u.value.path) : Q({}, v);
   }
-  function y(_, T) {
-    if (d !== _)
+  function C(v, T) {
+    if (d !== v)
       return Gs(8, {
         from: T,
-        to: _
+        to: v
       });
   }
-  function S(_) {
-    return x(_);
+  function S(v) {
+    return y(v);
   }
-  function b(_) {
-    return S(Q(v(_), { replace: !0 }));
+  function b(v) {
+    return S(Q(_(v), { replace: !0 }));
   }
-  function V(_) {
-    const T = _.matched[_.matched.length - 1];
+  function A(v) {
+    const T = v.matched[v.matched.length - 1];
     if (T && T.redirect) {
-      const { redirect: D } = T;
-      let F = typeof D == "function" ? D(_) : D;
-      if (typeof F == "string" && (F = F.includes("?") || F.includes("#") ? F = v(F) : (
+      const { redirect: P } = T;
+      let N = typeof P == "function" ? P(v) : P;
+      if (typeof N == "string" && (N = N.includes("?") || N.includes("#") ? N = _(N) : (
         // force empty params
-        { path: F }
-      ), F.params = {}), {}.NODE_ENV !== "production" && !("path" in F) && !("name" in F))
+        { path: N }
+      ), N.params = {}), {}.NODE_ENV !== "production" && !("path" in N) && !("name" in N))
         throw W(`Invalid redirect found:
-${JSON.stringify(F, null, 2)}
- when navigating to "${_.fullPath}". A redirect must contain a name or path. This will break in production.`), new Error("Invalid redirect");
+${JSON.stringify(N, null, 2)}
+ when navigating to "${v.fullPath}". A redirect must contain a name or path. This will break in production.`), new Error("Invalid redirect");
       return Q({
-        query: _.query,
-        hash: _.hash,
+        query: v.query,
+        hash: v.hash,
         // avoid transferring params if the redirect has a path
-        params: "path" in F ? {} : _.params
-      }, F);
+        params: "path" in N ? {} : v.params
+      }, N);
     }
   }
-  function x(_, T) {
-    const D = d = w(_), F = u.value, X = _.state, ge = _.force, q = _.replace === !0, z = V(D);
-    if (z)
-      return x(
-        Q(v(z), {
-          state: typeof z == "object" ? Q({}, X, z.state) : X,
-          force: ge,
+  function y(v, T) {
+    const P = d = w(v), N = u.value, X = v.state, pe = v.force, q = v.replace === !0, O = A(P);
+    if (O)
+      return y(
+        Q(_(O), {
+          state: typeof O == "object" ? Q({}, X, O.state) : X,
+          force: pe,
           replace: q
         }),
         // keep original redirectedFrom if it exists
-        T || D
+        T || P
       );
-    const ie = D;
+    const ie = P;
     ie.redirectedFrom = T;
-    let et;
-    return !ge && Cd(s, F, D) && (et = Gs(16, { to: ie, from: F }), Pe(
-      F,
-      F,
+    let nt;
+    return !pe && bd(s, N, P) && (nt = Gs(16, { to: ie, from: N }), Pe(
+      N,
+      N,
       // this is a push, the only way for it to be triggered from a
       // history.listen is with a redirect, which makes it become a push
       !0,
       // This cannot be the first navigation because the initial location
       // cannot be manually navigated to
       !1
-    )), (et ? Promise.resolve(et) : P(ie, F)).catch(($e) => nn($e) ? (
+    )), (nt ? Promise.resolve(nt) : E(ie, N)).catch(($e) => on($e) ? (
       // navigation redirects still mark the router as ready
-      nn(
+      on(
         $e,
         2
         /* ErrorTypes.NAVIGATION_GUARD_REDIRECT */
-      ) ? $e : We($e)
+      ) ? $e : Ke($e)
     ) : (
       // reject any unknown error
-      le($e, ie, F)
+      le($e, ie, N)
     )).then(($e) => {
       if ($e) {
-        if (nn(
+        if (on(
           $e,
           2
           /* ErrorTypes.NAVIGATION_GUARD_REDIRECT */
         ))
           return {}.NODE_ENV !== "production" && // we are redirecting to the same location we were already at
-          Cd(s, w($e.to), ie) && // and we have done it a couple of times
+          bd(s, w($e.to), ie) && // and we have done it a couple of times
           T && // @ts-expect-error: added only in dev
           (T._count = T._count ? (
             // @ts-expect-error
             T._count + 1
-          ) : 1) > 30 ? (W(`Detected a possibly infinite redirection in a navigation guard when going from "${F.fullPath}" to "${ie.fullPath}". Aborting to avoid a Stack Overflow.
- Are you always returning a new location within a navigation guard? That would lead to this error. Only return when redirecting or aborting, that should fix this. This might break in production if not fixed.`), Promise.reject(new Error("Infinite redirect in navigation guard"))) : x(
+          ) : 1) > 30 ? (W(`Detected a possibly infinite redirection in a navigation guard when going from "${N.fullPath}" to "${ie.fullPath}". Aborting to avoid a Stack Overflow.
+ Are you always returning a new location within a navigation guard? That would lead to this error. Only return when redirecting or aborting, that should fix this. This might break in production if not fixed.`), Promise.reject(new Error("Infinite redirect in navigation guard"))) : y(
             // keep options
             Q({
               // preserve an existing replacement but allow the redirect to override it
               replace: q
-            }, v($e.to), {
+            }, _($e.to), {
               state: typeof $e.to == "object" ? Q({}, X, $e.to.state) : X,
-              force: ge
+              force: pe
             }),
             // preserve the original redirectedFrom if any
             T || ie
           );
       } else
-        $e = se(ie, F, !0, q, X);
-      return H(ie, F, $e), $e;
+        $e = se(ie, N, !0, q, X);
+      return j(ie, N, $e), $e;
     });
   }
-  function I(_, T) {
-    const D = y(_, T);
-    return D ? Promise.reject(D) : Promise.resolve();
+  function B(v, T) {
+    const P = C(v, T);
+    return P ? Promise.reject(P) : Promise.resolve();
   }
-  function L(_) {
-    const T = B.values().next().value;
-    return T && typeof T.runWithContext == "function" ? T.runWithContext(_) : _();
+  function V(v) {
+    const T = F.values().next().value;
+    return T && typeof T.runWithContext == "function" ? T.runWithContext(v) : v();
   }
-  function P(_, T) {
-    let D;
-    const [F, X, ge] = sb(_, T);
-    D = Ur(F.reverse(), "beforeRouteLeave", _, T);
-    for (const z of F)
-      z.leaveGuards.forEach((ie) => {
-        D.push(On(ie, _, T));
+  function E(v, T) {
+    let P;
+    const [N, X, pe] = rb(v, T);
+    P = Fr(N.reverse(), "beforeRouteLeave", v, T);
+    for (const O of N)
+      O.leaveGuards.forEach((ie) => {
+        P.push(jn(ie, v, T));
       });
-    const q = I.bind(null, _, T);
-    return D.push(q), Y(D).then(() => {
-      D = [];
-      for (const z of a.list())
-        D.push(On(z, _, T));
-      return D.push(q), Y(D);
+    const q = B.bind(null, v, T);
+    return P.push(q), Y(P).then(() => {
+      P = [];
+      for (const O of a.list())
+        P.push(jn(O, v, T));
+      return P.push(q), Y(P);
     }).then(() => {
-      D = Ur(X, "beforeRouteUpdate", _, T);
-      for (const z of X)
-        z.updateGuards.forEach((ie) => {
-          D.push(On(ie, _, T));
+      P = Fr(X, "beforeRouteUpdate", v, T);
+      for (const O of X)
+        O.updateGuards.forEach((ie) => {
+          P.push(jn(ie, v, T));
         });
-      return D.push(q), Y(D);
+      return P.push(q), Y(P);
     }).then(() => {
-      D = [];
-      for (const z of ge)
-        if (z.beforeEnter)
-          if (ut(z.beforeEnter))
-            for (const ie of z.beforeEnter)
-              D.push(On(ie, _, T));
+      P = [];
+      for (const O of pe)
+        if (O.beforeEnter)
+          if (gt(O.beforeEnter))
+            for (const ie of O.beforeEnter)
+              P.push(jn(ie, v, T));
           else
-            D.push(On(z.beforeEnter, _, T));
-      return D.push(q), Y(D);
-    }).then(() => (_.matched.forEach((z) => z.enterCallbacks = {}), D = Ur(ge, "beforeRouteEnter", _, T), D.push(q), Y(D))).then(() => {
-      D = [];
-      for (const z of r.list())
-        D.push(On(z, _, T));
-      return D.push(q), Y(D);
-    }).catch((z) => nn(
-      z,
+            P.push(jn(O.beforeEnter, v, T));
+      return P.push(q), Y(P);
+    }).then(() => (v.matched.forEach((O) => O.enterCallbacks = {}), P = Fr(pe, "beforeRouteEnter", v, T), P.push(q), Y(P))).then(() => {
+      P = [];
+      for (const O of r.list())
+        P.push(jn(O, v, T));
+      return P.push(q), Y(P);
+    }).catch((O) => on(
+      O,
       8
       /* ErrorTypes.NAVIGATION_CANCELLED */
-    ) ? z : Promise.reject(z));
+    ) ? O : Promise.reject(O));
   }
-  function H(_, T, D) {
-    l.list().forEach((F) => L(() => F(_, T, D)));
+  function j(v, T, P) {
+    l.list().forEach((N) => V(() => N(v, T, P)));
   }
-  function se(_, T, D, F, X) {
-    const ge = y(_, T);
-    if (ge)
-      return ge;
-    const q = T === $n, z = Sn ? history.state : {};
-    D && (F || q ? o.replace(_.fullPath, Q({
-      scroll: q && z && z.scroll
-    }, X)) : o.push(_.fullPath, X)), u.value = _, Pe(_, T, D, q), We();
+  function se(v, T, P, N, X) {
+    const pe = C(v, T);
+    if (pe)
+      return pe;
+    const q = T === $n, O = yn ? history.state : {};
+    P && (N || q ? o.replace(v.fullPath, Q({
+      scroll: q && O && O.scroll
+    }, X)) : o.push(v.fullPath, X)), u.value = v, Pe(v, T, P, q), Ke();
   }
   let ae;
   function te() {
-    ae || (ae = o.listen((_, T, D) => {
-      if (!M.listening)
+    ae || (ae = o.listen((v, T, P) => {
+      if (!U.listening)
         return;
-      const F = w(_), X = V(F);
+      const N = w(v), X = A(N);
       if (X) {
-        x(Q(X, { replace: !0 }), F).catch(ca);
+        y(Q(X, { replace: !0 }), N).catch(ca);
         return;
       }
-      d = F;
-      const ge = u.value;
-      Sn && Kx(kd(ge.fullPath, D.delta), lr()), P(F, ge).catch((q) => nn(
+      d = N;
+      const pe = u.value;
+      yn && Zx($d(pe.fullPath, P.delta), ar()), E(N, pe).catch((q) => on(
         q,
         12
         /* ErrorTypes.NAVIGATION_CANCELLED */
-      ) ? q : nn(
+      ) ? q : on(
         q,
         2
         /* ErrorTypes.NAVIGATION_GUARD_REDIRECT */
-      ) ? (x(
+      ) ? (y(
         q.to,
-        F
+        N
         // avoid an uncaught rejection, let push call triggerError
-      ).then((z) => {
-        nn(
-          z,
+      ).then((O) => {
+        on(
+          O,
           20
           /* ErrorTypes.NAVIGATION_DUPLICATED */
-        ) && !D.delta && D.type === ga.pop && o.go(-1, !1);
-      }).catch(ca), Promise.reject()) : (D.delta && o.go(-D.delta, !1), le(q, F, ge))).then((q) => {
+        ) && !P.delta && P.type === ga.pop && o.go(-1, !1);
+      }).catch(ca), Promise.reject()) : (P.delta && o.go(-P.delta, !1), le(q, N, pe))).then((q) => {
         q = q || se(
           // after navigation, all matched components are resolved
-          F,
-          ge,
+          N,
+          pe,
           !1
-        ), q && (D.delta && // a new navigation has been triggered, so we do not want to revert, that will change the current history
+        ), q && (P.delta && // a new navigation has been triggered, so we do not want to revert, that will change the current history
         // entry while a different route is displayed
-        !nn(
+        !on(
           q,
           8
           /* ErrorTypes.NAVIGATION_CANCELLED */
-        ) ? o.go(-D.delta, !1) : D.type === ga.pop && nn(
+        ) ? o.go(-P.delta, !1) : P.type === ga.pop && on(
           q,
           20
           /* ErrorTypes.NAVIGATION_DUPLICATED */
-        ) && o.go(-1, !1)), H(F, ge, q);
+        ) && o.go(-1, !1)), j(N, pe, q);
       }).catch(ca);
     }));
   }
-  let R = ho(), J = ho(), oe;
-  function le(_, T, D) {
-    We(_);
-    const F = J.list();
-    return F.length ? F.forEach((X) => X(_, T, D)) : ({}.NODE_ENV !== "production" && W("uncaught error during route navigation:"), console.error(_)), Promise.reject(_);
+  let z = mo(), J = mo(), oe;
+  function le(v, T, P) {
+    Ke(v);
+    const N = J.list();
+    return N.length ? N.forEach((X) => X(v, T, P)) : ({}.NODE_ENV !== "production" && W("uncaught error during route navigation:"), console.error(v)), Promise.reject(v);
   }
   function ke() {
-    return oe && u.value !== $n ? Promise.resolve() : new Promise((_, T) => {
-      R.add([_, T]);
+    return oe && u.value !== $n ? Promise.resolve() : new Promise((v, T) => {
+      z.add([v, T]);
     });
   }
-  function We(_) {
-    return oe || (oe = !_, te(), R.list().forEach(([T, D]) => _ ? D(_) : T()), R.reset()), _;
+  function Ke(v) {
+    return oe || (oe = !v, te(), z.list().forEach(([T, P]) => v ? P(v) : T()), z.reset()), v;
   }
-  function Pe(_, T, D, F) {
+  function Pe(v, T, P, N) {
     const { scrollBehavior: X } = e;
-    if (!Sn || !X)
+    if (!yn || !X)
       return Promise.resolve();
-    const ge = !D && Yx(kd(_.fullPath, 0)) || (F || !D) && history.state && history.state.scroll || null;
-    return Mx().then(() => X(_, T, ge)).then((q) => q && Wx(q)).catch((q) => le(q, _, T));
+    const pe = !P && eC($d(v.fullPath, 0)) || (N || !P) && history.state && history.state.scroll || null;
+    return zx().then(() => X(v, T, pe)).then((q) => q && Jx(q)).catch((q) => le(q, v, T));
   }
-  const Z = (_) => o.go(_);
-  let U;
-  const B = /* @__PURE__ */ new Set(), M = {
+  const Z = (v) => o.go(v);
+  let I;
+  const F = /* @__PURE__ */ new Set(), U = {
     currentRoute: u,
     listening: !0,
     addRoute: p,
@@ -14346,52 +14370,52 @@ ${JSON.stringify(F, null, 2)}
     afterEach: l.add,
     onError: J.add,
     isReady: ke,
-    install(_) {
+    install(v) {
       const T = this;
-      _.component("RouterLink", zC), _.component("RouterView", qC), _.config.globalProperties.$router = T, Object.defineProperty(_.config.globalProperties, "$route", {
+      v.component("RouterLink", qC), v.component("RouterView", KC), v.config.globalProperties.$router = T, Object.defineProperty(v.config.globalProperties, "$route", {
         enumerable: !0,
         get: () => la(u)
-      }), Sn && // used for the initial navigation client side to avoid pushing
+      }), yn && // used for the initial navigation client side to avoid pushing
       // multiple times when the router is used in multiple apps
-      !U && u.value === $n && (U = !0, S(o.location).catch((X) => {
+      !I && u.value === $n && (I = !0, S(o.location).catch((X) => {
         ({}).NODE_ENV !== "production" && W("Unexpected error when starting the router:", X);
       }));
-      const D = {};
+      const P = {};
       for (const X in $n)
-        Object.defineProperty(D, X, {
+        Object.defineProperty(P, X, {
           get: () => u.value[X],
           enumerable: !0
         });
-      _.provide(cr, T), _.provide(hf, Nx(D)), _.provide(Xc, u);
-      const F = _.unmount;
-      B.add(_), _.unmount = function() {
-        B.delete(_), B.size < 1 && (d = $n, ae && ae(), ae = null, u.value = $n, U = !1, oe = !1), F();
-      }, {}.NODE_ENV !== "production" && Sn && WC(_, T, t);
+      v.provide(ir, T), v.provide(Sf, Rx(P)), v.provide(Xc, u);
+      const N = v.unmount;
+      F.add(v), v.unmount = function() {
+        F.delete(v), F.size < 1 && (d = $n, ae && ae(), ae = null, u.value = $n, I = !1, oe = !1), N();
+      }, {}.NODE_ENV !== "production" && yn && JC(v, T, t);
     }
   };
-  function Y(_) {
-    return _.reduce((T, D) => T.then(() => L(D)), Promise.resolve());
+  function Y(v) {
+    return v.reduce((T, P) => T.then(() => V(P)), Promise.resolve());
   }
-  return M;
+  return U;
 }
-function sb(e, t) {
+function rb(e, t) {
   const n = [], s = [], o = [], a = Math.max(t.matched.length, e.matched.length);
   for (let r = 0; r < a; r++) {
     const l = t.matched[r];
-    l && (e.matched.find((d) => Hn(d, l)) ? s.push(l) : n.push(l));
+    l && (e.matched.find((d) => Xn(d, l)) ? s.push(l) : n.push(l));
     const u = e.matched[r];
-    u && (t.matched.find((d) => Hn(d, u)) || o.push(u));
+    u && (t.matched.find((d) => Xn(d, u)) || o.push(u));
   }
   return [n, s, o];
 }
-function Ze() {
-  return qs(cr);
+function tt() {
+  return qs(ir);
 }
-const ob = (e) => {
+const lb = (e) => {
   const t = parseInt(e.slice(0, 4)), n = e.slice(4, 6) - 1, s = parseInt(e.slice(6, 8)), o = parseInt(e.slice(8, 10)), a = parseInt(e.slice(10, 12)), r = parseInt(e.slice(12, 14)), l = new Date(Date.UTC(t, n, s, o, a, r)), d = (/* @__PURE__ */ new Date()).getTime() - l.getTime();
   return Math.round(d / (1e3 * 3600 * 24));
-}, ab = (e) => {
-  const t = ob(e);
+}, cb = (e) => {
+  const t = lb(e);
   if (t < 30)
     return { postfix: "days", value: t };
   {
@@ -14399,7 +14423,7 @@ const ob = (e) => {
     return n < 12 ? { postfix: "months", value: n } : { postfix: "years", value: Math.round(n / 12) };
   }
 };
-const kt = window.Vue.unref, ws = window.Vue.createVNode, sn = window.Vue.createElementVNode, Id = window.Vue.renderSlot, Rd = window.Vue.withModifiers, Ir = window.Vue.toDisplayString, Rr = window.Vue.withCtx, ib = window.Vue.openBlock, rb = window.Vue.createElementBlock, lb = window.Vue.createCommentVNode, cb = { class: "col shrink pe-4" }, ub = { class: "col" }, db = { class: "cx-translation__details column justify-between ma-0" }, gb = { class: "row ma-0" }, pb = { class: "col grow" }, mb = { class: "col shrink ps-2" }, hb = ["dir", "textContent"], fb = ["dir", "textContent"], wb = ["textContent"], vb = window.Vuex.useStore, _b = window.Vue.computed, Cf = {
+const kt = window.Vue.unref, _s = window.Vue.createVNode, an = window.Vue.createElementVNode, Rd = window.Vue.renderSlot, zd = window.Vue.withModifiers, Nr = window.Vue.toDisplayString, Mr = window.Vue.withCtx, ub = window.Vue.openBlock, db = window.Vue.createElementBlock, gb = window.Vue.createCommentVNode, pb = { class: "col shrink pe-4" }, mb = { class: "col" }, hb = { class: "cx-translation__details column justify-between ma-0" }, fb = { class: "row ma-0" }, wb = { class: "col grow" }, vb = { class: "col shrink ps-2" }, _b = ["dir", "textContent"], Sb = ["dir", "textContent"], yb = ["textContent"], xb = window.Vuex.useStore, Cb = window.Vue.computed, Ef = {
   __name: "CXTranslationWork",
   props: {
     translation: {
@@ -14413,79 +14437,79 @@ const kt = window.Vue.unref, ws = window.Vue.createVNode, sn = window.Vue.create
   },
   emits: ["click", "action-icon-clicked"],
   setup(e, { emit: t }) {
-    const n = e, s = vb(), o = (l, u) => {
+    const n = e, s = xb(), o = (l, u) => {
       const d = s.getters["mediawiki/getPage"](l, u);
       return d == null ? void 0 : d.thumbnail;
-    }, a = we(), r = _b(() => {
+    }, a = he(), r = Cb(() => {
       const l = {
         days: "cx-sx-translation-work-days-since-started",
         months: "cx-sx-translation-work-months-since-started",
         years: "cx-sx-translation-work-years-since-started"
-      }, u = ab(n.translation.startTimestamp);
+      }, u = cb(n.translation.startTimestamp);
       return a.i18n(
         l[u.postfix],
         u.value
       );
     });
-    return (l, u) => e.translation ? (ib(), rb("div", {
+    return (l, u) => e.translation ? (ub(), db("div", {
       key: 0,
       class: "row cx-translation pa-4 ma-0",
-      onClick: u[1] || (u[1] = Rd((d) => l.$emit("click"), ["stop"]))
+      onClick: u[1] || (u[1] = zd((d) => l.$emit("click"), ["stop"]))
     }, [
-      sn("div", cb, [
-        ws(kt(Qc), {
+      an("div", pb, [
+        _s(kt(Qc), {
           class: "cx-translation__thumbnail",
           thumbnail: o(e.translation.sourceLanguage, e.translation.sourceTitle)
         }, null, 8, ["thumbnail"])
       ]),
-      sn("div", ub, [
-        sn("div", db, [
-          sn("div", gb, [
-            sn("div", pb, [
-              Id(l.$slots, "title")
+      an("div", mb, [
+        an("div", hb, [
+          an("div", fb, [
+            an("div", wb, [
+              Rd(l.$slots, "title")
             ]),
-            sn("div", mb, [
-              ws(kt(Je), {
+            an("div", vb, [
+              _s(kt(et), {
                 class: "cx-translation__action-icon",
                 icon: e.actionIcon,
-                onClick: u[0] || (u[0] = Rd((d) => l.$emit("action-icon-clicked"), ["stop"]))
+                onClick: u[0] || (u[0] = zd((d) => l.$emit("action-icon-clicked"), ["stop"]))
               }, null, 8, ["icon"])
             ])
           ]),
-          Id(l.$slots, "mid-content"),
-          ws(kt(N), { class: "cx-translation__footer ma-0" }, {
-            default: Rr(() => [
-              ws(kt(k), {
+          Rd(l.$slots, "mid-content"),
+          _s(kt(M), { class: "cx-translation__footer ma-0" }, {
+            default: Mr(() => [
+              _s(kt(k), {
                 class: "cx-translation__languages",
                 grow: ""
               }, {
-                default: Rr(() => [
-                  sn("span", {
+                default: Mr(() => [
+                  an("span", {
                     class: "mw-ui-autonym",
-                    dir: kt(j.getDir)(e.translation.sourceLanguage),
-                    textContent: Ir(kt(j.getAutonym)(e.translation.sourceLanguage))
-                  }, null, 8, hb),
-                  ws(kt(Je), {
-                    icon: kt(F0),
+                    dir: kt(R.getDir)(e.translation.sourceLanguage),
+                    textContent: Nr(kt(R.getAutonym)(e.translation.sourceLanguage))
+                  }, null, 8, _b),
+                  _s(kt(et), {
+                    icon: kt(I0),
                     class: "mx-1",
                     size: 14
                   }, null, 8, ["icon"]),
-                  sn("span", {
+                  an("span", {
                     class: "mw-ui-autonym ma-0",
-                    dir: kt(j.getDir)(e.translation.targetLanguage),
-                    textContent: Ir(kt(j.getAutonym)(e.translation.targetLanguage))
-                  }, null, 8, fb)
+                    dir: kt(R.getDir)(e.translation.targetLanguage),
+                    textContent: Nr(kt(R.getAutonym)(e.translation.targetLanguage))
+                  }, null, 8, Sb)
                 ]),
                 _: 1
               }),
-              ws(kt(k), {
+              _s(kt(k), {
                 class: "cx-translation__days-since-started",
                 shrink: ""
               }, {
-                default: Rr(() => [
-                  sn("span", {
-                    textContent: Ir(r.value)
-                  }, null, 8, wb)
+                default: Mr(() => [
+                  an("span", {
+                    textContent: Nr(r.value)
+                  }, null, 8, yb)
                 ]),
                 _: 1
               })
@@ -14494,227 +14518,115 @@ const kt = window.Vue.unref, ws = window.Vue.createVNode, sn = window.Vue.create
           })
         ])
       ])
-    ])) : lb("", !0);
+    ])) : gb("", !0);
   }
 };
-const wo = window.Vue.unref, Sb = window.Vue.toDisplayString, yb = window.Vue.normalizeClass, xb = window.Vue.createElementVNode, zr = window.Vue.openBlock, Cb = window.Vue.createElementBlock, zd = window.Vue.createCommentVNode, Od = window.Vue.createVNode, Ia = window.Vue.withCtx, jd = window.Vue.createBlock, bb = ["lang", "textContent"], kb = ["lang", "innerHTML"], $b = window.Vue.computed, Eb = window.Vue.inject, Vb = {
+const fo = window.Vue.unref, bb = window.Vue.toDisplayString, kb = window.Vue.normalizeClass, $b = window.Vue.createElementVNode, Ur = window.Vue.openBlock, Vb = window.Vue.createElementBlock, Od = window.Vue.createCommentVNode, Hd = window.Vue.createVNode, Ia = window.Vue.withCtx, jd = window.Vue.createBlock, Eb = ["lang", "textContent"], Lb = ["lang", "innerHTML"], Tb = window.Vue.computed, Ab = window.Vue.inject, Db = {
   __name: "CXTranslationWorkDraft",
   props: {
     translation: {
-      type: Ji,
+      type: Ki,
       required: !0
     }
   },
   emits: ["delete-translation"],
   setup(e) {
-    const t = e, s = Eb("colors").gray200, o = $b(
+    const t = e, s = Ab("colors").gray200, o = Tb(
       () => {
         var u;
         return ((u = t.translation.progress) == null ? void 0 : u.any) * 100 || 0;
       }
-    ), a = Ze(), { setTranslationURLParams: r } = A(), l = () => {
+    ), a = tt(), { setTranslationURLParams: r } = D(), l = () => {
       r(t.translation), a.push({ name: "sx-translation-confirmer" });
     };
-    return (u, d) => (zr(), jd(Cf, {
+    return (u, d) => (Ur(), jd(Ef, {
       class: "cx-translation--draft",
       translation: e.translation,
-      "action-icon": wo(uh),
+      "action-icon": fo(ch),
       onActionIconClicked: d[0] || (d[0] = (i) => u.$emit("delete-translation")),
       onClick: l
     }, {
       title: Ia(() => [
-        xb("h5", {
-          class: yb(["cx-translation__source-page-title", {
+        $b("h5", {
+          class: kb(["cx-translation__source-page-title", {
             "cx-translation__primary-title": e.translation.isLeadSectionTranslation
           }]),
           lang: e.translation.sourceLanguage,
-          textContent: Sb(e.translation.sourceTitle)
-        }, null, 10, bb),
-        e.translation.isLeadSectionTranslation ? zd("", !0) : (zr(), Cb("h6", {
+          textContent: bb(e.translation.sourceTitle)
+        }, null, 10, Eb),
+        e.translation.isLeadSectionTranslation ? Od("", !0) : (Ur(), Vb("h6", {
           key: 0,
           class: "cx-translation__source-section-title cx-translation__primary-title",
           lang: e.translation.sourceLanguage,
           innerHTML: e.translation.sourceSectionTitle
-        }, null, 8, kb))
+        }, null, 8, Lb))
       ]),
       "mid-content": Ia(() => [
-        e.translation.progress ? (zr(), jd(wo(N), {
+        e.translation.progress ? (Ur(), jd(fo(M), {
           key: 0,
           class: "ma-0 py-2"
         }, {
           default: Ia(() => [
-            Od(wo(k), null, {
+            Hd(fo(k), null, {
               default: Ia(() => [
-                Od(wo(ph), {
+                Hd(fo(gh), {
                   class: "cx-translation__progress-bar",
                   value: o.value,
                   height: "4px",
                   width: "64px",
-                  background: wo(s)
+                  background: fo(s)
                 }, null, 8, ["value", "background"])
               ]),
               _: 1
             })
           ]),
           _: 1
-        })) : zd("", !0)
+        })) : Od("", !0)
       ]),
       _: 1
     }, 8, ["translation", "action-icon"]));
   }
-}, Lb = window.Vuex.useStore, bf = [], Tb = (e, t, n) => bf.some(
+}, Pb = window.Vuex.useStore, Lf = [], Bb = (e, t, n) => Lf.some(
   (s) => s.sourceLanguage === e && s.targetLanguage === t && s.sourceTitle === n
-), Ab = (e, t, n) => {
+), Fb = (e, t, n) => {
   const s = { sourceLanguage: e, targetLanguage: t, sourceTitle: n };
-  bf.push(s);
-}, Db = () => {
-  const e = Lb();
-  return (t, n, s) => C(void 0, null, function* () {
+  Lf.push(s);
+}, Nb = () => {
+  const e = Pb();
+  return (t, n, s) => x(void 0, null, function* () {
     let o = e.getters["suggestions/getSectionSuggestionsForArticle"](t, n, s);
-    return !o && !Tb(t, n, s) && (o = yield me.fetchSectionSuggestion(
+    return !o && !Bb(t, n, s) && (o = yield me.fetchSectionSuggestion(
       t,
       s,
       n
-    ), Ab(t, n, s), o && (o.isListable = !1, e.commit("suggestions/addSectionSuggestion", o))), o;
+    ), Fb(t, n, s), o && (o.isListable = !1, e.commit("suggestions/addSectionSuggestion", o))), o;
   });
-}, kf = "cx-translation-session-position-", $f = () => kf + mw.user.sessionId(), Pb = () => {
-  const e = parseInt(
-    mw.storage.get($f())
-  );
-  return isNaN(e) ? 0 : e;
-}, Bb = function(e) {
-  const t = $f();
-  mw.storage.set(t, e);
-}, Fb = () => {
-  Object.keys(mw.storage.store).filter((e) => e.startsWith(kf)).forEach((e) => mw.storage.remove(e));
-}, Nb = () => {
-  const e = Pb();
-  return e % 10 === 0 && Fb(), Bb(e + 1), e;
-};
-let Ra = null;
-const Mb = (e) => {
-  if (Ra)
-    return Promise.resolve(Ra);
-  const t = "https://en.wikipedia.org/w/api.php", n = new URLSearchParams({
-    action: "query",
-    meta: "globaluserinfo",
-    guiuser: e,
-    guiprop: "editcount",
-    formatversion: 2,
-    origin: "*",
-    format: "json"
-  }), s = t + "?" + n;
-  return fetch(s).then((o) => o.json()).then((o) => (Ra = o.query.globaluserinfo.editcount, Ra)).catch((o) => {
-    mw.log.error("Error while fetching global edit count for user. ", o);
-  });
-}, Ub = (e) => e === null ? null : e === 0 ? "0 edits" : e < 5 ? "1-4 edits" : e < 100 ? "5-99 edits" : e < 1e3 ? "100-999 edits" : "1000+ edits";
-function Ib(e) {
-  if (!mw.eventLog)
-    return mw.log({ event: e }), Promise.resolve();
-  const t = mw.user.sessionId(), n = mw.config.get("wgDBname"), s = `cx_sx_${t}_${e.access_method}_${n}`, o = "mediawiki.content_translation_event", a = mw.user.isAnon(), r = mw.user.getName(), l = {
-    $schema: "/analytics/mediawiki/content_translation_event/1.11.0",
-    wiki_db: n,
-    user_name: r,
-    web_session_id: t,
-    web_pageview_id: mw.user.getPageviewToken(),
-    user_is_anonymous: a,
-    content_translation_session_id: s,
-    content_translation_session_position: Nb()
-  };
-  return a ? Promise.resolve(
-    mw.eventLog.submit(o, Object.assign({}, l, e))
-  ) : Mb(r).then((u) => {
-    mw.eventLog.submit(
-      o,
-      Object.assign({}, l, e, {
-        user_global_edit_count: u,
-        user_global_edit_count_bucket: Ub(u)
-      })
-    );
-  });
-}
-const Rb = window.Vuex.useStore, zb = (e, t, n) => [
-  `Event ${e} is missing ${t}.`,
-  `Current URL params: ${location.href}.`,
-  `Previous route: ${n}`
-], bt = () => {
-  const e = Rb(), { previousRoute: t } = Le(e), n = [
-    "event_source",
-    "translation_source_language",
-    "translation_target_language",
-    "translation_source_title"
-  ], s = (o) => {
-    for (const a of n)
-      if (o[a] === null) {
-        const r = zb(
-          o.event_type,
-          a,
-          t.value
-        );
-        mw.errorLogger.logError(
-          new Error(r.join(" ")),
-          "error.contenttranslation"
-        );
-      }
-  };
-  return (o) => (o.access_method || (o.access_method = Ws ? "desktop" : "mobile web"), s(o), Ib(o));
-}, Ef = window.Vue.ref, Vf = Ef(null), Kc = Ef(null), Ob = (e) => {
+}, Tf = window.Vue.ref, Af = Tf(null), Kc = Tf(null), Mb = (e) => {
   e || mw.errorLogger.logError(
     new Error("[CX] Empty event source set"),
     "error.contenttranslation"
-  ), Vf.value = e;
-}, jb = (e) => {
+  ), Af.value = e;
+}, Ub = (e) => {
   Kc.value = e;
-}, ur = () => {
-  const {
-    sourceLanguageURLParameter: e,
-    targetLanguageURLParameter: t,
-    pageURLParameter: n,
-    sectionURLParameter: s
-  } = A(), o = bt();
-  return {
-    logDashboardTranslationStartEvent: () => {
-      const r = {
-        event_type: "dashboard_translation_start",
-        event_source: Vf.value,
-        translation_source_language: e.value,
-        translation_target_language: t.value,
-        translation_source_title: n.value
-        // translation_target_exists:
-        // 	description:
-        // 		Whether the target article or section already exists. Applies only to
-        // 		events which relate to a specific translation or suggestion: all `editor_`
-        // 		and `publish_` events and some `dashboard_` events (e.g. `dashboard_start_translation`,
-        // 		`dashboard_delete_translation`). In section translation, if the user discards the mapping
-        // 		to an existing target section, the value should change to false in future events.
-        // 	status:
-        // 		Currently, we do not support "override page/section" functionality, and thus this property is not
-        // 		yet required, translation_target_exists
-      };
-      return Kc.value && (r.event_context = Kc.value), s.value ? (r.translation_source_section = s.value, r.translation_type = "section") : r.translation_type = "article", o(r);
-    },
-    setStartTranslationEventSource: Ob,
-    setStartTranslationEventContext: jb
-  };
 }, ya = () => {
-  const e = Ze(), t = ir(), { setTranslationURLParams: n } = A(), { setStartTranslationEventSource: s, setStartTranslationEventContext: o } = ur();
-  return (a, r, l, u, d = null, i = !0) => C(void 0, null, function* () {
-    s(u), o(d);
-    const c = yield t(
-      r,
-      l,
-      a
+  const e = tt(), t = sr(), { setTranslationURLParams: n } = D();
+  return (s, o, a, r, l = null, u = !0) => x(void 0, null, function* () {
+    Mb(r), Ub(l);
+    const d = yield t(
+      o,
+      a,
+      s
     );
-    n(c), i && e.push({ name: "sx-translation-confirmer" });
+    n(d), u && e.push({ name: "sx-translation-confirmer" });
   });
 };
-const Or = window.Vue.withModifiers, Hd = window.Vue.toDisplayString, qd = window.Vue.createElementVNode, $t = window.Vue.unref, Xn = window.Vue.createVNode, Hb = window.Vue.createTextVNode, za = window.Vue.openBlock, Gd = window.Vue.createElementBlock, Xd = window.Vue.createCommentVNode, Wd = window.Vue.createBlock, vs = window.Vue.withCtx, qb = ["lang", "href", "textContent"], Gb = {
+const Ir = window.Vue.withModifiers, qd = window.Vue.toDisplayString, Gd = window.Vue.createElementVNode, $t = window.Vue.unref, Yn = window.Vue.createVNode, Ib = window.Vue.createTextVNode, Ra = window.Vue.openBlock, Xd = window.Vue.createElementBlock, Wd = window.Vue.createCommentVNode, Kd = window.Vue.createBlock, Ss = window.Vue.withCtx, Rb = ["lang", "href", "textContent"], zb = {
   key: 0,
   class: "cx-published-translation__personal-draft-indicator"
-}, Xb = {
+}, Ob = {
   key: 2,
   class: "flex"
-}, Wb = ["innerHTML"], jr = window.Vue.computed, Kd = window.Vue.ref, Yd = window.Codex.CdxButton, Hr = window.Codex.CdxIcon, Kb = {
+}, Hb = ["innerHTML"], Rr = window.Vue.computed, Yd = window.Vue.ref, Qd = window.Codex.CdxButton, zr = window.Codex.CdxIcon, jb = {
   __name: "CXTranslationWorkPublished",
   props: {
     translation: {
@@ -14723,18 +14635,18 @@ const Or = window.Vue.withModifiers, Hd = window.Vue.toDisplayString, qd = windo
     }
   },
   setup(e) {
-    const t = e, n = Kd(!0), s = Kd(null), o = jr(() => {
+    const t = e, n = Yd(!0), s = Yd(null), o = Rr(() => {
       var p;
       return (p = s.value) == null ? void 0 : p.missingSections;
-    }), a = jr(
+    }), a = Rr(
       () => o.value && Object.keys(o.value)[0]
     );
-    Db()(
+    Nb()(
       t.translation.sourceLanguage,
       t.translation.targetLanguage,
       t.translation.sourceTitle
     ).then((p) => s.value = p).catch((p) => console.log(p)).finally(() => n.value = !1);
-    const { setSectionURLParam: l } = A(), u = () => {
+    const { setSectionURLParam: l } = D(), u = () => {
       window.open(t.translation.targetUrl, "_blank");
     }, d = ya(), i = (p) => {
       d(
@@ -14743,67 +14655,67 @@ const Or = window.Vue.withModifiers, Hd = window.Vue.toDisplayString, qd = windo
         t.translation.targetLanguage,
         "continue_published"
       ), p && l(p);
-    }, c = mw.config.get("wgNamespaceIds"), g = jr(() => new mw.Title(t.translation.targetTitle).getNamespaceId() === c.user);
-    return (p, m) => (za(), Wd(Cf, {
+    }, c = mw.config.get("wgNamespaceIds"), g = Rr(() => new mw.Title(t.translation.targetTitle).getNamespaceId() === c.user);
+    return (p, m) => (Ra(), Kd(Ef, {
       class: "cx-published-translation",
       translation: e.translation,
       onClick: u
     }, {
-      title: vs(() => [
-        qd("a", {
+      title: Ss(() => [
+        Gd("a", {
           class: "cx-published-translation__source-page-title",
           lang: e.translation.sourceLanguage,
           href: e.translation.targetUrl,
           target: "_blank",
-          onClick: m[0] || (m[0] = Or(() => {
+          onClick: m[0] || (m[0] = Ir(() => {
           }, ["stop"])),
-          textContent: Hd(e.translation.sourceTitle)
-        }, null, 8, qb)
+          textContent: qd(e.translation.sourceTitle)
+        }, null, 8, Rb)
       ]),
-      "mid-content": vs(() => [
-        Xn($t(N), { class: "ma-0" }, {
-          default: vs(() => [
-            Xn($t(k), null, {
-              default: vs(() => [
-                g.value ? (za(), Gd("div", Gb, [
-                  Xn($t(Hr), {
-                    icon: $t(qh),
+      "mid-content": Ss(() => [
+        Yn($t(M), { class: "ma-0" }, {
+          default: Ss(() => [
+            Yn($t(k), null, {
+              default: Ss(() => [
+                g.value ? (Ra(), Xd("div", zb, [
+                  Yn($t(zr), {
+                    icon: $t(Yh),
                     class: "me-1",
                     size: "small"
                   }, null, 8, ["icon"]),
-                  Hb(" " + Hd(p.$i18n("sx-published-translation-personal-draft-indicator")), 1)
-                ])) : Xd("", !0),
-                n.value ? (za(), Wd($t(ct), { key: 1 })) : o.value ? (za(), Gd("div", Xb, [
-                  Xn($t(Yd), {
+                  Ib(" " + qd(p.$i18n("sx-published-translation-personal-draft-indicator")), 1)
+                ])) : Wd("", !0),
+                n.value ? (Ra(), Kd($t(dt), { key: 1 })) : o.value ? (Ra(), Xd("div", Ob, [
+                  Yn($t(Qd), {
                     class: "cx-published-translation__start-new-translation-button flex items-center px-0",
                     weight: "quiet",
                     action: "progressive",
-                    onClick: m[1] || (m[1] = Or((h) => i(a.value), ["stop"]))
+                    onClick: m[1] || (m[1] = Ir((h) => i(a.value), ["stop"]))
                   }, {
-                    default: vs(() => [
-                      Xn($t(Hr), {
+                    default: Ss(() => [
+                      Yn($t(zr), {
                         class: "me-1",
-                        icon: $t(Uh)
+                        icon: $t(Hh)
                       }, null, 8, ["icon"]),
-                      qd("span", { innerHTML: a.value }, null, 8, Wb)
+                      Gd("span", { innerHTML: a.value }, null, 8, Hb)
                     ]),
                     _: 1
                   }),
-                  Xn($t(Yd), {
+                  Yn($t(Qd), {
                     class: "cx-published-translation__start-new-translation-button pa-0 ms-4",
                     weight: "quiet",
                     action: "progressive",
                     "aria-label": p.$i18n(
                       "sx-published-translation-start-section-translation-button-aria-label"
                     ),
-                    onClick: m[2] || (m[2] = Or((h) => i(null), ["stop"]))
+                    onClick: m[2] || (m[2] = Ir((h) => i(null), ["stop"]))
                   }, {
-                    default: vs(() => [
-                      Xn($t(Hr), { icon: $t(mu) }, null, 8, ["icon"])
+                    default: Ss(() => [
+                      Yn($t(zr), { icon: $t(mu) }, null, 8, ["icon"])
                     ]),
                     _: 1
                   }, 8, ["aria-label"])
-                ])) : Xd("", !0)
+                ])) : Wd("", !0)
               ]),
               _: 1
             })
@@ -14814,9 +14726,73 @@ const Or = window.Vue.withModifiers, Hd = window.Vue.toDisplayString, qd = windo
       _: 1
     }, 8, ["translation"]));
   }
-}, Yb = window.Vuex.useStore, Qb = () => {
-  const { commit: e } = Yb(), t = bt();
-  return (n) => C(void 0, null, function* () {
+}, Df = "cx-translation-session-position-", Pf = () => Df + mw.user.sessionId(), qb = () => {
+  const e = parseInt(
+    mw.storage.get(Pf())
+  );
+  return isNaN(e) ? 0 : e;
+}, Gb = function(e) {
+  const t = Pf();
+  mw.storage.set(t, e);
+}, Xb = () => {
+  Object.keys(mw.storage.store).filter((e) => e.startsWith(Df)).forEach((e) => mw.storage.remove(e));
+}, Wb = () => {
+  const e = qb();
+  return e % 10 === 0 && Xb(), Gb(e + 1), e;
+};
+function Kb(e) {
+  if (!mw.eventLog)
+    return mw.log({ event: e }), Promise.resolve();
+  const t = mw.user.sessionId(), n = mw.config.get("wgDBname"), s = `cx_sx_${t}_${e.access_method}_${n}`, o = "mediawiki.content_translation_event", a = mw.user.isAnon(), r = mw.user.getName(), l = {
+    $schema: "/analytics/mediawiki/content_translation_event/1.12.0",
+    wiki_db: n,
+    user_name: r,
+    web_session_id: t,
+    web_pageview_id: mw.user.getPageviewToken(),
+    user_is_anonymous: a,
+    content_translation_session_id: s,
+    content_translation_session_position: Wb()
+  };
+  return a ? Promise.resolve(
+    mw.eventLog.submit(o, Object.assign({}, l, e))
+  ) : Ph(r).then((u) => {
+    mw.eventLog.submit(
+      o,
+      Object.assign({}, l, e, {
+        user_global_edit_count: u,
+        user_global_edit_count_bucket: q_(u)
+      })
+    );
+  });
+}
+const Yb = window.Vuex.useStore, Qb = (e, t, n) => [
+  `Event ${e} is missing ${t}.`,
+  `Current URL params: ${location.href}.`,
+  `Previous route: ${n}`
+], bt = () => {
+  const e = Yb(), { previousRoute: t } = Ae(e), n = [
+    "event_source",
+    "translation_source_language",
+    "translation_target_language",
+    "translation_source_title"
+  ], s = (o) => {
+    for (const a of n)
+      if (o[a] === null) {
+        const r = Qb(
+          o.event_type,
+          a,
+          t.value
+        );
+        mw.errorLogger.logError(
+          new Error(r.join(" ")),
+          "error.contenttranslation"
+        );
+      }
+  };
+  return (o) => (o.access_method || (o.access_method = qn ? "desktop" : "mobile web"), s(o), Kb(o));
+}, Jb = window.Vuex.useStore, Zb = () => {
+  const { commit: e } = Jb(), t = bt();
+  return (n) => x(void 0, null, function* () {
     n.isArticleTranslation ? (yield xt.deleteCXTranslation(
       n
     )) && e("translator/removeCXTranslation", n.translationId) : (yield xt.deleteTranslation(
@@ -14838,7 +14814,7 @@ const Or = window.Vue.withModifiers, Hd = window.Vue.toDisplayString, qd = windo
     n.sourceSectionTitle && (s.translation_source_section = n.sourceSectionTitle), n.targetSectionTitle && (s.translation_target_section = n.targetSectionTitle), t(s);
   });
 };
-const Jb = window.Vue.resolveDirective, qr = window.Vue.createElementVNode, Zb = window.Vue.withDirectives, Gr = window.Vue.unref, Qd = window.Vue.createVNode, Jd = window.Vue.withCtx, ek = window.Vue.openBlock, tk = window.Vue.createBlock, nk = { class: "pa-4" }, sk = { class: "flex justify-end sx-confirm-delete-dialog__footer pt-2" }, ok = {
+const ek = window.Vue.resolveDirective, Or = window.Vue.createElementVNode, tk = window.Vue.withDirectives, Hr = window.Vue.unref, Jd = window.Vue.createVNode, Zd = window.Vue.withCtx, nk = window.Vue.openBlock, sk = window.Vue.createBlock, ok = { class: "pa-4" }, ak = { class: "flex justify-end sx-confirm-delete-dialog__footer pt-2" }, ik = {
   __name: "SXConfirmTranslationDeletionDialog",
   props: {
     modelValue: {
@@ -14846,7 +14822,7 @@ const Jb = window.Vue.resolveDirective, qr = window.Vue.createElementVNode, Zb =
       required: !0
     },
     translation: {
-      type: Ji,
+      type: Ki,
       default: null
     }
   },
@@ -14856,26 +14832,26 @@ const Jb = window.Vue.resolveDirective, qr = window.Vue.createElementVNode, Zb =
     "discard-translation"
   ],
   setup(e, { emit: t }) {
-    const n = e, s = t, o = () => s("update:modelValue", !1), a = Qb(), r = () => {
+    const n = e, s = t, o = () => s("update:modelValue", !1), a = Zb(), r = () => {
       a(n.translation), o();
     };
     return (l, u) => {
-      const d = Jb("i18n");
-      return ek(), tk(Gr(Ct), {
+      const d = ek("i18n");
+      return nk(), sk(Hr(Ct), {
         value: e.modelValue,
         class: "sx-confirm-back-navigation-dialog",
         header: !1,
         "min-height": "unset"
       }, {
-        footer: Jd(() => [
-          qr("div", sk, [
-            Qd(Gr(Ge), {
+        footer: Zd(() => [
+          Or("div", ak, [
+            Jd(Hr(Xe), {
               class: "grow py-3",
               large: "",
               label: l.$i18n("sx-translation-deletion-cancel-button-label"),
               onClick: o
             }, null, 8, ["label"]),
-            Qd(Gr(Ge), {
+            Jd(Hr(Xe), {
               class: "grow py-3",
               large: "",
               destructive: "",
@@ -14884,9 +14860,9 @@ const Jb = window.Vue.resolveDirective, qr = window.Vue.createElementVNode, Zb =
             }, null, 8, ["label"])
           ])
         ]),
-        default: Jd(() => [
-          qr("div", nk, [
-            Zb(qr("span", null, null, 512), [
+        default: Zd(() => [
+          Or("div", ok, [
+            tk(Or("span", null, null, 512), [
               [d, void 0, "sx-confirm-translation-deletion-dialog-body"]
             ])
           ])
@@ -14896,25 +14872,25 @@ const Jb = window.Vue.resolveDirective, qr = window.Vue.createElementVNode, Zb =
     };
   }
 };
-function ak(e, t, n) {
-  return C(this, null, function* () {
-    return !t || t.trim().length === 0 ? e : n ? (yield ik(t, n)).filter((o) => e.includes(o)) : [];
+function rk(e, t, n) {
+  return x(this, null, function* () {
+    return !t || t.trim().length === 0 ? e : n ? (yield lk(t, n)).filter((o) => e.includes(o)) : [];
   });
 }
-function Zd(e, t, n) {
-  return C(this, null, function* () {
-    return !t || t.trim().length === 0 ? e.sort(j.sortByAutonym) : (yield ak(e, t, n)).sort(j.sortByAutonym);
+function eg(e, t, n) {
+  return x(this, null, function* () {
+    return !t || t.trim().length === 0 ? e.sort(R.sortByAutonym) : (yield rk(e, t, n)).sort(R.sortByAutonym);
   });
 }
-function ik(e, t) {
+function lk(e, t) {
   const n = new URL(t);
   return n.searchParams.set("search", e), fetch(n.toString()).then((s) => s.json()).then((s) => Object.keys(s.languagesearch || {}));
 }
-function rk() {
+function ck() {
   const e = new URL("https://en.wikipedia.org/w/api.php");
   return e.searchParams.set("action", "languagesearch"), e.searchParams.set("format", "json"), e.searchParams.set("origin", "*"), e.searchParams.set("formatversion", 2), e.toString();
 }
-function lk(e) {
+function uk(e) {
   let t, n = [...e];
   const s = e.length;
   s < 10 && (t = s), s < 30 && (t = 10), s >= 30 && (t = 15);
@@ -14923,13 +14899,13 @@ function lk(e) {
     o.push(n.splice(0, t));
   return o;
 }
-const ck = window.Vue.computed;
-function uk(e, t) {
-  const n = ck(() => {
+const dk = window.Vue.computed;
+function gk(e, t) {
+  const n = dk(() => {
     if (!t.value.length || !e.value.trim())
       return "";
     for (let o = 0; o < t.value.length; o++) {
-      const a = j.getAutonym(t.value[o]);
+      const a = R.getAutonym(t.value[o]);
       if (a.startsWith(e.value))
         return a;
     }
@@ -14942,18 +14918,18 @@ function uk(e, t) {
     }
   };
 }
-const Xr = window.Vue.ref, Wr = window.Vue.watch, dk = window.Vue.computed;
-function Lf(e, t, n) {
-  const s = Xr(""), o = Xr(-1), a = Xr(null), r = () => {
+const jr = window.Vue.ref, qr = window.Vue.watch, pk = window.Vue.computed;
+function Bf(e, t, n) {
+  const s = jr(""), o = jr(-1), a = jr(null), r = () => {
     o.value++, o.value >= l.value.length && (o.value = 0);
-  }, l = dk(() => e.value ? t.value : n && n.value ? [...n.value, ...t.value] : []), u = () => {
+  }, l = pk(() => e.value ? t.value : n && n.value ? [...n.value, ...t.value] : []), u = () => {
     o.value--, o.value < 0 && (o.value = 0);
   };
-  return Wr(e, () => {
+  return qr(e, () => {
     o.value = -1;
-  }), Wr(t, () => {
+  }), qr(t, () => {
     t.value && l.value.length > 0 && (o.value = 0);
-  }), Wr(o, () => C(this, null, function* () {
+  }), qr(o, () => x(this, null, function* () {
     var d;
     if (o.value < 0) {
       s.value = "";
@@ -14972,10 +14948,10 @@ function Su(e, t, n) {
   };
   return o.cancel = () => clearTimeout(s), o;
 }
-const Oa = window.Vue.renderSlot, Te = window.Vue.unref, gk = window.Vue.isRef, eg = window.Vue.createVNode, vo = window.Vue.withModifiers, _o = window.Vue.withKeys, En = window.Vue.createElementVNode, pk = window.Vue.resolveDirective, ja = window.Vue.withDirectives, Kr = window.Vue.renderList, Yr = window.Vue.Fragment, on = window.Vue.openBlock, an = window.Vue.createElementBlock, tg = window.Vue.toDisplayString, Ha = window.Vue.normalizeClass, Qr = window.Vue.createCommentVNode, mk = { class: "mw-ui-language-selector__inputcontainer pa-4 mb-4" }, hk = { class: "mw-ui-language-selector__resultscontainer pa-0 ma-0" }, fk = { class: "results px-3 pt-4" }, wk = { class: "results-header ps-8 pb-2" }, vk = { class: "results-languages--suggestions pa-0 ma-0" }, _k = ["lang", "dir", "aria-selected", "onClick", "textContent"], Sk = { class: "results px-3 pt-4" }, yk = {
+const za = window.Vue.renderSlot, Ee = window.Vue.unref, mk = window.Vue.isRef, tg = window.Vue.createVNode, wo = window.Vue.withModifiers, vo = window.Vue.withKeys, Vn = window.Vue.createElementVNode, hk = window.Vue.resolveDirective, Oa = window.Vue.withDirectives, Gr = window.Vue.renderList, Xr = window.Vue.Fragment, rn = window.Vue.openBlock, ln = window.Vue.createElementBlock, ng = window.Vue.toDisplayString, Ha = window.Vue.normalizeClass, Wr = window.Vue.createCommentVNode, fk = { class: "mw-ui-language-selector__inputcontainer pa-4 mb-4" }, wk = { class: "mw-ui-language-selector__resultscontainer pa-0 ma-0" }, vk = { class: "results px-3 pt-4" }, _k = { class: "results-header ps-8 pb-2" }, Sk = { class: "results-languages--suggestions pa-0 ma-0" }, yk = ["lang", "dir", "aria-selected", "onClick", "textContent"], xk = { class: "results px-3 pt-4" }, Ck = {
   key: 0,
   class: "results-header ps-8 pb-2"
-}, xk = ["lang", "dir", "aria-selected", "onClick", "textContent"], Ck = ["aria-selected"], bk = { class: "no-results px-3 py-4" }, kk = { class: "ps-8" }, qa = window.Vue.ref, $k = window.Vue.watch, Ek = window.Vue.onMounted, ng = window.Vue.computed, Tf = {
+}, bk = ["lang", "dir", "aria-selected", "onClick", "textContent"], kk = ["aria-selected"], $k = { class: "no-results px-3 py-4" }, Vk = { class: "ps-8" }, ja = window.Vue.ref, Ek = window.Vue.watch, Lk = window.Vue.onMounted, sg = window.Vue.computed, Ff = {
   __name: "MWLanguageSelector",
   props: {
     placeholder: {
@@ -15008,20 +14984,20 @@ const Oa = window.Vue.renderSlot, Te = window.Vue.unref, gk = window.Vue.isRef, 
      */
     searchAPI: {
       type: String,
-      default: rk
+      default: ck
     }
   },
   emits: ["select", "close"],
   setup(e, { emit: t }) {
-    const n = e, s = t, o = qa(null), a = qa(""), r = qa([]), l = qa(n.suggestions), u = ng(
-      () => lk(r.value)
-    ), d = ng(() => {
+    const n = e, s = t, o = ja(null), a = ja(""), r = ja([]), l = ja(n.suggestions), u = sg(
+      () => uk(r.value)
+    ), d = sg(() => {
       const S = r.value.length;
       return S < 10 ? "few-results" : S < 30 ? "some-results" : "many-results";
-    }), i = (S) => s("select", S), c = () => s("close"), { autocompletion: g, onTabSelect: p } = uk(
+    }), i = (S) => s("select", S), c = () => s("close"), { autocompletion: g, onTabSelect: p } = gk(
       a,
       r
-    ), { next: m, prev: h, keyboardNavigationContainer: f, selectedItem: w } = Lf(a, r, l), v = () => {
+    ), { next: m, prev: h, keyboardNavigationContainer: f, selectedItem: w } = Bf(a, r, l), _ = () => {
       if (a.value && n.languages.includes(a.value)) {
         i(a.value);
         return;
@@ -15035,112 +15011,112 @@ const Oa = window.Vue.renderSlot, Te = window.Vue.unref, gk = window.Vue.isRef, 
         return;
       }
     };
-    return $k(a, Su(() => C(this, null, function* () {
-      r.value = yield Zd(
+    return Ek(a, Su(() => x(this, null, function* () {
+      r.value = yield eg(
         n.languages,
         a.value,
         n.searchAPI
       );
-    }), 300)), Ek(() => C(this, null, function* () {
-      n.autofocus && setTimeout(() => o.value.focus(), 500), r.value = yield Zd(
+    }), 300)), Lk(() => x(this, null, function* () {
+      n.autofocus && setTimeout(() => o.value.focus(), 500), r.value = yield eg(
         n.languages,
         "",
         n.searchAPI
       );
     })), (S, b) => {
-      const V = pk("i18n");
-      return on(), an("div", {
+      const A = hk("i18n");
+      return rn(), ln("div", {
         ref_key: "keyboardNavigationContainer",
         ref: f,
         class: "mw-ui-language-selector"
       }, [
-        Oa(S.$slots, "search", {}, () => [
-          En("div", mk, [
-            eg(Te(Ic), {
-              value: Te(g),
-              "onUpdate:value": b[0] || (b[0] = (x) => gk(g) ? g.value = x : null),
-              icon: Te(Ru),
+        za(S.$slots, "search", {}, () => [
+          Vn("div", fk, [
+            tg(Ee(Uc), {
+              value: Ee(g),
+              "onUpdate:value": b[0] || (b[0] = (y) => mk(g) ? g.value = y : null),
+              icon: Ee(zu),
               "icon-size": 20,
               class: "mw-ui-language-selector__autocomplete pa-4",
               disabled: ""
             }, null, 8, ["value", "icon"]),
-            eg(Te(Ic), {
+            tg(Ee(Uc), {
               ref_key: "searchInputElement",
               ref: o,
               value: a.value,
-              "onUpdate:value": b[1] || (b[1] = (x) => a.value = x),
+              "onUpdate:value": b[1] || (b[1] = (y) => a.value = y),
               class: "mw-ui-language-selector__search pa-4",
-              icon: Te(Ru),
+              icon: Ee(zu),
               "icon-size": 20,
               placeholder: e.placeholder,
               autofocus: e.autofocus,
               onKeydown: [
-                _o(vo(v, ["prevent"]), ["enter"]),
-                _o(vo(Te(m), ["stop", "prevent"]), ["down"]),
-                _o(vo(Te(h), ["stop", "prevent"]), ["up"]),
-                _o(vo(c, ["prevent"]), ["esc"]),
-                _o(vo(Te(p), ["prevent"]), ["tab"])
+                vo(wo(_, ["prevent"]), ["enter"]),
+                vo(wo(Ee(m), ["stop", "prevent"]), ["down"]),
+                vo(wo(Ee(h), ["stop", "prevent"]), ["up"]),
+                vo(wo(c, ["prevent"]), ["esc"]),
+                vo(wo(Ee(p), ["prevent"]), ["tab"])
               ]
             }, null, 8, ["value", "icon", "placeholder", "autofocus", "onKeydown"])
           ])
         ]),
-        En("section", hk, [
-          e.suggestions.length && !a.value ? Oa(S.$slots, "suggestions", { key: 0 }, () => [
-            En("section", fk, [
-              ja(En("p", wk, null, 512), [
-                [V, void 0, "cx-sx-language-selector-suggestions"]
+        Vn("section", wk, [
+          e.suggestions.length && !a.value ? za(S.$slots, "suggestions", { key: 0 }, () => [
+            Vn("section", vk, [
+              Oa(Vn("p", _k, null, 512), [
+                [A, void 0, "cx-sx-language-selector-suggestions"]
               ]),
-              En("ul", vk, [
-                (on(!0), an(Yr, null, Kr(e.suggestions, (x) => (on(), an("li", {
-                  key: x,
-                  class: Ha(["language ma-0", { "language--selected": x === Te(w) }]),
-                  lang: x,
-                  dir: Te(j.getDir)(x),
-                  "aria-selected": x === Te(w) || null,
+              Vn("ul", Sk, [
+                (rn(!0), ln(Xr, null, Gr(e.suggestions, (y) => (rn(), ln("li", {
+                  key: y,
+                  class: Ha(["language ma-0", { "language--selected": y === Ee(w) }]),
+                  lang: y,
+                  dir: Ee(R.getDir)(y),
+                  "aria-selected": y === Ee(w) || null,
                   tabindex: "-1",
                   role: "option",
-                  onClick: (I) => i(x),
-                  textContent: tg(Te(j.getAutonym)(x))
-                }, null, 10, _k))), 128))
+                  onClick: (B) => i(y),
+                  textContent: ng(Ee(R.getAutonym)(y))
+                }, null, 10, yk))), 128))
               ])
             ])
-          ]) : Qr("", !0),
-          u.value.length ? Oa(S.$slots, "search", { key: 1 }, () => [
-            En("section", Sk, [
-              e.suggestions.length && !a.value ? ja((on(), an("p", yk, null, 512)), [
-                [V, void 0, "cx-sx-language-selector-all-languages"]
-              ]) : Qr("", !0),
-              (on(!0), an(Yr, null, Kr(u.value, (x, I) => (on(), an("ul", {
-                key: I,
+          ]) : Wr("", !0),
+          u.value.length ? za(S.$slots, "search", { key: 1 }, () => [
+            Vn("section", xk, [
+              e.suggestions.length && !a.value ? Oa((rn(), ln("p", Ck, null, 512)), [
+                [A, void 0, "cx-sx-language-selector-all-languages"]
+              ]) : Wr("", !0),
+              (rn(!0), ln(Xr, null, Gr(u.value, (y, B) => (rn(), ln("ul", {
+                key: B,
                 class: Ha(["results-languages pa-0 ma-0 mb-6", d.value])
               }, [
-                (on(!0), an(Yr, null, Kr(x, (L) => (on(), an("li", {
-                  key: L,
-                  class: Ha(["language ma-0", { "language--selected": L === Te(w) }]),
-                  lang: L,
-                  dir: Te(j.getDir)(L),
+                (rn(!0), ln(Xr, null, Gr(y, (V) => (rn(), ln("li", {
+                  key: V,
+                  class: Ha(["language ma-0", { "language--selected": V === Ee(w) }]),
+                  lang: V,
+                  dir: Ee(R.getDir)(V),
                   role: "option",
-                  "aria-selected": L === Te(w) || null,
+                  "aria-selected": V === Ee(w) || null,
                   tabindex: "-1",
-                  onClick: (P) => i(L),
-                  textContent: tg(Te(j.getAutonym)(L))
-                }, null, 10, xk))), 128)),
-                e.allOptionEnabled && !a.value ? ja((on(), an("li", {
+                  onClick: (E) => i(V),
+                  textContent: ng(Ee(R.getAutonym)(V))
+                }, null, 10, bk))), 128)),
+                e.allOptionEnabled && !a.value ? Oa((rn(), ln("li", {
                   key: 0,
-                  class: Ha(["language ma-0", { "language--selected": Te(w) === "all" }]),
+                  class: Ha(["language ma-0", { "language--selected": Ee(w) === "all" }]),
                   role: "option",
-                  "aria-selected": Te(w) === "all" || null,
+                  "aria-selected": Ee(w) === "all" || null,
                   tabindex: "-1",
-                  onClick: b[2] || (b[2] = (L) => i("all"))
-                }, null, 10, Ck)), [
-                  [V, void 0, "cx-translation-list-all-languages-option-label"]
-                ]) : Qr("", !0)
+                  onClick: b[2] || (b[2] = (V) => i("all"))
+                }, null, 10, kk)), [
+                  [A, void 0, "cx-translation-list-all-languages-option-label"]
+                ]) : Wr("", !0)
               ], 2))), 128))
             ])
-          ]) : Oa(S.$slots, "noresults", { key: 2 }, () => [
-            En("section", bk, [
-              ja(En("h3", kk, null, 512), [
-                [V, void 0, "cx-sx-language-selector-no-search-results"]
+          ]) : za(S.$slots, "noresults", { key: 2 }, () => [
+            Vn("section", $k, [
+              Oa(Vn("h3", Vk, null, 512), [
+                [A, void 0, "cx-sx-language-selector-no-search-results"]
               ])
             ])
           ])
@@ -15149,15 +15125,15 @@ const Oa = window.Vue.renderSlot, Te = window.Vue.unref, gk = window.Vue.isRef, 
     };
   }
 };
-const Vk = window.Vue.resolveDirective, sg = window.Vue.withDirectives, So = window.Vue.openBlock, yo = window.Vue.createElementBlock;
+const Tk = window.Vue.resolveDirective, og = window.Vue.withDirectives, _o = window.Vue.openBlock, So = window.Vue.createElementBlock;
 window.Vue.createCommentVNode;
-const Ae = window.Vue.unref, og = window.Vue.toDisplayString, Et = window.Vue.createVNode, ag = window.Vue.withModifiers, Wn = window.Vue.withCtx, Lk = window.Vue.normalizeClass, Tk = {
+const Le = window.Vue.unref, ag = window.Vue.toDisplayString, Vt = window.Vue.createVNode, ig = window.Vue.withModifiers, Qn = window.Vue.withCtx, Ak = window.Vue.normalizeClass, Dk = {
   key: 0,
   class: "mw-ui-autonym"
-}, Ak = ["lang", "dir", "textContent"], Dk = {
+}, Pk = ["lang", "dir", "textContent"], Bk = {
   key: 0,
   class: "mw-ui-autonym"
-}, Pk = ["lang", "dir", "textContent"], xo = window.Vue.computed, Bk = window.Vue.inject, Fk = window.Vue.ref, ig = window.Codex.CdxButton, Jr = window.Codex.CdxIcon, Wi = {
+}, Fk = ["lang", "dir", "textContent"], yo = window.Vue.computed, Nk = window.Vue.inject, Mk = window.Vue.ref, rg = window.Codex.CdxButton, Kr = window.Codex.CdxIcon, qi = {
   __name: "SXTranslationListLanguageSelector",
   props: {
     /** @type string[] array of language codes */
@@ -15190,7 +15166,7 @@ const Ae = window.Vue.unref, og = window.Vue.toDisplayString, Et = window.Vue.cr
     "update:selectedTargetLanguage"
   ],
   setup(e, { emit: t }) {
-    const n = e, s = t, o = Bk("breakpoints"), a = xo(() => o.value.mobile), r = Fk(null), l = xo(() => !!r.value), u = () => r.value = "source", d = () => r.value = "target", i = () => r.value = null, c = xo(() => {
+    const n = e, s = t, o = Nk("breakpoints"), a = yo(() => o.value.mobile), r = Mk(null), l = yo(() => !!r.value), u = () => r.value = "source", d = () => r.value = "target", i = () => r.value = null, c = yo(() => {
       if (!l.value)
         return;
       const f = {
@@ -15204,45 +15180,45 @@ const Ae = window.Vue.unref, og = window.Vue.toDisplayString, Et = window.Vue.cr
         target: "update:selectedTargetLanguage"
       }[r.value];
       i(), s(w, h);
-    }, p = xo(
+    }, p = yo(
       () => n.selectedSourceLanguage === "all"
-    ), m = xo(
+    ), m = yo(
       () => n.selectedTargetLanguage === "all"
     );
     return (h, f) => {
-      const w = Vk("i18n");
-      return So(), yo("div", {
-        class: Lk(["sx-translation-list-language-selector py-1", { "sx-translation-list-language-selector--mobile": a.value }])
+      const w = Tk("i18n");
+      return _o(), So("div", {
+        class: Ak(["sx-translation-list-language-selector py-1", { "sx-translation-list-language-selector--mobile": a.value }])
       }, [
-        Et(Ae(N), {
+        Vt(Le(M), {
           justify: "center",
           align: "center",
           class: "ma-0"
         }, {
-          default: Wn(() => [
-            Et(Ae(k), {
+          default: Qn(() => [
+            Vt(Le(k), {
               class: "flex justify-end px-0",
               cols: a.value ? 5 : null
             }, {
-              default: Wn(() => [
-                Et(Ae(ig), {
+              default: Qn(() => [
+                Vt(Le(rg), {
                   class: "sx-translation-list-language-selector__button",
                   weight: "quiet",
-                  onClick: ag(u, ["stop"])
+                  onClick: ig(u, ["stop"])
                 }, {
-                  default: Wn(() => [
-                    p.value ? sg((So(), yo("span", Tk, null, 512)), [
+                  default: Qn(() => [
+                    p.value ? og((_o(), So("span", Dk, null, 512)), [
                       [w, void 0, "cx-translation-list-all-languages-option-label"]
-                    ]) : (So(), yo("span", {
+                    ]) : (_o(), So("span", {
                       key: 1,
                       class: "mw-ui-autonym",
                       lang: e.selectedSourceLanguage,
-                      dir: Ae(j.getDir)(e.selectedSourceLanguage),
-                      textContent: og(Ae(j.getAutonym)(e.selectedSourceLanguage))
-                    }, null, 8, Ak)),
-                    Et(Ae(Jr), {
+                      dir: Le(R.getDir)(e.selectedSourceLanguage),
+                      textContent: ag(Le(R.getAutonym)(e.selectedSourceLanguage))
+                    }, null, 8, Pk)),
+                    Vt(Le(Kr), {
                       size: "x-small",
-                      icon: Ae(Rc)
+                      icon: Le(Rc)
                     }, null, 8, ["icon"])
                   ]),
                   _: 1
@@ -15250,39 +15226,39 @@ const Ae = window.Vue.unref, og = window.Vue.toDisplayString, Et = window.Vue.cr
               ]),
               _: 1
             }, 8, ["cols"]),
-            Et(Ae(k), {
+            Vt(Le(k), {
               class: "sx-translation-list-language-selector__arrow flex justify-center px-0",
               cols: a.value ? 2 : null
             }, {
-              default: Wn(() => [
-                Et(Ae(Jr), { icon: Ae(Ih) }, null, 8, ["icon"])
+              default: Qn(() => [
+                Vt(Le(Kr), { icon: Le(jh) }, null, 8, ["icon"])
               ]),
               _: 1
             }, 8, ["cols"]),
-            Et(Ae(k), {
+            Vt(Le(k), {
               class: "px-0",
               cols: a.value ? 5 : null
             }, {
-              default: Wn(() => [
-                Et(Ae(ig), {
+              default: Qn(() => [
+                Vt(Le(rg), {
                   class: "sx-translation-list-language-selector__button",
                   weight: "quiet",
                   disabled: e.targetLanguages.length < 2,
-                  onClick: ag(d, ["stop"])
+                  onClick: ig(d, ["stop"])
                 }, {
-                  default: Wn(() => [
-                    m.value ? sg((So(), yo("span", Dk, null, 512)), [
+                  default: Qn(() => [
+                    m.value ? og((_o(), So("span", Bk, null, 512)), [
                       [w, void 0, "cx-translation-list-all-languages-option-label"]
-                    ]) : (So(), yo("span", {
+                    ]) : (_o(), So("span", {
                       key: 1,
                       class: "mw-ui-autonym",
                       lang: e.selectedTargetLanguage,
-                      dir: Ae(j.getDir)(e.selectedTargetLanguage),
-                      textContent: og(Ae(j.getAutonym)(e.selectedTargetLanguage))
-                    }, null, 8, Pk)),
-                    Et(Ae(Jr), {
+                      dir: Le(R.getDir)(e.selectedTargetLanguage),
+                      textContent: ag(Le(R.getAutonym)(e.selectedTargetLanguage))
+                    }, null, 8, Fk)),
+                    Vt(Le(Kr), {
                       size: "x-small",
-                      icon: Ae(Rc)
+                      icon: Le(Rc)
                     }, null, 8, ["icon"])
                   ]),
                   _: 1
@@ -15293,17 +15269,17 @@ const Ae = window.Vue.unref, og = window.Vue.toDisplayString, Et = window.Vue.cr
           ]),
           _: 1
         }),
-        Et(Ae(Ct), {
+        Vt(Le(Ct), {
           value: l.value,
-          "onUpdate:value": f[0] || (f[0] = (v) => l.value = v),
+          "onUpdate:value": f[0] || (f[0] = (_) => l.value = _),
           title: h.$i18n("sx-translation-list-language-selector-dialog-title"),
           fullscreen: a.value,
           header: a.value,
           "overlay-mode": "dark",
           onClose: i
         }, {
-          default: Wn(() => [
-            Et(Ae(Tf), {
+          default: Qn(() => [
+            Vt(Le(Ff), {
               class: "sx-translation-list-language-selector__widget col-12",
               placeholder: h.$i18n("cx-sx-language-selector-placeholder"),
               languages: c.value,
@@ -15318,7 +15294,7 @@ const Ae = window.Vue.unref, og = window.Vue.toDisplayString, Et = window.Vue.cr
     };
   }
 };
-const rg = window.Vue.unref, Nk = window.Vue.createVNode, Ga = window.Vue.createElementVNode, lg = window.Vue.toDisplayString, Mk = window.Vue.openBlock, Uk = window.Vue.createElementBlock, Ik = { class: "cx-list-empty-placeholder pa-4" }, Rk = { class: "cx-list-empty-placeholder__icon-container" }, zk = { class: "cx-list-empty-placeholder__icon" }, Ok = ["textContent"], jk = ["textContent"], Hk = window.Codex.CdxIcon, Af = {
+const lg = window.Vue.unref, Uk = window.Vue.createVNode, qa = window.Vue.createElementVNode, cg = window.Vue.toDisplayString, Ik = window.Vue.openBlock, Rk = window.Vue.createElementBlock, zk = { class: "cx-list-empty-placeholder pa-4" }, Ok = { class: "cx-list-empty-placeholder__icon-container" }, Hk = { class: "cx-list-empty-placeholder__icon" }, jk = ["textContent"], qk = ["textContent"], Gk = window.Codex.CdxIcon, Nf = {
   __name: "CXListEmptyPlaceholder",
   props: {
     title: {
@@ -15331,24 +15307,24 @@ const rg = window.Vue.unref, Nk = window.Vue.createVNode, Ga = window.Vue.create
     }
   },
   setup(e) {
-    return (t, n) => (Mk(), Uk("div", Ik, [
-      Ga("div", Rk, [
-        Ga("div", zk, [
-          Nk(rg(Hk), { icon: rg(jh) }, null, 8, ["icon"])
+    return (t, n) => (Ik(), Rk("div", zk, [
+      qa("div", Ok, [
+        qa("div", Hk, [
+          Uk(lg(Gk), { icon: lg(Wh) }, null, 8, ["icon"])
         ])
       ]),
-      Ga("p", {
+      qa("p", {
         class: "cx-list-empty-placeholder__title mt-5",
-        textContent: lg(e.title)
-      }, null, 8, Ok),
-      Ga("p", {
+        textContent: cg(e.title)
+      }, null, 8, jk),
+      qa("p", {
         class: "cx-list-empty-placeholder__description mt-2",
-        textContent: lg(e.description)
-      }, null, 8, jk)
+        textContent: cg(e.description)
+      }, null, 8, qk)
     ]));
   }
-}, qk = window.Vuex.useStore, Gk = window.Vue.ref, Xa = Gk({ draft: !1, published: !1 }), Zs = () => {
-  const e = qk(), t = Ys(), n = (o) => C(void 0, null, function* () {
+}, Xk = window.Vuex.useStore, Wk = window.Vue.ref, Ga = Wk({ draft: !1, published: !1 }), Js = () => {
+  const e = Xk(), t = Ks(), n = (o) => x(void 0, null, function* () {
     let a = yield xt.fetchTranslations(o);
     e.commit("translator/clearTranslationsByStatus", o), a.forEach(
       (l) => e.commit("translator/addTranslation", l)
@@ -15358,7 +15334,7 @@ const rg = window.Vue.unref, Nk = window.Vue.createVNode, Ga = window.Vue.create
       const u = l.sourceLanguage;
       r[u] = r[u] || [], r[u].push(l);
     }
-    Xa.value[o] = !0;
+    Ga.value[o] = !0;
     for (const [l, u] of Object.entries(r))
       t(
         l,
@@ -15370,15 +15346,15 @@ const rg = window.Vue.unref, Nk = window.Vue.createVNode, Ga = window.Vue.create
         );
         c && !g && e.commit(
           "mediawiki/addPage",
-          new Ks({ title: c, pagelanguage: i })
+          new Ws({ title: c, pagelanguage: i })
         );
       });
   });
   return {
     fetchTranslationsByStatus: n,
     fetchAllTranslations: () => {
-      const a = Object.keys(Xa.value).filter(
-        (r) => !Xa.value[r]
+      const a = Object.keys(Ga.value).filter(
+        (r) => !Ga.value[r]
       ).map(
         (r) => n(r)
       );
@@ -15386,16 +15362,16 @@ const rg = window.Vue.unref, Nk = window.Vue.createVNode, Ga = window.Vue.create
         mw.log.error("[CX] Error while fetching translations", r);
       });
     },
-    translationsFetched: Xa
+    translationsFetched: Ga
   };
 };
-const Xk = window.Vue.toDisplayString, Zr = window.Vue.normalizeClass, cg = window.Vue.createElementVNode, Ot = window.Vue.openBlock, _s = window.Vue.createBlock, Wa = window.Vue.createCommentVNode, ug = window.Vue.unref, dg = window.Vue.renderList, gg = window.Vue.Fragment, Ka = window.Vue.createElementBlock, Wk = window.Vue.createVNode, pg = window.Vue.withCtx, Kk = ["textContent"], Yk = {
+const Kk = window.Vue.toDisplayString, Yr = window.Vue.normalizeClass, ug = window.Vue.createElementVNode, Ht = window.Vue.openBlock, ys = window.Vue.createBlock, Xa = window.Vue.createCommentVNode, dg = window.Vue.unref, gg = window.Vue.renderList, pg = window.Vue.Fragment, Wa = window.Vue.createElementBlock, Yk = window.Vue.createVNode, mg = window.Vue.withCtx, Qk = ["textContent"], Jk = {
   key: 2,
   class: "cx-translation-list-wrapper"
-}, Qk = {
+}, Zk = {
   key: 3,
   class: "cx-translation-list-wrapper"
-}, Ya = window.Vue.ref, Vt = window.Vue.computed, Jk = window.Vue.inject, Zk = window.Vuex.useStore, mg = {
+}, Ka = window.Vue.ref, Et = window.Vue.computed, e8 = window.Vue.inject, t8 = window.Vuex.useStore, hg = {
   __name: "CXTranslationList",
   props: {
     activeStatus: {
@@ -15410,123 +15386,92 @@ const Xk = window.Vue.toDisplayString, Zr = window.Vue.normalizeClass, cg = wind
     }
   },
   setup(e) {
-    const t = e, n = Ya("all"), s = Ya("all"), o = Zk(), { translationsFetched: a } = Zs(), r = Vt(
+    const t = e, n = Ka("all"), s = Ka("all"), o = t8(), { translationsFetched: a } = Js(), r = Et(
       () => a.value[t.translationStatus]
-    ), l = Ya(!1), u = Ya(null), d = Vt(
+    ), l = Ka(!1), u = Ka(null), d = Et(
       () => t.translationStatus === "draft"
-    ), i = Vt(
+    ), i = Et(
       () => o.getters["translator/getTranslationsByStatus"](t.translationStatus)
-    ), c = Vt(
+    ), c = Et(
       () => n.value === "all"
-    ), g = Vt(
+    ), g = Et(
       () => s.value === "all"
-    ), p = Vt(
+    ), p = Et(
       () => i.value.filter(
         (b) => (c.value || b.sourceLanguage === n.value) && (g.value || b.targetLanguage === s.value)
-      ).sort((b, V) => b.lastUpdatedTimestamp < V.lastUpdatedTimestamp)
-    ), m = Vt(() => {
+      ).sort((b, A) => b.lastUpdatedTimestamp < A.lastUpdatedTimestamp)
+    ), m = Et(() => {
       const b = i.value.map(
-        (V) => V.targetLanguage
+        (A) => A.targetLanguage
       );
       return [...new Set(b)];
-    }), h = Vt(() => {
+    }), h = Et(() => {
       const b = i.value.map(
-        (V) => V.sourceLanguage
+        (A) => A.sourceLanguage
       );
       return [...new Set(b)];
     }), f = (b) => {
       u.value = b, l.value = !0;
-    }, w = Vt(() => t.activeStatus === t.translationStatus), v = Jk("breakpoints"), y = Vt(() => v.value.mobile), S = Vt(
-      () => y.value ? "pt-3" : "pb-2 flex justify-between items-center"
+    }, w = Et(() => t.activeStatus === t.translationStatus), _ = e8("breakpoints"), C = Et(() => _.value.mobile), S = Et(
+      () => C.value ? "pt-3" : "pb-2 flex justify-between items-center"
     );
-    return (b, V) => w.value ? (Ot(), _s(ug(Qe), {
+    return (b, A) => w.value ? (Ht(), ys(dg(Ze), {
       key: 0,
-      class: Zr(["px-0", `cx-translation-list--${e.translationStatus}`])
+      class: Yr(["px-0", `cx-translation-list--${e.translationStatus}`])
     }, {
-      header: pg(() => [
-        cg("div", {
-          class: Zr(["cx-translation-list__header", S.value])
+      header: mg(() => [
+        ug("div", {
+          class: Yr(["cx-translation-list__header", S.value])
         }, [
-          cg("h3", {
-            class: Zr(["px-4 mw-ui-card__title mb-0", { "pb-4": y.value }]),
-            textContent: Xk(b.$i18n(`cx-translation-label-${e.translationStatus}`))
-          }, null, 10, Kk),
-          p.value.length ? (Ot(), _s(Wi, {
+          ug("h3", {
+            class: Yr(["px-4 mw-ui-card__title mb-0", { "pb-4": C.value }]),
+            textContent: Kk(b.$i18n(`cx-translation-label-${e.translationStatus}`))
+          }, null, 10, Qk),
+          p.value.length ? (Ht(), ys(qi, {
             key: 0,
             "selected-source-language": n.value,
-            "onUpdate:selectedSourceLanguage": V[0] || (V[0] = (x) => n.value = x),
+            "onUpdate:selectedSourceLanguage": A[0] || (A[0] = (y) => n.value = y),
             "selected-target-language": s.value,
-            "onUpdate:selectedTargetLanguage": V[1] || (V[1] = (x) => s.value = x),
+            "onUpdate:selectedTargetLanguage": A[1] || (A[1] = (y) => s.value = y),
             "source-languages": h.value,
             "target-languages": m.value,
             "all-option-enabled": ""
-          }, null, 8, ["selected-source-language", "selected-target-language", "source-languages", "target-languages"])) : Wa("", !0)
+          }, null, 8, ["selected-source-language", "selected-target-language", "source-languages", "target-languages"])) : Xa("", !0)
         ], 2)
       ]),
-      default: pg(() => [
-        r.value && !p.value.length ? (Ot(), _s(Af, {
+      default: mg(() => [
+        r.value && !p.value.length ? (Ht(), ys(Nf, {
           key: 0,
           title: b.$i18n("cx-sx-translation-list-empty-title"),
           description: b.$i18n("cx-sx-translation-list-empty-description")
-        }, null, 8, ["title", "description"])) : Wa("", !0),
-        r.value ? Wa("", !0) : (Ot(), _s(ug(ct), { key: 1 })),
-        d.value ? (Ot(), Ka("div", Yk, [
-          (Ot(!0), Ka(gg, null, dg(p.value, (x) => (Ot(), _s(Vb, {
-            key: `${e.translationStatus}-${x.key}`,
-            translation: x,
-            onDeleteTranslation: (I) => f(x)
+        }, null, 8, ["title", "description"])) : Xa("", !0),
+        r.value ? Xa("", !0) : (Ht(), ys(dg(dt), { key: 1 })),
+        d.value ? (Ht(), Wa("div", Jk, [
+          (Ht(!0), Wa(pg, null, gg(p.value, (y) => (Ht(), ys(Db, {
+            key: `${e.translationStatus}-${y.key}`,
+            translation: y,
+            onDeleteTranslation: (B) => f(y)
           }, null, 8, ["translation", "onDeleteTranslation"]))), 128))
-        ])) : (Ot(), Ka("div", Qk, [
-          (Ot(!0), Ka(gg, null, dg(p.value, (x) => (Ot(), _s(Kb, {
-            key: `${e.translationStatus}-${x.key}`,
-            translation: x
+        ])) : (Ht(), Wa("div", Zk, [
+          (Ht(!0), Wa(pg, null, gg(p.value, (y) => (Ht(), ys(jb, {
+            key: `${e.translationStatus}-${y.key}`,
+            translation: y
           }, null, 8, ["translation"]))), 128))
         ])),
-        Wk(ok, {
+        Yk(ik, {
           modelValue: l.value,
-          "onUpdate:modelValue": V[2] || (V[2] = (x) => l.value = x),
+          "onUpdate:modelValue": A[2] || (A[2] = (y) => l.value = y),
           translation: u.value
         }, null, 8, ["modelValue", "translation"])
       ]),
       _: 1
-    }, 8, ["class"])) : Wa("", !0);
+    }, 8, ["class"])) : Xa("", !0);
   }
-}, e8 = (e, t) => C(void 0, null, function* () {
-  const n = e.language, s = e.title, o = e.articleSize, r = (yield me.fetchArticleSections(
-    n,
-    s
-  )).sections.filter(
-    (u) => u.level === "2"
-  ), l = r.reduce(
-    (u, d, i, c) => {
-      const g = i < c.length - 1 ? c[i + 1].byteoffset : o;
-      return u[d.line] = g - d.byteoffset, u;
-    },
-    { [js.LEAD_SECTION_DUMMY_TITLE]: r[0].byteoffset }
-  );
-  return t.length === 1 ? l[t[0]] : Object.keys(l).filter((u) => t.includes(u)).reduce((u, d) => u + l[d], 0);
-}), Df = (e) => {
-  const o = e / 5 / 200;
-  return Math.ceil(o);
-}, t8 = (e, t = []) => {
-  const n = e >= 60 ? e / 60 : 0, s = Math.round(n * 2) / 2;
-  let o;
-  if (t.length) {
-    if (t.length === 1)
-      return o = t[0] === js.LEAD_SECTION_DUMMY_TITLE ? "cx-sx-translation-confirmer-translation-time-lead-section" : "cx-sx-translation-confirmer-translation-time-single-section", [o, s, e];
-  } else
-    return o = "cx-sx-translation-confirmer-translation-time-whole-article", [o, s, e];
-  return [
-    "cx-sx-translation-confirmer-translation-time-sections",
-    s,
-    e,
-    t.length
-  ];
-}, Pf = (e) => Df(e) < 15;
-const el = window.Vue.toDisplayString, Hi = window.Vue.createElementVNode, tl = window.Vue.unref, Co = window.Vue.openBlock, nl = window.Vue.createBlock, hg = window.Vue.createCommentVNode, n8 = window.Vue.Fragment, fg = window.Vue.createElementBlock, s8 = window.Vue.withKeys, o8 = window.Vue.withCtx, a8 = {
+};
+const Qr = window.Vue.toDisplayString, zi = window.Vue.createElementVNode, Jr = window.Vue.unref, xo = window.Vue.openBlock, Zr = window.Vue.createBlock, fg = window.Vue.createCommentVNode, n8 = window.Vue.Fragment, wg = window.Vue.createElementBlock, s8 = window.Vue.withKeys, o8 = window.Vue.withCtx, a8 = {
   key: 1,
   class: "cdx-info-chip__text custom-info-chip__with-slash"
-}, i8 = { class: "cdx-info-chip__text custom-info-chip__with-slash__first" }, r8 = /* @__PURE__ */ Hi("span", null, "/", -1), l8 = { class: "cdx-info-chip__text custom-info-chip__with-slash__second" }, wg = window.Codex.CdxIcon, c8 = window.Codex.CdxInfoChip, Qa = window.Vue.computed, rs = {
+}, i8 = { class: "cdx-info-chip__text custom-info-chip__with-slash__first" }, r8 = /* @__PURE__ */ zi("span", null, "/", -1), l8 = { class: "cdx-info-chip__text custom-info-chip__with-slash__second" }, vg = window.Codex.CdxIcon, c8 = window.Codex.CdxInfoChip, Ya = window.Vue.computed, cs = {
   __name: "CustomInfoChip",
   props: {
     icon: {
@@ -15547,241 +15492,241 @@ const el = window.Vue.toDisplayString, Hi = window.Vue.createElementVNode, tl = 
     }
   },
   setup(e) {
-    const t = e, n = Qa(() => t.content.lastIndexOf("/")), s = Qa(() => t.content.slice(0, n.value)), o = Qa(() => t.content.slice(n.value + 1)), a = Qa(
-      () => t.expanded ? oy : Rc
+    const t = e, n = Ya(() => t.content.lastIndexOf("/")), s = Ya(() => t.content.slice(0, n.value)), o = Ya(() => t.content.slice(n.value + 1)), a = Ya(
+      () => t.expanded ? ly : Rc
     );
-    return (r, l) => (Co(), nl(tl(c8), {
+    return (r, l) => (xo(), Zr(Jr(c8), {
       icon: e.icon,
       class: "custom-info-chip",
       tabindex: "0",
       onKeyup: l[0] || (l[0] = s8((u) => r.$emit("click"), ["enter"]))
     }, {
       default: o8(() => [
-        n.value === -1 ? (Co(), fg(n8, { key: 0 }, [
-          Hi("span", null, el(e.content), 1),
-          e.expandable ? (Co(), nl(tl(wg), {
+        n.value === -1 ? (xo(), wg(n8, { key: 0 }, [
+          zi("span", null, Qr(e.content), 1),
+          e.expandable ? (xo(), Zr(Jr(vg), {
             key: 0,
             icon: a.value
-          }, null, 8, ["icon"])) : hg("", !0)
-        ], 64)) : (Co(), fg("div", a8, [
-          Hi("span", i8, el(s.value), 1),
+          }, null, 8, ["icon"])) : fg("", !0)
+        ], 64)) : (xo(), wg("div", a8, [
+          zi("span", i8, Qr(s.value), 1),
           r8,
-          Hi("span", l8, el(o.value), 1),
-          e.expandable ? (Co(), nl(tl(wg), {
+          zi("span", l8, Qr(o.value), 1),
+          e.expandable ? (xo(), Zr(Jr(vg), {
             key: 0,
             icon: a.value
-          }, null, 8, ["icon"])) : hg("", !0)
+          }, null, 8, ["icon"])) : fg("", !0)
         ]))
       ]),
       _: 1
     }, 8, ["icon"]));
   }
 };
-const he = window.Vue.unref, Lt = window.Vue.createVNode, rn = window.Vue.createElementVNode, Ja = window.Vue.toDisplayString, pt = window.Vue.withCtx, u8 = window.Vue.resolveDirective, Za = window.Vue.withDirectives, Vn = window.Vue.openBlock, Ss = window.Vue.createBlock, Kn = window.Vue.createCommentVNode, vg = window.Vue.createTextVNode, _g = window.Vue.createElementBlock, Sg = window.Vue.withModifiers, d8 = {
+const Se = window.Vue.unref, Lt = window.Vue.createVNode, En = window.Vue.createElementVNode, Co = window.Vue.toDisplayString, ht = window.Vue.withCtx, u8 = window.Vue.resolveDirective, el = window.Vue.withDirectives, Ln = window.Vue.openBlock, xs = window.Vue.createBlock, Jn = window.Vue.createCommentVNode, _g = window.Vue.createElementBlock, Sg = window.Vue.withModifiers, d8 = {
   key: 0,
   class: "row cx-suggestion pa-4 ma-0"
 }, g8 = { class: "col shrink pe-4" }, p8 = ["lang", "dir", "textContent"], m8 = ["lang", "dir", "textContent"], h8 = { class: "cx-suggestion__missing-sections" }, f8 = {
   key: 0,
-  class: "cx-suggestion__easy-sections"
-}, w8 = ["textContent"], v8 = ["textContent"], sl = window.Codex.CdxIcon, mt = window.Vue.computed, _8 = window.Vue.inject, S8 = window.Vuex.useStore, Yc = {
+  class: "cx-suggestion__easy-sections ms-1"
+}, w8 = ["textContent"], v8 = ["textContent"], tl = window.Codex.CdxIcon, Oe = window.Vue.computed, _8 = window.Vue.inject, S8 = window.Vuex.useStore, Yc = {
   __name: "CXTranslationSuggestion",
   props: {
     suggestion: {
-      type: [us, xn, Hs],
+      type: [gs, en, js],
       required: !0
     }
   },
   emits: ["close", "bookmark"],
   setup(e) {
-    const t = e, n = S8(), s = mt(() => t.suggestion), o = mt(
+    const t = e, n = S8(), s = Oe(() => t.suggestion), o = Oe(
       () => s.value.sourceTitle || s.value.title
-    ), a = mt(
+    ), a = Oe(
       () => n.getters["mediawiki/getPage"](
         s.value.sourceLanguage,
         o.value
       )
-    ), r = mt(
+    ), r = Oe(
       () => {
-        var v;
-        return (v = s.value) == null ? void 0 : v.missingSectionsCount;
+        var S;
+        return (S = s.value) == null ? void 0 : S.missingSectionsCount;
       }
-    ), l = mt(
+    ), l = Oe(() => !(s.value instanceof en) || !s.value.orderedMissingSections ? 0 : s.value.orderedMissingSections.filter((S) => {
+      const b = s.value.getSectionSize(S.sourceTitle);
+      return Ih(b);
+    }).length), u = he(), d = Oe(() => {
+      const S = u.i18n(
+        "cx-sx-translation-suggestion-easy-sections",
+        [l.value]
+      );
+      return u.i18n("parentheses", [S]);
+    }), i = Oe(() => {
+      var S;
+      return (S = a.value) == null ? void 0 : S.description;
+    }), c = Oe(
+      () => s.value instanceof en
+    ), g = Oe(
+      () => s.value instanceof js
+    ), p = Oe(
+      () => R.getAutonym(s.value.sourceLanguage)
+    ), m = Oe(
+      () => R.getAutonym(s.value.targetLanguage)
+    ), h = Oe(
+      () => g.value ? Gh : Xh
+    ), f = _8("colors"), w = Oe(
+      () => g.value ? f.blue600 : "currentColor"
+    ), _ = Oe(
       () => {
-        var v;
-        return (v = s.value) == null ? void 0 : v.easyMissingSectionsCount;
+        var S;
+        return X_((S = a.value) == null ? void 0 : S.articleSize);
       }
-    ), u = mt(() => {
-      var v;
-      return (v = a.value) == null ? void 0 : v.description;
-    }), d = mt(
-      () => s.value instanceof xn
-    ), i = mt(
-      () => s.value instanceof Hs
-    ), { sourceLanguageAutonym: c, targetLanguageAutonym: g } = Le(n), p = mt(
-      () => i.value ? zh : Oh
-    ), m = _8("colors"), h = mt(
-      () => i.value ? m.blue600 : "currentColor"
-    ), f = mt(
-      () => {
-        var v;
-        return Pf((v = a.value) == null ? void 0 : v.articleSize);
-      }
-    ), w = mt(
-      () => s.value instanceof Ph || s.value instanceof Bh
+    ), C = Oe(
+      () => s.value instanceof Ah || s.value instanceof Dh
     );
-    return (v, y) => {
-      const S = u8("i18n");
-      return s.value ? (Vn(), _g("div", d8, [
-        rn("div", g8, [
-          Lt(he(Qc), {
+    return (S, b) => {
+      const A = u8("i18n");
+      return s.value ? (Ln(), _g("div", d8, [
+        En("div", g8, [
+          Lt(Se(Qc), {
             class: "cx-suggestion__thumbnail",
             thumbnail: a.value && a.value.thumbnail
           }, null, 8, ["thumbnail"])
         ]),
-        Lt(he(N), {
+        Lt(Se(M), {
           class: "col cx-suggestion__information-panel ma-0",
           align: "start"
         }, {
-          default: pt(() => [
-            Lt(he(N), {
+          default: ht(() => [
+            Lt(Se(M), {
               direction: "column",
               class: "ma-0 col cx-suggestion__information-panel__main-body pe-2",
               align: "start"
             }, {
-              default: pt(() => [
-                Lt(he(k), {
+              default: ht(() => [
+                Lt(Se(k), {
                   shrink: "",
                   class: "mb-2"
                 }, {
-                  default: pt(() => [
-                    rn("h5", {
+                  default: ht(() => [
+                    En("h5", {
                       class: "my-0 cx-suggestion__source-title",
                       lang: s.value.sourceLanguage,
-                      dir: he(j.getDir)(s.value.sourceLanguage),
-                      textContent: Ja(o.value)
+                      dir: Se(R.getDir)(s.value.sourceLanguage),
+                      textContent: Co(o.value)
                     }, null, 8, p8)
                   ]),
                   _: 1
                 }),
-                Lt(he(k), { shrink: "" }, {
-                  default: pt(() => [
-                    rn("p", {
+                Lt(Se(k), { shrink: "" }, {
+                  default: ht(() => [
+                    En("p", {
                       class: "ma-0 cx-suggestion__source-description",
                       lang: s.value.sourceLanguage,
-                      dir: he(j.getDir)(s.value.sourceLanguage),
-                      textContent: Ja(u.value)
+                      dir: Se(R.getDir)(s.value.sourceLanguage),
+                      textContent: Co(i.value)
                     }, null, 8, m8)
                   ]),
                   _: 1
                 }),
-                f.value && !d.value && !w.value ? (Vn(), Ss(he(k), {
+                _.value && !c.value && !C.value ? (Ln(), xs(Se(k), {
                   key: 0,
                   shrink: "",
                   class: "cx-suggestion__information-panel__quick-translation mt-auto"
                 }, {
-                  default: pt(() => [
-                    Za(rn("small", null, null, 512), [
-                      [S, void 0, "cx-sx-translation-suggestion-quick"]
+                  default: ht(() => [
+                    el(En("small", null, null, 512), [
+                      [A, void 0, "cx-sx-translation-suggestion-quick"]
                     ])
                   ]),
                   _: 1
-                })) : Kn("", !0),
-                d.value ? (Vn(), Ss(he(k), {
+                })) : Jn("", !0),
+                c.value ? (Ln(), xs(Se(k), {
                   key: 1,
                   class: "cx-suggestion__information-panel__bottom",
                   shrink: ""
                 }, {
-                  default: pt(() => [
-                    Za(rn("small", h8, null, 512), [
-                      [S, [r.value], "cx-sx-translation-suggestion-info"]
+                  default: ht(() => [
+                    el(En("small", h8, null, 512), [
+                      [A, [r.value], "cx-sx-translation-suggestion-info"]
                     ]),
-                    l.value ? (Vn(), _g("small", f8, [
-                      vg(" ("),
-                      Za(rn("span", null, null, 512), [
-                        [S, [
-                          l.value
-                        ], "cx-sx-translation-suggestion-easy-sections"]
-                      ]),
-                      vg(")")
-                    ])) : Kn("", !0)
+                    l.value ? (Ln(), _g("small", f8, Co(d.value), 1)) : Jn("", !0)
                   ]),
                   _: 1
-                })) : i.value ? (Vn(), Ss(he(k), {
+                })) : g.value ? (Ln(), xs(Se(k), {
                   key: 2,
                   class: "cx-suggestion__information-panel__bottom cx-suggestion__language-pair",
                   shrink: ""
                 }, {
-                  default: pt(() => [
-                    Lt(he(N), {
+                  default: ht(() => [
+                    Lt(Se(M), {
                       justify: "between",
                       class: "ma-0"
                     }, {
-                      default: pt(() => [
-                        Lt(he(k), { grow: "" }, {
-                          default: pt(() => [
-                            rn("small", {
-                              textContent: Ja(he(c))
+                      default: ht(() => [
+                        Lt(Se(k), { grow: "" }, {
+                          default: ht(() => [
+                            En("small", {
+                              textContent: Co(p.value)
                             }, null, 8, w8),
-                            Lt(he(sl), {
-                              icon: he(Ih),
+                            Lt(Se(tl), {
+                              icon: Se(jh),
                               size: "small",
                               class: "mx-1"
                             }, null, 8, ["icon"]),
-                            rn("small", {
-                              textContent: Ja(he(g))
+                            En("small", {
+                              textContent: Co(m.value)
                             }, null, 8, v8)
                           ]),
                           _: 1
                         }),
-                        r.value ? (Vn(), Ss(he(k), {
+                        r.value ? (Ln(), xs(Se(k), {
                           key: 0,
                           shrink: "",
                           class: "cx-suggestion__favorite-missing-sections"
                         }, {
-                          default: pt(() => [
-                            Za(rn("small", null, null, 512), [
-                              [S, [
+                          default: ht(() => [
+                            el(En("small", null, null, 512), [
+                              [A, [
                                 r.value
                               ], "cx-sx-translation-suggestion-info"]
                             ])
                           ]),
                           _: 1
-                        })) : Kn("", !0)
+                        })) : Jn("", !0)
                       ]),
                       _: 1
                     })
                   ]),
                   _: 1
-                })) : Kn("", !0),
-                w.value ? (Vn(), Ss(he(k), {
+                })) : Jn("", !0),
+                C.value ? (Ln(), xs(Se(k), {
                   key: 3,
                   shrink: "",
                   class: "cx-suggestion__information-panel__collection mt-auto"
                 }, {
-                  default: pt(() => [
-                    Lt(rs, {
-                      icon: he(gu),
+                  default: ht(() => [
+                    Lt(cs, {
+                      icon: Se(gu),
                       content: s.value.collection.name
                     }, null, 8, ["icon", "content"])
                   ]),
                   _: 1
-                })) : Kn("", !0)
+                })) : Jn("", !0)
               ]),
               _: 1
             }),
-            Lt(he(k), { shrink: "" }, {
-              default: pt(() => [
-                i.value ? Kn("", !0) : (Vn(), Ss(he(sl), {
+            Lt(Se(k), { shrink: "" }, {
+              default: ht(() => [
+                g.value ? Jn("", !0) : (Ln(), xs(Se(tl), {
                   key: 0,
-                  icon: he(Js),
+                  icon: Se(Qs),
                   class: "cx-suggestion__discard-button mb-4",
-                  onClick: y[0] || (y[0] = Sg((b) => v.$emit("close"), ["stop"]))
+                  onClick: b[0] || (b[0] = Sg((y) => S.$emit("close"), ["stop"]))
                 }, null, 8, ["icon"])),
-                Lt(he(sl), {
+                Lt(Se(tl), {
                   class: "cx-suggestion__favorite-button",
-                  icon: p.value,
-                  "icon-color": h.value,
-                  onClick: y[1] || (y[1] = Sg((b) => v.$emit("bookmark"), ["stop"]))
+                  icon: h.value,
+                  "icon-color": w.value,
+                  onClick: b[1] || (b[1] = Sg((y) => S.$emit("bookmark"), ["stop"]))
                 }, null, 8, ["icon", "icon-color"])
               ]),
               _: 1
@@ -15789,18 +15734,18 @@ const he = window.Vue.unref, Lt = window.Vue.createVNode, rn = window.Vue.create
           ]),
           _: 1
         })
-      ])) : Kn("", !0);
+      ])) : Jn("", !0);
     };
   }
 };
-const ol = window.Vue.normalizeClass, yg = window.Vue.createVNode, y8 = window.Vue.renderList, xg = window.Vue.Fragment, bo = window.Vue.openBlock, ei = window.Vue.createElementBlock, x8 = window.Vue.createBlock, C8 = window.Vue.toDisplayString, b8 = window.Vue.withKeys, Cg = window.Vue.createCommentVNode, k8 = {
+const nl = window.Vue.normalizeClass, yg = window.Vue.createVNode, y8 = window.Vue.renderList, xg = window.Vue.Fragment, bo = window.Vue.openBlock, Qa = window.Vue.createElementBlock, x8 = window.Vue.createBlock, C8 = window.Vue.toDisplayString, b8 = window.Vue.withKeys, Cg = window.Vue.createCommentVNode, k8 = {
   key: 0,
   class: "sx-suggestions-filters__filter__expanded-filters"
-}, ti = window.Vue.computed, $8 = window.Vue.ref, E8 = window.Vue.watchEffect, V8 = {
+}, Ja = window.Vue.computed, $8 = window.Vue.ref, V8 = window.Vue.watchEffect, E8 = {
   __name: "SuggestionFilterChip",
   props: {
     filter: {
-      type: Ut,
+      type: It,
       required: !0
     },
     isSelected: {
@@ -15819,15 +15764,15 @@ const ol = window.Vue.normalizeClass, yg = window.Vue.createVNode, y8 = window.V
   },
   emits: ["filter-selected"],
   setup(e, { emit: t }) {
-    const n = e, s = ti(
+    const n = e, s = Ja(
       () => n.isSelected(n.filter) || n.filter.subFilters.some((g) => n.isSelected(g))
     ), o = $8(!1);
-    E8(() => {
+    V8(() => {
       n.filter.expandable && (o.value = s.value);
     });
     const a = t, r = () => {
       n.filter.expandable && s.value ? o.value = !o.value : a("filter-selected", n.filter);
-    }, l = ti(() => {
+    }, l = Ja(() => {
       const g = n.filter.subFilters.find(
         (m) => n.isSelected(m)
       );
@@ -15836,14 +15781,14 @@ const ol = window.Vue.normalizeClass, yg = window.Vue.createVNode, y8 = window.V
     }), u = (g) => {
       const { label: p } = g, m = n.filter.label;
       return p.startsWith(`${m}/`) ? p.replace(`${m}/`, "") : p;
-    }, d = ti(() => n.subFilterLimit > 0 ? n.filter.subFilters.slice(0, n.subFilterLimit) : n.filter.subFilters), i = ti(
+    }, d = Ja(() => n.subFilterLimit > 0 ? n.filter.subFilters.slice(0, n.subFilterLimit) : n.filter.subFilters), i = Ja(
       () => n.viewMoreConfig && n.subFilterLimit > 0 && n.filter.subFilters.length > n.subFilterLimit && o.value
     ), c = () => {
       n.viewMoreConfig && n.viewMoreConfig.onClick && n.viewMoreConfig.onClick();
     };
-    return (g, p) => (bo(), ei(xg, null, [
-      yg(rs, {
-        class: ol(["sx-suggestions-filters__filter my-1 mx-1 py-1", {
+    return (g, p) => (bo(), Qa(xg, null, [
+      yg(cs, {
+        class: nl(["sx-suggestions-filters__filter my-1 mx-1 py-1", {
           "sx-suggestions-filters__filter--active": s.value
         }]),
         icon: e.filter.expandable ? e.filter.expandableIcon : e.filter.icon,
@@ -15852,25 +15797,25 @@ const ol = window.Vue.normalizeClass, yg = window.Vue.createVNode, y8 = window.V
         expanded: o.value,
         onClick: r
       }, null, 8, ["class", "icon", "content", "expandable", "expanded"]),
-      o.value ? (bo(), ei("div", k8, [
-        yg(rs, {
-          class: ol(["sx-suggestions-filters__filter my-1 mx-1 py-1", {
+      o.value ? (bo(), Qa("div", k8, [
+        yg(cs, {
+          class: nl(["sx-suggestions-filters__filter my-1 mx-1 py-1", {
             "sx-suggestions-filters__filter--active": e.isSelected(e.filter)
           }]),
           icon: e.filter.expandable ? e.filter.expandableIcon : e.filter.icon,
           content: g.$i18n("cx-sx-suggestions-filter-collection-group-all-option-label"),
           onClick: p[0] || (p[0] = (m) => g.$emit("filter-selected", e.filter))
         }, null, 8, ["class", "icon", "content"]),
-        (bo(!0), ei(xg, null, y8(d.value, (m) => (bo(), x8(rs, {
+        (bo(!0), Qa(xg, null, y8(d.value, (m) => (bo(), x8(cs, {
           key: m.id,
-          class: ol(["sx-suggestions-filters__filter my-1 mx-1 py-1", {
+          class: nl(["sx-suggestions-filters__filter my-1 mx-1 py-1", {
             "sx-suggestions-filters__filter--active": e.isSelected(m)
           }]),
           content: u(m),
           icon: m.icon,
           onClick: (h) => g.$emit("filter-selected", m)
         }, null, 8, ["class", "content", "icon", "onClick"]))), 128)),
-        i.value ? (bo(), ei("div", {
+        i.value ? (bo(), Qa("div", {
           key: 0,
           class: "sx-suggestions-filters__view-more-link",
           tabindex: "0",
@@ -15881,7 +15826,7 @@ const ol = window.Vue.normalizeClass, yg = window.Vue.createVNode, y8 = window.V
     ], 64));
   }
 };
-const L8 = window.Vue.toDisplayString, bg = window.Vue.createElementVNode, T8 = window.Vue.renderList, kg = window.Vue.Fragment, al = window.Vue.openBlock, $g = window.Vue.createElementBlock, A8 = window.Vue.createBlock, D8 = { class: "sx-suggestions-filters__group-label mb-3" }, P8 = { class: "sx-suggestions-filters__group-filters mb-3" }, B8 = {
+const L8 = window.Vue.toDisplayString, bg = window.Vue.createElementVNode, T8 = window.Vue.renderList, kg = window.Vue.Fragment, sl = window.Vue.openBlock, $g = window.Vue.createElementBlock, A8 = window.Vue.createBlock, D8 = { class: "sx-suggestions-filters__group-label mb-3" }, P8 = { class: "sx-suggestions-filters__group-filters mb-3" }, B8 = {
   __name: "SXSuggestionsFiltersDialogTabGroupContent",
   props: {
     filterGroup: {
@@ -15907,10 +15852,10 @@ const L8 = window.Vue.toDisplayString, bg = window.Vue.createElementVNode, T8 = 
   },
   setup(e) {
     const t = e, n = () => t.limit > 0 ? t.filterGroup.filters.slice(0, t.limit) : t.filterGroup.filters;
-    return (s, o) => (al(), $g(kg, null, [
+    return (s, o) => (sl(), $g(kg, null, [
       bg("div", D8, L8(e.filterGroup.label), 1),
       bg("div", P8, [
-        (al(!0), $g(kg, null, T8(n(), (a) => (al(), A8(V8, {
+        (sl(!0), $g(kg, null, T8(n(), (a) => (sl(), A8(E8, {
           key: a.id,
           filter: a,
           "is-selected": e.isSelected,
@@ -15921,16 +15866,16 @@ const L8 = window.Vue.toDisplayString, bg = window.Vue.createElementVNode, T8 = 
       ])
     ], 64));
   }
-}, F8 = window.Vue.computed, Eg = window.Vue.ref, Vg = window.Vue.watch, yu = (e, t) => {
-  const s = Eg([]), o = Eg(!1), a = F8(
+}, F8 = window.Vue.computed, Vg = window.Vue.ref, Eg = window.Vue.watch, yu = (e, t) => {
+  const s = Vg([]), o = Vg(!1), a = F8(
     () => s.value.slice(0, 4)
-  ), r = Su(() => C(void 0, null, function* () {
+  ), r = Su(() => x(void 0, null, function* () {
     if (!t.value) {
       o.value = !1;
       return;
     }
     try {
-      s.value = yield cs.searchPagesByTitlePrefix(
+      s.value = yield ds.searchPagesByTitlePrefix(
         t.value,
         e.value
       );
@@ -15940,12 +15885,12 @@ const L8 = window.Vue.toDisplayString, bg = window.Vue.createElementVNode, T8 = 
   }), 500), l = () => {
     s.value = [], t.value && (o.value = !0, r());
   };
-  return Vg(t, l), Vg(e, l), {
+  return Eg(t, l), Eg(e, l), {
     searchResultsLoading: o,
     searchResultsSlice: a
   };
 };
-class ni {
+class Za {
   /**
    * @param {string} label
    * @param {string} value
@@ -15969,19 +15914,19 @@ class ni {
     this.label = t, this.value = n + "-" + o, this.description = s, this.thumbnail = r, this.filterType = o, this.filterId = a, this.icon = l, this.showThumbnail = u;
   }
 }
-const il = window.Vue.ref, Lg = window.Vue.watch, Tg = window.Vue.computed, { topics: N8, regions: M8 } = mw.loader.require(
+const ol = window.Vue.ref, Lg = window.Vue.watch, Tg = window.Vue.computed, { topics: N8, regions: M8 } = mw.loader.require(
   "ext.cx.articlefilters"
 ), U8 = N8.flatMap(
-  (e) => e.topics.map((t) => tt(pe({}, t), {
+  (e) => e.topics.map((t) => Ye(ue({}, t), {
     groupId: e.groupId
   }))
 ), I8 = () => {
-  const e = il(""), t = il("all"), n = il({
+  const e = ol(""), t = ol("all"), n = ol({
     topics: [],
     topic_areas: [],
     collections: [],
     regions: []
-  }), s = we(), { pageCollectionGroups: o } = du(), { sourceLanguageURLParameter: a } = A(), r = (p) => (p = p.toLowerCase(), U8.filter(
+  }), s = he(), { pageCollectionGroups: o } = du(), { sourceLanguageURLParameter: a } = D(), r = (p) => (p = p.toLowerCase(), U8.filter(
     (m) => m.label.toLowerCase().includes(p)
   )), l = (p) => (p = p.toLowerCase(), Object.values(o.value).flat().filter(
     (h) => h.name.toLowerCase().includes(p)
@@ -16000,7 +15945,7 @@ const il = window.Vue.ref, Lg = window.Vue.watch, Tg = window.Vue.computed, { to
     n.value.topics = i.value.map(
       (p) => {
         var m;
-        return new ni({
+        return new Za({
           label: p.title,
           value: p.title,
           description: p.description,
@@ -16011,22 +15956,22 @@ const il = window.Vue.ref, Lg = window.Vue.watch, Tg = window.Vue.computed, { to
         });
       }
     );
-  }), Lg([e, t], () => C(void 0, null, function* () {
+  }), Lg([e, t], () => x(void 0, null, function* () {
     n.value.topic_areas = r(e.value).map(
-      (p) => new ni({
+      (p) => new Za({
         label: p.label,
         value: p.label,
         description: s.i18n(
           t.value === "all" ? "cx-sx-suggestions-filter-search-results-topics-default-description" : "cx-sx-suggestions-filter-search-results-topics-alternative-description"
         ),
         icon: t.value === "all" ? zc : null,
-        filterType: Xe,
+        filterType: We,
         filterId: p.topicId
       })
     ), n.value.collections = l(
       e.value
     ).map(
-      (p) => new ni({
+      (p) => new Za({
         label: p.name,
         value: p.name,
         description: s.i18n(
@@ -16038,7 +15983,7 @@ const il = window.Vue.ref, Lg = window.Vue.watch, Tg = window.Vue.computed, { to
         filterId: p.name
       })
     ), n.value.regions = u(e.value).map(
-      (p) => new ni({
+      (p) => new Za({
         label: p.label,
         value: p.label,
         description: s.i18n(
@@ -16076,13 +16021,13 @@ const il = window.Vue.ref, Lg = window.Vue.watch, Tg = window.Vue.computed, { to
     ].filter((m) => m.show);
   });
   return { searchInput: e, searchScope: t, searchResults: g, searchResultsLoading: c };
-}, R8 = "suggestion_filter_topic_area", z8 = "suggestion_filter_search_result_seed", O8 = "suggestion_filter_collections", j8 = "suggestion_filter_previous_edits", H8 = "suggestion_filter_popular_articles", q8 = "suggestion_filter_region", rl = (e) => {
-  if (e.type === Xe || e.type === Ve || e.type === ee || e.type === yt)
+}, R8 = "suggestion_filter_topic_area", z8 = "suggestion_filter_search_result_seed", O8 = "suggestion_filter_collections", H8 = "suggestion_filter_previous_edits", j8 = "suggestion_filter_popular_articles", q8 = "suggestion_filter_region", al = (e) => {
+  if (e.type === We || e.type === Ve || e.type === ee || e.type === yt)
     return e.id;
   if (e.id === ee)
     return "all-collections";
-}, ll = (e) => {
-  if (e.type === Xe)
+}, il = (e) => {
+  if (e.type === We)
     return R8;
   if (e.type === Ve)
     return q8;
@@ -16090,35 +16035,35 @@ const il = window.Vue.ref, Lg = window.Vue.watch, Tg = window.Vue.computed, { to
     return z8;
   if (e.id === ee || e.type === ee)
     return O8;
-  if (e.id === en)
-    return j8;
-  if (e.id === yn)
+  if (e.id === nn)
     return H8;
-}, Bf = () => {
+  if (e.id === xn)
+    return j8;
+}, Mf = () => {
   const e = bt();
   return {
     logSuggestionFiltersClose: () => e({ event_type: "suggestion_filters_close" }),
     logSuggestionFiltersConfirm: (r) => e({
       event_type: "suggestion_filters_confirm",
       event_subtype: "suggestion_filters_single_select_confirm",
-      event_source: ll(r),
-      event_context: rl(r)
+      event_source: il(r),
+      event_context: al(r)
     }),
     logSuggestionFiltersSelect: (r) => e({
       event_type: "suggestion_filters_select",
       event_subtype: "suggestion_filters_single_select",
-      event_source: ll(r),
-      event_context: rl(r)
+      event_source: il(r),
+      event_context: al(r)
     }),
     logSuggestionFiltersQuickSelect: (r) => e({
       event_type: "dashboard_suggestion_filters_quick_select",
-      event_source: ll(r),
-      event_context: rl(r)
+      event_source: il(r),
+      event_context: al(r)
     }),
     logSuggestionFiltersViewMore: () => e({ event_type: "dashboard_suggestion_filters_view_more" })
   };
 };
-const xe = window.Vue.unref, ht = window.Vue.createVNode, Tt = window.Vue.withCtx, G8 = window.Vue.resolveDirective, jt = window.Vue.createElementVNode, ys = window.Vue.withDirectives, Ag = window.Vue.toDisplayString, X8 = window.Vue.createTextVNode, W8 = window.Vue.vShow, Dg = window.Vue.renderList, Pg = window.Vue.Fragment, ln = window.Vue.openBlock, Yn = window.Vue.createElementBlock, Bg = window.Vue.isRef, K8 = window.Vue.withKeys, Fg = window.Vue.createCommentVNode, Ng = window.Vue.createBlock, Y8 = { class: "sx-suggestions-filters" }, Q8 = { class: "mb-0" }, J8 = { class: "sx-suggestions-filters__active-filters px-4 py-3" }, Z8 = { class: "mb-3" }, e2 = { class: "px-4 pb-4 pt-7" }, t2 = {
+const xe = window.Vue.unref, ft = window.Vue.createVNode, Tt = window.Vue.withCtx, G8 = window.Vue.resolveDirective, jt = window.Vue.createElementVNode, Cs = window.Vue.withDirectives, Ag = window.Vue.toDisplayString, X8 = window.Vue.createTextVNode, W8 = window.Vue.vShow, Dg = window.Vue.renderList, Pg = window.Vue.Fragment, cn = window.Vue.openBlock, Zn = window.Vue.createElementBlock, Bg = window.Vue.isRef, K8 = window.Vue.withKeys, Fg = window.Vue.createCommentVNode, Ng = window.Vue.createBlock, Y8 = { class: "sx-suggestions-filters" }, Q8 = { class: "mb-0" }, J8 = { class: "sx-suggestions-filters__active-filters px-4 py-3" }, Z8 = { class: "mb-3" }, e2 = { class: "px-4 pb-4 pt-7" }, t2 = {
   key: 0,
   class: "sx-suggestions-filters__filter-options pt-3 px-4"
 }, n2 = ["onKeyup", "onClick"], s2 = {
@@ -16127,7 +16072,7 @@ const xe = window.Vue.unref, ht = window.Vue.createVNode, Tt = window.Vue.withCt
 }, o2 = { class: "sx-suggestions-filters__search-results-pending" }, a2 = {
   key: 0,
   class: "sx-suggestions-filters__search-results-empty"
-}, i2 = { class: "sx-suggestions-filters__search-results-empty-primary" }, r2 = { class: "sx-suggestions-filters__search-results-empty-secondary" }, si = window.Vue.ref, xs = window.Vue.computed, l2 = window.Vue.inject, c2 = window.Vue.watch, Mg = window.Codex.CdxButton, u2 = window.Codex.CdxIcon, d2 = window.Codex.CdxTextInput, g2 = window.Codex.CdxMenu, p2 = window.Codex.CdxTabs, m2 = window.Codex.CdxTab, h2 = {
+}, i2 = { class: "sx-suggestions-filters__search-results-empty-primary" }, r2 = { class: "sx-suggestions-filters__search-results-empty-secondary" }, ei = window.Vue.ref, bs = window.Vue.computed, l2 = window.Vue.inject, c2 = window.Vue.watch, Mg = window.Codex.CdxButton, u2 = window.Codex.CdxIcon, d2 = window.Codex.CdxTextInput, g2 = window.Codex.CdxMenu, p2 = window.Codex.CdxTabs, m2 = window.Codex.CdxTab, h2 = {
   __name: "SXSuggestionsFiltersDialog",
   props: {
     modelValue: {
@@ -16137,7 +16082,7 @@ const xe = window.Vue.unref, ht = window.Vue.createVNode, Tt = window.Vue.withCt
   },
   emits: ["update:modelValue"],
   setup(e, { emit: t }) {
-    const n = we(), s = t, o = xs(() => [
+    const n = he(), s = t, o = bs(() => [
       {
         name: "all",
         label: n.i18n("cx-sx-suggestions-filters-tab-all"),
@@ -16145,10 +16090,10 @@ const xe = window.Vue.unref, ht = window.Vue.createVNode, Tt = window.Vue.withCt
           "cx-sx-suggestions-filter-search-input-placeholder"
         ),
         filterGroups: g([
-          Ye,
+          Je,
           ee,
           Ve,
-          Xe
+          We
         ])
       },
       {
@@ -16173,134 +16118,134 @@ const xe = window.Vue.unref, ht = window.Vue.createVNode, Tt = window.Vue.withCt
         searchPlaceholder: n.i18n(
           "cx-sx-suggestions-filter-search-input-placeholder-topics"
         ),
-        filterGroups: g([Xe])
+        filterGroups: g([We])
       }
-    ]), a = (U) => H.value = U, r = (U, B) => B === "all" && U.type === Ve ? {
+    ]), a = (I) => j.value = I, r = (I, F) => F === "all" && I.type === Ve ? {
       limit: 7,
       viewMoreConfig: {
         label: n.i18n(
           "cx-sx-suggestions-filters-view-more-countries",
-          U.label
+          I.label
         ),
         onClick: () => a("geography")
       }
-    } : { limit: 0 }, l = (U, B) => {
-      if (U !== "all")
+    } : { limit: 0 }, l = (I, F) => {
+      if (I !== "all")
         return !1;
-      if (B === ee) {
-        const M = g([ee]);
-        return M.length && M[0].filters.length > 6;
+      if (F === ee) {
+        const U = g([ee]);
+        return U.length && U[0].filters.length > 6;
       }
-      return B === Ve;
-    }, { allFilters: u, isFilterSelected: d, selectFilter: i, findSelectedFilter: c } = ar(), g = (U) => U.flatMap((B) => u.value.filter((M) => M.type === B)).filter(Boolean), p = () => {
+      return F === Ve;
+    }, { allFilters: u, isFilterSelected: d, selectFilter: i, findSelectedFilter: c } = nr(), g = (I) => I.flatMap((F) => u.value.filter((U) => U.type === F)).filter(Boolean), p = () => {
       b(), s("update:modelValue", !1);
     }, {
       logSuggestionFiltersClose: m,
       logSuggestionFiltersConfirm: h,
       logSuggestionFiltersSelect: f
-    } = Bf(), w = () => {
+    } = Mf(), w = () => {
       m(), p();
-    }, v = () => {
+    }, _ = () => {
       S.value && (h(S.value), i(S.value)), p();
-    }, y = si(!1), S = si(null), b = () => {
-      S.value = null, y.value = !1;
-    }, V = (U) => {
-      f(U), S.value = U, y.value = !0;
-    }, x = (U) => S.value ? S.value.id === U.id && S.value.type === U.type : d(U), I = l2("breakpoints"), L = xs(() => I.value.mobile), { searchInput: P, searchScope: H, searchResults: se, searchResultsLoading: ae } = I8(), te = xs(
+    }, C = ei(!1), S = ei(null), b = () => {
+      S.value = null, C.value = !1;
+    }, A = (I) => {
+      f(I), S.value = I, C.value = !0;
+    }, y = (I) => S.value ? S.value.id === I.id && S.value.type === I.type : d(I), B = l2("breakpoints"), V = bs(() => B.value.mobile), { searchInput: E, searchScope: j, searchResults: se, searchResultsLoading: ae } = I8(), te = bs(
       () => S.value || c()
-    ), R = si(null);
-    c2(R, () => {
-      if (!R.value)
+    ), z = ei(null);
+    c2(z, () => {
+      if (!z.value)
         return;
-      const U = oe.value.find(
-        (B) => B.value === R.value
+      const I = oe.value.find(
+        (F) => F.value === z.value
       );
-      V({
-        type: U.filterType,
-        id: U.filterId,
-        label: U.label
-      }), P.value = "";
+      A({
+        type: I.filterType,
+        id: I.filterId,
+        label: I.label
+      }), E.value = "";
     });
     const J = {
       [ee]: "cx-sx-suggestions-filters-view-all-collections-group",
       [Ve]: "cx-sx-suggestions-filters-view-all-regions-group"
-    }, oe = xs(
-      () => se.value.flatMap((U) => U.items)
-    ), le = si({}), ke = xs(
-      () => le.value[H.value]
-    ), We = xs(() => {
-      var B;
-      const U = (B = ke.value) == null ? void 0 : B.getHighlightedMenuItem();
-      return U == null ? void 0 : U.id;
-    }), Pe = (U) => {
-      U.key !== " " && ke.value && ke.value.delegateKeyNavigation(U);
-    }, Z = (U, B) => {
-      le.value[B] = U;
+    }, oe = bs(
+      () => se.value.flatMap((I) => I.items)
+    ), le = ei({}), ke = bs(
+      () => le.value[j.value]
+    ), Ke = bs(() => {
+      var F;
+      const I = (F = ke.value) == null ? void 0 : F.getHighlightedMenuItem();
+      return I == null ? void 0 : I.id;
+    }), Pe = (I) => {
+      I.key !== " " && ke.value && ke.value.delegateKeyNavigation(I);
+    }, Z = (I, F) => {
+      le.value[F] = I;
     };
-    return (U, B) => {
-      const M = G8("i18n");
-      return ln(), Ng(xe(Ct), {
+    return (I, F) => {
+      const U = G8("i18n");
+      return cn(), Ng(xe(Ct), {
         class: "sx-suggestions-filters-dialog",
         value: e.modelValue,
-        fullscreen: L.value,
+        fullscreen: V.value,
         header: !1
       }, {
         default: Tt(() => [
           jt("section", Y8, [
-            ht(xe(N), {
+            ft(xe(M), {
               class: "sx-suggestions-filters__header ma-0 py-3 px-4",
               align: "stretch",
               justify: "start"
             }, {
               default: Tt(() => [
-                ht(xe(k), {
+                ft(xe(k), {
                   shrink: "",
                   align: "start",
                   class: "pe-4"
                 }, {
                   default: Tt(() => [
-                    ht(xe(Mg), {
+                    ft(xe(Mg), {
                       class: "pa-0",
                       weight: "quiet",
-                      "aria-label": U.$i18n("cx-sx-suggestions-filters-close-button-aria-label"),
+                      "aria-label": I.$i18n("cx-sx-suggestions-filters-close-button-aria-label"),
                       onClick: w
                     }, {
                       default: Tt(() => [
-                        ht(xe(u2), { icon: xe(Js) }, null, 8, ["icon"])
+                        ft(xe(u2), { icon: xe(Qs) }, null, 8, ["icon"])
                       ]),
                       _: 1
                     }, 8, ["aria-label"])
                   ]),
                   _: 1
                 }),
-                ht(xe(k), {
+                ft(xe(k), {
                   grow: "",
                   align: "center"
                 }, {
                   default: Tt(() => [
-                    ys(jt("h5", Q8, null, 512), [
-                      [M, void 0, "cx-sx-suggestions-filters-header"]
+                    Cs(jt("h5", Q8, null, 512), [
+                      [U, void 0, "cx-sx-suggestions-filters-header"]
                     ])
                   ]),
                   _: 1
                 }),
-                ht(xe(k), {
+                ft(xe(k), {
                   shrink: "",
                   align: "start"
                 }, {
                   default: Tt(() => [
-                    ys(ht(xe(Mg), {
+                    Cs(ft(xe(Mg), {
                       class: "ms-4",
                       weight: "primary",
                       action: "progressive",
-                      onClick: v
+                      onClick: _
                     }, {
                       default: Tt(() => [
-                        X8(Ag(U.$i18n("cx-sx-suggestions-filters-done-button-label")), 1)
+                        X8(Ag(I.$i18n("cx-sx-suggestions-filters-done-button-label")), 1)
                       ]),
                       _: 1
                     }, 512), [
-                      [W8, y.value]
+                      [W8, C.value]
                     ])
                   ]),
                   _: 1
@@ -16309,95 +16254,95 @@ const xe = window.Vue.unref, ht = window.Vue.createVNode, Tt = window.Vue.withCt
               _: 1
             }),
             jt("div", J8, [
-              ys(jt("h5", Z8, null, 512), [
-                [M, void 0, "cx-sx-suggestions-filter-active-group-label"]
+              Cs(jt("h5", Z8, null, 512), [
+                [U, void 0, "cx-sx-suggestions-filter-active-group-label"]
               ]),
               jt("div", null, [
-                ht(rs, {
+                ft(cs, {
                   class: "sx-suggestions-filters__filter sx-suggestions-filters__filter--active my-1 mx-1 py-1",
                   content: te.value.label,
                   icon: te.value.icon
                 }, null, 8, ["content", "icon"])
               ])
             ]),
-            ht(xe(p2), {
-              active: xe(H),
+            ft(xe(p2), {
+              active: xe(j),
               "onUpdate:active": [
-                B[2] || (B[2] = (Y) => Bg(H) ? H.value = Y : null),
+                F[2] || (F[2] = (Y) => Bg(j) ? j.value = Y : null),
                 a
               ],
               class: "sx-suggestions-filters__tabs"
             }, {
               default: Tt(() => [
-                (ln(!0), Yn(Pg, null, Dg(o.value, (Y, _) => (ln(), Ng(xe(m2), {
-                  key: _,
+                (cn(!0), Zn(Pg, null, Dg(o.value, (Y, v) => (cn(), Ng(xe(m2), {
+                  key: v,
                   name: Y.name,
                   label: Y.label
                 }, {
                   default: Tt(() => [
                     jt("div", e2, [
-                      ht(xe(d2), {
-                        modelValue: xe(P),
-                        "onUpdate:modelValue": B[0] || (B[0] = (T) => Bg(P) ? P.value = T : null),
+                      ft(xe(d2), {
+                        modelValue: xe(E),
+                        "onUpdate:modelValue": F[0] || (F[0] = (T) => Bg(E) ? E.value = T : null),
                         role: "combobox",
-                        "aria-activedescendant": We.value,
+                        "aria-activedescendant": Ke.value,
                         "aria-controls": "sx-suggestions-filters__search-results__menu",
                         "aria-autocomplete": "none",
                         placeholder: Y.searchPlaceholder,
                         "input-type": "search",
                         "start-icon": xe(zc),
-                        clearable: !!xe(P),
+                        clearable: !!xe(E),
                         onKeydown: Pe
                       }, null, 8, ["modelValue", "aria-activedescendant", "placeholder", "start-icon", "clearable"])
                     ]),
-                    xe(P) ? (ln(), Yn("div", s2, [
-                      ht(xe(g2), {
+                    xe(E) ? (cn(), Zn("div", s2, [
+                      ft(xe(g2), {
                         id: "sx-suggestions-filters__search-results__menu",
                         ref_for: !0,
                         ref: (T) => Z(T, Y.name),
-                        selected: R.value,
-                        "onUpdate:selected": B[1] || (B[1] = (T) => R.value = T),
+                        selected: z.value,
+                        "onUpdate:selected": F[1] || (F[1] = (T) => z.value = T),
                         "show-pending": xe(ae),
                         expanded: "",
                         "menu-items": oe.value
                       }, {
                         pending: Tt(() => [
-                          ys(jt("div", o2, null, 512), [
-                            [M, void 0, "cx-sx-suggestions-filter-search-results-loading"]
+                          Cs(jt("div", o2, null, 512), [
+                            [U, void 0, "cx-sx-suggestions-filter-search-results-loading"]
                           ])
                         ]),
                         "no-results": Tt(() => [
-                          xe(ae) ? Fg("", !0) : (ln(), Yn("div", a2, [
-                            ys(jt("span", i2, null, 512), [
-                              [M, void 0, "cx-sx-suggestions-filter-search-results-empty-primary"]
+                          xe(ae) ? Fg("", !0) : (cn(), Zn("div", a2, [
+                            Cs(jt("span", i2, null, 512), [
+                              [U, void 0, "cx-sx-suggestions-filter-search-results-empty-primary"]
                             ]),
-                            ys(jt("span", r2, null, 512), [
-                              [M, void 0, "cx-sx-suggestions-filter-search-results-empty-secondary"]
+                            Cs(jt("span", r2, null, 512), [
+                              [U, void 0, "cx-sx-suggestions-filter-search-results-empty-secondary"]
                             ])
                           ]))
                         ]),
                         _: 2
                       }, 1032, ["selected", "show-pending", "menu-items"])
-                    ])) : (ln(), Yn("div", t2, [
-                      (ln(!0), Yn(Pg, null, Dg(Y.filterGroups, (T) => (ln(), Yn("div", {
+                    ])) : (cn(), Zn("div", t2, [
+                      (cn(!0), Zn(Pg, null, Dg(Y.filterGroups, (T) => (cn(), Zn("div", {
                         key: T.id,
                         class: "sx-suggestions-filters__group"
                       }, [
-                        ht(B8, {
+                        ft(B8, {
                           "filter-group": T,
-                          "tentatively-select-filter": V,
-                          "is-selected": x,
+                          "tentatively-select-filter": A,
+                          "is-selected": y,
                           limit: l(Y.name, T.type) ? 4 : 0,
-                          "get-sub-filter-config": (D) => r(D, Y.name)
+                          "get-sub-filter-config": (P) => r(P, Y.name)
                         }, null, 8, ["filter-group", "limit", "get-sub-filter-config"]),
-                        l(Y.name, T.type) ? (ln(), Yn("div", {
+                        l(Y.name, T.type) ? (cn(), Zn("div", {
                           key: 0,
                           class: "sx-suggestions-filters__group-view-all mb-3",
                           tabindex: "0",
-                          onKeyup: K8((D) => a(T.id), ["enter"]),
-                          onClick: (D) => a(T.id)
+                          onKeyup: K8((P) => a(T.id), ["enter"]),
+                          onClick: (P) => a(T.id)
                         }, [
-                          jt("span", null, Ag(U.$i18n(J[T.id])), 1)
+                          jt("span", null, Ag(I.$i18n(J[T.id])), 1)
                         ], 40, n2)) : Fg("", !0)
                       ]))), 128))
                     ]))
@@ -16414,7 +16359,7 @@ const xe = window.Vue.unref, ht = window.Vue.createVNode, Tt = window.Vue.withCt
     };
   }
 };
-const ko = window.Vue.unref, oi = window.Vue.openBlock, Ug = window.Vue.createBlock;
+const ko = window.Vue.unref, ti = window.Vue.openBlock, Ug = window.Vue.createBlock;
 window.Vue.createCommentVNode;
 const f2 = window.Vue.renderList, w2 = window.Vue.Fragment, Ig = window.Vue.createElementBlock, v2 = window.Vue.normalizeClass, Rg = window.Vue.createVNode, _2 = {
   key: 1,
@@ -16424,13 +16369,13 @@ window.Vue.computed;
 const Og = window.Vue.watch, S2 = {
   __name: "CXSuggestionListFilters",
   setup(e) {
-    const t = we(), { logSuggestionFiltersQuickSelect: n, logSuggestionFiltersViewMore: s } = Bf(), {
+    const t = he(), { logSuggestionFiltersQuickSelect: n, logSuggestionFiltersViewMore: s } = Mf(), {
       getFiltersSummary: o,
       selectFilter: a,
       isFilterSelected: r,
       waitingForPageCollectionsFetch: l,
       validateURLFilterWithCollections: u
-    } = ar(), d = zg(!1), i = () => {
+    } = nr(), d = zg(!1), i = () => {
       s(), d.value = !0;
     }, c = (p) => {
       n(p), a(p);
@@ -16439,8 +16384,8 @@ const Og = window.Vue.watch, S2 = {
       p || (g.value = o());
     }), Og(l, (p) => {
       p || (u(), g.value = o());
-    }), (p, m) => ko(l) ? (oi(), Ug(ko(ct), { key: 0 })) : (oi(), Ig("div", _2, [
-      (oi(!0), Ig(w2, null, f2(g.value, (h) => (oi(), Ug(rs, {
+    }), (p, m) => ko(l) ? (ti(), Ug(ko(dt), { key: 0 })) : (ti(), Ig("div", _2, [
+      (ti(!0), Ig(w2, null, f2(g.value, (h) => (ti(), Ug(cs, {
         key: h.label,
         class: v2(["cx-suggestion-list__filter py-1 me-1", {
           "cx-suggestion-list__filter--active": ko(r)(h)
@@ -16449,7 +16394,7 @@ const Og = window.Vue.watch, S2 = {
         content: h.label,
         onClick: (f) => c(h)
       }, null, 8, ["class", "icon", "content", "onClick"]))), 128)),
-      Rg(rs, {
+      Rg(cs, {
         class: "cx-suggestion-list__filter py-1 me-1",
         icon: ko(mu),
         content: ko(t).i18n("cx-sx-suggestions-filter-more-label"),
@@ -16461,77 +16406,77 @@ const Og = window.Vue.watch, S2 = {
       }, null, 8, ["modelValue"])
     ]));
   }
-}, Cs = window.Vue.computed, jg = window.Vue.ref, y2 = window.Vue.watch, x2 = window.Vuex.useStore, C2 = () => {
+}, ks = window.Vue.computed, Hg = window.Vue.ref, y2 = window.Vue.watch, x2 = window.Vuex.useStore, C2 = () => {
   const e = x2(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     currentSuggestionFilters: s
-  } = A(), { getPageSuggestionsSliceByIndex: o, getSectionSuggestionsSliceByIndex: a } = lu(), r = bt(), l = Cs(
+  } = D(), { getPageSuggestionsSliceByIndex: o, getSectionSuggestionsSliceByIndex: a } = lu(), r = bt(), l = ks(
     () => e.state.suggestions.sectionSuggestionsLoadingCount > 0
-  ), u = Cs(
+  ), u = ks(
     () => e.state.suggestions.pageSuggestionsLoadingCount > 0
-  ), d = jg(0), i = jg(0), { maxSuggestionsPerSlice: c } = e.state.suggestions, g = 4, p = Cs(
+  ), d = Hg(0), i = Hg(0), { maxSuggestionsPerSlice: c } = e.state.suggestions, g = 4, p = ks(
     () => a(d.value)
-  ), m = Cs(
+  ), m = ks(
     () => o(i.value)
   ), h = () => {
-    b(), L(), V(), P();
+    b(), V(), A(), E();
   }, {
     fetchNextSectionSuggestionsSlice: f,
     fetchNextPageSuggestionsSlice: w
-  } = fu(), v = (H) => H.length === c, y = Cs(
-    () => v(m.value)
-  ), S = Cs(
-    () => v(p.value)
+  } = fu(), _ = (j) => j.length === c, C = ks(
+    () => _(m.value)
+  ), S = ks(
+    () => _(p.value)
   ), b = () => {
-    const H = (d.value + 1) % g, se = v(
-      a(H)
+    const j = (d.value + 1) % g, se = _(
+      a(j)
     );
     (!S.value || !se) && f();
-  }, V = () => {
-    const H = (i.value + 1) % g, se = v(
-      o(H)
+  }, A = () => {
+    const j = (i.value + 1) % g, se = _(
+      o(j)
     );
-    (!y.value || !se) && w();
-  }, x = (H) => {
+    (!C.value || !se) && w();
+  }, y = (j) => {
     r({
       event_type: "dashboard_discard_suggestion",
       translation_source_language: t.value,
       translation_target_language: n.value
-    }), e.commit("suggestions/removeSectionSuggestionFromList", H), b();
-  }, I = (H) => {
+    }), e.commit("suggestions/removeSectionSuggestionFromList", j), b();
+  }, B = (j) => {
     r({
       event_type: "dashboard_discard_suggestion",
       translation_source_language: t.value,
       translation_target_language: n.value
-    }), e.commit("suggestions/removePageSuggestionFromList", H), V();
-  }, L = () => d.value = (d.value + 1) % g, P = () => i.value = (i.value + 1) % g;
+    }), e.commit("suggestions/removePageSuggestionFromList", j), A();
+  }, V = () => d.value = (d.value + 1) % g, E = () => i.value = (i.value + 1) % g;
   return y2(
     s,
     () => {
-      i.value = 0, V(), d.value = 0, b();
+      i.value = 0, A(), d.value = 0, b();
     },
     { deep: !0 }
   ), {
     currentPageSuggestionsSlice: m,
     currentSectionSuggestionsSlice: p,
-    discardPageSuggestion: I,
-    discardSectionSuggestion: x,
+    discardPageSuggestion: B,
+    discardSectionSuggestion: y,
     onSuggestionRefresh: h,
     pageSuggestionsLoading: u,
     sectionSuggestionsLoading: l,
     getSectionSuggestionsSliceByIndex: a,
     getPageSuggestionsSliceByIndex: o,
-    isCurrentPageSuggestionsSliceFull: y,
+    isCurrentPageSuggestionsSliceFull: C,
     isCurrentSectionSuggestionsSliceFull: S
   };
 }, b2 = window.Vuex.useStore, xu = () => {
   const e = b2(), { fetchNextSectionSuggestionsSlice: t, fetchNextPageSuggestionsSlice: n } = fu(), s = (d, i, c) => e.state.suggestions.pageSuggestions.find(
     (g) => g.sourceLanguage === d && g.targetLanguage === i && g.sourceTitle === c
-  ), o = (d) => C(void 0, null, function* () {
+  ), o = (d) => x(void 0, null, function* () {
     const { sourceTitle: i, sourceLanguage: c, targetLanguage: g } = d;
     yield me.markFavorite(i, c, g);
-    const p = new Hs({
+    const p = new js({
       title: i,
       sourceLanguage: c,
       targetLanguage: g
@@ -16548,7 +16493,7 @@ const Og = window.Vue.watch, S2 = {
         d
       ), t(), o(d);
     },
-    markFavoriteSuggestion: (d, i, c) => C(void 0, null, function* () {
+    markFavoriteSuggestion: (d, i, c) => x(void 0, null, function* () {
       const g = s(
         i,
         c,
@@ -16567,7 +16512,7 @@ const Og = window.Vue.watch, S2 = {
         i,
         c
       );
-      const m = new Hs({
+      const m = new js({
         title: d,
         sourceLanguage: i,
         targetLanguage: c
@@ -16576,19 +16521,19 @@ const Og = window.Vue.watch, S2 = {
     }),
     removeFavoriteSuggestion: (d) => (e.commit("suggestions/removeFavoriteSuggestion", d), me.unmarkFavorite(d))
   };
-}, k2 = "suggestion_no_seed", $2 = "suggestion_recent_edit", E2 = "suggestion_topic_area", V2 = "suggestion_search_result_seed", L2 = "suggestion_featured", T2 = "suggestion_collections", A2 = "suggestion_region", D2 = () => {
-  const { currentSuggestionFilters: e } = A();
+}, k2 = "suggestion_no_seed", $2 = "suggestion_recent_edit", V2 = "suggestion_topic_area", E2 = "suggestion_search_result_seed", L2 = "suggestion_featured", T2 = "suggestion_collections", A2 = "suggestion_region", D2 = () => {
+  const { currentSuggestionFilters: e } = D();
   return (t = null) => {
     const { type: n, id: s } = e.value;
-    if (s === en)
+    if (s === nn)
       return t ? $2 : k2;
-    if (n === Xe)
-      return E2;
+    if (n === We)
+      return V2;
     if (n === Ve)
       return A2;
     if (n === yt)
-      return V2;
-    if (s === yn)
+      return E2;
+    if (s === xn)
       return L2;
     if (s === ee || n === ee)
       return T2;
@@ -16598,7 +16543,7 @@ const Og = window.Vue.watch, S2 = {
     throw mw.errorLogger.logError(o, "error.contenttranslation"), o;
   };
 };
-const Hg = window.Vue.normalizeClass, P2 = window.Vue.resolveDirective, $o = window.Vue.createElementVNode, ai = window.Vue.withDirectives, _e = window.Vue.unref, nt = window.Vue.openBlock, Ht = window.Vue.createBlock, Ln = window.Vue.createCommentVNode, cl = window.Vue.createVNode, Eo = window.Vue.withCtx, qg = window.Vue.renderList, Gg = window.Vue.Fragment, ul = window.Vue.createElementBlock, B2 = window.Vue.toDisplayString, F2 = window.Vue.createTextVNode, N2 = window.Vue.vShow, M2 = { class: "cx-suggestion-list" }, U2 = { class: "cx-suggestion-list__division-title ma-0 pa-4" }, I2 = { class: "cx-suggestion-list__division-title ma-0 pa-4" }, R2 = { class: "cx-suggestion-list__refresh-button-container justify-center" }, qt = window.Vue.computed, z2 = window.Vue.inject, O2 = window.Vue.ref, j2 = window.Codex.CdxButton, H2 = window.Codex.CdxIcon, q2 = window.Vuex.useStore, G2 = {
+const jg = window.Vue.normalizeClass, P2 = window.Vue.resolveDirective, $o = window.Vue.createElementVNode, ni = window.Vue.withDirectives, we = window.Vue.unref, st = window.Vue.openBlock, qt = window.Vue.createBlock, Tn = window.Vue.createCommentVNode, rl = window.Vue.createVNode, Vo = window.Vue.withCtx, qg = window.Vue.renderList, Gg = window.Vue.Fragment, ll = window.Vue.createElementBlock, B2 = window.Vue.toDisplayString, F2 = window.Vue.createTextVNode, N2 = window.Vue.vShow, M2 = { class: "cx-suggestion-list" }, U2 = { class: "cx-suggestion-list__division-title ma-0 pa-4" }, I2 = { class: "cx-suggestion-list__division-title ma-0 pa-4" }, R2 = { class: "cx-suggestion-list__refresh-button-container justify-center" }, Gt = window.Vue.computed, z2 = window.Vue.inject, O2 = window.Vue.ref, H2 = window.Codex.CdxButton, j2 = window.Codex.CdxIcon, q2 = window.Vuex.useStore, G2 = {
   __name: "CXSuggestionList",
   props: {
     active: {
@@ -16611,7 +16556,7 @@ const Hg = window.Vue.normalizeClass, P2 = window.Vue.resolveDirective, $o = win
       sourceLanguageURLParameter: t,
       targetLanguageURLParameter: n,
       currentSuggestionFilters: s
-    } = A(), { supportedSourceLanguageCodes: o, supportedTargetLanguageCodes: a } = wa(), r = Kh(), l = (Z) => r(Z, n.value), u = (Z) => r(t.value, Z), d = D2(), i = ya(), c = (Z) => {
+    } = D(), { supportedSourceLanguageCodes: o, supportedTargetLanguageCodes: a } = wa(), r = ef(), l = (Z) => r(Z, n.value), u = (Z) => r(t.value, Z), d = D2(), i = ya(), c = (Z) => {
       i(
         Z.sourceTitle,
         Z.sourceLanguage,
@@ -16626,143 +16571,143 @@ const Hg = window.Vue.normalizeClass, P2 = window.Vue.resolveDirective, $o = win
       discardSectionSuggestion: h,
       onSuggestionRefresh: f,
       pageSuggestionsLoading: w,
-      sectionSuggestionsLoading: v,
-      isCurrentPageSuggestionsSliceFull: y,
+      sectionSuggestionsLoading: _,
+      isCurrentPageSuggestionsSliceFull: C,
       isCurrentSectionSuggestionsSliceFull: S
-    } = C2(), b = O2(null), V = bt(), x = () => {
-      V({
+    } = C2(), b = O2(null), A = bt(), y = () => {
+      A({
         event_type: "dashboard_refresh_suggestions",
         translation_source_language: t.value,
         translation_target_language: n.value
       }), f(), b.value && b.value.$el.scrollIntoView({ behavior: "smooth" });
-    }, { markFavoriteSectionSuggestion: I, markFavoritePageSuggestion: L } = xu(), P = z2("breakpoints"), H = qt(() => P.value.mobile), se = qt(
-      () => H.value ? null : "pb-2 flex justify-between items-center"
-    ), ae = q2(), te = qt(
+    }, { markFavoriteSectionSuggestion: B, markFavoritePageSuggestion: V } = xu(), E = z2("breakpoints"), j = Gt(() => E.value.mobile), se = Gt(
+      () => j.value ? null : "pb-2 flex justify-between items-center"
+    ), ae = q2(), te = Gt(
       () => ae.state.suggestions.isPageSuggestionsFetchPending
-    ), R = qt(
+    ), z = Gt(
       () => ae.state.suggestions.isSectionSuggestionsFetchPending
-    ), J = qt(
-      () => te.value || w.value && !y.value
-    ), oe = qt(
-      () => R.value || v.value && !S.value
-    ), le = qt(
+    ), J = Gt(
+      () => te.value || w.value && !C.value
+    ), oe = Gt(
+      () => z.value || _.value && !S.value
+    ), le = Gt(
       () => te.value || w.value || g.value.length > 0
-    ), ke = qt(
-      () => R.value || v.value || p.value.length > 0
-    ), We = qt(
+    ), ke = Gt(
+      () => z.value || _.value || p.value.length > 0
+    ), Ke = Gt(
       () => !le.value && !ke.value
-    ), Pe = qt(
-      () => !v.value && !w.value && !te.value && !R.value && !We.value
+    ), Pe = Gt(
+      () => !_.value && !w.value && !te.value && !z.value && !Ke.value
     );
-    return (Z, U) => {
-      const B = P2("i18n");
-      return ai((nt(), ul("div", M2, [
-        cl(_e(Qe), { class: "cx-suggestion-list__header-card px-0 pt-2 pb-0 mb-0" }, {
-          header: Eo(() => [
+    return (Z, I) => {
+      const F = P2("i18n");
+      return ni((st(), ll("div", M2, [
+        rl(we(Ze), { class: "cx-suggestion-list__header-card px-0 pt-2 pb-0 mb-0" }, {
+          header: Vo(() => [
             $o("div", {
-              class: Hg(["cx-suggestion-list__header-card__header px-4", se.value])
+              class: jg(["cx-suggestion-list__header-card__header px-4", se.value])
             }, [
-              ai($o("h3", {
-                class: Hg(["mw-ui-card__title mb-0", { "py-3": H.value }])
+              ni($o("h3", {
+                class: jg(["mw-ui-card__title mb-0", { "py-3": j.value }])
               }, null, 2), [
-                [B, void 0, "cx-suggestionlist-title"]
+                [F, void 0, "cx-suggestionlist-title"]
               ]),
-              H.value ? Ln("", !0) : (nt(), Ht(Wi, {
+              j.value ? Tn("", !0) : (st(), qt(qi, {
                 key: 0,
-                "source-languages": _e(o),
-                "target-languages": _e(a),
-                "selected-source-language": _e(t),
-                "selected-target-language": _e(n),
+                "source-languages": we(o),
+                "target-languages": we(a),
+                "selected-source-language": we(t),
+                "selected-target-language": we(n),
                 "onUpdate:selectedSourceLanguage": l,
                 "onUpdate:selectedTargetLanguage": u
               }, null, 8, ["source-languages", "target-languages", "selected-source-language", "selected-target-language"]))
             ], 2),
-            cl(S2)
+            rl(S2)
           ]),
-          default: Eo(() => [
-            H.value ? (nt(), Ht(Wi, {
+          default: Vo(() => [
+            j.value ? (st(), qt(qi, {
               key: 0,
-              "source-languages": _e(o),
-              "target-languages": _e(a),
-              "selected-source-language": _e(t),
-              "selected-target-language": _e(n),
+              "source-languages": we(o),
+              "target-languages": we(a),
+              "selected-source-language": we(t),
+              "selected-target-language": we(n),
               "onUpdate:selectedSourceLanguage": l,
               "onUpdate:selectedTargetLanguage": u
-            }, null, 8, ["source-languages", "target-languages", "selected-source-language", "selected-target-language"])) : Ln("", !0)
+            }, null, 8, ["source-languages", "target-languages", "selected-source-language", "selected-target-language"])) : Tn("", !0)
           ]),
           _: 1
         }),
-        ke.value ? (nt(), Ht(_e(Qe), {
+        ke.value ? (st(), qt(we(Ze), {
           key: 0,
           class: "cx-suggestion-list__section-suggestions pa-0 mb-0"
         }, {
-          default: Eo(() => [
-            ai($o("h5", U2, null, 512), [
-              [B, void 0, "cx-suggestionlist-expand-sections-title"]
+          default: Vo(() => [
+            ni($o("h5", U2, null, 512), [
+              [F, void 0, "cx-suggestionlist-expand-sections-title"]
             ]),
-            (nt(!0), ul(Gg, null, qg(_e(p), (M, Y) => (nt(), Ht(Yc, {
+            (st(!0), ll(Gg, null, qg(we(p), (U, Y) => (st(), qt(Yc, {
               key: `section-suggestion-${Y}`,
               class: "ma-0",
-              suggestion: M,
-              onClose: (_) => _e(h)(M),
-              onClick: (_) => c(M),
-              onBookmark: (_) => _e(I)(M)
+              suggestion: U,
+              onClose: (v) => we(h)(U),
+              onClick: (v) => c(U),
+              onBookmark: (v) => we(B)(U)
             }, null, 8, ["suggestion", "onClose", "onClick", "onBookmark"]))), 128)),
-            oe.value ? (nt(), Ht(_e(ct), { key: 0 })) : Ln("", !0)
+            oe.value ? (st(), qt(we(dt), { key: 0 })) : Tn("", !0)
           ]),
           _: 1
-        })) : Ln("", !0),
-        le.value ? (nt(), Ht(_e(Qe), {
+        })) : Tn("", !0),
+        le.value ? (st(), qt(we(Ze), {
           key: 1,
           ref_key: "pageSuggestionsList",
           ref: b,
           class: "cx-suggestion-list__page-suggestions pa-0 mb-0"
         }, {
-          default: Eo(() => [
-            ai($o("h5", I2, null, 512), [
-              [B, void 0, "cx-suggestion-list-new-pages-division"]
+          default: Vo(() => [
+            ni($o("h5", I2, null, 512), [
+              [F, void 0, "cx-suggestion-list-new-pages-division"]
             ]),
-            (nt(!0), ul(Gg, null, qg(_e(g), (M, Y) => (nt(), Ht(Yc, {
+            (st(!0), ll(Gg, null, qg(we(g), (U, Y) => (st(), qt(Yc, {
               key: `page-suggestion-${Y}`,
-              suggestion: M,
-              onClose: (_) => _e(m)(M),
-              onClick: (_) => c(M),
-              onBookmark: (_) => _e(L)(M)
+              suggestion: U,
+              onClose: (v) => we(m)(U),
+              onClick: (v) => c(U),
+              onBookmark: (v) => we(V)(U)
             }, null, 8, ["suggestion", "onClose", "onClick", "onBookmark"]))), 128)),
-            J.value ? (nt(), Ht(_e(ct), { key: 0 })) : Ln("", !0)
+            J.value ? (st(), qt(we(dt), { key: 0 })) : Tn("", !0)
           ]),
           _: 1
-        }, 512)) : Ln("", !0),
-        We.value ? (nt(), Ht(Af, {
+        }, 512)) : Tn("", !0),
+        Ke.value ? (st(), qt(Nf, {
           key: 2,
           title: Z.$i18n("cx-sx-suggestion-list-empty-title"),
           description: Z.$i18n("cx-sx-suggestion-list-empty-description")
-        }, null, 8, ["title", "description"])) : Ln("", !0),
+        }, null, 8, ["title", "description"])) : Tn("", !0),
         $o("div", R2, [
-          Pe.value ? (nt(), Ht(_e(j2), {
+          Pe.value ? (st(), qt(we(H2), {
             key: 0,
             class: "px-4",
             weight: "quiet",
             action: "progressive",
             size: "large",
-            onClick: x
+            onClick: y
           }, {
-            default: Eo(() => [
-              cl(_e(H2), {
+            default: Vo(() => [
+              rl(we(j2), {
                 class: "me-1",
-                icon: _e(Hh)
+                icon: we(Kh)
               }, null, 8, ["icon"]),
               F2(" " + B2(Z.$i18n("cx-suggestionlist-refresh")), 1)
             ]),
             _: 1
-          })) : Ln("", !0)
+          })) : Tn("", !0)
         ])
       ], 512)), [
         [N2, e.active]
       ]);
     };
   }
-}, X2 = window.Vue.resolveDirective, W2 = window.Vue.createElementVNode, K2 = window.Vue.withDirectives, Y2 = window.Vue.renderList, Q2 = window.Vue.Fragment, dl = window.Vue.openBlock, J2 = window.Vue.createElementBlock, Xg = window.Vue.unref, Wg = window.Vue.createBlock, Kg = window.Vue.withCtx, Z2 = window.Vue.createCommentVNode, e$ = { class: "mw-ui-card__title pa-4 pt-5 mb-0" }, t$ = window.Vue.computed, n$ = window.Vuex.useStore, s$ = {
+}, X2 = window.Vue.resolveDirective, W2 = window.Vue.createElementVNode, K2 = window.Vue.withDirectives, Y2 = window.Vue.renderList, Q2 = window.Vue.Fragment, cl = window.Vue.openBlock, J2 = window.Vue.createElementBlock, Xg = window.Vue.unref, Wg = window.Vue.createBlock, Kg = window.Vue.withCtx, Z2 = window.Vue.createCommentVNode, e$ = { class: "mw-ui-card__title pa-4 pt-5 mb-0" }, t$ = window.Vue.computed, n$ = window.Vuex.useStore, s$ = {
   __name: "CXFavoriteList",
   setup(e) {
     const t = n$(), n = t$(() => t.state.suggestions.favorites || []), s = ya(), o = (r) => s(
@@ -16773,7 +16718,7 @@ const Hg = window.Vue.normalizeClass, P2 = window.Vue.resolveDirective, $o = win
     ), { removeFavoriteSuggestion: a } = xu();
     return (r, l) => {
       const u = X2("i18n");
-      return n.value.length ? (dl(), Wg(Xg(Qe), {
+      return n.value.length ? (cl(), Wg(Xg(Ze), {
         key: 0,
         class: "cx-translation-list--favorites pa-0 mb-4"
       }, {
@@ -16783,7 +16728,7 @@ const Hg = window.Vue.normalizeClass, P2 = window.Vue.resolveDirective, $o = win
           ])
         ]),
         default: Kg(() => [
-          (dl(!0), J2(Q2, null, Y2(n.value, (d, i) => (dl(), Wg(Yc, {
+          (cl(!0), J2(Q2, null, Y2(n.value, (d, i) => (cl(), Wg(Yc, {
             key: `favorite-${i}`,
             suggestion: d,
             onClick: (c) => o(d),
@@ -16795,18 +16740,18 @@ const Hg = window.Vue.normalizeClass, P2 = window.Vue.resolveDirective, $o = win
     };
   }
 };
-const o$ = window.Vue.resolveDirective, Vo = window.Vue.createElementVNode, a$ = window.Vue.withDirectives, i$ = window.Vue.renderList, r$ = window.Vue.Fragment, Yg = window.Vue.openBlock, Qg = window.Vue.createElementBlock, l$ = window.Vue.unref, c$ = window.Vue.createVNode, u$ = window.Vue.toDisplayString, d$ = { class: "cx-help-panel pa-4" }, g$ = { class: "cx-help-panel__item-list mt-6 ps-2" }, p$ = ["href", "target"], m$ = ["textContent"], h$ = window.Codex.CdxIcon, f$ = {
+const o$ = window.Vue.resolveDirective, Eo = window.Vue.createElementVNode, a$ = window.Vue.withDirectives, i$ = window.Vue.renderList, r$ = window.Vue.Fragment, Yg = window.Vue.openBlock, Qg = window.Vue.createElementBlock, l$ = window.Vue.unref, c$ = window.Vue.createVNode, u$ = window.Vue.toDisplayString, d$ = { class: "cx-help-panel pa-4" }, g$ = { class: "cx-help-panel__item-list mt-6 ps-2" }, p$ = ["href", "target"], m$ = ["textContent"], h$ = window.Codex.CdxIcon, f$ = {
   __name: "CXHelpPanel",
   setup(e) {
-    const t = we(), n = [
+    const t = he(), n = [
       {
-        icon: uy,
+        icon: my,
         label: t.i18n("cx-sx-dashboard-help-panel-more-info-label"),
         href: "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation",
         target: "_blank"
       },
       {
-        icon: iy,
+        icon: uy,
         label: t.i18n("cx-sx-dashboard-help-panel-feedback-label"),
         href: "https://www.mediawiki.org/wiki/Talk:Content_translation",
         target: "_blank"
@@ -16815,15 +16760,15 @@ const o$ = window.Vue.resolveDirective, Vo = window.Vue.createElementVNode, a$ =
     return (s, o) => {
       const a = o$("i18n");
       return Yg(), Qg("div", d$, [
-        a$(Vo("h5", null, null, 512), [
+        a$(Eo("h5", null, null, 512), [
           [a, void 0, "cx-sx-dashboard-help-panel-title"]
         ]),
-        Vo("ul", g$, [
-          (Yg(), Qg(r$, null, i$(n, (r, l) => Vo("li", {
+        Eo("ul", g$, [
+          (Yg(), Qg(r$, null, i$(n, (r, l) => Eo("li", {
             key: l,
             class: "mt-4"
           }, [
-            Vo("a", {
+            Eo("a", {
               href: r.href,
               target: r.target
             }, [
@@ -16831,7 +16776,7 @@ const o$ = window.Vue.resolveDirective, Vo = window.Vue.createElementVNode, a$ =
                 class: "me-2",
                 icon: r.icon
               }, null, 8, ["icon"]),
-              Vo("span", {
+              Eo("span", {
                 textContent: u$(r.label)
               }, null, 8, m$)
             ], 8, p$)
@@ -16841,7 +16786,7 @@ const o$ = window.Vue.resolveDirective, Vo = window.Vue.createElementVNode, a$ =
     };
   }
 };
-const w$ = window.Vue.resolveDirective, bs = window.Vue.createElementVNode, gl = window.Vue.withDirectives, Jg = window.Vue.toDisplayString, pl = window.Vue.unref, ml = window.Vue.withCtx, hl = window.Vue.createVNode, v$ = window.Vue.openBlock, _$ = window.Vue.createElementBlock, S$ = { class: "cx-stats-panel pa-4" }, y$ = ["textContent"], x$ = { class: "cx-stats-panel__monthly-stats-label" }, C$ = ["textContent"], b$ = { class: "cx-stats-panel__total-stats-label" }, k$ = window.Vue.ref, Zg = window.Vue.computed, $$ = window.Vue.watch, E$ = {
+const w$ = window.Vue.resolveDirective, $s = window.Vue.createElementVNode, ul = window.Vue.withDirectives, Jg = window.Vue.toDisplayString, dl = window.Vue.unref, gl = window.Vue.withCtx, pl = window.Vue.createVNode, v$ = window.Vue.openBlock, _$ = window.Vue.createElementBlock, S$ = { class: "cx-stats-panel pa-4" }, y$ = ["textContent"], x$ = { class: "cx-stats-panel__monthly-stats-label" }, C$ = ["textContent"], b$ = { class: "cx-stats-panel__total-stats-label" }, k$ = window.Vue.ref, Zg = window.Vue.computed, $$ = window.Vue.watch, V$ = {
   __name: "CXStatsPanel",
   props: {
     stats: {
@@ -16867,42 +16812,42 @@ const w$ = window.Vue.resolveDirective, bs = window.Vue.createElementVNode, gl =
         a.value.width = c, a.value.height = g;
         const p = 4, m = 6, h = 50, f = (h - p) / d;
         let w = p;
-        const v = Math.floor(
+        const _ = Math.floor(
           (c - p) / (m + p)
-        ), y = i.slice(
-          Math.max(i.length - v, 0)
+        ), C = i.slice(
+          Math.max(i.length - _, 0)
         );
-        y.forEach((S, b) => {
-          b === y.length - 1 && (l.fillStyle = "#36c");
-          const V = h - S * f;
-          l.fillRect(w, V, m, S * f), w += m + p;
+        C.forEach((S, b) => {
+          b === C.length - 1 && (l.fillStyle = "#36c");
+          const A = h - S * f;
+          l.fillRect(w, A, m, S * f), w += m + p;
         });
       }
     ), (r, l) => {
       const u = w$("i18n");
       return v$(), _$("div", S$, [
-        gl(bs("h5", null, null, 512), [
+        ul($s("h5", null, null, 512), [
           [u, void 0, "cx-sx-dashboard-stats-panel-title"]
         ]),
-        hl(pl(N), null, {
-          default: ml(() => [
-            hl(pl(k), { class: "cx-stats-panel__monthly-stats" }, {
-              default: ml(() => [
-                bs("h3", {
+        pl(dl(M), null, {
+          default: gl(() => [
+            pl(dl(k), { class: "cx-stats-panel__monthly-stats" }, {
+              default: gl(() => [
+                $s("h3", {
                   textContent: Jg(o.value)
                 }, null, 8, y$),
-                gl(bs("h5", x$, null, 512), [
+                ul($s("h5", x$, null, 512), [
                   [u, void 0, "cx-sx-dashboard-stats-panel-monthly-stats-label"]
                 ])
               ]),
               _: 1
             }),
-            hl(pl(k), { class: "cx-stats-panel__total-stats" }, {
-              default: ml(() => [
-                bs("h3", {
+            pl(dl(k), { class: "cx-stats-panel__total-stats" }, {
+              default: gl(() => [
+                $s("h3", {
                   textContent: Jg(s.value)
                 }, null, 8, C$),
-                gl(bs("h5", b$, null, 512), [
+                ul($s("h5", b$, null, 512), [
                   [u, void 0, "cx-sx-dashboard-stats-panel-total-stats-label"]
                 ])
               ]),
@@ -16911,7 +16856,7 @@ const w$ = window.Vue.resolveDirective, bs = window.Vue.createElementVNode, gl =
           ]),
           _: 1
         }),
-        bs("canvas", {
+        $s("canvas", {
           ref_key: "canvasRef",
           ref: a,
           class: "cx-stats-panel__canvas"
@@ -16919,7 +16864,7 @@ const w$ = window.Vue.resolveDirective, bs = window.Vue.createElementVNode, gl =
       ]);
     };
   }
-}, Ff = () => {
+}, Uf = () => {
   const e = bt();
   return (t) => e({
     event_type: "dashboard_tab_select",
@@ -16930,7 +16875,7 @@ const w$ = window.Vue.resolveDirective, bs = window.Vue.createElementVNode, gl =
     }[t]
   });
 };
-const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createVNode, A$ = window.Vue.createElementVNode, D$ = window.Vue.openBlock, P$ = window.Vue.createElementBlock, B$ = { class: "mw-ui-bottom-navigation row ma-0 justify-center" }, F$ = { class: "col-12 ma-0 pa-0" }, N$ = {
+const E$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createVNode, A$ = window.Vue.createElementVNode, D$ = window.Vue.openBlock, P$ = window.Vue.createElementBlock, B$ = { class: "mw-ui-bottom-navigation row ma-0 justify-center" }, F$ = { class: "col-12 ma-0 pa-0" }, N$ = {
   __name: "MWBottomNavigation",
   props: {
     /**
@@ -16951,12 +16896,12 @@ const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createV
   },
   emits: ["update:active"],
   setup(e, { emit: t }) {
-    const n = t, s = Ff(), o = (a) => {
+    const n = t, s = Uf(), o = (a) => {
       s(a), n("update:active", a);
     };
     return (a, r) => (D$(), P$("footer", B$, [
       A$("div", F$, [
-        V$(a.$slots, "default", {}, () => [
+        E$(a.$slots, "default", {}, () => [
           T$(L$(ma), {
             class: "mw-ui-bottom-navigation__button-group justify-around",
             active: e.active,
@@ -16968,8 +16913,8 @@ const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createV
     ]));
   }
 }, M$ = window.Vuex.useStore, U$ = () => {
-  const e = M$(), t = Ys();
-  return () => C(void 0, null, function* () {
+  const e = M$(), t = Ks();
+  return () => x(void 0, null, function* () {
     if (e.state.suggestions.favorites.length)
       return;
     const n = yield me.fetchFavorites();
@@ -16995,14 +16940,14 @@ const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createV
         a.map((r) => r.title)
       );
   });
-}, I$ = window.Vuex.useStore, Nf = () => {
+}, I$ = window.Vuex.useStore, If = () => {
   const e = I$(), {
     getUrlParam: t,
     pageURLParameter: n,
     currentSuggestionFilters: s,
     sourceLanguageURLParameter: o,
     targetLanguageURLParameter: a
-  } = A(), { isDefaultFilter: r } = eu(), { previousRoute: l } = Le(e), u = bt(), d = () => {
+  } = D(), { isDefaultFilter: r } = eu(), { previousRoute: l } = Ae(e), u = bt(), d = () => {
     const g = {
       ulsmissinglanguages: "content_language_selector",
       mflanguagesearcher: "content_language_selector",
@@ -17037,13 +16982,13 @@ const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createV
     };
     return g === "suggestion_filter_direct_preselect" && (p.event_context = s.value.id), u(p);
   } };
-}, ep = window.Vue.computed, R$ = window.Vuex.useStore, Fe = () => {
+}, ep = window.Vue.computed, R$ = window.Vuex.useStore, De = () => {
   const e = R$(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     pageURLParameter: s,
     sectionURLParameter: o
-  } = A(), a = ep(
+  } = D(), a = ep(
     () => e.getters["suggestions/getSectionSuggestionsForArticle"](
       t.value,
       n.value,
@@ -17058,31 +17003,31 @@ const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createV
     }
   );
   return { sectionSuggestion: a, isCurrentSectionPresent: r };
-}, z$ = window.Vue.ref, ii = {
+}, z$ = window.Vue.ref, si = {
   NEW_SECTION: "NEW_SECTION",
   EXPAND: "EXPAND",
   REPLACE: "REPLACE",
   SANDBOX: "SANDBOX"
-}, fl = z$(null), Rt = () => {
-  const { isCurrentSectionPresent: e } = Fe(), t = () => {
-    e.value ? s(ii.EXPAND) : s(ii.NEW_SECTION);
+}, ml = z$(null), zt = () => {
+  const { isCurrentSectionPresent: e } = De(), t = () => {
+    e.value ? s(si.EXPAND) : s(si.NEW_SECTION);
   }, n = () => {
-    fl.value = null;
+    ml.value = null;
   }, s = (o) => {
-    if (!Object.values(ii).includes(o))
+    if (!Object.values(si).includes(o))
       throw new Error("[CX] Invalid publishing target used");
-    fl.value = o;
+    ml.value = o;
   };
   return {
-    target: fl,
+    target: ml,
     resetPublishTarget: t,
     clearPublishTarget: n,
     setTarget: s,
-    PUBLISHING_TARGETS: ii
+    PUBLISHING_TARGETS: si
   };
-}, O$ = window.Vue.watch, j$ = () => {
-  const { fetchAllTranslations: e } = Zs(), t = Xh(), n = U$(), { fetchPageCollectionGroups: s } = du(), { logDashboardOpenEvent: o } = Nf(), { applicationLanguagesInitialized: a } = Yh(), { clearPublishTarget: r } = Rt();
-  return () => C(void 0, null, function* () {
+}, O$ = window.Vue.watch, H$ = () => {
+  const { fetchAllTranslations: e } = Js(), t = Jh(), n = U$(), { fetchPageCollectionGroups: s } = du(), { logDashboardOpenEvent: o } = If(), { applicationLanguagesInitialized: a } = tf(), { clearPublishTarget: r } = zt();
+  return () => x(void 0, null, function* () {
     s(), r();
     try {
       yield n();
@@ -17097,8 +17042,8 @@ const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createV
       { immediate: !0 }
     );
   });
-}, tp = window.Vue.computed, H$ = window.Vue.ref, q$ = window.Vue.watch, G$ = window.Vue.watchEffect, X$ = window.Vuex.useStore, W$ = ["suggestions", "draft", "published"], K$ = () => {
-  const e = X$(), { activeDashboardTabParameter: t, setActiveDashboardTabParameter: n } = A(), { translationsFetched: s } = Zs(), o = H$(null);
+}, tp = window.Vue.computed, j$ = window.Vue.ref, q$ = window.Vue.watch, G$ = window.Vue.watchEffect, X$ = window.Vuex.useStore, W$ = ["suggestions", "draft", "published"], K$ = () => {
+  const e = X$(), { activeDashboardTabParameter: t, setActiveDashboardTabParameter: n } = D(), { translationsFetched: s } = Js(), o = j$(null);
   if (W$.includes(t.value))
     o.value = t.value;
   else {
@@ -17115,13 +17060,13 @@ const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createV
     n(o.value), window.scrollTo(0, 0);
   }), o;
 }, Y$ = window.Vue.computed, Q$ = () => {
-  const e = we();
+  const e = he();
   return Y$(() => [
     {
       value: "suggestions",
       props: {
         label: e.i18n("cx-translation-filter-suggested-translations"),
-        icon: T0,
+        icon: B0,
         type: "text"
       }
     },
@@ -17129,7 +17074,7 @@ const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createV
       value: "draft",
       props: {
         label: e.i18n("cx-translation-filter-draft-translations"),
-        icon: Yi,
+        icon: Xi,
         type: "text"
       }
     },
@@ -17137,30 +17082,30 @@ const V$ = window.Vue.renderSlot, L$ = window.Vue.unref, T$ = window.Vue.createV
       value: "published",
       props: {
         label: e.i18n("cx-translation-filter-published-translations"),
-        icon: L0,
+        icon: P0,
         type: "text"
       }
     }
   ]);
 };
-const Ce = window.Vue.unref, Me = window.Vue.createVNode, J$ = window.Vue.toDisplayString, Z$ = window.Vue.createTextVNode, cn = window.Vue.withCtx, wl = window.Vue.openBlock, np = window.Vue.createBlock, sp = window.Vue.createCommentVNode, eE = window.Vue.vShow, tE = window.Vue.withDirectives, nE = window.Vue.isRef, sE = window.Vue.createElementBlock, oE = window.Vue.computed, aE = window.Vuex.useStore, iE = window.Codex.CdxButton, rE = window.Codex.CdxIcon, lE = {
+const Ce = window.Vue.unref, Me = window.Vue.createVNode, J$ = window.Vue.toDisplayString, Z$ = window.Vue.createTextVNode, un = window.Vue.withCtx, hl = window.Vue.openBlock, np = window.Vue.createBlock, sp = window.Vue.createCommentVNode, eV = window.Vue.vShow, tV = window.Vue.withDirectives, nV = window.Vue.isRef, sV = window.Vue.createElementBlock, oV = window.Vue.computed, aV = window.Vuex.useStore, iV = window.Codex.CdxButton, rV = window.Codex.CdxIcon, lV = {
   __name: "CXDashboard",
   setup(e) {
-    const t = Ze(), n = bt(), s = () => {
+    const t = tt(), n = bt(), s = () => {
       n({
         event_type: "dashboard_new_translation_search"
       }), t.push({ name: "sx-article-search" });
     };
-    j$()();
-    const a = aE();
+    H$()();
+    const a = aV();
     a.dispatch("translator/fetchTranslatorStats");
-    const r = oE(() => a.state.translator.translatorStats), l = K$(), u = Q$(), d = Ff(), i = (c) => {
+    const r = oV(() => a.state.translator.translatorStats), l = K$(), u = Q$(), d = Uf(), i = (c) => {
       d(c), l.value = c;
     };
-    return (c, g) => (wl(), sE("div", null, [
-      Me(Ce(N), { class: "ma-0 pb-4" }, {
-        default: cn(() => [
-          Me(Ce(iE), {
+    return (c, g) => (hl(), sV("div", null, [
+      Me(Ce(M), { class: "ma-0 pb-4" }, {
+        default: un(() => [
+          Me(Ce(iV), {
             id: "dashboard-search-translation-button",
             action: "progressive",
             weight: "primary",
@@ -17168,10 +17113,10 @@ const Ce = window.Vue.unref, Me = window.Vue.createVNode, J$ = window.Vue.toDisp
             class: "col-offset-desktop-2 col-offset-tablet-3",
             onClick: s
           }, {
-            default: cn(() => [
-              Me(Ce(rE), {
+            default: un(() => [
+              Me(Ce(rV), {
                 class: "me-1",
-                icon: Ce(Uh)
+                icon: Ce(Hh)
               }, null, 8, ["icon"]),
               Z$(" " + J$(c.$i18n("cx-create-new-translation")), 1)
             ]),
@@ -17180,18 +17125,18 @@ const Ce = window.Vue.unref, Me = window.Vue.createVNode, J$ = window.Vue.toDisp
         ]),
         _: 1
       }),
-      Me(Ce(N), {
+      Me(Ce(M), {
         class: "ma-0",
         align: "start"
       }, {
-        default: cn(() => [
-          c.$mwui.breakpoint.tabletAndUp ? (wl(), np(Ce(k), {
+        default: un(() => [
+          c.$mwui.breakpoint.tabletAndUp ? (hl(), np(Ce(k), {
             key: 0,
             class: "px-0",
             tablet: "3",
             desktop: "2"
           }, {
-            default: cn(() => [
+            default: un(() => [
               Me(Ce(ma), {
                 id: "dashboard-list-selector--desktop",
                 items: Ce(u),
@@ -17207,18 +17152,18 @@ const Ce = window.Vue.unref, Me = window.Vue.createVNode, J$ = window.Vue.toDisp
             tablet: "9",
             desktop: "7"
           }, {
-            default: cn(() => [
-              tE(Me(s$, null, null, 512), [
-                [eE, Ce(l) === "suggestions"]
+            default: un(() => [
+              tV(Me(s$, null, null, 512), [
+                [eV, Ce(l) === "suggestions"]
               ]),
               Me(G2, {
                 active: Ce(l) === "suggestions"
               }, null, 8, ["active"]),
-              Me(mg, {
+              Me(hg, {
                 "translation-status": "draft",
                 "active-status": Ce(l)
               }, null, 8, ["active-status"]),
-              Me(mg, {
+              Me(hg, {
                 "translation-status": "published",
                 "active-status": Ce(l)
               }, null, 8, ["active-status"])
@@ -17231,20 +17176,20 @@ const Ce = window.Vue.unref, Me = window.Vue.createVNode, J$ = window.Vue.toDisp
             tablet: "9",
             desktop: "3"
           }, {
-            default: cn(() => [
-              Me(Ce(N), {
+            default: un(() => [
+              Me(Ce(M), {
                 class: "ma-0",
                 align: "start"
               }, {
-                default: cn(() => [
+                default: un(() => [
                   Me(Ce(k), {
                     cols: "12",
                     tablet: "6",
                     desktop: "12",
                     class: "px-0 mb-4 mb-tablet-0 mb-desktop-4 pe-tablet-2 pe-desktop-0"
                   }, {
-                    default: cn(() => [
-                      Me(E$, { stats: r.value }, null, 8, ["stats"])
+                    default: un(() => [
+                      Me(V$, { stats: r.value }, null, 8, ["stats"])
                     ]),
                     _: 1
                   }),
@@ -17254,7 +17199,7 @@ const Ce = window.Vue.unref, Me = window.Vue.createVNode, J$ = window.Vue.toDisp
                     desktop: "12",
                     class: "px-0 ps-tablet-2 ps-desktop-0"
                   }, {
-                    default: cn(() => [
+                    default: un(() => [
                       Me(f$)
                     ]),
                     _: 1
@@ -17268,58 +17213,58 @@ const Ce = window.Vue.unref, Me = window.Vue.createVNode, J$ = window.Vue.toDisp
         ]),
         _: 1
       }),
-      c.$mwui.breakpoint.mobile ? (wl(), np(N$, {
+      c.$mwui.breakpoint.mobile ? (hl(), np(N$, {
         key: 0,
         active: Ce(l),
-        "onUpdate:active": g[0] || (g[0] = (p) => nE(l) ? l.value = p : null),
+        "onUpdate:active": g[0] || (g[0] = (p) => nV(l) ? l.value = p : null),
         items: Ce(u)
       }, null, 8, ["active", "items"])) : sp("", !0)
     ]));
   }
-}, cE = {
+}, cV = {
   name: "DashboardView",
-  components: { CxDashboard: lE }
-}, uE = window.Vue.resolveComponent, dE = window.Vue.createVNode, gE = window.Vue.openBlock, pE = window.Vue.createElementBlock, mE = { class: "cx-translation-dashboard" };
-function hE(e, t, n, s, o, a) {
-  const r = uE("cx-dashboard");
-  return gE(), pE("main", mE, [
-    dE(r, { class: "mb-4 pb-12 px-3 px-tablet-10" })
+  components: { CxDashboard: lV }
+}, uV = window.Vue.resolveComponent, dV = window.Vue.createVNode, gV = window.Vue.openBlock, pV = window.Vue.createElementBlock, mV = { class: "cx-translation-dashboard" };
+function hV(e, t, n, s, o, a) {
+  const r = uV("cx-dashboard");
+  return gV(), pV("main", mV, [
+    dV(r, { class: "mb-4 pb-12 px-3 px-tablet-10" })
   ]);
 }
-const op = /* @__PURE__ */ de(cE, [["render", hE]]), fE = window.Vuex.useStore, wE = window.Vue.computed, zt = () => {
-  const e = fE(), {
+const op = /* @__PURE__ */ ge(cV, [["render", hV]]), fV = window.Vuex.useStore, wV = window.Vue.computed, Ot = () => {
+  const e = fV(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     sectionURLParameter: s,
     pageURLParameter: o
-  } = A();
-  return { currentTranslation: wE(
+  } = D();
+  return { currentTranslation: wV(
     () => e.state.translator.translations.find(
       /** @param {DraftTranslation} translation */
       (r) => r.status === "draft" && r.sourceTitle === o.value && r.sectionTitleMatches(s.value) && r.sourceLanguage === t.value && r.targetLanguage === n.value
     )
   ) };
-}, ks = window.Vue.computed, vE = () => {
-  const { sectionSuggestion: e } = Fe(), { targetLanguageURLParameter: t } = A(), { currentTranslation: n } = zt(), s = ks(
+}, Vs = window.Vue.computed, vV = () => {
+  const { sectionSuggestion: e } = De(), { targetLanguageURLParameter: t } = D(), { currentTranslation: n } = Ot(), s = Vs(
     () => {
       var g, p, m;
       return (m = (p = (g = e.value) == null ? void 0 : g.orderedMissingSections) == null ? void 0 : p[0]) == null ? void 0 : m.sourceTitle;
     }
-  ), o = ks(
+  ), o = Vs(
     () => {
       var g;
       return (g = e.value) == null ? void 0 : g.missingSectionsCount;
     }
-  ), a = ks(
+  ), a = Vs(
     () => {
       var g;
       return (g = e.value) == null ? void 0 : g.presentSectionsCount;
     }
-  ), { targetPageExists: r, getCurrentTitleByLanguage: l } = bn(), u = ks(() => r ? K.getPageUrl(
+  ), { targetPageExists: r, getCurrentTitleByLanguage: l } = bn(), u = Vs(() => r ? K.getPageUrl(
     t.value || "",
     // no need for fallback language, since we know that current target page exists
     l(t.value, null)
-  ) : null), d = (g) => n.value ? "cx-sx-translation-confirmer-continue-translation-button-label" : g ? "cx-sx-translation-confirmer-translate-prefilled-section-button-label" : r.value ? o.value > 1 || o.value === 1 && a.value > 0 ? "cx-sx-select-section" : o.value === 1 && a.value === 0 ? "cx-sx-translation-confirmer-action-view-section" : o.value === 0 && a.value > 0 ? "cx-sx-select-section" : o.value === 0 && a.value === 0 ? "cx-sx-translation-confirmer-action-new-translation" : "" : "cx-sx-start-translation-button-label", i = ks(() => {
+  ) : null), d = (g) => n.value ? "cx-sx-translation-confirmer-continue-translation-button-label" : g ? "cx-sx-translation-confirmer-translate-prefilled-section-button-label" : r.value ? o.value > 1 || o.value === 1 && a.value > 0 ? "cx-sx-select-section" : o.value === 1 && a.value === 0 ? "cx-sx-translation-confirmer-action-view-section" : o.value === 0 && a.value > 0 ? "cx-sx-select-section" : o.value === 0 && a.value === 0 ? "cx-sx-translation-confirmer-action-new-translation" : "" : "cx-sx-start-translation-button-label", i = Vs(() => {
     if (o.value > 1) {
       const g = "cx-sx-existing-translation-additional-info", p = ["$1", o.value - 1];
       return mw.message(g, ...p).parse().replace("$1", `"${s.value}"`);
@@ -17336,7 +17281,7 @@ const op = /* @__PURE__ */ de(cE, [["render", hE]]), fE = window.Vuex.useStore, 
       const g = "cx-sx-translation-confirmer-action-message-none-missing-none-present";
       return mw.message(g).parse();
     }
-  }), c = ks(
+  }), c = Vs(
     () => {
       var g;
       return !r.value || ((g = e.value) == null ? void 0 : g.missingSectionsCount) > 0;
@@ -17349,10 +17294,10 @@ const op = /* @__PURE__ */ de(cE, [["render", hE]]), fE = window.Vuex.useStore, 
     targetArticlePath: u
   };
 };
-function _E(e) {
+function _V(e) {
   return e.$el = $(e), e;
 }
-function SE(e, t, n, s) {
+function SV(e, t, n, s) {
   e.clearSurfaces();
   const o = ve.dm.converter.getModelFromDom(
     ve.createDocumentFromHtml(
@@ -17363,27 +17308,27 @@ function SE(e, t, n, s) {
   ), a = e.createSurface(o);
   return e.surfaces.push(a), e.setSurface(a), a.initialize(), a;
 }
-function yE() {
+function yV() {
   var e = this.getReferenceNode();
   return e ? (this.view = new ve.ui.MWPreviewElement(e, {
     useView: !0
   }), this.view.once("render", this.context.updateDimensions.bind(this.context)), this.view.$element) : $("<div>").addClass("ve-ui-mwReferenceContextItem-muted").text(ve.msg("cite-ve-referenceslist-missingref"));
 }
-function xE(e, t) {
-  return C(this, null, function* () {
+function xV(e, t) {
+  return x(this, null, function* () {
     yield Cu(), OO.ui.isMobile = () => !0, yield mw.libs.ve.targetLoader.loadModules("visual");
-    const n = _E(t);
+    const n = _V(t);
     return new ve.init.mw.SectionTranslationTarget(n, e);
   });
 }
-const CE = window.Vue.computed, bE = window.Vue.onMounted, kE = window.Vue.ref;
-function $E(e) {
+const CV = window.Vue.computed, bV = window.Vue.onMounted, kV = window.Vue.ref;
+function $V(e) {
   let t = e[0].getAttribute("title");
   return t || (t = e[0].getAttribute("href").replace(/^\.\//, "")), ve.dm.MWInternalLinkAnnotation.static.dataElementFromTitle(
     mw.Title.newFromText(t)
   );
 }
-const EE = {
+const VV = {
   name: "VisualEditor",
   props: {
     content: {
@@ -17409,9 +17354,9 @@ const EE = {
   },
   emits: ["ready", "close", "edit-completed"],
   setup(e, t) {
-    const n = kE(null);
+    const n = kV(null);
     let s = null;
-    const o = CE(
+    const o = CV(
       () => e.useText ? s.getDom().body.textContent : s.getHtml()
     ), a = () => {
       s.destroy(), n.value.querySelector(".toolbar").innerHTML = "";
@@ -17429,46 +17374,46 @@ const EE = {
       title: e.title,
       siteMapper: new mw.cx.SiteMapper()
     };
-    return bE(() => C(this, null, function* () {
-      ve.dm.MWInternalLinkAnnotation.static.toDataElement = $E;
-      const i = yield xE(u, n.value);
-      t.emit("ready"), n.value.appendChild(i.$element[0]), s = SE(
+    return bV(() => x(this, null, function* () {
+      ve.dm.MWInternalLinkAnnotation.static.toDataElement = $V;
+      const i = yield xV(u, n.value);
+      t.emit("ready"), n.value.appendChild(i.$element[0]), s = SV(
         i,
         e.content,
         e.language,
         e.dir
       );
       const c = ve.ui.contextItemFactory.lookup("reference");
-      c.prototype.getRendering = yE, s.focus();
+      c.prototype.getRendering = yV, s.focus();
     })), { sxeditor: n };
   }
-}, qi = window.Vue.createElementVNode, VE = window.Vue.openBlock, LE = window.Vue.createElementBlock, TE = ["lang", "dir"], AE = /* @__PURE__ */ qi("div", { class: "overlay-header-container" }, [
-  /* @__PURE__ */ qi("div", { class: "overlay-header header initial-header" }, [
-    /* @__PURE__ */ qi("div", { class: "toolbar" })
+}, Oi = window.Vue.createElementVNode, EV = window.Vue.openBlock, LV = window.Vue.createElementBlock, TV = ["lang", "dir"], AV = /* @__PURE__ */ Oi("div", { class: "overlay-header-container" }, [
+  /* @__PURE__ */ Oi("div", { class: "overlay-header header initial-header" }, [
+    /* @__PURE__ */ Oi("div", { class: "toolbar" })
   ])
-], -1), DE = ["lang", "dir"];
-function PE(e, t, n, s, o, a) {
-  return VE(), LE("div", {
+], -1), DV = ["lang", "dir"];
+function PV(e, t, n, s, o, a) {
+  return EV(), LV("div", {
     ref: "sxeditor",
     lang: n.language,
     dir: n.dir,
     class: "visual-editor"
   }, [
-    AE,
-    qi("div", {
+    AV,
+    Oi("div", {
       class: "surface pa-5",
       lang: n.language,
       dir: n.dir
-    }, null, 8, DE)
-  ], 8, TE);
+    }, null, 8, DV)
+  ], 8, TV);
 }
-const BE = /* @__PURE__ */ de(EE, [["render", PE]]);
+const BV = /* @__PURE__ */ ge(VV, [["render", PV]]);
 function Cu() {
   return mw.loader.using("mw.cx3.ve");
 }
-const FE = window.Vuex.useStore, NE = () => {
-  const e = FE();
-  return (t, n) => C(void 0, null, function* () {
+const FV = window.Vuex.useStore, NV = () => {
+  const e = FV();
+  return (t, n) => x(void 0, null, function* () {
     const s = e.getters["mediawiki/getPage"](
       t,
       n
@@ -17479,7 +17424,7 @@ const FE = window.Vuex.useStore, NE = () => {
       );
     return yield Cu(), new Promise((o) => {
       setTimeout(() => {
-        const a = Th.convertSegmentedContentToPageSections(
+        const a = Lh.convertSegmentedContentToPageSections(
           s.content,
           !0
           // resolve references
@@ -17488,16 +17433,16 @@ const FE = window.Vuex.useStore, NE = () => {
       }, 0);
     });
   });
-}, ME = window.Vuex.useStore, Mf = () => {
-  const e = ME();
-  return (t, n, s, o = null) => C(void 0, null, function* () {
+}, MV = window.Vuex.useStore, Rf = () => {
+  const e = MV();
+  return (t, n, s, o = null) => x(void 0, null, function* () {
     let a = e.getters["mediawiki/getPage"](
       t,
       s
     );
     if (a && a.content)
       return;
-    const r = yield cs.fetchPageContent(
+    const r = yield ds.fetchPageContent(
       t,
       n,
       s,
@@ -17511,42 +17456,42 @@ const FE = window.Vuex.useStore, NE = () => {
       sections: r.sections
     })) : e.commit("mediawiki/addPage", r);
   });
-}, vl = window.Vue.computed, UE = window.Vuex.useStore, dt = () => {
-  const e = UE(), { sectionSuggestion: t } = Fe(), { currentTranslation: n } = zt(), {
+}, fl = window.Vue.computed, UV = window.Vuex.useStore, pt = () => {
+  const e = UV(), { sectionSuggestion: t } = De(), { currentTranslation: n } = Ot(), {
     sourceLanguageURLParameter: s,
     pageURLParameter: o,
     targetLanguageURLParameter: a
-  } = A(), r = vl(
+  } = D(), r = fl(
     () => e.getters["mediawiki/getPage"](
       s.value,
       o.value
     )
-  ), l = vl(
+  ), l = fl(
     () => {
       var d, i;
       return ((d = t.value) == null ? void 0 : d.targetTitle) || ((i = n.value) == null ? void 0 : i.targetTitle);
     }
-  ), u = vl(
+  ), u = fl(
     () => e.getters["mediawiki/getPage"](
       a.value,
       l.value
     )
   );
   return { currentSourcePage: r, currentTargetPage: u, currentTargetPageTitle: l };
-}, dr = () => {
-  const { currentSourcePage: e } = dt(), t = NE(), n = Mf(), {
+}, rr = () => {
+  const { currentSourcePage: e } = pt(), t = NV(), n = Rf(), {
     setSectionURLParam: s,
     sourceLanguageURLParameter: o,
     targetLanguageURLParameter: a,
     pageURLParameter: r,
     revisionURLParameter: l
-  } = A(), u = (c, g) => C(void 0, null, function* () {
+  } = D(), u = (c, g) => x(void 0, null, function* () {
     c() || (yield n(
       o.value,
       a.value,
       r.value,
       l.value
-    ), Ws || (yield t(
+    ), qn || (yield t(
       o.value,
       r.value
     ))), g();
@@ -17566,14 +17511,14 @@ const FE = window.Vuex.useStore, NE = () => {
       s(c);
     })
   };
-}, IE = window.Vuex.useStore, eo = () => {
+}, IV = window.Vuex.useStore, Zs = () => {
   const {
     sourceLanguageURLParameter: e,
     targetLanguageURLParameter: t,
     pageURLParameter: n,
     sectionURLParameter: s,
     isQuickTutorialForced: o
-  } = A(), a = IE(), r = Ze(), l = () => {
+  } = D(), a = IV(), r = tt(), l = () => {
     const c = r.currentRoute.value.name !== "sx-quick-tutorial" && (o() || !a.getters["translator/userHasSectionTranslations"]) ? "sx-quick-tutorial" : "sx-sentence-selector";
     return r.getRoutes().find((g) => g.name === c);
   }, u = () => {
@@ -17604,7 +17549,7 @@ const FE = window.Vuex.useStore, NE = () => {
       e.value,
       t.value,
       n.value
-    ), Ws) {
+    ), qn) {
       d();
       return;
     }
@@ -17613,8 +17558,71 @@ const FE = window.Vuex.useStore, NE = () => {
     const c = l();
     r.push({ name: c.name });
   };
+}, ap = window.Vue.computed, RV = window.Vue.ref, zV = window.Vue.watchEffect, wl = /* @__PURE__ */ new Map(), OV = (e, t) => x(void 0, null, function* () {
+  return (yield me.fetchArticleSections(
+    e,
+    t
+  )).sections.filter(
+    (o) => o.level === "2"
+  )[0].byteoffset;
+}), HV = (e, t) => {
+  const n = `${e}:${t}`;
+  if (wl.has(n))
+    return wl.get(n);
+  const s = OV(e, t);
+  return wl.set(n, s), s;
+}, zf = () => {
+  const { currentSourcePage: e } = pt(), { sectionSuggestion: t } = De(), { sectionURLParameter: n } = D(), s = RV(null);
+  zV(() => x(void 0, null, function* () {
+    var r;
+    if (t.value && n.value)
+      s.value = t.value.getSectionSize(n.value);
+    else if (t.value) {
+      const { missingSections: l } = t.value;
+      s.value = Object.keys(l).reduce(
+        (u, d) => u + t.value.getSectionSize(d),
+        0
+      );
+    } else if (e.value && !qn) {
+      const l = e.value.language, u = e.value.title;
+      s.value = yield HV(l, u);
+    } else
+      s.value = ((r = e.value) == null ? void 0 : r.articleSize) || null;
+  }));
+  const o = ap(() => s.value ? !t.value && qn ? Mh(s.value) : Uh(s.value) : ut.unknown);
+  return { isQuickTranslation: ap(() => o.value === ut.stub || o.value === ut.easy), difficulty: o, sizeInBytes: s };
 }, bu = () => {
-  const e = bt(), { currentTranslation: t } = zt();
+  const {
+    sourceLanguageURLParameter: e,
+    targetLanguageURLParameter: t,
+    pageURLParameter: n,
+    sectionURLParameter: s
+  } = D(), o = bt(), { difficulty: a } = zf();
+  return {
+    logDashboardTranslationStartEvent: () => {
+      const l = {
+        event_type: "dashboard_translation_start",
+        event_source: Af.value,
+        translation_source_language: e.value,
+        translation_target_language: t.value,
+        translation_source_title: n.value,
+        translation_difficulty_level: a.value
+        // translation_target_exists:
+        // 	description:
+        // 		Whether the target article or section already exists. Applies only to
+        // 		events which relate to a specific translation or suggestion: all `editor_`
+        // 		and `publish_` events and some `dashboard_` events (e.g. `dashboard_start_translation`,
+        // 		`dashboard_delete_translation`). In section translation, if the user discards the mapping
+        // 		to an existing target section, the value should change to false in future events.
+        // 	status:
+        // 		Currently, we do not support "override page/section" functionality, and thus this property is not
+        // 		yet required, translation_target_exists
+      };
+      return Kc.value && (l.event_context = Kc.value), s.value ? (l.translation_source_section = s.value, l.translation_type = "section") : l.translation_type = "article", o(l);
+    }
+  };
+}, ku = () => {
+  const e = bt(), { currentTranslation: t } = Ot();
   return () => {
     if (!t.value)
       return mw.log.error(
@@ -17640,21 +17648,21 @@ const FE = window.Vuex.useStore, NE = () => {
     };
     return u && (i.translation_source_section = u), d && (i.translation_target_section = d), e(i);
   };
-}, RE = window.Vue.ref, zE = () => {
-  const e = Ze(), { logDashboardTranslationStartEvent: t } = ur(), n = bu(), s = eo(), { sectionURLParameter: o } = A(), { targetPageExists: a } = bn(), { selectPageSectionByTitle: r } = dr(), l = () => C(void 0, null, function* () {
+}, jV = window.Vue.ref, qV = () => {
+  const e = tt(), { logDashboardTranslationStartEvent: t } = bu(), n = ku(), s = Zs(), { sectionURLParameter: o } = D(), { targetPageExists: a } = bn(), { selectPageSectionByTitle: r } = rr(), l = () => x(void 0, null, function* () {
     yield r(o.value), e.push({ name: "sx-content-comparator" });
-  }), u = RE(!1), { currentTranslation: d } = zt();
+  }), u = jV(!1), { currentTranslation: d } = Ot();
   return {
     handlePrimaryButtonClick: () => {
-      d.value ? d.value.isArticleTranslation && !Ws ? u.value = !0 : (n(), s()) : o.value ? l() : a.value ? e.push({ name: "sx-section-selector" }) : (t(), s());
+      d.value ? d.value.isArticleTranslation && !qn ? u.value = !0 : (n(), s()) : o.value ? l() : a.value ? e.push({ name: "sx-section-selector" }) : (t(), s());
     },
     translationConfirmationDialogOn: u
   };
 };
-const OE = window.Vue.resolveDirective, ap = window.Vue.createElementVNode, ip = window.Vue.withDirectives, jE = window.Vue.unref, HE = window.Vue.withCtx, qE = window.Vue.openBlock, GE = window.Vue.createBlock, XE = {
+const GV = window.Vue.resolveDirective, ip = window.Vue.createElementVNode, rp = window.Vue.withDirectives, XV = window.Vue.unref, WV = window.Vue.withCtx, KV = window.Vue.openBlock, YV = window.Vue.createBlock, QV = {
   href: "",
   target: "_blank"
-}, WE = window.Codex.CdxDialog, KE = {
+}, JV = window.Codex.CdxDialog, ZV = {
   __name: "UnreviewedTranslationDialog",
   props: {
     modelValue: {
@@ -17668,7 +17676,7 @@ const OE = window.Vue.resolveDirective, ap = window.Vue.createElementVNode, ip =
   },
   emits: ["update:modelValue"],
   setup(e, { emit: t }) {
-    const n = e, s = t, o = (d) => s("update:modelValue", d), a = we(), r = {
+    const n = e, s = t, o = (d) => s("update:modelValue", d), a = he(), r = {
       label: a.i18n(
         "cx-unreviewed-translation-dialog-review-translation-button-label"
       ),
@@ -17680,8 +17688,8 @@ const OE = window.Vue.resolveDirective, ap = window.Vue.createElementVNode, ip =
       window.open(n.targetUrl, "_blank"), o(!1);
     }
     return (d, i) => {
-      const c = OE("i18n");
-      return qE(), GE(jE(WE), {
+      const c = GV("i18n");
+      return KV(), YV(XV(JV), {
         class: "cx-unreviewed-translation-dialog",
         open: e.modelValue,
         title: d.$i18n("cx-unreviewed-translation-dialog-title"),
@@ -17692,11 +17700,11 @@ const OE = window.Vue.resolveDirective, ap = window.Vue.createElementVNode, ip =
         onPrimary: u,
         onDefault: i[1] || (i[1] = (g) => o(!1))
       }, {
-        default: HE(() => [
-          ip(ap("p", null, null, 512), [
+        default: WV(() => [
+          rp(ip("p", null, null, 512), [
             [c, void 0, "cx-unreviewed-translation-dialog-body"]
           ]),
-          ip(ap("a", XE, null, 512), [
+          rp(ip("a", QV, null, 512), [
             [c, void 0, "cx-unreviewed-translation-dialog-learn-more-link-label"]
           ])
         ]),
@@ -17704,155 +17712,155 @@ const OE = window.Vue.resolveDirective, ap = window.Vue.createElementVNode, ip =
       }, 8, ["open", "title"]);
     };
   }
-}, YE = () => {
+}, eE = () => {
   const {
     sectionURLParameter: e,
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n,
     pageURLParameter: s
-  } = A(), o = ir();
-  return () => C(void 0, null, function* () {
+  } = D(), o = sr();
+  return () => x(void 0, null, function* () {
     const a = yield o(
       t.value,
       n.value,
       s.value
     );
-    return a instanceof xn ? a.sourceSections.includes(e.value) : !1;
+    return a instanceof en ? a.sourceSections.includes(e.value) : !1;
   });
 };
-const Se = window.Vue.unref, QE = window.Vue.resolveDirective, Lo = window.Vue.createElementVNode, rp = window.Vue.withDirectives, To = window.Vue.openBlock, _l = window.Vue.createElementBlock, Sl = window.Vue.createCommentVNode, ft = window.Vue.createVNode, At = window.Vue.withCtx, yl = window.Vue.toDisplayString, xl = window.Vue.createTextVNode, JE = window.Vue.withModifiers, lp = window.Vue.createBlock, ZE = window.Vue.Fragment, eV = { class: "sx-translation-confirmer-body pb-4" }, tV = {
+const _e = window.Vue.unref, tE = window.Vue.resolveDirective, Lo = window.Vue.createElementVNode, lp = window.Vue.withDirectives, To = window.Vue.openBlock, vl = window.Vue.createElementBlock, _l = window.Vue.createCommentVNode, wt = window.Vue.createVNode, At = window.Vue.withCtx, Sl = window.Vue.toDisplayString, yl = window.Vue.createTextVNode, nE = window.Vue.withModifiers, cp = window.Vue.createBlock, sE = window.Vue.Fragment, oE = { class: "sx-translation-confirmer-body pb-4" }, aE = {
   key: 0,
   class: "sx-translation-confirmer-body__pre-filled-banner pa-4 ma-0"
-}, nV = ["innerHTML"], sV = {
+}, iE = ["innerHTML"], rE = {
   key: 1,
   class: "mt-1 px-4 pt-4"
-}, oV = ["href"], aV = ["innerHTML"], Cl = window.Vue.computed, bl = window.Vue.ref, iV = window.Vue.watchEffect, rV = window.Vuex.useStore, kl = window.Codex.CdxButton, lV = window.Codex.CdxIcon, cV = {
+}, lE = ["href"], cE = ["innerHTML"], xl = window.Vue.computed, Cl = window.Vue.ref, uE = window.Vue.watchEffect, dE = window.Vuex.useStore, bl = window.Codex.CdxButton, gE = window.Codex.CdxIcon, pE = {
   __name: "SXTranslationConfirmerActionPanel",
   emits: ["open-translation-confirmation-dialog"],
   setup(e, { emit: t }) {
-    const n = Ze(), s = rV(), { sectionSuggestion: o } = Fe(), { targetLanguageAutonym: a } = Le(s), { sectionURLParameter: r, clearSectionURLParameter: l } = A(), { logDashboardTranslationStartEvent: u } = ur(), d = eo(), { handlePrimaryButtonClick: i, translationConfirmationDialogOn: c } = zE(), g = bl(!1), p = bl(null), m = () => C(this, null, function* () {
+    const n = tt(), s = dE(), { sectionSuggestion: o } = De(), { targetLanguageAutonym: a } = Ae(s), { sectionURLParameter: r, clearSectionURLParameter: l } = D(), { logDashboardTranslationStartEvent: u } = bu(), d = Zs(), { handlePrimaryButtonClick: i, translationConfirmationDialogOn: c } = qV(), g = Cl(!1), p = Cl(null), m = () => x(this, null, function* () {
       let te = !0;
       try {
         te = yield xt.checkUnreviewedTranslations();
-      } catch (R) {
+      } catch (z) {
         mw.log.error(
           "Error while checking for user's unreviewed translations ",
-          R
+          z
         );
       }
       te !== !0 && (g.value = !0, p.value = te.targetUrl);
-    }), h = () => C(this, null, function* () {
+    }), h = () => x(this, null, function* () {
       yield m(), !g.value && (u(), d());
-    }), f = () => C(this, null, function* () {
+    }), f = () => x(this, null, function* () {
       yield m(), !g.value && i();
     }), w = t;
-    iV(() => {
+    uE(() => {
       c.value && (w("open-translation-confirmation-dialog"), c.value = !1);
     });
     const {
-      actionInformationMessage: v,
-      getActionButtonLabel: y,
+      actionInformationMessage: _,
+      getActionButtonLabel: C,
       isProgressiveButton: S,
       targetArticlePath: b
-    } = vE(), V = we(), x = Cl(
-      () => V.i18n(y(!!r.value))
-    ), I = () => C(this, null, function* () {
+    } = vV(), A = he(), y = xl(
+      () => A.i18n(C(!!r.value))
+    ), B = () => x(this, null, function* () {
       yield m(), !g.value && n.push({ name: "sx-section-selector" });
-    }), L = Cl(() => {
-      var te, R;
-      return r.value && !!((R = (te = o.value) == null ? void 0 : te.sourceSections) != null && R.length);
-    }), { targetPageExists: P } = bn(), H = Cl(() => !r.value && P.value && Ws), se = YE(), ae = bl(!1);
+    }), V = xl(() => {
+      var te, z;
+      return r.value && !!((z = (te = o.value) == null ? void 0 : te.sourceSections) != null && z.length);
+    }), { targetPageExists: E } = bn(), j = xl(() => !r.value && E.value && qn), se = eE(), ae = Cl(!1);
     return se().then((te) => {
       te || l(), ae.value = !0;
-    }), (te, R) => {
-      const J = QE("i18n");
-      return To(), _l(ZE, null, [
-        Lo("section", eV, [
-          Se(r) && ae.value ? (To(), _l("section", tV, [
-            rp(Lo("h6", null, null, 512), [
+    }), (te, z) => {
+      const J = tE("i18n");
+      return To(), vl(sE, null, [
+        Lo("section", oE, [
+          _e(r) && ae.value ? (To(), vl("section", aE, [
+            lp(Lo("h6", null, null, 512), [
               [J, void 0, "cx-sx-translation-confirmer-prefilled-section-heading"]
             ]),
             Lo("h5", {
               class: "ma-0",
-              innerHTML: Se(r)
-            }, null, 8, nV)
-          ])) : Se(P) && !Se(r) ? (To(), _l("section", sV, [
-            ft(Se(N), {
+              innerHTML: _e(r)
+            }, null, 8, iE)
+          ])) : _e(E) && !_e(r) ? (To(), vl("section", rE, [
+            wt(_e(M), {
               class: "sx-translation-confirmer__translation-status ma-0 pb-2",
               justify: "between"
             }, {
               default: At(() => [
-                rp(ft(Se(k), {
+                lp(wt(_e(k), {
                   tag: "h5",
                   class: "ma-0 pe-2"
                 }, null, 512), [
-                  [J, [Se(a)], "cx-sx-existing-translation-status"]
+                  [J, [_e(a)], "cx-sx-existing-translation-status"]
                 ]),
-                ft(Se(k), { shrink: "" }, {
+                wt(_e(k), { shrink: "" }, {
                   default: At(() => [
                     Lo("a", {
-                      href: Se(b),
+                      href: _e(b),
                       target: "_blank"
                     }, [
-                      ft(Se(lV), {
+                      wt(_e(gE), {
                         class: "sx-translation-confirmer__existing-target-article-link-icon",
                         size: "small",
-                        icon: Se(or)
+                        icon: _e(tr)
                       }, null, 8, ["icon"])
-                    ], 8, oV)
+                    ], 8, lE)
                   ]),
                   _: 1
                 })
               ]),
               _: 1
             }),
-            ft(Se(N), { class: "ma-0" }, {
+            wt(_e(M), { class: "ma-0" }, {
               default: At(() => [
-                ft(Se(k), null, {
+                wt(_e(k), null, {
                   default: At(() => [
-                    Lo("span", { innerHTML: Se(v) }, null, 8, aV)
+                    Lo("span", { innerHTML: _e(_) }, null, 8, cE)
                   ]),
                   _: 1
                 })
               ]),
               _: 1
             })
-          ])) : Sl("", !0),
-          ft(Se(N), {
+          ])) : _l("", !0),
+          wt(_e(M), {
             class: "sx-translation-confirmer__action pt-5 pb-2 ma-0 px-4",
             justify: "center"
           }, {
             default: At(() => [
-              L.value ? (To(), lp(Se(k), {
+              V.value ? (To(), cp(_e(k), {
                 key: 0,
                 shrink: ""
               }, {
                 default: At(() => [
-                  ft(Se(kl), {
+                  wt(_e(bl), {
                     size: "large",
                     weight: "quiet",
                     action: "progressive",
-                    onClick: JE(I, ["stop"])
+                    onClick: nE(B, ["stop"])
                   }, {
                     default: At(() => [
-                      xl(yl(te.$i18n("cx-sx-translation-confirmer-more-sections-button-label")), 1)
+                      yl(Sl(te.$i18n("cx-sx-translation-confirmer-more-sections-button-label")), 1)
                     ]),
                     _: 1
                   })
                 ]),
                 _: 1
-              })) : Sl("", !0),
-              H.value ? (To(), lp(Se(k), {
+              })) : _l("", !0),
+              j.value ? (To(), cp(_e(k), {
                 key: 1,
                 shrink: ""
               }, {
                 default: At(() => [
-                  ft(Se(kl), {
+                  wt(_e(bl), {
                     size: "large",
                     onClick: h
                   }, {
                     default: At(() => [
-                      xl(yl(te.$i18n(
+                      yl(Sl(te.$i18n(
                         "cx-sx-translation-confirmer-new-desktop-translation-button-label"
                       )), 1)
                     ]),
@@ -17860,17 +17868,17 @@ const Se = window.Vue.unref, QE = window.Vue.resolveDirective, Lo = window.Vue.c
                   })
                 ]),
                 _: 1
-              })) : Sl("", !0),
-              ft(Se(k), { shrink: "" }, {
+              })) : _l("", !0),
+              wt(_e(k), { shrink: "" }, {
                 default: At(() => [
-                  ft(Se(kl), {
+                  wt(_e(bl), {
                     weight: "primary",
                     size: "large",
-                    action: Se(S) ? "progressive" : "default",
+                    action: _e(S) ? "progressive" : "default",
                     onClick: f
                   }, {
                     default: At(() => [
-                      xl(yl(x.value), 1)
+                      yl(Sl(y.value), 1)
                     ]),
                     _: 1
                   }, 8, ["action"])
@@ -17881,100 +17889,76 @@ const Se = window.Vue.unref, QE = window.Vue.resolveDirective, Lo = window.Vue.c
             _: 1
           })
         ]),
-        ft(KE, {
+        wt(ZV, {
           modelValue: g.value,
-          "onUpdate:modelValue": R[0] || (R[0] = (oe) => g.value = oe),
+          "onUpdate:modelValue": z[0] || (z[0] = (oe) => g.value = oe),
           "target-url": p.value
         }, null, 8, ["modelValue", "target-url"])
       ], 64);
     };
   }
 };
-const $l = window.Vue.unref, uV = window.Vue.openBlock, dV = window.Vue.createBlock, gV = window.Vue.computed, Uf = {
+const kl = window.Vue.unref, mE = window.Vue.openBlock, hE = window.Vue.createBlock, fE = window.Vue.computed, Of = {
   __name: "SXArticleLanguageSelector",
   setup(e) {
     const { supportedTargetLanguageCodes: t } = wa(), {
       sourceLanguageURLParameter: n,
       targetLanguageURLParameter: s
-    } = A(), { currentLanguageTitleGroup: o } = bn(), a = gV(
+    } = D(), { currentLanguageTitleGroup: o } = bn(), a = fE(
       () => {
         var d;
         return ((d = o.value) == null ? void 0 : d.titles.map((i) => i.lang)) || [];
       }
-    ), r = Ny(), l = (d) => r(d, s.value), u = (d) => r(n.value, d);
-    return (d, i) => (uV(), dV(Wi, {
+    ), r = Ry(), l = (d) => r(d, s.value), u = (d) => r(n.value, d);
+    return (d, i) => (mE(), hE(qi, {
       class: "sx-article-language-selector",
       "source-languages": a.value,
-      "target-languages": $l(t),
-      "selected-source-language": $l(n),
-      "selected-target-language": $l(s),
+      "target-languages": kl(t),
+      "selected-source-language": kl(n),
+      "selected-target-language": kl(s),
       "onUpdate:selectedSourceLanguage": l,
       "onUpdate:selectedTargetLanguage": u
     }, null, 8, ["source-languages", "target-languages", "selected-source-language", "selected-target-language"]));
   }
-}, El = window.Vue.computed, cp = window.Vue.ref, pV = window.Vue.watchEffect, mV = () => {
-  const { currentSourcePage: e } = dt(), { sectionSuggestion: t } = Fe(), n = we(), { sectionURLParameter: s } = A(), o = cp(null), a = cp([]);
-  pV(() => C(void 0, null, function* () {
-    var d;
-    if (t.value && s.value)
-      a.value = [s.value];
-    else if (t.value) {
-      const { missingSections: i } = t.value;
-      a.value = Object.keys(i);
-    } else
-      e.value && !Ws ? a.value = [js.LEAD_SECTION_DUMMY_TITLE] : a.value = [];
-    a.value.length ? o.value = yield e8(
-      e.value,
-      a.value
-    ) : o.value = ((d = e.value) == null ? void 0 : d.articleSize) || null;
-  }));
-  const r = El(() => Df(o.value || 0)), l = El(() => {
-    if (!t.value && !e.value || !r.value)
-      return "";
-    const d = t8(
-      r.value,
-      a.value
-    );
-    return n.i18n(...d);
-  }), u = El(
-    () => Pf(o.value)
-  );
-  return { timeEstimateMessage: l, isQuickTranslation: u };
+}, wE = (e) => {
+  const o = e / 5 / 15;
+  return Math.ceil(o);
 };
-const Ee = window.Vue.unref, Vl = window.Vue.toDisplayString, Tn = window.Vue.createElementVNode, Gt = window.Vue.createVNode, $s = window.Vue.withCtx, hV = window.Vue.resolveDirective, fV = window.Vue.withDirectives, wV = window.Vue.normalizeClass, up = window.Vue.openBlock, vV = window.Vue.createElementBlock, _V = window.Vue.createCommentVNode, SV = window.Vue.createBlock, yV = ["textContent"], xV = { class: "complementary sx-translation-confirmer__article-information__stats ma-0 flex" }, CV = ["textContent"], bV = { class: "pe-3" }, kV = ["textContent"], $V = window.Codex.CdxButton, Ao = window.Codex.CdxIcon, Qn = window.Vue.computed, EV = window.Vuex.useStore, VV = {
+const Be = window.Vue.unref, $l = window.Vue.toDisplayString, An = window.Vue.createElementVNode, Xt = window.Vue.createVNode, Es = window.Vue.withCtx, vE = window.Vue.resolveDirective, _E = window.Vue.withDirectives, SE = window.Vue.normalizeClass, up = window.Vue.openBlock, yE = window.Vue.createElementBlock, xE = window.Vue.createCommentVNode, CE = window.Vue.createBlock, bE = ["textContent"], kE = { class: "complementary sx-translation-confirmer__article-information__stats ma-0 flex" }, $E = ["textContent"], VE = { class: "pe-3" }, EE = ["textContent"], LE = window.Codex.CdxButton, Ao = window.Codex.CdxIcon, Dn = window.Vue.computed, TE = window.Vuex.useStore, AE = {
   __name: "SXTranslationConfirmerArticleInformation",
   setup(e) {
-    const t = EV(), { currentSourcePage: n } = dt(), {
-      sourceLanguageURLParameter: s,
-      targetLanguageURLParameter: o,
-      pageURLParameter: a
-    } = A(), r = Qn(() => t.state.suggestions.favorites || []), l = Qn(
-      () => r.value.some(
-        (S) => a.value === S.title && s.value === S.sourceLanguage && o.value === S.targetLanguage
+    const t = TE(), { currentSourcePage: n } = pt(), { sectionSuggestion: s } = De(), {
+      sourceLanguageURLParameter: o,
+      targetLanguageURLParameter: a,
+      pageURLParameter: r,
+      sectionURLParameter: l
+    } = D(), u = Dn(() => t.state.suggestions.favorites || []), d = Dn(
+      () => u.value.some(
+        (B) => r.value === B.title && o.value === B.sourceLanguage && a.value === B.targetLanguage
       )
-    ), { markFavoriteSuggestion: u, removeFavoriteSuggestion: d } = xu(), i = () => u(
-      a.value,
-      s.value,
-      o.value
-    ), c = () => d(
-      new Hs({
-        title: a.value,
-        sourceLanguage: s.value,
-        targetLanguage: o.value
+    ), { markFavoriteSuggestion: i, removeFavoriteSuggestion: c } = xu(), g = () => i(
+      r.value,
+      o.value,
+      a.value
+    ), p = () => c(
+      new js({
+        title: r.value,
+        sourceLanguage: o.value,
+        targetLanguage: a.value
       })
-    ), g = Qn(
-      () => l.value ? zh : Oh
-    ), p = Qn(
-      () => l.value ? c : i
-    ), m = Qn(
-      () => K.getPageUrl(s.value || "", a.value || "")
-    ), h = Qn(
+    ), m = Dn(
+      () => d.value ? Gh : Xh
+    ), h = Dn(
+      () => d.value ? p : g
+    ), f = Dn(
+      () => K.getPageUrl(o.value || "", r.value || "")
+    ), w = Dn(
       () => {
-        var S;
-        return (((S = n.value) == null ? void 0 : S.langLinksCount) || 0) + 1;
+        var B;
+        return (((B = n.value) == null ? void 0 : B.langLinksCount) || 0) + 1;
       }
-    ), f = (S) => {
-      const b = [
+    ), _ = (B) => {
+      const V = [
         { value: 1e9, suffix: "B" },
         // 1 billion
         { value: 1e6, suffix: "M" },
@@ -17982,65 +17966,94 @@ const Ee = window.Vue.unref, Vl = window.Vue.toDisplayString, Tn = window.Vue.cr
         { value: 1e3, suffix: "K" }
         // 1 thousand
       ];
-      for (let V = 0; V < b.length; V++)
-        if (S >= b[V].value)
-          return (S / b[V].value).toFixed(1).replace(/\.0$/, "") + b[V].suffix;
-      return S.toString();
-    }, w = Qn(() => {
-      var b;
-      const S = Object.values(((b = n.value) == null ? void 0 : b.pageviews) || {}).reduce(
-        (V, x) => V + x,
+      for (let E = 0; E < V.length; E++)
+        if (B >= V[E].value)
+          return (B / V[E].value).toFixed(1).replace(/\.0$/, "") + V[E].suffix;
+      return B.toString();
+    }, C = Dn(() => {
+      var V;
+      const B = Object.values(((V = n.value) == null ? void 0 : V.pageviews) || {}).reduce(
+        (E, j) => E + j,
         0
       );
-      return f(S);
-    }), { timeEstimateMessage: v, isQuickTranslation: y } = mV();
-    return (S, b) => {
-      const V = hV("i18n");
-      return up(), SV(Ee(N), {
+      return _(B);
+    }), { isQuickTranslation: S, sizeInBytes: b } = zf(), A = he(), y = Dn(() => {
+      if (!s.value && !n.value || !b.value)
+        return "";
+      const B = wE(b.value), V = B >= 60 ? B / 60 : 0, E = Math.round(V * 2) / 2;
+      if (!s.value && qn)
+        return A.i18n(
+          "cx-sx-translation-confirmer-translation-time-whole-article",
+          E,
+          B
+        );
+      if (s.value) {
+        if (l.value)
+          return A.i18n(
+            "cx-sx-translation-confirmer-translation-time-single-section",
+            E,
+            B
+          );
+      } else
+        return A.i18n(
+          "cx-sx-translation-confirmer-translation-time-lead-section",
+          E,
+          B
+        );
+      return A.i18n(
+        "cx-sx-translation-confirmer-translation-time-sections",
+        E,
+        B,
+        Object.keys(s.value.missingSections).length
+      );
+    });
+    return (B, V) => {
+      const E = vE("i18n");
+      return up(), CE(Be(M), {
         class: "sx-translation-confirmer__article-information ma-0 pa-4",
         align: "stretch",
         justify: "start"
       }, {
-        default: $s(() => [
-          Gt(Ee(k), null, {
-            default: $s(() => [
-              Gt(Ee(N), {
+        default: Es(() => [
+          Xt(Be(k), null, {
+            default: Es(() => [
+              Xt(Be(M), {
                 justify: "between",
                 class: "sx-translation-confirmer__article-information__header ma-0 mb-2"
               }, {
-                default: $s(() => [
-                  Gt(Ee(k), {
+                default: Es(() => [
+                  Xt(Be(k), {
                     class: "pa-0 pe-4 flex sx-translation-confirmer__article-information__title",
                     tag: "a",
-                    href: m.value,
+                    href: f.value,
                     target: "_blank"
                   }, {
-                    default: $s(() => [
-                      Tn("h5", {
+                    default: Es(() => [
+                      An("h5", {
                         class: "ma-0 me-1",
-                        textContent: Vl(Ee(a))
-                      }, null, 8, yV),
-                      Gt(Ee(Ao), {
+                        textContent: $l(Be(r))
+                      }, null, 8, bE),
+                      Xt(Be(Ao), {
                         size: "x-small",
-                        icon: Ee(or)
+                        icon: Be(tr)
                       }, null, 8, ["icon"])
                     ]),
                     _: 1
                   }, 8, ["href"]),
-                  Gt(Ee(k), {
+                  Xt(Be(k), {
                     shrink: "",
                     align: "start"
                   }, {
-                    default: $s(() => [
-                      Gt(Ee($V), {
+                    default: Es(() => [
+                      Xt(Be(LE), {
                         class: "px-0",
                         weight: "quiet",
-                        action: l.value ? "progressive" : "default",
-                        "aria-label": S.$i18n("cx-sx-translation-confirmer-bookmark-button-aria-label"),
-                        onClick: p.value
+                        action: d.value ? "progressive" : "default",
+                        "aria-label": B.$i18n("cx-sx-translation-confirmer-bookmark-button-aria-label"),
+                        onClick: h.value
                       }, {
-                        default: $s(() => [
-                          Gt(Ee(Ao), { icon: g.value }, null, 8, ["icon"])
+                        default: Es(() => [
+                          Xt(Be(Ao), { icon: m.value }, null, 8, ["icon"])
                         ]),
                         _: 1
                       }, 8, ["action", "aria-label", "onClick"])
@@ -18050,45 +18063,45 @@ const Ee = window.Vue.unref, Vl = window.Vue.toDisplayString, Tn = window.Vue.cr
                 ]),
                 _: 1
               }),
-              Tn("div", xV, [
-                Tn("div", null, [
-                  Tn("span", null, [
-                    Gt(Ee(Ao), {
-                      icon: Ee(jh),
+              An("div", kE, [
+                An("div", null, [
+                  An("span", null, [
+                    Xt(Be(Ao), {
+                      icon: Be(Wh),
                       size: "small",
                       class: "me-1"
                     }, null, 8, ["icon"]),
-                    Tn("span", {
+                    An("span", {
                       class: "pe-3",
-                      textContent: Vl(h.value)
-                    }, null, 8, CV)
+                      textContent: $l(w.value)
+                    }, null, 8, $E)
                   ]),
-                  Tn("span", null, [
-                    Gt(Ee(Ao), {
-                      icon: Ee(ty),
+                  An("span", null, [
+                    Xt(Be(Ao), {
+                      icon: Be(ay),
                       size: "small",
                       class: "me-1"
                     }, null, 8, ["icon"]),
-                    fV(Tn("span", bV, null, 512), [
-                      [V, [w.value], "cx-sx-translation-confirmer-views-count"]
+                    _E(An("span", VE, null, 512), [
+                      [E, [C.value], "cx-sx-translation-confirmer-views-count"]
                     ])
                   ])
                 ]),
-                Ee(v) ? (up(), vV("span", {
+                y.value ? (up(), yE("span", {
                   key: 0,
-                  class: wV(["sx-translation-confirmer__article-information__stats__time-estimate", {
-                    "sx-translation-confirmer__article-information__stats__time-estimate--quick": Ee(y)
+                  class: SE(["sx-translation-confirmer__article-information__stats__time-estimate", {
+                    "sx-translation-confirmer__article-information__stats__time-estimate--quick": Be(S)
                   }])
                 }, [
-                  Gt(Ee(Ao), {
-                    icon: Ee(sy),
+                  Xt(Be(Ao), {
+                    icon: Be(ry),
                     size: "small",
                     class: "me-1"
                   }, null, 8, ["icon"]),
-                  Tn("span", {
-                    textContent: Vl(Ee(v))
-                  }, null, 8, kV)
-                ], 2)) : _V("", !0)
+                  An("span", {
+                    textContent: $l(y.value)
+                  }, null, 8, EE)
+                ], 2)) : xE("", !0)
               ])
             ]),
             _: 1
@@ -18099,9 +18112,9 @@ const Ee = window.Vue.unref, Vl = window.Vue.toDisplayString, Tn = window.Vue.cr
     };
   }
 };
-const LV = window.Vue.resolveDirective, Jn = window.Vue.createElementVNode, ri = window.Vue.withDirectives, TV = window.Vue.toDisplayString, AV = window.Vue.createTextVNode, Ll = window.Vue.unref, Tl = window.Vue.withCtx, Al = window.Vue.openBlock, Dl = window.Vue.createBlock;
+const DE = window.Vue.resolveDirective, es = window.Vue.createElementVNode, oi = window.Vue.withDirectives, PE = window.Vue.toDisplayString, BE = window.Vue.createTextVNode, Vl = window.Vue.unref, El = window.Vue.withCtx, Ll = window.Vue.openBlock, Tl = window.Vue.createBlock;
 window.Vue.createCommentVNode;
-const DV = { class: "pa-4" }, PV = { class: "flex pt-2" }, BV = window.Codex.CdxButton, FV = window.Vue.ref, NV = {
+const FE = { class: "pa-4" }, NE = { class: "flex pt-2" }, ME = window.Codex.CdxButton, UE = window.Vue.ref, IE = {
   __name: "SXConfirmTranslationStartDialog",
   props: {
     modelValue: {
@@ -18111,7 +18124,7 @@ const DV = { class: "pa-4" }, PV = { class: "flex pt-2" }, BV = window.Codex.Cdx
   },
   emits: ["update:modelValue"],
   setup(e, { emit: t }) {
-    const n = t, s = () => n("update:modelValue", !1), o = eo(), a = bu(), r = FV(!1), { currentTranslation: l } = zt(), u = () => C(this, null, function* () {
+    const n = t, s = () => n("update:modelValue", !1), o = Zs(), a = ku(), r = UE(!1), { currentTranslation: l } = Ot(), u = () => x(this, null, function* () {
       r.value = !0;
       let d = !1;
       try {
@@ -18127,8 +18140,8 @@ const DV = { class: "pa-4" }, PV = { class: "flex pt-2" }, BV = window.Codex.Cdx
       r.value = !1, d && (a(), o(), s());
     });
     return (d, i) => {
-      const c = LV("i18n");
-      return Al(), Dl(Ll(Ct), {
+      const c = DE("i18n");
+      return Ll(), Tl(Vl(Ct), {
         value: e.modelValue,
         persistent: r.value,
         class: "sx-confirm-translation-start-dialog",
@@ -18136,35 +18149,35 @@ const DV = { class: "pa-4" }, PV = { class: "flex pt-2" }, BV = window.Codex.Cdx
         title: d.$i18n("sx-confirm-draft-translation-start-dialog-title"),
         onClose: s
       }, {
-        footer: Tl(() => [
-          Jn("div", PV, [
-            r.value ? (Al(), Dl(Ll(ct), { key: 1 })) : (Al(), Dl(Ll(BV), {
+        footer: El(() => [
+          es("div", NE, [
+            r.value ? (Ll(), Tl(Vl(dt), { key: 1 })) : (Ll(), Tl(Vl(ME), {
               key: 0,
               class: "sx-confirm-translation-start-dialog__confirm-button grow",
               size: "large",
               onClick: u
             }, {
-              default: Tl(() => [
-                AV(TV(d.$i18n("sx-confirm-draft-translation-start-button-label")), 1)
+              default: El(() => [
+                BE(PE(d.$i18n("sx-confirm-draft-translation-start-button-label")), 1)
               ]),
               _: 1
             }))
           ])
         ]),
-        default: Tl(() => [
-          Jn("div", DV, [
-            ri(Jn("p", null, null, 512), [
+        default: El(() => [
+          es("div", FE, [
+            oi(es("p", null, null, 512), [
               [c, void 0, "sx-confirm-draft-translation-start-dialog-subtitle"]
             ]),
-            ri(Jn("p", null, null, 512), [
+            oi(es("p", null, null, 512), [
               [c, void 0, "sx-confirm-draft-translation-start-dialog-explanation-first-line"]
             ]),
-            Jn("p", null, [
-              ri(Jn("strong", null, null, 512), [
+            es("p", null, [
+              oi(es("strong", null, null, 512), [
                 [c, void 0, "sx-confirm-draft-translation-start-dialog-explanation-second-line"]
               ])
             ]),
-            ri(Jn("p", null, null, 512), [
+            oi(es("p", null, null, 512), [
               [c, void 0, "sx-confirm-draft-translation-start-dialog-explanation-third-line"]
             ])
           ])
@@ -18173,94 +18186,94 @@ const DV = { class: "pa-4" }, PV = { class: "flex pt-2" }, BV = window.Codex.Cdx
       }, 8, ["value", "persistent", "title"]);
     };
   }
-}, MV = window.Vuex.useStore;
-let li = [];
-const ku = () => {
-  const e = MV();
+}, RE = window.Vuex.useStore;
+let ai = [];
+const $u = () => {
+  const e = RE();
   return (t, n) => {
     const s = `${t}:${n}`;
-    return e.getters["mediawiki/getLanguageTitleGroup"](t, n) || li.includes(s) ? Promise.resolve() : (li.push(s), cs.fetchLanguageTitles(t, n).then((o) => {
-      li = li.filter(
+    return e.getters["mediawiki/getLanguageTitleGroup"](t, n) || ai.includes(s) ? Promise.resolve() : (ai.push(s), ds.fetchLanguageTitles(t, n).then((o) => {
+      ai = ai.filter(
         (a) => a !== s
       ), o && e.commit("mediawiki/addLanguageTitleGroup", o);
     }));
   };
-}, UV = window.Vue.ref, Es = UV(null), If = () => {
-  const e = () => C(void 0, null, function* () {
+}, zE = window.Vue.ref, Ls = zE(null), Hf = () => {
+  const e = () => x(void 0, null, function* () {
     var n, s;
-    Es.value || (yield sr.fetchCXServerToken().then((o) => {
+    Ls.value || (yield er.fetchCXServerToken().then((o) => {
       o.age <= 30 && (o.age = 3600);
       const a = Math.floor(Date.now() / 1e3);
-      o.refreshAt = a + o.age - 30, Es.value = o;
+      o.refreshAt = a + o.age - 30, Ls.value = o;
     }).catch((o) => {
       if (o === "token-impossible") {
         const a = Math.floor(Date.now() / 1e3);
-        Es.value = { jwt: "", refreshAt: a + 36e3 };
+        Ls.value = { jwt: "", refreshAt: a + 36e3 };
       }
     }));
     const t = Math.floor(Date.now() / 1e3);
-    return ((n = Es.value) == null ? void 0 : n.refreshAt) <= t ? (Es.value = null, e()) : (s = Es.value) == null ? void 0 : s.jwt;
+    return ((n = Ls.value) == null ? void 0 : n.refreshAt) <= t ? (Ls.value = null, e()) : (s = Ls.value) == null ? void 0 : s.jwt;
   });
   return e;
 };
-const dp = window.Vue.resolveDirective, ci = window.Vue.createElementVNode, gp = window.Vue.withDirectives, An = window.Vue.unref, ui = window.Vue.withCtx, un = window.Vue.createVNode, Pl = window.Vue.openBlock, pp = window.Vue.createElementBlock;
+const dp = window.Vue.resolveDirective, ii = window.Vue.createElementVNode, gp = window.Vue.withDirectives, Pn = window.Vue.unref, ri = window.Vue.withCtx, dn = window.Vue.createVNode, Al = window.Vue.openBlock, pp = window.Vue.createElementBlock;
 window.Vue.createCommentVNode;
-const IV = window.Vue.createBlock, RV = { class: "sx-translation-confirmer col-12 col-tablet-9 col-desktop-7 mx-auto" }, zV = { class: "mb-0" }, OV = { class: "sx-translation-confirmer__article-image flex justify-center" }, jV = ["src"], HV = { class: "ma-3" }, mp = window.Vue.computed, qV = window.Vue.inject, GV = window.Vue.onBeforeUnmount, XV = window.Vue.ref, WV = window.Vuex.useStore, KV = {
+const OE = window.Vue.createBlock, HE = { class: "sx-translation-confirmer col-12 col-tablet-9 col-desktop-7 mx-auto" }, jE = { class: "mb-0" }, qE = { class: "sx-translation-confirmer__article-image flex justify-center" }, GE = ["src"], XE = { class: "ma-3" }, mp = window.Vue.computed, WE = window.Vue.inject, KE = window.Vue.onBeforeUnmount, YE = window.Vue.ref, QE = window.Vuex.useStore, JE = {
   __name: "SXTranslationConfirmer",
   setup(e) {
-    const t = WV(), { currentSourcePage: n } = dt(), { previousRoute: s } = Le(t), {
+    const t = QE(), { currentSourcePage: n } = pt(), { previousRoute: s } = Ae(t), {
       sourceLanguageURLParameter: o,
       targetLanguageURLParameter: a,
       pageURLParameter: r,
       sectionURLParameter: l,
       clearTranslationURLParameters: u
-    } = A(), d = qV("breakpoints"), i = mp(() => d.value.nextBreakpoint), c = mp(
+    } = D(), d = WE("breakpoints"), i = mp(() => d.value.nextBreakpoint), c = mp(
       () => {
-        var y;
-        return (y = n.value) == null ? void 0 : y.getImage(i.value);
+        var C;
+        return (C = n.value) == null ? void 0 : C.getImage(i.value);
       }
-    ), { fetchTranslationsByStatus: g } = Zs(), p = ku();
-    g("draft"), p(o.value, r.value), Cu(), If()(), Gh()(a.value);
-    const f = Ze(), w = () => {
-      const y = ["dashboard", "sx-article-search"];
-      !s.value || !y.includes(s.value) ? f.push({ name: "dashboard" }) : f.push({ name: s.value });
+    ), { fetchTranslationsByStatus: g } = Js(), p = $u();
+    g("draft"), p(o.value, r.value), Cu(), Hf()(), Qh()(a.value);
+    const f = tt(), w = () => {
+      const C = ["dashboard", "sx-article-search"];
+      !s.value || !C.includes(s.value) ? f.push({ name: "dashboard" }) : f.push({ name: s.value });
     };
-    GV(() => {
-      const y = f.currentRoute.value.name;
-      (y === "dashboard" || y === "sx-article-search") && u();
+    KE(() => {
+      const C = f.currentRoute.value.name;
+      (C === "dashboard" || C === "sx-article-search") && u();
     });
-    const v = XV(!1);
-    return (y, S) => {
-      const b = dp("i18n"), V = dp("i18n-html");
-      return Pl(), pp("section", RV, [
-        un(An(N), {
+    const _ = YE(!1);
+    return (C, S) => {
+      const b = dp("i18n"), A = dp("i18n-html");
+      return Al(), pp("section", HE, [
+        dn(Pn(M), {
           class: "sx-translation-confirmer__header ma-0 py-3",
           align: "stretch",
           justify: "start"
         }, {
-          default: ui(() => [
-            un(An(k), {
+          default: ri(() => [
+            dn(Pn(k), {
               grow: "",
               class: "px-4",
               align: "center"
             }, {
-              default: ui(() => [
-                gp(ci("h5", zV, null, 512), [
+              default: ri(() => [
+                gp(ii("h5", jE, null, 512), [
                   [b, void 0, "cx-sx-translation-confirmer-title"]
                 ])
               ]),
               _: 1
             }),
-            un(An(k), {
+            dn(Pn(k), {
               shrink: "",
               align: "start",
               class: "pe-4"
             }, {
-              default: ui(() => [
-                un(An(Ge), {
+              default: ri(() => [
+                dn(Pn(Xe), {
                   class: "pa-0",
                   type: "icon",
-                  icon: An(Qi),
+                  icon: Pn(Wi),
                   "icon-size": 20,
                   onClick: w
                 }, null, 8, ["icon"])
@@ -18270,47 +18283,47 @@ const IV = window.Vue.createBlock, RV = { class: "sx-translation-confirmer col-1
           ]),
           _: 1
         }),
-        ci("div", OV, [
-          c.value ? (Pl(), pp("img", {
+        ii("div", qE, [
+          c.value ? (Al(), pp("img", {
             key: 0,
             src: c.value
-          }, null, 8, jV)) : (Pl(), IV(An(Je), {
+          }, null, 8, GE)) : (Al(), OE(Pn(et), {
             key: 1,
             size: "120",
-            icon: An(gh),
-            "icon-color": y.$mwui.colors.blue600
+            icon: Pn(dh),
+            "icon-color": C.$mwui.colors.blue600
           }, null, 8, ["icon", "icon-color"]))
         ]),
-        un(VV),
-        un(Uf),
-        un(cV, {
-          onOpenTranslationConfirmationDialog: S[0] || (S[0] = (x) => v.value = !0)
+        dn(AE),
+        dn(Of),
+        dn(pE, {
+          onOpenTranslationConfirmationDialog: S[0] || (S[0] = (y) => _.value = !0)
         }),
-        un(An(N), {
+        dn(Pn(M), {
           justify: "center",
           class: "sx-translation-confirmer__license ma-0"
         }, {
-          default: ui(() => [
-            ci("p", HV, [
-              gp(ci("small", null, null, 512), [
-                [V, void 0, "cx-license-agreement"]
+          default: ri(() => [
+            ii("p", XE, [
+              gp(ii("small", null, null, 512), [
+                [A, void 0, "cx-license-agreement"]
               ])
             ])
           ]),
           _: 1
         }),
-        un(NV, {
-          modelValue: v.value,
-          "onUpdate:modelValue": S[1] || (S[1] = (x) => v.value = x)
+        dn(IE, {
+          modelValue: _.value,
+          "onUpdate:modelValue": S[1] || (S[1] = (y) => _.value = y)
         }, null, 8, ["modelValue"])
       ]);
     };
   }
 };
-const YV = {
+const ZE = {
   name: "SxTranslationConfirmerView",
   components: {
-    SxTranslationConfirmer: KV
+    SxTranslationConfirmer: JE
   },
   computed: {
     classes() {
@@ -18319,17 +18332,17 @@ const YV = {
       };
     }
   }
-}, QV = window.Vue.resolveComponent, JV = window.Vue.createVNode, ZV = window.Vue.normalizeClass, e4 = window.Vue.openBlock, t4 = window.Vue.createElementBlock;
-function n4(e, t, n, s, o, a) {
-  const r = QV("sx-translation-confirmer");
-  return e4(), t4("main", {
-    class: ZV(["sx-translation-confirmer-view", a.classes])
+}, e4 = window.Vue.resolveComponent, t4 = window.Vue.createVNode, n4 = window.Vue.normalizeClass, s4 = window.Vue.openBlock, o4 = window.Vue.createElementBlock;
+function a4(e, t, n, s, o, a) {
+  const r = e4("sx-translation-confirmer");
+  return s4(), o4("main", {
+    class: n4(["sx-translation-confirmer-view", a.classes])
   }, [
-    JV(r)
+    t4(r)
   ], 2);
 }
-const s4 = /* @__PURE__ */ de(YV, [["render", n4]]);
-const o4 = window.Vue.toDisplayString, hp = window.Vue.unref, a4 = window.Vue.createVNode, i4 = window.Vue.createTextVNode, r4 = window.Vue.createElementVNode, l4 = window.Vue.openBlock, c4 = window.Vue.createElementBlock, u4 = { class: "sx-section-selector-view-article-item" }, d4 = ["href"], g4 = window.Codex.CdxIcon, fp = {
+const i4 = /* @__PURE__ */ ge(ZE, [["render", a4]]);
+const r4 = window.Vue.toDisplayString, hp = window.Vue.unref, l4 = window.Vue.createVNode, c4 = window.Vue.createTextVNode, u4 = window.Vue.createElementVNode, d4 = window.Vue.openBlock, g4 = window.Vue.createElementBlock, p4 = { class: "sx-section-selector-view-article-item" }, m4 = ["href"], h4 = window.Codex.CdxIcon, fp = {
   __name: "SXSectionSelectorViewArticleItem",
   props: {
     path: {
@@ -18342,58 +18355,58 @@ const o4 = window.Vue.toDisplayString, hp = window.Vue.unref, a4 = window.Vue.cr
     }
   },
   setup(e) {
-    return (t, n) => (l4(), c4("span", u4, [
-      r4("a", {
+    return (t, n) => (d4(), g4("span", p4, [
+      u4("a", {
         href: e.path,
         target: "_blank",
         class: "justify-between items-center py-3 px-4"
       }, [
-        i4(o4(t.$i18n("cx-sx-section-selector-view-article-button-label", e.autonym)) + " ", 1),
-        a4(hp(g4), {
+        c4(r4(t.$i18n("cx-sx-section-selector-view-article-button-label", e.autonym)) + " ", 1),
+        l4(hp(h4), {
           size: "x-small",
-          icon: hp(or)
+          icon: hp(tr)
         }, null, 8, ["icon"])
-      ], 8, d4)
+      ], 8, m4)
     ]));
   }
 };
-const p4 = window.Vue.resolveDirective, di = window.Vue.createElementVNode, Bl = window.Vue.withDirectives, Zn = window.Vue.unref, m4 = window.Vue.toDisplayString, gi = window.Vue.withCtx, Do = window.Vue.createVNode, h4 = window.Vue.openBlock, f4 = window.Vue.createElementBlock, w4 = { class: "sx-section-selector__header pa-4" }, v4 = { class: "sx-section-selector__header-text ma-0" }, _4 = ["textContent"], S4 = { class: "pt-0 ma-0" }, y4 = { class: "ma-0" }, x4 = window.Codex.CdxButton, C4 = window.Codex.CdxIcon, b4 = {
+const f4 = window.Vue.resolveDirective, li = window.Vue.createElementVNode, Dl = window.Vue.withDirectives, ts = window.Vue.unref, w4 = window.Vue.toDisplayString, ci = window.Vue.withCtx, Do = window.Vue.createVNode, v4 = window.Vue.openBlock, _4 = window.Vue.createElementBlock, S4 = { class: "sx-section-selector__header pa-4" }, y4 = { class: "sx-section-selector__header-text ma-0" }, x4 = ["textContent"], C4 = { class: "pt-0 ma-0" }, b4 = { class: "ma-0" }, k4 = window.Codex.CdxButton, $4 = window.Codex.CdxIcon, V4 = {
   __name: "SXSectionSelectorHeader",
   emits: ["close"],
   setup(e) {
-    const { sectionSuggestion: t } = Fe();
+    const { sectionSuggestion: t } = De();
     return (n, s) => {
-      const o = p4("i18n");
-      return h4(), f4("div", w4, [
-        Do(Zn(N), { class: "ma-0 pb-3" }, {
-          default: gi(() => [
-            Do(Zn(k), null, {
-              default: gi(() => {
+      const o = f4("i18n");
+      return v4(), _4("div", S4, [
+        Do(ts(M), { class: "ma-0 pb-3" }, {
+          default: ci(() => [
+            Do(ts(k), null, {
+              default: ci(() => {
                 var a;
                 return [
-                  Bl(di("h6", v4, null, 512), [
+                  Dl(li("h6", y4, null, 512), [
                     [o, void 0, "cx-sx-section-selector-title"]
                   ]),
-                  di("h2", {
+                  li("h2", {
                     class: "sx-section-selector__title ma-0 py-0",
-                    textContent: m4((a = Zn(t)) == null ? void 0 : a.sourceTitle)
-                  }, null, 8, _4)
+                    textContent: w4((a = ts(t)) == null ? void 0 : a.sourceTitle)
+                  }, null, 8, x4)
                 ];
               }),
               _: 1
             }),
-            Do(Zn(k), {
+            Do(ts(k), {
               shrink: "",
               class: "justify-end"
             }, {
-              default: gi(() => [
-                Do(Zn(x4), {
+              default: ci(() => [
+                Do(ts(k4), {
                   weight: "quiet",
                   "aria-label": n.$i18n("sx-section-selector-close-button-aria-label"),
                   onClick: s[0] || (s[0] = (a) => n.$emit("close"))
                 }, {
-                  default: gi(() => [
-                    Do(Zn(C4), { icon: Zn(Js) }, null, 8, ["icon"])
+                  default: ci(() => [
+                    Do(ts($4), { icon: ts(Qs) }, null, 8, ["icon"])
                   ]),
                   _: 1
                 }, 8, ["aria-label"])
@@ -18403,16 +18416,16 @@ const p4 = window.Vue.resolveDirective, di = window.Vue.createElementVNode, Bl =
           ]),
           _: 1
         }),
-        Bl(di("h4", S4, null, 512), [
+        Dl(li("h4", C4, null, 512), [
           [o, void 0, "cx-sx-section-selector-subtitle"]
         ]),
-        Bl(di("p", y4, null, 512), [
+        Dl(li("p", b4, null, 512), [
           [o, void 0, "cx-sx-section-selector-desc"]
         ])
       ]);
     };
   }
-}, k4 = window.Vue.renderList, $4 = window.Vue.Fragment, Fl = window.Vue.openBlock, wp = window.Vue.createElementBlock, E4 = window.Vue.renderSlot, pi = window.Vue.unref, vp = window.Vue.createVNode, _p = window.Vue.withCtx, V4 = window.Vue.createBlock, L4 = { class: "sx-section-selector__sections-list ma-0 pa-0" }, T4 = window.Codex.CdxButton, A4 = window.Codex.CdxIcon, Rf = {
+}, E4 = window.Vue.renderList, L4 = window.Vue.Fragment, Pl = window.Vue.openBlock, wp = window.Vue.createElementBlock, T4 = window.Vue.renderSlot, ui = window.Vue.unref, vp = window.Vue.createVNode, _p = window.Vue.withCtx, A4 = window.Vue.createBlock, D4 = { class: "sx-section-selector__sections-list ma-0 pa-0" }, P4 = window.Codex.CdxButton, B4 = window.Codex.CdxIcon, jf = {
   __name: "SXSectionSelectorSectionList",
   props: {
     /**
@@ -18425,27 +18438,27 @@ const p4 = window.Vue.resolveDirective, di = window.Vue.createElementVNode, Bl =
   },
   emits: ["select-section"],
   setup(e) {
-    return (t, n) => (Fl(), wp("ul", L4, [
-      (Fl(!0), wp($4, null, k4(e.sections, (s) => (Fl(), V4(pi(N), {
+    return (t, n) => (Pl(), wp("ul", D4, [
+      (Pl(!0), wp(L4, null, E4(e.sections, (s) => (Pl(), A4(ui(M), {
         key: s.sourceTitle,
         tag: "li",
         class: "ma-0"
       }, {
         default: _p(() => [
-          vp(pi(T4), {
+          vp(ui(P4), {
             weight: "quiet",
             class: "col justify-start items-center py-3 px-4",
             "aria-label": t.$i18n("sx-section-selector-next-button-aria-label"),
             onClick: (o) => t.$emit("select-section", s.sourceTitle)
           }, {
             default: _p(() => [
-              E4(t.$slots, "default", {
+              T4(t.$slots, "default", {
                 targetSection: s.targetTitle,
                 sourceSection: s.sourceTitle,
                 isEasy: s.isEasy
               }),
-              vp(pi(A4), {
-                icon: pi(Sa),
+              vp(ui(B4), {
+                icon: ui(Sa),
                 class: "ms-auto"
               }, null, 8, ["icon"])
             ]),
@@ -18456,75 +18469,82 @@ const p4 = window.Vue.resolveDirective, di = window.Vue.createElementVNode, Bl =
       }, 1024))), 128))
     ]));
   }
-}, D4 = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+}, F4 = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>sad-robot</title>
     <g id="sad-robot" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <circle fill="#EAECF0" cx="68" cy="68" r="68"></circle>
         <path d="M70,40.99684 L96.02,40.99684 C100.428,40.99684 104,44.58084 104,48.98484 L104,82.99684 L74,82.99684 L74,92.99684 L96.02,92.99684 C100.428,92.99684 104,96.54884 104,100.99684 L104,108.99684 L32,108.99684 L32,100.99684 C32,96.57684 35.572,92.99684 39.98,92.99684 L62,92.99684 L62,82.99684 L32,82.99684 L32,48.98484 C32,44.57284 35.572,40.99684 39.98,40.99684 L66,40.99684 L66,32.65684 C63.244908,31.68276 61.59226,28.86552 62.086412,25.98536 C62.580564,23.10524 65.077784,21 68,21 C70.9222,21 73.41944,23.10524 73.9136,25.98536 C74.40776,28.86552 72.75508,31.68276 70,32.65684 L70,40.99684 Z M62,78 C62,74.6862915 64.6862915,72 68,72 C71.3137085,72 74,74.6862915 74,78 M54,64.99684 C57.313708,64.99684 60,62.310548 60,58.99684 C60,55.68312 57.313708,52.99684 54,52.99684 C50.686292,52.99684 48,55.68312 48,58.99684 C48,62.310548 50.686292,64.99684 54,64.99684 Z M82,64.99684 C85.31372,64.99684 88,62.310548 88,58.99684 C88,55.68312 85.31372,52.99684 82,52.99684 C78.68628,52.99684 76,55.68312 76,58.99684 C76,62.310548 78.68628,64.99684 82,64.99684 Z" fill="#54595D"></path>
     </g>
 </svg>`;
-const P4 = window.Vue.resolveDirective, mi = window.Vue.createElementVNode, hi = window.Vue.withDirectives, wt = window.Vue.unref, fi = window.Vue.openBlock, Nl = window.Vue.createBlock, B4 = window.Vue.createCommentVNode, Vs = window.Vue.withCtx, Po = window.Vue.createVNode, F4 = window.Vue.toDisplayString, N4 = window.Vue.createTextVNode, M4 = window.Vue.createElementBlock, U4 = { class: "sx-section-selector__missing-sections py-2" }, I4 = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" }, R4 = ["lang", "dir", "innerHTML"], Sp = window.Vue.computed, z4 = window.Codex.CdxButton, O4 = window.Codex.CdxInfoChip, j4 = {
+const N4 = window.Vue.resolveDirective, di = window.Vue.createElementVNode, gi = window.Vue.withDirectives, Dt = window.Vue.unref, pi = window.Vue.openBlock, Bl = window.Vue.createBlock, M4 = window.Vue.createCommentVNode, Ts = window.Vue.withCtx, Po = window.Vue.createVNode, U4 = window.Vue.toDisplayString, I4 = window.Vue.createTextVNode, R4 = window.Vue.createElementBlock, z4 = { class: "sx-section-selector__missing-sections py-2" }, O4 = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" }, H4 = ["lang", "dir", "innerHTML"], Fl = window.Vue.computed, j4 = window.Codex.CdxButton, q4 = window.Codex.CdxInfoChip, G4 = {
   __name: "SXSectionSelectorSectionListMissing",
   emits: ["select-section", "close"],
   setup(e) {
-    const { sectionSuggestion: t } = Fe(), { targetLanguageURLParameter: n } = A(), s = Sp(() => j.getAutonym(n.value)), o = Sp(
+    const { sectionSuggestion: t } = De(), { targetLanguageURLParameter: n } = D(), s = Fl(() => R.getAutonym(n.value)), o = Fl(
       () => {
-        var a;
-        return Object.keys(((a = t.value) == null ? void 0 : a.missingSections) || {}).length === 0;
+        var r;
+        return Object.keys(((r = t.value) == null ? void 0 : r.missingSections) || {}).length === 0;
       }
-    );
-    return (a, r) => {
-      const l = P4("i18n");
-      return fi(), M4("section", U4, [
-        hi(mi("h4", I4, null, 512), [
-          [l, [
+    ), a = Fl(() => {
+      var r;
+      return (r = t.value) != null && r.orderedMissingSections ? t.value.orderedMissingSections.map((l) => Ye(ue({}, l), {
+        isEasy: Ih(
+          t.value.getSectionSize(l.sourceTitle)
+        )
+      })) : [];
+    });
+    return (r, l) => {
+      const u = N4("i18n");
+      return pi(), R4("section", z4, [
+        gi(di("h4", O4, null, 512), [
+          [u, [
             s.value
           ], "cx-sx-section-selector-missing-sections-title"]
         ]),
-        o.value ? (fi(), Nl(wt(N), {
+        o.value ? (pi(), Bl(Dt(M), {
           key: 1,
           class: "sx-section-selector__empty-missing-sections px-4 my-0"
         }, {
-          default: Vs(() => [
-            Po(wt(k), {
+          default: Ts(() => [
+            Po(Dt(k), {
               class: "py-6 justify-center",
-              innerHTML: wt(D4)
+              innerHTML: Dt(F4)
             }, null, 8, ["innerHTML"]),
-            Po(wt(k), {
+            Po(Dt(k), {
               cols: "12",
               class: "sx-section-selector__empty-missing-sections-details pa-0"
             }, {
-              default: Vs(() => [
-                hi(mi("h6", null, null, 512), [
-                  [l, void 0, "cx-sx-section-selector-empty-missing-sections-title"]
+              default: Ts(() => [
+                gi(di("h6", null, null, 512), [
+                  [u, void 0, "cx-sx-section-selector-empty-missing-sections-title"]
                 ])
               ]),
               _: 1
             }),
-            Po(wt(k), {
+            Po(Dt(k), {
               cols: "12",
               class: "sx-section-selector__empty-missing-sections-details pa-0 mb-2"
             }, {
-              default: Vs(() => [
-                hi(mi("p", null, null, 512), [
-                  [l, void 0, "cx-sx-section-selector-empty-missing-sections-desc"]
+              default: Ts(() => [
+                gi(di("p", null, null, 512), [
+                  [u, void 0, "cx-sx-section-selector-empty-missing-sections-desc"]
                 ])
               ]),
               _: 1
             }),
-            Po(wt(k), {
+            Po(Dt(k), {
               cols: "12",
               class: "pa-0 mb-2"
             }, {
-              default: Vs(() => [
-                Po(wt(z4), {
+              default: Ts(() => [
+                Po(Dt(j4), {
                   weight: "quiet",
                   action: "progressive",
                   class: "px-0",
-                  onClick: r[1] || (r[1] = (u) => a.$emit("close"))
+                  onClick: l[1] || (l[1] = (d) => r.$emit("close"))
                 }, {
-                  default: Vs(() => [
-                    N4(F4(a.$i18n("cx-sx-section-selector-pick-other-translation-button-label")), 1)
+                  default: Ts(() => [
+                    I4(U4(r.$i18n("cx-sx-section-selector-pick-other-translation-button-label")), 1)
                   ]),
                   _: 1
                 })
@@ -18533,26 +18553,26 @@ const P4 = window.Vue.resolveDirective, mi = window.Vue.createElementVNode, hi =
             })
           ]),
           _: 1
-        })) : (fi(), Nl(Rf, {
+        })) : (pi(), Bl(jf, {
           key: 0,
-          sections: wt(t).orderedMissingSections,
-          onSelectSection: r[0] || (r[0] = (u) => a.$emit("select-section", u))
+          sections: a.value,
+          onSelectSection: l[0] || (l[0] = (d) => r.$emit("select-section", d))
         }, {
-          default: Vs(({ sourceSection: u, isEasy: d }) => {
-            var i, c;
+          default: Ts(({ sourceSection: d, isEasy: i }) => {
+            var c, g;
             return [
-              mi("h5", {
+              di("h5", {
                 class: "ma-0",
-                lang: (i = wt(t)) == null ? void 0 : i.sourceLanguage,
-                dir: wt(j.getDir)((c = wt(t)) == null ? void 0 : c.sourceLanguage),
-                innerHTML: u
-              }, null, 8, R4),
-              d ? hi((fi(), Nl(wt(O4), {
+                lang: (c = Dt(t)) == null ? void 0 : c.sourceLanguage,
+                dir: Dt(R.getDir)((g = Dt(t)) == null ? void 0 : g.sourceLanguage),
+                innerHTML: d
+              }, null, 8, H4),
+              i ? gi((pi(), Bl(Dt(q4), {
                 key: 0,
                 class: "sx-section-selector__easy-section-badge"
               }, null, 512)), [
-                [l, void 0, "cx-sx-section-selector-easy-section-badge"]
-              ]) : B4("", !0)
+                [u, void 0, "cx-sx-section-selector-easy-section-badge"]
+              ]) : M4("", !0)
             ];
           }),
           _: 1
@@ -18561,40 +18581,40 @@ const P4 = window.Vue.resolveDirective, mi = window.Vue.createElementVNode, hi =
     };
   }
 };
-const H4 = window.Vue.resolveDirective, wi = window.Vue.createElementVNode, q4 = window.Vue.withDirectives, es = window.Vue.unref, G4 = window.Vue.withCtx, X4 = window.Vue.createVNode, W4 = window.Vue.openBlock, K4 = window.Vue.createElementBlock, Y4 = { class: "sx-section-selector__present-sections py-2" }, Q4 = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" }, J4 = { class: "sx-section-selector__present-section-button-content" }, Z4 = ["lang", "dir", "innerHTML"], e3 = ["lang", "dir", "innerHTML"], t3 = window.Vue.computed, yp = {
+const X4 = window.Vue.resolveDirective, mi = window.Vue.createElementVNode, W4 = window.Vue.withDirectives, ns = window.Vue.unref, K4 = window.Vue.withCtx, Y4 = window.Vue.createVNode, Q4 = window.Vue.openBlock, J4 = window.Vue.createElementBlock, Z4 = { class: "sx-section-selector__present-sections py-2" }, e3 = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" }, t3 = { class: "sx-section-selector__present-section-button-content" }, n3 = ["lang", "dir", "innerHTML"], s3 = ["lang", "dir", "innerHTML"], o3 = window.Vue.computed, Sp = {
   __name: "SXSectionSelectorSectionListPresent",
   emits: ["select-section"],
   setup(e) {
-    const { sectionSuggestion: t } = Fe(), { targetLanguageURLParameter: n } = A(), s = t3(() => j.getAutonym(n.value));
+    const { sectionSuggestion: t } = De(), { targetLanguageURLParameter: n } = D(), s = o3(() => R.getAutonym(n.value));
     return (o, a) => {
       var l;
-      const r = H4("i18n");
-      return W4(), K4("section", Y4, [
-        q4(wi("h4", Q4, null, 512), [
+      const r = X4("i18n");
+      return Q4(), J4("section", Z4, [
+        W4(mi("h4", e3, null, 512), [
           [r, [
             s.value
           ], "cx-sx-section-selector-present-sections-title"]
         ]),
-        X4(Rf, {
-          sections: ((l = es(t)) == null ? void 0 : l.orderedPresentSections) || [],
+        Y4(jf, {
+          sections: ((l = ns(t)) == null ? void 0 : l.orderedPresentSections) || [],
           onSelectSection: a[0] || (a[0] = (u) => o.$emit("select-section", u))
         }, {
-          default: G4(({ sourceSection: u, targetSection: d }) => {
+          default: K4(({ sourceSection: u, targetSection: d }) => {
             var i, c, g, p;
             return [
-              wi("div", J4, [
-                wi("h5", {
+              mi("div", t3, [
+                mi("h5", {
                   class: "sx-section-selector__present-section-button-source",
-                  lang: (i = es(t)) == null ? void 0 : i.sourceLanguage,
-                  dir: es(j.getDir)((c = es(t)) == null ? void 0 : c.sourceLanguage),
+                  lang: (i = ns(t)) == null ? void 0 : i.sourceLanguage,
+                  dir: ns(R.getDir)((c = ns(t)) == null ? void 0 : c.sourceLanguage),
                   innerHTML: u
-                }, null, 8, Z4),
-                wi("h6", {
+                }, null, 8, n3),
+                mi("h6", {
                   class: "sx-section-selector__present-section-button-target",
-                  lang: (g = es(t)) == null ? void 0 : g.targetLanguage,
-                  dir: es(j.getDir)((p = es(t)) == null ? void 0 : p.targetLanguage),
+                  lang: (g = ns(t)) == null ? void 0 : g.targetLanguage,
+                  dir: ns(R.getDir)((p = ns(t)) == null ? void 0 : p.targetLanguage),
                   innerHTML: d
-                }, null, 8, e3)
+                }, null, 8, s3)
               ])
             ];
           }),
@@ -18604,73 +18624,73 @@ const H4 = window.Vue.resolveDirective, wi = window.Vue.createElementVNode, q4 =
     };
   }
 };
-const Ue = window.Vue.createVNode, Ml = window.Vue.openBlock, xp = window.Vue.createBlock, Cp = window.Vue.createCommentVNode, n3 = window.Vue.resolveDirective, Dn = window.Vue.createElementVNode, Bo = window.Vue.withDirectives, st = window.Vue.unref, dn = window.Vue.withCtx, s3 = window.Vue.normalizeClass, bp = window.Vue.toDisplayString, kp = window.Vue.createTextVNode, o3 = window.Vue.createElementBlock, a3 = { class: "sx-section-selector col-12 col-tablet-9 col-desktop-7 mx-auto" }, i3 = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" }, r3 = { class: "sx-section-selector__additional-consideration-title" }, l3 = { href: "#" }, c3 = { class: "sx-section-selector__additional-consideration-title" }, u3 = { href: "#" }, Fo = window.Vue.computed, d3 = window.Vue.inject, g3 = {
+const Ue = window.Vue.createVNode, Nl = window.Vue.openBlock, yp = window.Vue.createBlock, xp = window.Vue.createCommentVNode, a3 = window.Vue.resolveDirective, Bn = window.Vue.createElementVNode, Bo = window.Vue.withDirectives, ot = window.Vue.unref, gn = window.Vue.withCtx, i3 = window.Vue.normalizeClass, Cp = window.Vue.toDisplayString, bp = window.Vue.createTextVNode, r3 = window.Vue.createElementBlock, l3 = { class: "sx-section-selector col-12 col-tablet-9 col-desktop-7 mx-auto" }, c3 = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" }, u3 = { class: "sx-section-selector__additional-consideration-title" }, d3 = { href: "#" }, g3 = { class: "sx-section-selector__additional-consideration-title" }, p3 = { href: "#" }, Fo = window.Vue.computed, m3 = window.Vue.inject, h3 = {
   __name: "SXSectionSelector",
   setup(e) {
-    const t = d3("breakpoints"), n = Fo(() => t.value.desktopAndUp), { sectionSuggestion: s } = Fe(), {
+    const t = m3("breakpoints"), n = Fo(() => t.value.desktopAndUp), { sectionSuggestion: s } = De(), {
       sourceLanguageURLParameter: o,
       targetLanguageURLParameter: a,
       clearTranslationURLParameters: r,
       setSectionURLParam: l
-    } = A(), u = Fo(() => j.getAutonym(o.value)), d = Fo(() => j.getAutonym(a.value)), i = Fo(
+    } = D(), u = Fo(() => R.getAutonym(o.value)), d = Fo(() => R.getAutonym(a.value)), i = Fo(
       () => {
-        var y;
-        return K.getPageUrl(o.value, (y = s.value) == null ? void 0 : y.sourceTitle);
+        var C;
+        return K.getPageUrl(o.value, (C = s.value) == null ? void 0 : C.sourceTitle);
       }
     ), c = Fo(
       () => {
-        var y;
-        return K.getPageUrl(a.value, (y = s.value) == null ? void 0 : y.targetTitle);
+        var C;
+        return K.getPageUrl(a.value, (C = s.value) == null ? void 0 : C.targetTitle);
       }
-    ), g = Ze(), p = () => {
+    ), g = tt(), p = () => {
       r(), g.push({ name: "dashboard" });
-    }, { currentTranslation: m } = zt(), h = eo(), f = bu(), { selectPageSectionByTitle: w } = dr(), v = (y) => {
-      l(y), m.value ? (f(), h()) : (w(y), g.push({ name: "sx-content-comparator" }));
+    }, { currentTranslation: m } = Ot(), h = Zs(), f = ku(), { selectPageSectionByTitle: w } = rr(), _ = (C) => {
+      l(C), m.value ? (f(), h()) : (w(C), g.push({ name: "sx-content-comparator" }));
     };
-    return (y, S) => {
-      const b = n3("i18n");
-      return Ml(), o3("section", a3, [
-        Ue(b4, { onClose: p }),
-        Ue(Uf),
-        Ue(st(N), {
+    return (C, S) => {
+      const b = a3("i18n");
+      return Nl(), r3("section", l3, [
+        Ue(V4, { onClose: p }),
+        Ue(Of),
+        Ue(ot(M), {
           class: "ma-0",
           align: "stretch"
         }, {
-          default: dn(() => [
-            Ue(st(k), {
+          default: gn(() => [
+            Ue(ot(k), {
               cols: "12",
               desktop: "8",
               class: "ma-0 pa-0"
             }, {
-              default: dn(() => [
-                Ue(j4, {
-                  onSelectSection: v,
+              default: gn(() => [
+                Ue(G4, {
+                  onSelectSection: _,
                   onClose: p
                 }),
-                n.value ? Cp("", !0) : (Ml(), xp(yp, {
+                n.value ? xp("", !0) : (Nl(), yp(Sp, {
                   key: 0,
-                  onSelectSection: v
+                  onSelectSection: _
                 })),
-                Dn("section", {
-                  class: s3(["py-2", { "sx-section-selector__more-details--desktop": n.value }])
+                Bn("section", {
+                  class: i3(["py-2", { "sx-section-selector__more-details--desktop": n.value }])
                 }, [
-                  Bo(Dn("h4", i3, null, 512), [
+                  Bo(Bn("h4", c3, null, 512), [
                     [b, [
                       d.value
                     ], "cx-sx-section-selector-more-details-title"]
                   ]),
-                  Ue(st(N), {
+                  Ue(ot(M), {
                     class: "ma-0",
                     align: "start",
                     justify: "start"
                   }, {
-                    default: dn(() => [
-                      Ue(st(k), {
+                    default: gn(() => [
+                      Ue(ot(k), {
                         cols: "12",
                         tablet: "6",
                         class: "pa-0"
                       }, {
-                        default: dn(() => [
+                        default: gn(() => [
                           Ue(fp, {
                             path: i.value,
                             autonym: u.value
@@ -18678,12 +18698,12 @@ const Ue = window.Vue.createVNode, Ml = window.Vue.openBlock, xp = window.Vue.cr
                         ]),
                         _: 1
                       }),
-                      Ue(st(k), {
+                      Ue(ot(k), {
                         cols: "12",
                         tablet: "6",
                         class: "pa-0"
                       }, {
-                        default: dn(() => [
+                        default: gn(() => [
                           Ue(fp, {
                             path: c.value,
                             autonym: d.value
@@ -18695,50 +18715,50 @@ const Ue = window.Vue.createVNode, Ml = window.Vue.openBlock, xp = window.Vue.cr
                     _: 1
                   })
                 ], 2),
-                Ue(st(N), {
+                Ue(ot(M), {
                   class: "sx-section-selector__additional-considerations ma-0",
                   align: "stretch"
                 }, {
-                  default: dn(() => [
-                    Ue(st(k), {
+                  default: gn(() => [
+                    Ue(ot(k), {
                       cols: "12",
                       tablet: "6",
                       class: "px-4 pt-5 pb-4"
                     }, {
-                      default: dn(() => [
-                        Dn("h6", r3, [
-                          Ue(st(Je), {
-                            icon: st(U0),
+                      default: gn(() => [
+                        Bn("h6", u3, [
+                          Ue(ot(et), {
+                            icon: ot(O0),
                             class: "pe-2"
                           }, null, 8, ["icon"]),
-                          kp(" " + bp(y.$i18n("cx-sx-section-selector-automatic-section-matching-title")), 1)
+                          bp(" " + Cp(C.$i18n("cx-sx-section-selector-automatic-section-matching-title")), 1)
                         ]),
-                        Bo(Dn("p", null, null, 512), [
+                        Bo(Bn("p", null, null, 512), [
                           [b, void 0, "cx-sx-section-selector-automatic-section-matching-description"]
                         ]),
-                        Bo(Dn("a", l3, null, 512), [
+                        Bo(Bn("a", d3, null, 512), [
                           [b, void 0, "cx-sx-section-selector-learn-more-anchor-label"]
                         ])
                       ]),
                       _: 1
                     }),
-                    Ue(st(k), {
+                    Ue(ot(k), {
                       cols: "12",
                       tablet: "6",
                       class: "px-4 py-5"
                     }, {
-                      default: dn(() => [
-                        Dn("h6", c3, [
-                          Ue(st(Je), {
-                            icon: st(M0),
+                      default: gn(() => [
+                        Bn("h6", g3, [
+                          Ue(ot(et), {
+                            icon: ot(z0),
                             class: "pe-2"
                           }, null, 8, ["icon"]),
-                          kp(" " + bp(y.$i18n("cx-sx-section-selector-unsupported-sections-title")), 1)
+                          bp(" " + Cp(C.$i18n("cx-sx-section-selector-unsupported-sections-title")), 1)
                         ]),
-                        Bo(Dn("p", null, null, 512), [
+                        Bo(Bn("p", null, null, 512), [
                           [b, void 0, "cx-sx-section-selector-unsupported-sections-description"]
                         ]),
-                        Bo(Dn("a", u3, null, 512), [
+                        Bo(Bn("a", p3, null, 512), [
                           [b, void 0, "cx-sx-section-selector-learn-more-anchor-label"]
                         ])
                       ]),
@@ -18750,29 +18770,29 @@ const Ue = window.Vue.createVNode, Ml = window.Vue.openBlock, xp = window.Vue.cr
               ]),
               _: 1
             }),
-            n.value ? (Ml(), xp(st(k), {
+            n.value ? (Nl(), yp(ot(k), {
               key: 0,
               desktop: "4",
               class: "ma-0 pa-0"
             }, {
-              default: dn(() => [
-                Ue(yp, {
+              default: gn(() => [
+                Ue(Sp, {
                   class: "sx-section-selector-section-list-present--sidebar fill-height p-0",
-                  onSelectSection: v
+                  onSelectSection: _
                 })
               ]),
               _: 1
-            })) : Cp("", !0)
+            })) : xp("", !0)
           ]),
           _: 1
         })
       ]);
     };
   }
-}, p3 = {
+}, f3 = {
   name: "SxSectionSelectorView",
   components: {
-    SxSectionSelector: g3
+    SxSectionSelector: h3
   },
   computed: {
     classes() {
@@ -18781,27 +18801,27 @@ const Ue = window.Vue.createVNode, Ml = window.Vue.openBlock, xp = window.Vue.cr
       };
     }
   }
-}, m3 = window.Vue.resolveComponent, h3 = window.Vue.createVNode, f3 = window.Vue.normalizeClass, w3 = window.Vue.openBlock, v3 = window.Vue.createElementBlock;
-function _3(e, t, n, s, o, a) {
-  const r = m3("sx-section-selector");
-  return w3(), v3("main", {
-    class: f3(["sx-section-selector-view", a.classes])
+}, w3 = window.Vue.resolveComponent, v3 = window.Vue.createVNode, _3 = window.Vue.normalizeClass, S3 = window.Vue.openBlock, y3 = window.Vue.createElementBlock;
+function x3(e, t, n, s, o, a) {
+  const r = w3("sx-section-selector");
+  return S3(), y3("main", {
+    class: _3(["sx-section-selector-view", a.classes])
   }, [
-    h3(r)
+    v3(r)
   ], 2);
 }
-const S3 = /* @__PURE__ */ de(p3, [["render", _3]]), vi = window.Vue.computed, y3 = () => {
+const C3 = /* @__PURE__ */ ge(f3, [["render", x3]]), hi = window.Vue.computed, b3 = () => {
   const {
     sourceLanguageURLParameter: e,
     targetLanguageURLParameter: t
-  } = A(), n = vi(
-    () => j.getAutonym(e.value)
-  ), s = vi(
-    () => j.getAutonym(t.value)
-  ), { target: o, PUBLISHING_TARGETS: a } = Rt(), r = vi(
+  } = D(), n = hi(
+    () => R.getAutonym(e.value)
+  ), s = hi(
+    () => R.getAutonym(t.value)
+  ), { target: o, PUBLISHING_TARGETS: a } = zt(), r = hi(
     () => o.value === a.EXPAND
-  ), l = we();
-  return vi(() => {
+  ), l = he();
+  return hi(() => {
     const u = {
       value: "source_section",
       props: {
@@ -18834,7 +18854,7 @@ const S3 = /* @__PURE__ */ de(p3, [["render", _3]]), vi = window.Vue.computed, y
     }, [u, d];
   });
 };
-const $p = window.Vue.unref, x3 = window.Vue.createVNode, C3 = window.Vue.openBlock, b3 = window.Vue.createElementBlock, k3 = { class: "sx-content-comparator__content-type-selector" }, $3 = window.Vue.watchEffect, E3 = {
+const kp = window.Vue.unref, k3 = window.Vue.createVNode, $3 = window.Vue.openBlock, V3 = window.Vue.createElementBlock, E3 = { class: "sx-content-comparator__content-type-selector" }, L3 = window.Vue.watchEffect, T3 = {
   __name: "ContentTypeSelector",
   props: {
     selection: {
@@ -18844,19 +18864,19 @@ const $p = window.Vue.unref, x3 = window.Vue.createVNode, C3 = window.Vue.openBl
   },
   emits: ["update:selection"],
   setup(e, { emit: t }) {
-    const n = e, s = t, o = (r) => s("update:selection", r), a = y3();
-    return $3(() => {
+    const n = e, s = t, o = (r) => s("update:selection", r), a = b3();
+    return L3(() => {
       a.value.map((l) => l.value).includes(n.selection) || o(a.value[0].value);
-    }), (r, l) => (C3(), b3("div", k3, [
-      x3($p(ma), {
-        items: $p(a),
+    }), (r, l) => ($3(), V3("div", E3, [
+      k3(kp(ma), {
+        items: kp(a),
         active: e.selection,
         onSelect: o
       }, null, 8, ["items", "active"])
     ]));
   }
-}, No = window.Vue.computed, V3 = window.Vuex.useStore, ne = () => {
-  const e = V3(), { currentSourcePage: t, currentTargetPageTitle: n } = dt(), { currentMTProvider: s } = Le(e), { sectionURLParameter: o } = A(), a = No(() => {
+}, No = window.Vue.computed, A3 = window.Vuex.useStore, ne = () => {
+  const e = A3(), { currentSourcePage: t, currentTargetPageTitle: n } = pt(), { currentMTProvider: s } = Ae(e), { sectionURLParameter: o } = D(), a = No(() => {
     var i, c;
     return o.value ? (c = t.value) == null ? void 0 : c.getSectionByTitle(o.value) : (i = t.value) == null ? void 0 : i.leadSection;
   }), r = No(
@@ -18886,8 +18906,8 @@ const $p = window.Vue.unref, x3 = window.Vue.createVNode, C3 = window.Vue.openBl
     currentProposedTranslation: u,
     targetPageTitleForPublishing: d
   };
-}, Mo = window.Vue.computed, $u = () => {
-  const { currentTargetPage: e } = dt(), { sectionSuggestion: t } = Fe(), { sectionURLParameter: n } = A(), s = Mo(
+}, Mo = window.Vue.computed, Vu = () => {
+  const { currentTargetPage: e } = pt(), { sectionSuggestion: t } = De(), { sectionURLParameter: n } = D(), s = Mo(
     () => t.value.missingSections[n.value] || t.value.presentSections[n.value] || ""
   ), o = Mo(
     () => {
@@ -18913,9 +18933,9 @@ const $p = window.Vue.unref, x3 = window.Vue.createVNode, C3 = window.Vue.openBl
     targetSectionContent: u
   };
 };
-const _i = window.Vue.createVNode, L3 = window.Vue.createElementVNode, Pn = window.Vue.unref, Si = window.Vue.withCtx, Ul = window.Vue.openBlock, Il = window.Vue.createBlock;
+const fi = window.Vue.createVNode, D3 = window.Vue.createElementVNode, Fn = window.Vue.unref, wi = window.Vue.withCtx, Ml = window.Vue.openBlock, Ul = window.Vue.createBlock;
 window.Vue.createCommentVNode;
-const T3 = window.Vue.normalizeClass, A3 = ["lang", "dir", "innerHTML"], Ep = window.Vue.ref, yi = window.Vue.computed, D3 = window.Vue.onMounted, P3 = {
+const P3 = window.Vue.normalizeClass, B3 = ["lang", "dir", "innerHTML"], $p = window.Vue.ref, vi = window.Vue.computed, F3 = window.Vue.onMounted, N3 = {
   __name: "SXContentComparatorContentHeader",
   props: {
     contentTypeSelection: {
@@ -18928,16 +18948,16 @@ const T3 = window.Vue.normalizeClass, A3 = ["lang", "dir", "innerHTML"], Ep = wi
     "translation-button-clicked"
   ],
   setup(e, { emit: t }) {
-    const n = e, s = t, o = Ep(!1), { sectionSuggestion: a } = Fe(), { sectionURLParameter: r } = A(), l = yi(
+    const n = e, s = t, o = $p(!1), { sectionSuggestion: a } = De(), { sectionURLParameter: r } = D(), l = vi(
       () => (c.value || "").replace(/ /g, "_")
-    ), u = (h) => s("update:contentTypeSelection", h), { activeSectionTargetTitle: d, targetSectionAnchor: i } = $u(), c = yi(
+    ), u = (h) => s("update:contentTypeSelection", h), { activeSectionTargetTitle: d, targetSectionAnchor: i } = Vu(), c = vi(
       () => {
         var h;
         return (((h = a.value) == null ? void 0 : h.sourceSections) || []).find(
           (f) => f === r.value
         );
       }
-    ), g = yi(() => {
+    ), g = vi(() => {
       switch (n.contentTypeSelection) {
         case "source_section":
           return {
@@ -18947,14 +18967,14 @@ const T3 = window.Vue.normalizeClass, A3 = ["lang", "dir", "innerHTML"], Ep = wi
               a.value.sourceTitle
             )}#${l.value}`,
             lang: a.value.sourceLanguage,
-            dir: j.getDir(a.value.sourceLanguage)
+            dir: R.getDir(a.value.sourceLanguage)
           };
         case "target_article":
           return {
             title: a.value.targetTitle,
             path: p.value,
             lang: a.value.targetLanguage,
-            dir: j.getDir(a.value.targetLanguage)
+            dir: R.getDir(a.value.targetLanguage)
           };
         default:
           return {
@@ -18962,62 +18982,62 @@ const T3 = window.Vue.normalizeClass, A3 = ["lang", "dir", "innerHTML"], Ep = wi
             path: `${p.value}#${i.value}`
           };
       }
-    }), p = yi(
+    }), p = vi(
       () => K.getPageUrl(
         a.value.targetLanguage,
         a.value.targetTitle
       )
-    ), m = Ep(null);
-    return D3(() => {
+    ), m = $p(null);
+    return F3(() => {
       new IntersectionObserver(
         ([f]) => {
           o.value = f.intersectionRect.height < f.boundingClientRect.height;
         },
         { threshold: [1] }
       ).observe(m.value.$el);
-    }), (h, f) => (Ul(), Il(Pn(N), {
+    }), (h, f) => (Ml(), Ul(Fn(M), {
       ref_key: "contentHeader",
       ref: m,
-      class: T3(["sx-content-comparator__content-header ma-0 pt-1", { sticky: o.value }]),
+      class: P3(["sx-content-comparator__content-header ma-0 pt-1", { sticky: o.value }]),
       direction: "column",
       align: "stretch",
       reverse: o.value
     }, {
-      default: Si(() => [
-        _i(E3, {
+      default: wi(() => [
+        fi(T3, {
           selection: e.contentTypeSelection,
           "onUpdate:selection": u
         }, null, 8, ["selection"]),
-        _i(Pn(N), {
+        fi(Fn(M), {
           justify: "between",
           class: "sx-content-comparator__content-header-title mx-4 my-0 pt-4 pb-2"
         }, {
-          default: Si(() => [
-            _i(Pn(k), null, {
-              default: Si(() => [
-                L3("h3", {
+          default: wi(() => [
+            fi(Fn(k), null, {
+              default: wi(() => [
+                D3("h3", {
                   lang: g.value.lang,
                   dir: g.value.dir,
                   class: "ma-0 pa-0",
                   innerHTML: g.value.title
-                }, null, 8, A3)
+                }, null, 8, B3)
               ]),
               _: 1
             }),
-            _i(Pn(k), { shrink: "" }, {
-              default: Si(() => [
-                o.value ? (Ul(), Il(Pn(Ge), {
+            fi(Fn(k), { shrink: "" }, {
+              default: wi(() => [
+                o.value ? (Ml(), Ul(Fn(Xe), {
                   key: 0,
-                  icon: Pn(Yi),
+                  icon: Fn(Xi),
                   progressive: "",
                   label: h.$i18n(
                     "cx-sx-content-comparator-content-header-translate-button-label"
                   ),
                   onClick: f[0] || (f[0] = (w) => h.$emit("translation-button-clicked"))
-                }, null, 8, ["icon", "label"])) : (Ul(), Il(Pn(Ge), {
+                }, null, 8, ["icon", "label"])) : (Ml(), Ul(Fn(Xe), {
                   key: 1,
                   class: "sx-content-comparator__open-content-link-button pa-0 pe-2",
-                  icon: Pn(dh),
+                  icon: Fn(uh),
                   type: "icon",
                   href: g.value.path,
                   target: "_blank"
@@ -19032,7 +19052,7 @@ const T3 = window.Vue.normalizeClass, A3 = ["lang", "dir", "innerHTML"], Ep = wi
       _: 1
     }, 8, ["class", "reverse"]));
   }
-}, xi = window.Vue.unref, Vp = window.Vue.createVNode, B3 = window.Vue.openBlock, F3 = window.Vue.createElementBlock, N3 = { class: "sx-content-comparator__header-navigation flex items-center" }, M3 = window.Vue.computed, U3 = {
+}, _i = window.Vue.unref, Vp = window.Vue.createVNode, M3 = window.Vue.openBlock, U3 = window.Vue.createElementBlock, I3 = { class: "sx-content-comparator__header-navigation flex items-center" }, R3 = window.Vue.computed, z3 = {
   __name: "SXContentComparatorHeaderNavigation",
   props: {
     sectionSourceTitles: {
@@ -19041,79 +19061,79 @@ const T3 = window.Vue.normalizeClass, A3 = ["lang", "dir", "innerHTML"], Ep = wi
     }
   },
   setup(e) {
-    const t = e, { sectionURLParameter: n } = A(), s = M3(
+    const t = e, { sectionURLParameter: n } = D(), s = R3(
       () => t.sectionSourceTitles.indexOf(n.value)
-    ), { selectPageSectionByTitle: o } = dr(), a = () => {
+    ), { selectPageSectionByTitle: o } = rr(), a = () => {
       const l = (s.value - 1 + t.sectionSourceTitles.length) % t.sectionSourceTitles.length, u = t.sectionSourceTitles[l];
       o(u);
     }, r = () => {
       const l = (s.value + 1) % t.sectionSourceTitles.length, u = t.sectionSourceTitles[l];
       o(u);
     };
-    return (l, u) => (B3(), F3("div", N3, [
-      Vp(xi(Ge), {
+    return (l, u) => (M3(), U3("div", I3, [
+      Vp(_i(Xe), {
         class: "pa-0 pe-1",
         type: "icon",
-        icon: xi(P0),
+        icon: _i(M0),
         onClick: a
       }, null, 8, ["icon"]),
-      Vp(xi(Ge), {
+      Vp(_i(Xe), {
         class: "pa-0 ps-1",
         type: "icon",
-        icon: xi(D0),
+        icon: _i(N0),
         onClick: r
       }, null, 8, ["icon"])
     ]));
   }
 };
-const Lp = window.Vue.toDisplayString, be = window.Vue.unref, I3 = window.Vue.resolveDirective, Rl = window.Vue.withDirectives, Ls = window.Vue.openBlock, Ci = window.Vue.createElementBlock, R3 = window.Vue.createCommentVNode, z3 = window.Vue.createTextVNode, Tp = window.Vue.createElementVNode, O3 = window.Vue.normalizeClass, zl = window.Vue.withCtx, Ol = window.Vue.createVNode, Ap = window.Vue.createBlock, j3 = { class: "sx-content-comparator-header__mapped-section" }, H3 = { class: "sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1" }, q3 = { key: 0 }, G3 = {
+const Ep = window.Vue.toDisplayString, be = window.Vue.unref, O3 = window.Vue.resolveDirective, Il = window.Vue.withDirectives, As = window.Vue.openBlock, Si = window.Vue.createElementBlock, H3 = window.Vue.createCommentVNode, j3 = window.Vue.createTextVNode, Lp = window.Vue.createElementVNode, q3 = window.Vue.normalizeClass, Rl = window.Vue.withCtx, zl = window.Vue.createVNode, Tp = window.Vue.createBlock, G3 = { class: "sx-content-comparator-header__mapped-section" }, X3 = { class: "sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1" }, W3 = { key: 0 }, K3 = {
   key: 0,
   class: "sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
-}, X3 = {
+}, Y3 = {
   key: 1,
   class: "sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
-}, W3 = window.Vue.computed, K3 = {
+}, Q3 = window.Vue.computed, J3 = {
   __name: "SXContentComparatorHeaderMappedSection",
   setup(e) {
-    const { targetLanguageURLParameter: t } = A(), { activeSectionTargetTitle: n } = $u(), s = we(), { target: o, PUBLISHING_TARGETS: a, setTarget: r } = Rt(), l = W3(
+    const { targetLanguageURLParameter: t } = D(), { activeSectionTargetTitle: n } = Vu(), s = he(), { target: o, PUBLISHING_TARGETS: a, setTarget: r } = zt(), l = Q3(
       () => s.i18n(
         "cx-sx-content-comparator-mapped-section-header-title",
-        j.getAutonym(t.value)
+        R.getAutonym(t.value)
       )
     );
     return (u, d) => {
-      const i = I3("i18n");
-      return Ls(), Ci("div", j3, [
-        Ol(be(N), { class: "sx-content-comparator-header__mapped-section-header pa-2 ma-0" }, {
-          default: zl(() => [
-            Ol(be(k), { grow: "" }, {
-              default: zl(() => [
-                Tp("h6", H3, [
-                  z3(Lp(l.value) + " ", 1),
-                  be(o) === be(a).NEW_SECTION ? Rl((Ls(), Ci("span", q3, null, 512)), [
+      const i = O3("i18n");
+      return As(), Si("div", G3, [
+        zl(be(M), { class: "sx-content-comparator-header__mapped-section-header pa-2 ma-0" }, {
+          default: Rl(() => [
+            zl(be(k), { grow: "" }, {
+              default: Rl(() => [
+                Lp("h6", X3, [
+                  j3(Ep(l.value) + " ", 1),
+                  be(o) === be(a).NEW_SECTION ? Il((As(), Si("span", W3, null, 512)), [
                     [i, void 0, "cx-sx-content-comparator-discarded-section-label"]
-                  ]) : R3("", !0)
+                  ]) : H3("", !0)
                 ]),
-                Tp("h6", {
-                  class: O3(["sx-content-comparator-header__mapped-section-target-title pa-0 ms-1", {
+                Lp("h6", {
+                  class: q3(["sx-content-comparator-header__mapped-section-target-title pa-0 ms-1", {
                     "sx-content-comparator-header__mapped-section-target-title--discarded": be(o) === be(a).NEW_SECTION
                   }])
-                }, Lp(be(n)), 3)
+                }, Ep(be(n)), 3)
               ]),
               _: 1
             }),
-            Ol(be(k), { shrink: "" }, {
-              default: zl(() => [
-                be(o) === be(a).EXPAND ? (Ls(), Ap(be(Ge), {
+            zl(be(k), { shrink: "" }, {
+              default: Rl(() => [
+                be(o) === be(a).EXPAND ? (As(), Tp(be(Xe), {
                   key: 0,
                   class: "sx-content-comparator-header__mapped-section__discard-button pa-0",
-                  icon: be(uh),
+                  icon: be(ch),
                   type: "icon",
                   onClick: d[0] || (d[0] = (c) => be(r)(be(a).NEW_SECTION))
-                }, null, 8, ["icon"])) : (Ls(), Ap(be(Ge), {
+                }, null, 8, ["icon"])) : (As(), Tp(be(Xe), {
                   key: 1,
                   class: "sx-content-comparator-header__mapped-section__undo-button pa-0",
-                  icon: be(z0),
+                  icon: be(q0),
                   type: "icon",
                   onClick: d[1] || (d[1] = (c) => be(r)(be(a).EXPAND))
                 }, null, 8, ["icon"]))
@@ -19123,31 +19143,31 @@ const Lp = window.Vue.toDisplayString, be = window.Vue.unref, I3 = window.Vue.re
           ]),
           _: 1
         }),
-        be(o) === be(a).EXPAND ? Rl((Ls(), Ci("p", G3, null, 512)), [
+        be(o) === be(a).EXPAND ? Il((As(), Si("p", K3, null, 512)), [
           [i, void 0, "cx-sx-content-comparator-mapped-section-clarifications"]
-        ]) : Rl((Ls(), Ci("p", X3, null, 512)), [
+        ]) : Il((As(), Si("p", Y3, null, 512)), [
           [i, void 0, "cx-sx-content-comparator-discarded-section-clarifications"]
         ])
       ]);
     };
   }
 };
-const Be = window.Vue.unref, Ts = window.Vue.createVNode, Y3 = window.Vue.toDisplayString, _n = window.Vue.createElementVNode, jl = window.Vue.withCtx, Q3 = window.Vue.resolveDirective, Dp = window.Vue.withDirectives, Hl = window.Vue.openBlock, Pp = window.Vue.createBlock, Bp = window.Vue.createCommentVNode, J3 = window.Vue.createElementBlock, Z3 = { class: "sx-content-comparator__header pa-4" }, e5 = { class: "row my-1 py-2 mx-0 gap-6" }, t5 = { class: "sx-content-comparator-header__titles-nav flex grow justify-between" }, n5 = { class: "sx-content-comparator-header__titles shrink" }, s5 = ["lang", "dir"], o5 = ["lang", "dir", "innerHTML"], a5 = { class: "py-2 mb-1" }, i5 = /* @__PURE__ */ _n("br", null, null, -1), bi = window.Vue.computed, r5 = {
+const Fe = window.Vue.unref, Ds = window.Vue.createVNode, Z3 = window.Vue.toDisplayString, Sn = window.Vue.createElementVNode, Ol = window.Vue.withCtx, e5 = window.Vue.resolveDirective, Ap = window.Vue.withDirectives, Hl = window.Vue.openBlock, Dp = window.Vue.createBlock, Pp = window.Vue.createCommentVNode, t5 = window.Vue.createElementBlock, n5 = { class: "sx-content-comparator__header pa-4" }, s5 = { class: "row my-1 py-2 mx-0 gap-6" }, o5 = { class: "sx-content-comparator-header__titles-nav flex grow justify-between" }, a5 = { class: "sx-content-comparator-header__titles shrink" }, i5 = ["lang", "dir"], r5 = ["lang", "dir", "innerHTML"], l5 = { class: "py-2 mb-1" }, c5 = /* @__PURE__ */ Sn("br", null, null, -1), yi = window.Vue.computed, u5 = {
   __name: "SXContentComparatorHeader",
   emits: ["close", "translation-button-clicked"],
   setup(e) {
-    const { sectionURLParameter: t } = A(), { sourceSection: n } = ne(), { sectionSuggestion: s, isCurrentSectionPresent: o } = Fe(), a = bi(
+    const { sectionURLParameter: t } = D(), { sourceSection: n } = ne(), { sectionSuggestion: s, isCurrentSectionPresent: o } = De(), a = yi(
       () => {
         var d;
         return (d = s.value) == null ? void 0 : d.missingSections.hasOwnProperty(t.value);
       }
-    ), r = bi(() => {
+    ), r = yi(() => {
       var d;
       return (d = n.value) == null ? void 0 : d.html;
-    }), l = bi(() => [
+    }), l = yi(() => [
       ...Object.keys(s.value.missingSections),
       ...Object.keys(s.value.presentSections)
-    ]), u = bi(
+    ]), u = yi(
       () => {
         var d;
         return (((d = s.value) == null ? void 0 : d.sourceSections) || []).find(
@@ -19156,36 +19176,36 @@ const Be = window.Vue.unref, Ts = window.Vue.createVNode, Y3 = window.Vue.toDisp
       }
     );
     return (d, i) => {
-      const c = Q3("i18n");
-      return Hl(), J3("div", Z3, [
-        Ts(Be(Ge), {
+      const c = e5("i18n");
+      return Hl(), t5("div", n5, [
+        Ds(Fe(Xe), {
           class: "py-2 pa-0",
-          icon: Be(B0),
+          icon: Fe(U0),
           label: d.$i18n("cx-sx-content-comparator-back-to-sections-button-label"),
           type: "text",
           onClick: i[0] || (i[0] = (g) => d.$emit("close"))
         }, null, 8, ["icon", "label"]),
-        _n("div", e5, [
-          _n("div", t5, [
-            _n("div", n5, [
-              _n("h4", {
+        Sn("div", s5, [
+          Sn("div", o5, [
+            Sn("div", a5, [
+              Sn("h4", {
                 class: "pa-0 sx-content-comparator-header__article-title",
-                lang: Be(s).sourceLanguage,
-                dir: Be(j.getDir)(Be(s).sourceLanguage)
-              }, Y3(Be(s).sourceTitle), 9, s5),
-              _n("h2", {
+                lang: Fe(s).sourceLanguage,
+                dir: Fe(R.getDir)(Fe(s).sourceLanguage)
+              }, Z3(Fe(s).sourceTitle), 9, i5),
+              Sn("h2", {
                 class: "sx-content-comparator-header__section-title pa-0 ma-0",
-                lang: Be(s).sourceLanguage,
-                dir: Be(j.getDir)(Be(s).sourceLanguage),
+                lang: Fe(s).sourceLanguage,
+                dir: Fe(R.getDir)(Fe(s).sourceLanguage),
                 innerHTML: u.value
-              }, null, 8, o5)
+              }, null, 8, r5)
             ]),
-            Ts(U3, { "section-source-titles": l.value }, null, 8, ["section-source-titles"])
+            Ds(z3, { "section-source-titles": l.value }, null, 8, ["section-source-titles"])
           ]),
-          _n("div", a5, [
-            Ts(Be(Ge), {
+          Sn("div", l5, [
+            Ds(Fe(Xe), {
               class: "sx-content-comparator-header__translation-button",
-              icon: Be(Yi),
+              icon: Fe(Xi),
               progressive: "",
               label: d.$i18n("cx-sx-content-comparator-translation-section-button-label"),
               disabled: !r.value,
@@ -19193,28 +19213,28 @@ const Be = window.Vue.unref, Ts = window.Vue.createVNode, Y3 = window.Vue.toDisp
             }, null, 8, ["icon", "label", "disabled"])
           ])
         ]),
-        a.value ? (Hl(), Pp(Be(N), {
+        a.value ? (Hl(), Dp(Fe(M), {
           key: 0,
           align: "start",
           class: "sx-content-comparator-header__review-contents mx-0"
         }, {
-          default: jl(() => [
-            Ts(Be(k), {
+          default: Ol(() => [
+            Ds(Fe(k), {
               shrink: "",
               class: "pe-2"
             }, {
-              default: jl(() => [
-                Ts(Be(Je), { icon: Be(I0) }, null, 8, ["icon"])
+              default: Ol(() => [
+                Ds(Fe(et), { icon: Fe(H0) }, null, 8, ["icon"])
               ]),
               _: 1
             }),
-            Ts(Be(k), { class: "ma-0" }, {
-              default: jl(() => [
-                Dp(_n("strong", null, null, 512), [
+            Ds(Fe(k), { class: "ma-0" }, {
+              default: Ol(() => [
+                Ap(Sn("strong", null, null, 512), [
                   [c, void 0, "cx-sx-content-comparator-review-contents-title"]
                 ]),
-                i5,
-                Dp(_n("span", null, null, 512), [
+                c5,
+                Ap(Sn("span", null, null, 512), [
                   [c, void 0, "cx-sx-content-comparator-review-contents-rest"]
                 ])
               ]),
@@ -19222,13 +19242,13 @@ const Be = window.Vue.unref, Ts = window.Vue.createVNode, Y3 = window.Vue.toDisp
             })
           ]),
           _: 1
-        })) : Bp("", !0),
-        Be(o) ? (Hl(), Pp(K3, { key: 1 })) : Bp("", !0)
+        })) : Pp("", !0),
+        Fe(o) ? (Hl(), Dp(J3, { key: 1 })) : Pp("", !0)
       ]);
     };
   }
 };
-const Fp = window.Vue.toDisplayString, l5 = window.Vue.createElementVNode, Np = window.Vue.openBlock, Mp = window.Vue.createElementBlock, c5 = window.Vue.createCommentVNode, u5 = { class: "sx-content-comparator__new-section-placeholder mt-4 py-4 px-7" }, d5 = ["textContent"], g5 = ["textContent"], zf = {
+const Bp = window.Vue.toDisplayString, d5 = window.Vue.createElementVNode, Fp = window.Vue.openBlock, Np = window.Vue.createElementBlock, g5 = window.Vue.createCommentVNode, p5 = { class: "sx-content-comparator__new-section-placeholder mt-4 py-4 px-7" }, m5 = ["textContent"], h5 = ["textContent"], qf = {
   __name: "NewSectionPlaceholder",
   props: {
     placeholderTitle: {
@@ -19242,27 +19262,27 @@ const Fp = window.Vue.toDisplayString, l5 = window.Vue.createElementVNode, Np = 
     }
   },
   setup(e) {
-    return (t, n) => (Np(), Mp("section", u5, [
-      l5("h5", {
-        textContent: Fp(e.placeholderTitle)
-      }, null, 8, d5),
-      e.placeholderSubtitle ? (Np(), Mp("p", {
+    return (t, n) => (Fp(), Np("section", p5, [
+      d5("h5", {
+        textContent: Bp(e.placeholderTitle)
+      }, null, 8, m5),
+      e.placeholderSubtitle ? (Fp(), Np("p", {
         key: 0,
-        textContent: Fp(e.placeholderSubtitle)
-      }, null, 8, g5)) : c5("", !0)
+        textContent: Bp(e.placeholderSubtitle)
+      }, null, 8, h5)) : g5("", !0)
     ]));
   }
-}, p5 = (e, t, n) => {
+}, f5 = (e, t, n) => {
   const s = t.indexOf(e);
   return t.slice(s + 1).map((a) => n[a]).filter(Boolean)[0] || null;
-}, m5 = ({
+}, w5 = ({
   sourceSectionTitle: e,
   sourceSectionTitles: t,
   targetSectionTitles: n,
   presentSectionMappings: s,
   targetAppendixSectionTitles: o
 }) => {
-  const a = p5(
+  const a = f5(
     e,
     t,
     s
@@ -19270,19 +19290,19 @@ const Fp = window.Vue.toDisplayString, l5 = window.Vue.createElementVNode, Np = 
   return a !== null ? a : n.find(
     (l) => o.includes(l)
   ) || null;
-}, ql = window.Vue.computed, h5 = window.Vue.createApp, f5 = window.Vuex.useStore, w5 = () => {
-  const e = f5(), { sectionSuggestion: t } = Fe(), { currentTargetPage: n } = dt(), { sectionURLParameter: s } = A(), o = we(), a = () => h5(
-    zf,
+}, jl = window.Vue.computed, v5 = window.Vue.createApp, _5 = window.Vuex.useStore, S5 = () => {
+  const e = _5(), { sectionSuggestion: t } = De(), { currentTargetPage: n } = pt(), { sectionURLParameter: s } = D(), o = he(), a = () => v5(
+    qf,
     {
       placeholderTitle: o.i18n(
         "cx-sx-content-comparator-missing-section-placeholder-title"
       )
     }
-  ).mount(document.createElement("div")).$el, r = ql(() => {
+  ).mount(document.createElement("div")).$el, r = jl(() => {
     const { appendixSectionTitles: d } = e.state.suggestions;
     return d[t.value.targetLanguage] || [];
-  }), l = ql(
-    () => m5({
+  }), l = jl(
+    () => w5({
       sourceSectionTitle: s.value,
       sourceSectionTitles: t.value.sourceSections,
       targetSectionTitles: t.value.targetSections,
@@ -19295,7 +19315,7 @@ const Fp = window.Vue.toDisplayString, l5 = window.Vue.createElementVNode, Np = 
       (c) => c.parentNode.removeChild(c)
     );
   };
-  return ql(() => {
+  return jl(() => {
     var c;
     if (!((c = n.value) != null && c.content))
       return null;
@@ -19320,16 +19340,16 @@ const Fp = window.Vue.toDisplayString, l5 = window.Vue.createElementVNode, Np = 
     return d.innerHTML;
   });
 };
-const Gl = window.Vue.createVNode, ot = window.Vue.unref, As = window.Vue.openBlock, Up = window.Vue.createBlock, Ip = window.Vue.createCommentVNode, ki = window.Vue.createElementVNode, Xl = window.Vue.Fragment, $i = window.Vue.createElementBlock, v5 = { class: "sx-content-comparator col-12 col-tablet-9 col-desktop-7 mx-auto" }, _5 = { class: "sx-content-comparator__source-content" }, S5 = ["lang", "dir", "innerHTML"], y5 = ["lang", "dir", "innerHTML"], x5 = ["innerHTML"], C5 = window.Vue.ref, b5 = window.Vue.computed, Rp = window.Vue.watch, k5 = {
+const ql = window.Vue.createVNode, at = window.Vue.unref, Ps = window.Vue.openBlock, Mp = window.Vue.createBlock, Up = window.Vue.createCommentVNode, xi = window.Vue.createElementVNode, Gl = window.Vue.Fragment, Ci = window.Vue.createElementBlock, y5 = { class: "sx-content-comparator col-12 col-tablet-9 col-desktop-7 mx-auto" }, x5 = { class: "sx-content-comparator__source-content" }, C5 = ["lang", "dir", "innerHTML"], b5 = ["lang", "dir", "innerHTML"], k5 = ["innerHTML"], $5 = window.Vue.ref, V5 = window.Vue.computed, Ip = window.Vue.watch, E5 = {
   __name: "SXContentComparator",
   setup(e) {
-    const { resetPublishTarget: t } = Rt(), n = Ze(), s = C5("source_section"), { logDashboardTranslationStartEvent: o } = ur(), a = eo(), r = () => n.push({ name: "sx-section-selector" }), l = () => {
+    const { resetPublishTarget: t } = zt(), n = tt(), s = $5("source_section"), { logDashboardTranslationStartEvent: o } = bu(), a = Zs(), r = () => n.push({ name: "sx-section-selector" }), l = () => {
       o(), a();
     }, {
       sourceLanguageURLParameter: u,
       targetLanguageURLParameter: d
-    } = A(), { sourceSectionContent: i, targetSectionContent: c } = $u(), g = w5(), { sectionSuggestion: p, isCurrentSectionPresent: m } = Fe(), h = b5(() => p.value.targetTitle), f = Mf();
-    return Rp(
+    } = D(), { sourceSectionContent: i, targetSectionContent: c } = Vu(), g = S5(), { sectionSuggestion: p, isCurrentSectionPresent: m } = De(), h = V5(() => p.value.targetTitle), f = Rf();
+    return Ip(
       h,
       () => f(
         d.value,
@@ -19337,39 +19357,39 @@ const Gl = window.Vue.createVNode, ot = window.Vue.unref, As = window.Vue.openBl
         h.value
       ),
       { immediate: !0 }
-    ), Rp(m, t, { immediate: !0 }), (w, v) => (As(), $i("section", v5, [
-      Gl(r5, {
+    ), Ip(m, t, { immediate: !0 }), (w, _) => (Ps(), Ci("section", y5, [
+      ql(u5, {
         onTranslationButtonClicked: l,
         onClose: r
       }),
-      Gl(P3, {
+      ql(N3, {
         "content-type-selection": s.value,
-        "onUpdate:contentTypeSelection": v[0] || (v[0] = (y) => s.value = y),
+        "onUpdate:contentTypeSelection": _[0] || (_[0] = (C) => s.value = C),
         onTranslationButtonClicked: l
       }, null, 8, ["content-type-selection"]),
-      ki("section", _5, [
-        s.value === "source_section" ? (As(), $i(Xl, { key: 0 }, [
-          ot(i) ? Ip("", !0) : (As(), Up(ot(ct), { key: 0 })),
-          ki("section", {
-            lang: ot(u),
-            dir: ot(j.getDir)(ot(u)),
+      xi("section", x5, [
+        s.value === "source_section" ? (Ps(), Ci(Gl, { key: 0 }, [
+          at(i) ? Up("", !0) : (Ps(), Mp(at(dt), { key: 0 })),
+          xi("section", {
+            lang: at(u),
+            dir: at(R.getDir)(at(u)),
             class: "pt-2 px-4",
-            innerHTML: ot(i)
-          }, null, 8, S5)
-        ], 64)) : s.value === "target_article" ? (As(), $i(Xl, { key: 1 }, [
-          ot(g) ? Ip("", !0) : (As(), Up(ot(ct), { key: 0 })),
-          ki("article", {
-            lang: ot(d),
-            dir: ot(j.getDir)(ot(d)),
+            innerHTML: at(i)
+          }, null, 8, C5)
+        ], 64)) : s.value === "target_article" ? (Ps(), Ci(Gl, { key: 1 }, [
+          at(g) ? Up("", !0) : (Ps(), Mp(at(dt), { key: 0 })),
+          xi("article", {
+            lang: at(d),
+            dir: at(R.getDir)(at(d)),
             class: "px-4",
-            innerHTML: ot(g)
-          }, null, 8, y5)
-        ], 64)) : (As(), $i(Xl, { key: 2 }, [
-          ki("section", {
+            innerHTML: at(g)
+          }, null, 8, b5)
+        ], 64)) : (Ps(), Ci(Gl, { key: 2 }, [
+          xi("section", {
             class: "pa-4",
-            innerHTML: ot(c)
-          }, null, 8, x5),
-          Gl(zf, {
+            innerHTML: at(c)
+          }, null, 8, k5),
+          ql(qf, {
             class: "sx-content-comparator__new-section-placeholder--present",
             "placeholder-title": w.$i18n("cx-sx-content-comparator-present-section-placeholder-title"),
             "placeholder-subtitle": w.$i18n(
@@ -19380,10 +19400,10 @@ const Gl = window.Vue.createVNode, ot = window.Vue.unref, As = window.Vue.openBl
       ])
     ]));
   }
-}, $5 = {
+}, L5 = {
   name: "SxContentComparatorView",
   components: {
-    SxContentComparator: k5
+    SxContentComparator: E5
   },
   computed: {
     classes() {
@@ -19392,17 +19412,17 @@ const Gl = window.Vue.createVNode, ot = window.Vue.unref, As = window.Vue.openBl
       };
     }
   }
-}, E5 = window.Vue.resolveComponent, V5 = window.Vue.createVNode, L5 = window.Vue.normalizeClass, T5 = window.Vue.openBlock, A5 = window.Vue.createElementBlock;
-function D5(e, t, n, s, o, a) {
-  const r = E5("sx-content-comparator");
-  return T5(), A5("main", {
-    class: L5(["sx-content-comparator-view", a.classes])
+}, T5 = window.Vue.resolveComponent, A5 = window.Vue.createVNode, D5 = window.Vue.normalizeClass, P5 = window.Vue.openBlock, B5 = window.Vue.createElementBlock;
+function F5(e, t, n, s, o, a) {
+  const r = T5("sx-content-comparator");
+  return P5(), B5("main", {
+    class: D5(["sx-content-comparator-view", a.classes])
   }, [
-    V5(r)
+    A5(r)
   ], 2);
 }
-const P5 = /* @__PURE__ */ de($5, [["render", D5]]);
-const B5 = window.Vue.resolveDirective, Uo = window.Vue.createElementVNode, zp = window.Vue.withDirectives, Ei = window.Vue.unref, Wl = window.Vue.createVNode, Op = window.Vue.toDisplayString, jp = window.Vue.createTextVNode, Io = window.Vue.withCtx, F5 = window.Vue.openBlock, N5 = window.Vue.createBlock, M5 = { class: "mw-ui-dialog__header px-4 py-3" }, U5 = { class: "mw-ui-dialog__header-title" }, I5 = { class: "pa-4" }, R5 = { class: "flex justify-end py-2 sx-confirm-back-navigation-dialog__footer" }, Hp = window.Codex.CdxButton, z5 = {
+const N5 = /* @__PURE__ */ ge(L5, [["render", F5]]);
+const M5 = window.Vue.resolveDirective, Uo = window.Vue.createElementVNode, Rp = window.Vue.withDirectives, bi = window.Vue.unref, Xl = window.Vue.createVNode, zp = window.Vue.toDisplayString, Op = window.Vue.createTextVNode, Io = window.Vue.withCtx, U5 = window.Vue.openBlock, I5 = window.Vue.createBlock, R5 = { class: "mw-ui-dialog__header px-4 py-3" }, z5 = { class: "mw-ui-dialog__header-title" }, O5 = { class: "pa-4" }, H5 = { class: "flex justify-end py-2 sx-confirm-back-navigation-dialog__footer" }, Hp = window.Codex.CdxButton, j5 = {
   __name: "SXConfirmBackNavigationDialog",
   props: {
     modelValue: {
@@ -19422,45 +19442,45 @@ const B5 = window.Vue.resolveDirective, Uo = window.Vue.createElementVNode, zp =
       n("discard-translation"), s();
     };
     return (r, l) => {
-      const u = B5("i18n");
-      return F5(), N5(Ei(Ct), {
+      const u = M5("i18n");
+      return U5(), I5(bi(Ct), {
         value: e.modelValue,
         class: "sx-confirm-back-navigation-dialog"
       }, {
         header: Io(() => [
-          Uo("div", M5, [
-            zp(Uo("span", U5, null, 512), [
+          Uo("div", R5, [
+            Rp(Uo("span", z5, null, 512), [
               [u, void 0, "sx-confirm-back-navigation-dialog-title"]
             ])
           ])
         ]),
         footer: Io(() => [
-          Uo("div", R5, [
-            Wl(Ei(Hp), {
+          Uo("div", H5, [
+            Xl(bi(Hp), {
               weight: "quiet",
               onClick: o
             }, {
               default: Io(() => [
-                jp(Op(r.$i18n("sx-confirm-back-navigation-dialog-continue-button-label")), 1)
+                Op(zp(r.$i18n("sx-confirm-back-navigation-dialog-continue-button-label")), 1)
               ]),
               _: 1
             }),
-            Wl(Ei(Hp), {
+            Xl(bi(Hp), {
               weight: "quiet",
               action: "destructive",
               onClick: a
             }, {
               default: Io(() => [
-                jp(Op(r.$i18n("sx-confirm-back-navigation-dialog-discard-button-label")), 1)
+                Op(zp(r.$i18n("sx-confirm-back-navigation-dialog-discard-button-label")), 1)
               ]),
               _: 1
             })
           ])
         ]),
         default: Io(() => [
-          Wl(Ei(Ki)),
-          Uo("div", I5, [
-            zp(Uo("span", null, null, 512), [
+          Xl(bi(Gi)),
+          Uo("div", O5, [
+            Rp(Uo("span", null, null, 512), [
               [u, void 0, "sx-confirm-back-navigation-dialog-body"]
             ])
           ])
@@ -19469,40 +19489,40 @@ const B5 = window.Vue.resolveDirective, Uo = window.Vue.createElementVNode, zp =
       }, 8, ["value"]);
     };
   }
-}, O5 = (e, t, n) => {
+}, q5 = (e, t, n) => {
   const s = document.createElement("div");
   s.innerHTML = e;
   const o = Array.from(s.children).find(
-    (a) => is(a)
+    (a) => ls(a)
   );
-  return o && wh(o) ? xt.parseTemplateWikitext(
-    hh(o),
+  return o && fh(o) ? xt.parseTemplateWikitext(
+    mh(o),
     n,
     t
   ) : Promise.resolve(null);
-}, Of = (e, t, n) => {
+}, Gf = (e, t, n) => {
   let s = document.createElement("div");
   s.innerHTML = e, s.firstElementChild.getAttribute("rel") === "cx:Section" && (s = s.firstElementChild);
   const o = Array.from(s.children).find(
-    (a) => is(a)
+    (a) => ls(a)
   );
   return o ? xt.parseTemplateWikitext(
-    hh(o),
+    mh(o),
     n,
     t
   ) : Promise.resolve(null);
-}, j5 = window.Vuex.useStore, Eu = () => {
-  const e = j5(), { sourceSection: t } = ne(), { getCurrentTitleByLanguage: n } = bn(), {
+}, G5 = window.Vuex.useStore, Eu = () => {
+  const e = G5(), { sourceSection: t } = ne(), { getCurrentTitleByLanguage: n } = bn(), {
     sourceLanguageURLParameter: s,
     targetLanguageURLParameter: o
-  } = A(), a = If(), r = (i, c, g) => {
+  } = D(), a = Hf(), r = (i, c, g) => {
     if (i === 0) {
       t.value.proposedTitleTranslations[c] = g;
       return;
     }
     const p = t.value.getContentTranslationUnitById(i);
-    p instanceof lt ? p.blockTemplateProposedTranslations[c] = g : p instanceof zn && p.addProposedTranslation(c, g);
-  }, l = (i, c) => C(void 0, null, function* () {
+    p instanceof ct ? p.blockTemplateProposedTranslations[c] = g : p instanceof Hn && p.addProposedTranslation(c, g);
+  }, l = (i, c) => x(void 0, null, function* () {
     if (!e.getters["mediawiki/isValidProviderForTranslation"](s.value, o.value, i))
       return "";
     try {
@@ -19517,7 +19537,7 @@ const B5 = window.Vue.resolveDirective, Uo = window.Vue.createElementVNode, zp =
     } catch (p) {
       return mw.log.error("Error while translating segment", p), "";
     }
-  }), u = (i, c) => C(void 0, null, function* () {
+  }), u = (i, c) => x(void 0, null, function* () {
     if (t.value.hasProposedTranslationByTranslationUnitId(
       i,
       c
@@ -19530,10 +19550,10 @@ const B5 = window.Vue.resolveDirective, Uo = window.Vue.createElementVNode, zp =
       e.commit("application/removeMtRequestsPending", i);
       return;
     }
-    p instanceof lt && (p.setBlockTemplateAdaptationInfoByHtml(
+    p instanceof ct && (p.setBlockTemplateAdaptationInfoByHtml(
       c,
       m
-    ), m = (yield O5(
+    ), m = (yield q5(
       m,
       n(o.value, s.value),
       o.value
@@ -19555,21 +19575,21 @@ const B5 = window.Vue.resolveDirective, Uo = window.Vue.createElementVNode, zp =
       );
     }
   };
-}, H5 = window.Vuex.useStore, q5 = () => {
-  const { sourceSection: e } = ne(), t = H5(), { translateTranslationUnitById: n } = Eu();
+}, X5 = window.Vuex.useStore, W5 = () => {
+  const { sourceSection: e } = ne(), t = X5(), { translateTranslationUnitById: n } = Eu();
   return (s) => {
     t.commit("application/setCurrentMTProvider", s);
     const o = e.value.selectedTranslationUnitId;
     n(o, s);
   };
 };
-function G5(e) {
+function K5(e) {
   const t = document.createElement("div");
   return t.innerHTML = e, t.querySelectorAll("a").forEach((s) => {
     s.setAttribute("target", "_blank");
   }), t.innerHTML;
 }
-const X5 = window.Vue.resolveDirective, rt = window.Vue.createElementVNode, Vi = window.Vue.withDirectives, Oe = window.Vue.unref, Kl = window.Vue.createVNode, gn = window.Vue.withCtx, W5 = window.Vue.renderList, K5 = window.Vue.Fragment, Li = window.Vue.openBlock, Y5 = window.Vue.createElementBlock, Q5 = window.Vue.toDisplayString, Yl = window.Vue.createBlock, qp = window.Vue.createCommentVNode, J5 = { class: "mw-ui-dialog__header pa-4" }, Z5 = { class: "row ma-0 py-2" }, eL = { class: "col grow items-center mw-ui-dialog__header-title justify-start pe-2" }, tL = { class: "mb-0" }, nL = { class: "col shrink justify-center" }, sL = { class: "pb-2 mb-0" }, oL = { class: "sx-sentence-selector__translation-options-card-title mb-4" }, aL = ["dir", "lang", "innerHTML"], iL = ["textContent"], rL = ["innerHTML"], lL = { class: "sx-sentence-selector__translation-options-card-title mb-4" }, cL = /* @__PURE__ */ rt("p", { class: "sx-sentence-selector__empty-sentence-option__cursor" }, "|", -1), uL = ["innerHTML"], Ql = window.Vue.computed, dL = window.Vuex.useStore, gL = {
+const Y5 = window.Vue.resolveDirective, lt = window.Vue.createElementVNode, ki = window.Vue.withDirectives, He = window.Vue.unref, Wl = window.Vue.createVNode, pn = window.Vue.withCtx, Q5 = window.Vue.renderList, J5 = window.Vue.Fragment, $i = window.Vue.openBlock, Z5 = window.Vue.createElementBlock, eL = window.Vue.toDisplayString, Kl = window.Vue.createBlock, jp = window.Vue.createCommentVNode, tL = { class: "mw-ui-dialog__header pa-4" }, nL = { class: "row ma-0 py-2" }, sL = { class: "col grow items-center mw-ui-dialog__header-title justify-start pe-2" }, oL = { class: "mb-0" }, aL = { class: "col shrink justify-center" }, iL = { class: "pb-2 mb-0" }, rL = { class: "sx-sentence-selector__translation-options-card-title mb-4" }, lL = ["dir", "lang", "innerHTML"], cL = ["textContent"], uL = ["innerHTML"], dL = { class: "sx-sentence-selector__translation-options-card-title mb-4" }, gL = /* @__PURE__ */ lt("p", { class: "sx-sentence-selector__empty-sentence-option__cursor" }, "|", -1), pL = ["innerHTML"], Yl = window.Vue.computed, mL = window.Vuex.useStore, hL = {
   __name: "SXTranslationSelector",
   props: {
     active: {
@@ -19579,132 +19599,132 @@ const X5 = window.Vue.resolveDirective, rt = window.Vue.createElementVNode, Vi =
   },
   emits: ["update:active"],
   setup(e, { emit: t }) {
-    const n = t, s = re.EMPTY_TEXT_PROVIDER_KEY, o = re.ORIGINAL_TEXT_PROVIDER_KEY, a = dL(), {
+    const n = t, s = re.EMPTY_TEXT_PROVIDER_KEY, o = re.ORIGINAL_TEXT_PROVIDER_KEY, a = mL(), {
       sourceSection: r,
       isSectionTitleSelected: l,
       selectedContentTranslationUnit: u
     } = ne(), {
       sourceLanguageURLParameter: d,
       targetLanguageURLParameter: i
-    } = A(), c = Ql(
+    } = D(), c = Yl(
       () => a.getters["mediawiki/getSupportedMTProviders"](
         d.value,
         i.value
       )
-    ), g = Ql(() => {
+    ), g = Yl(() => {
       const S = [o, s];
       return c.value.filter(
         (b) => !S.includes(b)
       );
-    }), p = Ql(
+    }), p = Yl(
       () => l.value ? r.value.proposedTitleTranslations : u.value.proposedTranslations
-    ), m = q5(), h = (S) => {
+    ), m = W5(), h = (S) => {
       m(S), w();
-    }, f = re.getMTProviderLabel, w = () => n("update:active", !1), v = we(), y = G5(
-      v.i18n("cx-tools-mt-noservices")
+    }, f = re.getMTProviderLabel, w = () => n("update:active", !1), _ = he(), C = K5(
+      _.i18n("cx-tools-mt-noservices")
     );
     return (S, b) => {
-      const V = X5("i18n");
-      return e.active ? (Li(), Yl(Oe(Ct), {
+      const A = Y5("i18n");
+      return e.active ? ($i(), Kl(He(Ct), {
         key: 0,
         class: "sx-sentence-selector__translation-options",
         fullscreen: ""
       }, {
-        header: gn(() => [
-          rt("div", J5, [
-            rt("div", Z5, [
-              rt("div", eL, [
-                Vi(rt("h4", tL, null, 512), [
-                  [V, void 0, "cx-sx-sentence-selector-translation-options-header-title"]
+        header: pn(() => [
+          lt("div", tL, [
+            lt("div", nL, [
+              lt("div", sL, [
+                ki(lt("h4", oL, null, 512), [
+                  [A, void 0, "cx-sx-sentence-selector-translation-options-header-title"]
                 ])
               ]),
-              rt("div", nL, [
-                Kl(Oe(Ge), {
+              lt("div", aL, [
+                Wl(He(Xe), {
                   type: "icon",
-                  icon: Oe(Qi),
+                  icon: He(Wi),
                   class: "pa-0",
                   onClick: w
                 }, null, 8, ["icon"])
               ])
             ]),
-            Vi(rt("h6", sL, null, 512), [
-              [V, void 0, "cx-sx-sentence-selector-translation-options-header-text"]
+            ki(lt("h6", iL, null, 512), [
+              [A, void 0, "cx-sx-sentence-selector-translation-options-header-text"]
             ])
           ])
         ]),
-        default: gn(() => [
-          Kl(Oe(Qe), {
+        default: pn(() => [
+          Wl(He(Ze), {
             class: "sx-sentence-selector__mt-provider-option-card mx-4 pa-5",
             role: "button",
-            onClick: b[0] || (b[0] = (x) => h(Oe(o)))
+            onClick: b[0] || (b[0] = (y) => h(He(o)))
           }, {
-            header: gn(() => [
-              Vi(rt("h5", oL, null, 512), [
-                [V, void 0, "cx-sx-sentence-selector-translation-options-original-card-title"]
+            header: pn(() => [
+              ki(lt("h5", rL, null, 512), [
+                [A, void 0, "cx-sx-sentence-selector-translation-options-original-card-title"]
               ])
             ]),
-            default: gn(() => [
-              rt("p", {
-                dir: Oe(j.getDir)(Oe(d)),
-                lang: Oe(d),
-                innerHTML: p.value[Oe(o)]
-              }, null, 8, aL)
+            default: pn(() => [
+              lt("p", {
+                dir: He(R.getDir)(He(d)),
+                lang: He(d),
+                innerHTML: p.value[He(o)]
+              }, null, 8, lL)
             ]),
             _: 1
           }),
-          (Li(!0), Y5(K5, null, W5(g.value, (x) => (Li(), Yl(Oe(Qe), {
-            key: x,
+          ($i(!0), Z5(J5, null, Q5(g.value, (y) => ($i(), Kl(He(Ze), {
+            key: y,
             class: "sx-sentence-selector__mt-provider-option-card mx-4 pa-5",
             role: "button",
-            onClick: (I) => h(x)
+            onClick: (B) => h(y)
           }, {
-            header: gn(() => [
-              rt("h5", {
+            header: pn(() => [
+              lt("h5", {
                 class: "sx-sentence-selector__translation-options-card-title mb-4",
-                textContent: Q5(Oe(f)(x))
-              }, null, 8, iL)
+                textContent: eL(He(f)(y))
+              }, null, 8, cL)
             ]),
-            default: gn(() => [
-              rt("p", {
-                innerHTML: p.value[x]
-              }, null, 8, rL)
+            default: pn(() => [
+              lt("p", {
+                innerHTML: p.value[y]
+              }, null, 8, uL)
             ]),
             _: 2
           }, 1032, ["onClick"]))), 128)),
-          Kl(Oe(Qe), {
+          Wl(He(Ze), {
             class: "sx-sentence-selector__mt-provider-option-card mx-4 pa-5",
             role: "button",
-            onClick: b[1] || (b[1] = (x) => h(Oe(s)))
+            onClick: b[1] || (b[1] = (y) => h(He(s)))
           }, {
-            header: gn(() => [
-              Vi(rt("h5", lL, null, 512), [
-                [V, void 0, "cx-sx-sentence-selector-translation-options-empty-card-title"]
+            header: pn(() => [
+              ki(lt("h5", dL, null, 512), [
+                [A, void 0, "cx-sx-sentence-selector-translation-options-empty-card-title"]
               ])
             ]),
-            default: gn(() => [
-              cL
+            default: pn(() => [
+              gL
             ]),
             _: 1
           }),
-          g.value.length ? qp("", !0) : (Li(), Yl(Oe(Qe), {
+          g.value.length ? jp("", !0) : ($i(), Kl(He(Ze), {
             key: 0,
             class: "sx-sentence-selector__mt-disabled-info-card mx-4 pa-5"
           }, {
-            header: gn(() => [
-              rt("h5", {
+            header: pn(() => [
+              lt("h5", {
                 class: "sx-sentence-selector__translation-info-card-title",
-                innerHTML: Oe(y)
-              }, null, 8, uL)
+                innerHTML: He(C)
+              }, null, 8, pL)
             ]),
             _: 1
           }))
         ]),
         _: 1
-      })) : qp("", !0);
+      })) : jp("", !0);
     };
   }
-}, pL = window.Vuex.useStore, to = () => {
-  const { sourceSection: e } = ne(), t = pL(), { translateTranslationUnitById: n } = Eu(), { currentMTProvider: s } = Le(t), o = (l) => C(void 0, null, function* () {
+}, fL = window.Vuex.useStore, eo = () => {
+  const { sourceSection: e } = ne(), t = fL(), { translateTranslationUnitById: n } = Eu(), { currentMTProvider: s } = Ae(t), o = (l) => x(void 0, null, function* () {
     e.value.selectTranslationUnitById(l), yield n(l, s.value);
     const { followingTranslationUnit: u } = e.value;
     u && (yield n(
@@ -19725,60 +19745,60 @@ const X5 = window.Vue.resolveDirective, rt = window.Vue.createElementVNode, Vi =
     selectTranslationUnitById: o
   };
 };
-const Gp = window.Vue.toDisplayString, Jl = window.Vue.createElementVNode, Zl = window.Vue.unref, mL = window.Vue.createVNode, hL = window.Vue.normalizeClass, fL = window.Vue.withCtx, wL = window.Vue.openBlock, vL = window.Vue.createBlock, _L = ["href"], SL = ["textContent"], yL = ["textContent"], Ds = window.Vue.computed, Xp = "sx-sentence-selector__section-title", xL = {
+const qp = window.Vue.toDisplayString, Ql = window.Vue.createElementVNode, Jl = window.Vue.unref, wL = window.Vue.createVNode, vL = window.Vue.normalizeClass, _L = window.Vue.withCtx, SL = window.Vue.openBlock, yL = window.Vue.createBlock, xL = ["href"], CL = ["textContent"], bL = ["textContent"], Bs = window.Vue.computed, Gp = "sx-sentence-selector__section-title", kL = {
   __name: "SXSentenceSelectorContentHeader",
   setup(e) {
-    const { sourceSection: t, isSectionTitleSelected: n } = ne(), { currentSourcePage: s } = dt(), { sourceLanguageURLParameter: o } = A(), a = Ds(() => {
+    const { sourceSection: t, isSectionTitleSelected: n } = ne(), { currentSourcePage: s } = pt(), { sourceLanguageURLParameter: o } = D(), a = Bs(() => {
       var p;
       return (p = s.value) == null ? void 0 : p.title;
-    }), r = Ds(
+    }), r = Bs(
       () => {
         var p;
         return ((p = t.value) == null ? void 0 : p.title) || a.value;
       }
-    ), l = Ds(
+    ), l = Bs(
       () => K.getPageUrl(o.value, a.value)
-    ), u = Ds(
+    ), u = Bs(
       () => {
         var p;
         return !!((p = t.value) != null && p.translatedTitle);
       }
-    ), d = Ds(
+    ), d = Bs(
       () => u.value ? "translated" : "selected"
-    ), i = Ds(() => {
-      const p = [Xp];
-      return n.value && p.push(`${Xp}--${d.value}`), p;
-    }), { selectTranslationUnitById: c } = to(), g = () => c(0);
-    return (p, m) => (wL(), vL(Zl(k), {
+    ), i = Bs(() => {
+      const p = [Gp];
+      return n.value && p.push(`${Gp}--${d.value}`), p;
+    }), { selectTranslationUnitById: c } = eo(), g = () => c(0);
+    return (p, m) => (SL(), yL(Jl(k), {
       shrink: "",
       class: "sx-sentence-selector__section-header pa-5"
     }, {
-      default: fL(() => [
-        Jl("a", {
+      default: _L(() => [
+        Ql("a", {
           href: l.value,
           target: "_blank",
           class: "sx-sentence-selector__section-article-title mb-1"
         }, [
-          Jl("strong", {
-            textContent: Gp(a.value)
-          }, null, 8, SL),
-          mL(Zl(Je), {
-            icon: Zl(dh),
+          Ql("strong", {
+            textContent: qp(a.value)
+          }, null, 8, CL),
+          wL(Jl(et), {
+            icon: Jl(uh),
             class: "ms-1",
             size: "12"
           }, null, 8, ["icon"])
-        ], 8, _L),
-        Jl("h2", {
-          class: hL(["pa-0 ma-0", i.value]),
+        ], 8, xL),
+        Ql("h2", {
+          class: vL(["pa-0 ma-0", i.value]),
           onClick: g,
-          textContent: Gp(r.value)
-        }, null, 10, yL)
+          textContent: qp(r.value)
+        }, null, 10, bL)
       ]),
       _: 1
     }));
   }
 };
-const Xt = window.Vue.unref, Ro = window.Vue.createVNode, Ti = window.Vue.withCtx, Wp = window.Vue.toDisplayString, Kp = window.Vue.createTextVNode, CL = window.Vue.openBlock, bL = window.Vue.createBlock, kL = window.Vue.computed, ec = window.Codex.CdxButton, Yp = window.Codex.CdxIcon, jf = {
+const Wt = window.Vue.unref, Ro = window.Vue.createVNode, Vi = window.Vue.withCtx, Xp = window.Vue.toDisplayString, Wp = window.Vue.createTextVNode, $L = window.Vue.openBlock, VL = window.Vue.createBlock, EL = window.Vue.computed, Zl = window.Codex.CdxButton, Kp = window.Codex.CdxIcon, Xf = {
   __name: "ProposedTranslationActionButtons",
   emits: [
     "select-previous-segment",
@@ -19786,52 +19806,52 @@ const Xt = window.Vue.unref, Ro = window.Vue.createVNode, Ti = window.Vue.withCt
     "skip-translation"
   ],
   setup(e) {
-    const { sourceSection: t, isSectionTitleSelected: n, currentProposedTranslation: s } = ne(), o = kL(
+    const { sourceSection: t, isSectionTitleSelected: n, currentProposedTranslation: s } = ne(), o = EL(
       () => {
         var a;
         return (a = t.value) == null ? void 0 : a.isSelectedTranslationUnitLast;
       }
     );
-    return (a, r) => (CL(), bL(Xt(N), { class: "sx-sentence-selector__translation-action-buttons ma-0" }, {
-      default: Ti(() => [
-        Ro(Xt(ec), {
+    return (a, r) => ($L(), VL(Wt(M), { class: "sx-sentence-selector__translation-action-buttons ma-0" }, {
+      default: Vi(() => [
+        Ro(Wt(Zl), {
           weight: "quiet",
           class: "sx-sentence-selector__previous-sentence-button col shrink pa-4",
           "aria-label": a.$i18n("cx-sx-sentence-selector-previous-translation-button-aria-label"),
-          disabled: Xt(n),
+          disabled: Wt(n),
           onClick: r[0] || (r[0] = (l) => a.$emit("select-previous-segment"))
         }, {
-          default: Ti(() => [
-            Ro(Xt(Yp), {
+          default: Vi(() => [
+            Ro(Wt(Kp), {
               class: "me-1",
-              icon: Xt(hu)
+              icon: Wt(hu)
             }, null, 8, ["icon"])
           ]),
           _: 1
         }, 8, ["aria-label", "disabled"]),
-        Ro(Xt(ec), {
+        Ro(Wt(Zl), {
           weight: "quiet",
           class: "sx-sentence-selector__apply-translation-button col grow pa-4",
-          disabled: !Xt(s),
+          disabled: !Wt(s),
           onClick: r[1] || (r[1] = (l) => a.$emit("apply-translation"))
         }, {
-          default: Ti(() => [
-            Kp(Wp(a.$i18n("cx-sx-sentence-selector-apply-translation-button-label")), 1)
+          default: Vi(() => [
+            Wp(Xp(a.$i18n("cx-sx-sentence-selector-apply-translation-button-label")), 1)
           ]),
           _: 1
         }, 8, ["disabled"]),
-        Ro(Xt(ec), {
+        Ro(Wt(Zl), {
           weight: "quiet",
           class: "sx-sentence-selector__skip-translation-button col shrink pa-4",
           disabled: o.value,
           onClick: r[2] || (r[2] = (l) => a.$emit("skip-translation"))
         }, {
-          default: Ti(() => [
-            Kp(Wp(a.$i18n("cx-sx-sentence-selector-skip-translation-button-label")) + " ", 1),
-            Ro(Xt(Yp), {
+          default: Vi(() => [
+            Wp(Xp(a.$i18n("cx-sx-sentence-selector-skip-translation-button-label")) + " ", 1),
+            Ro(Wt(Kp), {
               class: "ms-1",
               size: "small",
-              icon: Xt(Sa)
+              icon: Wt(Sa)
             }, null, 8, ["icon"])
           ]),
           _: 1
@@ -19841,48 +19861,48 @@ const Xt = window.Vue.unref, Ro = window.Vue.createVNode, Ti = window.Vue.withCt
     }));
   }
 };
-const ts = window.Vue.unref, $L = window.Vue.toDisplayString, zo = window.Vue.createVNode, Ai = window.Vue.withCtx, EL = window.Vue.openBlock, VL = window.Vue.createBlock, tc = window.Vue.computed, LL = window.Vuex.useStore, TL = window.Codex.CdxButton, AL = window.Codex.CdxIcon, DL = {
+const ss = window.Vue.unref, LL = window.Vue.toDisplayString, zo = window.Vue.createVNode, Ei = window.Vue.withCtx, TL = window.Vue.openBlock, AL = window.Vue.createBlock, ec = window.Vue.computed, DL = window.Vuex.useStore, PL = window.Codex.CdxButton, BL = window.Codex.CdxIcon, FL = {
   __name: "ProposedTranslationHeader",
   emits: ["configure-options"],
   setup(e) {
-    const t = LL(), n = tc(() => t.state.application.currentMTProvider), s = we(), o = tc(() => ({
+    const t = DL(), n = ec(() => t.state.application.currentMTProvider), s = he(), o = ec(() => ({
       [re.ORIGINAL_TEXT_PROVIDER_KEY]: s.i18n(
         "cx-sx-sentence-selector-translation-options-original-card-title"
       ),
       [re.EMPTY_TEXT_PROVIDER_KEY]: s.i18n(
         "cx-sx-sentence-selector-translation-options-empty-card-title"
       )
-    })), a = tc(
+    })), a = ec(
       () => o.value[n.value] || s.i18n(
         "cx-sx-sentence-selector-suggested-translation-title",
         re.getMTProviderLabel(n.value)
       )
     );
-    return (r, l) => (EL(), VL(ts(k), { class: "sx-sentence-selector__proposed-translation__header pt-5 shrink" }, {
-      default: Ai(() => [
-        zo(ts(N), { class: "ma-0 ps-5 pb-4" }, {
-          default: Ai(() => [
-            zo(ts(k), {
+    return (r, l) => (TL(), AL(ss(k), { class: "sx-sentence-selector__proposed-translation__header pt-5 shrink" }, {
+      default: Ei(() => [
+        zo(ss(M), { class: "ma-0 ps-5 pb-4" }, {
+          default: Ei(() => [
+            zo(ss(k), {
               tag: "h6",
               grow: "",
               class: "sx-sentence-selector__proposed-translation__header-title pa-0 ma-0 pe-4",
-              textContent: $L(a.value)
+              textContent: LL(a.value)
             }, null, 8, ["textContent"]),
-            zo(ts(k), {
+            zo(ss(k), {
               shrink: "",
               class: "pe-5"
             }, {
-              default: Ai(() => [
-                zo(ts(TL), {
+              default: Ei(() => [
+                zo(ss(PL), {
                   class: "sx-sentence-selector__proposed-translation__header-settings-button",
                   weight: "quiet",
                   "aria-label": r.$i18n("cx-sx-sentence-selector-mt-settings-button-aria-label"),
                   onClick: l[0] || (l[0] = (u) => r.$emit("configure-options"))
                 }, {
-                  default: Ai(() => [
-                    zo(ts(AL), {
+                  default: Ei(() => [
+                    zo(ss(BL), {
                       class: "pa-0",
-                      icon: ts(mu)
+                      icon: ss(mu)
                     }, null, 8, ["icon"])
                   ]),
                   _: 1
@@ -19898,58 +19918,58 @@ const ts = window.Vue.unref, $L = window.Vue.toDisplayString, zo = window.Vue.cr
     }));
   }
 };
-const Dt = window.Vue.unref, Bn = window.Vue.createVNode, PL = window.Vue.resolveDirective, Qp = window.Vue.createElementVNode, BL = window.Vue.withDirectives, Jp = window.Vue.toDisplayString, Zp = window.Vue.createTextVNode, Oo = window.Vue.withCtx, FL = window.Vue.openBlock, NL = window.Vue.createElementBlock, ML = { class: "mt-retry-body pb-5" }, UL = { class: "retry-body__message" }, em = window.Codex.CdxButton, nc = window.Codex.CdxIcon, IL = {
+const Pt = window.Vue.unref, Nn = window.Vue.createVNode, NL = window.Vue.resolveDirective, Yp = window.Vue.createElementVNode, ML = window.Vue.withDirectives, Qp = window.Vue.toDisplayString, Jp = window.Vue.createTextVNode, Oo = window.Vue.withCtx, UL = window.Vue.openBlock, IL = window.Vue.createElementBlock, RL = { class: "mt-retry-body pb-5" }, zL = { class: "retry-body__message" }, Zp = window.Codex.CdxButton, tc = window.Codex.CdxIcon, OL = {
   __name: "RetryMtCard",
   emits: ["configure-options", "retry-translation"],
   setup(e) {
     return (t, n) => {
-      const s = PL("i18n");
-      return FL(), NL("div", ML, [
-        Qp("div", UL, [
-          Bn(Dt(nc), {
+      const s = NL("i18n");
+      return UL(), IL("div", RL, [
+        Yp("div", zL, [
+          Nn(Pt(tc), {
             class: "me-2",
-            icon: Dt(ey)
+            icon: Pt(oy)
           }, null, 8, ["icon"]),
-          BL(Qp("span", null, null, 512), [
+          ML(Yp("span", null, null, 512), [
             [s, void 0, "cx-sx-proposed-translation-not-available-message"]
           ])
         ]),
-        Bn(Dt(N), { class: "retry-body__action-buttons ma-0 pt-4" }, {
+        Nn(Pt(M), { class: "retry-body__action-buttons ma-0 pt-4" }, {
           default: Oo(() => [
-            Bn(Dt(k), { cols: "6" }, {
+            Nn(Pt(k), { cols: "6" }, {
               default: Oo(() => [
-                Bn(Dt(em), {
+                Nn(Pt(Zp), {
                   class: "retry-body__retry-action-button",
                   weight: "quiet",
                   action: "progressive",
                   onClick: n[0] || (n[0] = (o) => t.$emit("retry-translation"))
                 }, {
                   default: Oo(() => [
-                    Bn(Dt(nc), {
+                    Nn(Pt(tc), {
                       class: "me-1",
-                      icon: Dt(Hh)
+                      icon: Pt(Kh)
                     }, null, 8, ["icon"]),
-                    Zp(" " + Jp(t.$i18n("cx-sx-proposed-translation-retry-button")), 1)
+                    Jp(" " + Qp(t.$i18n("cx-sx-proposed-translation-retry-button")), 1)
                   ]),
                   _: 1
                 })
               ]),
               _: 1
             }),
-            Bn(Dt(k), { cols: "6" }, {
+            Nn(Pt(k), { cols: "6" }, {
               default: Oo(() => [
-                Bn(Dt(em), {
+                Nn(Pt(Zp), {
                   class: "retry-body__other-options-action-button",
                   weight: "quiet",
                   action: "progressive",
                   onClick: n[1] || (n[1] = (o) => t.$emit("configure-options"))
                 }, {
                   default: Oo(() => [
-                    Bn(Dt(nc), {
+                    Nn(Pt(tc), {
                       class: "me-1",
-                      icon: Dt(gy)
+                      icon: Pt(fy)
                     }, null, 8, ["icon"]),
-                    Zp(" " + Jp(t.$i18n("cx-sx-proposed-translation-other-options-button")), 1)
+                    Jp(" " + Qp(t.$i18n("cx-sx-proposed-translation-other-options-button")), 1)
                   ]),
                   _: 1
                 })
@@ -19963,56 +19983,56 @@ const Dt = window.Vue.unref, Bn = window.Vue.createVNode, PL = window.Vue.resolv
     };
   }
 };
-const Ps = window.Vue.createVNode, at = window.Vue.unref, jo = window.Vue.openBlock, RL = window.Vue.createElementBlock, zL = window.Vue.createCommentVNode, Di = window.Vue.createBlock, OL = window.Vue.normalizeClass, jL = window.Vue.normalizeStyle, Ho = window.Vue.withCtx, HL = window.Vue.toDisplayString, qL = window.Vue.createTextVNode, GL = window.Vue.normalizeProps, XL = window.Vue.guardReactiveProps, WL = ["lang", "dir", "innerHTML"], sc = window.Vue.ref, KL = window.Vue.onMounted, YL = window.Vue.onBeforeUnmount, oc = window.Vue.computed, QL = window.Vue.nextTick, JL = window.Vuex.useStore, ZL = window.Codex.CdxButton, eT = window.Codex.CdxIcon, tT = {
+const Fs = window.Vue.createVNode, it = window.Vue.unref, Ho = window.Vue.openBlock, HL = window.Vue.createElementBlock, jL = window.Vue.createCommentVNode, Li = window.Vue.createBlock, qL = window.Vue.normalizeClass, GL = window.Vue.normalizeStyle, jo = window.Vue.withCtx, XL = window.Vue.toDisplayString, WL = window.Vue.createTextVNode, KL = window.Vue.normalizeProps, YL = window.Vue.guardReactiveProps, QL = ["lang", "dir", "innerHTML"], nc = window.Vue.ref, JL = window.Vue.onMounted, ZL = window.Vue.onBeforeUnmount, sc = window.Vue.computed, eT = window.Vue.nextTick, tT = window.Vuex.useStore, nT = window.Codex.CdxButton, sT = window.Codex.CdxIcon, oT = {
   __name: "ProposedTranslationCard",
   emits: ["edit-translation", "configure-options", "retry-translation"],
   setup(e) {
-    const t = sc(0), n = sc(null), s = sc(null), o = JL(), { currentMTProvider: a } = Le(o), { targetLanguageURLParameter: r } = A(), { sourceSection: l, currentProposedTranslation: u } = ne(), d = oc(
+    const t = nc(0), n = nc(null), s = nc(null), o = tT(), { currentMTProvider: a } = Ae(o), { targetLanguageURLParameter: r } = D(), { sourceSection: l, currentProposedTranslation: u } = ne(), d = sc(
       () => {
         var m, h;
         return (h = o.state.application.mtRequestsPending) == null ? void 0 : h.includes(
           (m = l.value) == null ? void 0 : m.selectedTranslationUnitId
         );
       }
-    ), i = oc(() => ({
+    ), i = sc(() => ({
       "max-height": `calc(100% - ${t.value}px)`
-    })), c = oc(
+    })), c = sc(
       () => !!u.value || a.value === re.EMPTY_TEXT_PROVIDER_KEY
     ), g = () => {
       t.value = n.value.$el.clientHeight + s.value.$el.clientHeight;
     };
-    KL(() => C(this, null, function* () {
-      yield QL(), g(), p.observe(n.value.$el), p.observe(s.value.$el);
-    })), YL(() => {
+    JL(() => x(this, null, function* () {
+      yield eT(), g(), p.observe(n.value.$el), p.observe(s.value.$el);
+    })), ZL(() => {
       p.unobserve(n.value.$el), p.unobserve(s.value.$el);
     });
     const p = new ResizeObserver(() => g());
-    return (m, h) => (jo(), Di(at(Qe), { class: "sx-sentence-selector__proposed-translation col shrink pa-0" }, {
-      default: Ho(() => [
-        Ps(at(N), {
+    return (m, h) => (Ho(), Li(it(Ze), { class: "sx-sentence-selector__proposed-translation col shrink pa-0" }, {
+      default: jo(() => [
+        Fs(it(M), {
           direction: "column",
           align: "start",
           class: "ma-0 no-wrap fill-height"
         }, {
-          default: Ho(() => [
-            Ps(DL, {
+          default: jo(() => [
+            Fs(FL, {
               ref_key: "header",
               ref: n,
               onConfigureOptions: h[0] || (h[0] = (f) => m.$emit("configure-options"))
             }, null, 512),
-            Ps(at(k), {
-              class: OL(["sx-sentence-selector__proposed-translation__contents px-5", {
+            Fs(it(k), {
+              class: qL(["sx-sentence-selector__proposed-translation__contents px-5", {
                 "sx-sentence-selector__proposed-translation__contents--loading": !c.value && d.value
               }]),
-              style: jL(c.value ? i.value : null)
+              style: GL(c.value ? i.value : null)
             }, {
-              default: Ho(() => [
-                c.value ? (jo(), RL("section", {
+              default: jo(() => [
+                c.value ? (Ho(), HL("section", {
                   key: 0,
-                  lang: at(r),
-                  dir: at(j.getDir)(at(r)),
-                  innerHTML: at(u)
-                }, null, 8, WL)) : d.value ? (jo(), Di(at(ct), { key: 1 })) : (jo(), Di(IL, {
+                  lang: it(r),
+                  dir: it(R.getDir)(it(r)),
+                  innerHTML: it(u)
+                }, null, 8, QL)) : d.value ? (Ho(), Li(it(dt), { key: 1 })) : (Ho(), Li(OL, {
                   key: 2,
                   onConfigureOptions: h[1] || (h[1] = (f) => m.$emit("configure-options")),
                   onRetryTranslation: h[2] || (h[2] = (f) => m.$emit("retry-translation"))
@@ -20020,31 +20040,31 @@ const Ps = window.Vue.createVNode, at = window.Vue.unref, jo = window.Vue.openBl
               ]),
               _: 1
             }, 8, ["class", "style"]),
-            Ps(at(k), {
+            Fs(it(k), {
               ref_key: "footer",
               ref: s,
               shrink: "",
               class: "sx-sentence-selector__proposed-translation__footer"
             }, {
-              default: Ho(() => [
-                c.value || d.value ? (jo(), Di(at(ZL), {
+              default: jo(() => [
+                c.value || d.value ? (Ho(), Li(it(nT), {
                   key: 0,
                   class: "sx-sentence-selector__proposed-translation-edit-button mt-4 mx-2 mb-5",
                   weight: "quiet",
                   action: "progressive",
                   disabled: !c.value,
-                  onClick: h[3] || (h[3] = (f) => m.$emit("edit-translation", at(u)))
+                  onClick: h[3] || (h[3] = (f) => m.$emit("edit-translation", it(u)))
                 }, {
-                  default: Ho(() => [
-                    Ps(at(eT), {
+                  default: jo(() => [
+                    Fs(it(sT), {
                       class: "me-1",
-                      icon: at(pu)
+                      icon: it(pu)
                     }, null, 8, ["icon"]),
-                    qL(" " + HL(m.$i18n("cx-sx-sentence-selector-edit-translation-button-label")), 1)
+                    WL(" " + XL(m.$i18n("cx-sx-sentence-selector-edit-translation-button-label")), 1)
                   ]),
                   _: 1
-                }, 8, ["disabled"])) : zL("", !0),
-                Ps(jf, GL(XL(m.$attrs)), null, 16)
+                }, 8, ["disabled"])) : jL("", !0),
+                Fs(Xf, KL(YL(m.$attrs)), null, 16)
               ]),
               _: 1
             }, 512)
@@ -20055,7 +20075,7 @@ const Ps = window.Vue.createVNode, at = window.Vue.unref, jo = window.Vue.openBl
       _: 1
     }));
   }
-}, nT = window.Vue.computed, sT = (e) => nT(() => {
+}, aT = window.Vue.computed, iT = (e) => aT(() => {
   if (e.isBlockTemplate)
     return e.isTranslated ? e.translatedContent : e.node.innerHTML;
   const t = "sx-sentence-selector__section-sentence", n = e.node.cloneNode(!0);
@@ -20070,18 +20090,18 @@ const Ps = window.Vue.createVNode, at = window.Vue.unref, jo = window.Vue.openBl
     o.classList.add(`${t}--${l}`), o.innerHTML = a.content;
   }), n.innerHTML;
 });
-const oT = window.Vue.unref, aT = window.Vue.normalizeClass, iT = window.Vue.openBlock, rT = window.Vue.createElementBlock, lT = ["innerHTML"], cT = window.Vue.onMounted, uT = window.Vue.ref, dT = window.Vue.computed, gT = {
+const rT = window.Vue.unref, lT = window.Vue.normalizeClass, cT = window.Vue.openBlock, uT = window.Vue.createElementBlock, dT = ["innerHTML"], gT = window.Vue.onMounted, pT = window.Vue.ref, mT = window.Vue.computed, hT = {
   __name: "SubSection",
   props: {
     subSection: {
-      type: lt,
+      type: ct,
       required: !0
     }
   },
   emits: ["bounce-translation"],
   setup(e, { emit: t }) {
-    const n = e, s = t, o = uT(null), a = sT(n.subSection);
-    cT(() => {
+    const n = e, s = t, o = pT(null), a = iT(n.subSection);
+    gT(() => {
       o.value.addEventListener("click", (d) => {
         let i;
         if (n.subSection.isBlockTemplate)
@@ -20099,24 +20119,24 @@ const oT = window.Vue.unref, aT = window.Vue.normalizeClass, iT = window.Vue.ope
         l(i);
       });
     });
-    const { selectTranslationUnitById: r } = to(), l = (d) => {
+    const { selectTranslationUnitById: r } = eo(), l = (d) => {
       if (d.selected) {
         s("bounce-translation");
         return;
       }
       r(d.id);
-    }, u = dT(() => ({
+    }, u = mT(() => ({
       "sx-sentence-selector__subsection--block-selected": n.subSection.selected
     }));
-    return (d, i) => (iT(), rT("div", {
+    return (d, i) => (cT(), uT("div", {
       ref_key: "subSectionRoot",
       ref: o,
-      class: aT(["sx-sentence-selector__subsection", u.value]),
-      innerHTML: oT(a)
-    }, null, 10, lT));
+      class: lT(["sx-sentence-selector__subsection", u.value]),
+      innerHTML: rT(a)
+    }, null, 10, dT));
   }
 };
-const tm = window.Vue.unref, nm = window.Vue.createVNode, sm = window.Vue.normalizeStyle, pT = window.Vue.openBlock, mT = window.Vue.createElementBlock, om = window.Vue.computed, Hf = {
+const em = window.Vue.unref, tm = window.Vue.createVNode, nm = window.Vue.normalizeStyle, fT = window.Vue.openBlock, wT = window.Vue.createElementBlock, sm = window.Vue.computed, Wf = {
   __name: "BlockTemplateStatusIndicator",
   props: {
     isTemplateAdapted: {
@@ -20137,22 +20157,22 @@ const tm = window.Vue.unref, nm = window.Vue.createVNode, sm = window.Vue.normal
     }
   },
   setup(e) {
-    const t = e, n = om(() => ({ "--size": t.size })), s = om(
-      () => !t.isTemplateAdapted || t.percentage === 0 ? O0 : Uc
+    const t = e, n = sm(() => ({ "--size": t.size })), s = sm(
+      () => !t.isTemplateAdapted || t.percentage === 0 ? G0 : Mc
     );
-    return (o, a) => (pT(), mT("div", {
+    return (o, a) => (fT(), wT("div", {
       class: "block-template-status-indicator",
-      style: sm(n.value)
+      style: nm(n.value)
     }, [
-      nm(tm(av), {
+      tm(em(c1), {
         percentage: e.percentage,
         size: e.size,
         "stroke-width": e.strokeWidth
       }, null, 8, ["percentage", "size", "stroke-width"]),
-      nm(tm(Je), {
+      tm(em(et), {
         icon: s.value,
         size: e.size / 2,
-        style: sm({
+        style: nm({
           left: `calc(50% - ${e.size / 4}px)`,
           top: `calc(50% - ${e.size / 4}px)`
         })
@@ -20160,30 +20180,30 @@ const tm = window.Vue.unref, nm = window.Vue.createVNode, sm = window.Vue.normal
     ], 4));
   }
 };
-const Fn = window.Vue.unref, Pi = window.Vue.createVNode, ac = window.Vue.withCtx, hT = window.Vue.openBlock, fT = window.Vue.createBlock, wT = window.Vue.computed, am = window.Codex.CdxButton, im = window.Codex.CdxIcon, qf = {
+const Mn = window.Vue.unref, Ti = window.Vue.createVNode, oc = window.Vue.withCtx, vT = window.Vue.openBlock, _T = window.Vue.createBlock, ST = window.Vue.computed, om = window.Codex.CdxButton, am = window.Codex.CdxIcon, Kf = {
   __name: "TranslatedSegmentCardActionButtons",
   emits: ["select-previous-segment", "select-next-segment"],
   setup(e) {
-    const { sourceSection: t, isSectionTitleSelected: n } = ne(), s = wT(
+    const { sourceSection: t, isSectionTitleSelected: n } = ne(), s = ST(
       () => t.value.isSelectedTranslationUnitLast
     );
-    return (o, a) => (hT(), fT(Fn(N), { class: "sx-sentence-selector__translated-segment-card__action-buttons ma-0" }, {
-      default: ac(() => [
-        Pi(Fn(am), {
+    return (o, a) => (vT(), _T(Mn(M), { class: "sx-sentence-selector__translated-segment-card__action-buttons ma-0" }, {
+      default: oc(() => [
+        Ti(Mn(om), {
           class: "sx-sentence-selector__translated-segment-card__previous-button col pa-4",
           weight: "quiet",
-          disabled: Fn(n),
+          disabled: Mn(n),
           "aria-label": o.$i18n(
             "cx-sx-sentence-selector-translated-segment-previous-button-aria-label"
           ),
           onClick: a[0] || (a[0] = (r) => o.$emit("select-previous-segment"))
         }, {
-          default: ac(() => [
-            Pi(Fn(im), { icon: Fn(hu) }, null, 8, ["icon"])
+          default: oc(() => [
+            Ti(Mn(am), { icon: Mn(hu) }, null, 8, ["icon"])
           ]),
           _: 1
         }, 8, ["disabled", "aria-label"]),
-        Pi(Fn(am), {
+        Ti(Mn(om), {
           class: "sx-sentence-selector__translated-segment-card__next-button col pa-4",
           weight: "quiet",
           disabled: s.value,
@@ -20192,8 +20212,8 @@ const Fn = window.Vue.unref, Pi = window.Vue.createVNode, ac = window.Vue.withCt
           ),
           onClick: a[1] || (a[1] = (r) => o.$emit("select-next-segment"))
         }, {
-          default: ac(() => [
-            Pi(Fn(im), { icon: Fn(Sa) }, null, 8, ["icon"])
+          default: oc(() => [
+            Ti(Mn(am), { icon: Mn(Sa) }, null, 8, ["icon"])
           ]),
           _: 1
         }, 8, ["disabled", "aria-label"])
@@ -20201,9 +20221,9 @@ const Fn = window.Vue.unref, Pi = window.Vue.createVNode, ac = window.Vue.withCt
       _: 1
     }));
   }
-}, qo = window.Vue.openBlock, Bi = window.Vue.createBlock;
+}, qo = window.Vue.openBlock, Ai = window.Vue.createBlock;
 window.Vue.createCommentVNode;
-const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNode, ic = window.Vue.toDisplayString, rc = window.Vue.createElementVNode, vT = window.Vue.renderList, _T = window.Vue.Fragment, ST = window.Vue.createElementBlock, yT = { class: "pa-4" }, xT = ["textContent"], CT = ["textContent"], bT = window.Vuex.useStore, Fi = window.Vue.computed, kT = {
+const mn = window.Vue.unref, Ns = window.Vue.withCtx, Go = window.Vue.createVNode, ac = window.Vue.toDisplayString, ic = window.Vue.createElementVNode, yT = window.Vue.renderList, xT = window.Vue.Fragment, CT = window.Vue.createElementBlock, bT = { class: "pa-4" }, kT = ["textContent"], $T = ["textContent"], VT = window.Vuex.useStore, Di = window.Vue.computed, ET = {
   __name: "SXBlockTemplateStatusDialog",
   props: {
     active: {
@@ -20237,15 +20257,15 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
   },
   emits: ["update:active"],
   setup(e) {
-    const t = e, { targetLanguageAutonym: n } = Le(bT()), s = Fi(
+    const t = e, { targetLanguageAutonym: n } = Ae(VT()), s = Di(
       () => t.targetParamsCount / (t.sourceParamsCount + t.mandatoryMissingParamsCount) * 100
-    ), o = we(), a = Fi(() => {
+    ), o = he(), a = Di(() => {
       let u;
       return t.targetTemplateExists ? t.isTemplateAdapted ? s.value < 100 ? u = "cx-sx-block-template-mapping-status-title-partially-template" : u = "cx-sx-block-template-mapping-status-title-fully-template" : u = "cx-sx-block-template-mapping-status-title-unadapted-template" : u = "cx-sx-block-template-mapping-status-title-no-target-template", o.i18n(u);
-    }), r = Fi(() => {
+    }), r = Di(() => {
       let u;
       return !t.targetTemplateExists || !t.isTemplateAdapted ? u = "cx-sx-block-template-mapping-status-explanation-no-mapping" : s.value < 100 ? u = "cx-sx-block-template-mapping-status-explanation-partial-mapping" : u = "cx-sx-block-template-mapping-status-explanation-full-mapping", o.i18n(u);
-    }), l = Fi(() => {
+    }), l = Di(() => {
       let u = [];
       if (!t.targetTemplateExists)
         u.push({
@@ -20253,7 +20273,7 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
             "cx-sx-block-template-no-equivalent-template-suggestion",
             n.value
           ),
-          icon: H0,
+          icon: W0,
           color: St.gray500
         });
       else if (!t.isTemplateAdapted)
@@ -20262,7 +20282,7 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
             "cx-sx-block-template-none-mapped-param-text",
             t.sourceParamsCount
           ),
-          icon: Qi,
+          icon: Wi,
           color: St.gray500
         });
       else if (s.value < 100)
@@ -20272,7 +20292,7 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
             t.targetParamsCount,
             t.sourceParamsCount
           ),
-          icon: Uc,
+          icon: Mc,
           color: St.blue600
         });
       else {
@@ -20283,7 +20303,7 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
           t.sourceParamsCount
         ) : d = o.i18n("cx-sx-block-template-no-source-params-text"), u.push({
           text: d,
-          icon: Uc,
+          icon: Mc,
           color: St.blue600
         });
       }
@@ -20293,7 +20313,7 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
           t.mandatoryMissingParamsCount,
           n.value
         ),
-        icon: Yi,
+        icon: Xi,
         color: St.gray500
       }) : t.targetTemplateExists && t.isTemplateAdapted && t.optionalMissingParamsCount && u.push({
         text: o.i18n(
@@ -20301,33 +20321,33 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
           t.optionalMissingParamsCount,
           n.value
         ),
-        icon: E0,
+        icon: A0,
         color: St.gray500
       }), u;
     });
-    return (u, d) => (qo(), Bi(pn(Ct), {
+    return (u, d) => (qo(), Ai(mn(Ct), {
       value: e.active,
       class: "sx-block-template-status-dialog",
       title: u.$i18n("cx-sx-publisher-preview-options-title"),
       onInput: d[0] || (d[0] = (i) => u.$emit("update:active", i))
     }, {
-      header: Bs(() => [
-        Go(pn(N), {
+      header: Ns(() => [
+        Go(mn(M), {
           justify: "center",
           class: "mt-4"
         }, {
-          default: Bs(() => [
-            Go(pn(k), { shrink: "" }, {
-              default: Bs(() => [
-                e.targetTemplateExists ? (qo(), Bi(Hf, {
+          default: Ns(() => [
+            Go(mn(k), { shrink: "" }, {
+              default: Ns(() => [
+                e.targetTemplateExists ? (qo(), Ai(Wf, {
                   key: 0,
                   percentage: s.value,
                   size: 40,
                   "is-template-adapted": e.isTemplateAdapted,
                   "stroke-width": 3
-                }, null, 8, ["percentage", "is-template-adapted"])) : (qo(), Bi(pn(Je), {
+                }, null, 8, ["percentage", "is-template-adapted"])) : (qo(), Ai(mn(et), {
                   key: 1,
-                  icon: pn(V0)
+                  icon: mn(D0)
                 }, null, 8, ["icon"]))
               ]),
               _: 1
@@ -20336,24 +20356,24 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
           _: 1
         })
       ]),
-      default: Bs(() => [
-        rc("div", yT, [
-          rc("h3", {
-            textContent: ic(a.value)
-          }, null, 8, xT),
-          rc("p", {
+      default: Ns(() => [
+        ic("div", bT, [
+          ic("h3", {
+            textContent: ac(a.value)
+          }, null, 8, kT),
+          ic("p", {
             class: "mt-6 text-small",
-            textContent: ic(r.value)
-          }, null, 8, CT),
-          (qo(!0), ST(_T, null, vT(l.value, (i, c) => (qo(), Bi(pn(N), {
+            textContent: ac(r.value)
+          }, null, 8, $T),
+          (qo(!0), CT(xT, null, yT(l.value, (i, c) => (qo(), Ai(mn(M), {
             key: c,
             align: "start",
             class: "mt-4"
           }, {
-            default: Bs(() => [
-              Go(pn(k), { shrink: "" }, {
-                default: Bs(() => [
-                  Go(pn(Je), {
+            default: Ns(() => [
+              Go(mn(k), { shrink: "" }, {
+                default: Ns(() => [
+                  Go(mn(et), {
                     class: "me-2",
                     icon: i.icon,
                     "icon-color": i.color
@@ -20361,8 +20381,8 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
                 ]),
                 _: 2
               }, 1024),
-              Go(pn(k), {
-                textContent: ic(i.text)
+              Go(mn(k), {
+                textContent: ac(i.text)
               }, null, 8, ["textContent"])
             ]),
             _: 2
@@ -20373,130 +20393,130 @@ const pn = window.Vue.unref, Bs = window.Vue.withCtx, Go = window.Vue.createVNod
     }, 8, ["value", "title"]));
   }
 };
-const De = window.Vue.unref, je = window.Vue.createVNode, Wt = window.Vue.withCtx, lc = window.Vue.toDisplayString, rm = window.Vue.createTextVNode, $T = window.Vue.resolveDirective, lm = window.Vue.withDirectives, cm = window.Vue.createElementVNode, ET = window.Vue.normalizeClass, Fs = window.Vue.openBlock, um = window.Vue.createElementBlock;
+const Te = window.Vue.unref, je = window.Vue.createVNode, Kt = window.Vue.withCtx, rc = window.Vue.toDisplayString, im = window.Vue.createTextVNode, LT = window.Vue.resolveDirective, rm = window.Vue.withDirectives, lm = window.Vue.createElementVNode, TT = window.Vue.normalizeClass, Ms = window.Vue.openBlock, cm = window.Vue.createElementBlock;
 window.Vue.createCommentVNode;
-const Ni = window.Vue.createBlock, dm = window.Vue.normalizeProps;
+const Pi = window.Vue.createBlock, um = window.Vue.normalizeProps;
 window.Vue.guardReactiveProps;
-const gm = window.Vue.mergeProps, VT = { class: "block-template-adaptation-card__container pa-4" }, LT = ["textContent"], TT = {
+const dm = window.Vue.mergeProps, AT = { class: "block-template-adaptation-card__container pa-4" }, DT = ["textContent"], PT = {
   key: 1,
   class: "block-template-adaptation-card__body--failure pa-4 mb-4"
-}, He = window.Vue.computed, AT = window.Vue.ref, DT = window.Vuex.useStore, pm = window.Codex.CdxButton, mm = window.Codex.CdxIcon, PT = {
+}, qe = window.Vue.computed, BT = window.Vue.ref, FT = window.Vuex.useStore, gm = window.Codex.CdxButton, pm = window.Codex.CdxIcon, NT = {
   __name: "BlockTemplateAdaptationCard",
   emits: ["edit-translation"],
   setup(e) {
-    const t = DT(), { targetLanguageAutonym: n, currentMTProvider: s } = Le(t), {
+    const t = FT(), { targetLanguageAutonym: n, currentMTProvider: s } = Ae(t), {
       selectedContentTranslationUnit: o,
       currentProposedTranslation: a
-    } = ne(), r = He(() => {
-      var L;
-      return (L = o.value) == null ? void 0 : L.isTranslated;
-    }), l = He(() => {
-      var P;
-      return ((P = o.value) == null ? void 0 : P.blockTemplateTranslatedContent) || a.value;
-    }), u = He(
+    } = ne(), r = qe(() => {
+      var V;
+      return (V = o.value) == null ? void 0 : V.isTranslated;
+    }), l = qe(() => {
+      var E;
+      return ((E = o.value) == null ? void 0 : E.blockTemplateTranslatedContent) || a.value;
+    }), u = qe(
       () => {
-        var L;
-        return (L = o.value) == null ? void 0 : L.getTargetBlockTemplateNameByProvider(
+        var V;
+        return (V = o.value) == null ? void 0 : V.getTargetBlockTemplateNameByProvider(
           s.value
         );
       }
-    ), d = He(
+    ), d = qe(
       () => {
-        var L;
-        return !((L = t.state.application.mtRequestsPending) != null && L.includes(
+        var V;
+        return !((V = t.state.application.mtRequestsPending) != null && V.includes(
           o.value.id
         ));
       }
-    ), i = we(), c = He(
+    ), i = he(), c = qe(
       // Strip HTML comments and return
       () => {
-        var L, P;
-        return ((P = (L = o.value) == null ? void 0 : L.sourceBlockTemplateName) == null ? void 0 : P.replace(
+        var V, E;
+        return ((E = (V = o.value) == null ? void 0 : V.sourceBlockTemplateName) == null ? void 0 : E.replace(
           /<\!--.*?-->/g,
           ""
         )) || i.i18n("sx-block-template-adaptation-card-title-placeholder");
       }
-    ), g = He(
+    ), g = qe(
       () => {
-        var L, P;
-        return (P = (L = o.value) == null ? void 0 : L.blockTemplateAdaptationInfo) == null ? void 0 : P[s.value];
+        var V, E;
+        return (E = (V = o.value) == null ? void 0 : V.blockTemplateAdaptationInfo) == null ? void 0 : E[s.value];
       }
-    ), p = He(
+    ), p = qe(
       () => {
-        var L, P;
-        return ((L = g.value) == null ? void 0 : L.adapted) || !!((P = g.value) != null && P.partial);
+        var V, E;
+        return ((V = g.value) == null ? void 0 : V.adapted) || !!((E = g.value) != null && E.partial);
       }
-    ), m = He(() => g.value ? "block-template-adaptation-card__body--" + (p.value ? "success" : "warning") : null), h = He(() => g.value ? p.value ? i.i18n("sx-block-template-adaptation-card-edit-button-label") : i.i18n(
+    ), m = qe(() => g.value ? "block-template-adaptation-card__body--" + (p.value ? "success" : "warning") : null), h = qe(() => g.value ? p.value ? i.i18n("sx-block-template-adaptation-card-edit-button-label") : i.i18n(
       "sx-block-template-adaptation-card-edit-button-label-no-adapted-params"
-    ) : null), f = He(
+    ) : null), f = qe(
       () => {
-        var L;
-        return Object.keys(((L = o.value) == null ? void 0 : L.sourceTemplateParams) || {}).length;
+        var V;
+        return Object.keys(((V = o.value) == null ? void 0 : V.sourceTemplateParams) || {}).length;
       }
-    ), w = He(() => {
-      var P;
-      const L = (P = o.value) == null ? void 0 : P.getTargetTemplateParamsByProvider(
+    ), w = qe(() => {
+      var E;
+      const V = (E = o.value) == null ? void 0 : E.getTargetTemplateParamsByProvider(
         s.value
       );
-      return Object.keys(L || {});
-    }), v = He(() => w.value.length), y = He(() => {
-      const L = x.value;
-      return f.value + L === 0 ? 100 : v.value / (f.value + L) * 100 || 0;
-    }), S = AT(!1), b = () => {
+      return Object.keys(V || {});
+    }), _ = qe(() => w.value.length), C = qe(() => {
+      const V = y.value;
+      return f.value + V === 0 ? 100 : _.value / (f.value + V) * 100 || 0;
+    }), S = BT(!1), b = () => {
       S.value = !0;
-    }, V = (L) => L.filter((P) => !w.value.includes(P)), x = He(() => {
-      var P;
-      const L = ((P = g.value) == null ? void 0 : P.mandatoryTargetParams) || [];
-      return V(L).length;
-    }), I = He(() => {
-      var P;
-      const L = ((P = g.value) == null ? void 0 : P.optionalTargetParams) || [];
-      return V(L).length;
+    }, A = (V) => V.filter((E) => !w.value.includes(E)), y = qe(() => {
+      var E;
+      const V = ((E = g.value) == null ? void 0 : E.mandatoryTargetParams) || [];
+      return A(V).length;
+    }), B = qe(() => {
+      var E;
+      const V = ((E = g.value) == null ? void 0 : E.optionalTargetParams) || [];
+      return A(V).length;
     });
-    return (L, P) => {
-      const H = $T("i18n");
-      return Fs(), Ni(De(Qe), { class: "block-template-adaptation-card col shrink pa-0 ma-0" }, {
-        default: Wt(() => [
-          cm("div", VT, [
-            je(De(N), { class: "block-template-adaptation-card__header ma-0 pb-5" }, {
-              default: Wt(() => [
-                je(De(k), { shrink: "" }, {
-                  default: Wt(() => [
-                    je(De(mm), {
-                      icon: De(py),
+    return (V, E) => {
+      const j = LT("i18n");
+      return Ms(), Pi(Te(Ze), { class: "block-template-adaptation-card col shrink pa-0 ma-0" }, {
+        default: Kt(() => [
+          lm("div", AT, [
+            je(Te(M), { class: "block-template-adaptation-card__header ma-0 pb-5" }, {
+              default: Kt(() => [
+                je(Te(k), { shrink: "" }, {
+                  default: Kt(() => [
+                    je(Te(pm), {
+                      icon: Te(wy),
                       class: "me-2"
                     }, null, 8, ["icon"])
                   ]),
                   _: 1
                 }),
-                je(De(k), {
+                je(Te(k), {
                   class: "ma-0",
                   tag: "h5"
                 }, {
-                  default: Wt(() => [
-                    rm(lc(c.value), 1)
+                  default: Kt(() => [
+                    im(rc(c.value), 1)
                   ]),
                   _: 1
                 })
               ]),
               _: 1
             }),
-            u.value ? (Fs(), um("div", {
+            u.value ? (Ms(), cm("div", {
               key: 0,
-              class: ET(["pa-4 mb-4", m.value])
+              class: TT(["pa-4 mb-4", m.value])
             }, [
-              je(De(N), {
+              je(Te(M), {
                 class: "block-template-adaptation-card__body__header ma-0 pb-1",
                 align: "start"
               }, {
-                default: Wt(() => [
-                  lm(je(De(k), { tag: "h5" }, null, 512), [
-                    [H, void 0, "sx-block-template-adaptation-card-body-header-success"]
+                default: Kt(() => [
+                  rm(je(Te(k), { tag: "h5" }, null, 512), [
+                    [j, void 0, "sx-block-template-adaptation-card-body-header-success"]
                   ]),
-                  je(De(k), { shrink: "" }, {
-                    default: Wt(() => [
-                      je(Hf, {
-                        percentage: y.value,
+                  je(Te(k), { shrink: "" }, {
+                    default: Kt(() => [
+                      je(Wf, {
+                        percentage: C.value,
                         size: 20,
                         "is-template-adapted": p.value,
                         "stroke-width": 2,
@@ -20508,43 +20528,43 @@ const gm = window.Vue.mergeProps, VT = { class: "block-template-adaptation-card_
                 ]),
                 _: 1
               }),
-              cm("h5", {
+              lm("h5", {
                 class: "block-template-adaptation-card__body__template-title pb-2",
-                textContent: lc(u.value)
-              }, null, 8, LT),
-              je(De(pm), {
+                textContent: rc(u.value)
+              }, null, 8, DT),
+              je(Te(gm), {
                 class: "px-0",
                 action: "progressive",
                 weight: "quiet",
-                onClick: P[0] || (P[0] = (se) => L.$emit("edit-translation", l.value))
+                onClick: E[0] || (E[0] = (se) => V.$emit("edit-translation", l.value))
               }, {
-                default: Wt(() => [
-                  rm(lc(h.value), 1)
+                default: Kt(() => [
+                  im(rc(h.value), 1)
                 ]),
                 _: 1
               })
-            ], 2)) : d.value ? (Fs(), um("div", TT, [
-              je(De(N), {
+            ], 2)) : d.value ? (Ms(), cm("div", PT, [
+              je(Te(M), {
                 class: "block-template-adaptation-card__body__header pb-0 mb-0",
                 align: "start"
               }, {
-                default: Wt(() => [
-                  lm(je(De(k), { tag: "h5" }, null, 512), [
-                    [H, [
-                      De(n)
+                default: Kt(() => [
+                  rm(je(Te(k), { tag: "h5" }, null, 512), [
+                    [j, [
+                      Te(n)
                     ], "sx-block-template-adaptation-card-body-header-failure"]
                   ]),
-                  je(De(k), { shrink: "" }, {
-                    default: Wt(() => [
-                      je(De(pm), {
+                  je(Te(k), { shrink: "" }, {
+                    default: Kt(() => [
+                      je(Te(gm), {
                         weight: "quiet",
-                        "aria-label": L.$i18n(
+                        "aria-label": V.$i18n(
                           "sx-block-template-adaptation-card-status-button-aria-label"
                         )
                       }, {
-                        default: Wt(() => [
-                          je(De(mm), {
-                            icon: De(cy),
+                        default: Kt(() => [
+                          je(Te(pm), {
+                            icon: Te(py),
                             onClick: b
                           }, null, 8, ["icon"])
                         ]),
@@ -20556,16 +20576,16 @@ const gm = window.Vue.mergeProps, VT = { class: "block-template-adaptation-card_
                 ]),
                 _: 1
               })
-            ])) : (Fs(), Ni(De(ct), { key: 2 }))
+            ])) : (Ms(), Pi(Te(dt), { key: 2 }))
           ]),
-          r.value ? (Fs(), Ni(qf, dm(gm({ key: 1 }, L.$attrs)), null, 16)) : (Fs(), Ni(jf, dm(gm({ key: 0 }, L.$attrs)), null, 16)),
-          je(kT, {
+          r.value ? (Ms(), Pi(Kf, um(dm({ key: 1 }, V.$attrs)), null, 16)) : (Ms(), Pi(Xf, um(dm({ key: 0 }, V.$attrs)), null, 16)),
+          je(ET, {
             active: S.value,
-            "onUpdate:active": P[1] || (P[1] = (se) => S.value = se),
+            "onUpdate:active": E[1] || (E[1] = (se) => S.value = se),
             "source-params-count": f.value,
-            "target-params-count": v.value,
-            "mandatory-missing-params-count": x.value,
-            "optional-missing-params-count": I.value,
+            "target-params-count": _.value,
+            "mandatory-missing-params-count": y.value,
+            "optional-missing-params-count": B.value,
             "is-template-adapted": p.value,
             "target-template-exists": !!u.value
           }, null, 8, ["active", "source-params-count", "target-params-count", "mandatory-missing-params-count", "optional-missing-params-count", "is-template-adapted", "target-template-exists"])
@@ -20575,7 +20595,7 @@ const gm = window.Vue.mergeProps, VT = { class: "block-template-adaptation-card_
     };
   }
 };
-const BT = window.Vue.unref, FT = window.Vue.createVNode, NT = window.Vue.openBlock, MT = window.Vue.createElementBlock, UT = { class: "translated-segment-card-header" }, IT = window.Vue.computed, RT = {
+const MT = window.Vue.unref, UT = window.Vue.createVNode, IT = window.Vue.openBlock, RT = window.Vue.createElementBlock, zT = { class: "translated-segment-card-header" }, OT = window.Vue.computed, HT = {
   __name: "TranslatedSegmentCardHeader",
   props: {
     selection: {
@@ -20586,7 +20606,7 @@ const BT = window.Vue.unref, FT = window.Vue.createVNode, NT = window.Vue.openBl
   },
   emits: ["update:selection"],
   setup(e, { emit: t }) {
-    const n = t, { isSectionTitleSelected: s } = ne(), o = we(), a = IT(() => [
+    const n = t, { isSectionTitleSelected: s } = ne(), o = he(), a = OT(() => [
       {
         value: "sentence",
         props: {
@@ -20609,8 +20629,8 @@ const BT = window.Vue.unref, FT = window.Vue.createVNode, NT = window.Vue.openBl
         }
       }
     ]), r = (l) => n("update:selection", l);
-    return (l, u) => (NT(), MT("div", UT, [
-      FT(BT(ma), {
+    return (l, u) => (IT(), RT("div", zT, [
+      UT(MT(ma), {
         items: a.value,
         active: e.selection,
         onSelect: r
@@ -20618,83 +20638,83 @@ const BT = window.Vue.unref, FT = window.Vue.createVNode, NT = window.Vue.openBl
     ]));
   }
 };
-const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.resolveDirective, OT = window.Vue.createElementVNode, cc = window.Vue.withDirectives, ye = window.Vue.unref, jT = window.Vue.normalizeStyle, Mi = window.Vue.openBlock, fm = window.Vue.createElementBlock, HT = window.Vue.createCommentVNode, qT = window.Vue.normalizeClass, vt = window.Vue.withCtx, GT = window.Vue.toDisplayString, XT = window.Vue.createTextVNode, wm = window.Vue.createBlock, WT = window.Vue.normalizeProps, KT = window.Vue.guardReactiveProps, mn = window.Vue.computed, YT = window.Vue.ref, QT = window.Vue.inject, JT = window.Vuex.useStore, ZT = window.Codex.CdxButton, uc = window.Codex.CdxIcon, eA = {
+const jT = window.Vue.useCssVars, Ie = window.Vue.createVNode, mm = window.Vue.resolveDirective, qT = window.Vue.createElementVNode, lc = window.Vue.withDirectives, ye = window.Vue.unref, GT = window.Vue.normalizeStyle, Bi = window.Vue.openBlock, hm = window.Vue.createElementBlock, XT = window.Vue.createCommentVNode, WT = window.Vue.normalizeClass, vt = window.Vue.withCtx, KT = window.Vue.toDisplayString, YT = window.Vue.createTextVNode, fm = window.Vue.createBlock, QT = window.Vue.normalizeProps, JT = window.Vue.guardReactiveProps, hn = window.Vue.computed, ZT = window.Vue.ref, eA = window.Vue.inject, tA = window.Vuex.useStore, nA = window.Codex.CdxButton, cc = window.Codex.CdxIcon, sA = {
   __name: "TranslatedSegmentCard",
   emits: ["edit-translation"],
   setup(e) {
-    zT((v) => ({
+    jT((_) => ({
       "4929555c": w.value
     }));
-    const t = YT("sentence"), {
+    const t = ZT("sentence"), {
       sourceSection: n,
       selectedContentTranslationUnit: s,
       isSectionTitleSelected: o
-    } = ne(), { targetLanguage: a } = Le(JT()), r = mn(() => t.value === "sentence"), l = mn(
+    } = ne(), { targetLanguage: a } = Ae(tA()), r = hn(() => t.value === "sentence"), l = hn(
       () => n.value.subSections.find(
-        (v) => v.sentences.some(
-          (y) => {
+        (_) => _.sentences.some(
+          (C) => {
             var S;
-            return y.id === ((S = s.value) == null ? void 0 : S.id);
+            return C.id === ((S = s.value) == null ? void 0 : S.id);
           }
         )
       )
-    ), u = mn(() => {
-      var v;
-      return o.value ? n.value.mtProposedTranslationUsedForTitle : r.value ? (v = s.value) == null ? void 0 : v.mtProposedTranslationUsed : l.value.proposedContentForMTValidation;
-    }), d = QT("colors"), i = d.gray200, c = d.red600, g = mn(() => o.value ? n.value.translatedTitle : r.value ? s.value.translatedContent : l.value.translatedContent), p = mn(
-      () => Zt.calculateScore(
+    ), u = hn(() => {
+      var _;
+      return o.value ? n.value.mtProposedTranslationUsedForTitle : r.value ? (_ = s.value) == null ? void 0 : _.mtProposedTranslationUsed : l.value.proposedContentForMTValidation;
+    }), d = eA("colors"), i = d.gray200, c = d.red600, g = hn(() => o.value ? n.value.translatedTitle : r.value ? s.value.translatedContent : l.value.translatedContent), p = hn(
+      () => tn.calculateScore(
         g.value,
         u.value,
         a.value
       )
-    ), m = mn(
-      () => Zt.getScoreStatus(p.value)
-    ), h = mn(
+    ), m = hn(
+      () => tn.getScoreStatus(p.value)
+    ), h = hn(
       () => `translated-segment-card__modification-stats__percentage--${m.value}`
-    ), f = mn(() => ({
+    ), f = hn(() => ({
       failure: p.value === 0 ? null : d.yellow700,
       warning: d.yellow700,
       success: d.green600
-    })), w = mn(
+    })), w = hn(
       () => f.value[m.value]
     );
-    return (v, y) => {
-      const S = hm("i18n"), b = hm("i18n-html");
-      return Mi(), wm(ye(Qe), { class: "translated-segment-card col shrink pa-0 mb-0" }, {
+    return (_, C) => {
+      const S = mm("i18n"), b = mm("i18n-html");
+      return Bi(), fm(ye(Ze), { class: "translated-segment-card col shrink pa-0 mb-0" }, {
         default: vt(() => [
-          Ie(ye(N), {
+          Ie(ye(M), {
             direction: "column",
             align: "start",
             class: "ma-0 no-wrap fill-height"
           }, {
             default: vt(() => [
-              Ie(RT, {
+              Ie(HT, {
                 selection: t.value,
-                "onUpdate:selection": y[0] || (y[0] = (V) => t.value = V)
+                "onUpdate:selection": C[0] || (C[0] = (A) => t.value = A)
               }, null, 8, ["selection"]),
               Ie(ye(k), {
                 tag: "section",
                 class: "translated-segment-card__body pa-5"
               }, {
                 default: vt(() => [
-                  Ie(ye(N), { class: "ma-0" }, {
+                  Ie(ye(M), { class: "ma-0" }, {
                     default: vt(() => [
                       Ie(ye(k), {
                         class: "translated-segment-card__modification-stats",
                         grow: ""
                       }, {
                         default: vt(() => [
-                          cc(OT("h5", null, null, 512), [
+                          lc(qT("h5", null, null, 512), [
                             [S, void 0, "cx-sx-sentence-selector-translated-segment-modification-percentage-header"]
                           ]),
-                          p.value === 0 ? cc((Mi(), fm("p", {
+                          p.value === 0 ? lc((Bi(), hm("p", {
                             key: 0,
-                            style: jT({ color: ye(c) })
+                            style: GT({ color: ye(c) })
                           }, null, 4)), [
                             [S, void 0, "cx-sx-sentence-selector-translated-segment-no-edits-label"]
-                          ]) : cc((Mi(), fm("p", {
+                          ]) : lc((Bi(), hm("p", {
                             key: 1,
-                            class: qT(h.value)
+                            class: WT(h.value)
                           }, null, 2)), [
                             [b, [
                               p.value
@@ -20708,16 +20728,16 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
                         class: "translated-segment-card__animated-stats"
                       }, {
                         default: vt(() => [
-                          Ie(ye(N), { class: "ma-0 ms-2" }, {
+                          Ie(ye(M), { class: "ma-0 ms-2" }, {
                             default: vt(() => [
                               Ie(ye(k), {
                                 shrink: "",
                                 align: "center"
                               }, {
                                 default: vt(() => [
-                                  Ie(ye(uc), {
+                                  Ie(ye(cc), {
                                     class: "translated-segment-card__animated-stats__icon",
-                                    icon: ye(fy)
+                                    icon: ye(Sy)
                                   }, null, 8, ["icon"])
                                 ]),
                                 _: 1
@@ -20727,7 +20747,7 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
                                 class: "px-3"
                               }, {
                                 default: vt(() => [
-                                  Ie(ye(ph), {
+                                  Ie(ye(gh), {
                                     value: p.value,
                                     height: "4px",
                                     width: "64px",
@@ -20739,9 +20759,9 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
                               }),
                               Ie(ye(k), { shrink: "" }, {
                                 default: vt(() => [
-                                  Ie(ye(uc), {
+                                  Ie(ye(cc), {
                                     class: "translated-segment-card__animated-stats__icon",
-                                    icon: ye(my)
+                                    icon: ye(vy)
                                   }, null, 8, ["icon"])
                                 ]),
                                 _: 1
@@ -20755,28 +20775,28 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
                     ]),
                     _: 1
                   }),
-                  r.value ? (Mi(), wm(ye(ZT), {
+                  r.value ? (Bi(), fm(ye(nA), {
                     key: 0,
                     class: "sx-sentence-selector__proposed-translation-edit-button px-0 mt-4",
                     action: "progressive",
                     weight: "quiet",
-                    onClick: y[1] || (y[1] = (V) => v.$emit("edit-translation", g.value))
+                    onClick: C[1] || (C[1] = (A) => _.$emit("edit-translation", g.value))
                   }, {
                     default: vt(() => [
-                      Ie(ye(uc), {
+                      Ie(ye(cc), {
                         class: "me-1",
                         icon: ye(pu)
                       }, null, 8, ["icon"]),
-                      XT(" " + GT(v.$i18n("cx-sx-sentence-selector-edit-translation-button-label")), 1)
+                      YT(" " + KT(_.$i18n("cx-sx-sentence-selector-edit-translation-button-label")), 1)
                     ]),
                     _: 1
-                  })) : HT("", !0)
+                  })) : XT("", !0)
                 ]),
                 _: 1
               }),
               Ie(ye(k), { class: "translated-segment-card__actions" }, {
                 default: vt(() => [
-                  Ie(qf, WT(KT(v.$attrs)), null, 16)
+                  Ie(Kf, QT(JT(_.$attrs)), null, 16)
                 ]),
                 _: 1
               })
@@ -20788,11 +20808,11 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
       });
     };
   }
-}, tA = () => {
+}, oA = () => {
   const {
     sourceSection: e,
     selectedContentTranslationUnit: t
-  } = ne(), { selectNextTranslationUnit: n, selectTranslationUnitById: s } = to(), { currentTranslation: o } = zt();
+  } = ne(), { selectNextTranslationUnit: n, selectTranslationUnitById: s } = eo(), { currentTranslation: o } = Ot();
   return () => {
     if (e.value)
       if (o.value && !t.value) {
@@ -20803,12 +20823,12 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
       } else
         t.value || s(0);
   };
-}, Gf = window.Vuex.useStore, nA = () => {
-  const e = Gf(), {
+}, Yf = window.Vuex.useStore, aA = () => {
+  const e = Yf(), {
     sourceLanguageURLParameter: t,
     targetLanguageURLParameter: n
-  } = A();
-  return () => C(void 0, null, function* () {
+  } = D();
+  return () => x(void 0, null, function* () {
     if (e.getters["mediawiki/getSupportedMTProviders"](
       t.value,
       n.value
@@ -20816,7 +20836,7 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
       return;
     const s = mw.config.get("wgContentTranslationEnableMT");
     let o;
-    s ? o = yield sr.fetchSupportedMTProviders(
+    s ? o = yield er.fetchSupportedMTProviders(
       t.value,
       n.value
     ) : o = new re(
@@ -20826,12 +20846,12 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
       // Empty providers array - only "original" and "empty" will be added by constructor
     ), e.commit("mediawiki/addMtProviderGroup", o);
   });
-}, sA = () => {
-  const e = Gf(), { currentMTProvider: t } = Le(e), {
+}, iA = () => {
+  const e = Yf(), { currentMTProvider: t } = Ae(e), {
     sourceLanguageURLParameter: n,
     targetLanguageURLParameter: s
-  } = A(), o = nA();
-  return () => C(void 0, null, function* () {
+  } = D(), o = aA();
+  return () => x(void 0, null, function* () {
     yield o();
     const a = e.getters["mediawiki/getSupportedMTProviders"](n.value, s.value);
     if (!t.value || !a.includes(t.value)) {
@@ -20843,7 +20863,7 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
       (!l || !a.includes(l)) && (l = a[0]), e.commit("application/setCurrentMTProvider", l);
     }
   });
-}, oA = window.Vue.computed, aA = (e) => {
+}, rA = window.Vue.computed, lA = (e) => {
   Array.from(e.getClientRects()).every(
     // use "elementFromPoint" method to get the topmost element
     // at the coordinates of the border box of each line.
@@ -20860,17 +20880,17 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
     block: "start",
     inline: "nearest"
   });
-}, iA = () => {
-  const { selectedContentTranslationUnit: e } = ne(), t = oA(
-    () => e.value instanceof lt
+}, cA = () => {
+  const { selectedContentTranslationUnit: e } = ne(), t = rA(
+    () => e.value instanceof ct
   );
   return () => {
     if (!e.value)
       return;
     const n = e.value.id, s = t.value ? document.getElementById(n) : document.querySelector(`[data-segmentid='${n}']`);
-    s && aA(s);
+    s && lA(s);
   };
-}, rA = (e, t) => {
+}, uA = (e, t) => {
   const { content: n, origin: s, baseSectionId: o, subSectionId: a } = e;
   if (!n)
     throw new Error(
@@ -20885,24 +20905,24 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
     throw new Error(
       "[CX] Invalid section id of parallel corpora translation unit"
     );
-}, lA = window.Vue.computed, Xf = () => {
-  const { currentTranslation: e } = zt(), { currentSourcePage: t } = dt();
-  return lA(
+}, dA = window.Vue.computed, Qf = () => {
+  const { currentTranslation: e } = Ot(), { currentSourcePage: t } = pt();
+  return dA(
     () => {
       var n;
       return ((n = e.value) == null ? void 0 : n.pageRevision) || t.value.revision;
     }
   );
-}, cA = window.Vuex.useStore, Vu = () => {
-  const e = cA(), { sourceSection: t, targetPageTitleForPublishing: n } = ne(), {
+}, gA = window.Vuex.useStore, Lu = () => {
+  const e = gA(), { sourceSection: t, targetPageTitleForPublishing: n } = ne(), {
     pageURLParameter: s,
     sourceLanguageURLParameter: o,
     targetLanguageURLParameter: a
-  } = A(), r = Xf(), { target: l, PUBLISHING_TARGETS: u } = Rt();
+  } = D(), r = Qf(), { target: l, PUBLISHING_TARGETS: u } = zt();
   return () => {
     const d = n.value, i = e.getters["mediawiki/getSupportedMTProviders"](o.value, a.value), c = `${r.value}_${t.value.id}`, g = t.value.getParallelCorporaUnits(c);
     g.forEach(
-      (m) => rA(m, i)
+      (m) => uA(m, i)
     );
     const p = t.value.getTranslationProgress(a);
     return xt.saveTranslation({
@@ -20922,45 +20942,45 @@ const zT = window.Vue.useCssVars, Ie = window.Vue.createVNode, hm = window.Vue.r
       progress: p
     });
   };
-}, uA = window.Vue.effectScope, dA = window.Vue.onScopeDispose, gA = (e) => {
+}, pA = window.Vue.effectScope, mA = window.Vue.onScopeDispose, hA = (e) => {
   let t = 0, n, s;
   const o = () => {
     s && --t <= 0 && (s.stop(), n = s = null);
   };
-  return (...a) => (t++, n || (s = uA(!0), n = s.run(() => e(...a))), dA(o), n);
-}, pA = window.Vuex.useStore;
-let dc;
-const mA = () => {
-  const e = pA(), t = Vu();
+  return (...a) => (t++, n || (s = pA(!0), n = s.run(() => e(...a))), mA(o), n);
+}, fA = window.Vuex.useStore;
+let uc;
+const wA = () => {
+  const e = fA(), t = Lu();
   let n = 1e3, s = 0;
-  return dc = Su(() => t().then((a) => {
-    a instanceof jn ? (n *= s + 1, s++, setTimeout(dc, n)) : (s = 0, n = 1e3, e.commit("application/setAutoSavePending", !1));
+  return uc = Su(() => t().then((a) => {
+    a instanceof Gn ? (n *= s + 1, s++, setTimeout(uc, n)) : (s = 0, n = 1e3, e.commit("application/setAutoSavePending", !1));
   }).catch((a) => {
     if (a instanceof Xs)
       e.commit("application/setIsLoginDialogOn", !0);
     else
       throw a;
-  }), 3e3), dc;
-}, Wf = gA(mA), hA = window.Vuex.useStore, fA = () => {
-  const e = hA(), t = Wf(), { currentMTProvider: n } = Le(e), { sourceSection: s, currentProposedTranslation: o } = ne(), { selectNextTranslationUnit: a } = to();
-  return () => C(void 0, null, function* () {
+  }), 3e3), uc;
+}, Jf = hA(wA), vA = window.Vuex.useStore, _A = () => {
+  const e = vA(), t = Jf(), { currentMTProvider: n } = Ae(e), { sourceSection: s, currentProposedTranslation: o } = ne(), { selectNextTranslationUnit: a } = eo();
+  return () => x(void 0, null, function* () {
     s.value.setTranslationForSelectedTranslationUnit(
       o.value,
       n.value
     ), t(), e.commit("application/setAutoSavePending", !0), a();
   });
-}, wA = window.Vuex.useStore, vA = () => {
-  const e = wA(), t = Wf();
+}, SA = window.Vuex.useStore, yA = () => {
+  const e = SA(), t = Jf();
   return () => {
     e.commit("application/setAutoSavePending", !1), t.cancel();
   };
-}, _A = window.Vuex.useStore, SA = window.Vue.computed, Kf = () => {
-  const e = _A(), { currentTranslation: t } = zt(), { currentMTProvider: n } = Le(e), { currentTargetPageTitle: s } = dt(), {
+}, xA = window.Vuex.useStore, CA = window.Vue.computed, Zf = () => {
+  const e = xA(), { currentTranslation: t } = Ot(), { currentMTProvider: n } = Ae(e), { currentTargetPageTitle: s } = pt(), {
     sourceLanguageURLParameter: o,
     targetLanguageURLParameter: a,
     pageURLParameter: r,
     sectionURLParameter: l
-  } = A(), u = bt(), d = SA(() => {
+  } = D(), u = bt(), d = CA(() => {
     const f = {
       translation_source_language: o.value,
       translation_target_language: a.value,
@@ -20990,33 +21010,33 @@ const mA = () => {
   });
   return {
     logEditorOpenEvent: () => {
-      const f = pe({
+      const f = ue({
         event_type: "editor_open"
       }, d.value);
       return u(f);
     },
     logEditorCloseEvent: () => {
-      const f = pe({
+      const f = ue({
         event_type: "editor_close"
       }, d.value);
       return u(f);
     },
-    logEditorCloseWarnEvent: () => u(pe({
+    logEditorCloseWarnEvent: () => u(ue({
       event_type: "editor_close_warn"
     }, d.value)),
-    logEditorSegmentAddEvent: () => u(pe({
+    logEditorSegmentAddEvent: () => u(ue({
       event_type: "editor_segment_add"
     }, d.value)),
-    logEditorSegmentSkipEvent: () => u(pe({
+    logEditorSegmentSkipEvent: () => u(ue({
       event_type: "editor_segment_skip"
     }, d.value)),
-    logEditorSegmentEditEvent: () => u(pe({
+    logEditorSegmentEditEvent: () => u(ue({
       event_type: "editor_segment_edit"
     }, d.value))
   };
-}, yA = (e, t, n, s) => C(void 0, null, function* () {
+}, bA = (e, t, n, s) => x(void 0, null, function* () {
   var l, u, d;
-  const o = ((l = t.user) == null ? void 0 : l.content) || ((u = t.mt) == null ? void 0 : u.content), a = (d = t == null ? void 0 : t.mt) == null ? void 0 : d.engine, r = yield Of(
+  const o = ((l = t.user) == null ? void 0 : l.content) || ((u = t.mt) == null ? void 0 : u.content), a = (d = t == null ? void 0 : t.mt) == null ? void 0 : d.engine, r = yield Gf(
     o,
     n,
     s
@@ -21025,7 +21045,7 @@ const mA = () => {
     a,
     o
   ), e.blockTemplateProposedTranslations[a] = r, e.blockTemplateMTProviderUsed = a), e.blockTemplateTranslatedContent = r;
-}), xA = (e, t) => {
+}), kA = (e, t) => {
   t.segments.forEach((n) => {
     var o, a, r;
     const s = e.getSentenceById(n.id);
@@ -21034,11 +21054,11 @@ const mA = () => {
       s.addProposedTranslation(l, n.mt.innerHTML), s.mtProviderUsed = l;
     }
   });
-}, CA = (e, t, n, s) => C(void 0, null, function* () {
+}, $A = (e, t, n, s) => x(void 0, null, function* () {
   if (e.corporaRestoredUnit = t, e.isBlockTemplate)
-    return yA(e, t, n, s);
-  xA(e, t);
-}), bA = (e, t, n, s) => {
+    return bA(e, t, n, s);
+  kA(e, t);
+}), VA = (e, t, n, s) => {
   const o = [];
   for (const a of e.sections || [])
     if (s.filter(
@@ -21050,7 +21070,7 @@ const mA = () => {
         );
         if (!u)
           continue;
-        const d = CA(
+        const d = $A(
           l,
           u,
           t || e.title,
@@ -21059,15 +21079,15 @@ const mA = () => {
         o.push(d);
       }
   return Promise.all(o);
-}, kA = { restoreCorporaDraft: bA }, $A = () => {
-  const { currentSourcePage: e } = dt(), { sourceSection: t } = ne();
-  return (n) => C(void 0, null, function* () {
+}, EA = { restoreCorporaDraft: VA }, LA = () => {
+  const { currentSourcePage: e } = pt(), { sourceSection: t } = ne();
+  return (n) => x(void 0, null, function* () {
     if (n.restored)
       return;
     const s = yield xt.fetchTranslationUnits(
       n.translationId
     );
-    yield kA.restoreCorporaDraft(
+    yield EA.restoreCorporaDraft(
       e.value,
       n.targetTitle,
       n.targetLanguage,
@@ -21077,8 +21097,8 @@ const mA = () => {
     n.isLeadSectionTranslation ? (t.value.originalTitle = n.sourceTitle, o = n.targetTitle) : o = n.targetSectionTitle, t.value.translatedTitle = o;
   });
 };
-let gc = null;
-function EA() {
+let dc = null;
+function TA() {
   const e = mw.config.get(
     "wgContentTranslationPublishRequirements"
   ), t = mw.config.get("wgUserGroups") || [];
@@ -21087,40 +21107,40 @@ function EA() {
   const n = e.userGroups;
   return n.includes("*") ? !0 : n.some((s) => t.includes(s));
 }
-function Yf() {
-  return gc === null && (gc = EA()), gc;
+function ew() {
+  return dc === null && (dc = TA()), dc;
 }
-const Qf = window.Vue.ref, pc = Qf(!1), mc = Qf(!1);
-function vm() {
+const tw = window.Vue.ref, gc = tw(!1), pc = tw(!1);
+function wm() {
   return {
-    isPermissionWarningDismissed: pc,
+    isPermissionWarningDismissed: gc,
     dismissPermissionWarning: () => {
-      pc.value = !0;
+      gc.value = !0;
     },
     resetPermissionWarning: () => {
-      pc.value = !1;
+      gc.value = !1;
     },
-    isTitleErrorDismissed: mc,
+    isTitleErrorDismissed: pc,
     dismissTitleError: () => {
-      mc.value = !0;
+      pc.value = !0;
     },
     resetTitleError: () => {
-      mc.value = !1;
+      pc.value = !1;
     }
   };
 }
-const ce = window.Vue.unref, _t = window.Vue.createVNode, Pt = window.Vue.withCtx, VA = window.Vue.resolveDirective, hn = window.Vue.createElementVNode, LA = window.Vue.withDirectives, Xo = window.Vue.toDisplayString, TA = window.Vue.createTextVNode, Kt = window.Vue.openBlock, Nn = window.Vue.createBlock, _m = window.Vue.createCommentVNode, AA = window.Vue.renderList, DA = window.Vue.Fragment, Sm = window.Vue.createElementBlock, PA = window.Vue.normalizeClass, BA = window.Vue.normalizeStyle, FA = { class: "sx-sentence-selector__header-title mb-0" }, NA = {
+const ce = window.Vue.unref, _t = window.Vue.createVNode, Bt = window.Vue.withCtx, AA = window.Vue.resolveDirective, fn = window.Vue.createElementVNode, DA = window.Vue.withDirectives, Xo = window.Vue.toDisplayString, PA = window.Vue.createTextVNode, Yt = window.Vue.openBlock, Un = window.Vue.createBlock, vm = window.Vue.createCommentVNode, BA = window.Vue.renderList, FA = window.Vue.Fragment, _m = window.Vue.createElementBlock, NA = window.Vue.normalizeClass, MA = window.Vue.normalizeStyle, UA = { class: "sx-sentence-selector__header-title mb-0" }, IA = {
   href: "https://www.mediawiki.org/wiki/Help:Content_translation/Publishing",
   target: "_blank"
-}, MA = { class: "sx-sentence-selector__section-contents px-4" }, Mn = window.Vue.computed, UA = window.Vue.nextTick, IA = window.Vue.onMounted, Wo = window.Vue.ref, ym = window.Vue.watch, RA = window.Vuex.useStore, xm = window.Codex.CdxButton, zA = window.Codex.CdxIcon, Cm = window.Codex.CdxMessage, OA = {
+}, RA = { class: "sx-sentence-selector__section-contents px-4" }, In = window.Vue.computed, zA = window.Vue.nextTick, OA = window.Vue.onMounted, Wo = window.Vue.ref, Sm = window.Vue.watch, HA = window.Vuex.useStore, ym = window.Codex.CdxButton, jA = window.Codex.CdxIcon, xm = window.Codex.CdxMessage, qA = {
   __name: "SXSentenceSelector",
   setup(e) {
-    const t = Wo(!1), n = Wo(!1), s = Wo("100%"), o = RA(), { currentMTProvider: a, previousRoute: r } = Le(o), {
+    const t = Wo(!1), n = Wo(!1), s = Wo("100%"), o = HA(), { currentMTProvider: a, previousRoute: r } = Ae(o), {
       sourceLanguageURLParameter: l,
       targetLanguageURLParameter: u,
       pageURLParameter: d,
       sectionURLParameter: i
-    } = A(), { resetPublishTarget: c, target: g } = Rt(), p = ir();
+    } = D(), { resetPublishTarget: c, target: g } = zt(), p = sr();
     g.value || p(
       l.value,
       u.value,
@@ -21135,41 +21155,41 @@ const ce = window.Vue.unref, _t = window.Vue.createVNode, Pt = window.Vue.withCt
       pageMetadata: !1,
       draftRestored: !1,
       mtProviders: !1
-    }), v = Mn(
+    }), _ = In(
       () => Object.values(w.value).every(Boolean)
-    ), y = Mn(
+    ), C = In(
       () => {
         var G;
         return (G = m.value) == null ? void 0 : G.isSelectedTranslationUnitTranslated;
       }
-    ), S = Mn(() => {
+    ), S = In(() => {
       var G;
       return (G = m.value) == null ? void 0 : G.subSections;
-    }), b = Mn(
+    }), b = In(
       () => {
         var G;
         return (G = m.value) == null ? void 0 : G.selectedTranslationUnitOriginalContent;
       }
-    ), V = Mn(
+    ), A = In(
       () => isNaN(s.value) ? s.value : `${s.value}px`
     ), {
-      logEditorOpenEvent: x,
-      logEditorCloseEvent: I,
-      logEditorCloseWarnEvent: L,
-      logEditorSegmentAddEvent: P,
-      logEditorSegmentSkipEvent: H
-    } = Kf(), se = () => {
-      var ao;
-      const G = F.currentRoute.value.meta.workflowStep, tn = F.getRoutes().find(
-        (io) => io.name === r.value
-      ), gt = ((ao = tn == null ? void 0 : tn.meta) == null ? void 0 : ao.workflowStep) || 0;
-      return G > gt;
-    }, ae = tA();
-    sA()().then(() => {
-      se() && x(), w.value.mtProviders = !0;
+      logEditorOpenEvent: y,
+      logEditorCloseEvent: B,
+      logEditorCloseWarnEvent: V,
+      logEditorSegmentAddEvent: E,
+      logEditorSegmentSkipEvent: j
+    } = Zf(), se = () => {
+      var oo;
+      const G = N.currentRoute.value.meta.workflowStep, sn = N.getRoutes().find(
+        (ao) => ao.name === r.value
+      ), mt = ((oo = sn == null ? void 0 : sn.meta) == null ? void 0 : oo.workflowStep) || 0;
+      return G > mt;
+    }, ae = oA();
+    iA()().then(() => {
+      se() && y(), w.value.mtProviders = !0;
     });
-    const R = iA(), { fetchTranslationsByStatus: J, translationsFetched: oe } = Zs(), le = $A(), { currentTranslation: ke } = zt(), { selectPageSectionByTitle: We, selectPageSectionByIndex: Pe } = dr(), Z = ku(), U = Ys();
-    IA(() => C(this, null, function* () {
+    const z = cA(), { fetchTranslationsByStatus: J, translationsFetched: oe } = Js(), le = LA(), { currentTranslation: ke } = Ot(), { selectPageSectionByTitle: Ke, selectPageSectionByIndex: Pe } = rr(), Z = $u(), I = Ks();
+    OA(() => x(this, null, function* () {
       if (!oe.value.draft) {
         const G = [
           // required to get current draft translation (if exists)
@@ -21177,40 +21197,40 @@ const ce = window.Vue.unref, _t = window.Vue.createVNode, Pt = window.Vue.withCt
           // required to get target page title for template adaptation (useTranslationUnitTranslate)
           Z(l.value, d.value),
           // user has just been redirected here from another wiki, and page metadata have not yet been fetched
-          U(l.value, [d.value])
+          I(l.value, [d.value])
         ];
         yield Promise.all(G);
       }
-      w.value.pageMetadata = !0, i.value ? yield We(i.value) : yield Pe(0), w.value.pageContent = !0, ke.value && (yield le(ke.value)), w.value.draftRestored = !0, ym(
-        v,
-        () => C(this, null, function* () {
-          v.value && (yield UA(), ae(), R());
+      w.value.pageMetadata = !0, i.value ? yield Ke(i.value) : yield Pe(0), w.value.pageContent = !0, ke.value && (yield le(ke.value)), w.value.draftRestored = !0, Sm(
+        _,
+        () => x(this, null, function* () {
+          _.value && (yield zA(), ae(), z());
         }),
         { immediate: !0 }
       ), s.value = window.innerHeight;
-    })), ym(h, R);
-    const { selectNextTranslationUnit: B, selectPreviousTranslationUnit: M } = to(), Y = () => (H(), B()), _ = fA(), T = () => {
-      P(), _();
-    }, D = () => {
+    })), Sm(h, z);
+    const { selectNextTranslationUnit: F, selectPreviousTranslationUnit: U } = eo(), Y = () => (j(), F()), v = _A(), T = () => {
+      E(), v();
+    }, P = () => {
       n.value = !0, setTimeout(() => {
         n.value = !1;
       }, 100);
-    }, F = Ze(), X = () => {
+    }, N = tt(), X = () => {
       const { autoSavePending: G } = o.state.application;
       if (G) {
-        oo.value = !0, L();
+        so.value = !0, V();
         return;
       }
-      z();
-    }, ge = vA(), { clearTranslationURLParameters: q } = A(), z = () => C(this, null, function* () {
-      J("draft"), ke.value && (m.value.reset(), ke.value.restored = !1), I(), q(), ge(), yield F.push({ name: "dashboard" });
+      O();
+    }, pe = yA(), { clearTranslationURLParameters: q } = D(), O = () => x(this, null, function* () {
+      J("draft"), ke.value && (m.value.reset(), ke.value.restored = !1), B(), q(), pe(), yield N.push({ name: "dashboard" });
     }), {
       translateTranslationUnitById: ie,
-      translateSelectedTranslationUnitForAllProviders: et
+      translateSelectedTranslationUnitForAllProviders: nt
     } = Eu(), $e = () => {
-      so.value || (t.value = !0, et());
-    }, { getCurrentTitleByLanguage: xa } = bn(), gs = (G) => {
-      F.push({
+      no.value || (t.value = !0, nt());
+    }, { getCurrentTitleByLanguage: xa } = bn(), ms = (G) => {
+      N.push({
         name: "sx-editor",
         state: {
           content: G,
@@ -21219,48 +21239,48 @@ const ce = window.Vue.unref, _t = window.Vue.createVNode, Pt = window.Vue.withCt
             u.value,
             l.value
           ),
-          isInitialEdit: !y.value || null
+          isInitialEdit: !C.value || null
         }
       });
-    }, no = () => F.push({ name: "sx-publisher" }), gr = () => C(this, null, function* () {
+    }, to = () => N.push({ name: "sx-publisher" }), lr = () => x(this, null, function* () {
       h.value ? yield ie(
         h.value.id,
         a.value
       ) : yield ie(0, a.value);
-    }), so = Mn(
-      () => h.value instanceof lt
-    ), oo = Wo(!1), {
-      isPermissionWarningDismissed: pr,
-      dismissPermissionWarning: mr,
-      resetPermissionWarning: ps
-    } = vm(), { isTitleErrorDismissed: ms, dismissTitleError: Ca, resetTitleError: E } = vm();
-    se() && (ps(), E());
-    const O = Mn(
-      () => !Yf() && !pr.value
-    ), Ne = Mn(
+    }), no = In(
+      () => h.value instanceof ct
+    ), so = Wo(!1), {
+      isPermissionWarningDismissed: cr,
+      dismissPermissionWarning: ur,
+      resetPermissionWarning: hs
+    } = wm(), { isTitleErrorDismissed: fs, dismissTitleError: Ca, resetTitleError: L } = wm();
+    se() && (hs(), L());
+    const H = In(
+      () => !ew() && !cr.value
+    ), Ne = In(
       () => {
         var G;
-        return !ms.value && ((G = m.value) == null ? void 0 : G.isLeadSection) && !mw.Title.newFromText(f.value);
+        return !fs.value && ((G = m.value) == null ? void 0 : G.isLeadSection) && !mw.Title.newFromText(f.value);
       }
     );
     return (G, ze) => {
-      const tn = VA("i18n");
-      return Kt(), Sm("section", {
+      const sn = AA("i18n");
+      return Yt(), _m("section", {
         class: "sx-sentence-selector fill-height column ma-0 no-wrap",
-        style: BA(V.value)
+        style: MA(A.value)
       }, [
-        _t(ce(N), { class: "sx-sentence-selector__header ma-0 py-2" }, {
-          default: Pt(() => [
+        _t(ce(M), { class: "sx-sentence-selector__header ma-0 py-2" }, {
+          default: Bt(() => [
             _t(ce(k), { shrink: "" }, {
-              default: Pt(() => [
-                _t(ce(xm), {
+              default: Bt(() => [
+                _t(ce(ym), {
                   weight: "quiet",
                   class: "px-3",
                   "aria-label": G.$i18n("cx-sx-sentence-selector-header-close-button-aria-label"),
                   onClick: X
                 }, {
-                  default: Pt(() => [
-                    _t(ce(zA), { icon: ce(Rh) }, null, 8, ["icon"])
+                  default: Bt(() => [
+                    _t(ce(jA), { icon: ce(qh) }, null, 8, ["icon"])
                   ]),
                   _: 1
                 }, 8, ["aria-label"])
@@ -21271,9 +21291,9 @@ const ce = window.Vue.unref, _t = window.Vue.createVNode, Pt = window.Vue.withCt
               grow: "",
               class: "px-1"
             }, {
-              default: Pt(() => [
-                LA(hn("h4", FA, null, 512), [
-                  [tn, void 0, "cx-sx-sentence-selector-header-title"]
+              default: Bt(() => [
+                DA(fn("h4", UA, null, 512), [
+                  [sn, void 0, "cx-sx-sentence-selector-header-title"]
                 ])
               ]),
               _: 1
@@ -21282,13 +21302,13 @@ const ce = window.Vue.unref, _t = window.Vue.createVNode, Pt = window.Vue.withCt
               shrink: "",
               class: "px-3"
             }, {
-              default: Pt(() => [
-                _t(ce(xm), {
+              default: Bt(() => [
+                _t(ce(ym), {
                   disabled: !(ce(m) && ce(m).isTranslated),
-                  onClick: no
+                  onClick: to
                 }, {
-                  default: Pt(() => [
-                    TA(Xo(G.$i18n("cx-sx-sentence-selector-done-button-label")), 1)
+                  default: Bt(() => [
+                    PA(Xo(G.$i18n("cx-sx-sentence-selector-done-button-label")), 1)
                   ]),
                   _: 1
                 }, 8, ["disabled"])
@@ -21298,7 +21318,7 @@ const ce = window.Vue.unref, _t = window.Vue.createVNode, Pt = window.Vue.withCt
           ]),
           _: 1
         }),
-        v.value ? (Kt(), Nn(ce(N), {
+        _.value ? (Yt(), Un(ce(M), {
           key: 0,
           tag: "section",
           direction: "column",
@@ -21306,108 +21326,108 @@ const ce = window.Vue.unref, _t = window.Vue.createVNode, Pt = window.Vue.withCt
           justify: "between",
           class: "sx-sentence-selector__body fill-height ma-0"
         }, {
-          default: Pt(() => [
+          default: Bt(() => [
             _t(ce(k), {
-              dir: ce(j.getDir)(ce(l)),
+              dir: ce(R.getDir)(ce(l)),
               lang: ce(l),
               class: "sx-sentence-selector__section"
             }, {
-              default: Pt(() => [
-                O.value ? (Kt(), Nn(ce(Cm), {
+              default: Bt(() => [
+                H.value ? (Yt(), Un(ce(xm), {
                   key: 0,
                   type: "warning",
                   "allow-user-dismiss": !0,
                   class: "mx-4 mt-4",
-                  onUserDismissed: ce(mr)
+                  onUserDismissed: ce(ur)
                 }, {
-                  default: Pt(() => [
-                    hn("p", null, Xo(G.$i18n("cx-publish-permission-warning")), 1),
-                    hn("p", null, [
-                      hn("strong", null, [
-                        hn("a", NA, Xo(G.$i18n("cx-publish-permission-warning-link-label")), 1)
+                  default: Bt(() => [
+                    fn("p", null, Xo(G.$i18n("cx-publish-permission-warning")), 1),
+                    fn("p", null, [
+                      fn("strong", null, [
+                        fn("a", IA, Xo(G.$i18n("cx-publish-permission-warning-link-label")), 1)
                       ])
                     ])
                   ]),
                   _: 1
-                }, 8, ["onUserDismissed"])) : _m("", !0),
-                Ne.value ? (Kt(), Nn(ce(Cm), {
+                }, 8, ["onUserDismissed"])) : vm("", !0),
+                Ne.value ? (Yt(), Un(ce(xm), {
                   key: 1,
                   type: "error",
                   "allow-user-dismiss": !0,
                   class: "mx-4 mt-4",
                   onUserDismissed: ce(Ca)
                 }, {
-                  default: Pt(() => [
-                    hn("p", null, [
-                      hn("strong", null, Xo(G.$i18n("cx-tools-linter-invalid-character")), 1)
+                  default: Bt(() => [
+                    fn("p", null, [
+                      fn("strong", null, Xo(G.$i18n("cx-tools-linter-invalid-character")), 1)
                     ]),
-                    hn("p", null, Xo(G.$i18n("cx-tools-linter-invalid-character-message")), 1)
+                    fn("p", null, Xo(G.$i18n("cx-tools-linter-invalid-character-message")), 1)
                   ]),
                   _: 1
-                }, 8, ["onUserDismissed"])) : _m("", !0),
-                _t(xL),
-                hn("div", MA, [
-                  (Kt(!0), Sm(DA, null, AA(S.value, (gt) => (Kt(), Nn(gT, {
-                    id: gt.id,
-                    key: `sub-section-${gt.id}`,
-                    "sub-section": gt,
-                    onBounceTranslation: D
+                }, 8, ["onUserDismissed"])) : vm("", !0),
+                _t(kL),
+                fn("div", RA, [
+                  (Yt(!0), _m(FA, null, BA(S.value, (mt) => (Yt(), Un(hT, {
+                    id: mt.id,
+                    key: `sub-section-${mt.id}`,
+                    "sub-section": mt,
+                    onBounceTranslation: P
                   }, null, 8, ["id", "sub-section"]))), 128))
                 ])
               ]),
               _: 1
             }, 8, ["dir", "lang"]),
-            !so.value && y.value ? (Kt(), Nn(eA, {
+            !no.value && C.value ? (Yt(), Un(sA, {
               key: 0,
-              onEditTranslation: gs,
-              onSelectNextSegment: ce(B),
-              onSelectPreviousSegment: ce(M)
-            }, null, 8, ["onSelectNextSegment", "onSelectPreviousSegment"])) : so.value ? (Kt(), Nn(PT, {
+              onEditTranslation: ms,
+              onSelectNextSegment: ce(F),
+              onSelectPreviousSegment: ce(U)
+            }, null, 8, ["onSelectNextSegment", "onSelectPreviousSegment"])) : no.value ? (Yt(), Un(NT, {
               key: 2,
-              onEditTranslation: gs,
+              onEditTranslation: ms,
               onApplyTranslation: T,
               onSkipTranslation: Y,
-              onSelectPreviousSegment: ce(M),
-              onSelectNextSegment: ce(B)
-            }, null, 8, ["onSelectPreviousSegment", "onSelectNextSegment"])) : (Kt(), Nn(tT, {
+              onSelectPreviousSegment: ce(U),
+              onSelectNextSegment: ce(F)
+            }, null, 8, ["onSelectPreviousSegment", "onSelectNextSegment"])) : (Yt(), Un(oT, {
               key: 1,
-              class: PA({ "mb-0": !n.value }),
+              class: NA({ "mb-0": !n.value }),
               onConfigureOptions: $e,
-              onEditTranslation: gs,
+              onEditTranslation: ms,
               onApplyTranslation: T,
               onSkipTranslation: Y,
-              onSelectPreviousSegment: ce(M),
-              onRetryTranslation: gr
+              onSelectPreviousSegment: ce(U),
+              onRetryTranslation: lr
             }, null, 8, ["class", "onSelectPreviousSegment"]))
           ]),
           _: 1
-        })) : (Kt(), Nn(ce(N), {
+        })) : (Yt(), Un(ce(M), {
           key: 1,
           column: "",
           class: "grow"
         }, {
-          default: Pt(() => [
-            _t(ce(ct), { class: "mt-0" })
+          default: Bt(() => [
+            _t(ce(dt), { class: "mt-0" })
           ]),
           _: 1
         })),
-        _t(gL, {
+        _t(hL, {
           active: t.value,
-          "onUpdate:active": ze[0] || (ze[0] = (gt) => t.value = gt)
+          "onUpdate:active": ze[0] || (ze[0] = (mt) => t.value = mt)
         }, null, 8, ["active"]),
-        _t(z5, {
-          modelValue: oo.value,
-          "onUpdate:modelValue": ze[1] || (ze[1] = (gt) => oo.value = gt),
-          onDiscardTranslation: z
+        _t(j5, {
+          modelValue: so.value,
+          "onUpdate:modelValue": ze[1] || (ze[1] = (mt) => so.value = mt),
+          onDiscardTranslation: O
         }, null, 8, ["modelValue"])
       ], 4);
     };
   }
 };
-const jA = {
+const GA = {
   name: "SxSentenceSelectorView",
   components: {
-    SxSentenceSelector: OA
+    SxSentenceSelector: qA
   },
   computed: {
     classes() {
@@ -21416,16 +21436,16 @@ const jA = {
       };
     }
   }
-}, HA = window.Vue.resolveComponent, qA = window.Vue.createVNode, GA = window.Vue.normalizeClass, XA = window.Vue.openBlock, WA = window.Vue.createElementBlock;
-function KA(e, t, n, s, o, a) {
-  const r = HA("sx-sentence-selector");
-  return XA(), WA("main", {
-    class: GA(["sx-sentence-selector-view", a.classes])
+}, XA = window.Vue.resolveComponent, WA = window.Vue.createVNode, KA = window.Vue.normalizeClass, YA = window.Vue.openBlock, QA = window.Vue.createElementBlock;
+function JA(e, t, n, s, o, a) {
+  const r = XA("sx-sentence-selector");
+  return YA(), QA("main", {
+    class: KA(["sx-sentence-selector-view", a.classes])
   }, [
-    qA(r)
+    WA(r)
   ], 2);
 }
-const YA = /* @__PURE__ */ de(jA, [["render", KA]]), QA = `<svg width="375" height="200" viewBox="0 0 375 200"
+const ZA = /* @__PURE__ */ ge(GA, [["render", JA]]), eD = `<svg width="375" height="200" viewBox="0 0 375 200"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>illustration-mt</title>
@@ -21451,7 +21471,7 @@ const YA = /* @__PURE__ */ de(jA, [["render", KA]]), QA = `<svg width="375" heig
         <polyline id="Path" stroke="#72777D" stroke-width="18" transform="translate(119.011851, 100.500000) rotate(-30.000000) translate(-119.011851, -100.500000) " points="119.011851 134 90 117.25 90 83.75 119.011851 67 148.023702 83.75 148.023702 117.25"></polyline>
     </g>
 </svg>
-`, JA = `<svg  width="375" height="200" viewBox="0 0 375 200"
+`, tD = `<svg  width="375" height="200" viewBox="0 0 375 200"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>illustration-sections</title>
@@ -21584,91 +21604,91 @@ const YA = /* @__PURE__ */ de(jA, [["render", KA]]), QA = `<svg width="375" heig
         <rect id="Rectangle" fill="#C8CCD1" x="131" y="25" width="42" height="10"></rect>
     </g>
 </svg>`;
-const ZA = window.Vue.resolveDirective, Ui = window.Vue.withDirectives, Bt = window.Vue.openBlock, fn = window.Vue.createElementBlock, Ii = window.Vue.createCommentVNode, Ri = window.Vue.Transition, ns = window.Vue.withCtx, Ns = window.Vue.createVNode, Ko = window.Vue.createElementVNode, Un = window.Vue.unref, eD = window.Vue.renderList, tD = window.Vue.Fragment, nD = window.Vue.normalizeClass, bm = window.Vue.createBlock, sD = window.Vue.toDisplayString, oD = window.Vue.createTextVNode, aD = { class: "sx-quick-tutorial" }, iD = { class: "sx-quick-tutorial__main-point my-4 py-5 px-6" }, rD = {
+const nD = window.Vue.resolveDirective, Fi = window.Vue.withDirectives, Ft = window.Vue.openBlock, wn = window.Vue.createElementBlock, Ni = window.Vue.createCommentVNode, Mi = window.Vue.Transition, os = window.Vue.withCtx, Us = window.Vue.createVNode, Ko = window.Vue.createElementVNode, Rn = window.Vue.unref, sD = window.Vue.renderList, oD = window.Vue.Fragment, aD = window.Vue.normalizeClass, Cm = window.Vue.createBlock, iD = window.Vue.toDisplayString, rD = window.Vue.createTextVNode, lD = { class: "sx-quick-tutorial" }, cD = { class: "sx-quick-tutorial__main-point my-4 py-5 px-6" }, uD = {
   key: "main-point-1",
   class: "ma-0 pa-0"
-}, lD = {
+}, dD = {
   key: "main-point-2",
   class: "ma-0 pa-0"
-}, cD = { class: "sx-quick-tutorial__illustration" }, uD = ["innerHTML"], dD = ["innerHTML"], gD = { class: "sx-quick-tutorial__step-indicator py-3" }, pD = ["onClick"], mD = { class: "sx-quick-tutorial__secondary-point py-4 px-6" }, hD = {
+}, gD = { class: "sx-quick-tutorial__illustration" }, pD = ["innerHTML"], mD = ["innerHTML"], hD = { class: "sx-quick-tutorial__step-indicator py-3" }, fD = ["onClick"], wD = { class: "sx-quick-tutorial__secondary-point py-4 px-6" }, vD = {
   key: "secondary-point-1",
   class: "ma-0"
-}, fD = {
+}, _D = {
   key: "secondary-point-2",
   class: "ma-0"
-}, wD = { class: "sx-quick-tutorial__action-button pt-4 pb-6 flex justify-end" }, km = window.Vue.ref, $m = window.Codex.CdxButton, vD = window.Codex.CdxIcon, _D = {
+}, SD = { class: "sx-quick-tutorial__action-button pt-4 pb-6 flex justify-end" }, bm = window.Vue.ref, km = window.Codex.CdxButton, yD = window.Codex.CdxIcon, xD = {
   __name: "SXQuickTutorial",
   setup(e) {
-    const t = km(2), n = km(1), s = () => {
+    const t = bm(2), n = bm(1), s = () => {
       n.value < t.value && n.value++;
-    }, o = (r) => r === n.value, a = eo();
+    }, o = (r) => r === n.value, a = Zs();
     return (r, l) => {
-      const u = ZA("i18n");
-      return Bt(), fn("section", aD, [
-        Ns(Un(N), {
+      const u = nD("i18n");
+      return Ft(), wn("section", lD, [
+        Us(Rn(M), {
           direction: "column",
           class: "sx-quick-tutorial__body-container ma-0"
         }, {
-          default: ns(() => [
-            Ko("section", iD, [
-              Ns(Ri, {
+          default: os(() => [
+            Ko("section", cD, [
+              Us(Mi, {
                 name: "fade",
                 mode: "out-in"
               }, {
-                default: ns(() => [
-                  o(1) ? Ui((Bt(), fn("h2", rD, null, 512)), [
+                default: os(() => [
+                  o(1) ? Fi((Ft(), wn("h2", uD, null, 512)), [
                     [u, void 0, "sx-quick-tutorial-main-point-step-1"]
-                  ]) : o(2) ? Ui((Bt(), fn("h2", lD, null, 512)), [
+                  ]) : o(2) ? Fi((Ft(), wn("h2", dD, null, 512)), [
                     [u, void 0, "sx-quick-tutorial-main-point-step-2"]
-                  ]) : Ii("", !0)
+                  ]) : Ni("", !0)
                 ]),
                 _: 1
               })
             ]),
-            Ko("section", cD, [
-              Ns(Ri, { name: "mw-ui-animation-slide-start" }, {
-                default: ns(() => [
-                  o(1) ? (Bt(), fn("div", {
+            Ko("section", gD, [
+              Us(Mi, { name: "mw-ui-animation-slide-start" }, {
+                default: os(() => [
+                  o(1) ? (Ft(), wn("div", {
                     key: "illustration-1",
-                    innerHTML: Un(JA)
-                  }, null, 8, uD)) : o(2) ? (Bt(), fn("div", {
+                    innerHTML: Rn(tD)
+                  }, null, 8, pD)) : o(2) ? (Ft(), wn("div", {
                     key: "illustration-2",
-                    innerHTML: Un(QA)
-                  }, null, 8, dD)) : Ii("", !0)
+                    innerHTML: Rn(eD)
+                  }, null, 8, mD)) : Ni("", !0)
                 ]),
                 _: 1
               })
             ]),
-            Ko("div", gD, [
-              (Bt(!0), fn(tD, null, eD(t.value, (d) => (Bt(), fn("span", {
+            Ko("div", hD, [
+              (Ft(!0), wn(oD, null, sD(t.value, (d) => (Ft(), wn("span", {
                 key: `dot-${d}`,
-                class: nD(["dot mx-1", { "dot-active": o(d) }]),
+                class: aD(["dot mx-1", { "dot-active": o(d) }]),
                 role: "button",
                 onClick: (i) => n.value = d
-              }, null, 10, pD))), 128))
+              }, null, 10, fD))), 128))
             ]),
-            Ko("section", mD, [
-              Ns(Ri, {
+            Ko("section", wD, [
+              Us(Mi, {
                 name: "fade",
                 mode: "out-in"
               }, {
-                default: ns(() => [
-                  o(1) ? Ui((Bt(), fn("h3", hD, null, 512)), [
+                default: os(() => [
+                  o(1) ? Fi((Ft(), wn("h3", vD, null, 512)), [
                     [u, void 0, "sx-quick-tutorial-secondary-point-step-1"]
-                  ]) : o(2) ? Ui((Bt(), fn("h3", fD, null, 512)), [
+                  ]) : o(2) ? Fi((Ft(), wn("h3", _D, null, 512)), [
                     [u, void 0, "sx-quick-tutorial-secondary-point-step-2"]
-                  ]) : Ii("", !0)
+                  ]) : Ni("", !0)
                 ]),
                 _: 1
               })
             ]),
-            Ko("div", wD, [
-              Ns(Ri, {
+            Ko("div", SD, [
+              Us(Mi, {
                 name: "fade",
                 mode: "out-in"
               }, {
-                default: ns(() => [
-                  o(1) ? (Bt(), bm(Un($m), {
+                default: os(() => [
+                  o(1) ? (Ft(), Cm(Rn(km), {
                     key: "quick-tutorial-action-button-1",
                     "aria-label": r.$i18n("sx-quick-tutorial-next-button-aria-label"),
                     class: "px-6 mx-4",
@@ -21676,22 +21696,22 @@ const ZA = window.Vue.resolveDirective, Ui = window.Vue.withDirectives, Bt = win
                     weight: "primary",
                     onClick: s
                   }, {
-                    default: ns(() => [
-                      Ns(Un(vD), { icon: Un(Sa) }, null, 8, ["icon"])
+                    default: os(() => [
+                      Us(Rn(yD), { icon: Rn(Sa) }, null, 8, ["icon"])
                     ]),
                     _: 1
-                  }, 8, ["aria-label"])) : o(2) ? (Bt(), bm(Un($m), {
+                  }, 8, ["aria-label"])) : o(2) ? (Ft(), Cm(Rn(km), {
                     key: "quick-tutorial-action-button-2",
                     class: "mx-4",
                     action: "progressive",
                     weight: "primary",
-                    onClick: Un(a)
+                    onClick: Rn(a)
                   }, {
-                    default: ns(() => [
-                      oD(sD(r.$i18n("sx-quick-tutorial-translate-button-label")), 1)
+                    default: os(() => [
+                      rD(iD(r.$i18n("sx-quick-tutorial-translate-button-label")), 1)
                     ]),
                     _: 1
-                  }, 8, ["onClick"])) : Ii("", !0)
+                  }, 8, ["onClick"])) : Ni("", !0)
                 ]),
                 _: 1
               })
@@ -21703,10 +21723,10 @@ const ZA = window.Vue.resolveDirective, Ui = window.Vue.withDirectives, Bt = win
     };
   }
 };
-const SD = {
+const CD = {
   name: "SxContentComparatorView",
   components: {
-    SxQuickTutorial: _D
+    SxQuickTutorial: xD
   },
   computed: {
     classes() {
@@ -21715,17 +21735,17 @@ const SD = {
       };
     }
   }
-}, yD = window.Vue.resolveComponent, xD = window.Vue.createVNode, CD = window.Vue.normalizeClass, bD = window.Vue.openBlock, kD = window.Vue.createElementBlock;
-function $D(e, t, n, s, o, a) {
-  const r = yD("sx-quick-tutorial");
-  return bD(), kD("main", {
-    class: CD(["sx-quick-tutorial-view", a.classes])
+}, bD = window.Vue.resolveComponent, kD = window.Vue.createVNode, $D = window.Vue.normalizeClass, VD = window.Vue.openBlock, ED = window.Vue.createElementBlock;
+function LD(e, t, n, s, o, a) {
+  const r = bD("sx-quick-tutorial");
+  return VD(), ED("main", {
+    class: $D(["sx-quick-tutorial-view", a.classes])
   }, [
-    xD(r)
+    kD(r)
   ], 2);
 }
-const ED = /* @__PURE__ */ de(SD, [["render", $D]]);
-const VD = window.Vue.resolveDirective, Em = window.Vue.createElementVNode, LD = window.Vue.withDirectives, TD = window.Vue.unref, AD = window.Vue.withCtx, DD = window.Vue.createVNode, PD = window.Vue.openBlock, BD = window.Vue.createElementBlock, FD = { class: "px-4 pt-3 pb-2 sx-editor__original-content-panel" }, ND = { class: "sx-editor__original-content-panel__header mb-2" }, MD = ["lang", "dir", "innerHTML"], Vm = window.Vue.ref, UD = window.Vue.onMounted, ID = {
+const TD = /* @__PURE__ */ ge(CD, [["render", LD]]);
+const AD = window.Vue.resolveDirective, $m = window.Vue.createElementVNode, DD = window.Vue.withDirectives, PD = window.Vue.unref, BD = window.Vue.withCtx, FD = window.Vue.createVNode, ND = window.Vue.openBlock, MD = window.Vue.createElementBlock, UD = { class: "px-4 pt-3 pb-2 sx-editor__original-content-panel" }, ID = { class: "sx-editor__original-content-panel__header mb-2" }, RD = ["lang", "dir", "innerHTML"], Vm = window.Vue.ref, zD = window.Vue.onMounted, OD = {
   __name: "SXEditorOriginalContent",
   props: {
     originalContent: {
@@ -21749,34 +21769,34 @@ const VD = window.Vue.resolveDirective, Em = window.Vue.createElementVNode, LD =
     }, s = Vm(null), o = Vm(0), a = () => parseFloat(
       document.defaultView.getComputedStyle(s.value, null).getPropertyValue("line-height")
     );
-    return UD(() => {
+    return zD(() => {
       o.value = 2 * a(), n(s.value, t.language);
     }), (r, l) => {
-      const u = VD("i18n");
-      return PD(), BD("section", FD, [
-        LD(Em("h5", ND, null, 512), [
+      const u = AD("i18n");
+      return ND(), MD("section", UD, [
+        DD($m("h5", ID, null, 512), [
           [u, void 0, "cx-sx-editor-original-panel-label"]
         ]),
-        DD(TD(Q1), {
+        FD(PD(t1), {
           "min-height": o.value,
           scroll: ""
         }, {
-          default: AD(() => [
-            Em("div", {
+          default: BD(() => [
+            $m("div", {
               ref_key: "originalContentRef",
               ref: s,
               class: "sx-editor__original-content-panel__body",
               lang: e.language,
               dir: e.dir,
               innerHTML: e.originalContent
-            }, null, 8, MD)
+            }, null, 8, RD)
           ]),
           _: 1
         }, 8, ["min-height"])
       ]);
     };
   }
-}, RD = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+}, HD = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>happy-robot</title>
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <circle fill="#EAF3FF" cx="68" cy="68" r="68"></circle>
@@ -21784,10 +21804,10 @@ const VD = window.Vue.resolveDirective, Em = window.Vue.createElementVNode, LD =
     </g>
 </svg>
 `;
-const zD = window.Vue.unref, Yo = window.Vue.createElementVNode, Lm = window.Vue.resolveDirective, hc = window.Vue.withDirectives, OD = window.Vue.normalizeClass, jD = window.Vue.openBlock, HD = window.Vue.createElementBlock, qD = window.Vue.createCommentVNode, GD = {
+const jD = window.Vue.unref, Yo = window.Vue.createElementVNode, Em = window.Vue.resolveDirective, mc = window.Vue.withDirectives, qD = window.Vue.normalizeClass, GD = window.Vue.openBlock, XD = window.Vue.createElementBlock, WD = window.Vue.createCommentVNode, KD = {
   key: 0,
   class: "sx-editor__feedback-overlay fill-height"
-}, XD = { class: "sx-editor__feedback-overlay-content px-4" }, WD = ["innerHTML"], KD = { class: "sx-editor__feedback-overlay-content__title" }, YD = { class: "sx-editor__feedback-overlay-content__clarification mb-1" }, fc = window.Vue.computed, QD = {
+}, YD = { class: "sx-editor__feedback-overlay-content px-4" }, QD = ["innerHTML"], JD = { class: "sx-editor__feedback-overlay-content__title" }, ZD = { class: "sx-editor__feedback-overlay-content__clarification mb-1" }, hc = window.Vue.computed, e6 = {
   __name: "EditCompleteFeedback",
   props: {
     showFeedback: {
@@ -21804,56 +21824,56 @@ const zD = window.Vue.unref, Yo = window.Vue.createElementVNode, Lm = window.Vue
     }
   },
   setup(e) {
-    const t = e, { targetLanguageURLParameter: n } = A(), s = fc(
-      () => Zt.calculateScore(
+    const t = e, { targetLanguageURLParameter: n } = D(), s = hc(
+      () => tn.calculateScore(
         t.editedTranslation,
         t.proposedTranslation,
         n.value
       )
-    ), o = fc(() => {
-      const r = Zt.getScoreStatus(s.value);
+    ), o = hc(() => {
+      const r = tn.getScoreStatus(s.value);
       return r === "failure" ? s.value === 0 ? "failure" : "warning" : r;
-    }), a = fc(
+    }), a = hc(
       () => `sx-editor__feedback-overlay-content__stats--${o.value}`
     );
     return (r, l) => {
-      const u = Lm("i18n"), d = Lm("i18n-html");
-      return e.showFeedback ? (jD(), HD("div", GD, [
-        Yo("div", XD, [
+      const u = Em("i18n"), d = Em("i18n-html");
+      return e.showFeedback ? (GD(), XD("div", KD, [
+        Yo("div", YD, [
           Yo("div", {
             class: "sx-editor__feedback-overlay-content__happy-robot mb-4",
-            innerHTML: zD(RD)
-          }, null, 8, WD),
-          hc(Yo("h2", KD, null, 512), [
+            innerHTML: jD(HD)
+          }, null, 8, QD),
+          mc(Yo("h2", JD, null, 512), [
             [u, void 0, "sx-editor-feedback-overlay-title"]
           ]),
-          hc(Yo("p", YD, null, 512), [
+          mc(Yo("p", ZD, null, 512), [
             [u, void 0, "sx-editor-feedback-overlay-clarification"]
           ]),
-          hc(Yo("p", {
-            class: OD(["sx-editor__feedback-overlay-content__stats", a.value])
+          mc(Yo("p", {
+            class: qD(["sx-editor__feedback-overlay-content__stats", a.value])
           }, null, 2), [
             [d, [s.value], "sx-editor-feedback-overlay-stats"]
           ])
         ])
-      ])) : qD("", !0);
+      ])) : WD("", !0);
     };
   }
-}, JD = window.Vuex.useStore, ZD = () => {
-  const e = JD(), t = Vu(), { selectNextTranslationUnit: n } = to(), {
+}, t6 = window.Vuex.useStore, n6 = () => {
+  const e = t6(), t = Lu(), { selectNextTranslationUnit: n } = eo(), {
     isSectionTitleSelected: s,
     sourceSection: o,
     selectedContentTranslationUnit: a
   } = ne(), { getCurrentTitleByLanguage: r } = bn(), {
     sourceLanguageURLParameter: l,
     targetLanguageURLParameter: u
-  } = A(), { currentMTProvider: d } = Le(e);
-  return (i) => C(void 0, null, function* () {
+  } = D(), { currentMTProvider: d } = Ae(e);
+  return (i) => x(void 0, null, function* () {
     if (!s.value) {
       const c = document.createElement("div");
       c.innerHTML = i, c.querySelectorAll(".sx-edit-dummy-node").forEach((g) => g.remove()), i = c.innerHTML;
     }
-    a.value instanceof lt && (i = (yield Of(
+    a.value instanceof ct && (i = (yield Gf(
       i,
       r(u.value, l.value),
       u.value
@@ -21863,7 +21883,7 @@ const zD = window.Vue.unref, Yo = window.Vue.createElementVNode, Lm = window.Vue
     ), t(), n();
   });
 };
-const Ke = window.Vue.unref, wc = window.Vue.openBlock, vc = window.Vue.createBlock, Tm = window.Vue.createCommentVNode, Am = window.Vue.createVNode, e6 = window.Vue.createElementVNode, t6 = window.Vue.withCtx, n6 = { class: "sx-editor__editing-surface-container grow" }, _c = window.Vue.ref, s6 = window.Vue.computed, o6 = {
+const Qe = window.Vue.unref, fc = window.Vue.openBlock, wc = window.Vue.createBlock, Lm = window.Vue.createCommentVNode, Tm = window.Vue.createVNode, s6 = window.Vue.createElementVNode, o6 = window.Vue.withCtx, a6 = { class: "sx-editor__editing-surface-container grow" }, vc = window.Vue.ref, i6 = window.Vue.computed, r6 = {
   __name: "SXEditor",
   props: {
     fromRoute: {
@@ -21872,47 +21892,47 @@ const Ke = window.Vue.unref, wc = window.Vue.openBlock, vc = window.Vue.createBl
     }
   },
   setup(e) {
-    const t = e, n = _c(!1), s = Ze(), o = () => n.value = !0, a = () => s.replace({ name: t.fromRoute }), { isFinalEdit: r, isInitialEdit: l, content: u, originalContent: d, title: i } = history.state, c = _c(null), g = _c(!1), { logEditorSegmentAddEvent: p, logEditorSegmentEditEvent: m } = Kf(), {
+    const t = e, n = vc(!1), s = tt(), o = () => n.value = !0, a = () => s.replace({ name: t.fromRoute }), { isFinalEdit: r, isInitialEdit: l, content: u, originalContent: d, title: i } = history.state, c = vc(null), g = vc(!1), { logEditorSegmentAddEvent: p, logEditorSegmentEditEvent: m } = Zf(), {
       sourceLanguageURLParameter: h,
       targetLanguageURLParameter: f
-    } = A(), { isSectionTitleSelected: w, sourceSection: v } = ne(), y = s6(
-      () => Zt.calculateScore(
+    } = D(), { isSectionTitleSelected: w, sourceSection: _ } = ne(), C = i6(
+      () => tn.calculateScore(
         c.value,
         u,
         f.value
       )
-    ), S = ZD(), b = (V) => C(this, null, function* () {
-      c.value = V, g.value = !0;
-      const x = new Promise((L) => setTimeout(L, 2e3));
-      let I = Promise.resolve();
-      r ? v.value.editedTranslation = V : I = S(V), y.value === 0 && l ? p() : y.value > 0 && m(), yield Promise.all([x, I]), g.value = !1, a();
+    ), S = n6(), b = (A) => x(this, null, function* () {
+      c.value = A, g.value = !0;
+      const y = new Promise((V) => setTimeout(V, 2e3));
+      let B = Promise.resolve();
+      r ? _.value.editedTranslation = A : B = S(A), C.value === 0 && l ? p() : C.value > 0 && m(), yield Promise.all([y, B]), g.value = !1, a();
     });
-    return (V, x) => (wc(), vc(Ke(N), {
+    return (A, y) => (fc(), wc(Qe(M), {
       tag: "section",
       class: "sx-editor ma-0 no-wrap",
       direction: "column",
       align: "normal"
     }, {
-      default: t6(() => [
-        Ke(d) ? (wc(), vc(ID, {
+      default: o6(() => [
+        Qe(d) ? (fc(), wc(OD, {
           key: 0,
-          language: Ke(h),
-          dir: Ke(j.getDir)(Ke(h)),
-          "original-content": Ke(d)
-        }, null, 8, ["language", "dir", "original-content"])) : Tm("", !0),
-        n.value ? Tm("", !0) : (wc(), vc(Ke(ct), { key: 1 })),
-        e6("div", n6, [
-          Am(QD, {
+          language: Qe(h),
+          dir: Qe(R.getDir)(Qe(h)),
+          "original-content": Qe(d)
+        }, null, 8, ["language", "dir", "original-content"])) : Lm("", !0),
+        n.value ? Lm("", !0) : (fc(), wc(Qe(dt), { key: 1 })),
+        s6("div", a6, [
+          Tm(e6, {
             "edited-translation": c.value,
             "show-feedback": g.value,
-            "proposed-translation": Ke(u)
+            "proposed-translation": Qe(u)
           }, null, 8, ["edited-translation", "show-feedback", "proposed-translation"]),
-          Am(BE, {
-            content: Ke(u),
-            language: Ke(f),
-            dir: Ke(j.getDir)(Ke(f)),
-            title: Ke(i),
-            "use-text": !!Ke(w),
+          Tm(BV, {
+            content: Qe(u),
+            language: Qe(f),
+            dir: Qe(R.getDir)(Qe(f)),
+            title: Qe(i),
+            "use-text": !!Qe(w),
             onReady: o,
             onClose: a,
             onEditCompleted: b
@@ -21923,10 +21943,10 @@ const Ke = window.Vue.unref, wc = window.Vue.openBlock, vc = window.Vue.createBl
     }));
   }
 };
-const a6 = {
+const l6 = {
   name: "SxContentComparatorView",
   components: {
-    SxEditor: o6
+    SxEditor: r6
   },
   beforeRouteEnter(e, t, n) {
     n((s) => {
@@ -21939,17 +21959,17 @@ const a6 = {
   computed: {
     classes: (e) => ({ fullscreen: e.$mwui.breakpoint.tabletAndDown })
   }
-}, i6 = window.Vue.resolveComponent, r6 = window.Vue.createVNode, l6 = window.Vue.normalizeClass, c6 = window.Vue.openBlock, u6 = window.Vue.createElementBlock;
-function d6(e, t, n, s, o, a) {
-  const r = i6("sx-editor");
-  return c6(), u6("main", {
-    class: l6(["sx-editor-view", a.classes])
+}, c6 = window.Vue.resolveComponent, u6 = window.Vue.createVNode, d6 = window.Vue.normalizeClass, g6 = window.Vue.openBlock, p6 = window.Vue.createElementBlock;
+function m6(e, t, n, s, o, a) {
+  const r = c6("sx-editor");
+  return g6(), p6("main", {
+    class: d6(["sx-editor-view", a.classes])
   }, [
-    r6(r, { "from-route": e.fromRoute }, null, 8, ["from-route"])
+    u6(r, { "from-route": e.fromRoute }, null, 8, ["from-route"])
   ], 2);
 }
-const g6 = /* @__PURE__ */ de(a6, [["render", d6]]);
-const Yt = window.Vue.unref, ss = window.Vue.createVNode, Qo = window.Vue.withCtx, p6 = window.Vue.resolveDirective, m6 = window.Vue.withDirectives, h6 = window.Vue.openBlock, f6 = window.Vue.createBlock, Dm = window.Codex.CdxButton, Pm = window.Codex.CdxIcon, w6 = {
+const h6 = /* @__PURE__ */ ge(l6, [["render", m6]]);
+const Qt = window.Vue.unref, as = window.Vue.createVNode, Qo = window.Vue.withCtx, f6 = window.Vue.resolveDirective, w6 = window.Vue.withDirectives, v6 = window.Vue.openBlock, _6 = window.Vue.createBlock, Am = window.Codex.CdxButton, Dm = window.Codex.CdxIcon, S6 = {
   __name: "SXPublisherHeader",
   props: {
     isPublishingDisabled: {
@@ -21959,40 +21979,40 @@ const Yt = window.Vue.unref, ss = window.Vue.createVNode, Qo = window.Vue.withCt
   },
   emits: ["publish-translation"],
   setup(e) {
-    const t = Ze(), n = () => t.push({ name: "sx-sentence-selector" });
+    const t = tt(), n = () => t.push({ name: "sx-sentence-selector" });
     return (s, o) => {
-      const a = p6("i18n");
-      return h6(), f6(Yt(N), { class: "ma-0 sx-publisher__header" }, {
+      const a = f6("i18n");
+      return v6(), _6(Qt(M), { class: "ma-0 sx-publisher__header" }, {
         default: Qo(() => [
-          ss(Yt(k), {
+          as(Qt(k), {
             shrink: "",
             class: "me-2"
           }, {
             default: Qo(() => [
-              ss(Yt(Dm), {
+              as(Qt(Am), {
                 class: "px-3",
                 weight: "quiet",
                 "aria-label": s.$i18n("cx-sx-publisher-header-close-button-aria-label"),
                 onClick: n
               }, {
                 default: Qo(() => [
-                  ss(Yt(Pm), { icon: Yt(Js) }, null, 8, ["icon"])
+                  as(Qt(Dm), { icon: Qt(Qs) }, null, 8, ["icon"])
                 ]),
                 _: 1
               }, 8, ["aria-label"])
             ]),
             _: 1
           }),
-          m6(ss(Yt(k), {
+          w6(as(Qt(k), {
             grow: "",
             tag: "h5",
             class: "ma-0"
           }, null, 512), [
             [a, void 0, "cx-sx-publisher-header-title"]
           ]),
-          ss(Yt(k), { shrink: "" }, {
+          as(Qt(k), { shrink: "" }, {
             default: Qo(() => [
-              ss(Yt(Dm), {
+              as(Qt(Am), {
                 class: "px-5",
                 disabled: e.isPublishingDisabled,
                 action: "progressive",
@@ -22001,7 +22021,7 @@ const Yt = window.Vue.unref, ss = window.Vue.createVNode, Qo = window.Vue.withCt
                 onClick: o[0] || (o[0] = (r) => s.$emit("publish-translation"))
               }, {
                 default: Qo(() => [
-                  ss(Yt(Pm), { icon: Yt(ny) }, null, 8, ["icon"])
+                  as(Qt(Dm), { icon: Qt(iy) }, null, 8, ["icon"])
                 ]),
                 _: 1
               }, 8, ["disabled", "aria-label"])
@@ -22013,7 +22033,7 @@ const Yt = window.Vue.unref, ss = window.Vue.createVNode, Qo = window.Vue.withCt
       });
     };
   }
-}, v6 = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+}, y6 = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>publishing-launching</title>
     <defs>
         <path d="M52.8,74.8 C52.8,79.64 44,83.6 44,83.6 C44,83.6 35.2,79.64 35.2,74.8 L52.8,74.8 Z M44,30.8 C40.3939316,30.707512 37.49251,27.806064 37.4,24.2 C37.4,20.554908 40.3549256,17.6 44,17.6 C47.645092,17.6 50.6,20.554908 50.6,24.2 C50.507468,27.806064 47.606064,30.707512 44,30.8 Z M58.52,51.48 C62.04,34.76 55.88,4.4 44,4.4 C32.12,4.4 25.52,33.88 29.04,50.6 L22,66 L33.88,66 L35.2,70.4 L52.8,70.4 C53.68,69.08 53.24,68.2 54.12,66 L66,66 L58.52,51.48 Z" id="path-1"></path>
@@ -22030,7 +22050,7 @@ const Yt = window.Vue.unref, ss = window.Vue.createVNode, Qo = window.Vue.withCt
             </g>
         </g>
     </g>
-</svg>`, _6 = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg>`, x6 = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>publishing-success</title>
     <defs>
         <polygon id="path-1" points="29.5385666 61.8098361 10.7522184 42.6688525 4.4 49.1409836 29.5385666 74.8 83.6 19.7180328 77.2477816 13.2"></polygon>
@@ -22049,14 +22069,14 @@ const Yt = window.Vue.unref, ss = window.Vue.createVNode, Qo = window.Vue.withCt
             </g>
         </g>
     </g>
-</svg>`, Bm = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+</svg>`, Pm = `<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>publishing-failure</title>
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <circle fill="#FEE7E6" cx="68" cy="68" r="68"></circle>
         <path d="M68,24 C43.6994698,24 24,43.6994844 24,68 C24,92.3005302 43.6994747,112 68,112 C92.3005156,112 112,92.3005302 112,68 C112,43.6994844 92.3005156,24 68,24 Z M92.4444444,72.8888889 L43.5555556,72.8888889 L43.5555556,63.1111111 L92.4444444,63.1111111 L92.4444444,72.8888889 Z" fill="#D73333"></path>
     </g>
 </svg>`;
-const Sc = window.Vue.createElementVNode, Fm = window.Vue.toDisplayString, yc = window.Vue.unref, xc = window.Vue.withCtx, Nm = window.Vue.createVNode, S6 = window.Vue.openBlock, y6 = window.Vue.createBlock, x6 = window.Vue.createCommentVNode, C6 = ["innerHTML"], b6 = ["textContent"], k6 = ["textContent"], Cc = window.Vue.computed, $6 = {
+const _c = window.Vue.createElementVNode, Bm = window.Vue.toDisplayString, Sc = window.Vue.unref, yc = window.Vue.withCtx, Fm = window.Vue.createVNode, C6 = window.Vue.openBlock, b6 = window.Vue.createBlock, k6 = window.Vue.createCommentVNode, $6 = ["innerHTML"], V6 = ["textContent"], E6 = ["textContent"], xc = window.Vue.computed, L6 = {
   __name: "SXPublisherAnimationDialog",
   props: {
     active: {
@@ -22070,9 +22090,9 @@ const Sc = window.Vue.createElementVNode, Fm = window.Vue.toDisplayString, yc = 
     }
   },
   setup(e) {
-    const t = we(), n = e, s = {
+    const t = he(), n = e, s = {
       pending: {
-        svg: v6,
+        svg: y6,
         title: t.i18n(
           "cx-sx-publisher-animation-publishing-indicator-title"
         ),
@@ -22081,48 +22101,48 @@ const Sc = window.Vue.createElementVNode, Fm = window.Vue.toDisplayString, yc = 
         )
       },
       success: {
-        svg: _6,
+        svg: x6,
         title: t.i18n("cx-sx-publisher-animation-success-message-title"),
         subtitle: t.i18n(
           "cx-sx-publisher-animation-success-message-subtitle"
         )
       },
       failure: {
-        svg: Bm,
+        svg: Pm,
         title: t.i18n("cx-sx-publisher-animation-failure-message-title"),
         subtitle: t.i18n(
           "cx-sx-publisher-animation-failure-message-subtitle"
         )
       },
       warning: {
-        svg: Bm,
+        svg: Pm,
         title: t.i18n("cx-sx-publisher-animation-failure-message-title"),
         subtitle: t.i18n(
           "cx-sx-publisher-animation-failure-message-subtitle"
         )
       }
-    }, o = Cc(() => s[n.status].svg), a = Cc(() => s[n.status].title), r = Cc(() => s[n.status].subtitle);
-    return (l, u) => e.active ? (S6(), y6(yc(Ct), {
+    }, o = xc(() => s[n.status].svg), a = xc(() => s[n.status].title), r = xc(() => s[n.status].subtitle);
+    return (l, u) => e.active ? (C6(), b6(Sc(Ct), {
       key: 0,
       header: !1,
       class: "sx-publisher__publish-animation"
     }, {
-      default: xc(() => [
-        Nm(yc(N), { class: "ma-4" }, {
-          default: xc(() => [
-            Nm(yc(k), null, {
-              default: xc(() => [
-                Sc("div", {
+      default: yc(() => [
+        Fm(Sc(M), { class: "ma-4" }, {
+          default: yc(() => [
+            Fm(Sc(k), null, {
+              default: yc(() => [
+                _c("div", {
                   class: "sx-publisher__publish-animation-icon mb-4",
                   innerHTML: o.value
-                }, null, 8, C6),
-                Sc("h2", {
-                  textContent: Fm(a.value)
-                }, null, 8, b6),
-                Sc("p", {
+                }, null, 8, $6),
+                _c("h2", {
+                  textContent: Bm(a.value)
+                }, null, 8, V6),
+                _c("p", {
                   class: "ma-0",
-                  textContent: Fm(r.value)
-                }, null, 8, k6)
+                  textContent: Bm(r.value)
+                }, null, 8, E6)
               ]),
               _: 1
             })
@@ -22131,10 +22151,10 @@ const Sc = window.Vue.createElementVNode, Fm = window.Vue.toDisplayString, yc = 
         })
       ]),
       _: 1
-    })) : x6("", !0);
+    })) : k6("", !0);
   }
 };
-const it = window.Vue.unref, Ft = window.Vue.createVNode, wn = window.Vue.withCtx, E6 = window.Vue.resolveDirective, V6 = window.Vue.withDirectives, Mm = window.Vue.toDisplayString, L6 = window.Vue.createTextVNode, bc = window.Vue.openBlock, Um = window.Vue.createElementBlock, T6 = window.Vue.createCommentVNode, Jf = window.Vue.createElementVNode, A6 = window.Vue.createBlock, D6 = { class: "sx-publisher__captcha-dialog__content pt-4 px-6 pb-6" }, P6 = ["src"], B6 = ["textContent"], F6 = /* @__PURE__ */ Jf("p", { class: "mt-0" }, null, -1), N6 = window.Vue.computed, M6 = window.Vue.inject, U6 = window.Vue.ref, Im = window.Codex.CdxButton, I6 = window.Codex.CdxIcon, R6 = {
+const rt = window.Vue.unref, Nt = window.Vue.createVNode, vn = window.Vue.withCtx, T6 = window.Vue.resolveDirective, A6 = window.Vue.withDirectives, Nm = window.Vue.toDisplayString, D6 = window.Vue.createTextVNode, Cc = window.Vue.openBlock, Mm = window.Vue.createElementBlock, P6 = window.Vue.createCommentVNode, nw = window.Vue.createElementVNode, B6 = window.Vue.createBlock, F6 = { class: "sx-publisher__captcha-dialog__content pt-4 px-6 pb-6" }, N6 = ["src"], M6 = ["textContent"], U6 = /* @__PURE__ */ nw("p", { class: "mt-0" }, null, -1), I6 = window.Vue.computed, R6 = window.Vue.inject, z6 = window.Vue.ref, Um = window.Codex.CdxButton, O6 = window.Codex.CdxIcon, H6 = {
   __name: "SXPublisherCaptchaDialog",
   props: {
     active: {
@@ -22142,64 +22162,64 @@ const it = window.Vue.unref, Ft = window.Vue.createVNode, wn = window.Vue.withCt
       required: !0
     },
     captchaDetails: {
-      type: Qh,
+      type: nf,
       default: null
     }
   },
   emits: ["close", "publish"],
   setup(e, { emit: t }) {
-    const n = t, s = U6(""), o = () => n("close"), a = () => n("publish", s.value), r = M6("breakpoints"), l = N6(() => r.value.mobile);
+    const n = t, s = z6(""), o = () => n("close"), a = () => n("publish", s.value), r = R6("breakpoints"), l = I6(() => r.value.mobile);
     return (u, d) => {
-      const i = E6("i18n");
-      return e.active && e.captchaDetails ? (bc(), A6(it(Ct), {
+      const i = T6("i18n");
+      return e.active && e.captchaDetails ? (Cc(), B6(rt(Ct), {
         key: 0,
         fullscreen: l.value,
         class: "sx-publisher__captcha-dialog"
       }, {
-        header: wn(() => [
-          Ft(it(N), {
+        header: vn(() => [
+          Nt(rt(M), {
             class: "mw-ui-dialog__header ma-0",
             align: "stretch"
           }, {
-            default: wn(() => [
-              Ft(it(k), {
+            default: vn(() => [
+              Nt(rt(k), {
                 class: "ms-3 me-1",
                 shrink: ""
               }, {
-                default: wn(() => [
-                  Ft(it(Im), {
+                default: vn(() => [
+                  Nt(rt(Um), {
                     class: "my-1",
                     weight: "quiet",
                     size: "large",
                     "aria-label": u.$i18n("cx-sx-publisher-captcha-dialog-close-button-aria-label"),
                     onClick: o
                   }, {
-                    default: wn(() => [
-                      Ft(it(I6), { icon: it(Js) }, null, 8, ["icon"])
+                    default: vn(() => [
+                      Nt(rt(O6), { icon: rt(Qs) }, null, 8, ["icon"])
                     ]),
                     _: 1
                   }, 8, ["aria-label"])
                 ]),
                 _: 1
               }),
-              V6(Ft(it(k), {
+              A6(Nt(rt(k), {
                 grow: "",
                 class: "sx-publisher__captcha-dialog__header-title items-center justify-start me-4"
               }, null, 512), [
                 [i, void 0, "cx-sx-publisher-captcha-dialog-header-title"]
               ]),
-              Ft(it(k), {
+              Nt(rt(k), {
                 shrink: "",
                 class: "justify-center"
               }, {
-                default: wn(() => [
-                  Ft(it(Im), {
+                default: vn(() => [
+                  Nt(rt(Um), {
                     weight: "primary",
                     action: "progressive",
                     onClick: a
                   }, {
-                    default: wn(() => [
-                      L6(Mm(u.$i18n("cx-sx-publisher-captcha-dialog-publish-button")), 1)
+                    default: vn(() => [
+                      D6(Nm(u.$i18n("cx-sx-publisher-captcha-dialog-publish-button")), 1)
                     ]),
                     _: 1
                   })
@@ -22209,24 +22229,24 @@ const it = window.Vue.unref, Ft = window.Vue.createVNode, wn = window.Vue.withCt
             ]),
             _: 1
           }),
-          Ft(it(Ki))
+          Nt(rt(Gi))
         ]),
-        default: wn(() => [
-          Jf("div", D6, [
-            e.captchaDetails.type === "image" ? (bc(), Um("img", {
+        default: vn(() => [
+          nw("div", F6, [
+            e.captchaDetails.type === "image" ? (Cc(), Mm("img", {
               key: 0,
               class: "sx-publisher__captcha-dialog__puzzle-image",
               src: e.captchaDetails.url
-            }, null, 8, P6)) : (bc(), Um("p", {
+            }, null, 8, N6)) : (Cc(), Mm("p", {
               key: 1,
-              textContent: Mm(e.captchaDetails.question)
-            }, null, 8, B6)),
-            F6,
-            Ft(it(N), { class: "ma-0" }, {
-              default: wn(() => [
-                Ft(it(k), null, {
-                  default: wn(() => [
-                    Ft(it(Ic), {
+              textContent: Nm(e.captchaDetails.question)
+            }, null, 8, M6)),
+            U6,
+            Nt(rt(M), { class: "ma-0" }, {
+              default: vn(() => [
+                Nt(rt(k), null, {
+                  default: vn(() => [
+                    Nt(rt(Uc), {
                       value: s.value,
                       "onUpdate:value": d[0] || (d[0] = (c) => s.value = c),
                       class: "pa-1"
@@ -22240,11 +22260,11 @@ const it = window.Vue.unref, Ft = window.Vue.createVNode, wn = window.Vue.withCt
           ])
         ]),
         _: 1
-      }, 8, ["fullscreen"])) : T6("", !0);
+      }, 8, ["fullscreen"])) : P6("", !0);
     };
   }
 };
-const In = window.Vue.unref, zi = window.Vue.createVNode, Ms = window.Vue.withCtx, Us = window.Vue.createElementVNode, z6 = window.Vue.resolveDirective, O6 = window.Vue.withDirectives, j6 = window.Vue.renderList, H6 = window.Vue.Fragment, kc = window.Vue.openBlock, q6 = window.Vue.createElementBlock, Rm = window.Vue.toDisplayString, zm = window.Vue.createTextVNode, G6 = window.Vue.isRef, X6 = window.Vue.normalizeClass, Om = window.Vue.createBlock, W6 = { class: "mw-ui-dialog__header" }, K6 = { class: "row ma-0 px-4 py-3" }, Y6 = { class: "col shrink justify-center" }, Q6 = { class: "col grow items-center mw-ui-dialog__header-title justify-start ps-2" }, J6 = { class: "mb-0" }, Z6 = { class: "pa-4" }, e9 = window.Codex.CdxField, t9 = window.Codex.CdxRadio, n9 = window.Vuex.useStore, Oi = window.Vue.computed, s9 = window.Codex.CdxButton, o9 = window.Codex.CdxIcon, a9 = {
+const zn = window.Vue.unref, Ui = window.Vue.createVNode, Is = window.Vue.withCtx, Rs = window.Vue.createElementVNode, j6 = window.Vue.resolveDirective, q6 = window.Vue.withDirectives, G6 = window.Vue.renderList, X6 = window.Vue.Fragment, bc = window.Vue.openBlock, W6 = window.Vue.createElementBlock, Im = window.Vue.toDisplayString, Rm = window.Vue.createTextVNode, K6 = window.Vue.isRef, Y6 = window.Vue.normalizeClass, zm = window.Vue.createBlock, Q6 = { class: "mw-ui-dialog__header" }, J6 = { class: "row ma-0 px-4 py-3" }, Z6 = { class: "col shrink justify-center" }, e9 = { class: "col grow items-center mw-ui-dialog__header-title justify-start ps-2" }, t9 = { class: "mb-0" }, n9 = { class: "pa-4" }, s9 = window.Codex.CdxField, o9 = window.Codex.CdxRadio, a9 = window.Vuex.useStore, Ii = window.Vue.computed, i9 = window.Codex.CdxButton, r9 = window.Codex.CdxIcon, l9 = {
   __name: "SXPublishOptionSelector",
   props: {
     active: {
@@ -22254,11 +22274,11 @@ const In = window.Vue.unref, zi = window.Vue.createVNode, Ms = window.Vue.withCt
   },
   emits: ["update:active"],
   setup(e, { emit: t }) {
-    const n = t, s = n9(), { target: o, PUBLISHING_TARGETS: a } = Rt(), r = Oi(() => s.state.translator.isAnon), l = we(), { sourceSection: u } = ne(), { isCurrentSectionPresent: d } = Fe(), i = Oi(
+    const n = t, s = a9(), { target: o, PUBLISHING_TARGETS: a } = zt(), r = Ii(() => s.state.translator.isAnon), l = he(), { sourceSection: u } = ne(), { isCurrentSectionPresent: d } = De(), i = Ii(
       () => u.value.isLeadSection ? l.i18n("cx-sx-publisher-lead-section-option-label") : l.i18n("cx-sx-publisher-new-section-option-label")
-    ), c = Oi(
+    ), c = Ii(
       () => u.value.isLeadSection ? l.i18n("cx-sx-publisher-lead-section-option-details") : l.i18n("cx-sx-publisher-new-section-option-details")
-    ), g = Oi(() => {
+    ), g = Ii(() => {
       const m = [
         {
           label: i.value,
@@ -22281,60 +22301,60 @@ const In = window.Vue.unref, zi = window.Vue.createVNode, Ms = window.Vue.withCt
       }), m;
     }), p = () => n("update:active", !1);
     return (m, h) => {
-      const f = z6("i18n");
-      return kc(), Om(In(Ct), {
+      const f = j6("i18n");
+      return bc(), zm(zn(Ct), {
         value: e.active,
         class: "sx-publisher__publish-options",
         title: m.$i18n("cx-sx-publisher-preview-options-title"),
         onInput: h[1] || (h[1] = (w) => m.$emit("update:active", w)),
         onClose: p
       }, {
-        header: Ms(() => [
-          Us("div", W6, [
-            Us("div", K6, [
-              Us("div", Y6, [
-                zi(In(s9), {
+        header: Is(() => [
+          Rs("div", Q6, [
+            Rs("div", J6, [
+              Rs("div", Z6, [
+                Ui(zn(i9), {
                   class: "pa-0",
                   weight: "quiet",
                   "aria-label": m.$i18n("cx-sx-publisher-preview-options-back-button-aria-label"),
                   onClick: p
                 }, {
-                  default: Ms(() => [
-                    zi(In(o9), { icon: In(Rh) }, null, 8, ["icon"])
+                  default: Is(() => [
+                    Ui(zn(r9), { icon: zn(qh) }, null, 8, ["icon"])
                   ]),
                   _: 1
                 }, 8, ["aria-label"])
               ]),
-              Us("div", Q6, [
-                O6(Us("h4", J6, null, 512), [
+              Rs("div", e9, [
+                q6(Rs("h4", t9, null, 512), [
                   [f, void 0, "cx-sx-publisher-preview-options-title"]
                 ])
               ])
             ]),
-            zi(In(Ki))
+            Ui(zn(Gi))
           ])
         ]),
-        default: Ms(() => [
-          Us("div", Z6, [
-            zi(In(e9), { "is-fieldset": "" }, {
-              default: Ms(() => [
-                (kc(!0), q6(H6, null, j6(g.value, (w, v) => (kc(), Om(In(t9), {
+        default: Is(() => [
+          Rs("div", n9, [
+            Ui(zn(s9), { "is-fieldset": "" }, {
+              default: Is(() => [
+                (bc(!0), W6(X6, null, G6(g.value, (w, _) => (bc(), zm(zn(o9), {
                   key: "publish-options-radio-" + w.value,
-                  modelValue: In(o),
+                  modelValue: zn(o),
                   "onUpdate:modelValue": [
-                    h[0] || (h[0] = (y) => G6(o) ? o.value = y : null),
+                    h[0] || (h[0] = (C) => K6(o) ? o.value = C : null),
                     p
                   ],
-                  class: X6(v < g.value.length - 1 ? "mb-4" : "mb-0"),
+                  class: Y6(_ < g.value.length - 1 ? "mb-4" : "mb-0"),
                   "input-value": w.value,
                   disabled: w.disabled,
                   name: "publish-options"
                 }, {
-                  description: Ms(() => [
-                    zm(Rm(w.description), 1)
+                  description: Is(() => [
+                    Rm(Im(w.description), 1)
                   ]),
-                  default: Ms(() => [
-                    zm(Rm(w.label) + " ", 1)
+                  default: Is(() => [
+                    Rm(Im(w.label) + " ", 1)
                   ]),
                   _: 2
                 }, 1032, ["modelValue", "class", "input-value", "disabled"]))), 128))
@@ -22348,7 +22368,7 @@ const In = window.Vue.unref, zi = window.Vue.createVNode, Ms = window.Vue.withCt
     };
   }
 };
-const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.createElementVNode, i9 = window.Vue.resolveDirective, Is = window.Vue.createVNode, r9 = window.Vue.withDirectives, Jo = window.Vue.withCtx, $c = window.Vue.openBlock, qm = window.Vue.createBlock, Gm = window.Vue.createCommentVNode, l9 = window.Vue.Fragment, c9 = window.Vue.createElementBlock, u9 = window.Vue.normalizeClass, d9 = ["textContent"], g9 = ["textContent"], Rs = window.Vue.computed, Xm = window.Vue.ref, p9 = window.Vue.watch, Wm = window.Codex.CdxButton, Km = window.Codex.CdxIcon, m9 = window.Codex.CdxMessage, h9 = {
+const Mt = window.Vue.unref, Om = window.Vue.toDisplayString, Hm = window.Vue.createElementVNode, c9 = window.Vue.resolveDirective, zs = window.Vue.createVNode, u9 = window.Vue.withDirectives, Jo = window.Vue.withCtx, kc = window.Vue.openBlock, jm = window.Vue.createBlock, qm = window.Vue.createCommentVNode, d9 = window.Vue.Fragment, g9 = window.Vue.createElementBlock, p9 = window.Vue.normalizeClass, m9 = ["textContent"], h9 = ["textContent"], Os = window.Vue.computed, Gm = window.Vue.ref, f9 = window.Vue.watch, Xm = window.Codex.CdxButton, Wm = window.Codex.CdxIcon, w9 = window.Codex.CdxMessage, v9 = {
   __name: "SXPublisherReviewInfo",
   props: {
     publishFeedbackMessages: {
@@ -22357,8 +22377,8 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
     }
   },
   setup(e) {
-    const t = e, n = Xm(0), s = Xm(null);
-    p9(s, () => {
+    const t = e, n = Gm(0), s = Gm(null);
+    f9(s, () => {
       var m;
       const p = (m = s.value) == null ? void 0 : m.$el;
       if (p instanceof HTMLElement) {
@@ -22366,20 +22386,20 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
         h && h.setAttribute("target", "_blank");
       }
     });
-    const o = Rs(
+    const o = Os(
       () => {
         var p;
         return (p = t.publishFeedbackMessages) == null ? void 0 : p[n.value];
       }
-    ), a = Rs(() => {
+    ), a = Os(() => {
       var p;
       return ((p = o.value) == null ? void 0 : p.status) || "notice";
-    }), r = Rs(() => a.value === "notice"), l = Rs(
+    }), r = Os(() => a.value === "notice"), l = Os(
       () => `sx-publisher__review-info--${a.value}`
-    ), u = we(), d = Rs(() => {
+    ), u = he(), d = Os(() => {
       var p;
       return (p = o.value) == null ? void 0 : p.text;
-    }), i = Rs(() => {
+    }), i = Os(() => {
       var p;
       return r.value ? u.i18n("cx-sx-publisher-review-info") : ((p = o.value) == null ? void 0 : p.title) || u.i18n("cx-sx-publisher-review-info-error");
     }), c = () => {
@@ -22389,63 +22409,63 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
       n.value = (n.value + 1) % t.publishFeedbackMessages.length;
     };
     return (p, m) => {
-      const h = i9("i18n-html");
-      return $c(), qm(Nt(m9), {
+      const h = c9("i18n-html");
+      return kc(), jm(Mt(w9), {
         type: a.value,
-        class: u9(["sx-publisher__review-info", l.value]),
-        icon: r.value ? Nt(ay) : null
+        class: p9(["sx-publisher__review-info", l.value]),
+        icon: r.value ? Mt(cy) : null
       }, {
         default: Jo(() => [
           Hm("h5", {
-            textContent: jm(i.value)
-          }, null, 8, d9),
-          r.value ? Gm("", !0) : ($c(), c9(l9, { key: 0 }, [
+            textContent: Om(i.value)
+          }, null, 8, m9),
+          r.value ? qm("", !0) : (kc(), g9(d9, { key: 0 }, [
             Hm("p", {
-              textContent: jm(d.value)
-            }, null, 8, g9),
-            Is(Nt(N), {
+              textContent: Om(d.value)
+            }, null, 8, h9),
+            zs(Mt(M), {
               justify: "between",
               class: "ma-0"
             }, {
               default: Jo(() => [
-                r9(Is(Nt(k), {
+                u9(zs(Mt(k), {
                   ref_key: "learnMoreContainer",
                   ref: s,
                   class: "sx-publisher__review-info__learn-more-anchor"
                 }, null, 512), [
                   [h, void 0, "cx-sx-publisher-review-info-learn-more"]
                 ]),
-                e.publishFeedbackMessages.length > 1 ? ($c(), qm(Nt(k), {
+                e.publishFeedbackMessages.length > 1 ? (kc(), jm(Mt(k), {
                   key: 0,
                   class: "sx-publisher__review-info__navigation-buttons justify-end",
                   align: "center"
                 }, {
                   default: Jo(() => [
-                    Is(Nt(Wm), {
+                    zs(Mt(Xm), {
                       weight: "quiet",
                       class: "pa-0 me-1",
                       "aria-label": p.$i18n("cx-sx-publisher-review-info-previous-button-aria-label"),
                       onClick: c
                     }, {
                       default: Jo(() => [
-                        Is(Nt(Km), { icon: Nt(hu) }, null, 8, ["icon"])
+                        zs(Mt(Wm), { icon: Mt(hu) }, null, 8, ["icon"])
                       ]),
                       _: 1
                     }, 8, ["aria-label"]),
-                    Is(Nt(Wm), {
+                    zs(Mt(Xm), {
                       weight: "quiet",
                       class: "pa-0 ms-1",
                       "aria-label": p.$i18n("cx-sx-publisher-review-info-next-button-aria-label"),
                       onClick: g
                     }, {
                       default: Jo(() => [
-                        Is(Nt(Km), { icon: Nt(Sa) }, null, 8, ["icon"])
+                        zs(Mt(Wm), { icon: Mt(Sa) }, null, 8, ["icon"])
                       ]),
                       _: 1
                     }, 8, ["aria-label"])
                   ]),
                   _: 1
-                })) : Gm("", !0)
+                })) : qm("", !0)
               ]),
               _: 1
             })
@@ -22455,7 +22475,7 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
       }, 8, ["type", "class", "icon"]);
     };
   }
-}, f9 = (e) => {
+}, _9 = (e) => {
   const t = document.createElement("article");
   return t.innerHTML = e, Array.prototype.forEach.call(
     t.querySelectorAll("article, section, [data-segmentid]"),
@@ -22484,13 +22504,13 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
       n.removeAttribute("id");
     }
   ), t.innerHTML;
-}, w9 = window.Vuex.useStore, v9 = window.Vue.computed, _9 = () => {
-  const e = w9(), { currentTranslation: t } = zt(), { currentMTProvider: n } = Le(e), { currentTargetPageTitle: s } = dt(), {
+}, S9 = window.Vuex.useStore, y9 = window.Vue.computed, x9 = () => {
+  const e = S9(), { currentTranslation: t } = Ot(), { currentMTProvider: n } = Ae(e), { currentTargetPageTitle: s } = pt(), {
     sourceLanguageURLParameter: o,
     targetLanguageURLParameter: a,
     pageURLParameter: r,
     sectionURLParameter: l
-  } = A(), { sourceSection: u } = ne(), d = bt(), i = v9(() => {
+  } = D(), { sourceSection: u } = ne(), d = bt(), i = y9(() => {
     const m = {
       translation_source_language: o.value,
       translation_target_language: a.value,
@@ -22516,86 +22536,86 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
       h && (m.translation_target_section = h);
     } else
       s.value && (m.translation_target_title = s.value);
-    return n.value && (m.translation_provider = re.getProviderForInstrumentation(n.value)), m.human_modification_rate = Zt.getMTScoreForPageSection(
+    return n.value && (m.translation_provider = re.getProviderForInstrumentation(n.value)), m.human_modification_rate = tn.getMTScoreForPageSection(
       u.value,
       a.value
-    ) / 100, m.human_modification_threshold = Zt.getMtModificationThreshold(), m;
+    ) / 100, m.human_modification_threshold = tn.getMtModificationThreshold(), m;
   });
   return {
-    logPublishAttemptEvent: () => d(pe({
+    logPublishAttemptEvent: () => d(ue({
       event_type: "publish_attempt"
     }, i.value)),
-    logPublishSuccessEvent: (m, h) => d(pe({
+    logPublishSuccessEvent: (m, h) => d(ue({
       event_type: "publish_success",
       published_page_id: m,
       published_revision_id: h
     }, i.value)),
-    logPublishFailureEvent: () => d(pe({
+    logPublishFailureEvent: () => d(ue({
       event_type: "publish_failure"
     }, i.value))
   };
-}, S9 = window.Vue.computed, Ym = window.Vue.ref, y9 = window.Vuex.useStore, x9 = () => {
-  const e = y9(), {
+}, C9 = window.Vue.computed, Km = window.Vue.ref, b9 = window.Vuex.useStore, k9 = () => {
+  const e = b9(), {
     pageURLParameter: t,
     sourceLanguageURLParameter: n,
     targetLanguageURLParameter: s
-  } = A(), { sourceSection: o, targetPageTitleForPublishing: a } = ne(), r = Xf(), { sectionSuggestion: l } = Fe(), u = S9(
+  } = D(), { sourceSection: o, targetPageTitleForPublishing: a } = ne(), r = Qf(), { sectionSuggestion: l } = De(), u = C9(
     () => {
       var S, b;
       return (b = l.value) == null ? void 0 : b.presentSections[(S = o.value) == null ? void 0 : S.sourceSectionTitleForPublishing];
     }
-  ), { target: d, PUBLISHING_TARGETS: i } = Rt(), c = Ym(!1), g = Ym("pending"), p = () => c.value = !1, m = Vu(), {
+  ), { target: d, PUBLISHING_TARGETS: i } = zt(), c = Km(!1), g = Km("pending"), p = () => c.value = !1, m = Lu(), {
     logPublishAttemptEvent: h,
     logPublishSuccessEvent: f,
     logPublishFailureEvent: w
-  } = _9(), v = (S, b) => C(void 0, null, function* () {
+  } = x9(), _ = (S, b) => x(void 0, null, function* () {
     h();
-    const V = yield m();
-    if (V instanceof jn)
-      return w(), { publishFeedbackMessage: V, targetUrl: null };
-    const x = V, I = a.value, L = {
-      html: f9(o.value.translationHtml),
+    const A = yield m();
+    if (A instanceof Gn)
+      return w(), { publishFeedbackMessage: A, targetUrl: null };
+    const y = A, B = a.value, V = {
+      html: _9(o.value.translationHtml),
       sourceTitle: t.value,
-      targetTitle: I,
+      targetTitle: B,
       sourceSectionTitle: o.value.sourceSectionTitleForPublishing,
       targetSectionTitle: o.value.targetSectionTitleForPublishing,
       sourceLanguage: n.value,
       targetLanguage: s.value,
       revision: r.value,
       isSandbox: d.value === i.SANDBOX,
-      sectionTranslationId: x
+      sectionTranslationId: y
     };
-    u.value && d.value === i.EXPAND && (L.existingSectionTitle = u.value), S && (L.captchaId = S, L.captchaWord = b);
-    const P = yield xt.publishTranslation(
-      L
+    u.value && d.value === i.EXPAND && (V.existingSectionTitle = u.value), S && (V.captchaId = S, V.captchaWord = b);
+    const E = yield xt.publishTranslation(
+      V
     );
-    return P.publishFeedbackMessage === null ? f(P.pageId, P.revisionId) : w(), P;
+    return E.publishFeedbackMessage === null ? f(E.pageId, E.revisionId) : w(), E;
   });
   return {
     closePublishDialog: p,
-    doPublish: (S = null, b = null) => C(void 0, null, function* () {
+    doPublish: (S = null, b = null) => x(void 0, null, function* () {
       g.value = "pending", c.value = !0;
-      let V;
+      let A;
       try {
-        V = yield v(
+        A = yield _(
           b == null ? void 0 : b.id,
           S
         );
-      } catch (x) {
-        if (x instanceof Xs)
+      } catch (y) {
+        if (y instanceof Xs)
           return e.commit("application/setIsLoginDialogOn", !0), null;
-        throw x;
+        throw y;
       }
-      return V;
+      return A;
     }),
     isPublishDialogActive: c,
     publishStatus: g
   };
-}, C9 = window.Vue.computed, b9 = () => {
-  const e = Ze(), { sourceSection: t } = ne(), { getCurrentTitleByLanguage: n } = bn(), {
+}, $9 = window.Vue.computed, V9 = () => {
+  const e = tt(), { sourceSection: t } = ne(), { getCurrentTitleByLanguage: n } = bn(), {
     sourceLanguageURLParameter: s,
     targetLanguageURLParameter: o
-  } = A(), a = C9(
+  } = D(), a = $9(
     () => t.value.subSections.reduce(
       (r, l) => l.isTranslated ? `${r}<section rel="cx:Section" id="${l.targetSectionId}">${l.translatedContent}</section>` : r,
       ""
@@ -22612,26 +22632,26 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
       isFinalEdit: !0
     }
   });
-}, k9 = () => {
-  const { targetLanguageURLParameter: e } = A(), { sourceSection: t } = ne();
+}, E9 = () => {
+  const { targetLanguageURLParameter: e } = D(), { sourceSection: t } = ne();
   return () => {
-    const n = Zt.getMTScoreForPageSection(
+    const n = tn.getMTScoreForPageSection(
       t.value,
       e.value
-    ), s = Zt.getScoreStatus(n);
+    ), s = tn.getScoreStatus(n);
     if (s === "success")
       return null;
     const o = 100 - n, a = s === "failure" ? "error" : "warning";
     let r, l;
-    return a === "warning" ? (r = mw.message("cx-sx-publisher-mt-abuse-message-title", o).plain(), l = mw.message("cx-sx-publisher-mt-abuse-message-body").plain()) : (r = mw.message("cx-sx-publisher-mt-abuse-error-title", o).plain(), l = mw.message("cx-sx-publisher-mt-abuse-error-body").plain()), new jn({
+    return a === "warning" ? (r = mw.message("cx-sx-publisher-mt-abuse-message-title", o).plain(), l = mw.message("cx-sx-publisher-mt-abuse-message-body").plain()) : (r = mw.message("cx-sx-publisher-mt-abuse-error-title", o).plain(), l = mw.message("cx-sx-publisher-mt-abuse-error-body").plain()), new Gn({
       title: r,
       text: l,
       status: a,
       type: "mt"
     });
   };
-}, $9 = window.Vue.ref, E9 = window.Vue.computed, V9 = () => {
-  const e = k9(), { target: t, PUBLISHING_TARGETS: n } = Rt(), { targetPageTitleForPublishing: s } = ne(), o = $9([]), a = E9(
+}, L9 = window.Vue.ref, T9 = window.Vue.computed, A9 = () => {
+  const e = E9(), { target: t, PUBLISHING_TARGETS: n } = zt(), { targetPageTitleForPublishing: s } = ne(), o = L9([]), a = T9(
     () => o.value.some((d) => d.isError)
   ), r = (d) => {
     o.value.push(d), o.value.sort((i, c) => +c.isError - +i.isError);
@@ -22644,8 +22664,8 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
     publishFeedbackMessages: o,
     isPublishingDisabled: a,
     initializePublishFeedbackMessages: () => {
-      if (!Yf() && t.value !== n.SANDBOX) {
-        const i = new jn({
+      if (!ew() && t.value !== n.SANDBOX) {
+        const i = new Gn({
           text: mw.message("cx-publish-permission-error").text(),
           title: mw.message("cx-publish-permission-error-title").text(),
           type: "generic",
@@ -22655,7 +22675,7 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
       }
       const d = e();
       d && r(d), mw.Title.newFromText(s.value) || r(
-        new jn({
+        new Gn({
           text: mw.message("cx-tools-linter-invalid-character-message").text(),
           title: mw.message("cx-tools-linter-invalid-character").text(),
           type: "generic",
@@ -22664,16 +22684,16 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
       );
     }
   };
-}, L9 = () => {
-  const { target: e, PUBLISHING_TARGETS: t } = Rt(), { currentSourcePage: n } = dt(), {
+}, D9 = () => {
+  const { target: e, PUBLISHING_TARGETS: t } = zt(), { currentSourcePage: n } = pt(), {
     sourceLanguageURLParameter: s,
     targetLanguageURLParameter: o
-  } = A(), { sourceSection: a, targetPageTitleForPublishing: r } = ne();
-  return (l) => C(void 0, null, function* () {
+  } = D(), { sourceSection: a, targetPageTitleForPublishing: r } = ne();
+  return (l) => x(void 0, null, function* () {
     const u = r.value, d = n.value.title, i = new mw.Title(d), c = mw.config.get("wgNamespaceIds");
     if (a.value.isLeadSection && e.value !== t.SANDBOX && i.getNamespaceId() !== c.user)
       try {
-        yield sr.addWikibaseLink(
+        yield er.addWikibaseLink(
           s.value,
           o.value,
           d,
@@ -22688,8 +22708,8 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
     }
     location.href = l;
   });
-}, Qm = window.Vue.ref, T9 = () => {
-  const e = Qm(!1), t = Qm(null);
+}, Ym = window.Vue.ref, P9 = () => {
+  const e = Ym(!1), t = Ym(null);
   return {
     captchaDetails: t,
     captchaDialogOn: e,
@@ -22699,24 +22719,24 @@ const Nt = window.Vue.unref, jm = window.Vue.toDisplayString, Hm = window.Vue.cr
     }
   };
 };
-const ue = window.Vue.unref, qe = window.Vue.createVNode, A9 = window.Vue.resolveDirective, Jm = window.Vue.withDirectives, Ec = window.Vue.openBlock, Vc = window.Vue.createElementBlock;
+const de = window.Vue.unref, Ge = window.Vue.createVNode, B9 = window.Vue.resolveDirective, Qm = window.Vue.withDirectives, $c = window.Vue.openBlock, Vc = window.Vue.createElementBlock;
 window.Vue.createCommentVNode;
-const os = window.Vue.createElementVNode, Zm = window.Vue.toDisplayString, D9 = window.Vue.createTextVNode, zs = window.Vue.withCtx, eh = window.Vue.normalizeClass, P9 = { class: "sx-publisher" }, B9 = {
+const is = window.Vue.createElementVNode, Jm = window.Vue.toDisplayString, F9 = window.Vue.createTextVNode, Hs = window.Vue.withCtx, Zm = window.Vue.normalizeClass, N9 = { class: "sx-publisher" }, M9 = {
   key: 0,
   class: "mb-2"
-}, F9 = {
+}, U9 = {
   key: 1,
   class: "sx-publisher__publish-panel__existing-target-section px-4 pb-4"
-}, N9 = ["href"], M9 = ["innerHTML"], U9 = { class: "sx-publisher__section-preview pa-5" }, I9 = ["innerHTML"], ji = window.Vue.computed, R9 = window.Vue.onMounted, z9 = window.Vue.ref, O9 = window.Vue.watch, th = window.Codex.CdxButton, Lc = window.Codex.CdxIcon, j9 = {
+}, I9 = ["href"], R9 = ["innerHTML"], z9 = { class: "sx-publisher__section-preview pa-5" }, O9 = ["innerHTML"], Ri = window.Vue.computed, H9 = window.Vue.onMounted, j9 = window.Vue.ref, q9 = window.Vue.watch, eh = window.Codex.CdxButton, Ec = window.Codex.CdxIcon, G9 = {
   __name: "SXPublisher",
   setup(e) {
-    const { sourceSection: t } = ne(), { sectionSuggestion: n, isCurrentSectionPresent: s } = Fe(), {
+    const { sourceSection: t } = ne(), { sectionSuggestion: n, isCurrentSectionPresent: s } = De(), {
       targetLanguageURLParameter: o,
       sectionURLParameter: a
-    } = A(), r = ji(() => {
-      var R;
-      return (R = t.value) == null ? void 0 : R.title;
-    }), l = we(), { target: u, PUBLISHING_TARGETS: d } = Rt(), i = ji(() => u.value === d.SANDBOX ? l.i18n(
+    } = D(), r = Ri(() => {
+      var z;
+      return (z = t.value) == null ? void 0 : z.title;
+    }), l = he(), { target: u, PUBLISHING_TARGETS: d } = zt(), i = Ri(() => u.value === d.SANDBOX ? l.i18n(
       "cx-sx-publisher-publish-panel-sandbox-section-result"
     ) : u.value === d.EXPAND ? l.i18n(
       "cx-sx-publisher-publish-panel-expand-section-result"
@@ -22725,99 +22745,99 @@ const os = window.Vue.createElementVNode, Zm = window.Vue.toDisplayString, D9 = 
       captchaDialogOn: g,
       handleCaptchaError: p,
       onCaptchaDialogClose: m
-    } = T9(), {
+    } = P9(), {
       publishFeedbackMessages: h,
       isPublishingDisabled: f,
       addPublishFeedbackMessage: w,
-      clearPublishFeedbackMessages: v,
-      initializePublishFeedbackMessages: y
-    } = V9(), S = L9(), { doPublish: b, isPublishDialogActive: V, publishStatus: x, closePublishDialog: I } = x9(), L = (R = null) => C(this, null, function* () {
+      clearPublishFeedbackMessages: _,
+      initializePublishFeedbackMessages: C
+    } = A9(), S = D9(), { doPublish: b, isPublishDialogActive: A, publishStatus: y, closePublishDialog: B } = k9(), V = (z = null) => x(this, null, function* () {
       if (f.value)
         return;
-      const J = yield b(R, c.value);
+      const J = yield b(z, c.value);
       if (!J)
         return;
       const { publishFeedbackMessage: oe, targetUrl: le } = J;
       if (p(oe)) {
-        I();
+        B();
         return;
       } else
         oe && w(oe);
-      x.value = f.value ? "failure" : "success", setTimeout(() => {
+      y.value = f.value ? "failure" : "success", setTimeout(() => {
         if (f.value) {
-          I();
+          B();
           return;
         }
         S(le);
       }, 1e3);
     });
-    R9(() => y());
-    const P = b9(), H = z9(!1), se = () => H.value = !0;
-    O9(H, (R) => {
-      R || (v(), y());
+    H9(() => C());
+    const E = V9(), j = j9(!1), se = () => j.value = !0;
+    q9(j, (z) => {
+      z || (_(), C());
     });
-    const ae = ji(
+    const ae = Ri(
       () => {
-        var R, J;
-        return (J = (R = n.value) == null ? void 0 : R.presentSections) == null ? void 0 : J[a.value];
+        var z, J;
+        return (J = (z = n.value) == null ? void 0 : z.presentSections) == null ? void 0 : J[a.value];
       }
-    ), te = ji(() => {
+    ), te = Ri(() => {
       var oe;
-      const R = K.getPageUrl(
+      const z = K.getPageUrl(
         o.value,
         (oe = n.value) == null ? void 0 : oe.targetTitle
       ), J = (ae.value || "").replace(
         / /g,
         "_"
       );
-      return `${R}#${J}`;
+      return `${z}#${J}`;
     });
-    return (R, J) => {
-      const oe = A9("i18n");
-      return Ec(), Vc("section", P9, [
-        qe(w6, {
-          "is-publishing-disabled": ue(f),
-          onPublishTranslation: L
+    return (z, J) => {
+      const oe = B9("i18n");
+      return $c(), Vc("section", N9, [
+        Ge(S6, {
+          "is-publishing-disabled": de(f),
+          onPublishTranslation: V
         }, null, 8, ["is-publishing-disabled"]),
-        os("div", {
-          class: eh(["sx-publisher__publish-panel", ue(s) ? "py-4" : "pa-4"])
+        is("div", {
+          class: Zm(["sx-publisher__publish-panel", de(s) ? "py-4" : "pa-4"])
         }, [
-          ue(s) ? (Ec(), Vc("div", F9, [
-            Jm(os("h5", null, null, 512), [
+          de(s) ? ($c(), Vc("div", U9, [
+            Qm(is("h5", null, null, 512), [
               [oe, void 0, "cx-sx-publisher-publish-panel-existing-section-notice"]
             ]),
-            os("a", {
+            is("a", {
               class: "sx-publisher__publish-panel__existing-target-section-link py-2 px-3 mt-4",
               href: te.value,
               target: "_blank"
             }, [
-              D9(Zm(ae.value) + " ", 1),
-              qe(ue(Lc), { icon: ue(or) }, null, 8, ["icon"])
-            ], 8, N9)
-          ])) : Jm((Ec(), Vc("h5", B9, null, 512)), [
+              F9(Jm(ae.value) + " ", 1),
+              Ge(de(Ec), { icon: de(tr) }, null, 8, ["icon"])
+            ], 8, I9)
+          ])) : Qm(($c(), Vc("h5", M9, null, 512)), [
             [oe, void 0, "cx-sx-publisher-publish-panel-new-section-status"]
           ]),
-          os("div", {
-            class: eh({ "px-4 mt-4": ue(s) })
+          is("div", {
+            class: Zm({ "px-4 mt-4": de(s) })
           }, [
-            os("h6", {
+            is("h6", {
               class: "sx-publisher__publish-panel__expected-publishing-result mb-2",
               innerHTML: i.value
-            }, null, 8, M9),
-            qe(ue(N), {
+            }, null, 8, R9),
+            Ge(de(M), {
               justify: "end",
               class: "ma-0"
             }, {
-              default: zs(() => [
-                qe(ue(k), { shrink: "" }, {
-                  default: zs(() => [
-                    qe(ue(th), {
+              default: Hs(() => [
+                Ge(de(k), { shrink: "" }, {
+                  default: Hs(() => [
+                    Ge(de(eh), {
                       weight: "quiet",
-                      "aria-label": R.$i18n("cx-sx-publisher-configure-button-aria-label"),
+                      "aria-label": z.$i18n("cx-sx-publisher-configure-button-aria-label"),
                       onClick: se
                     }, {
-                      default: zs(() => [
-                        qe(ue(Lc), { icon: ue(hy) }, null, 8, ["icon"])
+                      default: Hs(() => [
+                        Ge(de(Ec), { icon: de(_y) }, null, 8, ["icon"])
                       ]),
                       _: 1
                     }, 8, ["aria-label"])
@@ -22829,25 +22849,25 @@ const os = window.Vue.createElementVNode, Zm = window.Vue.toDisplayString, D9 = 
             })
           ], 2)
         ], 2),
-        qe(h9, { "publish-feedback-messages": ue(h) }, null, 8, ["publish-feedback-messages"]),
-        os("section", U9, [
-          qe(ue(N), { class: "pb-5 ma-0" }, {
-            default: zs(() => [
-              qe(ue(k), {
+        Ge(v9, { "publish-feedback-messages": de(h) }, null, 8, ["publish-feedback-messages"]),
+        is("section", z9, [
+          Ge(de(M), { class: "pb-5 ma-0" }, {
+            default: Hs(() => [
+              Ge(de(k), {
                 tag: "h2",
                 grow: "",
                 class: "sx-publisher__section-preview__title ma-0",
-                textContent: Zm(r.value)
+                textContent: Jm(r.value)
               }, null, 8, ["textContent"]),
-              qe(ue(k), { shrink: "" }, {
-                default: zs(() => [
-                  qe(ue(th), {
+              Ge(de(k), { shrink: "" }, {
+                default: Hs(() => [
+                  Ge(de(eh), {
                     weight: "quiet",
-                    "aria-label": R.$i18n("cx-sx-publisher-edit-button-aria-label"),
-                    onClick: ue(P)
+                    "aria-label": z.$i18n("cx-sx-publisher-edit-button-aria-label"),
+                    onClick: de(E)
                   }, {
-                    default: zs(() => [
-                      qe(ue(Lc), { icon: ue(pu) }, null, 8, ["icon"])
+                    default: Hs(() => [
+                      Ge(de(Ec), { icon: de(pu) }, null, 8, ["icon"])
                     ]),
                     _: 1
                   }, 8, ["aria-label", "onClick"])
@@ -22857,32 +22877,32 @@ const os = window.Vue.createElementVNode, Zm = window.Vue.toDisplayString, D9 = 
             ]),
             _: 1
           }),
-          os("div", {
-            innerHTML: ue(t).translationHtml
-          }, null, 8, I9)
+          is("div", {
+            innerHTML: de(t).translationHtml
+          }, null, 8, O9)
         ]),
-        qe(a9, {
-          active: H.value,
-          "onUpdate:active": J[0] || (J[0] = (le) => H.value = le)
+        Ge(l9, {
+          active: j.value,
+          "onUpdate:active": J[0] || (J[0] = (le) => j.value = le)
         }, null, 8, ["active"]),
-        qe(R6, {
-          active: ue(g),
-          "captcha-details": ue(c),
-          onClose: ue(m),
-          onPublish: J[1] || (J[1] = (le) => L(le))
+        Ge(H6, {
+          active: de(g),
+          "captcha-details": de(c),
+          onClose: de(m),
+          onPublish: J[1] || (J[1] = (le) => V(le))
         }, null, 8, ["active", "captcha-details", "onClose"]),
-        qe($6, {
-          active: ue(V),
-          status: ue(x)
+        Ge(L6, {
+          active: de(A),
+          status: de(y)
         }, null, 8, ["active", "status"])
       ]);
     };
   }
 };
-const H9 = {
+const X9 = {
   name: "SxPublisherView",
   components: {
-    SxPublisher: j9
+    SxPublisher: G9
   },
   computed: {
     classes() {
@@ -22891,35 +22911,35 @@ const H9 = {
       };
     }
   }
-}, q9 = window.Vue.resolveComponent, G9 = window.Vue.createVNode, X9 = window.Vue.normalizeClass, W9 = window.Vue.openBlock, K9 = window.Vue.createElementBlock;
-function Y9(e, t, n, s, o, a) {
-  const r = q9("sx-publisher");
-  return W9(), K9("main", {
-    class: X9(["sx-publisher-view", a.classes])
+}, W9 = window.Vue.resolveComponent, K9 = window.Vue.createVNode, Y9 = window.Vue.normalizeClass, Q9 = window.Vue.openBlock, J9 = window.Vue.createElementBlock;
+function Z9(e, t, n, s, o, a) {
+  const r = W9("sx-publisher");
+  return Q9(), J9("main", {
+    class: Y9(["sx-publisher-view", a.classes])
   }, [
-    G9(r)
+    K9(r)
   ], 2);
 }
-const Q9 = /* @__PURE__ */ de(H9, [["render", Y9]]);
-const Mt = window.Vue.unref, Rn = window.Vue.createVNode, as = window.Vue.withCtx, Tc = window.Vue.toDisplayString, Ac = window.Vue.createElementVNode, J9 = window.Vue.openBlock, Z9 = window.Vue.createBlock, eP = ["textContent"], tP = ["textContent"], nP = ["textContent"], Zf = {
+const eP = /* @__PURE__ */ ge(X9, [["render", Z9]]);
+const Ut = window.Vue.unref, On = window.Vue.createVNode, rs = window.Vue.withCtx, Lc = window.Vue.toDisplayString, Tc = window.Vue.createElementVNode, tP = window.Vue.openBlock, nP = window.Vue.createBlock, sP = ["textContent"], oP = ["textContent"], aP = ["textContent"], sw = {
   __name: "SXSearchArticleSuggestion",
   props: {
     suggestion: {
-      type: Ks,
+      type: Ws,
       required: !0
     }
   },
   setup(e) {
-    return (t, n) => (J9(), Z9(Mt(N), {
+    return (t, n) => (tP(), nP(Ut(M), {
       class: "cx-search-suggestion px-4 py-3 ma-0",
       align: "normal",
       lang: e.suggestion.language,
-      dir: Mt(j.getDir)(e.suggestion.language)
+      dir: Ut(R.getDir)(e.suggestion.language)
     }, {
-      default: as(() => [
-        Rn(Mt(k), { shrink: "" }, {
-          default: as(() => [
-            Rn(Mt(Qc), {
+      default: rs(() => [
+        On(Ut(k), { shrink: "" }, {
+          default: rs(() => [
+            On(Ut(Qc), {
               class: "cx-search-suggestion__thumbnail",
               thumbnail: e.suggestion.thumbnail,
               "thumbnail-size": 56,
@@ -22928,52 +22948,52 @@ const Mt = window.Vue.unref, Rn = window.Vue.createVNode, as = window.Vue.withCt
           ]),
           _: 1
         }),
-        Rn(Mt(k), { class: "ms-4" }, {
-          default: as(() => [
-            Rn(Mt(N), {
+        On(Ut(k), { class: "ms-4" }, {
+          default: rs(() => [
+            On(Ut(M), {
               direction: "column",
               align: "start",
               class: "ma-0 no-wrap fill-height"
             }, {
-              default: as(() => [
-                Rn(Mt(k), {
+              default: rs(() => [
+                On(Ut(k), {
                   shrink: "",
                   class: "mb-1"
                 }, {
-                  default: as(() => [
-                    Ac("h5", {
+                  default: rs(() => [
+                    Tc("h5", {
                       class: "my-0 cx-search-suggestion__source-title",
-                      textContent: Tc(e.suggestion.title)
-                    }, null, 8, eP)
+                      textContent: Lc(e.suggestion.title)
+                    }, null, 8, sP)
                   ]),
                   _: 1
                 }),
-                Rn(Mt(k), {
+                On(Ut(k), {
                   shrink: "",
                   class: "mb-1"
                 }, {
-                  default: as(() => [
-                    Ac("p", {
+                  default: rs(() => [
+                    Tc("p", {
                       class: "ma-0 cx-search-suggestion__source-description complementary",
-                      textContent: Tc(e.suggestion.description)
-                    }, null, 8, tP)
+                      textContent: Lc(e.suggestion.description)
+                    }, null, 8, oP)
                   ]),
                   _: 1
                 }),
-                Rn(Mt(k), {
+                On(Ut(k), {
                   class: "cx-search-suggestion__languages",
                   shrink: "",
                   align: "center"
                 }, {
-                  default: as(() => [
-                    Rn(Mt(Je), {
-                      icon: Mt(N0),
+                  default: rs(() => [
+                    On(Ut(et), {
+                      icon: Ut(R0),
                       size: 16,
                       class: "me-2"
                     }, null, 8, ["icon"]),
-                    Ac("small", {
-                      textContent: Tc((e.suggestion.langLinksCount || 0) + 1)
-                    }, null, 8, nP)
+                    Tc("small", {
+                      textContent: Lc((e.suggestion.langLinksCount || 0) + 1)
+                    }, null, 8, aP)
                   ]),
                   _: 1
                 })
@@ -22988,10 +23008,10 @@ const Mt = window.Vue.unref, Rn = window.Vue.createVNode, as = window.Vue.withCt
     }, 8, ["lang", "dir"]));
   }
 };
-const Zo = window.Vue.unref, ea = window.Vue.openBlock, Dc = window.Vue.createBlock, sP = window.Vue.createCommentVNode, oP = window.Vue.resolveDirective, aP = window.Vue.withDirectives, nh = window.Vue.createElementBlock, iP = window.Vue.renderList, rP = window.Vue.Fragment, lP = window.Vue.normalizeClass, cP = window.Vue.withCtx, uP = {
+const Zo = window.Vue.unref, ea = window.Vue.openBlock, Ac = window.Vue.createBlock, iP = window.Vue.createCommentVNode, rP = window.Vue.resolveDirective, lP = window.Vue.withDirectives, th = window.Vue.createElementBlock, cP = window.Vue.renderList, uP = window.Vue.Fragment, dP = window.Vue.normalizeClass, gP = window.Vue.withCtx, pP = {
   key: 1,
   class: "sx-article-search__empty-state"
-}, sh = window.Vue.computed, dP = window.Vue.ref, gP = {
+}, nh = window.Vue.computed, mP = window.Vue.ref, hP = {
   __name: "SearchResultsCard",
   props: {
     searchInput: {
@@ -23006,30 +23026,30 @@ const Zo = window.Vue.unref, ea = window.Vue.openBlock, Dc = window.Vue.createBl
   },
   emits: ["suggestion-clicked"],
   setup(e) {
-    const { sourceLanguageURLParameter: t } = A(), n = sh(() => j.getAutonym(t.value)), s = e, o = dP(null), a = (c) => o.value = c, r = () => o.value = null, l = (c) => {
+    const { sourceLanguageURLParameter: t } = D(), n = nh(() => R.getAutonym(t.value)), s = e, o = mP(null), a = (c) => o.value = c, r = () => o.value = null, l = (c) => {
       var g;
       return ((g = s.selectedItem) == null ? void 0 : g.title) === c.title && !o.value || o.value === c.pageId;
-    }, u = sh(() => s.searchInput), { searchResultsLoading: d, searchResultsSlice: i } = yu(
+    }, u = nh(() => s.searchInput), { searchResultsLoading: d, searchResultsSlice: i } = yu(
       t,
       u
     );
     return (c, g) => {
-      const p = oP("i18n");
-      return ea(), Dc(Zo(Qe), { class: "sx-article-search__results mb-0 pa-0" }, {
-        default: cP(() => [
-          Zo(d) ? (ea(), Dc(Zo(ct), {
+      const p = rP("i18n");
+      return ea(), Ac(Zo(Ze), { class: "sx-article-search__results mb-0 pa-0" }, {
+        default: gP(() => [
+          Zo(d) ? (ea(), Ac(Zo(dt), {
             key: 0,
             class: "sx-article-search__empty-state"
-          })) : Zo(i).length === 0 ? aP((ea(), nh("p", uP, null, 512)), [
+          })) : Zo(i).length === 0 ? lP((ea(), th("p", pP, null, 512)), [
             [p, [
               u.value,
               n.value
             ], "cx-sx-article-search-no-search-results-message"]
-          ]) : sP("", !0),
-          (ea(!0), nh(rP, null, iP(Zo(i), (m) => (ea(), Dc(Zf, {
+          ]) : iP("", !0),
+          (ea(!0), th(uP, null, cP(Zo(i), (m) => (ea(), Ac(sw, {
             key: m.pageId,
             suggestion: m,
-            class: lP({
+            class: dP({
               "sx-article-search__results-selected": l(m)
             }),
             onMouseenter: (h) => a(m.pageId),
@@ -23042,7 +23062,7 @@ const Zo = window.Vue.unref, ea = window.Vue.openBlock, Dc = window.Vue.createBl
     };
   }
 };
-const pP = window.Vue.toDisplayString, mP = window.Vue.createElementVNode, hP = window.Vue.renderList, fP = window.Vue.Fragment, Pc = window.Vue.openBlock, wP = window.Vue.createElementBlock, vP = window.Vue.normalizeClass, oh = window.Vue.createBlock, _P = window.Vue.unref, ah = window.Vue.withCtx, SP = ["textContent"], yP = window.Vue.ref, ih = {
+const fP = window.Vue.toDisplayString, wP = window.Vue.createElementVNode, vP = window.Vue.renderList, _P = window.Vue.Fragment, Dc = window.Vue.openBlock, SP = window.Vue.createElementBlock, yP = window.Vue.normalizeClass, sh = window.Vue.createBlock, xP = window.Vue.unref, oh = window.Vue.withCtx, CP = ["textContent"], bP = window.Vue.ref, ah = {
   __name: "ArticleSuggestionsCard",
   props: {
     cardTitle: {
@@ -23061,22 +23081,22 @@ const pP = window.Vue.toDisplayString, mP = window.Vue.createElementVNode, hP = 
   },
   emits: ["suggestion-clicked"],
   setup(e, { emit: t }) {
-    const n = e, s = yP(null), o = (l) => s.value = l, a = () => s.value = null, r = (l) => {
+    const n = e, s = bP(null), o = (l) => s.value = l, a = () => s.value = null, r = (l) => {
       var u;
       return ((u = n.selectedItem) == null ? void 0 : u.title) === l.title && !s.value || s.value === l.pageId;
     };
-    return (l, u) => (Pc(), oh(_P(Qe), { class: "sx-article-search__suggestions pa-0" }, {
-      header: ah(() => [
-        mP("h5", {
+    return (l, u) => (Dc(), sh(xP(Ze), { class: "sx-article-search__suggestions pa-0" }, {
+      header: oh(() => [
+        wP("h5", {
           class: "ma-0 px-4 pb-1 sx-article-search__suggestions-header",
-          textContent: pP(e.cardTitle)
-        }, null, 8, SP)
+          textContent: fP(e.cardTitle)
+        }, null, 8, CP)
       ]),
-      default: ah(() => [
-        (Pc(!0), wP(fP, null, hP(e.suggestions, (d) => (Pc(), oh(Zf, {
+      default: oh(() => [
+        (Dc(!0), SP(_P, null, vP(e.suggestions, (d) => (Dc(), sh(sw, {
           key: d.pageId,
           suggestion: d,
-          class: vP({
+          class: yP({
             "sx-article-search__suggestions-selected": r(d)
           }),
           onMouseenter: (i) => o(d.pageId),
@@ -23087,26 +23107,26 @@ const pP = window.Vue.toDisplayString, mP = window.Vue.createElementVNode, hP = 
       _: 1
     }));
   }
-}, xP = window.Vue.computed, CP = (e, t) => e.length === t.length && e.every((n) => t.includes(n)) && t.every((n) => e.includes(n)), rh = "other", bP = (e) => xP((t) => {
+}, kP = window.Vue.computed, $P = (e, t) => e.length === t.length && e.every((n) => t.includes(n)) && t.every((n) => e.includes(n)), ih = "other", VP = (e) => kP((t) => {
   const s = e.value.slice(0, 3), o = {
-    value: rh,
+    value: ih,
     props: {
-      icon: R0,
+      icon: j0,
       type: "icon",
       class: "px-0 py-4 me-4 ms-auto"
     }
-  }, a = (t || []).map((l) => l.value).filter((l) => l !== rh);
-  return CP(a, s) ? t : [...s.map((l) => ({
+  }, a = (t || []).map((l) => l.value).filter((l) => l !== ih);
+  return $P(a, s) ? t : [...s.map((l) => ({
     value: l,
     props: {
-      label: j.getAutonym(l),
+      label: R.getAutonym(l),
       type: "text",
       class: "px-0 py-4 mx-4"
     }
   })), o];
-}), kP = window.Vue.computed, $P = () => {
-  const { supportedSourceLanguageCodes: e } = wa(), { targetLanguageURLParameter: t } = A();
-  return { getSuggestedSourceLanguages: (s) => kP(() => {
+}), EP = window.Vue.computed, LP = () => {
+  const { supportedSourceLanguageCodes: e } = wa(), { targetLanguageURLParameter: t } = D();
+  return { getSuggestedSourceLanguages: (s) => EP(() => {
     const o = (navigator.language || "").split("-")[0], a = (mw.config.get("wgULSAcceptLanguageList") || navigator.languages || []).map((l) => l.split("-")[0]), r = [
       ...s.value,
       // User's current interface language
@@ -23120,8 +23140,8 @@ const pP = window.Vue.toDisplayString, mP = window.Vue.createElementVNode, hP = 
       (l) => l !== t.value && e.value.includes(l)
     );
   }) };
-}, EP = window.Vue.ref, VP = () => {
-  const e = EP([]), t = () => {
+}, TP = window.Vue.ref, AP = () => {
+  const e = TP([]), t = () => {
     try {
       const o = mw.storage.get("cxPreviousLanguages");
       o && e.value.push(...JSON.parse(o));
@@ -23143,118 +23163,118 @@ const pP = window.Vue.toDisplayString, mP = window.Vue.createElementVNode, hP = 
     addLanguageToHistory: s
   };
 };
-const LP = window.Vue.resolveDirective, TP = window.Vue.createElementVNode, Bc = window.Vue.withDirectives, fe = window.Vue.unref, ta = window.Vue.withCtx, Qt = window.Vue.createVNode, na = window.Vue.openBlock, lh = window.Vue.createBlock, AP = window.Vue.createCommentVNode, Fc = window.Vue.createElementBlock, DP = window.Vue.Fragment, PP = window.Vue.vShow, sa = window.Vue.withModifiers, oa = window.Vue.withKeys, BP = ["onKeydown"], FP = { class: "mb-0" }, NP = {
+const DP = window.Vue.resolveDirective, PP = window.Vue.createElementVNode, Pc = window.Vue.withDirectives, fe = window.Vue.unref, ta = window.Vue.withCtx, Jt = window.Vue.createVNode, na = window.Vue.openBlock, rh = window.Vue.createBlock, BP = window.Vue.createCommentVNode, Bc = window.Vue.createElementBlock, FP = window.Vue.Fragment, NP = window.Vue.vShow, sa = window.Vue.withModifiers, oa = window.Vue.withKeys, MP = ["onKeydown"], UP = { class: "mb-0" }, IP = {
   key: 2,
   class: "sx-article-search__empty-state"
-}, aa = window.Vue.ref, MP = window.Vue.onMounted, ia = window.Vue.computed, ch = window.Vue.watch, UP = window.Vue.inject, IP = window.Vuex.useStore, RP = window.Codex.CdxButton, zP = window.Codex.CdxIcon, OP = window.Codex.CdxSearchInput, jP = 3, HP = {
+}, aa = window.Vue.ref, RP = window.Vue.onMounted, ia = window.Vue.computed, lh = window.Vue.watch, zP = window.Vue.inject, OP = window.Vuex.useStore, HP = window.Codex.CdxButton, jP = window.Codex.CdxIcon, qP = window.Codex.CdxSearchInput, GP = 3, XP = {
   __name: "SXArticleSearch",
   setup(e) {
-    const t = aa(""), n = aa(!1), s = aa(null), o = aa(!1), { previousLanguages: a, addLanguageToHistory: r } = VP(), l = IP(), {
+    const t = aa(""), n = aa(!1), s = aa(null), o = aa(!1), { previousLanguages: a, addLanguageToHistory: r } = AP(), l = OP(), {
       sourceLanguageURLParameter: u,
       targetLanguageURLParameter: d
-    } = A(), { supportedSourceLanguageCodes: i } = wa(), { searchResultsSlice: c } = yu(u, t), { getSuggestedSourceLanguages: g } = $P(), p = g(a), m = bP(
+    } = D(), { supportedSourceLanguageCodes: i } = wa(), { searchResultsSlice: c } = yu(u, t), { getSuggestedSourceLanguages: g } = LP(), p = g(a), m = VP(
       p
-    ), h = Ze(), { fetchAllTranslations: f } = Zs();
-    MP(() => C(this, null, function* () {
-      var B;
-      f(), r(u.value), (B = s.value) == null || B.focus();
+    ), h = tt(), { fetchAllTranslations: f } = Js();
+    RP(() => x(this, null, function* () {
+      var F;
+      f(), r(u.value), (F = s.value) == null || F.focus();
     }));
     const w = () => {
       h.push({ name: "dashboard" });
-    }, v = Kh(), y = (B) => {
-      v(B, d.value), r(B);
-    }, S = (B) => {
-      if (B === "other") {
+    }, _ = ef(), C = (F) => {
+      _(F, d.value), r(F);
+    }, S = (F) => {
+      if (F === "other") {
         o.value = !0;
         return;
       }
-      y(B);
+      C(F);
     };
-    ch(
+    lh(
       u,
       () => {
-        var B;
-        l.dispatch("mediawiki/fetchNearbyPages"), (B = s.value) == null || B.focus();
+        var F;
+        l.dispatch("mediawiki/fetchNearbyPages"), (F = s.value) == null || F.focus();
       },
       { immediate: !0 }
     );
     const b = bt();
-    ch(t, () => {
+    lh(t, () => {
       n.value || (n.value = !0, b({
         event_type: "dashboard_search",
         translation_source_language: u.value,
         translation_target_language: d.value
       }));
     });
-    const V = () => {
+    const A = () => {
       o.value = !1;
-    }, x = (B) => {
-      o.value = !1, S(B);
-    }, { fetchPreviousEditsInSource: I, previousEditsInSource: L } = Fh(), P = aa([]);
-    (() => I().then(() => L.value.length > 0 ? cs.fetchPages(
+    }, y = (F) => {
+      o.value = !1, S(F);
+    }, { fetchPreviousEditsInSource: B, previousEditsInSource: V } = Rh(), E = aa([]);
+    (() => B().then(() => V.value.length > 0 ? ds.fetchPages(
       u.value,
-      L.value
-    ) : []).then((B) => {
-      B = B.slice(0, jP), B = B.sort(
-        (M, Y) => L.value.indexOf(M.title) - L.value.indexOf(Y.title)
-      ), P.value = B;
+      V.value
+    ) : []).then((F) => {
+      F = F.slice(0, GP), F = F.sort(
+        (U, Y) => V.value.indexOf(U.title) - V.value.indexOf(Y.title)
+      ), E.value = F;
     }))();
-    const se = ia(() => l.getters["mediawiki/getNearbyPages"]), ae = UP("breakpoints"), te = ia(() => ae.value.mobile), R = ya(), J = ia(
-      () => P.value && P.value.length
+    const se = ia(() => l.getters["mediawiki/getNearbyPages"]), ae = zP("breakpoints"), te = ia(() => ae.value.mobile), z = ya(), J = ia(
+      () => E.value && E.value.length
     ), oe = ia(
       () => se.value && se.value.length
-    ), { next: le, prev: ke, keyboardNavigationContainer: We, selectedItem: Pe } = Lf(t, c, P), Z = (B) => R(
-      B.title,
+    ), { next: le, prev: ke, keyboardNavigationContainer: Ke, selectedItem: Pe } = Bf(t, c, E), Z = (F) => z(
+      F.title,
       u.value,
       d.value,
-      U.value
-    ), U = ia(() => t.value ? "search_result" : J.value ? "suggestion_recent_edit" : oe.value ? "suggestion_nearby" : "");
-    return (B, M) => {
-      const Y = LP("i18n");
-      return na(), Fc("section", {
+      I.value
+    ), I = ia(() => t.value ? "search_result" : J.value ? "suggestion_recent_edit" : oe.value ? "suggestion_nearby" : "");
+    return (F, U) => {
+      const Y = DP("i18n");
+      return na(), Bc("section", {
         ref_key: "keyboardNavigationContainer",
-        ref: We,
+        ref: Ke,
         class: "sx-article-search col-12 col-tablet-9 col-desktop-7 mx-auto",
         onKeydown: [
-          M[5] || (M[5] = oa(sa((..._) => fe(le) && fe(le)(..._), ["stop", "prevent"]), ["tab"])),
-          M[6] || (M[6] = oa(sa((..._) => fe(le) && fe(le)(..._), ["stop", "prevent"]), ["down"])),
-          M[7] || (M[7] = oa(sa((..._) => fe(ke) && fe(ke)(..._), ["stop", "prevent"]), ["up"])),
+          U[5] || (U[5] = oa(sa((...v) => fe(le) && fe(le)(...v), ["stop", "prevent"]), ["tab"])),
+          U[6] || (U[6] = oa(sa((...v) => fe(le) && fe(le)(...v), ["stop", "prevent"]), ["down"])),
+          U[7] || (U[7] = oa(sa((...v) => fe(ke) && fe(ke)(...v), ["stop", "prevent"]), ["up"])),
           oa(sa(w, ["stop", "prevent"]), ["esc"]),
-          M[8] || (M[8] = oa(sa((_) => Z(fe(Pe)), ["stop", "prevent"]), ["enter"]))
+          U[8] || (U[8] = oa(sa((v) => Z(fe(Pe)), ["stop", "prevent"]), ["enter"]))
         ]
       }, [
-        Qt(fe(N), {
+        Jt(fe(M), {
           class: "sx-article-search__header ma-0 py-3",
           align: "stretch",
           justify: "start"
         }, {
           default: ta(() => [
-            Qt(fe(k), {
+            Jt(fe(k), {
               grow: "",
               class: "px-4",
               align: "center"
             }, {
               default: ta(() => [
-                Bc(TP("h5", FP, null, 512), [
+                Pc(PP("h5", UP, null, 512), [
                   [Y, void 0, "cx-sx-article-search-header"]
                 ])
               ]),
               _: 1
             }),
-            Qt(fe(k), {
+            Jt(fe(k), {
               shrink: "",
               align: "start",
               class: "pe-4"
             }, {
               default: ta(() => [
-                Qt(fe(RP), {
+                Jt(fe(HP), {
                   class: "pa-0 ms-4",
                   weight: "quiet",
-                  "aria-label": B.$i18n("sx-article-search-close-button-aria-label"),
+                  "aria-label": F.$i18n("sx-article-search-close-button-aria-label"),
                   onClick: w
                 }, {
                   default: ta(() => [
-                    Qt(fe(zP), { icon: fe(Js) }, null, 8, ["icon"])
+                    Jt(fe(jP), { icon: fe(Qs) }, null, 8, ["icon"])
                   ]),
                   _: 1
                 }, 8, ["aria-label"])
@@ -23264,92 +23284,92 @@ const LP = window.Vue.resolveDirective, TP = window.Vue.createElementVNode, Bc =
           ]),
           _: 1
         }),
-        Qt(fe(OP), {
+        Jt(fe(qP), {
           ref_key: "searchInputRef",
           ref: s,
           modelValue: t.value,
-          "onUpdate:modelValue": M[0] || (M[0] = (_) => t.value = _),
+          "onUpdate:modelValue": U[0] || (U[0] = (v) => t.value = v),
           class: "sx-article-search__search-input",
-          placeholder: B.$i18n("cx-sx-article-search-input-placeholder")
+          placeholder: F.$i18n("cx-sx-article-search-input-placeholder")
         }, null, 8, ["modelValue", "placeholder"]),
-        Qt(fe(ma), {
+        Jt(fe(ma), {
           class: "sx-article-search__language-button-group",
           items: fe(m),
           active: fe(u),
           onSelect: S
         }, null, 8, ["items", "active"]),
-        t.value ? AP("", !0) : (na(), Fc(DP, { key: 0 }, [
-          J.value ? (na(), lh(ih, {
+        t.value ? BP("", !0) : (na(), Bc(FP, { key: 0 }, [
+          J.value ? (na(), rh(ah, {
             key: 0,
-            "card-title": B.$i18n("cx-sx-article-search-recently-edited-title"),
-            suggestions: P.value,
+            "card-title": F.$i18n("cx-sx-article-search-recently-edited-title"),
+            suggestions: E.value,
             "selected-item": fe(Pe),
-            onSuggestionClicked: M[1] || (M[1] = (_) => Z(_))
-          }, null, 8, ["card-title", "suggestions", "selected-item"])) : oe.value ? (na(), lh(ih, {
+            onSuggestionClicked: U[1] || (U[1] = (v) => Z(v))
+          }, null, 8, ["card-title", "suggestions", "selected-item"])) : oe.value ? (na(), rh(ah, {
             key: 1,
-            "card-title": B.$i18n("cx-sx-article-search-nearby-title"),
+            "card-title": F.$i18n("cx-sx-article-search-nearby-title"),
             suggestions: se.value,
-            onSuggestionClicked: M[2] || (M[2] = (_) => Z(_))
-          }, null, 8, ["card-title", "suggestions"])) : Bc((na(), Fc("p", NP, null, 512)), [
+            onSuggestionClicked: U[2] || (U[2] = (v) => Z(v))
+          }, null, 8, ["card-title", "suggestions"])) : Pc((na(), Bc("p", IP, null, 512)), [
             [Y, void 0, "cx-sx-article-search-no-suggestions-message"]
           ])
         ], 64)),
-        Bc(Qt(gP, {
+        Pc(Jt(hP, {
           "search-input": t.value,
           "selected-item": fe(Pe),
-          onSuggestionClicked: M[3] || (M[3] = (_) => Z(_))
+          onSuggestionClicked: U[3] || (U[3] = (v) => Z(v))
         }, null, 8, ["search-input", "selected-item"]), [
-          [PP, !!t.value]
+          [NP, !!t.value]
         ]),
-        Qt(fe(Ct), {
+        Jt(fe(Ct), {
           value: o.value,
-          "onUpdate:value": M[4] || (M[4] = (_) => o.value = _),
+          "onUpdate:value": U[4] || (U[4] = (v) => o.value = v),
           class: "sx-article-search-language-selector",
           fullscreen: te.value,
           header: te.value,
-          title: B.$i18n("sx-article-search-language-selector-dialog-title"),
-          onClose: V
+          title: F.$i18n("sx-article-search-language-selector-dialog-title"),
+          onClose: A
         }, {
           default: ta(() => [
-            Qt(fe(Tf), {
+            Jt(fe(Ff), {
               class: "sx-article-search-language-selector__widget col-12",
               languages: fe(i),
               suggestions: fe(p),
-              placeholder: B.$i18n("cx-sx-language-selector-placeholder"),
-              onSelect: x,
-              onClose: V
+              placeholder: F.$i18n("cx-sx-language-selector-placeholder"),
+              onSelect: y,
+              onClose: A
             }, null, 8, ["languages", "suggestions", "placeholder"])
           ]),
           _: 1
         }, 8, ["value", "fullscreen", "header", "title"])
-      ], 40, BP);
+      ], 40, MP);
     };
   }
 };
-const qP = {
+const WP = {
   name: "SxArticleSearchView",
   components: {
-    SxArticleSearch: HP
+    SxArticleSearch: XP
   },
   computed: {
     classes: (e) => ({ fullscreen: e.$mwui.breakpoint.mobile })
   }
-}, GP = window.Vue.resolveComponent, XP = window.Vue.createVNode, WP = window.Vue.normalizeClass, KP = window.Vue.openBlock, YP = window.Vue.createElementBlock;
-function QP(e, t, n, s, o, a) {
-  const r = GP("sx-article-search");
-  return KP(), YP("main", {
-    class: WP(["sx-article-search-view", a.classes])
+}, KP = window.Vue.resolveComponent, YP = window.Vue.createVNode, QP = window.Vue.normalizeClass, JP = window.Vue.openBlock, ZP = window.Vue.createElementBlock;
+function eB(e, t, n, s, o, a) {
+  const r = KP("sx-article-search");
+  return JP(), ZP("main", {
+    class: QP(["sx-article-search-view", a.classes])
   }, [
-    XP(r)
+    YP(r)
   ], 2);
 }
-const JP = /* @__PURE__ */ de(qP, [["render", QP]]), ZP = () => {
-  const e = ya(), t = ku(), { logDashboardOpenEvent: n } = Nf(), {
+const tB = /* @__PURE__ */ ge(WP, [["render", eB]]), nB = () => {
+  const e = ya(), t = $u(), { logDashboardOpenEvent: n } = If(), {
     sourceLanguageURLParameter: s,
     targetLanguageURLParameter: o,
     pageURLParameter: a
-  } = A();
-  return () => C(void 0, null, function* () {
+  } = D();
+  return () => x(void 0, null, function* () {
     return t(s.value, a.value).then(
       () => n()
     ), e(
@@ -23361,7 +23381,7 @@ const JP = /* @__PURE__ */ de(qP, [["render", QP]]), ZP = () => {
       !1
     );
   });
-}, eB = window.Vuex.useStore, tB = [
+}, sB = window.Vuex.useStore, oB = [
   {
     path: "",
     name: "dashboard",
@@ -23371,65 +23391,65 @@ const JP = /* @__PURE__ */ de(qP, [["render", QP]]), ZP = () => {
   {
     path: "/sx/article-search",
     name: "sx-article-search",
-    component: JP,
+    component: tB,
     meta: { workflowStep: 0.5 }
   },
   {
     path: "/sx",
     name: "sx-translation-confirmer",
-    component: s4,
+    component: i4,
     meta: { workflowStep: 1 },
     beforeEnter: () => {
       const {
         sourceLanguageURLParameter: e,
         targetLanguageURLParameter: t,
         pageURLParameter: n
-      } = A();
+      } = D();
       return !!(e.value && t.value && n.value);
     }
   },
   {
     path: "/sx/section-selector",
     name: "sx-section-selector",
-    component: S3,
+    component: C3,
     meta: { workflowStep: 2 }
   },
   {
     path: "/sx/content-comparator",
     name: "sx-content-comparator",
-    component: P5,
+    component: N5,
     meta: { workflowStep: 3 }
   },
   {
     path: "/sx/quick-tutorial",
     name: "sx-quick-tutorial",
-    component: ED,
+    component: TD,
     meta: { workflowStep: 3.5 }
   },
   {
     path: "/sx/sentence-selector",
     name: "sx-sentence-selector",
-    component: YA,
+    component: ZA,
     meta: { workflowStep: 4 },
     beforeEnter: () => {
       const {
         sourceLanguageURLParameter: e,
         targetLanguageURLParameter: t,
         pageURLParameter: n
-      } = A();
+      } = D();
       return !!(e.value && t.value && n.value);
     }
   },
   {
     path: "/sx/sx-editor",
     name: "sx-editor",
-    component: g6,
+    component: h6,
     meta: { workflowStep: 4.5 }
   },
   {
     path: "/sx/sx-publisher",
     name: "sx-publisher",
-    component: Q9,
+    component: eP,
     meta: { workflowStep: 5 }
   },
   {
@@ -23438,46 +23458,46 @@ const JP = /* @__PURE__ */ de(qP, [["render", QP]]), ZP = () => {
     component: op,
     meta: { workflowStep: 0 }
   }
-], Lu = nb({
-  history: tC(),
-  routes: tB
-}), Nc = (e, t, n) => {
+], Tu = ib({
+  history: aC(),
+  routes: oB
+}), Fc = (e, t, n) => {
   e === t ? n() : n({ name: t });
-}, nB = (e, t, n) => {
+}, aB = (e, t, n) => {
   let s = "cx_" + btoa(
     encodeURIComponent([n, e, t].join("_"))
   );
   return s = s.replace(/[()<>@,;\\[\]?={}]/g, ""), mw.cookie.get(s, "");
 };
-Lu.beforeEach((e, t, n) => {
-  const s = eB();
-  if (mw.user.isAnon() || mh.assertUser().catch((i) => {
+Tu.beforeEach((e, t, n) => {
+  const s = sB();
+  if (mw.user.isAnon() || ph.assertUser().catch((i) => {
     i instanceof Xs && s.commit("application/setIsLoginDialogOn", !0);
   }), s.commit("application/setPreviousRoute", t.name), t.name) {
     n();
     return;
   }
-  const o = ZP(), {
+  const o = nB(), {
     sourceLanguageURLParameter: a,
     targetLanguageURLParameter: r,
     pageURLParameter: l,
     clearTranslationURLParameters: u
-  } = A();
+  } = D();
   if (!!(a.value && r.value && l.value)) {
-    if (nB(
+    if (aB(
       a.value,
       r.value,
       l.value
     )) {
       const c = e.name === "sx-quick-tutorial" ? "sx-quick-tutorial" : "sx-sentence-selector";
-      Nc(e.name, c, n);
+      Fc(e.name, c, n);
     } else
-      e.name === "sx-translation-confirmer" && o(), Nc(e.name, "sx-translation-confirmer", n);
+      e.name === "sx-translation-confirmer" && o(), Fc(e.name, "sx-translation-confirmer", n);
     return;
   }
-  u(), Nc(e.name, "dashboard", n);
+  u(), Fc(e.name, "dashboard", n);
 });
-Lu.afterEach((e, t) => {
+Tu.afterEach((e, t) => {
   if (!t.name)
     return;
   const n = e.meta.workflowStep, s = t.meta.workflowStep;
@@ -23488,23 +23508,23 @@ Lu.afterEach((e, t) => {
  *
  * Based on mediawiki/resources/src/vue/errorLogger.js
  */
-const sB = {
+const iB = {
   install: function(e) {
     e.config.errorHandler = function(t) {
       mw.errorLogger.logError(t, "error.contenttranslation"), mw.log.error(t);
     };
   }
-}, oB = window.Vue.createApp, aB = mw.config.get("wgUserLanguage"), iB = "en", rB = mw.messages.values || {}, ds = oB(qy);
-ds.use(Lu);
-ds.use(Cx);
-ds.use(cv);
-ds.use(lv);
-const lB = Rv({
-  locale: aB,
-  finalFallback: iB,
-  messages: rB,
+}, rB = window.Vue.createApp, lB = mw.config.get("wgUserLanguage"), cB = "en", uB = mw.messages.values || {}, ps = rB(Ky);
+ps.use(Tu);
+ps.use(Vx);
+ps.use(p1);
+ps.use(g1);
+const dB = j1({
+  locale: lB,
+  finalFallback: cB,
+  messages: uB,
   wikilinks: !0
 });
-ds.use(lB);
-ds.use(sB);
-ds.mount("#contenttranslation");
+ps.use(dB);
+ps.use(iB);
+ps.mount("#contenttranslation");
