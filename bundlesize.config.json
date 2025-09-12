@@ -13,6 +13,8 @@
 	},
 	{
 		"resourceModule": "mw.cx.SiteMapper",
+		"@note": "T404463: Should be refactored to not use mediawiki.ForeignApi on page load.",
+		"ignoreDependencies": true,
 		"maxSize": "1.8 kB"
 	}
 ]
