@@ -699,7 +699,7 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
  * @return {boolean} True if unmodified MT should be saved for section.
  */
 mw.cx.TranslationController.prototype.shouldUnmodifiedMTBeSavedForSection = function ( sectionState ) {
-	return !sectionState.getUnmodifiedMT().saved && sectionState.getCurrentMTProvider() !== 'source';
+	return sectionState.getUnmodifiedMT().saved === false && sectionState.getCurrentMTProvider() !== 'source';
 };
 
 /**
