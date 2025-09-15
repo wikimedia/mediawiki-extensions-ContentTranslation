@@ -40,6 +40,8 @@
 	"cx-publish-button-publishing": "Publiserer …",
 	"cx-publish-permission-warning": "Dette fellesskapet har bestemt seg for å begrense publisering til erfarne bidragsytere",
 	"cx-publish-permission-warning-link-label": "Lær mer",
+	"cx-publish-permission-error": "På denne wikien er det kun erfarne bidragsytere som kan publisere oversettelser. Du må gjøre flere redigeringer før du kan gjøre det, men du kan lagre den som et utkast, eller prøve på et annet språk.",
+	"cx-publish-permission-error-title": "Publisering kun tillatt for erfarne bidragsytere",
 	"cx-lost-session": "Økten din er utløpt.",
 	"cx-lost-session-draft": "Økten din har utløpt. Redigeringene dine kan ikke bli lagret hvis du ikke logger inn på nytt i et annet vindu.",
 	"cx-lost-session-publish": "Økten din har utløpt. Du kan ikke publisere oversettelsen før du logger inn igjen i et annet vindu.",

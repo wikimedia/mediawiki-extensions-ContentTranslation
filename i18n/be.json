@@ -327,7 +327,7 @@
 	"cx-sx-publisher-mt-abuse-error-title": "Ваш пераклад не можа быць апублікаваны: ён змяшчае $1% тэксту без зменаў.",
 	"cx-sx-publisher-mt-abuse-message-body": "Машынны пераклад падаецца толькі як адпраўны пункт. Вы можаце апублікаваць, але пераканайцеся, што ваш пераклад натуральна чытаецца на вашай мове.",
 	"cx-sx-publisher-mt-abuse-error-body": "Машынны пераклад падаецца толькі як адпраўны пункт. Пераканайцеся, што ваш пераклад натуральна чытаецца на вашай мове.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 раздзел|$1 раздзелы|$1 раздзелаў|0=Няма раздзелаў}}",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 раздзел|$1 раздзелы|$1 раздзелаў|0=Няма раздзелаў}} для перакладу",
 	"cx-sx-translation-suggestion-quick": "Хуткі пераклад",
 	"cx-sx-article-search-input-placeholder": "Пошук старонкі для перакладу",
 	"cx-sx-article-search-recently-edited-title": "Нядаўна праўленае вамі",

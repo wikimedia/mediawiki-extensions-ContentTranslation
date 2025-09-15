@@ -287,7 +287,7 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "ستعمل ترجمتك على توسيع القسم الحالي. تجاهل هذا إذا كانت الأقسام غير مرتبطة.",
 	"cx-sx-translation-confirmer-title": "ترجمة جديدة",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 زيارة هذا|$1 زيارات هذا|0=لا زيارات هذا}} الأسبوع",
-	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL\n:$1|$1 ساعة|$1 ساعات|0={{PLURAL:$2|$2 دقيقة|$2 دقائق}}}} لترجمة القسم الرئيسي",
+	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 ساعة|$1 ساعات|0={{PLURAL:$2|$2 دقيقة|$2 دقائق}}}} لترجمة القسم الرئيسي",
 	"cx-sx-translation-confirmer-translation-time-single-section": "{{PLURAL:$1|$1 ساعة|$1 ساعات|0={{PLURAL:$2|$2 دقيقة|$2 دقائق}}}} لترجمة هذا القسم",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 ساعة|$1 ساعات|0={{PLURAL:$2|$2 دقيقة|$2 دقائق}}}} للترجمة",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 ساعة|$1 ساعات|0={{PLURAL:$2|$2 دقيقة|$2 دقائق}}}} لترجمة {{PLURAL:$3|$3 قسم|$3 أقسام}}",
