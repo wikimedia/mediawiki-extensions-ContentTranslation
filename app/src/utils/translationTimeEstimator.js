@@ -1,8 +1,8 @@
 /**
- * Converts byte size to estimated reading time in minutes.
+ * Converts byte size to estimated translation time in minutes.
  *
  * @param {number} byteSize - The size of the text in bytes.
- * @return {number} - The estimated reading time in minutes.
+ * @return {number} - The estimated translation time in minutes.
  */
 const bytesToMinutes = (byteSize) => {
   const averageWordLengthInBytes = 5;
