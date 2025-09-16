@@ -3,6 +3,7 @@ const useState = require( './useState.js' );
 const useApi = require( './useApi.js' );
 const useCXServerToken = require( './useCXServerToken.js' );
 const { ref } = require( 'vue' );
+const getAutonym = $.uls.data.getAutonym;
 
 const useTargetTitle = () => {
 	const { sourceLanguage, targetLanguage } = useState();
@@ -28,8 +29,9 @@ const useTargetTitle = () => {
 			).then( ( suggestedTargetTitle ) => {
 				targetTitle.value = suggestedTargetTitle;
 			} ).catch( ( error ) => {
+				const sourceLanguageAutonym = getAutonym( sourceLanguage.value );
+				targetTitle.value = targetTitle.value = `${ pageResult.title } (${ sourceLanguageAutonym })`;
 				mw.log.error( error.message );
-				targetTitle.value = '';
 			} );
 		}
 	};
