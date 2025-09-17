@@ -1036,12 +1036,12 @@ mw.cx.TranslationController.prototype.logTranslationControllerEvent = function (
 
 	if ( this.translation.targetRevisionId ) {
 		// eslint-disable-next-line camelcase
-		event.published_revision_id = this.translation.targetRevisionId;
+		event.published_revision_id = parseInt( this.translation.targetRevisionId );
 	}
 
 	if ( this.translation.targetPageId ) {
 		// eslint-disable-next-line camelcase
-		event.published_page_id = this.translation.targetPageId;
+		event.published_page_id = parseInt( this.translation.targetPageId );
 	}
 
 	if ( this.translation.isSectionTranslation() ) {
