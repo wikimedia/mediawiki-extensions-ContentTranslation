@@ -547,6 +547,7 @@
 				"vuex",
 				"mediawiki.user",
 				"mw.cx.SiteMapper",
+				"mw.cx.eventlogging",
 				"mw.cx.util",
 				"ext.cx.articlefilters"
 			],
@@ -859,6 +860,12 @@
 			"dependencies": [
 				"ext.cx.model",
 				"mediawiki.user"
+			]
+		},
+		"mw.cx.eventlogging": {
+			"packageFiles": [
+				"eventlogging/mw.cx.eventlogging.js",
+				"eventlogging/mw.cx.stats.eventlogging.js"
 			]
 		},
 		"mw.cx.SiteMapper": {
@@ -1405,7 +1412,6 @@
 				"mw.cx.TranslationTracker.js",
 				"mw.cx.UserPermissionChecker.js",
 				"dm/mw.cx.dm.SectionState.js",
-				"eventlogging/ext.cx.eventlogging.translation.js",
 				"dm/mw.cx.dm.WikiPage.js",
 				"mw.cx.init.js"
 			],
@@ -1523,6 +1529,7 @@
 				"mw.cx.SiteMapper",
 				"mw.cx.dm",
 				"mw.cx.dm.Translation",
+				"mw.cx.eventlogging",
 				"mw.cx.tools.TranslationTool",
 				"mw.cx.ui",
 				"mw.cx.ui.Infobar",
