@@ -22,6 +22,10 @@ const contentTranslationStatsEventLogging = {
 
 	recommendationFailed: () => {
 		mw.track( 'stats.mediawiki_cx_recommendation_fail_total', 1 );
+	},
+
+	articleSearchFailed: () => {
+		mw.track( 'stats.mediawiki_cx_articlesearch_fail_total', 1 );
 	}
 };
 

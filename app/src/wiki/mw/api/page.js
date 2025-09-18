@@ -332,7 +332,11 @@ const searchPagesByTitlePrefix = (query, language) => {
           (page) => new Page(Object.assign(page, { pagelanguage: language }))
         )
     )
-    .catch((error) => []);
+    .catch((error) => {
+      mw.cx.eventlogging.stats.articleSearchFailed();
+
+      return [];
+    });
 };
 
 export default {
