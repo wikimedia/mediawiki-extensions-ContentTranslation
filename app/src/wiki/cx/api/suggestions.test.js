@@ -15,6 +15,13 @@ global.mw = {
   log: {
     error: jest.fn(),
   },
+  cx: {
+    eventlogging: {
+      stats: {
+        recommendationFailed: () => {},
+      },
+    },
+  },
 };
 
 global.fetch = jest.fn();

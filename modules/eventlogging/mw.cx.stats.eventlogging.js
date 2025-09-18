@@ -18,6 +18,10 @@ const contentTranslationStatsEventLogging = {
 	publishFailed: () => {
 		mw.track( 'counter.MediaWiki.cx.publish.fail', 1 );
 		mw.track( 'stats.mediawiki_cx_publish_fail_total', 1 );
+	},
+
+	recommendationFailed: () => {
+		mw.track( 'stats.mediawiki_cx_recommendation_fail_total', 1 );
 	}
 };
 
