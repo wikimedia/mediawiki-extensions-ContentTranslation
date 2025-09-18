@@ -268,21 +268,6 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 		return;
 	}
 
-	// Event logging
-	mw.hook( 'mw.cx.translation.publish.error' ).fire(
-		this.sourceLanguage,
-		this.targetLanguage,
-		this.sourceTitle,
-		this.getTargetTitle(),
-		data
-	);
-
-	const editError = data.error;
-	if ( editError ) {
-		this.handleEditError( editError );
-		return;
-	}
-
 	const editResult = data.edit;
 	// Handle captcha
 	// Captcha "errors" usually aren't errors. We simply don't know about them ahead of time,
@@ -295,6 +280,21 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 		editResult.captcha.type === 'question'
 	) ) {
 		this.loadCaptchaDialog().then( this.showErrorCaptcha.bind( this, editResult ) );
+		return;
+	}
+
+	// Event logging
+	mw.hook( 'mw.cx.translation.publish.error' ).fire(
+		this.sourceLanguage,
+		this.targetLanguage,
+		this.sourceTitle,
+		this.getTargetTitle(),
+		data
+	);
+
+	const editError = data.error;
+	if ( editError ) {
+		this.handleEditError( editError );
 		return;
 	}
 
