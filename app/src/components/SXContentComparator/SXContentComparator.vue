@@ -5,7 +5,7 @@ import SxContentComparatorHeader from "./SXContentComparatorHeader.vue";
 import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder.vue";
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, inject } from "vue";
 import { useRouter } from "vue-router";
 import useTargetArticlePreview from "./useTargetArticlePreview";
 import usePageContentFetch from "@/composables/usePageContentFetch";
@@ -58,6 +58,11 @@ watch(
 );
 
 watch(isCurrentSectionPresent, resetPublishTarget, { immediate: true });
+
+const breakpoints = inject("breakpoints");
+const isMobile = computed(() => breakpoints.value.mobile);
+
+mw.cx.eventlogging.stats.sectionCompareAccess(isMobile.value);
 </script>
 
 <template>
