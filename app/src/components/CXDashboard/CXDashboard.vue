@@ -5,7 +5,7 @@ import CxFavoriteList from "./CXFavoriteList.vue";
 import CxHelpPanel from "./CXHelpPanel.vue";
 import CxStatsPanel from "./CXStatsPanel.vue";
 import MwBottomNavigation from "./MWBottomNavigation.vue";
-import { computed } from "vue";
+import { computed, inject } from "vue";
 import { MwButtonGroup, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import useDashboardInitialization from "./useDashboardInitialization";
 import { useRouter } from "vue-router";
@@ -42,6 +42,11 @@ const listSelect = (event) => {
   logDashboardTabSelectEvent(event);
   activeTab.value = event;
 };
+
+const breakpoints = inject("breakpoints");
+const isMobile = computed(() => breakpoints.value.mobile);
+
+mw.cx.eventlogging.stats.dashboardAccess(isMobile.value);
 </script>
 
 <template>
