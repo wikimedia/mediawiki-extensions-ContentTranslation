@@ -334,7 +334,11 @@ mw.cx.tools.IssueTrackingTool.prototype.navigateIssues = function ( increment ) 
 mw.cx.tools.IssueTrackingTool.prototype.openCurrentPanel = function () {
 	this.issuesLayout.setTabPanel( this.currentIssue - 1 );
 	this.numberOfIssuesLabel.setLabel(
-		mw.msg( 'cx-tools-linter-issues-count', this.currentIssue, this.numberOfIssues )
+		mw.msg(
+			'cx-tools-linter-issues-count',
+			mw.language.convertNumber( this.currentIssue ),
+			mw.language.convertNumber( this.numberOfIssues )
+		)
 	);
 
 	this.previousButton.setDisabled( false );
@@ -526,7 +530,11 @@ mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues 
 	issues = allIssues.map( ( element, index ) => new mw.cx.ui.TranslationIssueWidget( index, element.issue ) );
 	this.issuesLayout.clearTabPanels().addTabPanels( issues );
 	this.numberOfIssuesLabel.setLabel(
-		mw.msg( 'cx-tools-linter-issues-count', this.currentIssue, this.numberOfIssues )
+		mw.msg(
+			'cx-tools-linter-issues-count',
+			mw.language.convertNumber( this.currentIssue ),
+			mw.language.convertNumber( this.numberOfIssues )
+		)
 	);
 	this.init();
 };
