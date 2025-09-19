@@ -42,6 +42,14 @@ const contentTranslationStatsEventLogging = {
 		} else {
 			mw.track( 'stats.mediawiki_cx_access_articlesearch_total', 1 );
 		}
+	},
+
+	selectSectionAccess: ( isMobile ) => {
+		if ( isMobile ) {
+			mw.track( 'stats.mediawiki_cx_access_mobile_selectsection_total', 1 );
+		} else {
+			mw.track( 'stats.mediawiki_cx_access_selectsection_total', 1 );
+		}
 	}
 };
 

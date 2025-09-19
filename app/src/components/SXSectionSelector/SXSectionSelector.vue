@@ -68,6 +68,8 @@ const selectSection = (sourceSectionTitle) => {
     router.push({ name: "sx-content-comparator" });
   }
 };
+
+mw.cx.eventlogging.stats.selectSectionAccess(!isDesktop.value);
 </script>
 
 <template>
