@@ -1,5 +1,5 @@
 import pageApi from "@/wiki/mw/api/page";
-import { computed, ref, watch } from "vue";
+import { computed, inject, ref, watch } from "vue";
 import debounce from "@/utils/debounce";
 
 /**
@@ -21,6 +21,9 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
     searchResults.value.slice(0, maxSearchResults)
   );
 
+  const breakpoints = inject("breakpoints");
+  const isMobile = computed(() => breakpoints.value.mobile);
+
   const debouncedSearchForArticles = debounce(async () => {
     if (!searchInput.value) {
       searchResultsLoading.value = false;
@@ -36,6 +39,7 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
       );
     } finally {
       searchResultsLoading.value = false;
+      mw.cx.eventlogging.stats.articleSearchAccess(isMobile);
     }
   }, 500);
 

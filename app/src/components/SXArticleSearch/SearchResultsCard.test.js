@@ -9,6 +9,16 @@ debounce.mockImplementation((fn) => fn);
 
 const i18n = createI18n();
 
+global.mw = {
+  cx: {
+    eventlogging: {
+      stats: {
+        articleSearchAccess: () => {},
+      },
+    },
+  },
+};
+
 const mockResults = [
   new Page({
     thumbnail: { source: "/thumbnail1.jpg" },
