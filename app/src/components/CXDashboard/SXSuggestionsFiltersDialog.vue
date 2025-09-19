@@ -77,6 +77,9 @@ const tabs = computed(() => [
   },
 ]);
 const switchCurrentTab = (tabName) => (searchScope.value = tabName);
+const activeTab = computed(() =>
+  tabs.value.find((t) => t.name === searchScope.value)
+);
 
 const getSubFilterConfig = (filter, tabName) => {
   // Only regions on 'all' tab with >7 subfilters get limited
@@ -313,6 +316,20 @@ const addTabResultMenu = (menuComponent, tabName) => {
           ></custom-info-chip>
         </div>
       </div>
+      <div class="px-4 pb-4 pt-7">
+        <cdx-text-input
+          v-model="searchInput"
+          role="combobox"
+          :aria-activedescendant="activeResultDescendant"
+          aria-controls="sx-suggestions-filters__search-results__menu"
+          aria-autocomplete="none"
+          :placeholder="activeTab.searchPlaceholder"
+          input-type="search"
+          :start-icon="cdxIconSearch"
+          :clearable="!!searchInput"
+          @keydown="onKeydown"
+        />
+      </div>
       <cdx-tabs
         v-model:active="searchScope"
         class="sx-suggestions-filters__tabs"
@@ -324,20 +341,6 @@ const addTabResultMenu = (menuComponent, tabName) => {
           :name="tab.name"
           :label="tab.label"
         >
-          <div class="px-4 pb-4 pt-7">
-            <cdx-text-input
-              v-model="searchInput"
-              role="combobox"
-              :aria-activedescendant="activeResultDescendant"
-              aria-controls="sx-suggestions-filters__search-results__menu"
-              aria-autocomplete="none"
-              :placeholder="tab.searchPlaceholder"
-              input-type="search"
-              :start-icon="cdxIconSearch"
-              :clearable="!!searchInput"
-              @keydown="onKeydown"
-            />
-          </div>
           <div
             v-if="!searchInput"
             class="sx-suggestions-filters__filter-options pt-3 px-4"
