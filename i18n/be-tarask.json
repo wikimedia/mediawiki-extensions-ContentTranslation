@@ -128,6 +128,8 @@
 	"cx-tools-linter-page-exists-message": "Старонка з назваю $1 ужо існуе. Апублікаваўшы свой пераклад, вы перапішаце існы зьмест\n\nПераканайцеся, што замяняць гэтую старонку можна, альбо пераймянуйце ўласны пераклад.",
 	"cx-tools-linter-cannot-publish-title": "Публікацыя дазволеная толькі дасьведчаным карыстальнікам",
 	"cx-sx-view-translation-anchor": "Паказаць",
+	"cx-sx-content-comparator-present-section-placeholder-title": "Ваш пераклад будзе дададзены сюды",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Ваш пераклад будзе <strong>дададзены ў ваш чарнавік.</strong>",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Адсутнічае ў <span>$1</span> ды іншых",
 	"cx-uls-relevant-languages-panel-header": "Перакласьці гэтую старонку",
 	"cx-uls-relevant-languages-panel-message": "Гэтая старонка адсутнічае некаторымі мовамі, якія вы можаце ведаць. Перакладзіце яе за хвіліны!"
