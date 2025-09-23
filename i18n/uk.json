@@ -340,7 +340,7 @@
 	"cx-sx-publisher-mt-abuse-error-title": "Ваш переклад не можна публікувати: він містить $1% незміненого тексту",
 	"cx-sx-publisher-mt-abuse-message-body": "Машинний переклад — це лише відправна точка. Ви можете опублікувати й так, але переконайтеся, що переклад звучить природно вашою мовою.",
 	"cx-sx-publisher-mt-abuse-error-body": "Машинний переклад — це лише відправна точка. Переконайтеся, що переклад звучить природно вашою мовою.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 розділ|$1 розділи|$1 розділів|0=Немає розділів}}",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 розділ|$1 розділи|$1 розділів|0=Немає розділів}} для перекладу",
 	"cx-sx-translation-suggestion-quick": "Швидкий переклад",
 	"cx-sx-article-search-input-placeholder": "Знайдіть сторінку для перекладу",
 	"cx-sx-article-search-recently-edited-title": "Нещодавно відредаговано вами",
