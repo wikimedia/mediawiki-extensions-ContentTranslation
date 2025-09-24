@@ -472,7 +472,7 @@
 	"cx-sx-block-template-mapping-status-explanation-no-mapping": "په دواړو ژبو کې د کينډۍ جوړښت ډېر توپير لري او هيڅ اومتوکي په خپلکاري ډول نشي لېږدول کېدای.",
 	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "په دواړو ژبو کې د کينډۍ جوړښت سره ورته دی او ځينې اومتوکي په خپلکاري ډول لېږدول کېدای شي.",
 	"cx-sx-block-template-mapping-status-explanation-full-mapping": "په دواړو ژبو کې د کينډۍ جوړښت سره ورته دی او ټول اومتوکي په خپلکاري ډول لېږدول کېدای شي.",
-	"cx-sx-block-template-no-equivalent-template-suggestion": "که تاسو په $1 کې سره ورته کينډۍ پېژنئ؛ نو تاسو کولی شئ چې هغه په ويکيډاټا کې سره وتړئ؛ ترڅو توکي يې په اسانۍ د موندلو پرېښولی ترلاسه کړي",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "که تاسو په $1 کې سره ورته کينډۍ پېژنئ؛ نو تاسو کولی شئ چې هغه په ويکي‌اومتوک کې سره وتړئ؛ ترڅو توکي يې په اسانۍ د موندلو پرېښولی ترلاسه کړي",
 	"cx-sx-block-template-none-mapped-param-text": "له $1 پرته نور هيڅ پاراميترونه له ارې کينډۍ نه دي ورگډ شوي",
 	"cx-sx-block-template-mapped-params-text": "د $1 څخه پرته {{PLURAL:$2|$2 پاراميتر|$2 پاراميترونه}} هم له ارې کينډۍ ورگډ شوي",
 	"cx-sx-block-template-no-source-params-text": "اره کينډۍ د لېږدولو لپاره هيڅ پاراميتر نه لري",
