@@ -545,6 +545,7 @@
 			"dependencies": [
 				"vue",
 				"vuex",
+				"mediawiki.language",
 				"mediawiki.user",
 				"mw.cx.SiteMapper",
 				"mw.cx.eventlogging",

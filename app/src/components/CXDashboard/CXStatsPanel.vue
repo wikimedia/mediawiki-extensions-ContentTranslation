@@ -10,8 +10,14 @@ const props = defineProps({
 });
 
 const thisMonthKey = new Date().toISOString().slice(0, 7) + "-01";
-const total = computed(() => props.stats?.[thisMonthKey]?.count || 0);
-const thisMonthStats = computed(() => props.stats?.[thisMonthKey]?.delta || 0);
+const total = computed(() => {
+  const number = props.stats?.[thisMonthKey]?.count || 0;
+  return mw.language.convertNumber(number);
+});
+const thisMonthStats = computed(() => {
+  const number = props.stats?.[thisMonthKey]?.delta || 0;
+  return mw.language.convertNumber(number);
+});
 
 const canvasRef = ref(null);
 
