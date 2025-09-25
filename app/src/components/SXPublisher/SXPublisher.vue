@@ -112,7 +112,10 @@ const publishTranslation = async (captchaAnswer = null) => {
   }, 1000);
 };
 
-onMounted(() => initializePublishFeedbackMessages());
+onMounted(() => {
+  initializePublishFeedbackMessages();
+  mw.cx.eventlogging.stats.publishStepAccess();
+});
 
 const editTranslation = useEditTranslation();
 const publishOptionsOn = ref(false);

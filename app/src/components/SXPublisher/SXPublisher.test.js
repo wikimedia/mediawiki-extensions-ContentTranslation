@@ -79,6 +79,16 @@ jest.mock("@/utils/mediawikiHelper", () => ({
 
 const i18n = createI18n();
 
+global.mw = {
+  cx: {
+    eventlogging: {
+      stats: {
+        publishStepAccess: () => {},
+      },
+    },
+  },
+};
+
 const options = {
   global: {
     plugins: [i18n],
