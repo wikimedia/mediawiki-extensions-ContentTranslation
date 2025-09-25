@@ -64,6 +64,14 @@ const contentTranslationStatsEventLogging = {
 		}
 	},
 
+	editingStepAccess: ( isMobile ) => {
+		if ( isMobile ) {
+			mw.track( 'stats.mediawiki_cx_access_mobile_editor_total', 1 );
+		} else {
+			mw.track( 'stats.mediawiki_cx_access_editor_total', 1 );
+		}
+	},
+
 	publishStepAccess: () => {
 		mw.track( 'stats.mediawiki_cx_access_mobile_publish_total', 1 );
 	}

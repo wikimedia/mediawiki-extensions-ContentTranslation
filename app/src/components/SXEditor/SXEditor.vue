@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, inject } from "vue";
 import VisualEditor from "@/plugins/ve/components/VisualEditor.vue";
 import { MwSpinner, MwRow } from "@/lib/mediawiki.ui";
 import { getDir } from "@wikimedia/language-data";
@@ -78,6 +78,8 @@ const onEditCompleted = async (translation) => {
   showFeedback.value = false;
   closeEditor();
 };
+
+mw.cx.eventlogging.stats.editingStepAccess(true);
 </script>
 
 <template>

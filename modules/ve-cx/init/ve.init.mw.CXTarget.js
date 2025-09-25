@@ -89,6 +89,9 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 		surfaceReady: 'onSurfaceReady'
 	} );
 	mw.hook( 'mw.cx.draft.restored' ).add( this.onTranslationRestore.bind( this ) );
+
+	// send an event log when user access the desktop editor
+	mw.cx.eventlogging.stats.editingStepAccess( false );
 };
 
 /* Inheritance */
