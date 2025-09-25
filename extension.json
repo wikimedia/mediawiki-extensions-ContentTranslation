@@ -270,12 +270,11 @@
 				"ContentTranslation.TranslationCorporaManager"
 			]
 		},
-		"contenttranslationsuggestions": {
-			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationSuggestions",
+		"contenttranslationfavoritesuggestions": {
+			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationFavoriteSuggestions",
 			"services": [
 				"ContentTranslation.UserService",
-				"ContentTranslation.TranslationStore",
-				"ContentTranslation.SuggestionListManager"
+				"ContentTranslation.FavoriteSuggestionStore"
 			]
 		},
 		"cxpublishedtranslations": {

@@ -15,7 +15,6 @@ class Suggestion {
 	protected $targetLanguage;
 
 	public function __construct( array $params ) {
-		$this->listId = (int)$params['listId'];
 		$this->title = (string)$params['title'];
 		$this->sourceLanguage = (string)$params['sourceLanguage'];
 		$this->targetLanguage = (string)$params['targetLanguage'];
@@ -27,20 +26,12 @@ class Suggestion {
 	 */
 	public static function newFromRow( $row ) {
 		$params = [
-			'listId' => $row->cxs_list_id,
 			'title' => $row->cxs_title,
 			'sourceLanguage' => $row->cxs_source_language,
 			'targetLanguage' => $row->cxs_target_language,
 		];
 
 		return new self( $params );
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getListId() {
-		return $this->listId;
 	}
 
 	/**

@@ -694,21 +694,27 @@ const fetchFavorites = () => {
   const params = {
     assert: "user",
     action: "query",
-    list: "contenttranslationsuggestions",
+    list: "contenttranslationfavoritesuggestions",
   };
 
   const api = new mw.Api();
 
-  return Promise.resolve(api.postWithToken("csrf", params))
-    .then((response) => {
-      const lists = response.query.contenttranslationsuggestions.lists || {};
-      const suggestions = Object.values(lists)?.[0]?.suggestions || [];
+  return new Promise((resolve) => {
+    const jQueryPromise = api.get(params);
 
-      return suggestions.map((favorite) => new FavoriteSuggestion(favorite));
-    })
-    .catch((error) => {
-      mw.log.error("Error while fetching favorite suggestions", error);
-    });
+    jQueryPromise
+      .then((response) =>
+        resolve(
+          response.query.contenttranslationfavoritesuggestions.suggestions || []
+        )
+      )
+      .fail(() => {
+        mw.log.error("Error while fetching favorite suggestions");
+        resolve([]);
+      });
+  }).then((suggestions) =>
+    suggestions.map((favorite) => new FavoriteSuggestion(favorite))
+  );
 };
 
 export default {

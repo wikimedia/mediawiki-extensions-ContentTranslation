@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Store;
 
+use ContentTranslation\Suggestion;
 use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
@@ -87,4 +88,33 @@ class FavoriteSuggestionStore {
 
 		return $dbw->affectedRows() > 0;
 	}
+
+	/**
+	 * Get suggestions marked as favorite by the translator.
+	 *
+	 * @param int $translatorUserId Translator's global user id.
+	 * @return Suggestion[]
+	 */
+	public function getFavoriteSuggestions( int $translatorUserId ): array {
+		$dbr = $this->connectionProvider->getReplicaDatabase();
+		$suggestions = [];
+
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [ 'cxs_title', 'cxs_source_language', 'cxs_target_language' ] )
+			->from( 'cx_suggestions' )
+			->join( 'cx_lists', null, 'cxs_list_id = cxl_id' )
+			->where( [
+				'cxl_name' => self::FAVORITE_LIST_NAME,
+				'cxl_owner' => $translatorUserId,
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+
+		foreach ( $res as $row ) {
+			$suggestions[] = Suggestion::newFromRow( $row );
+		}
+
+		return $suggestions;
+	}
+
 }
