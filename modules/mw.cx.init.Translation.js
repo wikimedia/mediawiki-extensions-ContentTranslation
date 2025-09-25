@@ -401,6 +401,7 @@ mw.cx.init.Translation.prototype.fetchDraftTranslationError = function () {
 	// XXX
 	mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch draft information.' );
 	mw.log( '[CX]', arguments );
+	mw.cx.eventlogging.stats.restoreFailure( false );
 };
 
 /**

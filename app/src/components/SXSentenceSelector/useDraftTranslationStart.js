@@ -19,15 +19,20 @@ const useDraftTranslationStart = () => {
       return;
     }
 
-    const translationUnits = await translatorApi.fetchTranslationUnits(
-      translation.translationId
-    );
-    await translationRestorer.restoreCorporaDraft(
-      currentSourcePage.value,
-      translation.targetTitle,
-      translation.targetLanguage,
-      translationUnits
-    );
+    try {
+      const translationUnits = await translatorApi.fetchTranslationUnits(
+        translation.translationId
+      );
+      await translationRestorer.restoreCorporaDraft(
+        currentSourcePage.value,
+        translation.targetTitle,
+        translation.targetLanguage,
+        translationUnits
+      );
+    } catch (error) {
+      mw.cx.eventlogging.stats.restoreFailure(true);
+      throw new Error(error);
+    }
 
     translation.restored = true;
 
