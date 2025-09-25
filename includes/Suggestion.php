@@ -3,16 +3,12 @@
 namespace ContentTranslation;
 
 use MediaWiki\Title\Title;
+use stdClass;
 
 class Suggestion {
-	/** @var int */
-	protected $listId;
-	/** @var string */
-	protected $title;
-	/** @var string */
-	protected $sourceLanguage;
-	/** @var string */
-	protected $targetLanguage;
+	protected string $title;
+	protected string $sourceLanguage;
+	protected string $targetLanguage;
 
 	public function __construct( array $params ) {
 		$this->title = (string)$params['title'];
@@ -20,11 +16,7 @@ class Suggestion {
 		$this->targetLanguage = (string)$params['targetLanguage'];
 	}
 
-	/**
-	 * @param \stdClass $row
-	 * @return self
-	 */
-	public static function newFromRow( $row ) {
+	public static function newFromRow( stdClass $row ): self {
 		$params = [
 			'title' => $row->cxs_title,
 			'sourceLanguage' => $row->cxs_source_language,
@@ -34,31 +26,19 @@ class Suggestion {
 		return new self( $params );
 	}
 
-	/**
-	 * @return Title|null
-	 */
-	public function getTitle() {
+	public function getTitle(): ?Title {
 		return Title::newFromText( $this->title );
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getSourceLanguage() {
+	public function getSourceLanguage(): string {
 		return $this->sourceLanguage;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getTargetLanguage() {
+	public function getTargetLanguage(): string {
 		return $this->targetLanguage;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
+	public function __toString(): string {
 		return $this->title;
 	}
 }
