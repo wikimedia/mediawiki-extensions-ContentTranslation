@@ -19,9 +19,13 @@ const contentTranslationStatsEventLogging = {
 	/**
 	 * Log publish failures.
 	 */
-	publishFailed: () => {
+	publishFailed: ( isMobile ) => {
 		mw.track( 'counter.MediaWiki.cx.publish.fail', 1 );
-		mw.track( 'stats.mediawiki_cx_publish_fail_total', 1 );
+		if ( isMobile ) {
+			mw.track( 'stats.mediawiki_cx_mobile_publish_fail_total', 1 );
+		} else {
+			mw.track( 'stats.mediawiki_cx_publish_fail_total', 1 );
+		}
 	},
 
 	recommendationFailed: () => {
@@ -86,6 +90,6 @@ const contentTranslationStatsEventLogging = {
 };
 
 mw.hook( 'mw.cx.translation.published' ).add( () => contentTranslationStatsEventLogging.published( false ) );
-mw.hook( 'mw.cx.translation.publish.error' ).add( contentTranslationStatsEventLogging.publishFailed );
+mw.hook( 'mw.cx.translation.publish.error' ).add( () => contentTranslationStatsEventLogging.publishFailed( false ) );
 
 module.exports = contentTranslationStatsEventLogging;

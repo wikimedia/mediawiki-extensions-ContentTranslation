@@ -156,6 +156,8 @@ const useTranslationPublish = () => {
         store.commit("application/setIsLoginDialogOn", true);
 
         return null;
+      } else {
+        mw.cx.eventlogging.stats.publishFailed(true);
       }
 
       throw error;
