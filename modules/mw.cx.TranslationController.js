@@ -500,6 +500,8 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode ) {
 	if ( !navigator.onLine ) {
 		message = 'cx-save-draft-offline';
 	} else {
+		// Log if its an unknown failure, and the user is online.
+		mw.cx.eventlogging.stats.saveFailure( false );
 		message = this.failCounter > 5 ? 'cx-save-draft-error' : 'cx-save-draft-error-retry';
 	}
 	// eslint-disable-next-line mediawiki/msg-doc

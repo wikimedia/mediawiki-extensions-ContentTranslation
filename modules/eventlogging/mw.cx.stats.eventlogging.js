@@ -28,6 +28,14 @@ const contentTranslationStatsEventLogging = {
 		}
 	},
 
+	saveFailure: ( isMobile ) => {
+		if ( isMobile ) {
+			mw.track( 'stats.mediawiki_cx_mobile_save_fail_total', 1 );
+		} else {
+			mw.track( 'stats.mediawiki_cx_save_fail_total', 1 );
+		}
+	},
+
 	recommendationFailed: () => {
 		mw.track( 'stats.mediawiki_cx_recommendation_fail_total', 1 );
 	},
