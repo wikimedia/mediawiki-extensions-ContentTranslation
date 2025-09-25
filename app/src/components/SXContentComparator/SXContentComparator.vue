@@ -48,12 +48,18 @@ const fetchPageContent = usePageContentFetch();
 // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
 watch(
   targetTitle,
-  () =>
-    fetchPageContent(
-      targetLanguage.value,
-      sourceLanguage.value,
-      targetTitle.value
-    ),
+  async () => {
+    try {
+      await fetchPageContent(
+        targetLanguage.value,
+        sourceLanguage.value,
+        targetTitle.value
+      );
+    } catch (error) {
+      mw.cx.eventlogging.stats.sourceArticleFetchFailed(true);
+      throw error;
+    }
+  },
   { immediate: true }
 );
 

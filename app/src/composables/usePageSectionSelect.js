@@ -21,12 +21,17 @@ const usePageSectionSelect = () => {
   const doSelectPageSection = async (getter, setter) => {
     // if section doesn't exist, fetch page content and resolve references
     if (!getter()) {
-      await fetchPageContent(
-        sourceLanguage.value,
-        targetLanguage.value,
-        sourceTitle.value,
-        revision.value
-      );
+      try {
+        await fetchPageContent(
+          sourceLanguage.value,
+          targetLanguage.value,
+          sourceTitle.value,
+          revision.value
+        );
+      } catch (error) {
+        mw.cx.eventlogging.stats.sourceArticleFetchFailed(true);
+        throw error;
+      }
 
       // Resolve references and update page sections to include these resolved references.
       // Only needed for mobile editor.

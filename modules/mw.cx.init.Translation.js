@@ -296,6 +296,7 @@ mw.cx.init.Translation.prototype.fetchSourcePageContentError = function ( status
 		);
 	} else {
 		mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
+		mw.cx.eventlogging.stats.sourceArticleFetchFailed( false );
 	}
 };
 
