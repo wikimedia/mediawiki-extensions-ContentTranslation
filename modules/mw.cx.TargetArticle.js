@@ -283,15 +283,6 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 		return;
 	}
 
-	// Event logging
-	mw.hook( 'mw.cx.translation.publish.error' ).fire(
-		this.sourceLanguage,
-		this.targetLanguage,
-		this.sourceTitle,
-		this.getTargetTitle(),
-		data
-	);
-
 	const editError = data.error;
 	if ( editError ) {
 		this.handleEditError( editError );
@@ -300,6 +291,15 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 
 	// Handle (other) unknown and/or unrecoverable errors
 	this.showErrorUnknown( editResult, data, jqXHR );
+
+	// Event logging for unknown publish errors
+	mw.hook( 'mw.cx.translation.publish.error' ).fire(
+		this.sourceLanguage,
+		this.targetLanguage,
+		this.sourceTitle,
+		this.getTargetTitle(),
+		data
+	);
 };
 
 /**
