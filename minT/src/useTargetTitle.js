@@ -7,7 +7,7 @@ const getAutonym = $.uls.data.getAutonym;
 
 const useTargetTitle = () => {
 	const { sourceLanguage, targetLanguage } = useState();
-	const { getSuggestedTargetTitle } = useApi();
+	const { getSuggestedTargetTitleUsingMinT } = useApi();
 	const { cxServerToken } = useCXServerToken();
 	const targetTitle = ref( null );
 
@@ -21,7 +21,7 @@ const useTargetTitle = () => {
 		if ( pageResultTargetTitle ) {
 			targetTitle.value = pageResultTargetTitle;
 		} else {
-			getSuggestedTargetTitle(
+			getSuggestedTargetTitleUsingMinT(
 				pageResult.sourceTitle,
 				sourceLanguage.value,
 				targetLanguage.value,

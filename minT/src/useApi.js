@@ -235,8 +235,8 @@ const fetchDenseArticles = async ( qid, limit ) => {
  * @param {string} token
  * @return {Promise<string>} Returns the suggested target title
  */
-const getSuggestedTargetTitle = ( sourceTitle, sourceLanguage, targetLanguage, token ) => {
-	const cxServerUrl = `https://cxserver.wikimedia.org/v2/suggest/title/${ sourceTitle }/${ sourceLanguage }/${ targetLanguage }`;
+const getSuggestedTargetTitleUsingMinT = ( sourceTitle, sourceLanguage, targetLanguage, token ) => {
+	const cxServerUrl = `https://cxserver.wikimedia.org/v2/suggest/title/${ sourceTitle }/${ sourceLanguage }/${ targetLanguage }/MinT`;
 
 	return fetch( cxServerUrl, { headers: { 'Content-Type': 'application/json', Authorization: token } } )
 		.then( ( response ) => {
@@ -279,7 +279,7 @@ const useApi = () => ( {
 	fetchPageMetadata,
 	fetchDenseArticles,
 	searchEntities,
-	getSuggestedTargetTitle,
+	getSuggestedTargetTitleUsingMinT,
 	getWikidataSitelinks,
 	fetchSiteMatrix,
 	fetchMintLanguages,
