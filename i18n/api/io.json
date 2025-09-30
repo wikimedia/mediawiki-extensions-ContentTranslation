@@ -5,7 +5,6 @@
 		]
 	},
 	"apihelp-cxpublish-param-sourcetitle": "Titulo di la fonto-pagino.",
-	"apihelp-query+contenttranslationsuggestions-param-from": "Kodexo di la fonto-linguo.",
 	"apihelp-cxdelete-param-sourcetitle": "Titulo di la fonto-pagino.",
 	"apihelp-cxsave-param-sourcetitle": "La titulo di la fonto-pagino."
 }

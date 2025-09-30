@@ -21,8 +21,6 @@
 	"apihelp-query+contenttranslation-param-limit": "Amḍan afellay n tsuqilin ara d-ibanen.",
 	"apihelp-query+contenttranslation-param-type": "Addad n tsuqilt.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Asulay n tsuqilt.",
-	"apihelp-query+contenttranslationsuggestions-param-from": "Tangalt n tutlayt n uɣbalu.",
-	"apihelp-query+contenttranslationsuggestions-param-to": "Tangalt n tutlayt n usaḍas.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Tangalt n tutlayt n uɣbalu.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Tangalt n tutlayt n usaḍas.",
 	"apihelp-cxdelete-param-from": "Tangalt n tutlayt n uɣbalu.",

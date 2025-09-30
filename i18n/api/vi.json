@@ -30,9 +30,6 @@
 	"apihelp-query+contenttranslation-example-1": "Liệt kê các bản dịch do người dùng hiện tại bắt đầu.",
 	"apihelp-query+contenttranslation-example-2": "Hiển thị trang nháp của bản dịch theo ID.",
 	"apihelp-query+contenttranslation-example-3": "Tìm bản dịch với tiêu đề đã chọn giữa hai ngôn ngữ",
-	"apihelp-query+contenttranslationsuggestions-param-from": "Mã ngôn ngữ gốc.",
-	"apihelp-query+contenttranslationsuggestions-param-to": "Mã ngôn ngữ đích.",
-	"apihelp-query+contenttranslationsuggestions-example-1": "Lấy các trang được gợi ý để dịch từ tiếng Anh (en) sang tiếng Tây Ban Nha (es).",
 	"apihelp-query+cxpublishedtranslations-param-from": "Mã ngôn ngữ gốc.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Mã ngôn ngữ đích.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Số bản dịch tối đa để lấy.",
@@ -44,6 +41,5 @@
 	"apihelp-cxdelete-example-1": "Xóa bản nháp liên kết với cặp ngôn ngữ và tiêu đề đã chọn.",
 	"apihelp-cxsave-param-sourcerevision": "Phiên bản của trang nguồn.",
 	"apihelp-cxsave-param-progress": "Thông tin về độ tiến triển bản dịch. JSON có các chìa khóa <code>any</code>, <code>human</code>, <code>mt</code>, và <code>mtSectionsCount</code>. Các chìa khóa có giá trị phần trăm.",
-	"apihelp-cxsave-param-cxversion": "Phiên bản của người sửa được dùng để tạo bản dịch của bài viết nháp này.",
-	"apierror-cx-samelanguages": "Ngôn ngữ nguồn và mục tiêu không thể giống nhau."
+	"apihelp-cxsave-param-cxversion": "Phiên bản của người sửa được dùng để tạo bản dịch của bài viết nháp này."
 }

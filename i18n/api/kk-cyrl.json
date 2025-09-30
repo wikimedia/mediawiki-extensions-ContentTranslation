@@ -16,7 +16,6 @@
 	"apihelp-query+contenttranslation-param-from": "Бастапқы тіл коды.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Бастапқы беттің атауы.",
 	"apihelp-query+contenttranslation-example-3": "Берілген тіл жұбы арасынан кез келген аударманы берілген атаудан табу",
-	"apihelp-query+contenttranslationsuggestions-param-from": "Бастапқы тіл коды.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Бастапқы тіл коды.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Нысана тіл коды.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Барлық жарияланған аудармалардан таңдау",

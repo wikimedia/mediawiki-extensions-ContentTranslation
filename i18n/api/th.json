@@ -27,8 +27,6 @@
 	"apihelp-query+contenttranslation-example-1": "เรียกดูการแปลที่เริ่มขึ้นโดยผู้ใช้ปัจจุบัน",
 	"apihelp-query+contenttranslation-example-2": "เรียกดูการแปลฉบับร่างโดยไอดี",
 	"apihelp-query+contenttranslation-example-3": "ค้นหาการแปลใด ๆ สำหรับชื่อเรื่องที่กำหนด ระหว่างคู่ภาษาที่กำหนด",
-	"apihelp-query+contenttranslationsuggestions-param-from": "รหัสภาษาต้นทาง",
-	"apihelp-query+contenttranslationsuggestions-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-query+cxpublishedtranslations-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-query+cxpublishedtranslations-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-query+cxpublishedtranslations-example-1": "ดึงข้อมูลการแปลที่เผยแพร่แล้วทั้งหมด",

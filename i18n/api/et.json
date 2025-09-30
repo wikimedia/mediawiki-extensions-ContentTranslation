@@ -18,7 +18,6 @@
 	"apihelp-query+contenttranslation-example-1": "Hangi praeguse kasutaja algatatud tõlked.",
 	"apihelp-query+contenttranslation-example-2": "Hangi tõlkemustand identifikaatori järgi.",
 	"apihelp-query+contenttranslation-example-3": "Hangi tõlge mis tahes keeles antud keelepaari ja pealkirja järgi.",
-	"apihelp-query+contenttranslationsuggestions-param-from": "Lähtekeele kood.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Lähtekeele kood.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Sihtkeele kood.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Väljavõte kõigist avaldatud tõlgetest, tõlgitud inglise keelest hispaania keelde",

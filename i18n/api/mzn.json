@@ -15,6 +15,5 @@
 	"apierror-cx-jwtmissing": "JWT نصب نی‌یه.",
 	"apierror-cx-keynotconfigured": "کلید تنظیم نیّه.",
 	"apierror-cx-missingdraft": "پیش‌نویس نَکِته.",
-	"apierror-cx-samelanguages": "مبدأ و مقصد زوون نتونده اتا بوئن.",
 	"apierror-cx-translationnotfound": "ترجمه پیدا نیّه."
 }

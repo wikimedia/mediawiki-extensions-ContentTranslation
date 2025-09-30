@@ -23,9 +23,6 @@
 	"apihelp-query+contenttranslation-example-2": "आईडी द्वारा प्रालेखित अनुवाद प्राप्त करें",
 	"apihelp-query+contenttranslation-example-3": "दिये गयी भाषा युग्म के मध्य दिये गये शीर्षक के लिए कोई भी अनुवाद प्राप्त करें",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "अनुवाद का आईडी",
-	"apihelp-query+contenttranslationsuggestions-param-from": "स्रोत भाषा कोड।",
-	"apihelp-query+contenttranslationsuggestions-param-to": "लक्षित भाषा कोड।",
-	"apihelp-query+contenttranslationsuggestions-param-listid": "केवल एक विशेष सूची से सुझाव दिखाएँ",
 	"apihelp-query+cxpublishedtranslations-param-from": "स्रोत भाषा कोड।",
 	"apihelp-query+cxpublishedtranslations-param-to": "लक्षित भाषा कोड।",
 	"apihelp-query+cxpublishedtranslations-param-limit": "दिखाने हेतु अनुवादनों की अधिकतम सीमा",
@@ -55,6 +52,5 @@
 	"apierror-cx-missingdraft": "ड्राफ्ट मौजूद नहीं है।",
 	"apierror-cx-mustbeloggedin-suggestions": "सुझाव व्यवस्थित करने हेतु आपको खाते में प्रवेश करना होगा।",
 	"apierror-cx-mustbeloggedin-viewtranslations": "अपने अनुवादों ओ देखने के लिए आपको खाते में प्रवेश करना होगा।",
-	"apierror-cx-samelanguages": "स्रोत और लक्ष्य भाषा समान नहीं हो सकती है।",
 	"apierror-cx-translationnotfound": "अनुवाद नहीं मिला"
 }

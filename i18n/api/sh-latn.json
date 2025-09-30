@@ -23,8 +23,6 @@
 	"apihelp-query+contenttranslation-param-limit": "Maksimalni broj rezultata.",
 	"apihelp-query+contenttranslation-param-type": "Status prijevoda.",
 	"apihelp-query+contenttranslation-example-1": "Preuzmi prijevode koje je počeo trenutni korisnik.",
-	"apihelp-query+contenttranslationsuggestions-param-from": "Kôd izvornog jezika.",
-	"apihelp-query+contenttranslationsuggestions-param-to": "Kôd ciljnog jezika.",
 	"apihelp-cxdelete-param-from": "Kôd izvornog jezika.",
 	"apihelp-cxdelete-param-to": "Kôd ciljnog jezika.",
 	"apihelp-cxdelete-param-sourcetitle": "Naslov izvorne stranice.",

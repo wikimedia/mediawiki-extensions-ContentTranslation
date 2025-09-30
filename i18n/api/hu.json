@@ -25,8 +25,6 @@
 	"apihelp-query+contenttranslation-example-2": "Fordítási piszkozat lekérése azonosító alapján.",
 	"apihelp-query+contenttranslation-example-3": "Bármilyen fordítás keresése a megadott címmel a megadott nyelvpárban",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "A fordítás azonosítója.",
-	"apihelp-query+contenttranslationsuggestions-param-from": "A forrásnyelv kódja.",
-	"apihelp-query+contenttranslationsuggestions-param-to": "A célnyelv kódja.",
 	"apihelp-query+cxpublishedtranslations-param-from": "A forrásnyelv kódja.",
 	"apihelp-query+cxpublishedtranslations-param-to": "A célnyelv kódja.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Összes közzétett fordítás begyűjtése",

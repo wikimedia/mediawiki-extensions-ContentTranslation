@@ -16,8 +16,6 @@
 	"apihelp-query+contenttranslation-param-from": "Kóði frummálsins.",
 	"apihelp-query+contenttranslation-param-to": "Kóði markmálsins.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Titill frumsíðunnar.",
-	"apihelp-query+contenttranslationsuggestions-param-from": "Kóði frummálsins.",
-	"apihelp-query+contenttranslationsuggestions-param-to": "Kóði markmálsins.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Kóði frummálsins.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Kóði markmálsins.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Sækja allar útgefnar þýðingar",

@@ -22,10 +22,7 @@
 	"apihelp-query+contenttranslation-example-1": "Dapatkan terjemahan-terjemahan yang dimulakan oleh pengguna semasa.",
 	"apihelp-query+contenttranslation-example-2": "Dapatkan draf terjemahan melalui id.",
 	"apihelp-query+contenttranslation-example-3": "Cari sebarang terjemahan untuk tajuk yang diberikan antara pasangan bahasa yang diberikan",
-	"apihelp-query+contenttranslationsuggestions-param-from": "Kod bahasa sumber.",
-	"apihelp-query+contenttranslationsuggestions-param-to": "Kod bahasa sasaran.",
-	"apihelp-query+contenttranslationsuggestions-param-limit": "Nombor maksimum terjemahan-terjemahan untuk mengambil.",
-	"apihelp-query+contenttranslationsuggestions-example-1": "Dapatkan laman-laman yang dicadangkan untuk penterjemahan dari Inggeris (en) ke Sepanyol (es).",
+	"apihelp-query+contenttranslationfavoritesuggestions-param-limit": "Nombor maksimum terjemahan-terjemahan untuk mengambil.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Kod bahasa sumber.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Kod bahasa sasaran.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Nombor maksimum terjemahan-terjemahan untuk mengambil.",
@@ -40,7 +37,6 @@
 	"apihelp-cxsave-param-from": "Kod bahasa punca.",
 	"apierror-cx-invalidlanguage": "Bahasa tidak sah.",
 	"apierror-cx-invalidsourcelanguage": "Bahasa sumber tidak sah.",
-	"apierror-cx-samelanguages": "Bahasa sumber dan sasaran tidak boleh sama.",
 	"apihelp-query+langlinkscount-summary": "Dapatkan bilangan versi bahasa lain.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Kod bahasa sumber."
 }

@@ -19,8 +19,6 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "Titlul paginii sursă.",
 	"apihelp-query+contenttranslation-param-limit": "Numărul maxim de traduceri de obținut.",
 	"apihelp-query+contenttranslation-param-type": "Starea traducerii.",
-	"apihelp-query+contenttranslationsuggestions-param-from": "Codul limbii sursă.",
-	"apihelp-query+contenttranslationsuggestions-param-to": "Codul limbii destinație.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Codul limbii sursă.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Codul limbii destinație.",
 	"apihelp-cxtoken-summary": "Obține tokeni JWT pentru autentificarea cu cxserver.",
