@@ -162,13 +162,15 @@ const usePublishInstrument = () => {
       ...sharedPayload.value,
     });
 
-  const logPublishSuccessEvent = (pageId, revisionId) =>
+  const logPublishSuccessEvent = (pageId, revisionId) => {
     logEvent({
       event_type: "publish_success",
       published_page_id: pageId,
       published_revision_id: revisionId,
       ...sharedPayload.value,
     });
+    mw.cx.eventlogging.stats.published(true);
+  };
 
   const logPublishFailureEvent = () =>
     logEvent({
