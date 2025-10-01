@@ -9,6 +9,7 @@
 			"NguoiDungKhongDinhDanh",
 			"Nguyenphutrong2",
 			"Nguyên Lê",
+			"Nvdtn19",
 			"Phjtieudoc",
 			"Quenhitran"
 		]
@@ -40,6 +41,6 @@
 	"apihelp-cxdelete-param-sourcetitle": "Tên trang gốc.",
 	"apihelp-cxdelete-example-1": "Xóa bản nháp liên kết với cặp ngôn ngữ và tiêu đề đã chọn.",
 	"apihelp-cxsave-param-sourcerevision": "Phiên bản của trang nguồn.",
-	"apihelp-cxsave-param-progress": "Thông tin về độ tiến triển bản dịch. JSON có các chìa khóa <code>any</code>, <code>human</code>, <code>mt</code>, và <code>mtSectionsCount</code>. Các chìa khóa có giá trị phần trăm.",
+	"apihelp-cxsave-param-progress": "Thông tin về tiến trình bản dịch. JSON có các mã <code>any</code>, <code>human</code>, <code>mt</code>, và <code>mtSectionsCount</code>. Các mã này có giá trị phần trăm.",
 	"apihelp-cxsave-param-cxversion": "Phiên bản của người sửa được dùng để tạo bản dịch của bài viết nháp này."
 }
