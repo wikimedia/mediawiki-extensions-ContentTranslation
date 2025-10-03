@@ -44,7 +44,7 @@ const timeagoMessage = computed(() => {
 
   return bananaI18n.i18n(
     timeagoMessages[timeagoObject.postfix],
-    timeagoObject.value
+    mw.language.convertNumber(timeagoObject.value)
   );
 });
 </script>
