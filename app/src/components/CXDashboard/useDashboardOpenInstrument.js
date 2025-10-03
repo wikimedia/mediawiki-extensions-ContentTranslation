@@ -66,6 +66,16 @@ const useDashboardOpenInstrument = () => {
   };
 
   const logDashboardOpenEvent = () => {
+    // check if it's a valid campaign parameter
+    if (!!pageURLParameter.value && getEventSourceFromUrlCampaign()) {
+      const campaign = getUrlParam("campaign");
+      mw.hook("mw.cx.cta.accept").fire(
+        campaign,
+        sourceLanguage.value,
+        targetLanguage.value
+      );
+    }
+
     const eventSource = getEventSource();
 
     const payload = {
