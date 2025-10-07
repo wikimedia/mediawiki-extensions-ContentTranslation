@@ -102,6 +102,10 @@ const contentTranslationStatsEventLogging = {
 
 	publishStepAccess: () => {
 		mw.track( 'stats.mediawiki_cx_access_mobile_publish_total', 1 );
+	},
+
+	publishEditorStepAccess: () => {
+		mw.track( 'stats.mediawiki_cx_access_mobile_publish_editor_total', 1 );
 	}
 };
 

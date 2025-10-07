@@ -79,7 +79,11 @@ const onEditCompleted = async (translation) => {
   closeEditor();
 };
 
-mw.cx.eventlogging.stats.editingStepAccess(true);
+if (isFinalEdit) {
+  mw.cx.eventlogging.stats.publishEditorStepAccess();
+} else {
+  mw.cx.eventlogging.stats.editingStepAccess(true);
+}
 </script>
 
 <template>
