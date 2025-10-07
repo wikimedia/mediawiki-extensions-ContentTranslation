@@ -75,7 +75,7 @@ const applyPageStyles = ( doc ) => {
 	// Combine and append all style elements from the document
 	const styleElements = Array.from( doc.querySelectorAll( 'style' ) );
 	const combinedStyle = styleElements.map(
-		( element ) => element.textContent
+		( element ) => element.textContent.replace( /&#62;/g, '>' )
 	).join( '' );
 	const styleTag = document.createElement( 'style' );
 	styleTag.textContent = combinedStyle;
