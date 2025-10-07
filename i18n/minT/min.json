@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rang Djambak"
+		]
+	},
+	"automatic-translation-special-page-description": "Tajamajan otomatih",
+	"automatic-translation-desc": "Manyadioan [[Special:AutomaticTranslation|tajamahan otomatih]] untuak laman isi.",
+	"mint-home-header-title": "Tajamahan otomatih",
+	"mint-home-input-placeholder": "Cari topik",
+	"mint-translation-list-all-languages-option-label": "Kasadoannyo",
+	"mint-home-info-panel-text": "Jutaan topik di Wikipedia dapek ditajamahan otomatih manjadi $1",
+	"mint-home-random-topic-button-label": "Topik sumbarang"
+}
