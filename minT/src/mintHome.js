@@ -205,7 +205,7 @@ const {
 Vue.watch( sites, () => {
 	if ( !!title && !!step ) {
 		// prevent crawler access https://phabricator.wikimedia.org/T403389
-		if ( step === 'translation' ) {
+		if ( step === 'translation' && mw.user.isAnon() ) {
 			openPageTitle( title, urlSourceLanguage, 'confirm' );
 		} else {
 			openPageTitle( title, urlSourceLanguage, step );
