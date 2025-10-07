@@ -434,6 +434,7 @@
 	"cx-sx-dashboard-stats-panel-title": "Your impact",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "This month",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
+	"cx-sx-dashboard-stats-panel-all-stats-label": "All translation stats",
 	"sx-confirm-back-navigation-dialog-title": "Leave your translation?",
 	"sx-confirm-back-navigation-dialog-body": "Changes have not been saved yet and will be lost.\nYou can continue editing for the changes to be automatically saved.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Discard changes",

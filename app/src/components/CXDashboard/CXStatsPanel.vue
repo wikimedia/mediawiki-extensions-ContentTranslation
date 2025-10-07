@@ -1,7 +1,11 @@
 <script setup>
 import { MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { CdxIcon } from "@wikimedia/codex";
+import { cdxIconChart } from "@wikimedia/codex-icons";
 import { ref, computed, watch } from "vue";
+import { useI18n } from "vue-banana-i18n";
 
+const bananaI18n = useI18n();
 const props = defineProps({
   stats: {
     type: Object,
@@ -22,6 +26,13 @@ const thisMonthStats = computed(() => {
 });
 
 const canvasRef = ref(null);
+
+const statsLink = {
+  icon: cdxIconChart,
+  label: bananaI18n.i18n("cx-sx-dashboard-stats-panel-all-stats-label"),
+  href: "https://superset.wmcloud.org/superset/dashboard/p/X61GbQpZ5Rb/",
+  target: "_blank",
+};
 
 watch(
   () => props.stats,
@@ -90,6 +101,10 @@ watch(
       </mw-col>
     </mw-row>
     <canvas ref="canvasRef" class="cx-stats-panel__canvas" />
+    <a class="cx-stats-panel__stats-link" :href="statsLink.href" :target="statsLink.target">
+      <cdx-icon class="me-2" :icon="statsLink.icon" />
+      <span v-text="statsLink.label" />
+    </a>
   </div>
 </template>
 
@@ -119,6 +134,17 @@ watch(
     background-color: @background-color-interactive-subtle;
     width: 100%;
     height: 50px;
+  }
+
+  &__stats-link {
+    font-weight: @font-weight-bold;
+    font-size: 0.875rem;
+    margin-top: @spacing-50;
+    display: inline-block;
+
+    .cdx-icon {
+      color: inherit;
+    }
   }
 }
 </style>
