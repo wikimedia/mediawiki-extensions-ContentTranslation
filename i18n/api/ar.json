@@ -160,7 +160,7 @@
 	"apierror-cxsplit-no-translation-found": "لم يتم العثور على ترجمة للمعرف المحدد",
 	"apihelp-cxcheckunreviewed-summary": "تحقق مما إذا كان قد تم نشر أي ترجمة سريعة وغير مراجعة مؤخرًا للمستخدم الحالي.",
 	"apierror-cxcheckunreviewed-anon-user": "لم يتم تمكين إجراء API \"cxcheckunreviewed\" للمستخدمين المجهولين",
-	"apihelp-query+automatictranslationdenselanguages-summary": "احصل على قائمة روابط الموقع للمقالة التي تتوافق مع معرف Wikidata معين، مرتبة حسب حجم المقالة.",
+	"apihelp-query+automatictranslationdenselanguages-summary": "احصل على قائمة روابط الموقع للمقالة التي تتوافق مع معرف ويكي بيانات معين، مرتبة حسب حجم المقالة.",
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "معرف ويكي بيانات.",
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "قيمة منطقية تشير إلى ما إذا كان ينبغي تضمين عناوين الأقسام في الاستجابة.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "احصل على قائمة روابط الموقع الخاصة بمقالة \"القمر\" بجميع اللغات المتاحة، مرتبة حسب حجم المقالة.",
