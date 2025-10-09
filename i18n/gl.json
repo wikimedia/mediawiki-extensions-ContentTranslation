@@ -426,6 +426,7 @@
 	"cx-sx-dashboard-stats-panel-title": "O teu impacto",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Este mes",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
+	"cx-sx-dashboard-stats-panel-all-stats-label": "Todas as estatísticas de tradución",
 	"sx-confirm-back-navigation-dialog-title": "Queres abandonar a túa tradución?",
 	"sx-confirm-back-navigation-dialog-body": "Os cambios aínda non se gardaron e perderanse.\nPodes seguir editando para que os cambios se garden automaticamente.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Descartar as modificacións",

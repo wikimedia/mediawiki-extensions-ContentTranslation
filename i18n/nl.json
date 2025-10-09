@@ -447,6 +447,7 @@
 	"cx-sx-dashboard-stats-panel-title": "Uw bijdrage",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Deze maand",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Totaal",
+	"cx-sx-dashboard-stats-panel-all-stats-label": "Alle vertaalstatistieken",
 	"sx-confirm-back-navigation-dialog-title": "Uw vertaling afbreken?",
 	"sx-confirm-back-navigation-dialog-body": "De wijzigingen zijn nog niet opgeslagen en gaan verloren.\nU kunt doorgaan met bewerken zodat de wijzigingen automatisch worden opgeslagen.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Wijzigingen weggooien",

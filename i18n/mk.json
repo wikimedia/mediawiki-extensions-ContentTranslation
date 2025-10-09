@@ -418,6 +418,7 @@
 	"cx-sx-dashboard-stats-panel-title": "Вашето влијание",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Месецов",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Вкупно",
+	"cx-sx-dashboard-stats-panel-all-stats-label": "Сите преводни статистики",
 	"sx-confirm-back-navigation-dialog-title": "Го напуштате преводот?",
 	"sx-confirm-back-navigation-dialog-body": "Промените сè уште не се зачувани и ќе се изгубат.\nАко продолжите со уредување, промените автоматски ќе се зачуваат.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Отфрли промени",

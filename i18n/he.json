@@ -433,6 +433,7 @@
 	"cx-sx-dashboard-stats-panel-title": "ההשפעה שלך",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "החודש",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "סך הכול",
+	"cx-sx-dashboard-stats-panel-all-stats-label": "כל סטטיסטיקות התרגום",
 	"sx-confirm-back-navigation-dialog-title": "לעזוב את התרגום שלך?",
 	"sx-confirm-back-navigation-dialog-body": "השינויים עדיין לא נשמרו והם יאבדו.\nאפשר להמשיך לערוך כדי שהשינויים יישמרו אוטומטית.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "לזרוק את השינויים",
