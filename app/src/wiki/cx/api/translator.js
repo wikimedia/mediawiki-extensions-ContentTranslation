@@ -414,6 +414,7 @@ const saveTranslation = ({
         mw.cx.eventlogging.stats.saveFailure(true);
       } else if (details.error) {
         text = details.error.info;
+
         if (
           details.error.code &&
           details.error.code.indexOf("internal_api_error") === 0

@@ -101,7 +101,11 @@ watch(
       </mw-col>
     </mw-row>
     <canvas ref="canvasRef" class="cx-stats-panel__canvas" />
-    <a class="cx-stats-panel__stats-link" :href="statsLink.href" :target="statsLink.target">
+    <a
+      class="cx-stats-panel__stats-link"
+      :href="statsLink.href"
+      :target="statsLink.target"
+    >
       <cdx-icon class="me-2" :icon="statsLink.icon" />
       <span v-text="statsLink.label" />
     </a>

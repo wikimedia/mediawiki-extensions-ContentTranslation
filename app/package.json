@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "1.0.0+20250929",
+  "version": "1.0.0+20251010",
   "private": true,
   "main": "./dist/cx3.umd.js",
   "module": "./dist/cx3.es.js",
@@ -57,11 +57,11 @@
   "bundlesize": [
     {
       "path": "dist/cx3.es.js",
-      "maxSize": "163.05KB"
+      "maxSize": "163.59KB"
     },
     {
       "path": "dist/style.css",
-      "maxSize": "18.93KB"
+      "maxSize": "18.95KB"
     }
   ]
 }
