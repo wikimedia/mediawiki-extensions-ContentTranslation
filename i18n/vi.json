@@ -438,6 +438,7 @@
 	"cx-sx-dashboard-stats-panel-title": "Hoạt động của bạn",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Tháng này",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Tổng cộng",
+	"cx-sx-dashboard-stats-panel-all-stats-label": "Tất cả số liệu thống kê bản dịch",
 	"sx-confirm-back-navigation-dialog-title": "Hủy bỏ bản dịch?",
 	"sx-confirm-back-navigation-dialog-body": "Những thay đổi chưa được lưu lại sẽ bị mất đi.\nBạn có thể tiếp tục sửa đổi để thay đổi được tự động lưu.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Hủy thay đổi",
