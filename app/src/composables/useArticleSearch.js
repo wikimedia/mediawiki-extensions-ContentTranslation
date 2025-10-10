@@ -39,7 +39,7 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
       );
     } finally {
       searchResultsLoading.value = false;
-      mw.cx.eventlogging.stats.articleSearchAccess(isMobile);
+      mw.cx.eventlogging.stats.articleSearchAccess(isMobile.value);
     }
   }, 500);
 

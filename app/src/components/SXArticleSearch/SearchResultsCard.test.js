@@ -1,4 +1,5 @@
 import { mount } from "@vue/test-utils";
+import { ref } from "vue";
 import Page from "../../wiki/mw/models/page";
 import SearchResultsCard from "./SearchResultsCard";
 import { createStore } from "vuex";
@@ -53,7 +54,13 @@ describe("SearchResultsCard", () => {
   });
 
   const wrapper = mount(SearchResultsCard, {
-    global: { plugins: [store, i18n] },
+    global: {
+      plugins: [store, i18n],
+      provide: {
+        // provide breakpoints as a ref to useArticleSearch composable
+        breakpoints: ref({ mobile: false }),
+      },
+    },
     props: {
       searchInput: "",
     },
