@@ -22,7 +22,7 @@
 	"mint-search-topic-page-results-container-empty": "د هرې سکالو پلټنه وکړئ. د يوې سکالو منځپانگې په هره ژبه کې توپير کولی شي.",
 	"mint-confirm-topic-page-header": "خپلسرې ژباړه",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "خپلسرې ژباړه کتل",
-	"mint-confirm-topic-page-language-selector-explanation": "[$1 له ويکيپېډيا نه په $2 کې] ژباړه. وڅېړئ چې دا سکالو په {{PLURAL:$3|بله ژبه |$3 نورو ژبو}} کې څنگه پوښل شوې ده.",
+	"mint-confirm-topic-page-language-selector-explanation": "[په $1 ويکيپېډيا کې د دې سکالو د $2 ژبې] ژباړه. وڅېړئ چې دا سکالو په {{PLURAL:$3|بله ژبه |$3 نورو ژبو}} کې څنگه پوښل شوې ده.",
 	"mint-confirm-topic-page-go-to-search-button-label": "يوه بله سکالو پلټل",
 	"mint-confirm-topic-page-target-article-link-container-header": "په $1 کې د سمونگرو له خوا ليکل شوې",
 	"mint-confirm-topic-page-target-article-link-container-details": "دا سکالو په $1 کې د انساني سمونگرو له خوا ليکل شوې. تاسو کولی شئ د منځپانگې ښه کولو لپاره ورسره يوځای شئ.",
