@@ -2,6 +2,7 @@ import { siteMapper, isDesktopSite } from "@/utils/mediawikiHelper";
 import useURLHandler from "@/composables/useURLHandler";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import usePublishTarget from "@/composables/usePublishTarget";
 
 /**
  * Handles navigation logic for the editor, determining whether users should be
@@ -22,6 +23,7 @@ const useEditorNavigation = () => {
     sectionURLParameter: sectionTitle,
     isQuickTutorialForced,
   } = useURLHandler();
+  const { target: publishTarget } = usePublishTarget();
   const store = useStore();
   const router = useRouter();
 
@@ -70,12 +72,21 @@ const useEditorNavigation = () => {
   };
 
   const redirectToDesktopEditor = () => {
+    const extra = {};
+
+    if (sectionTitle.value) {
+      extra.sourcesection = sectionTitle.value;
+    }
+
+    if (publishTarget.value) {
+      extra.publishtarget = publishTarget.value;
+    }
     location.href = siteMapper.getCXUrl(
       pageTitle.value,
       null,
       sourceLanguage.value,
       targetLanguage.value,
-      sectionTitle.value ? { sourcesection: sectionTitle.value } : {}
+      extra
     );
   };
 
