@@ -187,6 +187,7 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 		const sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml, this.sourceWikiPage.getSectionTitle() );
 
 		const translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
+		this.initializePublishTarget( translationModel );
 		return Promise.resolve( translationModel );
 	}
 
@@ -215,6 +216,8 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 			);
 
 			const updatedTranslationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, updatedSourceDom, updatedTargetDom );
+			this.initializePublishTarget( updatedTranslationModel );
+
 			updatedTranslationModel.setChangedSignificantly( true );
 
 			const uri = new URL( location.href ); // Append revision number to URL
@@ -225,6 +228,41 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 
 		} )
 		.catch( ( error ) => this.fetchSourcePageContentError( error.status ) );
+};
+
+/**
+ * @param {mw.cx.dm.Translation} translationModel
+ */
+mw.cx.init.Translation.prototype.initializePublishTarget = function ( translationModel ) {
+	if ( !translationModel.isSectionTranslation() ) {
+		return;
+	}
+
+	// eslint-disable-next-line compat/compat
+	const query = Object.fromEntries( new URL( location.href ).searchParams );
+
+	if ( query.publishtarget ) {
+		translationModel.setPublishTarget( query.publishtarget );
+		return;
+	}
+
+	mw.cx.sectionMappingService.fetchSectionMappings(
+		this.sourceWikiPage.getTitle(),
+		this.sourceWikiPage.getLanguage(),
+		this.targetWikiPage.getLanguage()
+	).then( () => {
+		const existingTargetSectionTitle = mw.cx.sectionMappingService.getMappedPresentSectionTitle(
+			translationModel.getSourceSectionTitle()
+		);
+
+		if ( existingTargetSectionTitle ) {
+			// EXPAND is the default for present sections
+			translationModel.setPublishTarget( 'EXPAND' );
+		} else {
+			translationModel.setPublishTarget( 'NEW_SECTION' );
+		}
+	} );
+
 };
 
 /**

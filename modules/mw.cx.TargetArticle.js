@@ -178,7 +178,8 @@ mw.cx.TargetArticle.prototype.publish = function ( hasIssues, hasTooMuchUnmodifi
  */
 mw.cx.TargetArticle.prototype.publishSection = function () {
 	this.getContent( false ).then( ( html ) => {
-		const isSandbox = this.veTarget.getPublishNamespace() === mw.config.get( 'wgNamespaceIds' ).user;
+		const publishTarget = this.translation.getPublishTarget();
+		const sourceSectionTitle = this.translation.getSourceSectionTitle();
 		const params = {
 			assert: 'user',
 			action: 'cxpublishsection',
@@ -186,13 +187,24 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 			html,
 			sourcetitle: this.sourceTitle,
 			sourcerevid: this.translation.sourceWikiPage.getRevision(),
-			sourcesectiontitle: this.translation.sourceWikiPage.getSectionTitle(),
+			sourcesectiontitle: sourceSectionTitle,
 			targetsectiontitle: this.veTarget.translationView.targetColumn.getTitle(),
 			sourcelanguage: this.sourceLanguage,
 			targetlanguage: this.targetLanguage,
-			issandbox: isSandbox,
+			issandbox: mw.cx.isSandboxTarget( publishTarget ),
 			sectiontranslationid: this.translation.getSectionTranslationId()
 		};
+
+		const existingTargetSectionTitle = mw.cx.sectionMappingService.getMappedPresentSectionTitle(
+			sourceSectionTitle
+		);
+
+		if (
+			!!existingTargetSectionTitle &&
+			mw.cx.isExpandTarget( publishTarget )
+		) {
+			params.existingsectiontitle = existingTargetSectionTitle;
+		}
 
 		if ( this.captcha ) {
 			params.captchaid = this.captcha.id;

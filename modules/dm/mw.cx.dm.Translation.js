@@ -29,6 +29,8 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.targetRevisionId = this.targetWikiPage.getRevision();
 	this.targetPageId = null;
 	this.status = 'draft';
+	// only used for section translations
+	this.publishTarget = null;
 	this.sectionsChanged = false;
 	this.changedSignificantly = false;
 	this.targetSectionTitle = this.targetWikiPage.getSectionTitle();
@@ -398,13 +400,18 @@ mw.cx.dm.Translation.static.hasIncludedContent = function ( string1, string2 ) {
 
 /* Methods */
 
+mw.cx.dm.Translation.prototype.getSourceSectionTitle = function () {
+	return this.sourceWikiPage.getSectionTitle();
+};
+
 /**
  * @return {number}
  */
 mw.cx.dm.Translation.prototype.getMwSectionNumber = function () {
-	const sectionTitle = this.sourceWikiPage.getSectionTitle();
-
-	return mw.cx.dm.Translation.static.getMwSectionNumberBySectionTitle( this.sourceDoc.htmlDocument, sectionTitle );
+	return mw.cx.dm.Translation.static.getMwSectionNumberBySectionTitle(
+		this.sourceDoc.htmlDocument,
+		this.getSourceSectionTitle()
+	);
 };
 
 /**
@@ -427,6 +434,20 @@ mw.cx.dm.Translation.prototype.setTargetCategories = function ( categories ) {
  */
 mw.cx.dm.Translation.prototype.getTargetCategories = function () {
 	return this.targetCategories;
+};
+
+/**
+ * @param {string} target
+ */
+mw.cx.dm.Translation.prototype.setPublishTarget = function ( target ) {
+	this.publishTarget = target;
+};
+
+/**
+ * @return {string|null}
+ */
+mw.cx.dm.Translation.prototype.getPublishTarget = function () {
+	return this.publishTarget;
 };
 
 mw.cx.dm.Translation.prototype.isChangedSignificantly = function () {
@@ -631,7 +652,7 @@ mw.cx.dm.Translation.prototype.hasBeenPublished = function () {
  * @return {boolean}
  */
 mw.cx.dm.Translation.prototype.isSectionTranslation = function () {
-	return !!this.sourceWikiPage.getSectionTitle();
+	return !!this.getSourceSectionTitle();
 };
 
 mw.cx.dm.Translation.prototype.setStatus = function ( status ) {

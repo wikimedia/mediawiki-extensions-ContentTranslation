@@ -1252,6 +1252,15 @@
 				"mw.cx.dm"
 			]
 		},
+		"mw.cx.SectionMappingService": {
+			"packageFiles": [
+				"mw.cx.SectionMappingService.js"
+			],
+			"dependencies": [
+				"mediawiki.base",
+				"mw.cx.SiteMapper"
+			]
+		},
 		"mw.cx.ui": {
 			"scripts": [
 				"ui/mw.cx.ui.js"
@@ -1321,7 +1330,8 @@
 				"ext.visualEditor.core.desktop",
 				"oojs-ui.styles.icons-moderation",
 				"ve.ce.CXLintableNode",
-				"ve.dm.CXLintableNode"
+				"ve.dm.CXLintableNode",
+				"mw.cx.SectionMappingService"
 			],
 			"messages": [
 				"cx-linkcontextitem-missing-link-title",
@@ -1409,6 +1419,7 @@
 				"mw.cx.init.Translation.js",
 				"mw.cx.logEvent.js",
 				"mw.cx.TargetArticle.js",
+				"helpers/mw.cx.publishTargetHelper.js",
 				"mw.cx.TranslationController.js",
 				"mw.cx.TranslationTracker.js",
 				"mw.cx.UserPermissionChecker.js",
@@ -1454,6 +1465,12 @@
 				"cx-no-source-categories",
 				"cx-no-target-categories",
 				"cx-publish-destination-namespace-changed",
+				"cx-publish-destination-section-new",
+				"cx-publish-destination-section-new-description",
+				"cx-publish-destination-section-sandbox",
+				"cx-publish-destination-section-sandbox-description",
+				"cx-publish-destination-section-expand",
+				"cx-publish-destination-section-expand-description",
 				"cx-tools-categories-count-message",
 				"cx-tools-linter-cannot-publish-action-label",
 				"cx-tools-linter-cannot-publish-message",
@@ -1543,7 +1560,8 @@
 				"oojs-ui-windows",
 				"ve.ce.CXLintableNode",
 				"ve.dm.CXLintableNode",
-				"ve.init.mw.CXTarget"
+				"ve.init.mw.CXTarget",
+				"mw.cx.SectionMappingService"
 			]
 		},
 		"ve.init.mw.CXTarget": {
