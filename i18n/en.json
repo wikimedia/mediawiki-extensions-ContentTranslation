@@ -212,7 +212,7 @@
 	"cx-publish-destination-section-new": "Publish as a new section",
 	"cx-publish-destination-section-new-description": "Add a new section to the article.",
 	"cx-publish-destination-section-sandbox": "Publish to your Sandbox",
-	"cx-publish-destination-section-sandbox-description": "Publish in your personal space for you to review and cope them elsewhere.",
+	"cx-publish-destination-section-sandbox-description": "Publish in your personal space for you to review and copy them elsewhere.",
 	"cx-publish-destination-section-expand": "Add contents to existing section",
 	"cx-publish-destination-section-expand-description": "Expand the existing section preserving their contents.",
 	"cx-linkcontextitem-missing-link-title": "Missing link",
