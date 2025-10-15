@@ -2,11 +2,6 @@ import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { siteMapper } from "@/utils/mediawikiHelper";
 
 /**
- * @returns {Promise<{ sourceLanguages: string[], targetLanguages: string[]}>}
- */
-const fetchSupportedLanguageCodes = () => siteMapper.getLanguagePairs();
-
-/**
  * Fetches supported MT providers for a given language pair
  * and returns a Promise that resolves to a read-only MTProviderGroup object
  * @param sourceLanguage
@@ -82,7 +77,6 @@ function addWikibaseLink(
 }
 
 export default {
-  fetchSupportedLanguageCodes,
   fetchSupportedMTProviders,
   fetchCXServerToken,
   addWikibaseLink,

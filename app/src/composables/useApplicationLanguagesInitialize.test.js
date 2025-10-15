@@ -5,21 +5,13 @@ import useSupportedLanguageCodes from "@/composables/useSupportedLanguageCodes";
 import useApplicationLanguagesInitialize from "@/composables/useApplicationLanguagesInitialize";
 
 let mockWikiLanguage = "bn";
-const supportedLanguageCodes = ["en", "el"];
 
 jest.mock("@/utils/mediawikiHelper", () => ({
   siteMapper: {
     getCurrentWikiLanguageCode: () => mockWikiLanguage,
-    getLanguagePairs: () =>
-      Promise.resolve({
-        sourceLanguages: supportedLanguageCodes,
-        targetLanguages: supportedLanguageCodes,
-      }),
   },
   getUrl: jest.fn(),
 }));
-
-const { supportedTargetLanguageCodes } = useSupportedLanguageCodes();
 
 const store = createStore({
   modules: {
@@ -35,7 +27,15 @@ const store = createStore({
 });
 
 mw.config.get = (parameter) => {
-  return parameter === "wgContentTranslationTranslateInTarget" ? false : null;
+  if (parameter === "wgContentTranslationTranslateInTarget") {
+    return false;
+  }
+
+  if (parameter === "wgContentTranslationSupportedLanguages") {
+    return ["en", "el", "bn", "es"];
+  }
+
+  return null;
 };
 
 const mockURLParams = {
@@ -63,6 +63,7 @@ global.URLSearchParams = jest.fn().mockImplementation(() => {
 jest.mock("vue-banana-i18n", () => ({ useI18n: jest.fn() }));
 
 describe("useApplicationLanguagesInitialize composable test", () => {
+  const { supportedTargetLanguageCodes } = useSupportedLanguageCodes();
   const data = loadTestComposable(
     () => useApplicationLanguagesInitialize(),
     [store]
@@ -75,45 +76,45 @@ describe("useApplicationLanguagesInitialize composable test", () => {
     initializeURLState,
   } = useURLHandler();
 
-  // supportedLanguages refer to all languages that are supported by cxserver
+  // supportedLanguages refer to all languages that are supported
 
-  it("should respect URL params when they are properly supported", async () => {
+  it("should respect URL params when they are properly supported", () => {
     mockURLParams.from = "en";
     mockURLParams.to = "el";
-    // both source and target languages have to be supported by cxserver
+    // both source and target languages have to be supported
     initializeURLState();
-    await initializeApplicationLanguages();
+    initializeApplicationLanguages();
 
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("el");
 
     initializeURLState();
-    await initializeApplicationLanguages();
+    initializeApplicationLanguages();
 
     // source language doesn't need to be enabled
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("el");
   });
 
-  it("should fallback to wiki language (bn) as target language if URL param 'to' is not supported", async () => {
+  it("should fallback to wiki language (bn) as target language if URL param 'to' is not supported", () => {
     supportedTargetLanguageCodes.value = ["bn", "en", "es"];
     // sq not supported here
     mockURLParams.to = "sq";
 
     initializeURLState();
-    await initializeApplicationLanguages();
+    initializeApplicationLanguages();
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("bn");
   });
 
-  it("should fallback to default (es) as target language if 'to' URL param is not set, and current wiki language is not supported", async () => {
+  it("should fallback to default (es) as target language if 'to' URL param is not set, and current wiki language is not supported", () => {
     mockURLParams.to = null;
     mw.storage.set("cxTargetLanguage", null);
 
     // fr not supported here. Supported target languages are: ["bn", "en", "es"]
     mockWikiLanguage = "fr";
     initializeURLState();
-    await initializeApplicationLanguages();
+    initializeApplicationLanguages();
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("es");
   });

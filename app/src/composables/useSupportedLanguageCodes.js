@@ -1,40 +1,42 @@
 import { ref } from "vue";
-import siteApi from "@/wiki/mw/api/site";
 
 /**
- * All language codes that are supported by cxserver
+ * All language codes that are supported
  * and can be used as source languages
  * @type {Ref<string[]>}
  */
 const supportedSourceLanguageCodes = ref([]);
 /**
- * All language codes that are supported by cxserver
+ * All language codes that are supported
  * and can be used as target languages
  * @type {Ref<string[]>}
  */
 const supportedTargetLanguageCodes = ref([]);
 
-/** @type {Ref<Boolean>} */
-const supportedLanguageCodesRequested = ref(false);
+let initialized = false;
 
 export default function () {
-  /**
-   * This action fetches all language codes supported by cxserver,
-   * that can be used as source/target languages.
-   */
-  const fetchSupportedLanguageCodes = async () => {
-    // If supported language codes have already been fetched, then skip
-    if (!supportedLanguageCodesRequested.value) {
-      supportedLanguageCodesRequested.value = true;
+  if (!initialized) {
+    /**
+     * All language codes supported, according to
+     * SupportedLanguages.php
+     */
+    const languageCodes = mw.config.get(
+      "wgContentTranslationSupportedLanguages"
+    );
 
-      const languageCodes = await siteApi.fetchSupportedLanguageCodes();
-      supportedSourceLanguageCodes.value = languageCodes.sourceLanguages;
-      supportedTargetLanguageCodes.value = languageCodes.targetLanguages;
+    if (!languageCodes) {
+      throw new Error(
+        `[CX] No supported languages found in mw.config for wgContentTranslationSupportedLanguages`
+      );
     }
-  };
+
+    supportedSourceLanguageCodes.value = languageCodes;
+    supportedTargetLanguageCodes.value = languageCodes;
+    initialized = true;
+  }
 
   return {
-    fetchSupportedLanguageCodes,
     supportedSourceLanguageCodes,
     supportedTargetLanguageCodes,
   };

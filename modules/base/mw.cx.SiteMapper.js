@@ -148,33 +148,6 @@ mw.cx.SiteMapper = class {
 	}
 
 	/**
-	 * Get all the source and target languages.
-	 *
-	 * @return {Promise}
-	 */
-	getLanguagePairs() {
-		if ( !this.languagePairsPromise ) {
-			const languagePairsAPIUrl = this.getCXServerUrl( '/list/languagepairs' );
-			this.languagePairsPromise = fetch( languagePairsAPIUrl )
-				.then( ( response ) => response.json() )
-				.then( ( response ) => ( {
-					targetLanguages: response.target,
-					sourceLanguages: response.source
-				} ) )
-				.catch( ( response ) => {
-					mw.log(
-						'Error getting language pairs from ' + languagePairsAPIUrl + ' . ' +
-						response.statusText + ' (' + response.status + '). ' +
-						response.responseText
-					);
-					this.languagePairsPromise = null;
-					throw undefined;
-				} );
-		}
-		return this.languagePairsPromise;
-	}
-
-	/**
 	 * Get the URL for Special:CX on the needed wiki
 	 * according to given source and target title and the target language.
 	 *

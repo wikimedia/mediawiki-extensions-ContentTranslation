@@ -10,6 +10,7 @@ namespace ContentTranslation\Special;
 
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SiteMapper;
+use ContentTranslation\SupportedLanguages;
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\MutableContext;
 use MediaWiki\Deferred\DeferredUpdates;
@@ -272,12 +273,15 @@ class SpecialContentTranslation extends SpecialPage {
 		$config = $this->getConfig();
 		$out = $this->getOutput();
 
+		$supportedLanguages = SupportedLanguages::getSupportedLanguages();
+
 		$out->addJsConfigVars( [
 			'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
 				$config->get( 'ContentTranslationUnmodifiedMTThresholdForPublish' ),
 			'wgContentTranslationPublishRequirements' =>
 				$config->get( 'ContentTranslationPublishRequirements' ),
-			'wgContentTranslationEnableMT' => $config->get( 'ContentTranslationEnableMT' )
+			'wgContentTranslationEnableMT' => $config->get( 'ContentTranslationEnableMT' ),
+			'wgContentTranslationSupportedLanguages' => $supportedLanguages
 		] );
 
 		if ( $this->onDesktopTranslationView() ) {

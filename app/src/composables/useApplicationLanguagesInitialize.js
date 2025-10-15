@@ -15,11 +15,8 @@ const applicationLanguagesInitialized = ref(false);
  */
 const useApplicationLanguagesInitialize = () => {
   const store = useStore();
-  const {
-    supportedSourceLanguageCodes,
-    supportedTargetLanguageCodes,
-    fetchSupportedLanguageCodes,
-  } = useSupportedLanguageCodes();
+  const { supportedSourceLanguageCodes, supportedTargetLanguageCodes } =
+    useSupportedLanguageCodes();
 
   const { sourceLanguageURLParameter, targetLanguageURLParameter } =
     useURLHandler();
@@ -90,9 +87,7 @@ const useApplicationLanguagesInitialize = () => {
     return { sourceLanguage, targetLanguage };
   };
 
-  const initializeApplicationLanguages = async () => {
-    await fetchSupportedLanguageCodes();
-
+  const initializeApplicationLanguages = () => {
     const { sourceLanguage, targetLanguage } = getInitialLanguagePair();
 
     setLanguagePair(store, sourceLanguage, targetLanguage);
