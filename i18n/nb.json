@@ -430,6 +430,7 @@
 	"cx-sx-dashboard-stats-panel-title": "Din innvirkning",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Denne måneden",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Totalt",
+	"cx-sx-dashboard-stats-panel-all-stats-label": "All oversettelsesstatistikk",
 	"sx-confirm-back-navigation-dialog-title": "Forlate oversettelsen din?",
 	"sx-confirm-back-navigation-dialog-body": "Endringene har ikke blitt lagret, og vil gå tapt.\nDu kan fortsette å redigere så endringene lagres automatisk.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Forkast endringer",
