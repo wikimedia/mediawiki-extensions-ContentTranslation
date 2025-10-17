@@ -211,6 +211,7 @@
 	"cx-publish-destination-section-new": "לפרסם בתור פרק חדש",
 	"cx-publish-destination-section-new-description": "להוסיף רק חדש לערך.",
 	"cx-publish-destination-section-sandbox": "לפרסם לדף הטיוטה שלך",
+	"cx-publish-destination-section-sandbox-description": "פרסום למרחב האישי שלך כדי לסקור ולהעתיק למקום אחר.",
 	"cx-publish-destination-section-expand": "הוספת תוכן לפרק קיים",
 	"cx-publish-destination-section-expand-description": "הרחבת פרק קיים ושמירה על התוכן שלו.",
 	"cx-linkcontextitem-missing-link-title": "חסר קישור",
