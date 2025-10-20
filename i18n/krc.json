@@ -297,7 +297,7 @@
 	"cx-sx-publisher-mt-abuse-error-title": "Кёчюрюугюз басмаланмайды: $1 тюзетилмеген тексти болгъаны ючюн.",
 	"cx-sx-publisher-mt-abuse-message-body": "Машина кёчюрюу, къуру башланыу нохтады. Энтда кёчюрюуле этерчасыз, алай кёчюрюуюгюз тилигизде таб шекелде окъурча болгъанындан ишексиз болугъуз.",
 	"cx-sx-publisher-mt-abuse-error-body": "Машина кёчюрюу, къуру башланыу нохтады. Кёчюрюуюгюз тилигизде таб шекелде окъурча болгъанындан ишексиз болугъуз.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 бёлюм|0=Бёлюм джокъду}}",
+	"cx-sx-translation-suggestion-info": "Кёчюрюллюк {{PLURAL:$1|$1 бёлюм|0=бёлюм джокъду}}",
 	"cx-sx-translation-suggestion-quick": "Къызыу кёчюрюу",
 	"cx-sx-article-search-input-placeholder": "Кёчюрюр ючюн бет излегиз",
 	"cx-sx-article-search-recently-edited-title": "Кёб болмай сиз тюзетгенсиз",

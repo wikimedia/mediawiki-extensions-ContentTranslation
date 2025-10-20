@@ -47,6 +47,7 @@
 	"apihelp-query+contenttranslationfavoritesuggestions-summary": "Obtenir les suggestions de traduction de contenu pour un utilisateur.",
 	"apihelp-query+contenttranslationfavoritesuggestions-param-limit": "Le nombre maximal de suggestions de traduction à renvoyer.",
 	"apihelp-query+contenttranslationfavoritesuggestions-param-offset": "Position à partir de laquelle renvoyer les résultats.",
+	"apihelp-query+contenttranslationfavoritesuggestions-example-1": "Récupérer les suggestions favorites de l'utilisateur actuel",
 	"apihelp-query+contenttranslationcorpora-summary": "Obtenir le texte de la section en vis-à-vis pour une traduction donnée. Voir aussi <code>list=cxpublishedtranslations</code>. Des vidages sont fournis dans différents formats pour l’accès en grand volume.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Identifiant de la traduction.",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "Indique s’il faut éliminer toutes les balises HTML et ne renvoyer que du texte brut.",
