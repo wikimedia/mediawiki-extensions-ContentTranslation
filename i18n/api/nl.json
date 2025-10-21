@@ -108,7 +108,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (bij het opslaan met een captcha-antwoord).",
 	"apihelp-cxpublishsection-param-captchaword": "Antwoord op de captcha (bij het opslaan met een captcha-antwoord).",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "De sectievertalings-ID die is gekoppeld aan de conceptsectievertaling.",
-	"apihelp-cxpublishsection-param-issandbox": "Een sandboxtitel voor vertaling gebruiken.",
 	"apihelp-sxsave-summary": "De conceptsectievertaling opslaan en de parallelle corpora opslaan",
 	"apihelp-sxsave-param-sourcelanguage": "De code van de brontaal.",
 	"apihelp-sxsave-param-targetlanguage": "De code van de doeltaal.",

@@ -113,7 +113,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "معرف Captcha (عند الحفظ باستجابة captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "الرد على captcha (عند الحفظ باستجابة captcha).",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "معرف ترجمة القسم المرتبط بترجمة مسودة القسم.",
-	"apihelp-cxpublishsection-param-issandbox": "استخدم عنوان صندوق الرمال لترجمة.",
 	"apihelp-sxsave-summary": "احفظ ترجمة قسم المسودة وقم بتخزين النص الكتابي الموازي",
 	"apihelp-sxsave-param-sourcelanguage": "رمز لغة المصدر.",
 	"apihelp-sxsave-param-targetlanguage": "رمز اللغة الهدف.",

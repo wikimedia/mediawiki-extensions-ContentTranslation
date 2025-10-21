@@ -104,7 +104,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "מזהה Captcha (בעת שמירה עם תשובת captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "תשובה ל־captcha (בעת שמירה עם תשובת captcha).",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "מזהה תרגום הפרק המשויך לתרגום טיוטת הפרק.",
-	"apihelp-cxpublishsection-param-issandbox": "להשתמש בכותרת של ארגז חול לתרגום.",
 	"apihelp-sxsave-summary": "שמירת טיוטת תרגום הפסקה ואחסון הקורפוס המקביל",
 	"apihelp-sxsave-param-sourcelanguage": "קוד שפת המקור.",
 	"apihelp-sxsave-param-targetlanguage": "קוד שפת היעד.",

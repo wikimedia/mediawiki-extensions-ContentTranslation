@@ -107,7 +107,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "Identificador do captcha (ao gravar com uma resposta a um captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "Resposta ao captcha (ao gravar com uma resposta a um captcha).",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "O identificador da tradução de secção associado ao rascunho da tradução de secção.",
-	"apihelp-cxpublishsection-param-issandbox": "Usar um título de teste para tradução.",
 	"apihelp-sxsave-summary": "Gravar o rascunho da tradução da secção e armazenar os corpora paralelos",
 	"apihelp-sxsave-param-sourcelanguage": "O código da língua de origem.",
 	"apihelp-sxsave-param-targetlanguage": "O código da língua de destino.",

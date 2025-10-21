@@ -108,7 +108,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (captcha response で保存する場合)。",
 	"apihelp-cxpublishsection-param-captchaword": "Captchaへの応答 (Captchaで保存時)",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "下書き節翻訳に関連付けられた節翻訳 ID。",
-	"apihelp-cxpublishsection-param-issandbox": "翻訳にはサンドボックス タイトルを使用します。",
 	"apihelp-sxsave-param-sectionid": "ページセクションID。",
 	"apierror-cxpublishsection-translationnotfound": "翻訳が見つかりませんでした。"
 }

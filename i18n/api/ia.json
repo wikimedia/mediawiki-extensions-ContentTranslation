@@ -103,7 +103,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "ID de captcha (quando salveguardar con un responsa captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "Responsa al captcha (quando salveguardar con un responsa captcha).",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "Le identificator de traduction de section associate con le version provisori del traduction del section.",
-	"apihelp-cxpublishsection-param-issandbox": "Usar un titulo de sabliera pro traduction.",
 	"apihelp-sxsave-summary": "Salveguardar le version provisori del traduction del section e immagazinar le corpores parallel.",
 	"apihelp-sxsave-param-sourcelanguage": "Le codice del lingua de origine.",
 	"apihelp-sxsave-param-targetlanguage": "Le codice del lingua de destination.",

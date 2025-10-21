@@ -98,7 +98,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "Identifikator CAPTCHA (pri shranjevanju odgovora na CAPTCHA).",
 	"apihelp-cxpublishsection-param-captchaword": "Odgovor na CAPTCHA (pri shranjevanju odgovora na CAPTCHA).",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "ID prevoda razdelka, povezan z osnutkom prevoda razdelka.",
-	"apihelp-cxpublishsection-param-issandbox": "Za prevod naj bo uporabljen naslov peskovnika.",
 	"apihelp-sxsave-summary": "Shrani osnutek prevoda razdelka in shrani vzporedni korpus.",
 	"apihelp-sxsave-param-sourcelanguage": "Oznaka izvornega jezika.",
 	"apihelp-sxsave-param-targetlanguage": "Oznaka ciljnega jezika.",

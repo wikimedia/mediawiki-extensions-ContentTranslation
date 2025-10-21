@@ -104,7 +104,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (når man lagrer med captcha-respons).",
 	"apihelp-cxpublishsection-param-captchaword": "Svar på captcha-en (når man lagrer med captcha-respons).",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "Seksjonsoversettelses-ID som er assosiert med kladden av seksjonsoversettelsen.",
-	"apihelp-cxpublishsection-param-issandbox": "Bruk en sandkassetittel for oversettelse.",
 	"apihelp-sxsave-summary": "Lagre oversettelsesutkastet av seksjonen og lagre parellellteksten",
 	"apihelp-sxsave-param-sourcelanguage": "Kildespråkkoden.",
 	"apihelp-sxsave-param-targetlanguage": "Målspråkkoden.",

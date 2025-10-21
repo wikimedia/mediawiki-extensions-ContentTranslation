@@ -102,7 +102,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (vid sparande med ett captcha-svar).",
 	"apihelp-cxpublishsection-param-captchaword": "Svaret på captcha (vid sparande med ett captcha-svar).",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "Avsnittets översättnings-ID som är associerat med översättningen av utkastsavsnittet.",
-	"apihelp-cxpublishsection-param-issandbox": "Använd en sandlådetitel för översättningen.",
 	"apihelp-sxsave-summary": "Spara översättningsskiss för avsnittet och lagra den parallella texten",
 	"apihelp-sxsave-param-sourcelanguage": "Källans språkkod.",
 	"apihelp-sxsave-param-targetlanguage": "Målets språkkod.",

@@ -101,7 +101,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "Капчин ID (капча гойтуш Ӏалашйеш).",
 	"apihelp-cxpublishsection-param-captchaword": "Капчана жоп ло (капча гойтуш Ӏалашйеш).",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "Дакъа гочдаран Ӏаьржигца доьзна долу дакъа гочдаран идентификатор.",
-	"apihelp-cxpublishsection-param-issandbox": "Гочдарехь «ловзаран майданан» цӀе лелайе.",
 	"apihelp-sxsave-summary": "Ӏаьржиган дакъа гочдар Ӏалашде а, параллелан корпусаш Ӏалашйе а",
 	"apihelp-sxsave-param-sourcelanguage": "Хьостан меттан код.",
 	"apihelp-sxsave-param-targetlanguage": "Ӏалашонан меттан код.",

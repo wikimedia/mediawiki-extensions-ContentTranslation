@@ -106,7 +106,6 @@
 	"apihelp-cxpublishsection-param-captchaid": "驗證碼 ID (當使用驗證碼儲存時)。",
 	"apihelp-cxpublishsection-param-captchaword": "回答驗證碼 (當使用驗證碼儲存時)。",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "與草稿章節翻譯關聯的章節翻譯 ID。",
-	"apihelp-cxpublishsection-param-issandbox": "使用沙盒標題進行翻譯。",
 	"apihelp-sxsave-summary": "保存草稿章節翻譯，並存儲平行語料庫",
 	"apihelp-sxsave-param-sourcelanguage": "來源語言代碼。",
 	"apihelp-sxsave-param-targetlanguage": "目標語言代碼。",
