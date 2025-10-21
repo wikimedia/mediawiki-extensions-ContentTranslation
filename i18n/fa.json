@@ -28,7 +28,8 @@
 			"Saeidpourbabak",
 			"درفش کاویانی",
 			"فلورانس",
-			"محک"
+			"محک",
+			"LordProfo"
 		]
 	},
 	"cx": "ترجمهٔ صفحه",
@@ -335,7 +336,7 @@
 	"cx-sx-sentence-selector-suggested-translation-title": "ترجمهٔ پیشنهادی از $1",
 	"cx-sx-sentence-selector-mt-settings-button-aria-label": "گشودن پنجرهٔ گزینه‌های ترجمهٔ ماشینی",
 	"cx-sx-proposed-translation-not-available-message": "در حال حاضر در دسترس نیست",
-	"cx-sx-proposed-translation-retry-button": "تلاش مجدد",
+	"cx-sx-proposed-translation-retry-button": "تلاش دوباره",
 	"cx-sx-proposed-translation-other-options-button": "سایر گزینه‌ها",
 	"cx-sx-sentence-selector-edit-translation-button-label": "ویرایش ترجمه",
 	"cx-sx-sentence-selector-previous-translation-button-aria-label": "بخش ترجمهٔ قبلی را انتخاب کنید",
