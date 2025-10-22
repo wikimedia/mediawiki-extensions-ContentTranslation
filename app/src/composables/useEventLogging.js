@@ -13,16 +13,16 @@ const useEventLogging = () => {
   const store = useStore();
   const { previousRoute } = useApplicationState(store);
 
-  const nonNullFields = [
-    "event_source",
-    "translation_source_language",
-    "translation_target_language",
-    "translation_source_title",
-  ];
+  const nonNullFields = {
+    event_source: { remove: true },
+    translation_source_language: { remove: false },
+    translation_target_language: { remove: false },
+    translation_source_title: { remove: false },
+  };
 
   const assertNonNullFields = (payload) => {
-    for (const field of nonNullFields) {
-      if (payload[field] === null) {
+    for (const [field, { remove }] of Object.entries(nonNullFields)) {
+      if (payload[field] === null || payload[field] === "") {
         const errorMessages = getErrorMessages(
           payload.event_type,
           field,
@@ -32,6 +32,11 @@ const useEventLogging = () => {
           new Error(errorMessages.join(" ")),
           "error.contenttranslation"
         );
+
+        if (remove) {
+          // Remove field entirely so it doesn't cause the event to fail validation
+          delete payload[field];
+        }
       }
     }
   };
