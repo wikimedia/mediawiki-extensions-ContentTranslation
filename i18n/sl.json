@@ -490,7 +490,7 @@
 	"sx-confirm-translation-deletion-dialog-body": "Ali res želite ta prevod trajno izbrisati?",
 	"sx-translation-deletion-cancel-button-label": "Prekliči",
 	"sx-translation-deletion-confirm-button-label": "Izbriši prevod",
-	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|one=$1 dan|two=$1 dneva|few=$1 dni|$1 dni|0=danes}}",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 dan|$1 dneva|$1 dni|$1 dni|0=danes}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mesec|$1 meseca|$1 mesece|$1 mesecev}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 leto|$1 leti|$1 leta|$1 let}}",
 	"sx-confirm-draft-translation-start-dialog-title": "Nadaljevanje prevajanja na mobilniku",
