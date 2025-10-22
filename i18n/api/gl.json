@@ -104,6 +104,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "Identificador da revisión da páxina orixinal.",
 	"apihelp-cxpublishsection-param-captchaid": "Identificador do captcha (ao gardar cunha resposta ao captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "Resposta ao captcha (ao gardar cunha resposta ao captcha).",
+	"apihelp-cxpublishsection-param-publishtarget": "O destino de publicación da tradución da sección. Valores posibles: «SANDBOX», «NEW_SECTION», «EXPAND» e «REPLACE».",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "Identificador de tradución da sección asociado ao borrador de tradución da sección.",
 	"apihelp-sxsave-summary": "Gardar o borrador de tradución da sección e almacenar os corpus paralelos",
 	"apihelp-sxsave-param-sourcelanguage": "Código da lingua de orixe.",

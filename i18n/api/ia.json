@@ -102,6 +102,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "Le ID de version del pagina de origine.",
 	"apihelp-cxpublishsection-param-captchaid": "ID de captcha (quando salveguardar con un responsa captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "Responsa al captcha (quando salveguardar con un responsa captcha).",
+	"apihelp-cxpublishsection-param-publishtarget": "Le destination in le qual publicar le traduction del section. Possibile valores: ‘SANDBOX’, ‘NEW_SECTION’, ‘EXPAND’ e ‘REPLACE’.",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "Le identificator de traduction de section associate con le version provisori del traduction del section.",
 	"apihelp-sxsave-summary": "Salveguardar le version provisori del traduction del section e immagazinar le corpores parallel.",
 	"apihelp-sxsave-param-sourcelanguage": "Le codice del lingua de origine.",
