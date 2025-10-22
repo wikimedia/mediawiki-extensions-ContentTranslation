@@ -2,7 +2,7 @@ import { ref } from "vue";
 import usePublishTarget from "@/composables/usePublishTarget";
 
 const mockIsCurrentSectionPresent = ref(false);
-jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
+jest.mock("@/composables/useSectionPresenceStatus", () => () => ({
   isCurrentSectionPresent: mockIsCurrentSectionPresent,
 }));
 

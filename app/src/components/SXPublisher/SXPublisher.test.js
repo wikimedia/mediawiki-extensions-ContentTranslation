@@ -2,7 +2,6 @@ import { shallowMount, flushPromises } from "@vue/test-utils";
 import SxPublisher from "./SXPublisher.vue";
 import { createI18n } from "vue-banana-i18n";
 import { ref } from "vue";
-import { MwRow, MwCol } from "@/lib/mediawiki.ui";
 
 const mockIsPublishDialogActive = ref(false);
 const mockPublishStatus = ref("pending");
@@ -41,7 +40,6 @@ jest.mock("@/composables/useCurrentPageSection", () => () => ({
   sourceSection: mockSourceSection,
 }));
 
-const mockIsCurrentSectionPresent = ref(false);
 jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
   sectionSuggestion: {
     value: {
@@ -50,6 +48,10 @@ jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
       targetTitle: "Target Page",
     },
   },
+}));
+
+const mockIsCurrentSectionPresent = ref(false);
+jest.mock("@/composables/useSectionPresenceStatus", () => () => ({
   isCurrentSectionPresent: mockIsCurrentSectionPresent,
 }));
 

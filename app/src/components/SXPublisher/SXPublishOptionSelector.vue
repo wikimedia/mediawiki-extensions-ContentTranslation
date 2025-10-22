@@ -8,7 +8,7 @@ import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import usePublishTarget from "@/composables/usePublishTarget";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 defineProps({
   active: {
@@ -24,7 +24,7 @@ const { target, PUBLISHING_TARGETS } = usePublishTarget();
 const isAnon = computed(() => store.state.translator.isAnon);
 const bananaI18n = useI18n();
 const { sourceSection } = useCurrentPageSection();
-const { isCurrentSectionPresent } = useCurrentSectionSuggestion();
+const { isCurrentSectionPresent } = useSectionPresenceStatus();
 
 const optionLabel = computed(() =>
   sourceSection.value.isLeadSection

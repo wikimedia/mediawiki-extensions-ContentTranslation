@@ -14,6 +14,7 @@ import useDashboardTranslationStartInstrument from "@/composables/useDashboardTr
 import useURLHandler from "@/composables/useURLHandler";
 import useEditorNavigation from "@/composables/useEditorNavigation";
 import usePublishTarget from "@/composables/usePublishTarget";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 const { resetPublishTarget } = usePublishTarget();
 const router = useRouter();
@@ -38,8 +39,8 @@ const {
 const { sourceSectionContent, targetSectionContent } = useCompareContents();
 
 const targetPageContent = useTargetArticlePreview();
-const { sectionSuggestion: suggestion, isCurrentSectionPresent } =
-  useCurrentSectionSuggestion();
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { isCurrentSectionPresent } = useSectionPresenceStatus();
 
 const targetTitle = computed(() => suggestion.value.targetTitle);
 

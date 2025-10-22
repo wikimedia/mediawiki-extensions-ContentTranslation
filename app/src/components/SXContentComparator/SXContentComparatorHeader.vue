@@ -12,13 +12,14 @@ import useURLHandler from "@/composables/useURLHandler";
 import { getDir } from "@wikimedia/language-data";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 defineEmits(["close", "translation-button-clicked"]);
 
 const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
 const { sourceSection } = useCurrentPageSection();
-const { sectionSuggestion: suggestion, isCurrentSectionPresent } =
-  useCurrentSectionSuggestion();
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { isCurrentSectionPresent } = useSectionPresenceStatus();
 
 const isCurrentSectionMissing = computed(() =>
   suggestion.value?.missingSections.hasOwnProperty(sourceSectionTitle.value)

@@ -3,7 +3,7 @@ import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
 
 /**
- * @return {{sectionSuggestion: ComputedRef<SectionSuggestion>, isCurrentSectionPresent: ComputedRef<boolean>}}
+ * @return {{sectionSuggestion: ComputedRef<SectionSuggestion>}}
  */
 const useCurrentSectionSuggestion = () => {
   const store = useStore();
@@ -11,7 +11,6 @@ const useCurrentSectionSuggestion = () => {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
     pageURLParameter: sourceTitle,
-    sectionURLParameter: sectionTitle,
   } = useURLHandler();
   const sectionSuggestion = computed(() =>
     store.getters["suggestions/getSectionSuggestionsForArticle"](
@@ -21,14 +20,7 @@ const useCurrentSectionSuggestion = () => {
     )
   );
 
-  const isCurrentSectionPresent = computed(
-    () =>
-      !!sectionSuggestion.value?.presentSections.hasOwnProperty(
-        sectionTitle.value
-      )
-  );
-
-  return { sectionSuggestion, isCurrentSectionPresent };
+  return { sectionSuggestion };
 };
 
 export default useCurrentSectionSuggestion;

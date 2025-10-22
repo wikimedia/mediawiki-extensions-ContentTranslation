@@ -23,10 +23,11 @@ import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggesti
 import useURLHandler from "@/composables/useURLHandler";
 import usePublishTarget from "@/composables/usePublishTarget";
 import { siteMapper } from "@/utils/mediawikiHelper";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 const { sourceSection } = useCurrentPageSection();
-const { sectionSuggestion: suggestion, isCurrentSectionPresent } =
-  useCurrentSectionSuggestion();
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { isCurrentSectionPresent } = useSectionPresenceStatus();
 const {
   targetLanguageURLParameter: targetLanguage,
   sectionURLParameter: sourceSectionTitle,

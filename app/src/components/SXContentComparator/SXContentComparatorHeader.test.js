@@ -23,6 +23,8 @@ const mockSectionSuggestion = ref({
 const mockIsCurrentSectionPresent = ref(false);
 jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
   sectionSuggestion: mockSectionSuggestion,
+}));
+jest.mock("@/composables/useSectionPresenceStatus", () => () => ({
   isCurrentSectionPresent: mockIsCurrentSectionPresent,
 }));
 

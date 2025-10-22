@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 const PUBLISHING_TARGETS = {
   NEW_SECTION: "NEW_SECTION",
@@ -18,7 +18,7 @@ const target = ref(null);
  * resetting, or clearing the publishing target.
  */
 const usePublishTarget = () => {
-  const { isCurrentSectionPresent } = useCurrentSectionSuggestion();
+  const { isCurrentSectionPresent } = useSectionPresenceStatus();
 
   const resetPublishTarget = () => {
     if (isCurrentSectionPresent.value) {
