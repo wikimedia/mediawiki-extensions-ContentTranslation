@@ -78,7 +78,6 @@ enum SectionAction: int {
 
 	public function needsSectionTitlePrepending(): bool {
 		return match ( $this ) {
-			self::EXPAND_LEAD_SECTION,
 			self::CREATE_NUMBERED_SECTION,
 			self::REPLACE_NUMBERED_SECTION,
 			self::EXPAND_NUMBERED_SECTION => true,

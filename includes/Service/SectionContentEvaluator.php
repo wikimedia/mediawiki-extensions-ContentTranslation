@@ -23,6 +23,8 @@ use Wikimedia\Rdbms\IDBAccessObject;
  */
 class SectionContentEvaluator {
 
+	public const LEAD_SECTION_DUMMY_TITLE = '__LEAD_SECTION__';
+
 	public function __construct(
 		private readonly WikiPageFactory $wikiPageFactory,
 		private readonly ParsoidClientFactory $parsoidClientFactory
@@ -96,6 +98,26 @@ class SectionContentEvaluator {
 		}
 
 		$pageWikitext = $content->getText();
+
+		// Handle special case for lead section
+		if ( $sectionTitle === self::LEAD_SECTION_DUMMY_TITLE ) {
+			// Everything before the first top-level heading (== ... ==)
+			$pattern = '/^(.*?)(?=^==[^=])/ms';
+			if ( preg_match( $pattern, $pageWikitext, $matches ) ) {
+				$leadWikitext = trim( $matches[1] );
+				if ( $leadWikitext !== '' ) {
+					return $leadWikitext;
+				}
+			}
+
+			// If there are no headings at all, entire article is the lead
+			$trimmed = trim( $pageWikitext );
+			if ( $trimmed !== '' ) {
+				return $trimmed;
+			}
+
+			throw new SectionWikitextRetrievalException( 'Lead section text not found' );
+		}
 
 		$sectionBodyWikitext = null;
 
