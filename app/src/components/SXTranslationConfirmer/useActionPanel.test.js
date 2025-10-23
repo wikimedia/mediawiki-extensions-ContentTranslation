@@ -91,7 +91,7 @@ describe("actionInformationMessage test", () => {
     mockSectionSuggestion.value.presentSections = {};
 
     expect(actionInformationMessage.value).toBe(
-      'Expand with "<i>Char Bagh</i>" section.'
+      'Expand with "<i>Char Bagh</i>" or check existing sections'
     );
   });
 
@@ -109,7 +109,7 @@ describe("actionInformationMessage test", () => {
     mockSectionSuggestion.value.missingSections = {};
     mockSectionSuggestion.value.presentSections = {};
     expect(actionInformationMessage.value).toBe(
-      "cx-sx-translation-confirmer-action-message-none-missing-none-present"
+      "cx-sx-translation-confirmer-action-message-none-missing-multiple-present"
     );
   });
 });
@@ -144,9 +144,7 @@ describe("Test 'getActionButtonLabel' method", () => {
   it("case: missing = 1 & present = 0", () => {
     mockSectionSuggestion.value.presentSections = {};
 
-    expect(getActionButtonLabel(false)).toBe(
-      "cx-sx-translation-confirmer-action-view-section"
-    );
+    expect(getActionButtonLabel(false)).toBe("cx-sx-select-section");
   });
 
   it("case: missing = 0 & present > 0", () => {
@@ -163,7 +161,7 @@ describe("Test 'getActionButtonLabel' method", () => {
     mockSectionSuggestion.value.presentSections = {};
 
     expect(getActionButtonLabel(false)).toBe(
-      "cx-sx-translation-confirmer-action-new-translation"
+      "cx-sx-translation-confirmer-action-view-section"
     );
   });
 

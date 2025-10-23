@@ -50,17 +50,12 @@ const useActionPanel = () => {
       return "cx-sx-start-translation-button-label";
     }
 
-    if (
-      missingCount.value > 1 ||
-      (missingCount.value === 1 && presentCount.value > 0)
-    ) {
+    if (missingCount.value >= 1) {
       return "cx-sx-select-section";
-    } else if (missingCount.value === 1 && presentCount.value === 0) {
+    } else if (presentCount.value === 0) {
       return "cx-sx-translation-confirmer-action-view-section";
-    } else if (missingCount.value === 0 && presentCount.value > 0) {
+    } else if (presentCount.value > 0) {
       return "cx-sx-select-section";
-    } else if (missingCount.value === 0 && presentCount.value === 0) {
-      return "cx-sx-translation-confirmer-action-new-translation";
     } else {
       // missing and present sections count can be undefined for a while, for example
       // when the user updates the source language for a section translation, inside
@@ -91,26 +86,15 @@ const useActionPanel = () => {
       const message = mw.message(messageKey, ...messageArgs).parse();
 
       return message.replace("$1", `"${firstMissingSectionTitle.value}"`);
-    } else if (missingCount.value === 1 && presentCount.value > 0) {
+    } else if (missingCount.value === 1) {
       const messageKey =
         "cx-sx-translation-confirmer-action-message-single-missing-multiple-present";
       const message = mw.message(messageKey, "$1").parse();
 
       return message.replace("$1", `"${firstMissingSectionTitle.value}"`);
-    } else if (missingCount.value === 1 && presentCount.value === 0) {
-      const messageKey =
-        "cx-sx-translation-confirmer-action-message-single-missing-none-present";
-      const message = mw.message(messageKey, "$1").parse();
-
-      return message.replace("$1", `"${firstMissingSectionTitle.value}"`);
-    } else if (presentCount.value > 0) {
-      const messageKey =
-        "cx-sx-translation-confirmer-action-message-none-missing-multiple-present";
-
-      return mw.message(messageKey).parse();
     } else {
       const messageKey =
-        "cx-sx-translation-confirmer-action-message-none-missing-none-present";
+        "cx-sx-translation-confirmer-action-message-none-missing-multiple-present";
 
       return mw.message(messageKey).parse();
     }
