@@ -3,13 +3,13 @@ import useMtValidate from "./useMtValidate";
 import canUserPublish from "@/utils/userPublishingPermissions";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import usePublishTarget from "@/composables/usePublishTarget";
-import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useTitleForPublishing from "@/composables/useTitleForPublishing";
 
 const usePublishFeedbackMessages = () => {
   const validateMT = useMtValidate();
 
   const { target, PUBLISHING_TARGETS } = usePublishTarget();
-  const { targetPageTitleForPublishing } = useCurrentPageSection();
+  const { targetPageTitleForPublishing } = useTitleForPublishing();
 
   /**
    * Feedback messages that contain publishing-related warnings or errors. If only

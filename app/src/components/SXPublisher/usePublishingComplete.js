@@ -3,6 +3,7 @@ import usePublishTarget from "@/composables/usePublishTarget";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentPages from "@/composables/useCurrentPages";
 import useURLHandler from "@/composables/useURLHandler";
+import useTitleForPublishing from "@/composables/useTitleForPublishing";
 
 const usePublishingComplete = () => {
   const { target, PUBLISHING_TARGETS } = usePublishTarget();
@@ -11,8 +12,8 @@ const usePublishingComplete = () => {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
   } = useURLHandler();
-  const { sourceSection, targetPageTitleForPublishing } =
-    useCurrentPageSection();
+  const { sourceSection } = useCurrentPageSection();
+  const { targetPageTitleForPublishing } = useTitleForPublishing();
 
   /**
    * @param {string|null} targetUrl

@@ -36,6 +36,7 @@ import usePublishTarget from "@/composables/usePublishTarget";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
 import canUserPublish from "@/utils/userPublishingPermissions";
 import usePublishWarnings from "@/composables/usePublishWarnings";
+import useTitleForPublishing from "@/composables/useTitleForPublishing";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
@@ -62,11 +63,9 @@ if (!target.value) {
   ).then(() => resetPublishTarget());
 }
 
-const {
-  sourceSection: currentPageSection,
-  selectedContentTranslationUnit,
-  targetPageTitleForPublishing,
-} = useCurrentPageSection();
+const { sourceSection: currentPageSection, selectedContentTranslationUnit } =
+  useCurrentPageSection();
+const { targetPageTitleForPublishing } = useTitleForPublishing();
 
 const translationDataStatus = ref({
   pageContent: false,

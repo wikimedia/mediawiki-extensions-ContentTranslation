@@ -85,15 +85,15 @@ const currentSourceSection = new PageSection({
 currentSourceSection.originalTitle = MISSING_SOURCE_SECTION_TITLE;
 currentSourceSection.translatedTitle = MISSING_SOURCE_SECTION_TITLE_TRANSLATION;
 
-const mockCurrentPageSectionValues = {
-  sourceSection: ref(currentSourceSection),
-  targetPageTitleForPublishing: ref("Test target article title 1"),
-};
+const mockSourceSection = ref(currentSourceSection);
+jest.mock("@/composables/useCurrentPageSection", () => () => ({
+  sourceSection: mockSourceSection,
+}));
 
-jest.mock(
-  "@/composables/useCurrentPageSection",
-  () => () => mockCurrentPageSectionValues
-);
+const mockTargetPageTitleForPublishing = ref("Test target article title 1");
+jest.mock("@/composables/useTitleForPublishing", () => () => ({
+  targetPageTitleForPublishing: mockTargetPageTitleForPublishing,
+}));
 
 const mockPublishTargetValues = {
   target: ref(null),
@@ -135,8 +135,7 @@ jest.mock("@/composables/useCurrentPageRevision", () => () => mockRevision);
 const mockStore = createStore();
 
 const mockSaveTranslation = jest.fn(() => {
-  const targetTitleForPublishing =
-    mockCurrentPageSectionValues.targetPageTitleForPublishing.value;
+  const targetTitleForPublishing = mockTargetPageTitleForPublishing.value;
 
   if (targetTitleForPublishing === "Test target article title 3") {
     return mockErrorPublishFeedbackMessageForSaving;
@@ -194,9 +193,8 @@ describe(" test `useTranslationPublish` composable", () => {
 
   it("should call publishTranslation method with existing section title if 'expand' option is selected", async () => {
     mockPublishTargetValues.target.value = "EXPAND";
-    mockCurrentPageSectionValues.sourceSection.value.originalTitle =
-      PRESENT_SOURCE_SECTION_TITLE;
-    mockCurrentPageSectionValues.sourceSection.value.translatedTitle =
+    mockSourceSection.value.originalTitle = PRESENT_SOURCE_SECTION_TITLE;
+    mockSourceSection.value.translatedTitle =
       PRESENT_SOURCE_SECTION_TITLE_TRANSLATION;
     await doPublish();
 
@@ -227,9 +225,8 @@ describe(" test `useTranslationPublish` composable", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by publishTranslation api method and an empty target URL, when publishing fails", async () => {
-    mockCurrentPageSectionValues.targetPageTitleForPublishing.value =
-      "Test target article title 2";
-    mockCurrentPageSectionValues.sourceSection.value.subSections = [];
+    mockTargetPageTitleForPublishing.value = "Test target article title 2";
+    mockSourceSection.value.subSections = [];
 
     const result = await doPublish();
 
@@ -240,8 +237,7 @@ describe(" test `useTranslationPublish` composable", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by saveTranslation api method and an empty targetTitle, when saving fails", async () => {
-    mockCurrentPageSectionValues.targetPageTitleForPublishing.value =
-      "Test target article title 3";
+    mockTargetPageTitleForPublishing.value = "Test target article title 3";
     const result = await doPublish();
 
     expect(mockSaveTranslation).toHaveReturnedWith(

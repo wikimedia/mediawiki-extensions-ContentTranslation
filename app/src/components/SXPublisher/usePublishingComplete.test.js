@@ -5,12 +5,15 @@ import PageSection from "@/wiki/cx/models/pageSection";
 import Page from "@/wiki/mw/models/page";
 import { loadTestComposable } from "@/utils/loadTestComposable";
 
-const mockValues = {
-  sourceSection: ref(new PageSection({ isLeadSection: true })),
-  targetPageTitleForPublishing: ref("Target title for publishing"),
-};
+const mockSourceSection = ref(new PageSection({ isLeadSection: true }));
+jest.mock("@/composables/useCurrentPageSection", () => () => ({
+  sourceSection: mockSourceSection,
+}));
 
-jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
+const mockTargetPageTitleForPublishing = ref("Target title for publishing");
+jest.mock("@/composables/useTitleForPublishing", () => () => ({
+  targetPageTitleForPublishing: mockTargetPageTitleForPublishing,
+}));
 
 const mockCurrentPage = ref(new Page({ title: "Football" }));
 

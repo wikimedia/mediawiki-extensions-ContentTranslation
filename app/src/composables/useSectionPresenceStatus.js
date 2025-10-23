@@ -15,6 +15,10 @@ const useSectionPresenceStatus = () => {
     () => targetPageExists.value && !!sourceSection.value?.isLeadSection
   );
 
+  const isMissingLeadSection = computed(
+    () => !!sourceSection.value?.isLeadSection && !targetPageExists.value
+  );
+
   const isCurrentSectionPresent = computed(
     () =>
       isPresentLeadSection.value ||
@@ -26,6 +30,7 @@ const useSectionPresenceStatus = () => {
   return {
     isCurrentSectionPresent,
     isPresentLeadSection,
+    isMissingLeadSection,
   };
 };
 

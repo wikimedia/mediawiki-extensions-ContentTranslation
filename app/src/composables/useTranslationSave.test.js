@@ -35,14 +35,16 @@ const currentSourceSection = new PageSection({
 currentSourceSection.originalTitle = "Test section title 1";
 currentSourceSection.translatedTitle = "Test target section title 1";
 
-const mockValues = {
-  sourceSection: ref(currentSourceSection),
-  targetPageTitleForPublishing: ref(
-    "Test useTranslationSave target title for publishing"
-  ),
-};
+const mockSourceSection = ref(currentSourceSection);
+jest.mock("@/composables/useCurrentPageSection", () => () => ({
+  sourceSection: mockSourceSection,
+}));
 
-jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
+jest.mock("@/composables/useTitleForPublishing", () => () => ({
+  targetPageTitleForPublishing: {
+    value: "Test useTranslationSave target title for publishing",
+  },
+}));
 
 jest.mock("@/composables/usePublishTarget", () => () => ({
   target: { value: "NEW_SECTION" },

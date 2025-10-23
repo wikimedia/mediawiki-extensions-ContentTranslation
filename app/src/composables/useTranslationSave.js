@@ -5,11 +5,12 @@ import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentPageRevision from "@/composables/useCurrentPageRevision";
 import useURLHandler from "@/composables/useURLHandler";
 import usePublishTarget from "@/composables/usePublishTarget";
+import useTitleForPublishing from "@/composables/useTitleForPublishing";
 
 const useTranslationSave = () => {
   const store = useStore();
-  const { sourceSection, targetPageTitleForPublishing } =
-    useCurrentPageSection();
+  const { sourceSection } = useCurrentPageSection();
+  const { targetPageTitleForPublishing } = useTitleForPublishing();
   const {
     pageURLParameter: sourceTitle,
     sourceLanguageURLParameter: sourceLanguage,

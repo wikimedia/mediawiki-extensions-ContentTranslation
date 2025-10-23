@@ -11,6 +11,7 @@ import useURLHandler from "@/composables/useURLHandler";
 import usePublishInstrument from "@/composables/usePublishInstrument";
 import usePublishTarget from "@/composables/usePublishTarget";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useTitleForPublishing from "@/composables/useTitleForPublishing";
 
 const useTranslationPublish = () => {
   const store = useStore();
@@ -19,8 +20,8 @@ const useTranslationPublish = () => {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
   } = useURLHandler();
-  const { sourceSection, targetPageTitleForPublishing } =
-    useCurrentPageSection();
+  const { sourceSection } = useCurrentPageSection();
+  const { targetPageTitleForPublishing } = useTitleForPublishing();
   const revision = useCurrentPageRevision();
   const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 

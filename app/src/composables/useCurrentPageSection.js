@@ -6,7 +6,7 @@ import useCurrentPages from "@/composables/useCurrentPages";
 
 const useCurrentPageSection = () => {
   const store = useStore();
-  const { currentSourcePage, currentTargetPageTitle } = useCurrentPages();
+  const { currentSourcePage } = useCurrentPages();
   const { currentMTProvider } = useApplicationState(store);
 
   const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
@@ -40,18 +40,11 @@ const useCurrentPageSection = () => {
     )
   );
 
-  const targetPageTitleForPublishing = computed(() =>
-    !sourceSection.value.isLeadSection
-      ? currentTargetPageTitle.value
-      : sourceSection.value.title
-  );
-
   return {
     sourceSection,
     isSectionTitleSelected,
     selectedContentTranslationUnit,
     currentProposedTranslation,
-    targetPageTitleForPublishing,
   };
 };
 
