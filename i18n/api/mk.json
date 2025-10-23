@@ -102,6 +102,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "Назнака на преработката во изворната страница.",
 	"apihelp-cxpublishsection-param-captchaid": "Назнака за сликичка за проверка (кога зачувувате со одѕив од сликичка).",
 	"apihelp-cxpublishsection-param-captchaword": "Одговор на сликичката (кога зачувувате со одѕив од сликичка).",
+	"apihelp-cxpublishsection-param-publishtarget": "Целта за објавување на преводот на одделот. Можни вредности: „SANDBOX“, „NEW_SECTION“, „EXPAND“ и „REPLACE“.",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "Назнаката на преводот за оддел поврзана со неговиот нацрт.",
 	"apihelp-sxsave-summary": "Зачувај го нацрт-преводот на одделот и складирај ги напоредните корпуси",
 	"apihelp-sxsave-param-sourcelanguage": "Код на изворниот јазик.",
