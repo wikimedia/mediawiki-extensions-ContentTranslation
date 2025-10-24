@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"SaldırganSincap"
+		]
 	},
 	"cx": "صَفَس کٔرِو تَرجَمہٕ",
 	"cx-javascript": "یہِ آلہ چھُ نہٕ جاوا سِکرپٹ وَرٲے کٲم کران . جاوا سِکرپٹ چھُ بَند آسنہ سٟتؠ یا براوزر پرٛون آسنہ کہِ وجہہ سٟتؠ چھُ نہٕ یہِ چلان.",
@@ -107,7 +109,7 @@
 	"cx-draft-cancel-button-label": "مَنسوٗخ",
 	"cx-beta-feature-enabled-notification": "ترجمہٕ مواد چُھ جٲری کرنہٕ آمُت یتھ وکی پؠٹھ۔",
 	"cx-init-critical-error": "اہم نۄقُص: مُوادک تَرجَمہٕ گوٚو اندروٗنی غلطی ہٕنٛد وَجَہ سٕتؠ لوڈ کرنس منٛز ناکام۔",
-	"cx-campaign-newarticle-notice": "<strong> ترجمہٕ کٔرتھ نوٚو صَفحہٕ بناون چھ وۄنؠ سَہَل! کیٛا تہؠ چھو یژھان مُواد ترجمہٕ کرن وول بیٖٹا آلہ آزماوُن؟",
+	"cx-campaign-newarticle-notice": "<strong>ترجمہٕ کٔرتھ</strong> نوٚو صَفحہٕ بناون چھ وۄنؠ سَہَل! کیٛا تہؠ چھو یژھان مُواد ترجمہٕ کرن وول بیٖٹا آلہ آزماوُن؟",
 	"cx-campaign-no-thanks": "نَہ، شُکریا۔",
 	"cx-campaign-try": "مَواد تَرجَمہٕ آزمٲیِش",
 	"cx-campaign-contributionsmenu-mytranslations": "تَرجَمہٕ",
