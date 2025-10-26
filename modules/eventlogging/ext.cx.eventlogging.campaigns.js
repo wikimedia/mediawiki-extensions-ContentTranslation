@@ -12,7 +12,6 @@
 		mw.hook( 'mw.cx.cta.accept' ).add( ( campaign ) => {
 			mw.track( 'counter.MediaWiki.cx.campaign.' + campaign + '.accept', 1 );
 			mw.track( 'stats.mediawiki_cx_cta_responses_total', 1, { response: 'accept', campaign } );
-			mw.track( 'stats.mediawiki_cx_entrypoint_' + campaign + '_success_total', 1 );
 		} );
 	} );
 }() );
