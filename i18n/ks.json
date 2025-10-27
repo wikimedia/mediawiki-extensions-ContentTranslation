@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"SaldırganSincap"
+		]
 	},
 	"cx": "صَفَس کٔرِو تَرجَمہٕ",
 	"cx-dashboard-header": "تَرجَمہٕ",
@@ -139,7 +141,7 @@
 	"cx-draft-discard-button-label": "تَرجَمہٕ مِٹٲوِو",
 	"cx-beta-feature-enabled-notification": "ترجمہٕ مواد چُھ جٲری کرنہٕ آمُت یتھ وکی پؠٹھ۔",
 	"cx-init-critical-error": "اہم نۄقُص: مُوادک تَرجَمہٕ گوٚو اندروٗنی غلطی ہٕنٛد وَجَہ سٕتؠ لوڈ کرنس منٛز ناکام۔",
-	"cx-campaign-newarticle-notice": "<strong> ترجمہٕ کٔرتھ نوٚو صَفحہٕ بناون چھ وۄنؠ سَہَل! کیٛا تہؠ چھو یژھان مُواد ترجمہٕ کرن وول بیٖٹا آلہ آزماوُن؟",
+	"cx-campaign-newarticle-notice": "<strong>ترجمہٕ کٔرتھ</strong> نوٚو صَفحہٕ بناون چھ وۄنؠ سَہَل! کیٛا تہؠ چھو یژھان مُواد ترجمہٕ کرن وول بیٖٹا آلہ آزماوُن؟",
 	"cx-campaign-no-thanks": "نَہ، شُکریا۔",
 	"cx-campaign-try": "مَواد تَرجَمہٕ آزمٲیِش",
 	"cx-campaign-contributionsmenu-mytranslations": "تَرجَمہٕ",
