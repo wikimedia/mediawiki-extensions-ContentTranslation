@@ -9,7 +9,6 @@
 	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation Content Translation] kele kisadilu ya kubalula nswalu balutiti na ndinga na nge. [$1 meka yo ntangu yai!]",
 	"cx-license-agreement": "Na kulandaka, nge ke ndima [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] mpi nge ke ndima kubasisa makabu na nge na nsi ya [https{creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] mpi [https {{{wikipedia.org/Wikipedia:Text_of_the_GNU_Free_Documentation_License_Licens GFDL 1.3].",
 	"cx-error-server-connection": "Kifu: Nge lendaka ve kukota na server.",
-	"cx-desc": "Makes it easy to [[Special:ContentTranslation|translate]] content pages",
 	"cx-header-all-translations": "Bambalula yonso",
 	"cx-source-view-page": "Lutiti ya kutala",
 	"cx-target-view-page": "Lutiti ya kutala",

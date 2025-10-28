@@ -6,7 +6,8 @@
 			"Amjad Khan",
 			"Baloch Khan",
 			"Dušan Kreheľ",
-			"شاه زمان پټان"
+			"شاه زمان پټان",
+			"SaldırganSincap"
 		]
 	},
 	"cx": "مخ ژباړل",
@@ -55,6 +56,7 @@
 	"cx-campaign-newbytranslation-title": "پرځای يې ژباړه پيلول؟",
 	"cx-campaign-newbytranslation-notice": "له بلې ژبې چې تاسو پرې پوهېږئ، د ژباړې له لارې نوې ليکنه جوړول.",
 	"cx-campaign-newbytranslation-search": "ژباړلو لپاره بل مخ موندل",
+	"cx-campaign-newbytranslation-languages": "$1 ← $2",
 	"cx-campaign-newbytranslation-start": "ژباړه پیل کړئ",
 	"cx-special-login-error": "تاسو باید په دې پاڼه کې د ژباړې لپاره ننوځئ. [ $1 ننوتل]",
 	"cx-tools-instructions-text1": "د ژباړلو لپاره پر پاراگرافونو {{GENDER:|کېکاږئ}}",
@@ -208,6 +210,7 @@
 	"cx-infobar-cannot-publish": "ستاسو ژباړه نشي خپرېدای ځکه چې په دې ويکي کې د خپرولو ځانتيا ته يوازې ماهره سمونگران پرېښولی لري.",
 	"cx-infobar-old-version": "دا ژباړه د منځپانگې له زړې بڼې څخه شوې ده. د سرچينې مخ شايد د پام‌وړ بدلون موندلی وي او تاسو شايد وغواړئ چې دا ژباړه بيا پيل کړئ.",
 	"cx-tools-linter-issues": "ستونزې",
+	"cx-tools-linter-issues-count": "$1/$2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 تېروتنه|$1 تېروتنې}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 گواښ|$1 گواښنې}}",
 	"cx-tools-linter-learn-more": "نور زده کړئ",
@@ -419,7 +422,7 @@
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "په <span>$1</span> او <span>$2</span> کې نشته",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "په <span>$1</span>، <span>$2</span> او نورو کې نشته",
 	"cx-uls-relevant-languages-banner-text-single-missing": "په <span>$1</span> او نورو کې نشته",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "په span>$1</span>، <span>$2</span> او نورو ژبو کې نشته",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "په <span>$1</span>، <span>$2</span> او نورو ژبو کې نشته",
 	"cx-uls-relevant-languages-panel-header": "دا مخ ژباړل",
 	"cx-uls-relevant-languages-panel-message": "دا مخ په ځينو ژبو کې چې تاسو پرې پوهېږئ، نشته. تاسو کولی شئ چې دا په څو دقيقو کې وژباړئ!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "دا به په <strong>نوې ليکنه کې لومړۍ برخه </strong> وي!",
