@@ -112,6 +112,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "معرف مراجعة الصفحة المصدر.",
 	"apihelp-cxpublishsection-param-captchaid": "معرف Captcha (عند الحفظ باستجابة captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "الرد على captcha (عند الحفظ باستجابة captcha).",
+	"apihelp-cxpublishsection-param-publishtarget": "هدف نشر ترجمة القسم القيم المحتملة: \"SANDBOX\" و\"NEW_SECTION\" و\"EXPAND\" و\"REPLACE\".",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "معرف ترجمة القسم المرتبط بترجمة مسودة القسم.",
 	"apihelp-sxsave-summary": "احفظ ترجمة قسم المسودة وقم بتخزين النص الكتابي الموازي",
 	"apihelp-sxsave-param-sourcelanguage": "رمز لغة المصدر.",
