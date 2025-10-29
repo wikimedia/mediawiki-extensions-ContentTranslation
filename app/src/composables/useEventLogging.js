@@ -17,7 +17,7 @@ const useEventLogging = () => {
     event_source: { remove: true },
     translation_source_language: { remove: false },
     translation_target_language: { remove: false },
-    translation_source_title: { remove: false },
+    translation_source_title: { remove: true },
   };
 
   const assertNonNullFields = (payload) => {
