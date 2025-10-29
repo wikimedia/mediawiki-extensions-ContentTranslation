@@ -312,7 +312,7 @@ const searchPagesByTitlePrefix = (query, language) => {
     action: "query",
     generator: "prefixsearch",
     gpssearch: titleQuery,
-    prop: "pageimages|description|langlinkscount",
+    prop: "pageimages|description|langlinkscount|pageprops",
     piprop: "thumbnail",
     pithumbsize: defaultThumbnailSize,
     pilimit: 10,
@@ -327,6 +327,13 @@ const searchPagesByTitlePrefix = (query, language) => {
     .then((response) => response.query?.pages || [])
     .then((pages) =>
       pages
+        .filter((page) => {
+          // Filter out disambiguation pages
+          const pageprops = page.pageprops || {};
+          const hasDisambiguation = "disambiguation" in pageprops;
+
+          return !hasDisambiguation;
+        })
         .sort((page1, page2) => page1.index - page2.index)
         .map(
           (page) => new Page(Object.assign(page, { pagelanguage: language }))
