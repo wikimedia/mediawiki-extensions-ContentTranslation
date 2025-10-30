@@ -340,7 +340,7 @@
 	"cx-sx-publisher-replace-option-details": "احذف القسم الحالي، وأضف ترجمتك بدلاً من ذلك.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "ستتم <strong>إضافة ترجمتك إلى صندوق الحماية الخاص بك.</strong>",
 	"cx-sx-publisher-publish-panel-expand-section-result": "سيتم <strong>إضافة ترجمتك إلى القسم الحالي.</strong>",
-	"cx-sx-publisher-publish-panel-replace-section-result": "سيتم <strong>استبدال القسم الحالي بترجمتك.</strong>",
+	"cx-sx-publisher-publish-panel-replace-section-result": "سيتم <strong>استبدال القسم الحالي بترجمتك</strong>.",
 	"cx-sx-publisher-review-info-error": "لا يمكن نشر ترجمتك:",
 	"cx-sx-publisher-review-info-learn-more": "معرفة المزيد",
 	"cx-sx-publisher-review-info-previous-button-aria-label": "السابق",
