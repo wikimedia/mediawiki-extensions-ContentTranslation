@@ -107,6 +107,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "De versie-ID van de bronpagina.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (bij het opslaan met een captcha-antwoord).",
 	"apihelp-cxpublishsection-param-captchaword": "Antwoord op de captcha (bij het opslaan met een captcha-antwoord).",
+	"apihelp-cxpublishsection-param-publishtarget": "Het publicatiedoel van de sectievertaling. Mogelijke waarden: 'SANDBOX', 'NEW_SECTION', 'EXPAND' en 'REPLACE'.",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "De sectievertalings-ID die is gekoppeld aan de conceptsectievertaling.",
 	"apihelp-sxsave-summary": "De conceptsectievertaling opslaan en de parallelle corpora opslaan",
 	"apihelp-sxsave-param-sourcelanguage": "De code van de brontaal.",
