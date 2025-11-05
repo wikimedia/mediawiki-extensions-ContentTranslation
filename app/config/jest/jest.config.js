@@ -17,4 +17,6 @@ module.exports = {
     "^.+\\.vue$": "@vue/vue3-jest",
     "^.+\\js$": "babel-jest",
   },
+  coverageProvider: "v8",
+  coverageReporters: ["clover", ["lcovonly", { projectRoot: "../" }], "text"],
 };

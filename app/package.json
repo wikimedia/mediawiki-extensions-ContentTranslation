@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && cp dist/cx3.mjs dist/cx3.es.js",
-    "test:unit": "jest -c config/jest/jest.config.js",
+    "test:unit": "jest -c config/jest/jest.config.js --coverage",
     "lint": "npm -s run lint:js && npm -s run lint:css",
     "lint:js": "eslint . --cache --fix",
     "lint:css": "stylelint --cache \"**/*.vue\"",
