@@ -5,11 +5,12 @@ import { mwIconTrash, mwIconUndo } from "@/lib/mediawiki.ui/components/icons";
 import { computed } from "vue";
 import usePublishTarget from "@/composables/usePublishTarget";
 import { useI18n } from "vue-banana-i18n";
-import useCompareContents from "@/components/SXContentComparator/useCompareContents";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useURLHandler from "@/composables/useURLHandler";
 
 const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
-const { activeSectionTargetTitle: targetSectionTitle } = useCompareContents();
+const { activeSectionTargetTitle: targetSectionTitle } =
+  useCurrentSectionSuggestion();
 
 const bananaI18n = useI18n();
 

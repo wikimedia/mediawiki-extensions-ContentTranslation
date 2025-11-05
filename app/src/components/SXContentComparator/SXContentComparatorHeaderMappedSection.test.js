@@ -13,7 +13,7 @@ jest.mock("@/composables/useURLHandler", () => () => ({
 }));
 
 const mockActiveSectionTargetTitle = ref("Early life");
-jest.mock("@/components/SXContentComparator/useCompareContents", () => () => ({
+jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
   activeSectionTargetTitle: mockActiveSectionTargetTitle,
 }));
 

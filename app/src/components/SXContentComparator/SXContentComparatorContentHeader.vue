@@ -1,7 +1,6 @@
 <script setup>
 import { MwRow, MwCol, MwButton } from "@/lib/mediawiki.ui";
 import { siteMapper } from "@/utils/mediawikiHelper";
-
 import {
   mwIconEdit,
   mwIconLinkExternal,
@@ -26,7 +25,8 @@ const emit = defineEmits([
 ]);
 
 const isSticky = ref(false);
-const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { sectionSuggestion: suggestion, activeSectionTargetTitle } =
+  useCurrentSectionSuggestion();
 
 const { sectionURLParameter } = useURLHandler();
 const sourceSectionAnchor = computed(() =>
@@ -36,7 +36,7 @@ const sourceSectionAnchor = computed(() =>
 const updateSelection = (selection) =>
   emit("update:contentTypeSelection", selection);
 
-const { activeSectionTargetTitle, targetSectionAnchor } = useCompareContents();
+const { targetSectionAnchor } = useCompareContents();
 const sectionTitleValid = computed(() =>
   (suggestion.value?.sourceSections || []).find(
     (sectionTitle) => sectionTitle === sectionURLParameter.value

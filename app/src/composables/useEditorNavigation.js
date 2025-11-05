@@ -3,6 +3,7 @@ import useURLHandler from "@/composables/useURLHandler";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import usePublishTarget from "@/composables/usePublishTarget";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 /**
  * Handles navigation logic for the editor, determining whether users should be
@@ -23,6 +24,7 @@ const useEditorNavigation = () => {
     sectionURLParameter: sectionTitle,
     isQuickTutorialForced,
   } = useURLHandler();
+  const { activeSectionTargetTitle } = useCurrentSectionSuggestion();
   const { target: publishTarget } = usePublishTarget();
   const store = useStore();
   const router = useRouter();
@@ -76,6 +78,10 @@ const useEditorNavigation = () => {
 
     if (sectionTitle.value) {
       extra.sourcesection = sectionTitle.value;
+
+      if (!!activeSectionTargetTitle.value) {
+        extra.targetsection = activeSectionTargetTitle.value;
+      }
     }
 
     if (publishTarget.value) {
