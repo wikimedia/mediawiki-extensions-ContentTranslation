@@ -300,7 +300,13 @@
 		}
 	},
 	"APIMetaModules": {
-		"cxdeletedtranslations": "ContentTranslation\\ActionApi\\ApiQueryDeletedTranslations"
+		"cxdeletedtranslations": "ContentTranslation\\ActionApi\\ApiQueryDeletedTranslations",
+		"cxconfig": {
+			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationConfig",
+			"services": [
+				"ContentTranslation.CommunityConfiguration"
+			]
+		}
 	},
 	"APIPropModules": {
 		"langlinkscount": "ContentTranslation\\ActionApi\\ApiQueryLangLinksCount"
@@ -317,7 +323,8 @@
 			"class": "ContentTranslation\\Special\\SpecialContentTranslation",
 			"services": [
 				"SkinFactory",
-				"ContentTranslation.PreferenceHelper"
+				"ContentTranslation.PreferenceHelper",
+				"ContentTranslation.CommunityConfiguration"
 			]
 		},
 		"AutomaticTranslation": {
@@ -451,6 +458,10 @@
 		},
 		"AutomaticTranslationLanguageSearcherEntrypointEnabledLanguages": {
 			"description": "Languages for which the mobile language searcher entrypoint for Automatic Translation should be enabled",
+			"value": null
+		},
+		"ContentTranslationFeaturedCollection": {
+			"description": "Name of the featured collection",
 			"value": null
 		}
 	},
@@ -1920,6 +1931,25 @@
 		"EventLogging": {
 			"Schemas": {
 				"ContentTranslationAbuseFilter": "/analytics/legacy/contenttranslationabusefilter/1.0.0"
+			}
+		},
+		"CommunityConfiguration": {
+			"Providers": {
+				"ContentTranslation": {
+					"store": {
+						"type": "wikipage",
+						"args": [
+							"MediaWiki:ContentTranslation.json"
+						]
+					},
+					"validator": {
+						"type": "jsonschema",
+						"args": [
+							"ContentTranslation\\Config\\Schemas\\ContentTranslationSchema"
+						]
+					},
+					"type": "mw-config"
+				}
 			}
 		}
 	},

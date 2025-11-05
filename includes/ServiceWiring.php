@@ -30,6 +30,7 @@ use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Store\TranslatorStore;
 use ContentTranslation\Validator\TranslationUnitValidator;
+use MediaWiki\Config\Config;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -70,6 +71,14 @@ return [
 	'ContentTranslation.CategoryStore' =>
 		static function ( MediaWikiServices $services ): CategoryStore {
 			return new CategoryStore( $services->getService( 'ContentTranslation.ConnectionProvider' ) );
+		},
+	'ContentTranslation.CommunityConfiguration' =>
+		static function ( MediaWikiServices $services ): Config {
+			if ( ExtensionRegistry::getInstance()->isLoaded( 'CommunityConfiguration' ) ) {
+				return $services->getService( 'CommunityConfiguration.MediaWikiConfigReader' );
+			} else {
+				return $services->getMainConfig();
+			}
 		},
 	'ContentTranslation.ConnectionProvider' => static function ( MediaWikiServices $services ): IConnectionProvider {
 		return new ConnectionProvider( $services->getConnectionProvider() );

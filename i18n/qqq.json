@@ -537,5 +537,9 @@
 	"cx-sx-suggestion-list-empty-title": "Title text shown when there is no suggestion to show for the current filter",
 	"cx-sx-suggestion-list-empty-description": "A brief description shown when there is no suggestion to show for the current filter",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Label of the option that selects all the sub-collections for a page collection filter, in the suggestions filters dialog",
-	"cx-sx-present-lead-section-label": "Text used as label for the existing lead section of an article."
+	"cx-sx-present-lead-section-label": "Text used as label for the existing lead section of an article.",
+	"communityconfiguration-contenttranslation-title": "Label for the title of the ContentTranslation provider for CommunityConfiguration extension",
+	"communityconfiguration-contenttranslation-description": "Label for the description of the ContentTranslation provider for CommunityConfiguration extension",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Label for the featured collection configuration in CommunityConfiguration extension",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Description for the featured collection configuration in CommunityConfiguration extension"
 }

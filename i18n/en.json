@@ -517,5 +517,9 @@
 	"cx-sx-suggestion-list-empty-title": "No suggestions for now",
 	"cx-sx-suggestion-list-empty-description": "We found no suggestions for this filter. You can try a different filter or search for a specific article to translate.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "All",
-	"cx-sx-present-lead-section-label": "(Top)"
+	"cx-sx-present-lead-section-label": "(Top)",
+	"communityconfiguration-contenttranslation-title": "Content Translation",
+	"communityconfiguration-contenttranslation-description": "The Content Translation tool allows editors to translate articles.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Local featured collection",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Setting a local featured collection will surface it in the Content Translation dashboard when the dashboard target language is set to the same language from this wiki."
 }

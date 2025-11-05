@@ -11,6 +11,7 @@ namespace ContentTranslation\Special;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\SupportedLanguages;
+use MediaWiki\Config\Config;
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\MutableContext;
 use MediaWiki\Deferred\DeferredUpdates;
@@ -29,7 +30,8 @@ class SpecialContentTranslation extends SpecialPage {
 
 	public function __construct(
 		private readonly SkinFactory $skinFactory,
-		private readonly PreferenceHelper $preferenceHelper
+		private readonly PreferenceHelper $preferenceHelper,
+		private readonly Config $communityConfig
 	) {
 		parent::__construct( 'ContentTranslation' );
 	}
@@ -274,6 +276,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$out = $this->getOutput();
 
 		$supportedLanguages = SupportedLanguages::getSupportedLanguages();
+		$featuredCollection = $this->communityConfig->get( 'ContentTranslationFeaturedCollection' );
 
 		$out->addJsConfigVars( [
 			'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
@@ -281,7 +284,8 @@ class SpecialContentTranslation extends SpecialPage {
 			'wgContentTranslationPublishRequirements' =>
 				$config->get( 'ContentTranslationPublishRequirements' ),
 			'wgContentTranslationEnableMT' => $config->get( 'ContentTranslationEnableMT' ),
-			'wgContentTranslationSupportedLanguages' => $supportedLanguages
+			'wgContentTranslationSupportedLanguages' => $supportedLanguages,
+			'wgContentTranslationFeaturedCollection' => $featuredCollection
 		] );
 
 		if ( $this->onDesktopTranslationView() ) {
