@@ -86,6 +86,14 @@ mw.cx.init.Translation.prototype.init = function () {
 			this.sourceWikiPage.setRevision( sourcePageContent.revision );
 
 			return this.initTranslationModel( sourcePageContent.segmentedContent, draft ).then( ( translationModel ) => {
+				if ( translationModel.isSectionTranslation() ) {
+					mw.cx.sectionMappingService.fetchSectionMappings(
+						this.sourceWikiPage.getTitle(),
+						this.sourceWikiPage.getLanguage(),
+						this.targetWikiPage.getLanguage()
+					).then( () => this.initializePublishTarget( translationModel ) );
+				}
+
 				this.translationModel = translationModel;
 
 				if ( draft ) {
@@ -187,7 +195,6 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 		const sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml, this.sourceWikiPage.getSectionTitle() );
 
 		const translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
-		this.initializePublishTarget( translationModel );
 		return Promise.resolve( translationModel );
 	}
 
@@ -216,8 +223,6 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 			);
 
 			const updatedTranslationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, updatedSourceDom, updatedTargetDom );
-			this.initializePublishTarget( updatedTranslationModel );
-
 			updatedTranslationModel.setChangedSignificantly( true );
 
 			const uri = new URL( location.href ); // Append revision number to URL
@@ -246,23 +251,16 @@ mw.cx.init.Translation.prototype.initializePublishTarget = function ( translatio
 		return;
 	}
 
-	mw.cx.sectionMappingService.fetchSectionMappings(
-		this.sourceWikiPage.getTitle(),
-		this.sourceWikiPage.getLanguage(),
-		this.targetWikiPage.getLanguage()
-	).then( () => {
-		const existingTargetSectionTitle = mw.cx.sectionMappingService.getMappedPresentSectionTitle(
-			translationModel.getSourceSectionTitle()
-		);
+	const existingTargetSectionTitle = mw.cx.sectionMappingService.getMappedPresentSectionTitle(
+		translationModel.getSourceSectionTitle()
+	);
 
-		if ( existingTargetSectionTitle ) {
-			// EXPAND is the default for present sections
-			translationModel.setPublishTarget( 'EXPAND' );
-		} else {
-			translationModel.setPublishTarget( 'NEW_SECTION' );
-		}
-	} );
-
+	if ( existingTargetSectionTitle ) {
+		// EXPAND is the default for present sections
+		translationModel.setPublishTarget( 'EXPAND' );
+	} else {
+		translationModel.setPublishTarget( 'NEW_SECTION' );
+	}
 };
 
 /**

@@ -205,12 +205,6 @@ ve.ui.CXPublishSettingsDialog.prototype.getSetupProcess = function ( data ) {
 				this.publishOptionSelector.selectItemByData( this.initialNamespace );
 				await this.doesTargetTitleExist().then( this.changeMainNamespaceLabel.bind( this ) );
 			} else {
-				await mw.cx.sectionMappingService.fetchSectionMappings(
-					this.translation.getSourceTitle(),
-					this.translation.getSourceLanguage(),
-					this.translation.getTargetLanguage()
-				);
-
 				this.setSectionTranslationOptionWidgets();
 				if ( this.isSectionTranslation() ) {
 					this.publishOptionSelector.selectItemByData( this.initialPublishTarget );
