@@ -18,6 +18,7 @@ defineEmits(["select-section"]);
 
 <template>
   <ul class="sx-section-selector__sections-list ma-0 pa-0">
+    <slot name="before-list"></slot>
     <mw-row
       v-for="section in sections"
       :key="section.sourceTitle"

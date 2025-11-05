@@ -7,11 +7,14 @@ import useURLHandler from "@/composables/useURLHandler";
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentPages from "@/composables/useCurrentPages";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 const { sourceSection, isSectionTitleSelected } = useCurrentPageSection();
 const titleClass = "sx-sentence-selector__section-title";
-const { currentSourcePage: currentPage } = useCurrentPages();
+const { currentSourcePage: currentPage, currentTargetPageTitle } =
+  useCurrentPages();
 const { sourceLanguageURLParameter: sourceLanguage } = useURLHandler();
+const { isPresentLeadSection } = useSectionPresenceStatus();
 
 const sourceArticleTitle = computed(() => currentPage.value?.title);
 
@@ -37,7 +40,7 @@ const highLightClassPostfix = computed(() =>
 const titleClasses = computed(() => {
   const classes = [titleClass];
 
-  if (isSectionTitleSelected.value) {
+  if (isSectionTitleSelected.value && !isPresentLeadSection.value) {
     classes.push(`${titleClass}--${highLightClassPostfix.value}`);
   }
 
@@ -46,6 +49,12 @@ const titleClasses = computed(() => {
 
 const { selectTranslationUnitById } = useTranslationUnitSelect();
 const selectSectionTitle = () => selectTranslationUnitById(0);
+
+const titleText = computed(() =>
+  isPresentLeadSection.value
+    ? currentTargetPageTitle.value
+    : translationTitle.value
+);
 </script>
 
 <template>
@@ -62,8 +71,8 @@ const selectSectionTitle = () => selectTranslationUnitById(0);
     <h2
       class="pa-0 ma-0"
       :class="titleClasses"
-      @click="selectSectionTitle"
-      v-text="translationTitle"
+      @click="isPresentLeadSection ? selectSectionTitle : null"
+      v-text="titleText"
     />
     <!--eslint-enable vue/no-v-html -->
   </mw-col>

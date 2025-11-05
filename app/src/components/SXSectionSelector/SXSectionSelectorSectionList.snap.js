@@ -5,6 +5,8 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
   class="sx-section-selector__sections-list ma-0 pa-0"
 >
   
+  
+  
   <li
     class="row items-center justify-start ma-0"
   >
@@ -149,6 +151,8 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
 <ul
   class="sx-section-selector__sections-list ma-0 pa-0"
 >
+  
+  
   
   <li
     class="row items-center justify-start ma-0"

@@ -11,6 +11,9 @@ const mockValues = {
 };
 
 jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
+jest.mock("@/composables/useSectionPresenceStatus", () => () => ({
+  isPresentLeadSection: { value: false },
+}));
 
 describe("Test ProposedTranslationActionButtons SFC", () => {
   const wrapper = mount(ProposedTranslationActionButtons, {

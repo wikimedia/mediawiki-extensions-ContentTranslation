@@ -83,6 +83,10 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  * @return {number|null}
  */
 mw.cx.dm.Translation.static.getMwSectionNumberBySectionTitle = function ( htmlDocument, sectionTitle ) {
+	// TODO: Consider moving all string constants to a separate module
+	if ( sectionTitle === '__LEAD_SECTION__' ) {
+		return 0;
+	}
 	let sxSectionNumber = null;
 	const firstLevelSectionTitles = [].slice.call( htmlDocument.getElementsByTagName( 'h2' ) );
 	const targetSectionNode = firstLevelSectionTitles.find( ( el ) => el.innerText === sectionTitle );
@@ -173,7 +177,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 			sectionNode = sourceSectionNode;
 		}
 
-		if ( sxSectionNumber && sxSectionNumber !== mwSectionNumber ) {
+		if ( typeof sxSectionNumber === 'number' && sxSectionNumber !== mwSectionNumber ) {
 			sectionNode.classList.add( 'mw-section-hide' );
 		}
 
@@ -618,7 +622,7 @@ mw.cx.dm.Translation.prototype.setTargetSectionTitle = function ( sectionTitle )
 /**
  * Get target section title for translation
  *
- * @return {string|null} Target title
+ * @return {string|null} Target section title
  */
 mw.cx.dm.Translation.prototype.getTargetSectionTitle = function () {
 	return this.targetSectionTitle;

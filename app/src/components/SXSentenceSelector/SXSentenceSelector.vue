@@ -35,6 +35,7 @@ import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 import usePublishTarget from "@/composables/usePublishTarget";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
 import canUserPublish from "@/utils/userPublishingPermissions";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 import usePublishWarnings from "@/composables/usePublishWarnings";
 import useTitleForPublishing from "@/composables/useTitleForPublishing";
 
@@ -164,6 +165,14 @@ onMounted(async () => {
   }
   translationDataStatus.value.draftRestored = true;
 
+  if (!target.value) {
+    loadSuggestion(
+      sourceLanguage.value,
+      targetLanguage.value,
+      sourceTitle.value
+    ).then(() => resetPublishTarget());
+  }
+
   watch(
     translationDataReady,
     async () => {
@@ -257,6 +266,7 @@ const configureTranslationOptions = () => {
 };
 
 const { getCurrentTitleByLanguage } = useLanguageTitleGroup();
+const { isMissingLeadSection } = useSectionPresenceStatus();
 
 const editTranslation = (content) => {
   router.push({
@@ -312,7 +322,7 @@ const showPermissionWarning = computed(
 const showTitleError = computed(
   () =>
     !isTitleErrorDismissed.value &&
-    currentPageSection.value?.isLeadSection &&
+    isMissingLeadSection.value &&
     !mw.Title.newFromText(targetPageTitleForPublishing.value)
 );
 </script>

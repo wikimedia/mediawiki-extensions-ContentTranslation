@@ -14,10 +14,14 @@ mw.cx.ui.TargetColumn = function ( config ) {
 	mw.cx.ui.TargetColumn.super.apply( this, arguments );
 
 	// Propagate title change events
-	if ( !this.isSectionTranslation() ) {
+	if ( !this.hasSectionTitleWidget() ) {
 		// if this is an article translation, the title widget is an instance
 		// of PageTitleWidget and "titleChange" event should be fired on change
-		this.titleWidget.connect( this, { change: [ 'emit', 'titleChange' ] } );
+		if ( !config.sectionTitle ) {
+			this.titleWidget.connect( this, { change: [ 'emit', 'titleChange' ] } );
+		} else {
+			this.titleWidget.setReadOnly( true ).setValidation( null );
+		}
 	} else {
 		// if this is a section translation, the title widget is an instance
 		// of SectionTitleWidget and "sectionTitleChange" event should be fired on change
@@ -52,7 +56,7 @@ mw.cx.ui.TargetColumn.prototype.setTranslation = function () {
 	mw.cx.ui.TargetColumn.super.prototype.setTranslation.apply( this, arguments );
 
 	let title;
-	if ( this.isSectionTranslation() ) {
+	if ( this.hasSectionTitleWidget() ) {
 		title = this.translation.getTargetSectionTitle();
 	} else {
 		title = this.translation.getTargetTitle();

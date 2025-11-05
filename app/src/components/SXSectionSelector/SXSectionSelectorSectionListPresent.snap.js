@@ -22,6 +22,49 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
         class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-start items-center py-3 px-4"
       >
         
+        <div
+          class="sx-section-selector__present-section-button-content"
+        >
+          <h5
+            class="sx-section-selector__present-section-button-source"
+          >
+            cx-sx-present-lead-section-label
+          </h5>
+        </div>
+        <span
+          class="cdx-icon cdx-icon--medium ms-auto"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <!--v-if-->
+            <g>
+              <path
+                d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              />
+            </g>
+          </svg>
+        </span>
+        
+      </button>
+      
+    </li>
+    
+    
+    <li
+      class="row items-center justify-start ma-0"
+    >
+      
+      <button
+        aria-label="sx-section-selector-next-button-aria-label"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium col justify-start items-center py-3 px-4"
+      >
+        
         
         <div
           class="sx-section-selector__present-section-button-content"

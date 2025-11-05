@@ -10,6 +10,8 @@ import useCurrentPageRevision from "@/composables/useCurrentPageRevision";
 import useURLHandler from "@/composables/useURLHandler";
 import usePublishInstrument from "@/composables/usePublishInstrument";
 import usePublishTarget from "@/composables/usePublishTarget";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
+import PageSection from "@/wiki/cx/models/pageSection";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useTitleForPublishing from "@/composables/useTitleForPublishing";
 
@@ -23,13 +25,15 @@ const useTranslationPublish = () => {
   const { sourceSection } = useCurrentPageSection();
   const { targetPageTitleForPublishing } = useTitleForPublishing();
   const revision = useCurrentPageRevision();
+  const { isPresentLeadSection } = useSectionPresenceStatus();
   const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 
-  const existingTargetSectionTitle = computed(
-    () =>
-      suggestion.value?.presentSections[
-        sourceSection.value?.sourceSectionTitleForPublishing
-      ]
+  const existingTargetSectionTitle = computed(() =>
+    isPresentLeadSection.value
+      ? PageSection.LEAD_SECTION_DUMMY_TITLE
+      : suggestion.value?.presentSections[
+          sourceSection.value?.sourceSectionTitleForPublishing
+        ]
   );
   const { target: publishTarget, PUBLISHING_TARGETS } = usePublishTarget();
 

@@ -550,9 +550,9 @@ ve.init.mw.CXTarget.prototype.onChange = function () {
  */
 ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId ) {
 	this.publishNamespace = namespaceId;
-	const isSectionTranslation = this.translationView.targetColumn.isSectionTranslation();
+	const hasSectionTitleWidget = this.translationView.targetColumn.hasSectionTitleWidget();
 
-	if ( !isSectionTranslation ) {
+	if ( !hasSectionTitleWidget ) {
 		const newTitle = mw.cx.getTitleForNamespace( this.pageName, namespaceId );
 		// Setting title in targetColumn will take care of necessary event firing for title change.
 		this.translationView.targetColumn.setTitle( newTitle );
@@ -586,11 +586,11 @@ ve.init.mw.CXTarget.prototype.setPublishNameSpaceByPageTitle = function () {
  * and also update the state of the tools of the "publish" toolbar
  */
 ve.init.mw.CXTarget.prototype.updateNamespace = function () {
-	const isSectionTranslation = this.translationView.targetColumn.isSectionTranslation();
+	const hasSectionTitleWidget = this.translationView.targetColumn.hasSectionTitleWidget();
 	// this method ("updateNamespace") is called in several places, leading to namespace override
 	// on several occasions (e.g. "onPublishButtonClick"), which can be undesired for section translations.
 	// To avoid undesired behaviour we only limit this override to page translations.
-	if ( !isSectionTranslation ) {
+	if ( !hasSectionTitleWidget ) {
 		this.setPublishNameSpaceByPageTitle();
 	}
 	if ( this.publishToolbar ) {

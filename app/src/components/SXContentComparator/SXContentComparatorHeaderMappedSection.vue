@@ -7,6 +7,7 @@ import usePublishTarget from "@/composables/usePublishTarget";
 import { useI18n } from "vue-banana-i18n";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useURLHandler from "@/composables/useURLHandler";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
 const { activeSectionTargetTitle: targetSectionTitle } =
@@ -22,6 +23,7 @@ const mappedSectionHeaderText = computed(() =>
     getAutonym(targetLanguage.value)
   )
 );
+const { isPresentLeadSection } = useSectionPresenceStatus();
 </script>
 
 <template>
@@ -40,6 +42,7 @@ const mappedSectionHeaderText = computed(() =>
           />
         </h6>
         <h6
+          v-if="!isPresentLeadSection"
           class="sx-content-comparator-header__mapped-section-target-title pa-0 ms-1"
           :class="{
             'sx-content-comparator-header__mapped-section-target-title--discarded':
@@ -49,7 +52,7 @@ const mappedSectionHeaderText = computed(() =>
           {{ targetSectionTitle }}
         </h6>
       </mw-col>
-      <mw-col shrink>
+      <mw-col v-if="!isPresentLeadSection" shrink>
         <mw-button
           v-if="target === PUBLISHING_TARGETS.EXPAND"
           class="sx-content-comparator-header__mapped-section__discard-button pa-0"
@@ -67,7 +70,12 @@ const mappedSectionHeaderText = computed(() =>
       </mw-col>
     </mw-row>
     <p
-      v-if="target === PUBLISHING_TARGETS.EXPAND"
+      v-if="isPresentLeadSection"
+      v-i18n:cx-sx-content-comparator-mapped-lead-section-clarifications
+      class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
+    />
+    <p
+      v-else-if="target === PUBLISHING_TARGETS.EXPAND"
       v-i18n:cx-sx-content-comparator-mapped-section-clarifications
       class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
     />

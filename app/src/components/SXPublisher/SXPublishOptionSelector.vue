@@ -24,34 +24,37 @@ const { target, PUBLISHING_TARGETS } = usePublishTarget();
 const isAnon = computed(() => store.state.translator.isAnon);
 const bananaI18n = useI18n();
 const { sourceSection } = useCurrentPageSection();
-const { isCurrentSectionPresent } = useSectionPresenceStatus();
+const { isCurrentSectionPresent, isPresentLeadSection } =
+  useSectionPresenceStatus();
 
-const optionLabel = computed(() =>
+const newSectionOptionLabel = computed(() =>
   sourceSection.value.isLeadSection
     ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-label")
     : bananaI18n.i18n("cx-sx-publisher-new-section-option-label")
 );
-const optionDetails = computed(() =>
+const newSectionOptionDetails = computed(() =>
   sourceSection.value.isLeadSection
     ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-details")
     : bananaI18n.i18n("cx-sx-publisher-new-section-option-details")
 );
 
 const publishOptions = computed(() => {
-  const options = [
-    {
-      label: optionLabel.value,
-      description: optionDetails.value,
+  const options = [];
+
+  if (!isPresentLeadSection.value) {
+    options.push({
+      label: newSectionOptionLabel.value,
+      description: newSectionOptionDetails.value,
       value: PUBLISHING_TARGETS.NEW_SECTION,
       disabled: false,
-    },
-    {
-      label: bananaI18n.i18n("cx-sx-publisher-sandbox-option-label"),
-      description: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
-      value: PUBLISHING_TARGETS.SANDBOX,
-      disabled: isAnon.value,
-    },
-  ];
+    });
+  }
+  options.push({
+    label: bananaI18n.i18n("cx-sx-publisher-sandbox-option-label"),
+    description: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
+    value: PUBLISHING_TARGETS.SANDBOX,
+    disabled: isAnon.value,
+  });
 
   if (isCurrentSectionPresent.value) {
     options.push({

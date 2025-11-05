@@ -1,6 +1,7 @@
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 const useInitializeSegmentSelection = () => {
   const {
@@ -9,6 +10,7 @@ const useInitializeSegmentSelection = () => {
   } = useCurrentPageSection();
   const { selectNextTranslationUnit, selectTranslationUnitById } =
     useTranslationUnitSelect();
+  const { isPresentLeadSection } = useSectionPresenceStatus();
 
   const { currentTranslation } = useCurrentDraftTranslation();
 
@@ -30,6 +32,10 @@ const useInitializeSegmentSelection = () => {
     } else if (!selectedContentTranslationUnit.value) {
       // If no sentence is selected, select title
       selectTranslationUnitById(0);
+
+      if (isPresentLeadSection.value) {
+        selectNextTranslationUnit();
+      }
     }
   };
 };

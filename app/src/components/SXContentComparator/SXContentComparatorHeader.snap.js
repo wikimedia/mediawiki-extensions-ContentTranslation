@@ -44,7 +44,7 @@ exports[`SxContentComparatorHeader matches snapshot 1`] = `
         <!-- eslint-enable vue/no-v-html -->
       </div>
       <sx-content-comparator-header-navigation-stub
-        sectionsourcetitles="Early life,History"
+        sectionsourcetitles="__LEAD_SECTION__,Early life,History"
       />
     </div>
     <div

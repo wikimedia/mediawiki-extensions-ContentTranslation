@@ -51,8 +51,10 @@ jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
 }));
 
 const mockIsCurrentSectionPresent = ref(false);
+const mockIsPresentLeadSection = ref(false);
 jest.mock("@/composables/useSectionPresenceStatus", () => () => ({
   isCurrentSectionPresent: mockIsCurrentSectionPresent,
+  isPresentLeadSection: mockIsPresentLeadSection,
 }));
 
 jest.mock("@/composables/useURLHandler", () => () => ({

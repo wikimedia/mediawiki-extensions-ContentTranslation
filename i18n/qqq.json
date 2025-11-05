@@ -299,6 +299,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Title of header for considerations regarding mapped sections on the screen where translators compare source and target section contents for an article existing in both languages.\n\nParameters:\n* $1 - Autonym of the target language",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Title for target section option in source/target selector on the screen where translators compare source and target section contents for an article existing in both languages.\n\nParameters:\n* $1 - Autonym of the target language",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Content of clarifications for mapped section on the screen where translators compare source and target section contents for an article existing in both languages.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Content of clarifications for mapped lead section on the screen where translators compare source and target section contents for an article existing in both languages.",
 	"cx-sx-translation-confirmer-title": "Title for 'Confirm Translation' step",
 	"cx-sx-translation-confirmer-views-count": "Content of views count stat for specific article inside translation confirmer screen. \n\nParameters:\n* $1 - Number of weekly views for this specific article",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "Content of estimated translation time for the lead section of an article inside translation confirmer screen. \n\nParameters:\n* $1 - Number of hours for the lead section\n* $2 - Number of minutes for the lead section",
@@ -322,6 +323,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Aria label for the check button, inside the header of 'Preview and publish' step, that publishes the current translation",
 	"cx-sx-publisher-publish-panel-new-section-status": "Status for publish panel inside 'Preview and publish' screen for new section",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Message inside publish panel of 'Preview and publish' step, indicating to the user that the current section already exists in the target page",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Message inside publish panel of 'Preview and publish' step, indicating to the user that the current lead section already exists in the target page",
 	"cx-sx-publisher-publish-panel-new-section-result": "Description of expected result of publishing new section inside 'Preview and publish' screen",
 	"cx-sx-publisher-review-info": "Additional information to review before publishing a section translation",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Title of animation dialog that opens when user tries to publish a translation",
@@ -534,5 +536,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Header text for the section that lists the section suggestions of the page collection, in the dialog, that displays information and suggestions for a page collection.",
 	"cx-sx-suggestion-list-empty-title": "Title text shown when there is no suggestion to show for the current filter",
 	"cx-sx-suggestion-list-empty-description": "A brief description shown when there is no suggestion to show for the current filter",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Label of the option that selects all the sub-collections for a page collection filter, in the suggestions filters dialog"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Label of the option that selects all the sub-collections for a page collection filter, in the suggestions filters dialog",
+	"cx-sx-present-lead-section-label": "Text used as label for the existing lead section of an article."
 }

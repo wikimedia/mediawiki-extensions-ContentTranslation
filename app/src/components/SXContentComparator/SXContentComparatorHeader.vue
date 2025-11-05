@@ -11,6 +11,7 @@ import { computed } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import { getDir } from "@wikimedia/language-data";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import PageSection from "@/wiki/cx/models/pageSection";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
@@ -27,6 +28,7 @@ const isCurrentSectionMissing = computed(() =>
 
 const sourceSectionContent = computed(() => sourceSection.value?.html);
 const sectionSourceTitles = computed(() => [
+  PageSection.LEAD_SECTION_DUMMY_TITLE,
   ...Object.keys(suggestion.value.missingSections),
   ...Object.keys(suggestion.value.presentSections),
 ]);
@@ -61,6 +63,12 @@ const sectionTitleValid = computed(() =>
           </h4>
           <!-- eslint-disable vue/no-v-html -->
           <h2
+            v-if="sourceSection?.isLeadSection"
+            v-i18n:cx-sx-present-lead-section-label
+            class="sx-content-comparator-header__section-title pa-0 ma-0"
+          />
+          <h2
+            v-else
             class="sx-content-comparator-header__section-title pa-0 ma-0"
             :lang="suggestion.sourceLanguage"
             :dir="getDir(suggestion.sourceLanguage)"

@@ -4,6 +4,7 @@ import { computed } from "vue";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconPrevious, cdxIconNext } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 defineEmits([
   "select-previous-segment",
@@ -13,9 +14,14 @@ defineEmits([
 
 const { sourceSection, isSectionTitleSelected, currentProposedTranslation } =
   useCurrentPageSection();
+const { isPresentLeadSection } = useSectionPresenceStatus();
 
 const isLastTranslationUnit = computed(
   () => sourceSection.value?.isSelectedTranslationUnitLast
+);
+
+const isPreviousButtonDisabled = computed(
+  () => isPresentLeadSection.value || isSectionTitleSelected.value
 );
 </script>
 
@@ -27,7 +33,7 @@ const isLastTranslationUnit = computed(
       :aria-label="
         $i18n('cx-sx-sentence-selector-previous-translation-button-aria-label')
       "
-      :disabled="isSectionTitleSelected"
+      :disabled="isPreviousButtonDisabled"
       @click="$emit('select-previous-segment')"
     >
       <cdx-icon class="me-1" :icon="cdxIconPrevious" />

@@ -29,8 +29,9 @@ mw.cx.ui.ArticleColumn = function ( config ) {
 	this.translation = null;
 	this.siteMapper = config.siteMapper;
 	this.language = config.language;
+	// TODO: Consider moving all string constants to a separate module
 	// if this is a section translation
-	if ( config.sectionTitle ) {
+	if ( config.sectionTitle && config.sectionTitle !== '__LEAD_SECTION__' ) {
 		this.addItems( [
 			new OO.ui.LabelWidget( {
 				label: config.title,
@@ -138,6 +139,6 @@ mw.cx.ui.ArticleColumn.prototype.getTitleWidget = function () {
 	return this.titleWidget;
 };
 
-mw.cx.ui.ArticleColumn.prototype.isSectionTranslation = function () {
+mw.cx.ui.ArticleColumn.prototype.hasSectionTitleWidget = function () {
 	return this.titleWidget instanceof mw.cx.ui.SectionTitleWidget;
 };

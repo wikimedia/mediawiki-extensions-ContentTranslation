@@ -51,7 +51,16 @@
 				return null;
 			}
 
+			// TODO: Consider moving all string constants to a separate module
+			if ( sourceSectionTitle === '__LEAD_SECTION__' ) {
+				return sourceSectionTitle;
+			}
+
 			return this.mappings.present[ sourceSectionTitle ] || null;
+		}
+
+		isSectionPresent( sourceSectionTitle ) {
+			return !!mw.cx.sectionMappingService.getMappedPresentSectionTitle( sourceSectionTitle );
 		}
 	}
 

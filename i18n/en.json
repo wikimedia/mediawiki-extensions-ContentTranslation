@@ -279,6 +279,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Present in $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Section in $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Your translation will expand the existing section. Discard this if the sections are not related.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Your translation will expand the existing section.",
 	"cx-sx-translation-confirmer-title": "New translation",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 view/|$1 views/|0=No views this }}week",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 hour|$1 hours|0={{PLURAL:$2|$2 minute|$2 minutes}}}} to translate the lead section",
@@ -302,6 +303,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Confirm",
 	"cx-sx-publisher-publish-panel-new-section-status": "Ready to publish?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Similar section already exists",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Top section already exists",
 	"cx-sx-publisher-publish-panel-new-section-result": "Your translation will be <strong>added to the article as a new section.</strong>",
 	"cx-sx-publisher-review-info": "Check that your translation reads naturally and follows proper grammar",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Publish translation...",
@@ -514,5 +516,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "New sections",
 	"cx-sx-suggestion-list-empty-title": "No suggestions for now",
 	"cx-sx-suggestion-list-empty-description": "We found no suggestions for this filter. You can try a different filter or search for a specific article to translate.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "All"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "All",
+	"cx-sx-present-lead-section-label": "(Top)"
 }

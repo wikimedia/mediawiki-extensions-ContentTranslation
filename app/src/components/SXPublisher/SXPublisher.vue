@@ -27,14 +27,19 @@ import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 const { sourceSection } = useCurrentPageSection();
 const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
-const { isCurrentSectionPresent } = useSectionPresenceStatus();
+const { isCurrentSectionPresent, isPresentLeadSection } =
+  useSectionPresenceStatus();
 const {
   targetLanguageURLParameter: targetLanguage,
   sectionURLParameter: sourceSectionTitle,
 } = useURLHandler();
 
-const translatedTitle = computed(() => sourceSection.value?.title);
 const bananaI18n = useI18n();
+const translationTitle = computed(() =>
+  isPresentLeadSection.value
+    ? bananaI18n.i18n("cx-sx-present-lead-section-label")
+    : sourceSection.value?.title
+);
 
 const { target, PUBLISHING_TARGETS } = usePublishTarget();
 
@@ -133,20 +138,21 @@ watch(publishOptionsOn, (newValue) => {
   }
 });
 
-const targetSectionTitle = computed(
-  () => suggestion.value?.presentSections?.[sourceSectionTitle.value]
-);
+const presentTargetSectionTitle = computed(() => {
+  return isPresentLeadSection.value
+    ? bananaI18n.i18n("cx-sx-present-lead-section-label")
+    : suggestion.value?.presentSections?.[sourceSectionTitle.value];
+});
 
-const targetArticlePath = computed(() => {
+const presentTargetArticlePath = computed(() => {
   const articlePath = siteMapper.getPageUrl(
     targetLanguage.value,
     suggestion.value?.targetTitle
   );
 
-  const targetSectionAnchor = (targetSectionTitle.value || "").replace(
-    / /g,
-    "_"
-  );
+  const targetSectionAnchor = isPresentLeadSection.value
+    ? ""
+    : (presentTargetSectionTitle.value || "").replace(/ /g, "_");
 
   return `${articlePath}#${targetSectionAnchor}`;
 });
@@ -172,13 +178,20 @@ const targetArticlePath = computed(() => {
         <div
           class="sx-publisher__publish-panel__existing-target-section px-4 pb-4"
         >
-          <h5 v-i18n:cx-sx-publisher-publish-panel-existing-section-notice />
+          <h5
+            v-if="isPresentLeadSection"
+            v-i18n:cx-sx-publisher-publish-panel-existing-lead-section-notice
+          />
+          <h5
+            v-else
+            v-i18n:cx-sx-publisher-publish-panel-existing-section-notice
+          />
           <a
             class="sx-publisher__publish-panel__existing-target-section-link py-2 px-3 mt-4"
-            :href="targetArticlePath"
+            :href="presentTargetArticlePath"
             target="_blank"
           >
-            {{ targetSectionTitle }}
+            {{ presentTargetSectionTitle }}
             <cdx-icon :icon="cdxIconLinkExternal" />
           </a>
         </div>
@@ -213,7 +226,7 @@ const targetArticlePath = computed(() => {
           tag="h2"
           grow
           class="sx-publisher__section-preview__title ma-0"
-          v-text="translatedTitle"
+          v-text="translationTitle"
         />
         <!--eslint-enable vue/no-v-text-v-html-on-component vue/no-v-html -->
         <mw-col shrink>

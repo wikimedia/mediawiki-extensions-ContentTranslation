@@ -95,6 +95,11 @@ jest.mock("@/composables/useTitleForPublishing", () => () => ({
   targetPageTitleForPublishing: mockTargetPageTitleForPublishing,
 }));
 
+const mockIsPresentLeadSection = ref(false);
+jest.mock("@/composables/useSectionPresenceStatus", () => () => ({
+  isPresentLeadSection: mockIsPresentLeadSection,
+}));
+
 const mockPublishTargetValues = {
   target: ref(null),
   PUBLISHING_TARGETS: {

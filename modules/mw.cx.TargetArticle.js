@@ -188,7 +188,7 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 			sourcetitle: this.sourceTitle,
 			sourcerevid: this.translation.sourceWikiPage.getRevision(),
 			sourcesectiontitle: sourceSectionTitle,
-			targetsectiontitle: this.veTarget.translationView.targetColumn.getTitle(),
+			targetsectiontitle: this.translation.getTargetSectionTitle(),
 			sourcelanguage: this.sourceLanguage,
 			targetlanguage: this.targetLanguage,
 			publishtarget: publishTarget,

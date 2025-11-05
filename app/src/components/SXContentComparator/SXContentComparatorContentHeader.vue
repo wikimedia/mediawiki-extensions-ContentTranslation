@@ -11,6 +11,7 @@ import { getDir } from "@wikimedia/language-data";
 import { ref, computed, onMounted } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
 
 const props = defineProps({
   contentTypeSelection: {
@@ -27,6 +28,7 @@ const emit = defineEmits([
 const isSticky = ref(false);
 const { sectionSuggestion: suggestion, activeSectionTargetTitle } =
   useCurrentSectionSuggestion();
+const { isPresentLeadSection } = useSectionPresenceStatus();
 
 const { sectionURLParameter } = useURLHandler();
 const sourceSectionAnchor = computed(() =>
@@ -116,6 +118,12 @@ onMounted(() => {
       <mw-col>
         <!-- eslint-disable vue/no-v-html -->
         <h3
+          v-if="isPresentLeadSection"
+          v-i18n:cx-sx-present-lead-section-label
+          class="ma-0 pa-0"
+        />
+        <h3
+          v-else
           :lang="activeContent.lang"
           :dir="activeContent.dir"
           class="ma-0 pa-0"

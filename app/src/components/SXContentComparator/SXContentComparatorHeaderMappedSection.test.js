@@ -12,6 +12,12 @@ jest.mock("@/composables/useURLHandler", () => () => ({
   targetLanguageURLParameter: { value: "fr" },
 }));
 
+const mockIsPresentLeadSection = ref(false);
+
+jest.mock("@/composables/useSectionPresenceStatus", () => () => ({
+  isPresentLeadSection: mockIsPresentLeadSection,
+}));
+
 const mockActiveSectionTargetTitle = ref("Early life");
 jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
   activeSectionTargetTitle: mockActiveSectionTargetTitle,

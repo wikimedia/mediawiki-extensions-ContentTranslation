@@ -2,6 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import { ref } from "vue";
 import SxContentComparatorHeader from "./SXContentComparatorHeader.vue";
 import { createI18n } from "vue-banana-i18n";
+import PageSection from "@/wiki/cx/models/pageSection";
 
 const mockSectionTitle = ref("Early life");
 jest.mock("@/composables/useURLHandler", () => () => ({
@@ -73,7 +74,11 @@ describe("SxContentComparatorHeader", () => {
       name: "SxContentComparatorHeaderNavigation",
     });
     expect(nav.exists()).toBe(true);
-    expect(nav.props("sectionSourceTitles")).toEqual(["Early life", "History"]);
+    expect(nav.props("sectionSourceTitles")).toEqual([
+      PageSection.LEAD_SECTION_DUMMY_TITLE,
+      "Early life",
+      "History",
+    ]);
   });
 
   it("disables the translation button when sourceSectionContent is empty", async () => {

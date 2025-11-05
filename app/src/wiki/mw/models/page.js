@@ -1,3 +1,5 @@
+import PageSection from "@/wiki/cx/models/pageSection";
+
 export default class Page {
   /**
    * @param {Object} options
@@ -74,6 +76,10 @@ export default class Page {
    * @return {PageSection|null}
    */
   getSectionByTitle(sectionTitle) {
+    if (sectionTitle === PageSection.LEAD_SECTION_DUMMY_TITLE) {
+      return this.leadSection;
+    }
+
     return (this.sections || []).find(
       (section) => section.originalTitle === sectionTitle
     );

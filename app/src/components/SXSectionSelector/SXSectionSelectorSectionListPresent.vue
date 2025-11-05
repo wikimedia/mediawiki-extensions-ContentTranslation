@@ -4,6 +4,10 @@ import { computed } from "vue";
 import SxSectionSelectorSectionList from "@/components/SXSectionSelector/SXSectionSelectorSectionList.vue";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useURLHandler from "@/composables/useURLHandler";
+import { cdxIconNext } from "@wikimedia/codex-icons";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { MwRow } from "@/lib/mediawiki.ui";
+import PageSection from "@/wiki/cx/models/pageSection";
 
 defineEmits(["select-section"]);
 
@@ -25,6 +29,27 @@ const targetLanguageAutonym = computed(() => getAutonym(targetLanguage.value));
       :sections="suggestion?.orderedPresentSections || []"
       @select-section="$emit('select-section', $event)"
     >
+      <template #before-list>
+        <mw-row tag="li" class="ma-0">
+          <cdx-button
+            weight="quiet"
+            class="col justify-start items-center py-3 px-4"
+            :aria-label="$i18n('sx-section-selector-next-button-aria-label')"
+            @click="
+              $emit('select-section', PageSection.LEAD_SECTION_DUMMY_TITLE)
+            "
+          >
+            <div class="sx-section-selector__present-section-button-content">
+              <h5
+                class="sx-section-selector__present-section-button-source"
+                v-text="$i18n('cx-sx-present-lead-section-label')"
+              />
+            </div>
+            <cdx-icon :icon="cdxIconNext" class="ms-auto" />
+          </cdx-button>
+        </mw-row>
+      </template>
+
       <template #default="{ sourceSection, targetSection }">
         <div class="sx-section-selector__present-section-button-content">
           <!-- eslint-disable vue/no-v-html -->

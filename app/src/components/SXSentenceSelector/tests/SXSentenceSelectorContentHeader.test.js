@@ -12,6 +12,9 @@ const mockValues = {
 };
 
 jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
+jest.mock("@/composables/useSectionPresenceStatus", () => () => ({
+  isPresentLeadSection: { value: false },
+}));
 
 const mockCurrentPage = new Page({ title: "Test source article title" });
 jest.mock("@/composables/useCurrentPages", () => () => ({

@@ -161,7 +161,7 @@ ve.ui.CXPublishSettingsDialog.prototype.setSectionTranslationOptionWidgets = fun
 			)
 		];
 
-		const isCurrentSectionPresent = !!mw.cx.sectionMappingService.getMappedPresentSectionTitle(
+		const isCurrentSectionPresent = mw.cx.sectionMappingService.isSectionPresent(
 			this.translation.getSourceSectionTitle()
 		);
 
