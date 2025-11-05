@@ -962,19 +962,6 @@
 				"mediawiki.jqueryMsg"
 			]
 		},
-		"ext.cx.translation.conflict": {
-			"scripts": [
-				"translation/ext.cx.translation.conflict.js"
-			],
-			"dependencies": [
-				"mediawiki.jqueryMsg"
-			],
-			"messages": [
-				"cx-translation-already-in-progress",
-				"cx-translation-already-in-progress-unknown",
-				"cx-create-new-translation"
-			]
-		},
 		"ext.cx.entrypoints.recentedit": {
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.recentedit/index.js",
@@ -1549,7 +1536,10 @@
 				"cx-tools-view-guidelines-link",
 				"cx-translation-add-translation",
 				"cx-warning-unsaved-translation",
-				"title-invalid-characters"
+				"title-invalid-characters",
+				"cx-translation-already-in-progress",
+				"cx-translation-already-in-progress-unknown",
+				"cx-create-new-translation"
 			],
 			"dependencies": [
 				"ext.cx.model",
