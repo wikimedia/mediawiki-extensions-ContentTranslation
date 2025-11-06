@@ -103,6 +103,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "מזהה הגרסה של דף המקור.",
 	"apihelp-cxpublishsection-param-captchaid": "מזהה Captcha (בעת שמירה עם תשובת captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "תשובה ל־captcha (בעת שמירה עם תשובת captcha).",
+	"apihelp-cxpublishsection-param-publishtarget": "יעד הפרסום של תרגום הפרק. ערכים אפשריים: \"SANDBOX\"‏, \"NEW_SECTION\"‏, \"EXPAND\"‏ ו־\"REPLACE\".",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "מזהה תרגום הפרק המשויך לתרגום טיוטת הפרק.",
 	"apihelp-sxsave-summary": "שמירת טיוטת תרגום הפסקה ואחסון הקורפוס המקביל",
 	"apihelp-sxsave-param-sourcelanguage": "קוד שפת המקור.",

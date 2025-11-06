@@ -3,7 +3,8 @@
 		"authors": [
 			"Adamw",
 			"Dgstranz",
-			"Fitoschido"
+			"Fitoschido",
+			"MarcoAurelio"
 		]
 	},
 	"automatic-translation-special-page-description": "Traducción automática",
@@ -46,5 +47,6 @@
 	"mint-view-translation-overlay-feedback-link-label": "Enviar comentarios",
 	"ax-article-footer-entrypoint-card-description": "Más contenido en otros idiomas",
 	"ax-article-footer-entrypoint-card-supporting-text": "Leer traducción automática",
+	"ax-article-footer-entrypoint-card-heading": "Traducciones automáticas",
 	"mint-explore-languages-open-language-selector": "Seleccionar idioma"
 }
