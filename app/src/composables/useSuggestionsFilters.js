@@ -14,6 +14,7 @@ import usePageCollections from "@/components/CXDashboard/usePageCollections";
 import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
 import useFiltersValidator from "@/composables/useFiltersValidator";
 import SuggestionFilter from "@/wiki/cx/models/suggestionFilter";
+import useFeaturedCollectionFilter from "@/composables/useFeaturedCollectionFilter";
 
 const { topics: topicGroups, regions } = mw.loader.require(
   "ext.cx.articlefilters"
@@ -42,8 +43,11 @@ const useSuggestionsFilters = () => {
   const bananaI18n = useI18n();
   const { currentSuggestionFilters: currentFilter, setFilterURLParams } =
     useURLHandler();
+  const { featuredCollection, featuredCollectionFetched } =
+    useFeaturedCollectionFilter();
 
-  const { validateFilters, filtersValidatorError } = useFiltersValidator();
+  const { validateFilters, filtersValidatorError, isDefaultFilter } =
+    useFiltersValidator();
 
   const editsFilter = new SuggestionFilter({
     id: EDITS_SUGGESTION_PROVIDER,
@@ -176,10 +180,16 @@ const useSuggestionsFilters = () => {
   });
 
   const waitingForPageCollectionsFetch = computed(
+    () => !pageCollectionGroupsFetched.value || !featuredCollectionFetched.value
+  );
+
+  const featuredCollectionFilter = computed(
     () =>
-      [currentFilter.value.type, currentFilter.value.id].includes(
-        COLLECTIONS_SUGGESTION_PROVIDER
-      ) && !pageCollectionGroupsFetched.value
+      new SuggestionFilter({
+        id: featuredCollection.value,
+        label: featuredCollection.value,
+        type: COLLECTIONS_SUGGESTION_PROVIDER,
+      })
   );
 
   /**
@@ -192,6 +202,8 @@ const useSuggestionsFilters = () => {
 
     const selectedFilter = findSelectedFilter();
 
+    const filters = [];
+
     if (
       selectedFilter.type === TOPIC_SUGGESTION_PROVIDER ||
       selectedFilter.type === REGIONS_SUGGESTION_PROVIDER ||
@@ -199,10 +211,20 @@ const useSuggestionsFilters = () => {
       selectedFilter.type === COLLECTIONS_SUGGESTION_PROVIDER ||
       selectedFilter.id === COLLECTIONS_SUGGESTION_PROVIDER
     ) {
-      return [selectedFilter, editsFilter];
+      filters.push(selectedFilter, editsFilter, popularFilter);
+    } else {
+      filters.push(editsFilter, popularFilter);
     }
 
-    return [editsFilter, popularFilter];
+    if (
+      featuredCollection.value &&
+      selectedFilter.type !== featuredCollectionFilter.value.type &&
+      selectedFilter.id !== featuredCollectionFilter.value.id
+    ) {
+      filters.unshift(featuredCollectionFilter.value);
+    }
+
+    return filters;
   };
 
   /**
@@ -253,19 +275,21 @@ const useSuggestionsFilters = () => {
     return [regionOrCountry]; // If it's not a region, return it as a single country
   };
 
+  const pageCollections = computed(() =>
+    Object.values(pageCollectionGroups.value).flat()
+  );
+
   const validateURLFilterWithCollections = () => {
     if (!pageCollectionGroupsFetched.value) {
       return;
     }
-
-    const pageCollections = Object.values(pageCollectionGroups.value).flat();
 
     const suggestionFilter = validateFilters(
       {
         type: currentFilter.value.type,
         id: currentFilter.value.id,
       },
-      pageCollections
+      pageCollections.value
     );
 
     setFilterURLParams(suggestionFilter.type, suggestionFilter.id);
@@ -273,6 +297,19 @@ const useSuggestionsFilters = () => {
     if (filtersValidatorError.value) {
       mw.notify(bananaI18n.i18n("cx-sx-suggestions-filters-invalid-url"));
     }
+  };
+
+  const setFeaturedCollectionFilterIfNeeded = () => {
+    if (!isDefaultFilter(currentFilter.value)) {
+      return;
+    }
+
+    const suggestionFilter = validateFilters(
+      featuredCollectionFilter.value,
+      pageCollections.value
+    );
+
+    selectFilter(suggestionFilter);
   };
 
   return {
@@ -285,6 +322,7 @@ const useSuggestionsFilters = () => {
     findSelectedFilter,
     validateURLFilterWithCollections,
     getCountries,
+    setFeaturedCollectionFilterIfNeeded,
   };
 };
 

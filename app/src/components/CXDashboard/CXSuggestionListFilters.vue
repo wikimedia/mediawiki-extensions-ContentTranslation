@@ -1,16 +1,19 @@
 <script setup>
 import { cdxIconEllipsis } from "@wikimedia/codex-icons";
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, inject } from "vue";
 import { useI18n } from "vue-banana-i18n";
 import SxSuggestionsFilters from "./SXSuggestionsFiltersDialog.vue";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 import { MwSpinner } from "@/lib/mediawiki.ui";
 import CustomInfoChip from "./CustomInfoChip.vue";
 import useSuggestionFiltersInstrument from "./useSuggestionFiltersInstrument";
+import useFeaturedCollectionFilter from "@/composables/useFeaturedCollectionFilter";
+import useURLHandler from "@/composables/useURLHandler";
 
 const bananaI18n = useI18n();
 const { logSuggestionFiltersQuickSelect, logSuggestionFiltersViewMore } =
   useSuggestionFiltersInstrument();
+const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
 
 const {
   getFiltersSummary,
@@ -18,7 +21,11 @@ const {
   isFilterSelected,
   waitingForPageCollectionsFetch,
   validateURLFilterWithCollections,
+  setFeaturedCollectionFilterIfNeeded,
 } = useSuggestionsFilters();
+
+const { initializeFeaturedCollectionWatcher } = useFeaturedCollectionFilter();
+initializeFeaturedCollectionWatcher();
 
 const dialogVisible = ref(false);
 
@@ -33,6 +40,13 @@ const logAndSelectFilter = (filter) => {
 };
 
 const filtersSummary = ref(getFiltersSummary());
+const breakpoints = inject("breakpoints");
+
+const responsiveFiltersSummary = computed(() =>
+  breakpoints.value.desktopAndUp
+    ? filtersSummary.value
+    : filtersSummary.value.slice(0, 2)
+);
 
 // Toggling between summary filters should not reset them even when
 // one is a topic and one is automatic. It should only reset when
@@ -43,9 +57,10 @@ watch(dialogVisible, (newValue) => {
   }
 });
 
-watch(waitingForPageCollectionsFetch, (newValue) => {
-  if (!newValue) {
+watch([waitingForPageCollectionsFetch, targetLanguage], ([newWaitingValue]) => {
+  if (!newWaitingValue) {
     validateURLFilterWithCollections();
+    setFeaturedCollectionFilterIfNeeded();
     filtersSummary.value = getFiltersSummary();
   }
 });
@@ -53,9 +68,9 @@ watch(waitingForPageCollectionsFetch, (newValue) => {
 
 <template>
   <mw-spinner v-if="waitingForPageCollectionsFetch" />
-  <div v-else class="cx-suggestion-list__filters flex px-4 pb-2">
+  <div v-else class="cx-suggestion-list__filters flex mx-4 pb-2">
     <custom-info-chip
-      v-for="filter in filtersSummary"
+      v-for="filter in responsiveFiltersSummary"
       :key="filter.label"
       class="cx-suggestion-list__filter py-1 me-1"
       :class="{
@@ -79,8 +94,9 @@ watch(waitingForPageCollectionsFetch, (newValue) => {
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-suggestion-list__filters {
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   row-gap: @spacing-25;
+  overflow-x: auto;
 
   .cx-suggestion-list__filter {
     cursor: @cursor-base--hover;

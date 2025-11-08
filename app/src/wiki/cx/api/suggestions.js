@@ -121,6 +121,29 @@ async function fetchPageCollectionGroups() {
 }
 
 /**
+ * @param {string} language
+ * @returns {Promise<string|null>}
+ */
+function fetchFeaturedCollectionNameByLanguage(language) {
+  const mwApi = siteMapper.getApi(language);
+
+  const jQueryPromise = mwApi.get({
+    action: "query",
+    meta: "cxconfig",
+    format: "json",
+    formatversion: 2,
+  });
+
+  return new Promise((resolve) => {
+    jQueryPromise
+      .then((response) =>
+        resolve(response?.query?.cxconfig?.featuredcollection || null)
+      )
+      .fail(() => resolve(null));
+  });
+}
+
+/**
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
  * @param {String|null} seedArticleTitle
@@ -741,4 +764,5 @@ export default {
   fetchPageCollectionGroups,
   fetchPageSuggestionsByCollections,
   fetchSectionSuggestionsByCollections,
+  fetchFeaturedCollectionNameByLanguage,
 };
