@@ -14,15 +14,16 @@ import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import { computed, inject } from "vue";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import { useStore } from "vuex";
-import useApplicationState from "../../composables/useApplicationState";
 import {
   isEasyOrStubArticleTranslation,
+  isEasyOrStubSectionTranslation,
   isEasySectionTranslation,
 } from "@/utils/translationDifficulty";
 import CollectionArticleSuggestion from "@/wiki/cx/models/collectionArticleSuggestion";
 import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSuggestion";
 import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
 import { useI18n } from "vue-banana-i18n";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
 
 const props = defineProps({
   suggestion: {
@@ -80,6 +81,10 @@ const isSectionSuggestion = computed(
   () => suggestion.value instanceof SectionSuggestion
 );
 
+const isArticleSuggestion = computed(
+  () => suggestion.value instanceof ArticleSuggestion
+);
+
 const isFavoriteSuggestion = computed(
   () => suggestion.value instanceof FavoriteSuggestion
 );
@@ -100,15 +105,28 @@ const bookmarkIconColor = computed(() =>
   isFavoriteSuggestion.value ? colors.blue600 : "currentColor"
 );
 
-const isQuickTranslation = computed(() =>
-  isEasyOrStubArticleTranslation(page.value?.articleSize)
-);
-
 const isCollectionSuggestion = computed(
   () =>
     suggestion.value instanceof CollectionArticleSuggestion ||
     suggestion.value instanceof CollectionSectionSuggestion
 );
+
+/**
+ * "Quick translation" indicator should only -conditionally- be added when
+ * the current suggestion is an article suggestion, but not a collection suggestion.
+ * In all other cases, the indicator is never shown.
+ *
+ * @type {ComputedRef<boolean>}
+ */
+const isQuickTranslation = computed(() => {
+  if (isArticleSuggestion.value && !isCollectionSuggestion.value) {
+    return isDesktopSite
+      ? isEasyOrStubArticleTranslation(suggestion.value.size)
+      : isEasyOrStubSectionTranslation(suggestion.value.leadSectionSize);
+  }
+
+  return false;
+});
 
 defineEmits(["close", "bookmark"]);
 </script>
@@ -144,11 +162,7 @@ defineEmits(["close", "bookmark"]);
           />
         </mw-col>
         <mw-col
-          v-if="
-            isQuickTranslation &&
-            !isSectionSuggestion &&
-            !isCollectionSuggestion
-          "
+          v-if="isQuickTranslation"
           shrink
           class="cx-suggestion__information-panel__quick-translation mt-auto"
         >

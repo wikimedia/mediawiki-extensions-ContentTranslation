@@ -57,6 +57,20 @@ const isEasyOrStubArticleTranslation = (sizeInBytes) => {
 };
 
 /**
+ * Check if an article translation is easy or stub (quick translation)
+ * @param {number} sizeInBytes - The size in bytes
+ * @returns {boolean} True if the translation is easy or stub difficulty
+ */
+const isEasyOrStubSectionTranslation = (sizeInBytes) => {
+  if (!sizeInBytes) return false;
+  const difficulty = getSectionDifficultyBySize(sizeInBytes);
+
+  return (
+    difficulty === DifficultyEnum.stub || difficulty === DifficultyEnum.easy
+  );
+};
+
+/**
  * Check if a section translation is easy based on its size
  * @param {number} sectionSize - The size of the section in bytes
  * @returns {boolean} True if the section is easy
@@ -74,5 +88,6 @@ export {
   getArticleDifficultyBySize,
   getSectionDifficultyBySize,
   isEasyOrStubArticleTranslation,
+  isEasyOrStubSectionTranslation,
   isEasySectionTranslation,
 };

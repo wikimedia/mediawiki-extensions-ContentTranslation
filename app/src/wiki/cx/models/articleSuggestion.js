@@ -11,6 +11,7 @@ export default class ArticleSuggestion {
    * @param {number} options.langLinksCount
    * @param {string} options.wikidataId
    * @param {number} options.size
+   * @param {number|null} options.leadSectionSize
    * @param {string|null} options.suggestionSeed
    * @param {{ type: String, id: String }|null} options.suggestionProvider
    */
@@ -22,6 +23,7 @@ export default class ArticleSuggestion {
     langLinksCount,
     wikidataId,
     size,
+    leadSectionSize = null,
     suggestionSeed = null,
     suggestionProvider = null,
   }) {
@@ -31,6 +33,7 @@ export default class ArticleSuggestion {
     this.targetTitle = targetTitle;
     this.wikidataId = wikidataId;
     this.size = size;
+    this.leadSectionSize = leadSectionSize;
     this.langLinksCount = langLinksCount;
     /** @type {{type: String, id: String}|null} */
     this.suggestionProvider = suggestionProvider;

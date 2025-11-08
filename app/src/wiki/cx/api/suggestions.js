@@ -19,29 +19,30 @@ const appendixSectionTitlesInEnglish = en;
 const considerSizeRestrictions = async (urlPostfix, urlParams) => {
   const newcomer = await isNewcomerUser();
 
-  if (!newcomer) {
-    return;
-  }
+  if (!!newcomer) {
+    let thresholds;
 
-  let thresholds;
+    if (!urlPostfix) {
+      // article suggestions
+      thresholds = ArticleDifficultyThresholdEnum;
 
-  if (!urlPostfix) {
-    // article suggestions
-    thresholds = ArticleDifficultyThresholdEnum;
-
-    // On mobile, article translation is lead section translation
-    // so request that the size filters be applied to the lead section
-    if (!isDesktopSite) {
-      urlParams["lead_section"] = true;
+      // On mobile, article translation is lead section translation
+      // so request that the size filters be applied to the lead section
+      if (!isDesktopSite) {
+        urlParams["lead_section"] = true;
+        thresholds = SectionDifficultyThresholdEnum;
+      }
+    } else if (urlPostfix === "/sections") {
+      // section suggestions
+      thresholds = SectionDifficultyThresholdEnum;
     }
-  } else if (urlPostfix === "/sections") {
-    // section suggestions
-    thresholds = SectionDifficultyThresholdEnum;
-  }
 
-  if (thresholds) {
-    urlParams.min_size = thresholds[DifficultyEnum.easy];
-    urlParams.max_size = thresholds[DifficultyEnum.medium] - 1;
+    if (thresholds) {
+      urlParams.min_size = thresholds[DifficultyEnum.easy];
+      urlParams.max_size = thresholds[DifficultyEnum.medium] - 1;
+    }
+  } else if (!isDesktopSite) {
+    urlParams["lead_section"] = true;
   }
 };
 
@@ -153,6 +154,7 @@ async function fetchPageSuggestions(
         targetLanguage,
         wikidataId: item.wikidata_id,
         size: item.size,
+        leadSectionSize: item.lead_section_size || null,
         langLinksCount: parseInt(item.sitelink_count),
         suggestionSeed: seedArticleTitle,
       })
@@ -185,6 +187,7 @@ const fetchMostPopularPageSuggestions = async (
         targetLanguage,
         wikidataId: item.wikidata_id,
         size: item.size,
+        leadSectionSize: item.lead_section_size || null,
         langLinksCount: parseInt(item.langlinks_count),
       })
   );
@@ -426,6 +429,7 @@ async function fetchPageSuggestionsByTopics(
         targetLanguage,
         wikidataId: item.wikidata_id,
         size: item.size,
+        leadSectionSize: item.lead_section_size || null,
         langLinksCount: parseInt(item.sitelink_count),
       })
   );
@@ -506,6 +510,7 @@ async function fetchPageSuggestionsByCountries(
         targetLanguage,
         wikidataId: item.wikidata_id,
         size: item.size,
+        leadSectionSize: item.lead_section_size || null,
         langLinksCount: parseInt(item.sitelink_count),
       })
   );
