@@ -271,6 +271,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Presente en $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sección en $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "A túa tradución ampliará a sección existente. Desbota isto se as seccións non están relacionadas.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "A túa tradución ampliará a sección existente.",
 	"cx-sx-translation-confirmer-title": "Nova tradución",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita/|$1 visitas/|0=Non houbo visitas esta }}semana",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 hora|$1 horas|0={{PLURAL:$2|$2 minuto|$2 minutos}}}} de tradución da sección principal",
@@ -294,6 +295,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Confirmar",
 	"cx-sx-publisher-publish-panel-new-section-status": "Queres publicar?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Xa existe unha sección semellante",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Xa existe unha sección principal",
 	"cx-sx-publisher-publish-panel-new-section-result": "A túa tradución <strong>engadirase ao artigo como unha sección nova</strong>.",
 	"cx-sx-publisher-review-info": "Comproba que a túa tradución ten unha redacción natural e unha gramática correcta",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Publicar a tradución...",
@@ -506,5 +508,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Seccións novas",
 	"cx-sx-suggestion-list-empty-title": "Nestes intres non hai suxestións",
 	"cx-sx-suggestion-list-empty-description": "Non atopamos ningunha suxestión para este filtro. Podes probar un filtro diferente ou buscar un artigo específico para traducilo.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Todas"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Todas",
+	"cx-sx-present-lead-section-label": "(Principal)"
 }

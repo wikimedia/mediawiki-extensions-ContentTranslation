@@ -283,6 +283,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Tồn tại trong $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Đoạn trong $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Bản dịch của bạn sẽ mở rộng đề mục hiện có. Bỏ qua điều này nếu các đề mục không liên quan.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Bản dịch của bạn sẽ mở rộng phần hiện có.",
 	"cx-sx-translation-confirmer-title": "Bản dịch mới",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 lượt xem/|0=Không có lượt xem nào}} trong tuần này",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 giờ|0={{PLURAL:$2|$2 phút}}}} để dịch phần mở đầu",
@@ -306,6 +307,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Xác nhận",
 	"cx-sx-publisher-publish-panel-new-section-status": "Sẵn sàng xuất bản?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Phần tương tự đã tồn tại",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Phần trên cùng đã tồn tại",
 	"cx-sx-publisher-publish-panel-new-section-result": "Bản dịch của bạn sẽ được <strong>thêm vào bài viết dưới dạng một đoạn mới.</strong>",
 	"cx-sx-publisher-review-info": "Hãy kiểm tra để đảm bảo rằng bản dịch của bạn đọc tự nhiên và sử dụng ngữ pháp phù hợp",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Xuất bản bản dịch…",
@@ -518,5 +520,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Đề mục mới",
 	"cx-sx-suggestion-list-empty-title": "Hiện không có gợi ý nào",
 	"cx-sx-suggestion-list-empty-description": "Chúng tôi không tìm thấy gợi ý nào cho bộ lọc này. Bạn có thể thử bộ lọc khác hoặc tìm kiếm một bài viết cụ thể để dịch.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tất cả"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tất cả",
+	"cx-sx-present-lead-section-label": "(Trên)"
 }

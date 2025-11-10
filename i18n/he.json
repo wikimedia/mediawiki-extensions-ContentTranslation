@@ -278,6 +278,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "קיים ב{{GRAMMAR:תחילית|$1}}",
 	"cx-sx-content-comparator-target-selector-target-section-title": "פרק בדף $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "התרגום שלך ירחיב פרק קיים. אפשר להתעלם מזה אם הפרקים אינם קשורים.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "התרגום שלך ירחיב פרק קיים",
 	"cx-sx-translation-confirmer-title": "תרגום חדש",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|צפייה אחת בשבוע|$1 צפיות בשבוע|0=ללא צפיות השבוע}}",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|שעה|שעתיים|$1 שעות|0={{PLURAL:$2|דקה אחת|$2 דקות}}}} לתרגום פרק הפתיחה",
@@ -301,6 +302,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "אישור",
 	"cx-sx-publisher-publish-panel-new-section-status": "{{GENDER:|מוכן|מוכנה}} לפרסם?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "פרק דומה כבר קיים",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "פרק הפתיחה כבר קיים",
 	"cx-sx-publisher-publish-panel-new-section-result": "התרגום שלך <strong>יתווסף לערך בתור פרק חדש.</strong>",
 	"cx-sx-publisher-review-info": "{{GENDER:|בדוק|בדקי}} שהתרגום שלך קריא וטבעי ומקפיד על דקדוק נכון",
 	"cx-sx-publisher-animation-publishing-indicator-title": "פרסום התרגום...",
@@ -513,5 +515,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "פרקטים חדשים",
 	"cx-sx-suggestion-list-empty-title": "אין הצעות לעת־עתה",
 	"cx-sx-suggestion-list-empty-description": "לא מצאנו הצעות שמתאימות למסנן הזה. האפשרויות שלך הן לנסות מסנן אחר או לחפש ערך לתרגום בעצמך.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "הכול"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "הכול",
+	"cx-sx-present-lead-section-label": "(פרק פתיחה)"
 }

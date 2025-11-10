@@ -303,6 +303,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "$1 içindeki sunum",
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1 dilinde bölüm",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Çeviriniz mevcut bölümü genişletecektir. Bölümler ilgili değilse bunu kaydetmeyin.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Çeviriniz var olan bölümü genişletecektir.",
 	"cx-sx-translation-confirmer-title": "Yeni çeviri",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 görüntüleme/hafta|0=Bu hafta hiç görüntülenmedi}}",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "Giriş bölümünü çevirmek için {{PLURAL:$1|$1 saat|0={{PLURAL:$2|$2 dakika}}}}",
@@ -326,6 +327,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Onayla",
 	"cx-sx-publisher-publish-panel-new-section-status": "Yayımlamaya hazır mı?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Benzer bölüm zaten var",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Üst bölüm zaten var",
 	"cx-sx-publisher-publish-panel-new-section-result": "Çeviriniz <strong>maddeye yeni bir bölüm olarak eklenecektir.</strong>",
 	"cx-sx-publisher-review-info": "Çevirinizin doğal bir şekilde okunduğunu ve uygun dil bilgisine uyup uymadığını kontrol edin",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Çeviriyi yayımla...",
@@ -538,5 +540,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Yeni bölümler",
 	"cx-sx-suggestion-list-empty-title": "Şimdilik öneri yok",
 	"cx-sx-suggestion-list-empty-description": "Bu süzgeç için hiçbir öneri bulamadık. Başka bir süzgeç deneyebilir ya da çevirmek için belirli bir madde arayabilirsiniz.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tümü"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tümü",
+	"cx-sx-present-lead-section-label": "(Üst)"
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			". M .",
 			"Adam N.",
 			"AlesFiala2002",
 			"Clon",
@@ -22,6 +23,7 @@
 			"Mormegil",
 			"Patriccck",
 			"Patrik L.",
+			"Polda18",
 			"Urbanecm",
 			"Utar",
 			"Vojtěch Dostál",
@@ -218,6 +220,7 @@
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 hodina|$1 hodiny|$1 hodin|0={{PLURAL:$2|$2 minuta|$2 minuty|$2 minut}}}} překládání",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Váš překlad bude přidán sem",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Při publikování se můžete místo toho rozhodnout nahradit stávající obsah.",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Nejlepší sekce již existuje",
 	"cx-sx-publish-summary": "Vytvořeno překladem sekce „$1“ ze stránky „$2“",
 	"cx-sx-article-search-input-placeholder": "Vyhledat stránku k překladu",
 	"cx-sx-article-search-header": "Nový překlad",
@@ -246,5 +249,6 @@
 	"cx-uls-relevant-languages-panel-message": "Tato stránka chybí v některých jazycích, které možná znáte. Můžete ji za pár minut přeložit!",
 	"cx-uls-translate-page-quick-action-label": "Přeložit tuto stránku",
 	"cx-sx-publisher-captcha-dialog-header-title": "Kontrola, že nejste robot",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Zveřejnit"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Zveřejnit",
+	"cx-sx-present-lead-section-label": "(Nahoře)"
 }

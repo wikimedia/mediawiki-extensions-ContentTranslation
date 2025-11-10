@@ -276,6 +276,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Gegenwärtig in $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Abschnitt auf $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Deine Übersetzung wird den bestehenden Abschnitt erweitern. Verwirf diese, wenn die Abschnitte nichts miteinander zu tun haben.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Deine Übersetzung wird den bestehenden Abschnitt erweitern.",
 	"cx-sx-translation-confirmer-title": "Neue Übersetzung",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|Ein Aufruf pro|$1 Aufrufe pro|0=Keine Aufrufe in dieser}} Woche",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 Stunde|$1 Stunden|0={{PLURAL:$2|$2 Minute|$2 Minuten}}}}, um den Einleitungsabschnitt zu übersetzen",
@@ -299,6 +300,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Bestätigen",
 	"cx-sx-publisher-publish-panel-new-section-status": "Bereit zur Veröffentlichung?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Ähnlicher Abschnitt existiert bereits",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Der oberste Abschnitt existiert bereits",
 	"cx-sx-publisher-publish-panel-new-section-result": "Deine Übersetzung wird <strong>dem Artikel als neuer Abschnitt hinzugefügt.</strong>",
 	"cx-sx-publisher-review-info": "Prüfe, ob sich deine Übersetzung natürlich liest und der richtigen Grammatik folgt",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Übersetzung veröffentlichen …",
@@ -511,5 +513,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Neuer Abschnitt",
 	"cx-sx-suggestion-list-empty-title": "Derzeit keine Vorschläge",
 	"cx-sx-suggestion-list-empty-description": "Für diesen Filter haben wir keine Vorschläge gefunden. Du kannst einen anderen Filter ausprobieren oder nach einem bestimmten Artikel zum Übersetzen suchen.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Alle"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Alle",
+	"cx-sx-present-lead-section-label": "(Anfang)"
 }

@@ -267,6 +267,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "$1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1 dilində bölmə",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Tərcüməniz mövcud bölməni genişləndirəcək. Bölmələr əlaqəli deyilsə bunu rədd edin.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Tərcüməniz mövcud bölməni genişləndirəcək.",
 	"cx-sx-translation-confirmer-title": "Yeni tərcümə",
 	"cx-sx-translation-confirmer-views-count": "Bu həftə {{PLURAL:$1|$1 baxış|0=heç baxış olmayıb}}",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "Əsas bölməni tərcümə etmək üçün sərf ediləcək vaxt: {{PLURAL:$1|$1 saat|0={{PLURAL:$2|$2 dəqiqə}}}}",
@@ -290,6 +291,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Təsdiq et",
 	"cx-sx-publisher-publish-panel-new-section-status": "Yayımlamağa hazırsınız?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Oxşar bölmə artıq mövcuddur",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Giriş bölməsi artıq mövcuddur",
 	"cx-sx-publisher-publish-panel-new-section-result": "Tərcüməniz <strong>məqaləyə yeni bölmə olaraq əlavə olunacaq</strong>.",
 	"cx-sx-publisher-review-info": "Tərcümənizin təbii şəkildə oxunduğunu və qrammatikaya əməl edildiyini yoxlayın",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Tərcüməni yayımla...",
@@ -502,5 +504,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Yeni bölmələr",
 	"cx-sx-suggestion-list-empty-title": "Hələlik heç bir tövsiyə yoxdur",
 	"cx-sx-suggestion-list-empty-description": "Bu filtr üçün heç bir tövsiyə tapmadıq. Siz fərqli filtri sınaya və ya tərcümə etmək üçün spesifik məqalə axtara bilərsiniz.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Hamısı"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Hamısı",
+	"cx-sx-present-lead-section-label": "(Giriş)"
 }

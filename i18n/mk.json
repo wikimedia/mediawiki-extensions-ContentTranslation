@@ -263,6 +263,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Тековно на $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Оддел на $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Вашиот превод ќе го прошири постоечкиот оддел. Отфрлете го ова ако одделите се неповрзани.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Вашиот превод ќе го прошири постоечкиот оддел.",
 	"cx-sx-translation-confirmer-title": "Нов превод",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 посета неделно|$1 посети неделно|0=Нема посети за оваа недела}}",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 час|$1 часа|0={{PLURAL:$2|$2 минута|$2 минути}}}} за да се преведе воведниот оддел",
@@ -286,6 +287,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Потврди",
 	"cx-sx-publisher-publish-panel-new-section-status": "Спремно за објавување?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Веќе постои сличен оддел",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Најгорниот оддел веќе постои",
 	"cx-sx-publisher-publish-panel-new-section-result": "Вашиот превод ќе биде <strong>придодаден кон статијата како нов поднасов.</strong>",
 	"cx-sx-publisher-review-info": "Проверете дали вашиот превод делува природно и користи правилна граматика",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Објави превод...",
@@ -498,5 +500,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Нови оддели",
 	"cx-sx-suggestion-list-empty-title": "Засега нема предлози",
 	"cx-sx-suggestion-list-empty-description": "Не најдовме предлози за овој филтер. Можете да се обидете со друг филтер или да пребарате конкретна статија за преведување.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Сè"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Сè",
+	"cx-sx-present-lead-section-label": "(Најгоре)"
 }

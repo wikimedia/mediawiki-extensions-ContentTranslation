@@ -278,6 +278,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Osio kielellä $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Osio kielellä $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Käännöksesi lisätään olemassa olevaan osioon. Hylkää tämä huomautus, jos osiot eivät liity toisiinsa.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Käännöksesi lisätään olemassa olevaan osioon.",
 	"cx-sx-translation-confirmer-title": "Uusi käännös",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 katselukerta viikossa|$1 katselukertaa viikossa|0=Ei katselukertoja tällä viikolla}}",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 tunti|$1 tuntia|0={{PLURAL:$1|$2 minuutti|$2 minuuttia}}}} johdannon kääntämiseen",
@@ -301,6 +302,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Vahvista",
 	"cx-sx-publisher-publish-panel-new-section-status": "Valmiina julkaisemaan?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Samankaltainen osio on jo olemassa",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Johdanto-osio on jo olemassa",
 	"cx-sx-publisher-publish-panel-new-section-result": "Käännökseksi lisätään <strong>artikkeliin uutena osiona.</strong>",
 	"cx-sx-publisher-review-info": "Tarkista, että käännöksesi on sujuva ja että se noudattaa kielioppia",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Julkaistaan käännöstä...",
@@ -512,5 +514,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Uudet osiot",
 	"cx-sx-suggestion-list-empty-title": "Ei ehdotuksia tällä hetkellä",
 	"cx-sx-suggestion-list-empty-description": "Tällä suodattimella ei löytynyt yhtään ehdotusta. Kokeile toista suodatinta tai hae tiettyä artikkelia käännettäväksi.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Kaikki"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Kaikki",
+	"cx-sx-present-lead-section-label": "(Johdanto)"
 }

@@ -267,6 +267,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "اوس‌مهاله په $1 کې",
 	"cx-sx-content-comparator-target-selector-target-section-title": "په $1 برخه کې",
 	"cx-sx-content-comparator-mapped-section-clarifications": "ستاسو ژباړه به دا برخه وغځوي. که دې برخې سره تړاو نلري؛ نو مه يې ليکئ.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "ستاسو ژباړه به شته برخه وغځوي.",
 	"cx-sx-translation-confirmer-title": "نوې ژباړه",
 	"cx-sx-translation-confirmer-views-count": "دا اوونۍ {{PLURAL:$1|$1 کتنه|$1 کتنې|0=هيڅ کتنه نشته}}",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "د پيل برخې ژباړلو لپاره {{PLURAL:$1|$1 گړۍ|0={{PLURAL:$2|$2 دقيقه|$2 دقيقې}}}} وخت ته اړتيا ده",
@@ -290,6 +291,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "تاييد",
 	"cx-sx-publisher-publish-panel-new-section-status": "خپرولو ته چمتو ياست؟",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "ورته برخه له مخکې څخه شتون لري",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "غوره برخې له مخکې څخه شته",
 	"cx-sx-publisher-publish-panel-new-section-result": "ستاسو ژباړه به  <strong>ليکنې ته د يوې برخې په توگه ورگډه شي. </strong>",
 	"cx-sx-publisher-review-info": "وگورئ چې ستاسو ليکنه په اسانۍ د لوست وړ ده او کره گرامر سره ليکل شوې.",
 	"cx-sx-publisher-animation-publishing-indicator-title": "ژباړه خپرول...",
@@ -502,5 +504,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "نوې برخې",
 	"cx-sx-suggestion-list-empty-title": "د اوس لپاره وړانديزونه نشته",
 	"cx-sx-suggestion-list-empty-description": "موږ د دې چاڼگر لپاره هيڅ وړانديزونه ونهٔ موندل. تاسو کولی شئ چې يو بل چاڼگر وکاروئ يا هم د ژباړې لپاره د يوې ځانگړې ليکنې لټون وکړئ.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "ټول"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "ټول",
+	"cx-sx-present-lead-section-label": "(غوره)"
 }
