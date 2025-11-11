@@ -100,7 +100,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryBase {
 		return $this->cache->getWithSetCallback(
 			$this->cache->makeGlobalKey( 'ax-wikipedia-sites' ),
 			ExpirationAwareness::TTL_DAY,
-			fn () => $this->fetchWikipediaSites()
+			$this->fetchWikipediaSites( ... )
 		);
 	}
 
