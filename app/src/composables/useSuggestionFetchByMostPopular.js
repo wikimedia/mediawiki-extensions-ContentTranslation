@@ -7,6 +7,8 @@ import {
   POPULAR_SUGGESTION_PROVIDER,
   AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
 } from "@/utils/suggestionFilterProviders";
+import useFeaturedCollectionFilter from "@/composables/useFeaturedCollectionFilter";
+import useSuggestionFetchByCollections from "@/composables/useSuggestionFetchByCollections";
 
 const useSuggestionFetchByMostPopular = () => {
   const store = useStore();
@@ -26,8 +28,51 @@ const useSuggestionFetchByMostPopular = () => {
     sectionSuggestionExists,
   } = useSuggestionValidator();
 
+  const { featuredCollection, featuredCollectionPromise } =
+    useFeaturedCollectionFilter();
+
+  const {
+    doFetchPageSuggestionsByCollection,
+    doFetchSectionSuggestionsByCollection,
+  } = useSuggestionFetchByCollections();
+
+  /**
+   * @param {function} fetchMethod
+   * @param {array} suggestions
+   * @param {number} numberOfSuggestionsToFetch
+   * @returns {Promise<number>}
+   */
+  const addFeaturedSuggestionIfNeeded = async (
+    fetchMethod,
+    suggestions,
+    numberOfSuggestionsToFetch
+  ) => {
+    await featuredCollectionPromise;
+
+    if (featuredCollection.value) {
+      const featuredCollectionSuggestions = await fetchMethod(
+        featuredCollection.value
+      );
+
+      const featuredCollectionSuggestion = featuredCollectionSuggestions?.[0];
+
+      if (featuredCollectionSuggestion) {
+        suggestions.push(featuredCollectionSuggestion);
+        numberOfSuggestionsToFetch--;
+      }
+    }
+
+    return numberOfSuggestionsToFetch;
+  };
+
   const fetchPageSuggestionsPopular = async (numberOfSuggestionsToFetch) => {
     const fetchedSuggestions = [];
+
+    numberOfSuggestionsToFetch = await addFeaturedSuggestionIfNeeded(
+      doFetchPageSuggestionsByCollection,
+      fetchedSuggestions,
+      numberOfSuggestionsToFetch
+    );
 
     await retry(async () => {
       /** @type {ArticleSuggestion[]} */
@@ -56,6 +101,12 @@ const useSuggestionFetchByMostPopular = () => {
 
   const fetchSectionSuggestionsPopular = async (numberOfSuggestionsToFetch) => {
     const fetchedSuggestions = [];
+
+    numberOfSuggestionsToFetch = await addFeaturedSuggestionIfNeeded(
+      doFetchSectionSuggestionsByCollection,
+      fetchedSuggestions,
+      numberOfSuggestionsToFetch
+    );
 
     await retry(async () => {
       /** @type {SectionSuggestion[]} */

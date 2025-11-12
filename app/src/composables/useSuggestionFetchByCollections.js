@@ -27,14 +27,18 @@ const useSuggestionFetchByCollections = () => {
     sectionSuggestionExists,
   } = useSuggestionValidator();
 
-  const fetchPageSuggestionsByCollections = async () => {
+  /**
+   * @param {string|null} collectionName
+   * @returns {Promise<CollectionArticleSuggestion[]>}
+   */
+  const doFetchPageSuggestionsByCollection = async (collectionName) => {
     const fetchedSuggestions = [];
 
     /** @type {CollectionArticleSuggestion[]} */
     let suggestions = await cxSuggestionsApi.fetchPageSuggestionsByCollections(
       sourceLanguage.value,
       targetLanguage.value,
-      currentCollectionName.value
+      collectionName
     );
 
     suggestions = suggestions.filter((suggestion) =>
@@ -50,14 +54,21 @@ const useSuggestionFetchByCollections = () => {
     return fetchedSuggestions;
   };
 
-  const fetchSectionSuggestionsByCollections = async () => {
+  const fetchPageSuggestionsByCollections = () =>
+    doFetchPageSuggestionsByCollection(currentCollectionName.value);
+
+  /**
+   * @param {string|null} collectionName
+   * @returns {Promise<CollectionSectionSuggestion[]>}
+   */
+  const doFetchSectionSuggestionsByCollection = async (collectionName) => {
     const fetchedSuggestions = [];
     /** @type {CollectionSectionSuggestion[]} */
     const suggestions =
       await cxSuggestionsApi.fetchSectionSuggestionsByCollections(
         sourceLanguage.value,
         targetLanguage.value,
-        currentCollectionName.value
+        collectionName
       );
 
     let validSuggestions = suggestions.filter((suggestion) =>
@@ -82,10 +93,14 @@ const useSuggestionFetchByCollections = () => {
 
     return fetchedSuggestions;
   };
+  const fetchSectionSuggestionsByCollections = () =>
+    doFetchSectionSuggestionsByCollection(currentCollectionName.value);
 
   return {
     fetchSectionSuggestionsByCollections,
     fetchPageSuggestionsByCollections,
+    doFetchPageSuggestionsByCollection,
+    doFetchSectionSuggestionsByCollection,
   };
 };
 

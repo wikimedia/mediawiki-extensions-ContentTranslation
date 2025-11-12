@@ -12,9 +12,14 @@ const { topics: topicGroups, regions } = mw.loader.require(
   "ext.cx.articlefilters"
 );
 
-const DEFAULT_FILTERS = {
+const USER_EDIT_FILTER = {
   type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
   id: EDITS_SUGGESTION_PROVIDER,
+};
+
+const POPULAR_FILTER = {
+  type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+  id: POPULAR_SUGGESTION_PROVIDER,
 };
 
 const useFiltersValidator = () => {
@@ -104,7 +109,7 @@ const useFiltersValidator = () => {
       if (pageCollections && !pageCollections.length) {
         filtersValidatorError.value = true;
 
-        return DEFAULT_FILTERS;
+        return USER_EDIT_FILTER;
       }
 
       return {
@@ -137,7 +142,7 @@ const useFiltersValidator = () => {
       return { type: SEED_SUGGESTION_PROVIDER, id };
     }
 
-    return DEFAULT_FILTERS;
+    return USER_EDIT_FILTER;
   };
 
   /**
@@ -145,9 +150,31 @@ const useFiltersValidator = () => {
    * @param {string} id
    */
   const isDefaultFilter = ({ type, id }) =>
-    type === DEFAULT_FILTERS.type && id === DEFAULT_FILTERS.id;
+    isEqualFilter({ type, id }, USER_EDIT_FILTER);
 
-  return { filtersValidatorError, validateFilters, isDefaultFilter };
+  /**
+   * @param {string} type
+   * @param {string} id
+   */
+  const isPopularFilter = ({ type, id }) =>
+    isEqualFilter({ type, id }, POPULAR_FILTER);
+
+  /**
+   * @param {{ type: string, id: string}} filterA
+   * @param {{ type: string, id: string}} filterB
+   * @returns {boolean}
+   */
+  const isEqualFilter = (filterA, filterB) => {
+    return filterA.id === filterB.id && filterA.type === filterB.type;
+  };
+
+  return {
+    filtersValidatorError,
+    validateFilters,
+    isDefaultFilter,
+    isPopularFilter,
+    isEqualFilter,
+  };
 };
 
 export default useFiltersValidator;

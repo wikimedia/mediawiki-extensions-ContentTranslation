@@ -11,6 +11,10 @@ const currentWikiFeaturedCollection = mw.config.get(
 const featuredCollections = ref({
   [currentWikiLanguage]: currentWikiFeaturedCollection,
 });
+
+const featuredCollectionPromises = ref({
+  [currentWikiLanguage]: Promise.resolve(),
+});
 const featuredCollectionsFetched = ref({
   [currentWikiLanguage]: true,
 });
@@ -32,13 +36,14 @@ const useFeaturedCollectionFilter = () => {
           targetLanguage.value &&
           !featuredCollections.value[targetLanguage.value]
         ) {
-          suggestionsApi
-            .fetchFeaturedCollectionNameByLanguage(targetLanguage.value)
-            .then((featuredCollectionName) => {
-              featuredCollections.value[targetLanguage.value] =
-                featuredCollectionName;
-              featuredCollectionsFetched.value[targetLanguage.value] = true;
-            });
+          featuredCollectionPromises.value[targetLanguage.value] =
+            suggestionsApi
+              .fetchFeaturedCollectionNameByLanguage(targetLanguage.value)
+              .then((featuredCollectionName) => {
+                featuredCollections.value[targetLanguage.value] =
+                  featuredCollectionName;
+                featuredCollectionsFetched.value[targetLanguage.value] = true;
+              });
         }
       },
       { immediate: true }
@@ -53,9 +58,14 @@ const useFeaturedCollectionFilter = () => {
     () => featuredCollectionsFetched.value[targetLanguage.value] || false
   );
 
+  const featuredCollectionPromise = computed(
+    () => featuredCollectionPromises.value[targetLanguage.value]
+  );
+
   return {
     featuredCollection,
     featuredCollectionFetched,
+    featuredCollectionPromise,
     initializeFeaturedCollectionWatcher,
   };
 };

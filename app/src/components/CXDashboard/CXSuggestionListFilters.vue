@@ -42,11 +42,31 @@ const logAndSelectFilter = (filter) => {
 const filtersSummary = ref(getFiltersSummary());
 const breakpoints = inject("breakpoints");
 
-const responsiveFiltersSummary = computed(() =>
-  breakpoints.value.desktopAndUp
-    ? filtersSummary.value
-    : filtersSummary.value.slice(0, 2)
-);
+const responsiveFiltersSummary = computed(() => {
+  if (breakpoints.value.desktopAndUp) {
+    // filters summary can contain up to 4 filters, if featured collection exists and
+    // the currently selected filter is not the edit or the popular filter.
+    // Up to 3 should be displayed
+    return filtersSummary.value.slice(0, 3);
+  } else {
+    const croppedFilters = filtersSummary.value.slice(0, 2);
+    const currentFilterPresentInCropped = croppedFilters.some((filter) =>
+      isFilterSelected(filter)
+    );
+
+    if (currentFilterPresentInCropped) {
+      return croppedFilters;
+    } else {
+      // the first two filters can miss the currently selected filter, which should always be displayed.
+      // Make sure that the current filter is always included
+      const currentFilter = filtersSummary.value.find((filter) =>
+        isFilterSelected(filter)
+      );
+
+      return [filtersSummary.value[0], currentFilter];
+    }
+  }
+});
 
 // Toggling between summary filters should not reset them even when
 // one is a topic and one is automatic. It should only reset when

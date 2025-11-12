@@ -46,8 +46,13 @@ const useSuggestionsFilters = () => {
   const { featuredCollection, featuredCollectionFetched } =
     useFeaturedCollectionFilter();
 
-  const { validateFilters, filtersValidatorError, isDefaultFilter } =
-    useFiltersValidator();
+  const {
+    validateFilters,
+    filtersValidatorError,
+    isDefaultFilter,
+    isPopularFilter,
+    isEqualFilter,
+  } = useFiltersValidator();
 
   const editsFilter = new SuggestionFilter({
     id: EDITS_SUGGESTION_PROVIDER,
@@ -202,25 +207,24 @@ const useSuggestionsFilters = () => {
 
     const filters = [];
 
-    if (
-      selectedFilter.type === TOPIC_SUGGESTION_PROVIDER ||
-      selectedFilter.type === REGIONS_SUGGESTION_PROVIDER ||
-      selectedFilter.type === SEED_SUGGESTION_PROVIDER ||
-      selectedFilter.type === COLLECTIONS_SUGGESTION_PROVIDER ||
-      selectedFilter.id === COLLECTIONS_SUGGESTION_PROVIDER
-    ) {
-      filters.push(selectedFilter, editsFilter, popularFilter);
-    } else {
-      filters.push(editsFilter, popularFilter);
+    // if featured collection exists, the corresponding filter should always be in the first place
+    if (featuredCollection.value) {
+      filters.push(featuredCollectionFilter.value);
     }
 
-    if (
-      featuredCollection.value &&
-      selectedFilter.type !== featuredCollectionFilter.value.type &&
-      selectedFilter.id !== featuredCollectionFilter.value.id
-    ) {
-      filters.unshift(featuredCollectionFilter.value);
+    const isSpecialSelection =
+      !isDefaultFilter(selectedFilter) &&
+      !isPopularFilter(selectedFilter) &&
+      !isEqualFilter(selectedFilter, featuredCollectionFilter.value);
+
+    // if current filter is not one of the filters that are always contained in the filters summary,
+    // it should be positioned either in the first place, or the second place if a featured collection exists
+    if (isSpecialSelection) {
+      filters.push(selectedFilter);
     }
+    // user-edit filter and popular filter should always be included in the filters summary
+    // however they may not be displayed. Which filters are displayed is controlled inside CXSuggestionListFilters.vue
+    filters.push(editsFilter, popularFilter);
 
     return filters;
   };
@@ -254,7 +258,8 @@ const useSuggestionsFilters = () => {
    * @param {SuggestionFilter} filter
    * @returns {boolean}
    */
-  const isFilterSelected = (filter) => currentFilter.value.id === filter.id;
+  const isFilterSelected = (filter) =>
+    isEqualFilter(filter, currentFilter.value);
 
   const getArticleTopics = (topicId) => {
     const allTopics = topicGroups.flatMap((group) => group.topics);
