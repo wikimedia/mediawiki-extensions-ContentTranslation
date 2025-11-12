@@ -137,28 +137,26 @@ const useSuggestionsFilters = () => {
       })
   );
 
-  const regionsFilterGroup = computed(() => {
-    return new SuggestionFilterGroup({
-      id: REGIONS_SUGGESTION_PROVIDER,
-      type: REGIONS_SUGGESTION_PROVIDER,
-      label: bananaI18n.i18n("cx-sx-suggestions-filters-tab-regions"),
-      filters: regions.map(
-        (region) =>
-          new SuggestionFilter({
-            id: region.id,
-            label: region.label,
-            type: REGIONS_SUGGESTION_PROVIDER,
-            subFilters: region.countries.map(
-              (country) =>
-                new SuggestionFilter({
-                  id: country.id,
-                  label: country.label,
-                  type: REGIONS_SUGGESTION_PROVIDER,
-                })
-            ),
-          })
-      ),
-    });
+  const regionsFilterGroup = new SuggestionFilterGroup({
+    id: REGIONS_SUGGESTION_PROVIDER,
+    type: REGIONS_SUGGESTION_PROVIDER,
+    label: bananaI18n.i18n("cx-sx-suggestions-filters-tab-regions"),
+    filters: regions.map(
+      (region) =>
+        new SuggestionFilter({
+          id: region.id,
+          label: region.label,
+          type: REGIONS_SUGGESTION_PROVIDER,
+          subFilters: region.countries.map(
+            (country) =>
+              new SuggestionFilter({
+                id: country.id,
+                label: country.label,
+                type: REGIONS_SUGGESTION_PROVIDER,
+              })
+          ),
+        })
+    ),
   });
 
   /**
@@ -168,7 +166,7 @@ const useSuggestionsFilters = () => {
     const filters = [
       automaticFiltersGroup.value,
       ...topicGroups.map(topicGroupToFilterGroup),
-      regionsFilterGroup.value,
+      regionsFilterGroup,
     ];
 
     if (collectionFiltersGroup.value.filters.length) {
