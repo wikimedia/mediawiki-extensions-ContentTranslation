@@ -282,6 +282,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "موجود در $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "بخش در $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "ترجمهٔ شما، بخش از پیش موجود را گسترش خواهد داد. در صورتی که بخش‌ها مرتبط نیستند، این تغییر را دور بریزید.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "ترجمهٔ شما منجر به گسترش بخش موجود خواهد شد.",
 	"cx-sx-translation-confirmer-title": "ترجمهٔ تازه",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 بازدید در هر|0=بدون بازدید در این}} هفته",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 ساعت|0={{PLURAL:$2|$2 دقیقه}}}} برای ترجمهٔ بخش آغازین",
@@ -304,6 +305,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "تأیید",
 	"cx-sx-publisher-publish-panel-new-section-status": "برای انتشار آماده‌اید؟",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "بخشی مشابه از پیش موجود است",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "بخش آغازین از پیش موجود است",
 	"cx-sx-publisher-publish-panel-new-section-result": "ترجمهٔ شما <strong>به عنوان بخشی جدید به این مقاله اضافه خواهد شد</strong>",
 	"cx-sx-publisher-review-info": "متن ترجمهٔ خود را از نظر روان بودن و پیروی از دستور زبان صحیح بررسی کنید",
 	"cx-sx-publisher-animation-publishing-indicator-title": "انتشار ترجمه...",
@@ -498,5 +500,6 @@
 	"cx-page-collection-dialog-page-suggestions-header": "صفحه‌های تازه",
 	"cx-page-collection-dialog-section-suggestions-header": "بخش‌های تازه",
 	"cx-sx-suggestion-list-empty-title": "در حال حاضر هیچ پیشنهادی موجود نیست",
-	"cx-sx-suggestion-list-empty-description": "هیچ پیشنهادی برای این پالایه نیافتیم. می‌توانید یک پالایهٔ متفاوت را بیازمایید یا این که برای یافتن یک مقالهٔ خاص و ترجمه کردن آن جستجو کنید."
+	"cx-sx-suggestion-list-empty-description": "هیچ پیشنهادی برای این پالایه نیافتیم. می‌توانید یک پالایهٔ متفاوت را بیازمایید یا این که برای یافتن یک مقالهٔ خاص و ترجمه کردن آن جستجو کنید.",
+	"cx-sx-present-lead-section-label": "(بالا)"
 }

@@ -216,6 +216,7 @@
 	"cx-unreviewed-translation-category": "Stránky s nekontrolovanými překlady",
 	"cx-unreviewed-translation-category-desc": "Stránky přeložené nástrojem Překlad, které obsahují velké množství nepřezkoumaného obsahu",
 	"cx-preference-enable-entrypoints": "Přístup k [[$1|zahájení překladu]] ze stránky s příspěvky, seznamu jazyků a založení nových stránek.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Váš překlad rozšíří stávající sekci.",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 zobrazení/|0=Žádné zobrazení  tento }}týden",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 hodina|$1 hodiny|$1 hodin|0={{PLURAL:$2|$2 minuta|$2 minuty|$2 minut}}}} překládání",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Váš překlad bude přidán sem",

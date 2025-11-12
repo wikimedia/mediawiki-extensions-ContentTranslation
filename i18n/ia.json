@@ -264,6 +264,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Presente in $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Section in $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Tu traduction expandera le section existente. Discarta isto si le sectiones non ha relation.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Tu traduction expandera le section existente.",
 	"cx-sx-translation-confirmer-title": "Nove traduction",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita per|$1 visitas per|0=Nulle visita iste}} septimana",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 hora|$1 horas|0={{PLURAL:$2|$2 minuta|$2 minutas}}}} pro traducer le section introductive",
@@ -287,6 +288,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Confirmar",
 	"cx-sx-publisher-publish-panel-new-section-status": "Preste a publicar?",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "Existe ja un tal section",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "Le section introductive ja existe",
 	"cx-sx-publisher-publish-panel-new-section-result": "Tu traduction essera <strong>addite al articulo como un nove section.</strong>",
 	"cx-sx-publisher-review-info": "Verifica que tu traduction se lege de maniera natural e seque le grammatica appropriate",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Publicar traduction...",
@@ -499,5 +501,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Nove sectiones",
 	"cx-sx-suggestion-list-empty-title": "Nulle suggestion pro le momento",
 	"cx-sx-suggestion-list-empty-description": "Nos non ha trovate alcun suggestion pro iste filtro. Tu pote tentar un altere filtro o cercar un articulo specific a traducer.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Totes"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Totes",
+	"cx-sx-present-lead-section-label": "(Introduction)"
 }

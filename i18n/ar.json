@@ -293,6 +293,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "موجود في $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "قسم في $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "ستعمل ترجمتك على توسيع القسم الحالي. تجاهل هذا إذا كانت الأقسام غير مرتبطة.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "سوف تقوم ترجمتك بتوسيع القسم الحالي.",
 	"cx-sx-translation-confirmer-title": "ترجمة جديدة",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 زيارة هذا|$1 زيارات هذا|0=لا زيارات هذا}} الأسبوع",
 	"cx-sx-translation-confirmer-translation-time-lead-section": "{{PLURAL:$1|$1 ساعة|$1 ساعات|0={{PLURAL:$2|$2 دقيقة|$2 دقائق}}}} لترجمة القسم الرئيسي",
@@ -316,6 +317,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "تأكيد",
 	"cx-sx-publisher-publish-panel-new-section-status": "جاهز للنشر؟",
 	"cx-sx-publisher-publish-panel-existing-section-notice": "يوجد قسم مماثل بالفعل",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "القسم العلوي موجود بالفعل",
 	"cx-sx-publisher-publish-panel-new-section-result": "ستتم <strong>إضافة ترجمتك إلى المقالة كقسم جديد.</strong>",
 	"cx-sx-publisher-review-info": "تأكد من أن ترجمتك تقرأ بشكل طبيعي وتتبع القواعد الصحيحة",
 	"cx-sx-publisher-animation-publishing-indicator-title": "نشر الترجمة ...",
@@ -528,5 +530,6 @@
 	"cx-page-collection-dialog-section-suggestions-header": "أقسام جديدة",
 	"cx-sx-suggestion-list-empty-title": "لا توجد اقتراحات في الوقت الحالي",
 	"cx-sx-suggestion-list-empty-description": "لم نعثر على أي اقتراحات لهذا الفلتر. يمكنك تجربة فلتر آخر أو البحث عن مقال محدد لترجمته.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "الكل"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "الكل",
+	"cx-sx-present-lead-section-label": "(قمة)"
 }
