@@ -140,10 +140,10 @@ const useSuggestionPreviousEditsSeeds = () => {
 
       for (const type in seedCollections) {
         const seedCollection = getSeedCollection(type);
-        seedCollection.seeds = [
+        seedCollection.setSeeds([
           ...seedCollection.seeds,
           ...(editsBasedSeeds || []),
-        ];
+        ]);
       }
     } while (!fetchCompleted && !editsBasedSeeds?.length);
   };

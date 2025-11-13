@@ -1,3 +1,5 @@
+import shuffleArray from "@/utils/shuffleArray";
+
 /**
  * This model represents a collection of section suggestion seeds
  * that belong to a specific language pair. It stores information
@@ -38,5 +40,9 @@ export default class SuggestionSeedCollection {
    */
   shiftSeeds() {
     return this.seeds.shift();
+  }
+
+  setSeeds(seeds) {
+    this.seeds = shuffleArray(seeds);
   }
 }
