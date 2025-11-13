@@ -15,4 +15,16 @@ class ContentTranslationSchema extends JsonSchema {
 		self::DEFAULT => '',
 		self::MAX_LENGTH => 100,
 	];
+
+	public const ContentTranslationFeaturedCollectionDescription = [
+		self::TYPE => self::TYPE_STRING,
+		self::DEFAULT => '',
+		self::MAX_LENGTH => 500,
+	];
+
+	public const ContentTranslationFeaturedCollectionLink = [
+		self::TYPE => self::TYPE_STRING,
+		self::DEFAULT => '',
+		self::MAX_LENGTH => 255,
+	];
 }

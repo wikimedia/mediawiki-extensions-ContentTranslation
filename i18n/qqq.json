@@ -540,6 +540,15 @@
 	"cx-sx-present-lead-section-label": "Text used as label for the existing lead section of an article.",
 	"communityconfiguration-contenttranslation-title": "Label for the title of the ContentTranslation provider for CommunityConfiguration extension",
 	"communityconfiguration-contenttranslation-description": "Label for the description of the ContentTranslation provider for CommunityConfiguration extension",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Label for the featured collection configuration in CommunityConfiguration extension",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Description for the featured collection configuration in CommunityConfiguration extension"
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Label for the featured collection name configuration in CommunityConfiguration extension",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Description for the featured collection name configuration in CommunityConfiguration extension",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Label for the featured collection description configuration in CommunityConfiguration extension",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "Description for the featured collection description configuration in CommunityConfiguration extension.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Label for the featured collection wiki page link configuration in CommunityConfiguration extension",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Description for the featured collection wiki page link configuration in CommunityConfiguration extension.",
+	"cx-featured-collection-banner-title": "Label for the title of the featured collection banner displayed in the Content Translation dashboard",
+	"cx-featured-collection-banner-description": "Description for the featured collection banner displayed in the Content Translation dashboard",
+	"cx-featured-collection-banner-learn-more": "Label for the footer link of the featured collection banner displayed in the Content Translation dashboard",
+	"cx-featured-collection-banner-toggle-less": "Label for the button that collapses the featured collection banner description",
+	"cx-featured-collection-banner-toggle-more": "Label for the button that expands the featured collection banner description"
 }

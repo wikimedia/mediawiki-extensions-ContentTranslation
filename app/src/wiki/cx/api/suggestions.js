@@ -124,7 +124,7 @@ async function fetchPageCollectionGroups() {
  * @param {string} language
  * @returns {Promise<string|null>}
  */
-function fetchFeaturedCollectionNameByLanguage(language) {
+function fetchFeaturedCollectionDataByLanguage(language) {
   const mwApi = siteMapper.getApi(language);
 
   const jQueryPromise = mwApi.get({
@@ -136,9 +136,7 @@ function fetchFeaturedCollectionNameByLanguage(language) {
 
   return new Promise((resolve) => {
     jQueryPromise
-      .then((response) =>
-        resolve(response?.query?.cxconfig?.featuredcollection || null)
-      )
+      .then((response) => resolve(response?.query?.cxconfig || null))
       .fail(() => resolve(null));
   });
 }
@@ -764,5 +762,5 @@ export default {
   fetchPageCollectionGroups,
   fetchPageSuggestionsByCollections,
   fetchSectionSuggestionsByCollections,
-  fetchFeaturedCollectionNameByLanguage,
+  fetchFeaturedCollectionDataByLanguage,
 };

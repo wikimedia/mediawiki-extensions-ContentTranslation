@@ -16,6 +16,9 @@ import useURLHandler from "@/composables/useURLHandler";
 import CxListEmptyPlaceholder from "@/components/CXDashboard/CXListEmptyPlaceholder.vue";
 import { useStore } from "vuex";
 import useSupportedLanguageCodes from "@/composables/useSupportedLanguageCodes";
+import useFeaturedCollectionFilter from "@/composables/useFeaturedCollectionFilter";
+import FeaturedCollectionBanner from "@/components/CXDashboard/FeaturedCollectionBanner.vue";
+import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 
 const props = defineProps({
   active: {
@@ -39,6 +42,12 @@ const updateTargetLanguage = (newTargetLanguage) =>
 
 const getEventSourceForDashboardSuggestion =
   useDashboardSuggestionEventSource();
+
+const { featuredCollection } = useFeaturedCollectionFilter();
+
+const { findSelectedFilter } = useSuggestionsFilters();
+
+const selectedFilter = computed(() => findSelectedFilter());
 
 const doStartTranslation = useTranslationStart();
 
@@ -140,6 +149,12 @@ const showRefreshButton = computed(
     !isSectionSuggestionsFetchPending.value &&
     !showEmptyPlaceholder.value
 );
+
+const showFeaturedCollectionBanner = computed(
+  () =>
+    featuredCollection.value &&
+    selectedFilter.value?.id === featuredCollection.value.name
+);
 </script>
 
 <template>
@@ -177,6 +192,12 @@ const showRefreshButton = computed(
         @update:selected-target-language="updateTargetLanguage"
       />
     </mw-card>
+    <featured-collection-banner
+      v-if="showFeaturedCollectionBanner"
+      :community-name="featuredCollection.communityName"
+      :description="featuredCollection.description"
+      :learn-more-url="featuredCollection.link"
+    />
     <mw-card
       v-if="showSectionSuggestionsList"
       class="cx-suggestion-list__section-suggestions pa-0 mb-0"

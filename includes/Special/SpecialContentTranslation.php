@@ -19,6 +19,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Skin\SkinFactory;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
 
 /**
@@ -273,7 +274,13 @@ class SpecialContentTranslation extends SpecialPage {
 	protected function addJsConfigVars() {
 		$config = $this->getConfig();
 		$out = $this->getOutput();
-		$featuredCollection = $this->communityConfig->get( 'ContentTranslationFeaturedCollection' );
+		$featuredCollectionName = $this->communityConfig->get( 'ContentTranslationFeaturedCollection' );
+		$featuredCollectionDescription =
+			$this->communityConfig->get( 'ContentTranslationFeaturedCollectionDescription' );
+		$featuredCollectionLink = $this->communityConfig->get( 'ContentTranslationFeaturedCollectionLink' );
+
+		$communityNameMsg = $this->msg( 'project-localized-name-' . WikiMap::getCurrentWikiId() );
+		$communityName = $communityNameMsg->IsDisabled() ? null : $communityNameMsg->text();
 
 		$out->addJsConfigVars( [
 			'ContentTranslationDomainCodeMapping' => $config->get( 'ContentTranslationDomainCodeMapping' ),
@@ -282,7 +289,10 @@ class SpecialContentTranslation extends SpecialPage {
 			'wgContentTranslationPublishRequirements' =>
 				$config->get( 'ContentTranslationPublishRequirements' ),
 			'wgContentTranslationEnableMT' => $config->get( 'ContentTranslationEnableMT' ),
-			'wgContentTranslationFeaturedCollection' => $featuredCollection
+			'wgContentTranslationFeaturedCollection' => $featuredCollectionName,
+			'wgContentTranslationFeaturedCollectionCommunityName' => $communityName,
+			'wgContentTranslationFeaturedCollectionDescription' => $featuredCollectionDescription,
+			'wgContentTranslationFeaturedCollectionLink' => $featuredCollectionLink,
 		] );
 
 		if ( $this->onDesktopTranslationView() ) {

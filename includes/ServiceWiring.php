@@ -75,7 +75,7 @@ return [
 	'ContentTranslation.CommunityConfiguration' =>
 		static function ( MediaWikiServices $services ): Config {
 			if ( ExtensionRegistry::getInstance()->isLoaded( 'CommunityConfiguration' ) ) {
-				return $services->getService( 'CommunityConfiguration.MediaWikiConfigReader' );
+				return $services->getService( 'CommunityConfiguration.MediaWikiConfigRouter' );
 			} else {
 				return $services->getMainConfig();
 			}

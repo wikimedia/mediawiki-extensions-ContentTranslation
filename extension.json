@@ -463,6 +463,14 @@
 		"ContentTranslationFeaturedCollection": {
 			"description": "Name of the featured collection",
 			"value": null
+		},
+		"ContentTranslationFeaturedCollectionDescription": {
+			"description": "Description of the featured collection",
+			"value": null
+		},
+		"ContentTranslationFeaturedCollectionLink": {
+			"description": "Any valid link to a wiki page associated to the featured collection",
+			"value": null
 		}
 	},
 	"ResourceModules": {
@@ -840,7 +848,11 @@
 				"cx-tools-linter-invalid-character",
 				"cx-tools-linter-invalid-character-message",
 				"parentheses",
-				"cx-sx-present-lead-section-label"
+				"cx-featured-collection-banner-title",
+				"cx-featured-collection-banner-description",
+				"cx-featured-collection-banner-learn-more",
+				"cx-featured-collection-banner-toggle-less",
+				"cx-featured-collection-banner-toggle-more"
 			],
 			"noflip": true
 		},

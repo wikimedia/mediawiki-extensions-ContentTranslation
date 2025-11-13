@@ -521,5 +521,14 @@
 	"communityconfiguration-contenttranslation-title": "Content Translation",
 	"communityconfiguration-contenttranslation-description": "The Content Translation tool allows editors to translate articles.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Local featured collection",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Setting a local featured collection will surface it in the Content Translation dashboard when the dashboard target language is set to the same language from this wiki."
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Setting a local featured collection will surface it in the Content Translation dashboard when the dashboard target language is set to the same language from this wiki.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Description (optional)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "A custom description may be provided to display in an information banner in the Content Translation dashboard.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Wiki page link (optional)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "A wiki page link associated with the featured collection may be provided to be included in the information banner in the Content Translation dashboard.",
+	"cx-featured-collection-banner-title": "Community priorities",
+	"cx-featured-collection-banner-description": "This collection contains articles the community has identified as vital knowledge. Translating them helps make essential information available to more readers.",
+	"cx-featured-collection-banner-learn-more": "Learn more",
+	"cx-featured-collection-banner-toggle-less": "less",
+	"cx-featured-collection-banner-toggle-more": "more"
 }

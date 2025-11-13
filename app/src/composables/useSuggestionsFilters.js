@@ -189,8 +189,8 @@ const useSuggestionsFilters = () => {
   const featuredCollectionFilter = computed(
     () =>
       new SuggestionFilter({
-        id: featuredCollection.value,
-        label: featuredCollection.value,
+        id: featuredCollection.value?.name,
+        label: featuredCollection.value?.name,
         type: COLLECTIONS_SUGGESTION_PROVIDER,
       })
   );

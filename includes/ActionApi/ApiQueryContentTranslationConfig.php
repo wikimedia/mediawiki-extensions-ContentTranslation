@@ -7,6 +7,7 @@ use Exception;
 use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\Config\Config;
+use MediaWiki\WikiMap\WikiMap;
 
 /**
  * API module to query ContentTranslation configuration
@@ -23,7 +24,19 @@ class ApiQueryContentTranslationConfig extends ApiQueryBase {
 	public function execute() {
 		try {
 			$featuredCollection = $this->communityConfig->get( 'ContentTranslationFeaturedCollection' );
-			$responseData = [ 'featuredcollection' => $featuredCollection ];
+			$featuredCollectionDescription =
+				$this->communityConfig->get( 'ContentTranslationFeaturedCollectionDescription' );
+			$featuredCollectionLink = $this->communityConfig->get( 'ContentTranslationFeaturedCollectionLink' );
+
+			$communityNameMsg = $this->msg( 'project-localized-name-' . WikiMap::getCurrentWikiId() );
+			$communityName = $communityNameMsg->IsDisabled() ? null : $communityNameMsg->text();
+
+			$responseData = [
+				'featuredcollectionname' => $featuredCollection,
+				'featuredcollectioncommunityname' => $communityName,
+				'featuredcollectiondescription' => $featuredCollectionDescription,
+				'featuredcollectionlink' => $featuredCollectionLink
+			];
 
 			$this->getResult()->addValue( [ 'query' ], $this->getModuleName(), $responseData );
 		} catch ( Exception ) {

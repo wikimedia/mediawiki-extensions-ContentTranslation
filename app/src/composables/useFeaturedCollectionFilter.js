@@ -4,12 +4,26 @@ import useURLHandler from "@/composables/useURLHandler";
 const siteMapper = new mw.cx.SiteMapper();
 
 const currentWikiLanguage = siteMapper.getCurrentWikiLanguageCode();
-const currentWikiFeaturedCollection = mw.config.get(
+const currentWikiFeaturedCollectionName = mw.config.get(
   "wgContentTranslationFeaturedCollection"
+);
+const currentWikiFeaturedCollectionCommunityName = mw.config.get(
+  "wgContentTranslationFeaturedCollectionCommunityName"
+);
+const currentWikiFeaturedCollectionDescription = mw.config.get(
+  "wgContentTranslationFeaturedCollectionDescription"
+);
+const currentWikiFeaturedCollectionLink = mw.config.get(
+  "wgContentTranslationFeaturedCollectionLink"
 );
 
 const featuredCollections = ref({
-  [currentWikiLanguage]: currentWikiFeaturedCollection,
+  [currentWikiLanguage]: {
+    name: currentWikiFeaturedCollectionName,
+    communityName: currentWikiFeaturedCollectionCommunityName,
+    description: currentWikiFeaturedCollectionDescription,
+    link: currentWikiFeaturedCollectionLink,
+  },
 });
 
 const featuredCollectionPromises = ref({
@@ -36,22 +50,27 @@ const useFeaturedCollectionFilter = () => {
           targetLanguage.value &&
           !featuredCollections.value[targetLanguage.value]
         ) {
-          featuredCollectionPromises.value[targetLanguage.value] =
-            suggestionsApi
-              .fetchFeaturedCollectionNameByLanguage(targetLanguage.value)
-              .then((featuredCollectionName) => {
-                featuredCollections.value[targetLanguage.value] =
-                  featuredCollectionName;
-                featuredCollectionsFetched.value[targetLanguage.value] = true;
-              });
+          suggestionsApi
+            .fetchFeaturedCollectionDataByLanguage(targetLanguage.value)
+            .then((featuredCollectionData) => {
+              featuredCollections.value[targetLanguage.value] = {
+                name: featuredCollectionData.name,
+                communityName: featuredCollectionData.communityName,
+                description: featuredCollectionData.description,
+                link: featuredCollectionData.link,
+              };
+              featuredCollectionsFetched.value[targetLanguage.value] = true;
+            });
         }
       },
       { immediate: true }
     );
     isWatcherInitialized = true;
   };
-  const featuredCollection = computed(
-    () => featuredCollections.value[targetLanguage.value] || null
+  const featuredCollection = computed(() =>
+    featuredCollections.value[targetLanguage.value]?.name
+      ? featuredCollections.value[targetLanguage.value]
+      : null
   );
 
   const featuredCollectionFetched = computed(
