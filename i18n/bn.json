@@ -468,5 +468,7 @@
 	"cx-page-collection-dialog-page-suggestions-header": "নতুন পাতা",
 	"cx-page-collection-dialog-section-suggestions-header": "নতুন অনুচ্ছেদ",
 	"cx-sx-suggestion-list-empty-title": "এখনকার জন্য কোনও পরামর্শ নেই",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "সকল"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "সকল",
+	"cx-sx-present-lead-section-label": "(শীর্ষ)",
+	"communityconfiguration-contenttranslation-title": "বিষয়বস্তু অনুবাদ"
 }

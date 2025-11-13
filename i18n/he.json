@@ -516,5 +516,9 @@
 	"cx-sx-suggestion-list-empty-title": "אין הצעות לעת־עתה",
 	"cx-sx-suggestion-list-empty-description": "לא מצאנו הצעות שמתאימות למסנן הזה. האפשרויות שלך הן לנסות מסנן אחר או לחפש ערך לתרגום בעצמך.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "הכול",
-	"cx-sx-present-lead-section-label": "(פרק פתיחה)"
+	"cx-sx-present-lead-section-label": "(פרק פתיחה)",
+	"communityconfiguration-contenttranslation-title": "תרגום תוכן",
+	"communityconfiguration-contenttranslation-description": "כלי תרגום התוכן מאפשר לעורכים לתרגם ערכים.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "אוסף מקומי מומלץ",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "הגדרת אוסף מקומי מומלץ תציג אותו בלוח הבקרה של תרגום התוכן כאשר שפת היעד של לוח הבקרה מוגדרת לאותה שפה כמו בוויקי הזה."
 }

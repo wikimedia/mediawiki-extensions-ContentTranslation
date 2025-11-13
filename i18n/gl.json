@@ -318,7 +318,7 @@
 	"cx-sx-publisher-expand-option-details": "Expandir a sección existente conservando os seus contidos.",
 	"cx-sx-publisher-replace-option-label": "Substituír a sección existente",
 	"cx-sx-publisher-replace-option-details": "Elimina a sección existente e engade a túa tradución no seu lugar.",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "A tradución <strong>engadirase á túa zona de probas.</strong>",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "A tradución <strong>engadirase á túa zona de probas</strong>.",
 	"cx-sx-publisher-publish-panel-expand-section-result": "A túa tradución <strong>engadirase á sección existente</strong>.",
 	"cx-sx-publisher-publish-panel-replace-section-result": "A túa tradución <strong>substituirá a sección existente</strong>.",
 	"cx-sx-publisher-review-info-error": "Non se pode publicar a túa tradución:",
@@ -509,5 +509,9 @@
 	"cx-sx-suggestion-list-empty-title": "Nestes intres non hai suxestións",
 	"cx-sx-suggestion-list-empty-description": "Non atopamos ningunha suxestión para este filtro. Podes probar un filtro diferente ou buscar un artigo específico para traducilo.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Todas",
-	"cx-sx-present-lead-section-label": "(Principal)"
+	"cx-sx-present-lead-section-label": "(Principal)",
+	"communityconfiguration-contenttranslation-title": "Tradución de contido",
+	"communityconfiguration-contenttranslation-description": "A ferramenta de tradución de contido permite aos editores traducir artigos.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Colección destacada local",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Ao configurar unha colección destacada local, esta aparecerá no panel de tradución de contido cando a lingua de destino do panel estea configurado na mesma lingua que a lingua deste wiki."
 }

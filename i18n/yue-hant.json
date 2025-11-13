@@ -500,5 +500,9 @@
 	"cx-sx-suggestion-list-empty-title": "暫時冇建議",
 	"cx-sx-suggestion-list-empty-description": "我哋搵唔到呢個篩選器嘅任何建議。你可以試吓用唔同嘅篩選器，或者搵特定嘅文章嚟翻譯。",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "全部",
-	"cx-sx-present-lead-section-label": "(頂部)"
+	"cx-sx-present-lead-section-label": "(頂部)",
+	"communityconfiguration-contenttranslation-title": "內容翻譯",
+	"communityconfiguration-contenttranslation-description": "內容翻譯工具容許編輯翻譯條目。",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "本地精選收藏",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "設定本地精選收藏，當內容翻譯儀表板嘅目標語言同呢個維基嘅語言一樣時，就會喺儀表板顯示呢個收藏。"
 }

@@ -502,5 +502,7 @@
 	"cx-sx-suggestion-list-empty-title": "Nulle suggestion pro le momento",
 	"cx-sx-suggestion-list-empty-description": "Nos non ha trovate alcun suggestion pro iste filtro. Tu pote tentar un altere filtro o cercar un articulo specific a traducer.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Totes",
-	"cx-sx-present-lead-section-label": "(Introduction)"
+	"cx-sx-present-lead-section-label": "(Introduction)",
+	"communityconfiguration-contenttranslation-title": "Traduction de contento",
+	"communityconfiguration-contenttranslation-description": "Le utensile Traduction de contento permitte que redactores traduce articulos."
 }

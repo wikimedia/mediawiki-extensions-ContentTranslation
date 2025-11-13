@@ -541,5 +541,9 @@
 	"cx-sx-suggestion-list-empty-title": "Şimdilik öneri yok",
 	"cx-sx-suggestion-list-empty-description": "Bu süzgeç için hiçbir öneri bulamadık. Başka bir süzgeç deneyebilir ya da çevirmek için belirli bir madde arayabilirsiniz.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tümü",
-	"cx-sx-present-lead-section-label": "(Üst)"
+	"cx-sx-present-lead-section-label": "(Üst)",
+	"communityconfiguration-contenttranslation-title": "İçerik Çevirmeni",
+	"communityconfiguration-contenttranslation-description": "İçerik Çevirmeni aracı düzenleyicilerin maddeleri çevirmesine olanak tanır.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Yerel öne çıkan derlem",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Yerel bir öne çıkan derlem ayarlamak, pano hedef dili bu vikide aynı dile ayarlandığında, onu İçerik Çevirmeni panosunda gösterecektir."
 }

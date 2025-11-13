@@ -505,5 +505,8 @@
 	"cx-sx-suggestion-list-empty-title": "Hələlik heç bir tövsiyə yoxdur",
 	"cx-sx-suggestion-list-empty-description": "Bu filtr üçün heç bir tövsiyə tapmadıq. Siz fərqli filtri sınaya və ya tərcümə etmək üçün spesifik məqalə axtara bilərsiniz.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Hamısı",
-	"cx-sx-present-lead-section-label": "(Giriş)"
+	"cx-sx-present-lead-section-label": "(Giriş)",
+	"communityconfiguration-contenttranslation-title": "Məzmun Tərcüməsi",
+	"communityconfiguration-contenttranslation-description": "Məzmun Tərcüməsi aləti redaktorlara məqalələri tərcümə etməyə imkan verir.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Lokal seçilmiş kolleksiya"
 }

@@ -514,5 +514,9 @@
 	"cx-sx-suggestion-list-empty-title": "Derzeit keine Vorschläge",
 	"cx-sx-suggestion-list-empty-description": "Für diesen Filter haben wir keine Vorschläge gefunden. Du kannst einen anderen Filter ausprobieren oder nach einem bestimmten Artikel zum Übersetzen suchen.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Alle",
-	"cx-sx-present-lead-section-label": "(Anfang)"
+	"cx-sx-present-lead-section-label": "(Anfang)",
+	"communityconfiguration-contenttranslation-title": "Inhaltsübersetzung",
+	"communityconfiguration-contenttranslation-description": "Das Tool zur Inhaltsübersetzung ermöglicht es Benutzern, Artikel zu übersetzen.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Lokale empfohlene Sammlung",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Wenn du eine lokale hervorgehobene Sammlung festlegst, wird diese im Dashboard für Inhaltsübersetzung angezeigt, wenn die Zielsprache des Dashboards auf dieselbe Sprache wie in diesem Wiki eingestellt ist."
 }
