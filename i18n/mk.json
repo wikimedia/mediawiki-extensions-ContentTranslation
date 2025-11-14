@@ -501,5 +501,9 @@
 	"cx-sx-suggestion-list-empty-title": "Засега нема предлози",
 	"cx-sx-suggestion-list-empty-description": "Не најдовме предлози за овој филтер. Можете да се обидете со друг филтер или да пребарате конкретна статија за преведување.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Сè",
-	"cx-sx-present-lead-section-label": "(Најгоре)"
+	"cx-sx-present-lead-section-label": "(Најгоре)",
+	"communityconfiguration-contenttranslation-title": "Превод на содржини",
+	"communityconfiguration-contenttranslation-description": "Алатката „Превод на содржини“ им овозможува на уредниците да преведуваат статии.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Месно избрана збирка",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Поставките за месно избрана збирка ќе се појават во управувачницата на Превод на содржини кога целниот јазик на управувачницата ќе биде зададен да биде ист со јазикот на викито."
 }

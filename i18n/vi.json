@@ -521,5 +521,7 @@
 	"cx-sx-suggestion-list-empty-title": "Hiện không có gợi ý nào",
 	"cx-sx-suggestion-list-empty-description": "Chúng tôi không tìm thấy gợi ý nào cho bộ lọc này. Bạn có thể thử bộ lọc khác hoặc tìm kiếm một bài viết cụ thể để dịch.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tất cả",
-	"cx-sx-present-lead-section-label": "(Trên)"
+	"cx-sx-present-lead-section-label": "(Trên)",
+	"communityconfiguration-contenttranslation-title": "Biên dịch nội dung",
+	"communityconfiguration-contenttranslation-description": "Công cụ dịch nội dung cho phép các biên tập viên dịch các bài viết."
 }
