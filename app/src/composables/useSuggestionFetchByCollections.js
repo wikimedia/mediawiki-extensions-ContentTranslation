@@ -29,6 +29,18 @@ const useSuggestionFetchByCollections = () => {
 
   /**
    * @param {string|null} collectionName
+   * @return {{type: string, id: string}}
+   */
+  const getCollectionFilter = (collectionName = null) => {
+    if (collectionName) {
+      return { id: collectionName, type: COLLECTIONS_SUGGESTION_PROVIDER };
+    } else {
+      return currentFilter.value;
+    }
+  };
+
+  /**
+   * @param {string|null} collectionName
    * @returns {Promise<CollectionArticleSuggestion[]>}
    */
   const doFetchPageSuggestionsByCollection = async (collectionName) => {
@@ -47,9 +59,11 @@ const useSuggestionFetchByCollections = () => {
 
     fetchedSuggestions.push(...suggestions);
 
-    fetchedSuggestions.forEach(
-      (suggestion) => (suggestion.suggestionProvider = currentFilter.value)
-    );
+    fetchedSuggestions.forEach((suggestion) => {
+      // if collection name is given, make sure the suggestion provider
+      // is set to the collection's filter
+      suggestion.suggestionProvider = getCollectionFilter(collectionName);
+    });
 
     return fetchedSuggestions;
   };
@@ -87,9 +101,11 @@ const useSuggestionFetchByCollections = () => {
       }
     });
 
-    fetchedSuggestions.forEach(
-      (suggestion) => (suggestion.suggestionProvider = currentFilter.value)
-    );
+    fetchedSuggestions.forEach((suggestion) => {
+      // if collection name is given, make sure the suggestion provider
+      // is set to the collection's filter
+      suggestion.suggestionProvider = getCollectionFilter(collectionName);
+    });
 
     return fetchedSuggestions;
   };

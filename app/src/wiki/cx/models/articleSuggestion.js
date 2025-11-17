@@ -39,6 +39,7 @@ export default class ArticleSuggestion {
     this.suggestionProvider = suggestionProvider;
     this.suggestionSeed = suggestionSeed;
     this.isListable = true;
+    this.seen = false;
   }
 
   /**

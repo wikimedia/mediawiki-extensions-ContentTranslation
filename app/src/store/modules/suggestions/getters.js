@@ -36,4 +36,44 @@ export default {
       ),
   appendixTitlesExistForLanguage: (state) => (language) =>
     (state.appendixSectionTitles?.[language] || []).length > 0,
+  getNextUnseenPageSuggestionByFilter:
+    (state) =>
+    /**
+     * @param {{ type: string, id: string }} filter
+     * @returns {ArticleSuggestion}
+     */
+    (filter) => {
+      const unseenSuggestion =
+        state.pageSuggestions.find(
+          (suggestion) => suggestion.matchesFilter(filter) && !suggestion.seen
+        ) || null;
+
+      if (unseenSuggestion?.id) {
+        state.pageSuggestions = state.pageSuggestions.filter(
+          (suggestion) => suggestion.id !== unseenSuggestion.id
+        );
+      }
+
+      return unseenSuggestion;
+    },
+  getNextUnseenSectionSuggestionByFilter:
+    (state) =>
+    /**
+     * @param {{ type: string, id: string }} filter
+     * @returns {SectionSuggestion}
+     */
+    (filter) => {
+      const unseenSuggestion =
+        state.sectionSuggestions.find(
+          (suggestion) => suggestion.matchesFilter(filter) && !suggestion.seen
+        ) || null;
+
+      if (unseenSuggestion?.id) {
+        state.sectionSuggestions = state.sectionSuggestions.filter(
+          (suggestion) => suggestion.id !== unseenSuggestion.id
+        );
+      }
+
+      return unseenSuggestion;
+    },
 };

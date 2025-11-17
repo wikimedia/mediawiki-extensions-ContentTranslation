@@ -53,11 +53,33 @@ const useSuggestions = () => {
     getSectionSuggestionsSliceByIndex(currentSectionSuggestionsSliceIndex.value)
   );
 
+  // Watch current section suggestions slice, and mark all current suggestions as "seen"
+  watch(
+    currentSectionSuggestionsSlice,
+    () => {
+      currentSectionSuggestionsSlice.value.forEach((suggestion) => {
+        suggestion.seen = true;
+      });
+    },
+    { deep: true }
+  );
+
   /**
    * @type {ComputedRef<ArticleSuggestion[]>}
    */
   const currentPageSuggestionsSlice = computed(() =>
     getPageSuggestionsSliceByIndex(currentPageSuggestionsSliceIndex.value)
+  );
+
+  // Watch current page suggestions slice, and mark all current suggestions as "seen"
+  watch(
+    currentPageSuggestionsSlice,
+    () => {
+      currentPageSuggestionsSlice.value.forEach((suggestion) => {
+        suggestion.seen = true;
+      });
+    },
+    { deep: true }
   );
 
   /**

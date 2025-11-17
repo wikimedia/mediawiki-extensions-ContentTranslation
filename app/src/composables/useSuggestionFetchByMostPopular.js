@@ -9,6 +9,7 @@ import {
 } from "@/utils/suggestionFilterProviders";
 import useFeaturedCollectionFilter from "@/composables/useFeaturedCollectionFilter";
 import useSuggestionFetchByCollections from "@/composables/useSuggestionFetchByCollections";
+import useSuggestionsStore from "@/composables/useSuggestionsStore";
 
 const useSuggestionFetchByMostPopular = () => {
   const store = useStore();
@@ -21,6 +22,11 @@ const useSuggestionFetchByMostPopular = () => {
     id: POPULAR_SUGGESTION_PROVIDER,
     type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
   };
+
+  const {
+    getNextUnseenSectionSuggestionByCollection,
+    getNextUnseenPageSuggestionByCollection,
+  } = useSuggestionsStore();
 
   const {
     isSectionSuggestionValid,
@@ -38,23 +44,38 @@ const useSuggestionFetchByMostPopular = () => {
 
   /**
    * @param {function} fetchMethod
+   * @param {function(string): ArticleSuggestion|SectionSuggestion|null} getMethod
+   * @param {string} saveSuggestionMutation
    * @param {array} suggestions
    * @param {number} numberOfSuggestionsToFetch
    * @returns {Promise<number>}
    */
   const addFeaturedSuggestionIfNeeded = async (
     fetchMethod,
+    getMethod,
+    saveSuggestionMutation,
     suggestions,
     numberOfSuggestionsToFetch
   ) => {
     await featuredCollectionPromise;
 
     if (featuredCollection.value) {
-      const featuredCollectionSuggestions = await fetchMethod(
-        featuredCollection.value
-      );
+      // try to get featured suggestion from the store, if collection suggestions are already fetched
+      let featuredCollectionSuggestion = getMethod(featuredCollection.value);
 
-      const featuredCollectionSuggestion = featuredCollectionSuggestions?.[0];
+      if (!featuredCollectionSuggestion) {
+        // if no stored featured suggestion, try to fetch one
+        const [firstFeaturedSuggestion = null, ...restFeaturedSuggestions] =
+          await fetchMethod(featuredCollection.value);
+
+        featuredCollectionSuggestion = firstFeaturedSuggestion;
+
+        // store the rest of the unused featured suggestions in the store,
+        // so that they can be used by the featured collection filter
+        restFeaturedSuggestions.forEach((suggestion) => {
+          store.commit(saveSuggestionMutation, suggestion);
+        });
+      }
 
       if (featuredCollectionSuggestion) {
         suggestions.push(featuredCollectionSuggestion);
@@ -70,6 +91,8 @@ const useSuggestionFetchByMostPopular = () => {
 
     numberOfSuggestionsToFetch = await addFeaturedSuggestionIfNeeded(
       doFetchPageSuggestionsByCollection,
+      getNextUnseenPageSuggestionByCollection,
+      "suggestions/addPageSuggestion",
       fetchedSuggestions,
       numberOfSuggestionsToFetch
     );
@@ -104,6 +127,8 @@ const useSuggestionFetchByMostPopular = () => {
 
     numberOfSuggestionsToFetch = await addFeaturedSuggestionIfNeeded(
       doFetchSectionSuggestionsByCollection,
+      getNextUnseenSectionSuggestionByCollection,
+      "suggestions/addSectionSuggestion",
       fetchedSuggestions,
       numberOfSuggestionsToFetch
     );

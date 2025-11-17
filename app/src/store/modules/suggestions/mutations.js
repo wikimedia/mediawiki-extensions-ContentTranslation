@@ -10,6 +10,26 @@ export default {
     state.sectionSuggestions.push(suggestion);
   },
   /**
+   * @param {object} state
+   * @param {string} suggestionIdToRemove
+   * @returns {ArticleSuggestion}
+   */
+  removePageSuggestion(state, suggestionIdToRemove) {
+    state.pageSuggestions = state.pageSuggestions.filter(
+      (suggestion) => suggestion.id !== suggestionIdToRemove
+    );
+  },
+  /**
+   * @param {object} state
+   * @param {string} suggestionIdToRemove
+   * @returns {SectionSuggestion}
+   */
+  removeSectionSuggestion(state, suggestionIdToRemove) {
+    state.sectionSuggestions = state.sectionSuggestions.filter(
+      (suggestion) => suggestion.id !== suggestionIdToRemove
+    );
+  },
+  /**
    * @param {Object} state
    * @param {SectionSuggestion} suggestionToRemove
    */

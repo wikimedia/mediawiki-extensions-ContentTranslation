@@ -45,6 +45,7 @@ export default class SectionSuggestion {
     this.isListable = isListable;
     /** @type {{type: String, id: String}|null} */
     this.suggestionProvider = suggestionProvider;
+    this.seen = false;
   }
 
   /**

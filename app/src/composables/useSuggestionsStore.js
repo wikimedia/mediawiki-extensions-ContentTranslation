@@ -1,5 +1,6 @@
 import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
+import { COLLECTIONS_SUGGESTION_PROVIDER } from "@/utils/suggestionFilterProviders";
 
 const useSuggestionsStore = () => {
   const store = useStore();
@@ -63,11 +64,66 @@ const useSuggestionsStore = () => {
     );
   };
 
+  /**
+   * @param {string} collectionName the name of the collection to get an unseen suggestion from
+   * @param {string} unseenGetter the namespaced name of the vuex getter for the next unseen suggestion
+   * @param {string} removeMutation the namespaced name of the vuex mutation for removing the unseen suggestion
+   * @returns {ArticleSuggestion|SectionSuggestion|null}
+   */
+  const getNextUnseenSuggestionByCollection = (
+    collectionName,
+    unseenGetter,
+    removeMutation
+  ) => {
+    const collectionFilter = {
+      id: collectionName,
+      type: COLLECTIONS_SUGGESTION_PROVIDER,
+    };
+
+    const unseenSuggestion = store.getters[unseenGetter](collectionFilter);
+
+    if (unseenSuggestion?.id) {
+      store.commit(removeMutation, unseenSuggestion?.id);
+    }
+
+    return unseenSuggestion;
+  };
+
+  /**
+   * @param {string} collectionName
+   * @returns {ArticleSuggestion|null}
+   */
+  const getNextUnseenPageSuggestionByCollection = (collectionName) => {
+    return getNextUnseenSuggestionByCollection(
+      collectionName,
+      "suggestions/getNextUnseenPageSuggestionByFilter",
+      "suggestions/removePageSuggestion"
+    );
+  };
+
+  /**
+   * @param {string} collectionName
+   * @returns {SectionSuggestion|null}
+   */
+  const getNextUnseenSectionSuggestionByCollection = (collectionName) => {
+    const sectionSuggestionsForPair = store.getters[
+      "suggestions/getSectionSuggestionsForPair"
+    ](sourceLanguage.value, targetLanguage.value);
+
+    return getNextUnseenSuggestionByCollection(
+      sectionSuggestionsForPair,
+      "suggestions/getNextUnseenSectionSuggestionByFilter",
+      "suggestions/removeSectionSuggestion"
+    );
+  };
+
   return {
     getFilteredPageSuggestions,
     getFilteredSectionSuggestions,
     getPageSuggestionsSliceByIndex,
     getSectionSuggestionsSliceByIndex,
+    getNextUnseenSectionSuggestionByCollection,
+    getNextUnseenPageSuggestionByCollection,
   };
 };
 
