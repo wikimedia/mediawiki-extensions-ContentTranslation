@@ -63,7 +63,7 @@
 	"tag-contenttranslation-v2-description": "Nội dung được biên dịch từ một ngôn ngữ khác dùng phiên bản 2 của công cụ Biên dịch nội dung.",
 	"tag-sectiontranslation": "Biên dịch đoạn",
 	"tag-sectiontranslation-description": "Nội dung được biên dịch từ một đoạn từ ngôn ngữ khác sử dụng tính năng Biên dịch đoạn của công cụ Biên dịch nội dung.",
-	"tag-contenttranslation-high-unmodified-mt-text": "ContentTranslation: Dịch máy chưa qua biên tập cao",
+	"tag-contenttranslation-high-unmodified-mt-text": "ContentTranslation: Tỉ lệ dịch máy chưa qua biên tập cao",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "Bản dịch được xuất bản bằng ContentTranslation có tỷ lệ bản dịch máy chưa biên tập cao",
 	"cx-source-loading": "Đang tải $1",
 	"cx-beta": "Biên dịch nội dung",

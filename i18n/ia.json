@@ -504,5 +504,7 @@
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Totes",
 	"cx-sx-present-lead-section-label": "(Introduction)",
 	"communityconfiguration-contenttranslation-title": "Traduction de contento",
-	"communityconfiguration-contenttranslation-description": "Le utensile Traduction de contento permitte que redactores traduce articulos."
+	"communityconfiguration-contenttranslation-description": "Le utensile Traduction de contento permitte que redactores traduce articulos.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Collection local de articulos eminente",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Post le definition de un collection local de articulos eminente, iste collection apparera in le tabuliero de instrumentos de Content Translation quando le lingua de destination del tabuliero es mittite al mesme lingua que illo del wiki."
 }

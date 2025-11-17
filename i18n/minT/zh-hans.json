@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Peterxy12",
 			"沈澄心"
 		]
 	},
@@ -49,8 +50,11 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "最详细",
 	"mint-explore-languages-open-language-selector": "选择语言",
 	"mint-explore-languages-more-results": "还有$1种{{PLURAL:$1|语言}}可用",
+	"ax-cx-introduction-dialog-title": "复核并修正翻译",
+	"ax-cx-introduction-dialog-action": "更正并添加到条目",
 	"ax-translation-view-feedback-positive": "是",
 	"ax-translation-view-feedback-negative": "否",
 	"ax-translation-view-feedback-confirm-title": "反馈",
+	"ax-translation-view-feedback-confirm-description": "感谢您的协助！您可以在[https://www.mediawiki.org/wiki/Talk:MinT 项目讨论页面]分享您对这个实验性功能的任何其他想法。",
 	"ax-cx-failed-translation-label": "翻译失败"
 }
