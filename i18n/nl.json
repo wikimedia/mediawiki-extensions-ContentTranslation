@@ -530,5 +530,9 @@
 	"cx-sx-suggestion-list-empty-title": "Er zijn op dit moment geen suggesties",
 	"cx-sx-suggestion-list-empty-description": "We hebben geen suggesties gevonden voor dit filter. U kunt een ander filter proberen of zoeken naar een specifieke pagina om te vertalen.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Alle",
-	"cx-sx-present-lead-section-label": "(Inleiding)"
+	"cx-sx-present-lead-section-label": "(Inleiding)",
+	"communityconfiguration-contenttranslation-title": "Vertaling van inhoud",
+	"communityconfiguration-contenttranslation-description": "Met het hulpmiddel voor het vertalen van inhoud kunnen bewerkers pagina's vertalen.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Lokale aanbevolen verzameling",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Als u een lokale uitgelichte verzameling instelt, wordt deze weergegeven in het Content Translation-dashboard wanneer de doeltaal van het dashboard is ingesteld op dezelfde taal als die van deze wiki."
 }
