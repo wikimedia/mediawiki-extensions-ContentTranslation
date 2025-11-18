@@ -36,7 +36,6 @@ class MwCxMachineTranslationManager {
 		return mw.msg.apply( null, {
 			Elia: [ 'cx-tools-mt-provider-title', 'Elia.eus' ],
 			Google: [ 'cx-tools-mt-provider-title', 'Google Translate' ],
-			Yandex: [ 'cx-tools-mt-provider-title', 'Yandex.Translate' ],
 			[ EMPTY_TEXT_PROVIDER_KEY ]: [ 'cx-tools-mt-dont-use' ],
 			[ ORIGINAL_TEXT_PROVIDER_KEY ]: [ 'cx-tools-mt-use-source' ],
 			reset: [ 'cx-tools-mt-reset' ]

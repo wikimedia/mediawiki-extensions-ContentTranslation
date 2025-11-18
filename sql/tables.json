@@ -295,7 +295,7 @@
 			},
 			{
 				"name": "cxc_origin",
-				"comment": "Origin of the content. Can be source, Apertium, Yandex etc, and user",
+				"comment": "Origin of the content. Can be source, Apertium, MinT, etc, and user",
 				"type": "binary",
 				"options": { "notnull": true, "length": 30 }
 			},

@@ -8,7 +8,7 @@
 const ElementAction = require( '../utils/ElementAction' );
 const { faker } = require( '@faker-js/faker' );
 
-const MT_LIST = [ 'Google', 'Elia', 'MinT', 'Yandex', 'source', 'scratch' ];
+const MT_LIST = [ 'Google', 'Elia', 'MinT', 'source', 'scratch' ];
 class DesktopEditor {
 	getTranslationArticle() {
 		return $( '.cx-column--translation article' );
