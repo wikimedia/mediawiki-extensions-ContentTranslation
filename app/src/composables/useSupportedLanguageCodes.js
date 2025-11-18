@@ -1,43 +1,52 @@
 import { ref } from "vue";
+import siteApi from "@/wiki/mw/api/site";
 
 /**
- * All language codes that are supported
- * and can be used as source languages
+ * All language codes that are supported by Content Translation
  * @type {Ref<string[]>}
  */
-const supportedSourceLanguageCodes = ref([]);
-/**
- * All language codes that are supported
- * and can be used as target languages
- * @type {Ref<string[]>}
- */
-const supportedTargetLanguageCodes = ref([]);
+const supportedLanguageCodes = ref([]);
 
-let initialized = false;
+/**
+ * Flag to avoid multiple requests for supported language codes
+ * @type {boolean}
+ */
+let supportedLanguageCodesRequested = false;
 
 export default function () {
-  if (!initialized) {
-    /**
-     * All language codes supported, according to
-     * SupportedLanguages.php
-     */
-    const languageCodes = mw.config.get(
-      "wgContentTranslationSupportedLanguages"
-    );
+  /**
+   * This action fetches all language codes supported by cxserver,
+   * that can be used as source/target languages.
+   */
+  const fetchSupportedLanguageCodes = async () => {
+    // If supported language codes are already present, then skip
+    if (!supportedLanguageCodesRequested) {
+      supportedLanguageCodesRequested = true;
+      supportedLanguageCodes.value =
+        await siteApi.fetchSupportedLanguageCodes();
 
-    if (!languageCodes) {
-      throw new Error(
-        `[CX] No supported languages found in mw.config for wgContentTranslationSupportedLanguages`
+      // Map domains back to language codes
+      const languageToDomainMapping = mw.config.get(
+        "ContentTranslationDomainCodeMapping"
       );
-    }
+      Object.keys(languageToDomainMapping).forEach((lang) => {
+        // Skip super special code be-x-old
+        if (lang === "be-x-old") {
+          return;
+        }
 
-    supportedSourceLanguageCodes.value = languageCodes;
-    supportedTargetLanguageCodes.value = languageCodes;
-    initialized = true;
-  }
+        const domain = languageToDomainMapping[lang];
+        const index = supportedLanguageCodes.value.indexOf(domain);
+
+        if (index > -1) {
+          supportedLanguageCodes.value[index] = lang;
+        }
+      });
+    }
+  };
 
   return {
-    supportedSourceLanguageCodes,
-    supportedTargetLanguageCodes,
+    fetchSupportedLanguageCodes,
+    supportedLanguageCodes,
   };
 }

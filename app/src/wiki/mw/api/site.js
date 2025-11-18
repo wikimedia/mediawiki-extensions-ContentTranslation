@@ -2,6 +2,41 @@ import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { siteMapper } from "@/utils/mediawikiHelper";
 
 /**
+ * @returns {Promise<{ languages: string[] }>}
+ */
+const fetchSupportedLanguageCodes = () => {
+  const api = new mw.ForeignApi("https://meta.wikimedia.org/w/api.php", {
+    anonymous: true,
+  });
+
+  const jQueryPromise = api.get({
+    action: "sitematrix",
+    format: "json",
+    smtype: "language",
+    smlangprop: "code|site",
+    smsiteprop: "code",
+  });
+
+  return new Promise((resolve, reject) => {
+    jQueryPromise
+      .then(({ sitematrix }) => {
+        const hasOpenWikipedia = ({ site }) =>
+          site &&
+          site.some((site) => site.code === "wiki" && !("closed" in site));
+
+        const languages = Object.values(sitematrix)
+          .filter(hasOpenWikipedia)
+          .map((site) => site.code);
+
+        resolve(languages);
+      })
+      .fail((err) => {
+        reject(new Error("Supported language codes fetching failed: " + err));
+      });
+  });
+};
+
+/**
  * Fetches supported MT providers for a given language pair
  * and returns a Promise that resolves to a read-only MTProviderGroup object
  * @param sourceLanguage
@@ -77,6 +112,7 @@ function addWikibaseLink(
 }
 
 export default {
+  fetchSupportedLanguageCodes,
   fetchSupportedMTProviders,
   fetchCXServerToken,
   addWikibaseLink,

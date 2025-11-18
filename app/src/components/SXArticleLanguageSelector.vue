@@ -6,7 +6,7 @@ import { useArticleLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useURLHandler from "@/composables/useURLHandler";
 
-const { supportedTargetLanguageCodes } = useSupportedLanguageCodes();
+const { supportedLanguageCodes } = useSupportedLanguageCodes();
 
 const {
   sourceLanguageURLParameter: sourceLanguage,
@@ -35,7 +35,7 @@ const onTargetLanguageSelected = (newTargetLanguage) =>
   <sx-translation-list-language-selector
     class="sx-article-language-selector"
     :source-languages="availableSourceLanguages"
-    :target-languages="supportedTargetLanguageCodes"
+    :target-languages="supportedLanguageCodes"
     :selected-source-language="sourceLanguage"
     :selected-target-language="targetLanguage"
     @update:selected-source-language="onSourceLanguageSelected"

@@ -34,7 +34,7 @@ const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,
 } = useURLHandler();
-const { supportedSourceLanguageCodes } = useSupportedLanguageCodes();
+const { supportedLanguageCodes } = useSupportedLanguageCodes();
 
 const { searchResultsSlice } = useSearchArticles(sourceLanguage, searchInput);
 
@@ -270,7 +270,7 @@ const eventSource = computed(() => {
     >
       <mw-language-selector
         class="sx-article-search-language-selector__widget col-12"
-        :languages="supportedSourceLanguageCodes"
+        :languages="supportedLanguageCodes"
         :suggestions="suggestedSourceLanguages"
         :placeholder="$i18n('cx-sx-language-selector-placeholder')"
         @select="onSourceLanguageSelected"

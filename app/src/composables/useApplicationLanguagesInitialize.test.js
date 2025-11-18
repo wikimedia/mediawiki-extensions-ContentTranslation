@@ -5,6 +5,21 @@ import useSupportedLanguageCodes from "@/composables/useSupportedLanguageCodes";
 import useApplicationLanguagesInitialize from "@/composables/useApplicationLanguagesInitialize";
 
 let mockWikiLanguage = "bn";
+const mockSupportedLanguageCodes = ["en", "el"];
+
+mw.config.get = (parameter) => {
+  if (parameter === "wgContentTranslationTranslateInTarget") {
+    return false;
+  }
+
+  if (parameter === "ContentTranslationDomainCodeMapping") {
+    return {
+      nb: "no",
+    };
+  }
+
+  return null;
+};
 
 jest.mock("@/utils/mediawikiHelper", () => ({
   siteMapper: {
@@ -12,6 +27,14 @@ jest.mock("@/utils/mediawikiHelper", () => ({
   },
   getUrl: jest.fn(),
 }));
+
+jest.mock("@/wiki/mw/api/site", () => ({
+  fetchSupportedLanguageCodes: jest.fn(() =>
+    Promise.resolve(mockSupportedLanguageCodes)
+  ),
+}));
+
+const { supportedLanguageCodes } = useSupportedLanguageCodes();
 
 const store = createStore({
   modules: {
@@ -25,18 +48,6 @@ const store = createStore({
     },
   },
 });
-
-mw.config.get = (parameter) => {
-  if (parameter === "wgContentTranslationTranslateInTarget") {
-    return false;
-  }
-
-  if (parameter === "wgContentTranslationSupportedLanguages") {
-    return ["en", "el", "bn", "es"];
-  }
-
-  return null;
-};
 
 const mockURLParams = {
   from: null,
@@ -63,7 +74,6 @@ global.URLSearchParams = jest.fn().mockImplementation(() => {
 jest.mock("vue-banana-i18n", () => ({ useI18n: jest.fn() }));
 
 describe("useApplicationLanguagesInitialize composable test", () => {
-  const { supportedTargetLanguageCodes } = useSupportedLanguageCodes();
   const data = loadTestComposable(
     () => useApplicationLanguagesInitialize(),
     [store]
@@ -76,45 +86,45 @@ describe("useApplicationLanguagesInitialize composable test", () => {
     initializeURLState,
   } = useURLHandler();
 
-  // supportedLanguages refer to all languages that are supported
+  // supportedLanguages refer to all languages that are supported by cxserver
 
-  it("should respect URL params when they are properly supported", () => {
+  it("should respect URL params when they are properly supported", async () => {
     mockURLParams.from = "en";
     mockURLParams.to = "el";
-    // both source and target languages have to be supported
+    // both source and target languages have to be supported by cxserver
     initializeURLState();
-    initializeApplicationLanguages();
+    await initializeApplicationLanguages();
 
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("el");
 
     initializeURLState();
-    initializeApplicationLanguages();
+    await initializeApplicationLanguages();
 
     // source language doesn't need to be enabled
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("el");
   });
 
-  it("should fallback to wiki language (bn) as target language if URL param 'to' is not supported", () => {
-    supportedTargetLanguageCodes.value = ["bn", "en", "es"];
+  it("should fallback to wiki language (bn) as target language if URL param 'to' is not supported", async () => {
+    supportedLanguageCodes.value = ["bn", "en", "es"];
     // sq not supported here
     mockURLParams.to = "sq";
 
     initializeURLState();
-    initializeApplicationLanguages();
+    await initializeApplicationLanguages();
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("bn");
   });
 
-  it("should fallback to default (es) as target language if 'to' URL param is not set, and current wiki language is not supported", () => {
+  it("should fallback to default (es) as target language if 'to' URL param is not set, and current wiki language is not supported", async () => {
     mockURLParams.to = null;
     mw.storage.set("cxTargetLanguage", null);
 
     // fr not supported here. Supported target languages are: ["bn", "en", "es"]
     mockWikiLanguage = "fr";
     initializeURLState();
-    initializeApplicationLanguages();
+    await initializeApplicationLanguages();
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("es");
   });

@@ -10,7 +10,7 @@ import useURLHandler from "@/composables/useURLHandler";
  * @return {function(ComputedRef<string[]>):ComputedRef<string[]>}
  */
 const useSuggestedSourceLanguages = () => {
-  const { supportedSourceLanguageCodes } = useSupportedLanguageCodes();
+  const { supportedLanguageCodes } = useSupportedLanguageCodes();
   const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
 
   const getSuggestedSourceLanguages = (previousLanguages) =>
@@ -49,7 +49,7 @@ const useSuggestedSourceLanguages = () => {
       return [...new Set(suggestedLanguages)].filter(
         (language) =>
           language !== targetLanguage.value &&
-          supportedSourceLanguageCodes.value.includes(language)
+          supportedLanguageCodes.value.includes(language)
       );
     });
 

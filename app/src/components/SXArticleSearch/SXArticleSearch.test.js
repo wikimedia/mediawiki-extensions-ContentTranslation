@@ -29,11 +29,6 @@ jest.mock("@/wiki/mw/api/page", () => {
   };
 });
 
-jest.mock("@/composables/useSupportedLanguageCodes", () => () => ({
-  supportedSourceLanguageCodes: { value: ["en", "es", "fr", "de", "it"] },
-  supportedTargetLanguageCodes: { value: ["en", "es", "fr", "de", "it"] },
-}));
-
 jest.mock("@/composables/useTranslationsFetch", () => () => ({
   fetchAllTranslations: jest.fn(),
 }));

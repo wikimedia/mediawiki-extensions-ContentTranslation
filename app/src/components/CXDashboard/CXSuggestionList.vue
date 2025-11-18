@@ -30,8 +30,7 @@ const {
   currentSuggestionFilters,
 } = useURLHandler();
 
-const { supportedSourceLanguageCodes, supportedTargetLanguageCodes } =
-  useSupportedLanguageCodes();
+const { supportedLanguageCodes } = useSupportedLanguageCodes();
 const updateLanguagePair = useSuggestionListLanguagePairUpdate();
 const updateSourceLanguage = (newSourceLanguage) =>
   updateLanguagePair(newSourceLanguage, targetLanguage.value);
@@ -158,8 +157,8 @@ const showRefreshButton = computed(
           />
           <sx-translation-list-language-selector
             v-if="!isMobile"
-            :source-languages="supportedSourceLanguageCodes"
-            :target-languages="supportedTargetLanguageCodes"
+            :source-languages="supportedLanguageCodes"
+            :target-languages="supportedLanguageCodes"
             :selected-source-language="sourceLanguage"
             :selected-target-language="targetLanguage"
             @update:selected-source-language="updateSourceLanguage"
@@ -170,8 +169,8 @@ const showRefreshButton = computed(
       </template>
       <sx-translation-list-language-selector
         v-if="isMobile"
-        :source-languages="supportedSourceLanguageCodes"
-        :target-languages="supportedTargetLanguageCodes"
+        :source-languages="supportedLanguageCodes"
+        :target-languages="supportedLanguageCodes"
         :selected-source-language="sourceLanguage"
         :selected-target-language="targetLanguage"
         @update:selected-source-language="updateSourceLanguage"

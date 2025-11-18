@@ -15,7 +15,7 @@ const applicationLanguagesInitialized = ref(false);
  */
 const useApplicationLanguagesInitialize = () => {
   const store = useStore();
-  const { supportedSourceLanguageCodes, supportedTargetLanguageCodes } =
+  const { supportedLanguageCodes, fetchSupportedLanguageCodes } =
     useSupportedLanguageCodes();
 
   const { sourceLanguageURLParameter, targetLanguageURLParameter } =
@@ -50,11 +50,8 @@ const useApplicationLanguagesInitialize = () => {
   const getInitialLanguagePair = () => {
     const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
 
-    const isSupportedSourceLanguage = (language) =>
-      supportedSourceLanguageCodes.value.includes(language);
-
-    const isSupportedTargetLanguage = (language) =>
-      supportedTargetLanguageCodes.value.includes(language);
+    const isSupportedLanguage = (language) =>
+      supportedLanguageCodes.value.includes(language);
 
     const defaultLanguages = {
       sourceLanguage: "en",
@@ -77,17 +74,18 @@ const useApplicationLanguagesInitialize = () => {
     ];
 
     const targetLanguage = candidateTargetLanguages.find((language) =>
-      isSupportedTargetLanguage(language)
+      isSupportedLanguage(language)
     );
     const sourceLanguage = candidateSourceLanguages.find(
-      (language) =>
-        isSupportedSourceLanguage(language) && language !== targetLanguage
+      (language) => isSupportedLanguage(language) && language !== targetLanguage
     );
 
     return { sourceLanguage, targetLanguage };
   };
 
-  const initializeApplicationLanguages = () => {
+  const initializeApplicationLanguages = async () => {
+    await fetchSupportedLanguageCodes();
+
     const { sourceLanguage, targetLanguage } = getInitialLanguagePair();
 
     setLanguagePair(store, sourceLanguage, targetLanguage);

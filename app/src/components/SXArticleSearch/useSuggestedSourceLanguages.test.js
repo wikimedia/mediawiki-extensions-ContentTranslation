@@ -3,7 +3,7 @@ import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 
 const supportedLanguageCodes = ["aa", "ab", "ar", "ig", "fr", "it", "ja"];
 jest.mock("@/composables/useSupportedLanguageCodes", () => () => ({
-  supportedSourceLanguageCodes: { value: supportedLanguageCodes },
+  supportedLanguageCodes: { value: supportedLanguageCodes },
 }));
 
 jest.mock("@/composables/useURLHandler", () => () => ({
