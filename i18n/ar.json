@@ -531,5 +531,9 @@
 	"cx-sx-suggestion-list-empty-title": "لا توجد اقتراحات في الوقت الحالي",
 	"cx-sx-suggestion-list-empty-description": "لم نعثر على أي اقتراحات لهذا الفلتر. يمكنك تجربة فلتر آخر أو البحث عن مقال محدد لترجمته.",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "الكل",
-	"cx-sx-present-lead-section-label": "(قمة)"
+	"cx-sx-present-lead-section-label": "(قمة)",
+	"communityconfiguration-contenttranslation-title": "ترجمة المحتوى",
+	"communityconfiguration-contenttranslation-description": "تتيح أداة ترجمة المحتوى للمحررين ترجمة المقالات.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "مجموعة مميزة محليًا",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "سيؤدي تعيين مجموعة مميزة محلية إلى إظهارها في لوحة معلومات ترجمة المحتوى عندما يتم تعيين لغة لوحة المعلومات المستهدفة إلى نفس اللغة من هذه الويكي."
 }
