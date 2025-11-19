@@ -111,6 +111,12 @@ const isCollectionSuggestion = computed(
     suggestion.value instanceof CollectionSectionSuggestion
 );
 
+const showCollectionChip = computed(
+  () =>
+    isCollectionSuggestion.value &&
+    !suggestion.value.collectionMatchesProvider()
+);
+
 /**
  * "Quick translation" indicator should only -conditionally- be added when
  * the current suggestion is an article suggestion, but not a collection suggestion.
@@ -119,13 +125,19 @@ const isCollectionSuggestion = computed(
  * @type {ComputedRef<boolean>}
  */
 const isQuickTranslation = computed(() => {
-  if (isArticleSuggestion.value && !isCollectionSuggestion.value) {
-    return isDesktopSite
-      ? isEasyOrStubArticleTranslation(suggestion.value.size)
-      : isEasyOrStubSectionTranslation(suggestion.value.leadSectionSize);
+  // Don't show it when the collection chip is shown
+  if (showCollectionChip.value) {
+    return false;
   }
 
-  return false;
+  // Don't show it for section suggestions
+  if (isSectionSuggestion.value) {
+    return false;
+  }
+
+  return isDesktopSite
+    ? isEasyOrStubArticleTranslation(suggestion.value.size)
+    : isEasyOrStubSectionTranslation(suggestion.value.leadSectionSize);
 });
 
 defineEmits(["close", "bookmark"]);
@@ -209,7 +221,7 @@ defineEmits(["close", "bookmark"]);
           </mw-row>
         </mw-col>
         <mw-col
-          v-if="isCollectionSuggestion"
+          v-if="showCollectionChip"
           shrink
           class="cx-suggestion__information-panel__collection mt-auto"
         >

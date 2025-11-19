@@ -50,4 +50,11 @@ export default class CollectionSectionSuggestion extends SectionSuggestion {
 
     this.collection = new PageCollection(collection);
   }
+
+  /**
+   * @returns {boolean}
+   */
+  collectionMatchesProvider() {
+    return this.collection.name === this.suggestionProvider?.id;
+  }
 }

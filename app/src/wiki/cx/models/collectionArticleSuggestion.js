@@ -38,4 +38,11 @@ export default class CollectionArticleSuggestion extends ArticleSuggestion {
 
     this.collection = new PageCollection(collection);
   }
+
+  /**
+   * @returns {boolean}
+   */
+  collectionMatchesProvider() {
+    return this.collection.name === this.suggestionProvider?.id;
+  }
 }
