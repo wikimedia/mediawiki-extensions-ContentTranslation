@@ -100,7 +100,7 @@ onUnmounted(() => {
         target="_blank"
       >
         {{ $i18n("cx-featured-collection-banner-learn-more") }}
-        <CdxIcon
+        <cdx-icon
           :icon="cdxIconLinkExternal"
           size="small"
           class="cx-featured-collection-banner__learn-more-icon"
