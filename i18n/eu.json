@@ -237,7 +237,7 @@
 	"cx-sx-publisher-animation-success-message-subtitle": "Orrialdea irekitzen...",
 	"cx-sx-publisher-animation-failure-message-title": "Ezin izan da argitaratu",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Egiaztatu errore-mezuak",
-	"cx-sx-publish-summary": "\"$1\" orrialdetik \"$2\" atala itzuliz sortua",
+	"cx-sx-publish-summary": "\"$2\" orrialdetik \"$1\" atala itzuliz sortua",
 	"cx-sx-publish-lead-section-summary": "\"$1\" orrialdearen sarrera-atala itzuliz sortua",
 	"cx-sx-publisher-preview-options-title": "Argitaratze-aukerak",
 	"cx-sx-publisher-new-section-option-label": "Argitaratu atal berri gisa",

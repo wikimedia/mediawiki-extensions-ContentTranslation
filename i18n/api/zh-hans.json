@@ -135,6 +135,8 @@
 	"apihelp-cxsplit-summary": "為指定條目翻譯的各已翻譯章節，建立章節翻譯並儲存到資料庫",
 	"apihelp-cxsplit-param-translationid": "翻譯的ID，用於要建立的章節翻譯。",
 	"apierror-cxsplit-no-translation-found": "未找到指定ID的翻译",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "维基数据ID",
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "布尔值，用来指示章节标题是否应包含在回应里。",
 	"apihelp-cxfavoritesuggestions-param-listaction": "对指定的收藏建议标题执行的操作。可用选项：“添加”和“删除”",
 	"apihelp-cxfavoritesuggestions-param-title": "应该执行操作的收藏建议的标题",
 	"apihelp-cxfavoritesuggestions-param-from": "应该执行操作的收藏建议的源语言",

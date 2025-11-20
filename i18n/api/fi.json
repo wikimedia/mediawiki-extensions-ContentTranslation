@@ -5,7 +5,8 @@
 			"Nike",
 			"Pitke",
 			"Pyscowicz",
-			"Silvonen"
+			"Silvonen",
+			"Samoasambia"
 		]
 	},
 	"apihelp-cxpublish-summary": "Tallenna Sisällön kääntäminen -lisäosalla luotu sivu.",
@@ -25,11 +26,27 @@
 	"apihelp-cxsave-param-from": "Lähdekielen koodi.",
 	"apihelp-cxsave-param-to": "Kohdekielen koodi.",
 	"apihelp-cxsave-param-sourcetitle": "Lähdesivun nimi.",
+	"apierror-cx-docserverexception": "Virhe muutettaessa HTML:ää wikitekstiksi: $1",
+	"apierror-cx-wikitext-retrieval-exception": "Virhe haettaessa wikitekstiä olemassa olevalle osiolle: $1",
+	"apierror-cx-inuse": "Toinen käyttäjä kääntää jo tätä artikkelia.",
+	"apierror-cx-invalidsourcecategories": "Lähdeluokkien JSON-taulukko on virheellinen.",
+	"apierror-cx-invalidtargetcategories": "Kohdeluokkien JSON-taulukko on virheellinen.",
 	"apierror-cx-invalidlanguage": "Virheellinen kieli.",
+	"apierror-cx-invalidprogress": "Virheellinen prosessi.",
+	"apierror-cx-invalidsectioncontent": "Virheellinen osion sisältö.",
+	"apierror-cx-invalidsectiondata": "Virheelliset osion tiedot.",
+	"apierror-cx-invalidsourcelanguage": "Virheellinen lähdekieli.",
 	"apierror-cx-invalidtargetlanguage": "Virheellinen kohdekieli.",
+	"apierror-cx-invalidtranslator": "Virheellinen kääntäjän nimi",
+	"apierror-cx-jwtmissing": "JWT:tä ei ole asennettu.",
+	"apierror-cx-keynotconfigured": "Avainta ei ole määritetty.",
+	"apierror-cx-missingdraft": "Luonnosta ei ole olemassa.",
+	"apierror-cx-mustbeloggedin-favorites": "Sinun täytyy olla sisäänkirjautuneena hallitaksesi suosikkiehdotuksiasi.",
+	"apierror-cx-mustbeloggedin-suggestions": "Sinun täytyy olla sisäänkirjautuneena hallitaksesi ehdotuksiasi.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Sinun täytyy olla sisäänkirjautuneena saadaksesi ehdotuksia käännöksistä.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Nähdäksesi käännöksesi sinun täytyy kirjautua sisään.",
 	"apierror-cx-translationnotfound": "Käännöstä ei löytynyt.",
+	"apierror-cx-publish-usergroup-required": "Sinulla ei ole tarvittavia käyttöoikeuksia julkaistaksesi käännöksiä päänimiavaruuteen.",
 	"apihelp-query+langlinkscount-summary": "Hae muiden kieliversioiden lukumäärä.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Lähdekielen koodi.",
 	"apihelp-cxpublishsection-param-targetlanguage": "Kohdekielen koodi.",
@@ -39,5 +56,7 @@
 	"apihelp-sxsave-param-sourcetitle": "Lähdesivun nimi.",
 	"apihelp-sxsave-param-targettitle": "Kohdesivun nimi.",
 	"apihelp-sxsave-param-sourcesectiontitle": "Lähdekappaleen otsikko.",
-	"apierror-cxpublishsection-translationnotfound": "Käännöstä ei löytynyt."
+	"apierror-cxpublishsection-translationnotfound": "Käännöstä ei löytynyt.",
+	"apierror-cxsplit-no-translation-found": "Annetulla tunnisteella ei löytynyt käännöstä",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Pyyntö hakea sivustolinkit Wikidatasta epäonnistui"
 }
