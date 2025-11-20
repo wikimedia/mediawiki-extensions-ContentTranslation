@@ -78,7 +78,20 @@ const requestToRecommendationApi = async ({ urlPostfix = null, urlParams }) => {
       throw new Error("Failed to load data from server");
     }
 
-    return response.json();
+    const result = await response.json();
+
+    if (Array.isArray(result)) {
+      return result;
+    } else if (
+      typeof result === "object" &&
+      result.recommendations !== undefined
+    ) {
+      return result.recommendations;
+    } else {
+      throw new Error(
+        "Output format of Recommendation API response is not supported"
+      );
+    }
   } catch (error) {
     mw.log.error(
       "Error while fetching suggestions from Recommendation API",
