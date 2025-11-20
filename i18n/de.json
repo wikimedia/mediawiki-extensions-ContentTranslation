@@ -518,5 +518,14 @@
 	"communityconfiguration-contenttranslation-title": "Inhaltsübersetzung",
 	"communityconfiguration-contenttranslation-description": "Das Tool zur Inhaltsübersetzung ermöglicht es Benutzern, Artikel zu übersetzen.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Lokale empfohlene Sammlung",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Wenn du eine lokale hervorgehobene Sammlung festlegst, wird diese im Dashboard für Inhaltsübersetzung angezeigt, wenn die Zielsprache des Dashboards auf dieselbe Sprache wie in diesem Wiki eingestellt ist."
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Wenn du eine lokale hervorgehobene Sammlung festlegst, wird diese im Dashboard für Inhaltsübersetzung angezeigt, wenn die Zielsprache des Dashboards auf dieselbe Sprache wie in diesem Wiki eingestellt ist.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Beschreibung (optional)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "Es kann eine benutzerdefinierte Beschreibung angegeben werden, die in einem Informationsbanner im Dashboard für Inhaltsübersetzung angezeigt wird.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Link zur Wiki-Seite (optional)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Es kann ein Link zu einer Wiki-Seite bereitgestellt werden, die mit der vorgestellten Sammlung verknüpft ist und im Informationsbanner des Content Translation-Dashboards angezeigt wird.",
+	"cx-featured-collection-banner-title": "Prioritäten der Gemeinschaft",
+	"cx-featured-collection-banner-description": "Diese Sammlung enthält Artikel, die von der Community als wichtiges Wissen eingestuft wurden. Deine Übersetzung trägt dazu bei, wichtige Informationen einem breiteren Publikum zugänglich zu machen.",
+	"cx-featured-collection-banner-learn-more": "Weitere Informationen",
+	"cx-featured-collection-banner-toggle-less": "weniger",
+	"cx-featured-collection-banner-toggle-more": "mehr"
 }
