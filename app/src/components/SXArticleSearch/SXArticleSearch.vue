@@ -21,6 +21,7 @@ import useLanguageHistory from "./useLanguageHistory";
 import pageApi from "@/wiki/mw/api/page";
 import useKeyboardNavigation from "@/composables/useKeyboardNavigation";
 import useSearchArticles from "@/composables/useArticleSearch";
+import useFeaturedCollectionSearchSuggestions from "./useFeaturedCollectionSearchSuggestions";
 
 const searchInput = ref("");
 const searchInputUsed = ref(false);
@@ -67,6 +68,10 @@ onMounted(async () => {
   addLanguageToHistory(sourceLanguage.value);
   searchInputRef.value?.focus();
 });
+
+const maxCurrentSuggestions = 3;
+const { featuredCollectionPages, featuredCollectionPagesResolved } =
+  useFeaturedCollectionSearchSuggestions(maxCurrentSuggestions);
 
 const close = () => {
   router.push({ name: "dashboard" });
@@ -129,8 +134,6 @@ const { fetchPreviousEditsInSource, previousEditsInSource } =
 
 const previouslyEditedPages = ref([]);
 
-/** Maximum number of suggestions based on user's recently edited translations */
-const maxRecentlyEditedSuggestions = 3;
 const fetchPagesFromPreviousEditsInSource = () =>
   fetchPreviousEditsInSource()
     .then(() => {
@@ -144,7 +147,7 @@ const fetchPagesFromPreviousEditsInSource = () =>
       return [];
     })
     .then((pages) => {
-      pages = pages.slice(0, maxRecentlyEditedSuggestions);
+      pages = pages.slice(0, maxCurrentSuggestions);
       // "previousEditsInSource" is sorted with the most recently edited titles first
       pages = pages.sort(
         (a, b) =>
@@ -161,14 +164,41 @@ const breakpoints = inject("breakpoints");
 const isMobile = computed(() => breakpoints.value.mobile);
 const doStartTranslation = useTranslationStart();
 const prevEditedPagesAvailable = computed(
-  () => previouslyEditedPages.value && previouslyEditedPages.value.length
+  () =>
+    previouslyEditedPages.value &&
+    previouslyEditedPages.value.length &&
+    featuredCollectionPagesResolved.value
 );
 const nearbyPagesAvailable = computed(
   () => nearbyPages.value && nearbyPages.value.length
 );
+const featuredCollectionPagesAvailable = computed(
+  () =>
+    featuredCollectionPages.value && featuredCollectionPages.value.length > 0
+);
+
+const currentSuggestionPages = computed(() => {
+  if (featuredCollectionPagesAvailable.value) {
+    return featuredCollectionPages.value || [];
+  }
+
+  if (prevEditedPagesAvailable.value) {
+    return previouslyEditedPages.value || [];
+  }
+
+  if (nearbyPagesAvailable.value) {
+    return nearbyPages.value || [];
+  }
+
+  return [];
+});
 
 const { next, prev, keyboardNavigationContainer, selectedItem } =
-  useKeyboardNavigation(searchInput, searchResultsSlice, previouslyEditedPages);
+  useKeyboardNavigation(
+    searchInput,
+    searchResultsSlice,
+    currentSuggestionPages
+  );
 
 /**
  * @param {Page} page
@@ -238,12 +268,23 @@ const eventSource = computed(() => {
     />
     <template v-if="!searchInput">
       <article-suggestions-card
-        v-if="prevEditedPagesAvailable"
+        v-if="featuredCollectionPagesAvailable"
+        :card-title="$i18n('cx-sx-article-search-community-priorities-title')"
+        :card-subtitle="
+          $i18n('cx-sx-article-search-community-priorities-subtitle')
+        "
+        :suggestions="featuredCollectionPages"
+        :selected-item="selectedItem"
+        @suggestion-clicked="startTranslation($event)"
+      />
+      <article-suggestions-card
+        v-else-if="prevEditedPagesAvailable"
         :card-title="$i18n('cx-sx-article-search-recently-edited-title')"
         :suggestions="previouslyEditedPages"
         :selected-item="selectedItem"
         @suggestion-clicked="startTranslation($event)"
       />
+
       <article-suggestions-card
         v-else-if="nearbyPagesAvailable"
         :card-title="$i18n('cx-sx-article-search-nearby-title')"

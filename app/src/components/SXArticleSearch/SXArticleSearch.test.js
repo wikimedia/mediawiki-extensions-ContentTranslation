@@ -112,6 +112,24 @@ jest.mock("./useSuggestedSourceLanguages", () => () => ({
 }));
 const i18n = createI18n();
 
+jest.mock("@/composables/useFeaturedCollectionFilter", () => {
+  const { ref } = require("vue");
+
+  return () => ({
+    featuredCollection: ref(null),
+    featuredCollectionFetched: ref(true),
+    initializeFeaturedCollectionWatcher: jest.fn(),
+  });
+});
+
+jest.mock("@/composables/useSuggestionFetchByCollections", () => () => ({
+  fetchPageSuggestionsByFeaturedCollections: jest.fn(),
+}));
+
+jest.mock("@/composables/useSuggestionsFilters", () => () => ({
+  isFilteringByFeaturedCollection: jest.fn(() => false),
+}));
+
 describe("SXArticleSearch component test", () => {
   const wrapper = mount(SXArticleSearch, {
     global: {

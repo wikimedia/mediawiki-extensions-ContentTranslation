@@ -83,6 +83,17 @@ const useSuggestionFetchByCollections = () => {
   const fetchPageSuggestionsByCollections = () =>
     doFetchPageSuggestionsByCollection(currentCollectionName.value);
 
+  const fetchPageSuggestionsByFeaturedCollections = async () => {
+    const featuredCollectionSuggestions =
+      await doFetchPageSuggestionsByCollection(
+        featuredCollection.value?.name || null
+      );
+
+    featuredCollectionSuggestions.forEach((suggestion) =>
+      store.commit("suggestions/addPageSuggestion", suggestion)
+    );
+  };
+
   /**
    * @param {string|null} collectionName
    * @returns {Promise<CollectionSectionSuggestion[]>}
@@ -137,6 +148,7 @@ const useSuggestionFetchByCollections = () => {
   return {
     fetchSectionSuggestionsByCollections,
     fetchPageSuggestionsByCollections,
+    fetchPageSuggestionsByFeaturedCollections,
     doFetchPageSuggestionsByCollection,
     doFetchSectionSuggestionsByCollection,
   };

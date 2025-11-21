@@ -311,6 +311,16 @@ const useSuggestionsFilters = () => {
     selectFilter(suggestionFilter);
   };
 
+  /**
+   * Check if currently filtering by featured collection
+   * @returns {boolean}
+   */
+  const isFilteringByFeaturedCollection = () => {
+    const selectedFilter = findSelectedFilter();
+
+    return selectedFilter?.id === featuredCollection.value?.name;
+  };
+
   return {
     allFilters,
     getFiltersSummary,
@@ -322,6 +332,7 @@ const useSuggestionsFilters = () => {
     validateURLFilterWithCollections,
     getCountries,
     setFeaturedCollectionFilterIfNeeded,
+    isFilteringByFeaturedCollection,
   };
 };
 

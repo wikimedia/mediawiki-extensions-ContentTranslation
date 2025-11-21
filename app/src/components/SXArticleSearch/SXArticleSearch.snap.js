@@ -205,6 +205,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
     >
       cx-sx-article-search-recently-edited-title
     </h5>
+    <!--v-if-->
     
     <div
       class="mw-ui-card__content"

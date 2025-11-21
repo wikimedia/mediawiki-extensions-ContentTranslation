@@ -11,6 +11,7 @@ exports[`ArticleSuggestionsCard test Component output matches snapshot 1`] = `
   >
     Recently edited
   </h5>
+  <!--v-if-->
   
   <div
     class="mw-ui-card__content"

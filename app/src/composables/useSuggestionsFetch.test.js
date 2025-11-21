@@ -16,6 +16,10 @@ jest.mock("vuex");
 jest.mock("./useFeaturedCollectionFlag");
 jest.mock("./useFeaturedCollectionFilter");
 jest.mock("./useSuggestionsFilters");
+jest.mock("./usePageCollections", () => () => ({
+  pageCollectionGroups: { value: {} },
+  pageCollectionGroupsFetched: { value: true },
+}));
 
 const mockPageSuggestionFetcher = jest.fn().mockResolvedValue([
   { id: 2, sourceTitle: "Page2" },
@@ -65,6 +69,7 @@ describe("useSuggestionsFetch composable test", () => {
     useURLHandler.mockReturnValue({
       sourceLanguageURLParameter: { value: "en" },
       targetLanguageURLParameter: { value: "es" },
+      currentSuggestionFilters: { value: { type: "automatic", id: null } },
     });
 
     // Mock useFeaturedCollectionFlag
@@ -80,6 +85,7 @@ describe("useSuggestionsFetch composable test", () => {
     // Mock useSuggestionsFilters
     useSuggestionsFilters.mockReturnValue({
       findSelectedFilter: jest.fn().mockReturnValue({ id: "different-filter" }),
+      isFilteringByFeaturedCollection: jest.fn().mockReturnValue(false),
     });
   });
 

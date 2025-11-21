@@ -76,4 +76,32 @@ export default {
 
       return unseenSuggestion;
     },
+  /**
+   * Get page suggestions for collections by collection name
+   * @param {Object} state
+   * @return {function(string, string, string): PageSuggestion[]}
+   */
+  getCollectionPageSuggestions:
+    (state) => (sourceLanguage, targetLanguage, collectionName) =>
+      state.pageSuggestions.filter(
+        (suggestion) =>
+          suggestion.sourceLanguage === sourceLanguage &&
+          suggestion.targetLanguage === targetLanguage &&
+          suggestion.suggestionProvider?.id === collectionName &&
+          suggestion.isListable
+      ),
+  /**
+   * Get section suggestions for collections by collection name
+   * @param {Object} state
+   * @return {function(string, string, string): SectionSuggestion[]}
+   */
+  getCollectionSectionSuggestions:
+    (state) => (sourceLanguage, targetLanguage, collectionName) =>
+      state.sectionSuggestions.filter(
+        (suggestion) =>
+          suggestion.sourceLanguage === sourceLanguage &&
+          suggestion.targetLanguage === targetLanguage &&
+          suggestion.suggestionProvider?.id === collectionName &&
+          suggestion.isListable
+      ),
 };

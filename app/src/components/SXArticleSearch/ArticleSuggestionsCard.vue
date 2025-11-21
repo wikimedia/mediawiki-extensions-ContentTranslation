@@ -8,6 +8,11 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  cardSubtitle: {
+    type: String,
+    required: false,
+    default: null,
+  },
   suggestions: {
     type: Array,
     required: true,
@@ -39,6 +44,11 @@ const emit = defineEmits(["suggestion-clicked"]);
       <h5
         class="ma-0 px-4 pb-1 sx-article-search__suggestions-header"
         v-text="cardTitle"
+      />
+      <p
+        v-if="cardSubtitle"
+        class="ma-0 px-4 pb-2 sx-article-search__suggestions-subtitle"
+        v-text="cardSubtitle"
       />
     </template>
     <sx-search-article-suggestion
@@ -72,6 +82,10 @@ const emit = defineEmits(["suggestion-clicked"]);
   }
   &-header {
     color: #72777d;
+  }
+  &-subtitle {
+    color: @color-subtle;
+    font-size: @font-size-small;
   }
   &-selected {
     background-color: @background-color-neutral-subtle;

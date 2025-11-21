@@ -30,10 +30,19 @@ const mediawikiModule = {
   },
 };
 
+const suggestionsModule = {
+  namespaced: true,
+  getters: {
+    getCollectionPageSuggestions: () => () => [],
+    getCollectionSectionSuggestions: () => () => [],
+  },
+};
+
 export default createStore({
   modules: {
     application: applicationModule,
     mediawiki: mediawikiModule,
+    suggestions: suggestionsModule,
     translator: {
       namespaced: true,
       state: { translations: [] },
