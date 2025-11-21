@@ -520,5 +520,13 @@
 	"communityconfiguration-contenttranslation-title": "תרגום תוכן",
 	"communityconfiguration-contenttranslation-description": "כלי תרגום התוכן מאפשר לעורכים לתרגם ערכים.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "אוסף מקומי מומלץ",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "הגדרת אוסף מקומי מומלץ תציג אותו בלוח הבקרה של תרגום התוכן כאשר שפת היעד של לוח הבקרה מוגדרת לאותה שפה כמו בוויקי הזה."
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "הגדרת אוסף מקומי מומלץ תציג אותו בלוח הבקרה של תרגום התוכן כאשר שפת היעד של לוח הבקרה מוגדרת לאותה שפה כמו בוויקי הזה.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "תיאור (לא חובה)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "אפשר להציג תיאור מותאם אישית בכרזת המידע בלוח הבקרה של תרגום תוכן.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "קישור לדף ויקי (לא חובה)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "אפשר לספק קישור לדף ויקי שמשויך לאוסף המומלץ, שייכלל בכרזת המידע בלוח הבקרה של תרגום תוכן.",
+	"cx-featured-collection-banner-title": "עדיפויות קהילתיות",
+	"cx-featured-collection-banner-learn-more": "מידע נוסף",
+	"cx-featured-collection-banner-toggle-less": "פחות",
+	"cx-featured-collection-banner-toggle-more": "עוד"
 }

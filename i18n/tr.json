@@ -545,5 +545,14 @@
 	"communityconfiguration-contenttranslation-title": "İçerik Çevirmeni",
 	"communityconfiguration-contenttranslation-description": "İçerik Çevirmeni aracı düzenleyicilerin maddeleri çevirmesine olanak tanır.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Yerel öne çıkan derlem",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Yerel bir öne çıkan derlem ayarlamak, pano hedef dili bu vikide aynı dile ayarlandığında, onu İçerik Çevirmeni panosunda gösterecektir."
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Yerel bir öne çıkan derlem ayarlamak, pano hedef dili bu vikide aynı dile ayarlandığında, onu İçerik Çevirmeni panosunda gösterecektir.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Açıklama (isteğe bağlı)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "İçerik Çevirisi panosunda bir bilgi başlığında görüntülenmek üzere özel bir açıklama sağlanabilir.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Viki sayfası bağlantısı (isteğe bağlı)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "İçerik Çevirisi panosunda bir bilgi başlığında eklenmek üzere, öne çıkan koleksiyonla ilişkili bir viki sayfası bağlantısı sağlanabilir.",
+	"cx-featured-collection-banner-title": "Topluluk öncelikleri",
+	"cx-featured-collection-banner-description": "Bu koleksiyon, topluluğun önemli bilgiler olarak tanımladığı maddeleri içermektedir. Bu maddelerin çevirisi, önemli bilgilerin daha fazla okuyucuya ulaşmasına yardımcı olur.",
+	"cx-featured-collection-banner-learn-more": "Daha fazla bilgi",
+	"cx-featured-collection-banner-toggle-less": "daha az",
+	"cx-featured-collection-banner-toggle-more": "daha fazla"
 }

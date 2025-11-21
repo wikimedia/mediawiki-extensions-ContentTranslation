@@ -197,7 +197,7 @@
 	"cx-publish-destination-section-new": "Publicar como un nove section",
 	"cx-publish-destination-section-new-description": "Adder un nove section al articulo.",
 	"cx-publish-destination-section-sandbox": "Publicar in tu sabliera",
-	"cx-publish-destination-section-sandbox-description": "Publicar in tu spatio personal pro revider e copiar a altere loco.",
+	"cx-publish-destination-section-sandbox-description": "Publicar in tu spatio personal de maniera que tu pote revider lo e copiar lo a altere loco.",
 	"cx-publish-destination-section-expand": "Adder contento a un section existente",
 	"cx-publish-destination-section-expand-description": "Expander le section existente, conservante su contento.",
 	"cx-publish-destination-section-replace": "Reimplaciar le section existente",
@@ -506,5 +506,7 @@
 	"communityconfiguration-contenttranslation-title": "Traduction de contento",
 	"communityconfiguration-contenttranslation-description": "Le utensile Traduction de contento permitte que redactores traduce articulos.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Collection local de articulos eminente",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Post le definition de un collection local de articulos eminente, iste collection apparera in le tabuliero de instrumentos de Content Translation quando le lingua de destination del tabuliero es mittite al mesme lingua que illo del wiki."
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Post le definition de un collection local de articulos eminente, iste collection apparera in le tabuliero de instrumentos de Content Translation quando le lingua de destination del tabuliero es mittite al mesme lingua que illo del wiki.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Description (optional)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "Es possibile fornir un description personalisate a monstrar in un bandiera de information in le tabuliero de instrumentos de ContentTranslation."
 }

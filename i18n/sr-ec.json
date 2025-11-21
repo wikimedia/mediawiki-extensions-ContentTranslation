@@ -444,5 +444,9 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Нови одељци",
 	"cx-sx-suggestion-list-empty-title": "Тренутно нема предлога",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Све",
-	"cx-sx-present-lead-section-label": "(Врх)"
+	"cx-sx-present-lead-section-label": "(Врх)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Опис (необавезно)",
+	"cx-featured-collection-banner-learn-more": "Сазнајте више",
+	"cx-featured-collection-banner-toggle-less": "мање",
+	"cx-featured-collection-banner-toggle-more": "више"
 }

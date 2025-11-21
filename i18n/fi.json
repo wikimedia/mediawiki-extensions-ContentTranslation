@@ -517,5 +517,9 @@
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Kaikki",
 	"cx-sx-present-lead-section-label": "(Johdanto)",
 	"communityconfiguration-contenttranslation-title": "Sisällön kääntäminen",
-	"communityconfiguration-contenttranslation-description": "Sisällön kääntäminen -työkalu mahdollistaa muokkaajien kääntää artikkeleita."
+	"communityconfiguration-contenttranslation-description": "Sisällön kääntäminen -työkalu mahdollistaa muokkaajien kääntää artikkeleita.",
+	"cx-featured-collection-banner-title": "Yhteisön prioriteetit",
+	"cx-featured-collection-banner-learn-more": "Lisätietoja",
+	"cx-featured-collection-banner-toggle-less": "piilota",
+	"cx-featured-collection-banner-toggle-more": "lisää"
 }

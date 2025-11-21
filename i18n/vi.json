@@ -523,5 +523,16 @@
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tất cả",
 	"cx-sx-present-lead-section-label": "(Trên)",
 	"communityconfiguration-contenttranslation-title": "Biên dịch nội dung",
-	"communityconfiguration-contenttranslation-description": "Công cụ dịch nội dung cho phép các biên tập viên dịch các bài viết."
+	"communityconfiguration-contenttranslation-description": "Công cụ dịch nội dung cho phép các biên tập viên dịch các bài viết.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Bộ sưu tập nổi bật cục bộ",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Việc thiết lập bộ sưu tập nổi bật cục bộ sẽ hiển thị bộ sưu tập đó trên trang chủ Biên dịch nội dung, khi ngôn ngữ đích của trang chủ được đặt thành cùng ngôn ngữ với wiki này.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Miêu tả (tùy chọn)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "Bạn có thể cung cấp mô tả tùy chỉnh. Thông tin này sẽ hiển thị trong biểu ngữ thông tin trên trang chủ Biên dịch nội dung.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Liên kết trang wiki (tùy chọn)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Bạn có thể cung cấp liên kết trang wiki liên quan đến bộ sưu tập nổi bật. Thông tin này sẽ hiển thị trong biểu ngữ thông tin trên trang chủ Biên dịch nội dung.",
+	"cx-featured-collection-banner-title": "Ưu tiên của cộng đồng",
+	"cx-featured-collection-banner-description": "Bộ sưu tập này chứa các bài viết được cộng đồng đánh giá là kiến thức thiết yếu. Việc dịch chúng giúp cung cấp thông tin hữu ích cho nhiều độc giả hơn.",
+	"cx-featured-collection-banner-learn-more": "Tìm hiểu thêm",
+	"cx-featured-collection-banner-toggle-less": "bớt",
+	"cx-featured-collection-banner-toggle-more": "thêm"
 }
