@@ -94,7 +94,7 @@ onUnmounted(() => {
 
     <div class="cx-featured-collection-banner__learn-more-container">
       <a
-        v-if="isExpanded && learnMoreUrl"
+        v-if="(isExpanded || !isTextClamped) && learnMoreUrl"
         :href="learnMoreUrl"
         class="cx-featured-collection-banner__learn-more"
         target="_blank"
