@@ -508,5 +508,12 @@
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Collection local de articulos eminente",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Post le definition de un collection local de articulos eminente, iste collection apparera in le tabuliero de instrumentos de Content Translation quando le lingua de destination del tabuliero es mittite al mesme lingua que illo del wiki.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Description (optional)",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "Es possibile fornir un description personalisate a monstrar in un bandiera de information in le tabuliero de instrumentos de ContentTranslation."
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "Es possibile fornir un description personalisate a monstrar in un bandiera de information in le tabuliero de instrumentos de ContentTranslation.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Ligamine al pagina wiki (optional)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Un ligamine a un pagina wiki que tracta del collection de articulos eminente pote esser fornite pro inclusion in le bandiera de information in le tabuliero de instrumentos de ContentTranslation.",
+	"cx-featured-collection-banner-title": "Prioritates del communitate",
+	"cx-featured-collection-banner-description": "Iste collection contine articulos que le communitate ha identificate como cognoscimentos vital. Traducer los adjuta a render information essential disponibile a plus lectores.",
+	"cx-featured-collection-banner-learn-more": "Leger plus",
+	"cx-featured-collection-banner-toggle-less": "minus",
+	"cx-featured-collection-banner-toggle-more": "plus"
 }

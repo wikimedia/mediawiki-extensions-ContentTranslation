@@ -509,5 +509,9 @@
 	"communityconfiguration-contenttranslation-title": "منځپانگې ژباړه",
 	"communityconfiguration-contenttranslation-description": "منځپانگيز ژباړتوکی کارنانو ته د ليکنو ژباړلو اجازه ورکوي.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "سيمه‌ييزه ځانگړ ټولگه",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "کله چې د ليددړې د موخې‌وړ ژبه د دې ويکي سره ورته ژبې ته واوڼل شي؛ نو د ځايي ځانگړې‌شوې تولگې اوڼنې به د منځپانگې ليددړه کې ښکاره شي،"
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "کله چې د ليددړې د موخې‌وړ ژبه د دې ويکي سره ورته ژبې ته واوڼل شي؛ نو د ځايي ځانگړې‌شوې تولگې اوڼنې به د منځپانگې ليددړه کې ښکاره شي،",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "څرگنداوی (اختياري)",
+	"cx-featured-collection-banner-learn-more": "نور زده کړئ",
+	"cx-featured-collection-banner-toggle-less": "لږ",
+	"cx-featured-collection-banner-toggle-more": "نور"
 }

@@ -535,5 +535,14 @@
 	"communityconfiguration-contenttranslation-title": "ترجمة المحتوى",
 	"communityconfiguration-contenttranslation-description": "تتيح أداة ترجمة المحتوى للمحررين ترجمة المقالات.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "مجموعة مميزة محليًا",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "سيؤدي تعيين مجموعة مميزة محلية إلى إظهارها في لوحة معلومات ترجمة المحتوى عندما يتم تعيين لغة لوحة المعلومات المستهدفة إلى نفس اللغة من هذه الويكي."
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "سيؤدي تعيين مجموعة مميزة محلية إلى إظهارها في لوحة معلومات ترجمة المحتوى عندما يتم تعيين لغة لوحة المعلومات المستهدفة إلى نفس اللغة من هذه الويكي.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "الوصف (اختياري)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "من الممكن توفير وصف مخصص لعرضه في شريط معلومات في لوحة معلومات ترجمة المحتوى.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "رابط صفحة الويكي (اختياري)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "من الممكن توفير رابط لصفحة wiki مرتبط بالمجموعة المميزة ليتم تضمينه في شريط المعلومات في لوحة معلومات ترجمة المحتوى.",
+	"cx-featured-collection-banner-title": "أولويات المجتمع",
+	"cx-featured-collection-banner-description": "تحتوي هذه المجموعة على مقالات اعتبرها المجتمع معلومات حيوية. ترجمتها تُسهم في إتاحة المعلومات الأساسية لمزيد من القراء.",
+	"cx-featured-collection-banner-learn-more": "معرفة المزيد",
+	"cx-featured-collection-banner-toggle-less": "أقل",
+	"cx-featured-collection-banner-toggle-more": "المزيد"
 }
