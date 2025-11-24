@@ -220,7 +220,7 @@ onUnmounted(() => {
     }
   }
 
-  &__learn-more-icon {
+  &__learn-more-icon.cdx-icon {
     width: @size-icon-x-small;
     height: @size-icon-x-small;
     flex-shrink: 0;
