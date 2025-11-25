@@ -10513,7 +10513,14 @@ const Xh = (e) => {
     const a = yield fetch(o);
     if (!a.ok)
       throw new Error("Failed to load data from server");
-    return a.json();
+    const r = yield a.json();
+    if (Array.isArray(r))
+      return r;
+    if (typeof r == "object")
+      return Array.isArray(r.recommendations) ? r.recommendations : r;
+    throw new Error(
+      "Output format of Recommendation API response is not supported"
+    );
   } catch (a) {
     return mw.log.error(
       "Error while fetching suggestions from Recommendation API",
