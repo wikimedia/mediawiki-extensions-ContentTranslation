@@ -4,6 +4,7 @@
 			"Ajeje Brazorf",
 			"Alexmar983",
 			"Annibale covini gerolamo",
+			"Ayub Abdulla",
 			"Beta16",
 			"Daimona Eaytoy",
 			"FRacco",
@@ -346,5 +347,7 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Nuove pagine",
 	"cx-page-collection-dialog-section-suggestions-header": "Nuove sezioni",
 	"cx-sx-suggestion-list-empty-title": "Nessun suggerimento, per ora",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tutto"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Tutto",
+	"cx-featured-collection-banner-toggle-less": "Meno",
+	"cx-featured-collection-banner-toggle-more": "altri"
 }

@@ -350,5 +350,9 @@
 	"cx-page-collection-dialog-page-suggestions-header": "Nei Säiten",
 	"cx-page-collection-dialog-section-suggestions-header": "Nei Abschnitter",
 	"cx-sx-suggestion-list-empty-title": "Fir de Moment keng Virschléi",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "All"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "All",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Beschreiwung (fakultativ):",
+	"cx-featured-collection-banner-learn-more": "Méi gewuer ginn",
+	"cx-featured-collection-banner-toggle-less": "manner",
+	"cx-featured-collection-banner-toggle-more": "méi"
 }

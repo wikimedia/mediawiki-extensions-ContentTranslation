@@ -3,6 +3,7 @@
 		"authors": [
 			"Aram",
 			"Asoxor",
+			"Ayub Abdulla",
 			"Cwtiyar",
 			"Dušan Kreheľ",
 			"GoRaN",
@@ -354,5 +355,7 @@
 	"cx-unreviewed-translation-dialog-title": "پێداچوونەوە بۆ دوایین وەرگێڕانت بکە",
 	"cx-unreviewed-translation-dialog-review-translation-button-label": "پێداچوونەوە بۆ وەرگێڕان بکە",
 	"cx-unreviewed-translation-dialog-close-button-label": "داخستن",
-	"cx-unreviewed-translation-dialog-learn-more-link-label": "زیاتر بزانە"
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "زیاتر بزانە",
+	"cx-featured-collection-banner-toggle-less": "کەمتر",
+	"cx-featured-collection-banner-toggle-more": "زیاتر"
 }

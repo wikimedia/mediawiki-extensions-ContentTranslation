@@ -446,5 +446,11 @@
 	"cx-page-collection-dialog-section-suggestions-header": "नयाँ खण्ड",
 	"cx-sx-suggestion-list-empty-title": "अहिलेको लागि कुनै सुझाव छैन",
 	"cx-sx-suggestions-filter-collection-group-all-option-label": "सबै",
-	"cx-sx-present-lead-section-label": "(माथि)"
+	"cx-sx-present-lead-section-label": "(माथि)",
+	"communityconfiguration-contenttranslation-title": "सामग्री अनुवाद",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "विवरण (वैकल्पिक)",
+	"cx-featured-collection-banner-title": "सामुदायिक प्राथमिकताहरू",
+	"cx-featured-collection-banner-learn-more": "थप जान्नुहोस्",
+	"cx-featured-collection-banner-toggle-less": "थोरै",
+	"cx-featured-collection-banner-toggle-more": "थप"
 }
