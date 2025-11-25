@@ -82,11 +82,10 @@ const requestToRecommendationApi = async ({ urlPostfix = null, urlParams }) => {
 
     if (Array.isArray(result)) {
       return result;
-    } else if (
-      typeof result === "object" &&
-      result.recommendations !== undefined
-    ) {
-      return result.recommendations;
+    } else if (typeof result === "object") {
+      return Array.isArray(result.recommendations)
+        ? result.recommendations
+        : result;
     } else {
       throw new Error(
         "Output format of Recommendation API response is not supported"
