@@ -225,6 +225,7 @@
 	"cx-linkcontextitem-missing-link-title": "Nedostaje veza",
 	"cx-linkcontextitem-missing-title-description": "Ova stranica još uvijek ne postoji",
 	"cx-mt-abuse-publish-error": "Vaš prijevod ne može biti objavljen zato jer sadrži previše nepromijenjenog teksta strojnog prijevoda.",
+	"cx-preference-enable-entrypoints": "Pristup [[$1|prevođenju sadržaja]] sa stranice doprinosa, liste jezika i pri izradi stranica",
 	"cx-sx-start-translation-button-label": "Počni prevođenje",
 	"cx-sx-view-translation-anchor": "Vidi",
 	"cx-sx-existing-translation-learn-more": "Saznajte više",
