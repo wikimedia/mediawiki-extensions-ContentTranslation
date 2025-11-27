@@ -87,6 +87,7 @@ watch([waitingForPageCollectionsFetch, targetLanguage], ([newWaitingValue]) => {
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-suggestion-list__filters {
+  flex-wrap: wrap;
   row-gap: @spacing-25;
   overflow-x: auto;
 
