@@ -261,6 +261,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
               class="col shrink items-center cx-search-suggestion__languages"
             >
               
+              <!--v-if-->
               <span
                 class="mw-ui-icon notranslate me-2"
               >
@@ -342,6 +343,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
               class="col shrink items-center cx-search-suggestion__languages"
             >
               
+              <!--v-if-->
               <span
                 class="mw-ui-icon notranslate me-2"
               >

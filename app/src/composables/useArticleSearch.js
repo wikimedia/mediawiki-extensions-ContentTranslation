@@ -1,6 +1,7 @@
 import pageApi from "@/wiki/mw/api/page";
 import { computed, inject, ref, watch } from "vue";
 import debounce from "@/utils/debounce";
+import useFeaturedCollectionMembership from "@/composables/useFeaturedCollectionMembership";
 
 /**
  * @param {ComputedRef<string>} sourceLanguage
@@ -24,6 +25,18 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
   const breakpoints = inject("breakpoints");
   const isMobile = computed(() => breakpoints.value.mobile);
 
+  const { inFeaturedCollection } = useFeaturedCollectionMembership();
+
+  const addFeaturedCollectionMembership = async (pages) => {
+    const qids = pages.map((page) => page.wikidataId).filter(Boolean);
+    const result = await inFeaturedCollection(qids);
+    pages.forEach((page) => {
+      if (page.wikidataId) {
+        page.inFeaturedCollection = result[page.wikidataId];
+      }
+    });
+  };
+
   const debouncedSearchForArticles = debounce(async () => {
     if (!searchInput.value) {
       searchResultsLoading.value = false;
@@ -33,10 +46,12 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
 
     try {
       /** @type {Page[]} */
-      searchResults.value = await pageApi.searchPagesByTitlePrefix(
+      const pages = await pageApi.searchPagesByTitlePrefix(
         searchInput.value,
         sourceLanguage.value
       );
+      await addFeaturedCollectionMembership(pages);
+      searchResults.value = pages;
     } finally {
       searchResultsLoading.value = false;
       mw.cx.eventlogging.stats.articleSearchAccess(isMobile.value);

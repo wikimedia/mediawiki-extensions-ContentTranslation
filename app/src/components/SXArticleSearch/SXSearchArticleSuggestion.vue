@@ -3,6 +3,7 @@ import { MwRow, MwCol, MwIcon, MwThumbnail } from "@/lib/mediawiki.ui";
 import { getDir } from "@wikimedia/language-data";
 import Page from "@/wiki/mw/models/page";
 import { mwIconLanguage } from "@/lib/mediawiki.ui/components/icons";
+import CommunityPriorityBadge from "@/components/CommunityPriorityBadge.vue";
 
 defineProps({
   suggestion: {
@@ -42,6 +43,10 @@ defineProps({
           />
         </mw-col>
         <mw-col class="cx-search-suggestion__languages" shrink align="center">
+          <community-priority-badge
+            v-if="suggestion.inFeaturedCollection"
+            class="me-2"
+          />
           <mw-icon :icon="mwIconLanguage" :size="16" class="me-2" />
           <small v-text="(suggestion.langLinksCount || 0) + 1" />
         </mw-col>
