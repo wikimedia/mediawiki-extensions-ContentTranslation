@@ -36,7 +36,10 @@ const {
 } = useURLHandler();
 const { supportedLanguageCodes } = useSupportedLanguageCodes();
 
-const { searchResultsSlice } = useSearchArticles(sourceLanguage, searchInput);
+const { searchResultsLoading, searchResultsSlice } = useSearchArticles(
+  sourceLanguage,
+  searchInput
+);
 
 const { getSuggestedSourceLanguages } = useSuggestedSourceLanguages();
 /**
@@ -256,6 +259,8 @@ const eventSource = computed(() => {
     <search-results-card
       v-show="!!searchInput"
       :search-input="searchInput"
+      :search-results-loading="searchResultsLoading"
+      :search-results-slice="searchResultsSlice"
       :selected-item="selectedItem"
       @suggestion-clicked="startTranslation($event)"
     />

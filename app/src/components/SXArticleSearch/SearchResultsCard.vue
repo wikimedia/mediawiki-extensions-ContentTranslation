@@ -2,7 +2,6 @@
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion.vue";
 import { MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import { computed, ref } from "vue";
-import useSearchArticles from "@/composables/useArticleSearch";
 import useURLHandler from "@/composables/useURLHandler";
 import { getAutonym } from "@wikimedia/language-data";
 
@@ -11,6 +10,14 @@ const { sourceLanguageURLParameter: sourceLanguage } = useURLHandler();
 const sourceLanguageAutonym = computed(() => getAutonym(sourceLanguage.value));
 
 const props = defineProps({
+  searchResultsLoading: {
+    type: Boolean,
+    default: false,
+  },
+  searchResultsSlice: {
+    type: Array,
+    default: () => [],
+  },
   searchInput: {
     type: String,
     default: null,
@@ -36,11 +43,6 @@ const isSelected = (suggestion) => {
 defineEmits(["suggestion-clicked"]);
 
 const searchInput = computed(() => props.searchInput);
-
-const { searchResultsLoading, searchResultsSlice } = useSearchArticles(
-  sourceLanguage,
-  searchInput
-);
 </script>
 
 <template>

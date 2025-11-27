@@ -1,24 +1,10 @@
 import { mount } from "@vue/test-utils";
-import { ref } from "vue";
-import Page from "../../wiki/mw/models/page";
+import Page from "@/wiki/mw/models/page";
 import SearchResultsCard from "./SearchResultsCard";
 import { createStore } from "vuex";
 import { createI18n } from "vue-banana-i18n";
-import debounce from "@/utils/debounce";
-jest.mock("@/utils/debounce");
-debounce.mockImplementation((fn) => fn);
 
 const i18n = createI18n();
-
-global.mw = {
-  cx: {
-    eventlogging: {
-      stats: {
-        articleSearchAccess: () => {},
-      },
-    },
-  },
-};
 
 const mockResults = [
   new Page({
@@ -35,12 +21,6 @@ const mockResults = [
   }),
 ];
 
-jest.mock("../../wiki/mw/api/page", () => {
-  return {
-    searchPagesByTitlePrefix: jest.fn(() => Promise.resolve(mockResults)),
-  };
-});
-
 describe("SearchResultsCard", () => {
   const sourceLanguage = "en";
 
@@ -56,22 +36,12 @@ describe("SearchResultsCard", () => {
   const wrapper = mount(SearchResultsCard, {
     global: {
       plugins: [store, i18n],
-      provide: {
-        // provide breakpoints as a ref to useArticleSearch composable
-        breakpoints: ref({ mobile: false }),
-      },
     },
     props: {
-      searchInput: "",
+      searchInput: "test",
+      searchResultsSlice: mockResults,
+      searchResultsLoading: false,
     },
-  });
-
-  it("Search for articles method is called when search input is updated", async () => {
-    await wrapper.setProps({
-      searchInput: "test 1",
-    });
-
-    expect(wrapper.vm.searchResultsSlice).toStrictEqual(mockResults);
   });
 
   it("Search results length is valid", () => {
