@@ -59,14 +59,16 @@ const useSuggestionFetchByMostPopular = () => {
   ) => {
     await featuredCollectionPromise;
 
-    if (featuredCollection.value) {
+    const featuredCollectionName = featuredCollection.value?.name;
+
+    if (featuredCollectionName) {
       // try to get featured suggestion from the store, if collection suggestions are already fetched
-      let featuredCollectionSuggestion = getMethod(featuredCollection.value);
+      let featuredCollectionSuggestion = getMethod(featuredCollectionName);
 
       if (!featuredCollectionSuggestion) {
         // if no stored featured suggestion, try to fetch one
         const [firstFeaturedSuggestion = null, ...restFeaturedSuggestions] =
-          await fetchMethod(featuredCollection.value);
+          await fetchMethod(featuredCollectionName);
 
         featuredCollectionSuggestion = firstFeaturedSuggestion;
 
