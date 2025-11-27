@@ -327,12 +327,20 @@ const searchPagesByTitlePrefix = (query, language) => {
     .then((response) => response.query?.pages || [])
     .then((pages) =>
       pages
-        .filter((page) => {
+        .filter(({ pageprops }) => {
           // Filter out disambiguation pages
-          const pageprops = page.pageprops || {};
-          const hasDisambiguation = "disambiguation" in pageprops;
 
-          return !hasDisambiguation;
+          // Sometimes there is no pageprops at all
+          if (!pageprops) {
+            return false;
+          }
+
+          // Special flag when Extension:Disambiguator is installed
+          if ("disambiguation" in pageprops) {
+            return false;
+          }
+
+          return true;
         })
         .sort((page1, page2) => page1.index - page2.index)
         .map(
