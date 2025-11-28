@@ -133,6 +133,23 @@ async function fetchPageCollectionGroups() {
 }
 
 /**
+ * @param {string} pageCollectionName
+ * @param {string[]} qids
+ * @returns {Promise<{ [title: string]: boolean }>}
+ */
+function fetchPageCollectionMembership(pageCollectionName, qids) {
+  const urlParams = {
+    collection: pageCollectionName,
+    qids: qids.join("|"),
+  };
+
+  return requestToRecommendationApi({
+    urlPostfix: "/page-collection-membership",
+    urlParams,
+  });
+}
+
+/**
  * @param {string} language
  * @returns {Promise<string|null>}
  */
@@ -775,4 +792,5 @@ export default {
   fetchPageSuggestionsByCollections,
   fetchSectionSuggestionsByCollections,
   fetchFeaturedCollectionDataByLanguage,
+  fetchPageCollectionMembership,
 };

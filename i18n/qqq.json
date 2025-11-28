@@ -547,6 +547,7 @@
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Label for the featured collection wiki page link configuration in CommunityConfiguration extension",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Description for the featured collection wiki page link configuration in CommunityConfiguration extension.",
 	"cx-featured-collection-banner-title": "Label for the title of the featured collection banner displayed in the Content Translation dashboard",
+	"cx-featured-collection-confirmation-banner-title": "Label for the title of the featured collection banner displayed in the Content Translation Confirmation page",
 	"cx-featured-collection-banner-description": "Description for the featured collection banner displayed in the Content Translation dashboard",
 	"cx-featured-collection-banner-learn-more": "Label for the footer link of the featured collection banner displayed in the Content Translation dashboard",
 	"cx-featured-collection-banner-toggle-less": "Label for the button that collapses the featured collection banner description",

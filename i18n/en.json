@@ -527,6 +527,7 @@
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Wiki page link (optional)",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "A wiki page link associated with the featured collection may be provided to be included in the information banner in the Content Translation dashboard.",
 	"cx-featured-collection-banner-title": "Community priorities",
+	"cx-featured-collection-confirmation-banner-title": "Community priority",
 	"cx-featured-collection-banner-description": "This collection contains articles the community has identified as vital knowledge. Translating them helps make essential information available to more readers.",
 	"cx-featured-collection-banner-learn-more": "Learn more",
 	"cx-featured-collection-banner-toggle-less": "less",

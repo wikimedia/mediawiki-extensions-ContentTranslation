@@ -4,13 +4,14 @@ import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPan
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector.vue";
 import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation.vue";
 import SxConfirmTranslationStartDialog from "./SXConfirmTranslationStartDialog.vue";
+import SxTranslationConfirmerFeaturedCollectionBanner from "./SXTranslationConfirmerFeaturedCollectionBanner.vue";
 import useURLHandler from "@/composables/useURLHandler";
 import {
   mwIconClose,
   mwIconArticle,
 } from "@/lib/mediawiki.ui/components/icons";
 import { loadVEModules } from "@/plugins/ve";
-import { computed, inject, onBeforeUnmount, ref } from "vue";
+import { computed, inject, onBeforeUnmount, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useApplicationState from "@/composables/useApplicationState";
@@ -19,6 +20,7 @@ import useCurrentPages from "@/composables/useCurrentPages";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import useAppendixSectionTitlesFetch from "@/composables/useAppendixSectionTitlesFetch";
 import useCXServerToken from "@/composables/useCXServerToken";
+import useFeaturedCollectionMembership from "@/composables/useFeaturedCollectionMembership";
 
 const store = useStore();
 const { currentSourcePage } = useCurrentPages();
@@ -30,6 +32,7 @@ const {
   sectionURLParameter: sectionTitle,
   clearTranslationURLParameters,
 } = useURLHandler();
+const { inFeaturedCollection } = useFeaturedCollectionMembership();
 
 const breakpoints = inject("breakpoints");
 const nextBreakpoint = computed(() => breakpoints.value.nextBreakpoint);
@@ -37,6 +40,17 @@ const nextBreakpoint = computed(() => breakpoints.value.nextBreakpoint);
 const articleImageSource = computed(() =>
   currentSourcePage.value?.getImage(nextBreakpoint.value)
 );
+
+const articleInFeaturedCollection = ref(false);
+watch(
+  () => currentSourcePage.value?.wikidataId,
+  async (newWikidataId) => {
+    const result = await inFeaturedCollection([newWikidataId]);
+    articleInFeaturedCollection.value = result[newWikidataId];
+  },
+  { immediate: true }
+);
+
 const { fetchTranslationsByStatus } = useTranslationsFetch();
 const fetchLanguageTitles = useLanguageTitlesFetch();
 
@@ -121,6 +135,9 @@ const translationConfirmationDialogOn = ref(false);
       />
     </div>
     <sx-translation-confirmer-article-information />
+    <sx-translation-confirmer-featured-collection-banner
+      v-if="articleInFeaturedCollection"
+    />
     <sx-article-language-selector />
     <sx-translation-confirmer-action-panel
       @open-translation-confirmation-dialog="
