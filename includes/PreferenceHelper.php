@@ -89,7 +89,6 @@ class PreferenceHelper {
 			$prefs = [];
 		}
 		$prefs[$preference] = $value;
-		$user = $user->getInstanceForUpdate();
 		$globalPref->setGlobalPreferences( $user, $prefs, RequestContext::getMain() );
 	}
 

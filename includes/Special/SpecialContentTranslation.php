@@ -94,7 +94,6 @@ class SpecialContentTranslation extends SpecialPage {
 		// Promise to persist the setting post-send
 		DeferredUpdates::addCallableUpdate( static function () use ( $user ) {
 			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
-			$user = $user->getInstanceForUpdate();
 			$optionsManager->setOption( $user, 'cx', '1' );
 			$optionsManager->saveOptions( $user );
 		} );
