@@ -565,5 +565,15 @@
 	"cx-sx-present-lead-section-label": "（首段）",
 	"communityconfiguration-contenttranslation-title": "内容翻译",
 	"communityconfiguration-contenttranslation-description": "内容翻译工具允许编辑者来翻译章节。",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "以本地集合"
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "以本地集合",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "设置本地端特色收藏后，当内容翻译面板的目标语言设置成与本wiki相同的语言时，该收藏就会显示在面板中。",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "描述（可选）",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "提供自定义描述可在内容翻译面板的信息横幅中显示。",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Wiki页面链接（可选）",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "可提供与特色收藏相关的wiki页面连结，以便包含在内容翻译面板的信息横幅中。",
+	"cx-featured-collection-banner-title": "社群优先事项",
+	"cx-featured-collection-banner-description": "此收藏包含社群公认的重要知识条目。翻译这些条目有助于让更多读者获得这些必要信息。",
+	"cx-featured-collection-banner-learn-more": "了解更多",
+	"cx-featured-collection-banner-toggle-less": "较少",
+	"cx-featured-collection-banner-toggle-more": "较多"
 }

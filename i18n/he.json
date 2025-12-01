@@ -526,6 +526,7 @@
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "קישור לדף ויקי (לא חובה)",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "אפשר לספק קישור לדף ויקי שמשויך לאוסף המומלץ, שייכלל בכרזת המידע בלוח הבקרה של תרגום תוכן.",
 	"cx-featured-collection-banner-title": "עדיפויות קהילתיות",
+	"cx-featured-collection-banner-description": "האוסף הזה מכיל ערכים שהקהילה זיהתה בתור ידע חיוני. תרגום שלהם עוזר להביא ידע חיוני ליותר קוראים.",
 	"cx-featured-collection-banner-learn-more": "מידע נוסף",
 	"cx-featured-collection-banner-toggle-less": "פחות",
 	"cx-featured-collection-banner-toggle-more": "עוד"
