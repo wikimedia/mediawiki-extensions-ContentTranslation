@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ne"
+		]
+	},
+	"cx": "o ante e toki lipu",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "lipu ni li lon ala toki ni: <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "lipu ni li lon ala toki ni: <span>$1</span>, <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "lipu ni la toki ni en toki ante li lon ala: <span>$1</span>, <span>$2</span>",
+	"cx-uls-relevant-languages-banner-text-single-missing": "lipu ni la toki ni en toki ante li lon ala: <span>$1</span>",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "lipu ni la toki ni en toki ante li lon ala: <span>$1</span>, <span>$2</span>",
+	"cx-uls-relevant-languages-panel-header": "o ante e toki pi lipu ni",
+	"cx-uls-relevant-languages-panel-message": "lipu ni li lon ala toki ni. ken la sina sona e ona. sina ken pana e ante toki kepeken tenpo lili!",
+	"cx-uls-translate-page-quick-action-label": "o ante e toki pi lipu ni"
+}

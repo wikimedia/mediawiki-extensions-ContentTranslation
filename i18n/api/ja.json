@@ -12,7 +12,8 @@
 			"Sujiniku",
 			"Takot",
 			"Anonymoususer12321",
-			"Waki285"
+			"Waki285",
+			"Kokage si"
 		]
 	},
 	"apihelp-cxpublish-description": "コンテンツ翻訳機能を用いて作成されたページを保存",
@@ -144,6 +145,12 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "翻訳元ページの更新ID。",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (captcha response で保存する場合)。",
 	"apihelp-cxpublishsection-param-captchaword": "Captchaへの応答 (Captchaで保存時)",
+	"apihelp-sxsave-param-sourcelanguage": "翻訳元の言語コード。",
+	"apihelp-sxsave-param-targetlanguage": "翻訳先の言語コード。",
+	"apihelp-sxsave-param-sourcetitle": "翻訳元のページ名。",
+	"apihelp-sxsave-param-targettitle": "翻訳先のページ名。",
+	"apihelp-sxsave-param-sourcesectiontitle": "翻訳元の節の見出し。",
+	"apihelp-sxsave-param-targetsectiontitle": "翻訳先の節の見出し。",
 	"apihelp-sxsave-param-sectionid": "ページセクションID。",
 	"apierror-cxpublishsection-translationnotfound": "翻訳が見つかりませんでした。"
 }
