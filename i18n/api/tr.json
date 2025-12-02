@@ -12,7 +12,8 @@
 			"Stultiwikia",
 			"ToprakM",
 			"Watermelon juice",
-			"Ömer Berkay"
+			"Ömer Berkay",
+			"SaldırganSincap"
 		]
 	},
 	"apihelp-cxpublish-summary": "İçerik Çevirmeni uzantısıyla yaratılan bir sayfayı kaydedin.",
@@ -118,7 +119,7 @@
 	"apihelp-query+cxdeletedtranslations-param-after": "Zaman damgası yalnızca yeni silme işlemlerini almak içindir.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Silinen çevirilerin yayınlandığı ad alanı. Ana ad alanına varsayılandır.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Ana ad alanına yayımlanan ve 07.04.2019 16:24:44 tarihinden sonra silinen çevirilerinizin sayısını alın.",
-	"apihelp-cxpublishsection-summary": "İçerik Çevirisi uzantısının bölüm çeviri özelliği kullanılarak oluşturulan bir sayfayı kaydedin.",
+	"apihelp-cxpublishsection-summary": "İçerik Çevirisi uzantısının bölüm çeviri özelliğini kullanarak oluşturulan bir bölümü kaydedin.",
 	"apihelp-cxpublishsection-param-title": "Eylemlerin gerçekleştirileceği sayfanın başlığı.",
 	"apihelp-cxpublishsection-param-html": "Kaydedilecek içerik.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Kaynak dil kodu.",

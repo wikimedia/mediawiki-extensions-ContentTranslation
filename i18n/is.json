@@ -234,6 +234,8 @@
 	"cx-linkcontextitem-missing-link-title": "Tengil vantar",
 	"cx-linkcontextitem-missing-title-description": "Þessi síða er ekki til ennþá",
 	"cx-mt-abuse-publish-error": "Ekki er hægt að gefa út þýðinguna því hún inniheldur of mikinn óbreyttan texta",
+	"cx-auto-failed": "Sjálfvirk þýðing mistókst",
+	"cx-mt-failed": "Vélþýðing mistókst",
 	"cx-unreviewed-translation-category": "Síður með óyfirfarnar þýðingar",
 	"cx-unreviewed-translation-category-desc": "Síður þýddar af Content Translation sem innihalda hátt hlutfall af óathuguðu efni",
 	"cx-sx-select-section": "Veldu hluta til að þýða",
@@ -272,9 +274,12 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "Virkja",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Sleppa",
 	"cx-sx-publisher-lead-section-option-details": "Búa til nýja síðu í aðalnafnrýminu",
+	"sx-editor-feedback-overlay-clarification": "Lærir af leiðréttingum þínum",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Breyta þýðingu",
 	"cx-uls-translate-page-quick-action-label": "Þýða þessa síðu",
 	"cx-contributecard-entrypoint-title": "Þýðingar",
 	"cx-contributecard-entrypoint-desc": "Þýddu einn kafla eða heila grein. Bættu við efni á fleiri tungumálum.",
-	"cx-contributecard-entrypoint-cta": "Hefja þýðingu"
+	"cx-contributecard-entrypoint-cta": "Hefja þýðingu",
+	"cx-sx-dashboard-stats-panel-title": "Áhrif þín",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Lesa sjálfvirka þýðingu"
 }

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"沈澄心"
+			"沈澄心",
+			"Peterxy12"
 		]
 	},
 	"automatic-translation-special-page-description": "自动翻译",
@@ -19,6 +20,7 @@
 	"mint-search-topic-page-header": "搜索主题",
 	"mint-search-topic-page-input-placeholder": "搜索主题",
 	"mint-search-topic-page-input-aria-label": "MinT搜索输入",
+	"mint-search-topic-page-results-container-empty": "搜索任何主题。主题内容在各不同语言不尽相同。",
 	"mint-confirm-topic-page-header": "自动翻译",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "查看自动翻译",
 	"mint-confirm-topic-page-go-to-search-button-label": "搜索别的主题",

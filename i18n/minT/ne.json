@@ -1,12 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"पर्वत सुबेदी"
+			"पर्वत सुबेदी",
+			"बडा काजी"
 		]
 	},
 	"automatic-translation-special-page-description": "स्वचालित अनुवाद",
 	"mint-home-header-title": "स्वचालित अनुवाद",
+	"mint-translation-list-all-languages-option-label": "सबै",
 	"mint-home-info-panel-text": "विकिपिडियामा लाखौँ विषयहरू स्वतः $1 मा अनुवाद गर्न सकिन्छ।",
+	"mint-home-random-topic-button-label": "अनियमित विषय",
+	"mint-language-selector-title": "भाषाहरू",
+	"mint-language-selector-suggestions-header": "सुझावित",
+	"mint-language-selector-all-languages-header": "सबै भाषाहरू",
+	"mint-language-selector-input-placeholder": "भाषा छान्नुहाेस्",
+	"mint-language-selector-no-search-results": "कुनै पनि नतिजा फेला परेनन्",
+	"mint-search-topic-page-header": "कुनै शीर्षक खोज्नुहोस्",
+	"mint-search-topic-page-input-placeholder": "कुनै शीर्षक खोज्नुहोस्",
 	"mint-confirm-topic-page-header": "स्वचालित अनुवाद",
 	"mint-view-translation-page-header": "स्वचालित अनुवाद",
 	"mint-view-translation-overlay-header": "स्वचालित अनुवाद"

@@ -12,7 +12,8 @@
 			"Shirayuki",
 			"Sujiniku",
 			"Takot",
-			"Waki285"
+			"Waki285",
+			"Kokage si"
 		]
 	},
 	"apihelp-cxpublish-summary": "コンテンツ翻訳機能を用いて作成されたページを保存",
@@ -135,6 +136,13 @@
 	"apihelp-cxpublishsection-param-captchaword": "Captchaへの応答 (Captchaで保存時)",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "下書き節翻訳に関連付けられた節翻訳 ID。",
 	"apihelp-cxpublishsection-param-issandbox": "翻訳にはサンドボックス タイトルを使用します。",
+	"apihelp-sxsave-param-sourcelanguage": "翻訳元の言語コード。",
+	"apihelp-sxsave-param-targetlanguage": "翻訳先の言語コード。",
+	"apihelp-sxsave-param-sourcetitle": "翻訳元のページ名。",
+	"apihelp-sxsave-param-targettitle": "翻訳先のページ名。",
+	"apihelp-sxsave-param-sourcesectiontitle": "翻訳元の節の見出し。",
+	"apihelp-sxsave-param-targetsectiontitle": "翻訳先の節の見出し。",
 	"apihelp-sxsave-param-sectionid": "ページセクションID。",
-	"apierror-cxpublishsection-translationnotfound": "翻訳が見つかりませんでした。"
+	"apierror-cxpublishsection-translationnotfound": "翻訳が見つかりませんでした。",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "ウィキデータ ID。"
 }
