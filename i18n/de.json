@@ -524,6 +524,7 @@
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Link zur Wiki-Seite (optional)",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Es kann ein Link zu einer Wiki-Seite bereitgestellt werden, die mit der vorgestellten Sammlung verknüpft ist und im Informationsbanner des Content Translation-Dashboards angezeigt wird.",
 	"cx-featured-collection-banner-title": "Prioritäten der Gemeinschaft",
+	"cx-featured-collection-confirmation-banner-title": "Schwerpunkt der Community",
 	"cx-featured-collection-banner-description": "Diese Sammlung enthält Artikel, die von der Community als wichtiges Wissen eingestuft wurden. Deine Übersetzung trägt dazu bei, wichtige Informationen einem breiteren Publikum zugänglich zu machen.",
 	"cx-featured-collection-banner-learn-more": "Weitere Informationen",
 	"cx-featured-collection-banner-toggle-less": "weniger",
