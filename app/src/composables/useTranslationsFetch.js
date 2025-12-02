@@ -2,6 +2,7 @@ import cxTranslatorApi from "@/wiki/cx/api/translator";
 import Page from "@/wiki/mw/models/page";
 import { useStore } from "vuex";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
+import useFeaturedCollectionFlag from "@/composables/useFeaturedCollectionFlag";
 import { ref } from "vue";
 
 /** @type {Ref<UnwrapRef<{draft: boolean, published: boolean}>>} */
@@ -13,6 +14,7 @@ const translationsFetched = ref({ draft: false, published: false });
 const useTranslationsFetch = () => {
   const store = useStore();
   const fetchPageMetadata = usePageMetadataFetch();
+  const { addFeaturedCollectionFlag } = useFeaturedCollectionFlag();
 
   /**
    * @param {"draft"|"published"} status
@@ -20,6 +22,11 @@ const useTranslationsFetch = () => {
    */
   const fetchTranslationsByStatus = async (status) => {
     let translations = await cxTranslatorApi.fetchTranslations(status);
+
+    await addFeaturedCollectionFlag(translations, {
+      titleGetter: (t) => t.sourceTitle,
+    });
+
     store.commit("translator/clearTranslationsByStatus", status);
 
     translations.forEach((translation) =>

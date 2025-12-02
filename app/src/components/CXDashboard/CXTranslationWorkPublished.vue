@@ -12,6 +12,7 @@ import {
 } from "@wikimedia/codex-icons";
 import useURLHandler from "@/composables/useURLHandler";
 import useTranslationStart from "@/composables/useTranslationStart";
+import CommunityPriorityBadge from "@/components/CommunityPriorityBadge.vue";
 
 const props = defineProps({
   translation: {
@@ -126,6 +127,11 @@ const isUserNamespace = computed(() => {
               <cdx-icon :icon="cdxIconEllipsis" />
             </cdx-button>
           </div>
+        </mw-col>
+      </mw-row>
+      <mw-row v-if="translation.inFeaturedCollection" class="ma-0 py-2">
+        <mw-col shrink>
+          <community-priority-badge />
         </mw-col>
       </mw-row>
     </template>

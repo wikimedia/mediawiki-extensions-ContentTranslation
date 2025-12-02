@@ -7,7 +7,6 @@ import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 import { MwSpinner } from "@/lib/mediawiki.ui";
 import CustomInfoChip from "./CustomInfoChip.vue";
 import useSuggestionFiltersInstrument from "./useSuggestionFiltersInstrument";
-import useFeaturedCollectionFilter from "@/composables/useFeaturedCollectionFilter";
 import useURLHandler from "@/composables/useURLHandler";
 
 const bananaI18n = useI18n();
@@ -23,9 +22,6 @@ const {
   validateURLFilterWithCollections,
   setFeaturedCollectionFilterIfNeeded,
 } = useSuggestionsFilters();
-
-const { initializeFeaturedCollectionWatcher } = useFeaturedCollectionFilter();
-initializeFeaturedCollectionWatcher();
 
 const dialogVisible = ref(false);
 

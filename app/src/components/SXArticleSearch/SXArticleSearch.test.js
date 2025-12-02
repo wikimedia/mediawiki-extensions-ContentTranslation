@@ -29,6 +29,10 @@ jest.mock("@/wiki/mw/api/page", () => {
   };
 });
 
+jest.mock("@/composables/useFeaturedCollectionMembership", () => () => ({
+  inFeaturedCollection: jest.fn(() => Promise.resolve({})),
+}));
+
 jest.mock("@/composables/useTranslationsFetch", () => () => ({
   fetchAllTranslations: jest.fn(),
 }));

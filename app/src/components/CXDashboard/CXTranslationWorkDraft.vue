@@ -6,6 +6,7 @@ import { computed, inject } from "vue";
 import DraftTranslation from "@/wiki/cx/models/draftTranslation";
 import useURLHandler from "@/composables/useURLHandler";
 import { useRouter } from "vue-router";
+import CommunityPriorityBadge from "@/components/CommunityPriorityBadge.vue";
 
 const props = defineProps({
   translation: {
@@ -67,6 +68,11 @@ const goToConfirmationStep = () => {
             width="64px"
             :background="progressBarBackgroundColor"
           />
+        </mw-col>
+      </mw-row>
+      <mw-row v-if="translation.inFeaturedCollection" class="ma-0 py-2">
+        <mw-col shrink>
+          <community-priority-badge />
         </mw-col>
       </mw-row>
     </template>

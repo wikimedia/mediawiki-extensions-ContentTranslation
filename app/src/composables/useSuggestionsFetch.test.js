@@ -3,6 +3,9 @@ import useSuggestionsStore from "./useSuggestionsStore";
 import useSuggestionProvider from "./useSuggestionProvider";
 import useURLHandler from "./useURLHandler";
 import { useStore } from "vuex";
+import useFeaturedCollectionFlag from "./useFeaturedCollectionFlag";
+import useFeaturedCollectionFilter from "./useFeaturedCollectionFilter";
+import useSuggestionsFilters from "./useSuggestionsFilters";
 
 // Mock necessary modules
 jest.mock("./useSuggestionsStore");
@@ -10,14 +13,19 @@ jest.mock("./usePageMetadataFetch", () => () => jest.fn());
 jest.mock("./useSuggestionProvider");
 jest.mock("./useURLHandler");
 jest.mock("vuex");
+jest.mock("./useFeaturedCollectionFlag");
+jest.mock("./useFeaturedCollectionFilter");
+jest.mock("./useSuggestionsFilters");
 
-const mockPageSuggestionFetcher = jest
-  .fn()
-  .mockResolvedValue([{ id: 2 }, { id: 3 }]);
+const mockPageSuggestionFetcher = jest.fn().mockResolvedValue([
+  { id: 2, sourceTitle: "Page2" },
+  { id: 3, sourceTitle: "Page3" },
+]);
 
-const mockSectionSuggestionFetcher = jest
-  .fn()
-  .mockResolvedValue([{ id: 2 }, { id: 3 }]);
+const mockSectionSuggestionFetcher = jest.fn().mockResolvedValue([
+  { id: 2, sourceTitle: "Section2" },
+  { id: 3, sourceTitle: "Section3" },
+]);
 
 describe("useSuggestionsFetch composable test", () => {
   let store;
@@ -58,6 +66,21 @@ describe("useSuggestionsFetch composable test", () => {
       sourceLanguageURLParameter: { value: "en" },
       targetLanguageURLParameter: { value: "es" },
     });
+
+    // Mock useFeaturedCollectionFlag
+    useFeaturedCollectionFlag.mockReturnValue({
+      addFeaturedCollectionFlag: jest.fn().mockResolvedValue(undefined),
+    });
+
+    // Mock useFeaturedCollectionFilter
+    useFeaturedCollectionFilter.mockReturnValue({
+      featuredCollection: { value: { name: "featured-test" } },
+    });
+
+    // Mock useSuggestionsFilters
+    useSuggestionsFilters.mockReturnValue({
+      findSelectedFilter: jest.fn().mockReturnValue({ id: "different-filter" }),
+    });
   });
 
   it("should fetch the next section suggestions slice and commit to the store", async () => {
@@ -78,11 +101,11 @@ describe("useSuggestionsFetch composable test", () => {
     expect(mockSectionSuggestionFetcher).toHaveBeenCalledWith(2);
     expect(store.commit).toHaveBeenCalledWith(
       "suggestions/addSectionSuggestion",
-      { id: 2 }
+      { id: 2, sourceTitle: "Section2" }
     );
     expect(store.commit).toHaveBeenCalledWith(
       "suggestions/addSectionSuggestion",
-      { id: 3 }
+      { id: 3, sourceTitle: "Section3" }
     );
 
     expect(store.commit).toHaveBeenCalledWith(
@@ -109,9 +132,11 @@ describe("useSuggestionsFetch composable test", () => {
 
     expect(store.commit).toHaveBeenCalledWith("suggestions/addPageSuggestion", {
       id: 2,
+      sourceTitle: "Page2",
     });
     expect(store.commit).toHaveBeenCalledWith("suggestions/addPageSuggestion", {
       id: 3,
+      sourceTitle: "Page3",
     });
 
     expect(store.commit).toHaveBeenCalledWith(

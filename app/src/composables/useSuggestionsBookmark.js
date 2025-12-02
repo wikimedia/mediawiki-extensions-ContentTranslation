@@ -2,11 +2,13 @@ import suggestionsApi from "@/wiki/cx/api/suggestions";
 import { useStore } from "vuex";
 import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
+import useFeaturedCollectionFlag from "@/composables/useFeaturedCollectionFlag";
 
 const useSuggestionsBookmark = () => {
   const store = useStore();
   const { fetchNextSectionSuggestionsSlice, fetchNextPageSuggestionsSlice } =
     useSuggestionsFetch();
+  const { addFeaturedCollectionFlag } = useFeaturedCollectionFlag();
 
   /**
    * @param sourceLanguage
@@ -34,6 +36,11 @@ const useSuggestionsBookmark = () => {
       sourceLanguage,
       targetLanguage,
     });
+
+    await addFeaturedCollectionFlag([favoriteSuggestion], {
+      titleGetter: (fav) => fav.title,
+    });
+
     store.commit("suggestions/addFavoriteSuggestion", favoriteSuggestion);
   };
 
@@ -118,6 +125,11 @@ const useSuggestionsBookmark = () => {
       sourceLanguage,
       targetLanguage,
     });
+
+    await addFeaturedCollectionFlag([favoriteSuggestion], {
+      titleGetter: (fav) => fav.title,
+    });
+
     store.commit("suggestions/addFavoriteSuggestion", favoriteSuggestion);
   };
 

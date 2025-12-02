@@ -24,6 +24,10 @@ import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSugge
 import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
 import { useI18n } from "vue-banana-i18n";
 import { isDesktopSite } from "@/utils/mediawikiHelper";
+import CommunityPriorityBadge from "../CommunityPriorityBadge.vue";
+import useFeaturedCollectionFilter from "@/composables/useFeaturedCollectionFilter";
+import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
+import { COLLECTIONS_SUGGESTION_PROVIDER } from "@/utils/suggestionFilterProviders";
 
 const props = defineProps({
   suggestion: {
@@ -111,11 +115,22 @@ const isCollectionSuggestion = computed(
     suggestion.value instanceof CollectionSectionSuggestion
 );
 
-const showCollectionChip = computed(
-  () =>
-    isCollectionSuggestion.value &&
-    !suggestion.value.collectionMatchesProvider()
-);
+const showCollectionChip = computed(() => {
+  if (!isCollectionSuggestion.value) {
+    return false;
+  }
+
+  // Hide collection chip if suggestion is in featured collection
+  // (show community priority badge instead)
+  if (suggestion.value.inFeaturedCollection) {
+    return false;
+  }
+
+  const selectedFilter = findSelectedFilter();
+
+  // Only show collection chip when filtering by "all collections"
+  return selectedFilter?.id === COLLECTIONS_SUGGESTION_PROVIDER;
+});
 
 /**
  * "Quick translation" indicator should only -conditionally- be added when
@@ -138,6 +153,36 @@ const isQuickTranslation = computed(() => {
   return isDesktopSite
     ? isEasyOrStubArticleTranslation(suggestion.value.size)
     : isEasyOrStubSectionTranslation(suggestion.value.leadSectionSize);
+});
+
+const { featuredCollection } = useFeaturedCollectionFilter();
+const { findSelectedFilter } = useSuggestionsFilters();
+
+const isFilteringByFeaturedCollection = computed(() => {
+  const selectedFilter = findSelectedFilter();
+
+  return selectedFilter?.id === featuredCollection.value?.name;
+});
+
+const shouldShowCommunityPriorityBadge = computed(() => {
+  if (!suggestion.value.inFeaturedCollection) {
+    return false;
+  }
+
+  // For favorites, always show the badge
+  if (isFavoriteSuggestion.value) {
+    return true;
+  }
+
+  const selectedFilter = findSelectedFilter();
+
+  // When filtering by "all collections", show badge for featured collection items
+  if (selectedFilter?.id === COLLECTIONS_SUGGESTION_PROVIDER) {
+    return true;
+  }
+
+  // For suggestions list, hide badge when filtering by featured collection
+  return !isFilteringByFeaturedCollection.value;
 });
 
 defineEmits(["close", "bookmark"]);
@@ -195,6 +240,13 @@ defineEmits(["close", "bookmark"]);
           >
             {{ easyMissingSectionsCountMsg }}
           </small>
+        </mw-col>
+        <mw-col
+          v-if="shouldShowCommunityPriorityBadge"
+          shrink
+          class="cx-suggestion__information-panel__featured mt-auto"
+        >
+          <community-priority-badge />
         </mw-col>
         <mw-col
           v-else-if="isFavoriteSuggestion"
@@ -286,12 +338,13 @@ defineEmits(["close", "bookmark"]);
     &__collection {
       .cdx-info-chip {
         background-color: @background-color-progressive-subtle;
-        border-color: @border-color-progressive;
+        border: none;
+        padding: @spacing-12 @spacing-25;
         .cdx-icon {
           color: @color-progressive;
         }
 
-        .cdx-info-chip--text {
+        .cdx-info-chip__text {
           color: @color-progressive;
         }
       }

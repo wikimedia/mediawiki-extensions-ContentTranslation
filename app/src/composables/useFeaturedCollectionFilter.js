@@ -1,6 +1,7 @@
 import suggestionsApi from "@/wiki/cx/api/suggestions";
 import { computed, ref, watch } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
+
 const siteMapper = new mw.cx.SiteMapper();
 
 const currentWikiLanguage = siteMapper.getCurrentWikiLanguageCode();
@@ -32,60 +33,88 @@ const featuredCollectionPromises = ref({
 const featuredCollectionsFetched = ref({
   [currentWikiLanguage]: true,
 });
+
 let isWatcherInitialized = false;
 
-const useFeaturedCollectionFilter = () => {
-  const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
+const fetchFeaturedCollection = (lang) => {
+  if (!lang || featuredCollections.value[lang]) {
+    return;
+  }
 
-  const initializeFeaturedCollectionWatcher = () => {
-    // avoid registering the watcher more than once
-    if (isWatcherInitialized) {
-      return;
+  const promise = suggestionsApi
+    .fetchFeaturedCollectionDataByLanguage(lang)
+    .then((featuredCollectionData) => {
+      featuredCollections.value[lang] = {
+        name: featuredCollectionData.name,
+        communityName: featuredCollectionData.communityName,
+        description: featuredCollectionData.description,
+        link: featuredCollectionData.link,
+      };
+      featuredCollectionsFetched.value[lang] = true;
+    })
+    .catch((error) => {
+      // On error, mark as fetched to prevent retries
+      featuredCollectionsFetched.value[lang] = true;
+      console.error("Failed to fetch featured collection:", error);
+    });
+
+  featuredCollectionPromises.value[lang] = promise;
+};
+
+/**
+ * Composable for accessing featured collection data
+ * @param {string|undefined} language - Optional language parameter
+ *   - If string: static language code
+ *   - If undefined: uses URL target language parameter and watches for changes
+ */
+const useFeaturedCollectionFilter = (language) => {
+  let languageRef;
+
+  if (language === undefined) {
+    // No parameter: use URL target language and watch it
+    const { targetLanguageURLParameter } = useURLHandler();
+    languageRef = targetLanguageURLParameter;
+
+    if (!isWatcherInitialized) {
+      watch(
+        languageRef,
+        (newLang) => {
+          if (newLang) {
+            fetchFeaturedCollection(newLang);
+          }
+        },
+        { immediate: true }
+      );
+      isWatcherInitialized = true;
     }
+  } else {
+    // Static string provided: wrap in ref and fetch immediately
+    languageRef = ref(language);
 
-    watch(
-      targetLanguage,
-      () => {
-        if (
-          targetLanguage.value &&
-          !featuredCollections.value[targetLanguage.value]
-        ) {
-          suggestionsApi
-            .fetchFeaturedCollectionDataByLanguage(targetLanguage.value)
-            .then((featuredCollectionData) => {
-              featuredCollections.value[targetLanguage.value] = {
-                name: featuredCollectionData.name,
-                communityName: featuredCollectionData.communityName,
-                description: featuredCollectionData.description,
-                link: featuredCollectionData.link,
-              };
-              featuredCollectionsFetched.value[targetLanguage.value] = true;
-            });
-        }
-      },
-      { immediate: true }
-    );
-    isWatcherInitialized = true;
-  };
-  const featuredCollection = computed(() =>
-    featuredCollections.value[targetLanguage.value]?.name
-      ? featuredCollections.value[targetLanguage.value]
-      : null
-  );
+    if (language) {
+      fetchFeaturedCollection(language);
+    }
+  }
+
+  const featuredCollection = computed(() => {
+    const lang = languageRef.value;
+    const collection = featuredCollections.value[lang];
+
+    return collection?.name ? collection : null;
+  });
 
   const featuredCollectionFetched = computed(
-    () => featuredCollectionsFetched.value[targetLanguage.value] || false
+    () => featuredCollectionsFetched.value[languageRef.value] || false
   );
 
   const featuredCollectionPromise = computed(
-    () => featuredCollectionPromises.value[targetLanguage.value]
+    () => featuredCollectionPromises.value[languageRef.value]
   );
 
   return {
     featuredCollection,
     featuredCollectionFetched,
     featuredCollectionPromise,
-    initializeFeaturedCollectionWatcher,
   };
 };
 

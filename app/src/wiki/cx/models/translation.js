@@ -30,5 +30,6 @@ export default class Translation {
     this.pageRevision = pageRevision;
     this.status = status;
     this.targetTitle = targetTitle;
+    this.inFeaturedCollection = false;
   }
 }

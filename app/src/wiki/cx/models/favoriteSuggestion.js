@@ -9,5 +9,6 @@ export default class FavoriteSuggestion {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
     this.missingSectionsCount = missingSectionsCount;
+    this.inFeaturedCollection = false;
   }
 }

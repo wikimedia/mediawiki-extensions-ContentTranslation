@@ -46,6 +46,7 @@ export default class SectionSuggestion {
     /** @type {{type: String, id: String}|null} */
     this.suggestionProvider = suggestionProvider;
     this.seen = false;
+    this.inFeaturedCollection = false;
   }
 
   /**

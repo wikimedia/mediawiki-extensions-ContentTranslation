@@ -1,10 +1,12 @@
 import suggestionsApi from "@/wiki/cx/api/suggestions";
 import { useStore } from "vuex";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
+import useFeaturedCollectionFlag from "@/composables/useFeaturedCollectionFlag";
 
 const useFavoritesFetch = () => {
   const store = useStore();
   const fetchPageMetadata = usePageMetadataFetch();
+  const { addFeaturedCollectionFlag } = useFeaturedCollectionFlag();
 
   return async () => {
     if (!!store.state.suggestions.favorites.length) {
@@ -21,8 +23,6 @@ const useFavoritesFetch = () => {
     const favoritesGroupedByLanguage = {};
 
     for (const favorite of favorites) {
-      store.commit("suggestions/addFavoriteSuggestion", favorite);
-
       /** @type {SectionSuggestion|null} */
       suggestionsApi
         .fetchSectionSuggestion(
@@ -49,6 +49,14 @@ const useFavoritesFetch = () => {
         sourceLanguage,
         favorites.map((favorite) => favorite.title)
       );
+    }
+
+    await addFeaturedCollectionFlag(favorites, {
+      titleGetter: (fav) => fav.title,
+    });
+
+    for (const favorite of favorites) {
+      store.commit("suggestions/addFavoriteSuggestion", favorite);
     }
   };
 };

@@ -13,6 +13,7 @@ import { cdxIconUserGroup } from "@wikimedia/codex-icons";
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-community-priority-badge.cdx-info-chip {
+  padding: @spacing-12 @spacing-25;
   background-color: @background-color-progressive-subtle;
   border: 0;
 

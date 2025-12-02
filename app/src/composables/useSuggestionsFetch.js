@@ -3,6 +3,9 @@ import useSuggestionsStore from "./useSuggestionsStore";
 import useSuggestionProvider from "./useSuggestionProvider";
 import useURLHandler from "./useURLHandler";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
+import useFeaturedCollectionFlag from "@/composables/useFeaturedCollectionFlag";
+import useFeaturedCollectionFilter from "@/composables/useFeaturedCollectionFilter";
+import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 
 const useSuggestionsFetch = () => {
   const store = useStore();
@@ -10,6 +13,19 @@ const useSuggestionsFetch = () => {
     useSuggestionsStore();
   const { sourceLanguageURLParameter: sourceLanguage } = useURLHandler();
   const fetchPageMetadata = usePageMetadataFetch();
+  const { addFeaturedCollectionFlag } = useFeaturedCollectionFlag();
+  const { featuredCollection } = useFeaturedCollectionFilter();
+  const { findSelectedFilter } = useSuggestionsFilters();
+
+  /**
+   * Check if currently filtering by featured collection
+   * @returns {boolean}
+   */
+  const isFilteringByFeaturedCollection = () => {
+    const selectedFilter = findSelectedFilter();
+
+    return selectedFilter?.id === featuredCollection.value?.name;
+  };
 
   /**
    * This method calculates and returns the number of section suggestions to fetch,
@@ -84,6 +100,13 @@ const useSuggestionsFetch = () => {
       numberOfSuggestionsToFetch
     );
 
+    // Add featured collection flag if NOT filtering by featured collection
+    if (!isFilteringByFeaturedCollection() && fetchedSuggestions.length > 0) {
+      await addFeaturedCollectionFlag(fetchedSuggestions, {
+        titleGetter: (suggestion) => suggestion.sourceTitle,
+      });
+    }
+
     fetchedSuggestions.forEach((suggestion) =>
       store.commit("suggestions/addPageSuggestion", suggestion)
     );
@@ -109,6 +132,13 @@ const useSuggestionsFetch = () => {
     const fetchedSuggestions = await fetchSectionSuggestions(
       numberOfSuggestionsToFetch
     );
+
+    // Add featured collection flag if NOT filtering by featured collection
+    if (!isFilteringByFeaturedCollection() && fetchedSuggestions.length > 0) {
+      await addFeaturedCollectionFlag(fetchedSuggestions, {
+        titleGetter: (suggestion) => suggestion.sourceTitle,
+      });
+    }
 
     fetchedSuggestions.forEach((suggestion) =>
       store.commit("suggestions/addSectionSuggestion", suggestion)

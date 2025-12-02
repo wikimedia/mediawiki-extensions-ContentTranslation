@@ -40,6 +40,7 @@ export default class ArticleSuggestion {
     this.suggestionSeed = suggestionSeed;
     this.isListable = true;
     this.seen = false;
+    this.inFeaturedCollection = false;
   }
 
   /**

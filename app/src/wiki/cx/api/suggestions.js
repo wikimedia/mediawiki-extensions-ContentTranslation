@@ -122,15 +122,29 @@ async function fetchPageCollectionGroups() {
 }
 
 /**
- * @param {string} pageCollectionName
- * @param {string[]} qids
- * @returns {Promise<{ [title: string]: boolean }>}
+ * Check page collection membership using either QIDs or language+titles
+ * @param {string} pageCollectionName - Name of the collection to check
+ * @param {string[]|null} qids - Wikidata QIDs to check (optional if language+titles provided)
+ * @param {string|null} language - Language code (required if using titles)
+ * @param {string[]|null} titles - Page titles to check (required if not using qids)
+ * @returns {Promise<{ [title: string]: boolean }>} Map of titles/QIDs to membership status
  */
-function fetchPageCollectionMembership(pageCollectionName, qids) {
+function fetchPageCollectionMembership(
+  pageCollectionName,
+  qids,
+  language,
+  titles
+) {
   const urlParams = {
     collection: pageCollectionName,
-    qids: qids.join("|"),
   };
+
+  if (qids && qids.length) {
+    urlParams.qids = qids.join("|");
+  } else if (language && titles && titles.length) {
+    urlParams.language = language;
+    urlParams.titles = titles.join("|");
+  }
 
   return requestToRecommendationApi({
     urlPostfix: "/page-collection-membership",
