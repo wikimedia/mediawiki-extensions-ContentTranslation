@@ -57,7 +57,7 @@ const useSuggestionFetchByMostPopular = () => {
     suggestions,
     numberOfSuggestionsToFetch
   ) => {
-    await featuredCollectionPromise;
+    await featuredCollectionPromise.value;
 
     const featuredCollectionName = featuredCollection.value?.name;
 
