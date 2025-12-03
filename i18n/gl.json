@@ -519,6 +519,7 @@
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Ligazón á páxina wiki (opcional)",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Pode proporcionarse unha ligazón a unha páxina wiki asociada á colección destacada no cartel de información do panel de tradución de contidos.",
 	"cx-featured-collection-banner-title": "Prioridades da comunidade",
+	"cx-featured-collection-confirmation-banner-title": "Prioridade da comunidade",
 	"cx-featured-collection-banner-description": "Esta colección contén artigos que a comunidade identificou como coñecemento vital. Traducilos axuda a que a información esencial estea dispoñible para máis lectores.",
 	"cx-featured-collection-banner-learn-more": "Máis información",
 	"cx-featured-collection-banner-toggle-less": "menos",

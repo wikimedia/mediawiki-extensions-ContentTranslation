@@ -508,5 +508,16 @@
 	"cx-sx-present-lead-section-label": "(Giriş)",
 	"communityconfiguration-contenttranslation-title": "Məzmun Tərcüməsi",
 	"communityconfiguration-contenttranslation-description": "Məzmun Tərcüməsi aləti redaktorlara məqalələri tərcümə etməyə imkan verir.",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Lokal seçilmiş kolleksiya"
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Lokal seçilmiş kolleksiya",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Lokal seçilmiş kolleksiyanın qurulması, idarə panelinin hədəf dili bu vikidə eyni dilə ayarlandıqda, onu Məzmun Tərcüməsi panelində göstərəcək.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Təsvir (istəyə görə)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "Məzmun Tərcüməsi panelində məlumat bannerində göstərmək üçün fərdi təsvir təqdim edilə bilər.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Viki səhifə linki (istəyə bağlı)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Təqdim olunan kolleksiya ilə əlaqəli viki səhifə linki Məzmun Tərcüməsi panelindəki məlumat bannerinə daxil edilə bilər.",
+	"cx-featured-collection-banner-title": "İcma prioritetləri",
+	"cx-featured-collection-confirmation-banner-title": "İcma prioriteti",
+	"cx-featured-collection-banner-description": "Bu kolleksiyada icmanın vacib bilik kimi müəyyən etdiyi məqalələr var. Onların tərcüməsi vacib məlumatları daha çox oxucuya təqdim etməyə kömək edir.",
+	"cx-featured-collection-banner-learn-more": "Daha ətraflı öyrən",
+	"cx-featured-collection-banner-toggle-less": "daha az",
+	"cx-featured-collection-banner-toggle-more": "daha çox"
 }

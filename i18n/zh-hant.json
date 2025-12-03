@@ -535,6 +535,7 @@
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Wiki 頁面連結（可選）",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "可提供與特色收藏相關的 wiki 頁面連結，以便包含在內容翻譯面板的資訊橫幅中。",
 	"cx-featured-collection-banner-title": "社群優先事項",
+	"cx-featured-collection-confirmation-banner-title": "社群優先內容",
 	"cx-featured-collection-banner-description": "此收藏包含社群公認的重要知識條目。翻譯這些條目有助於讓更多讀者獲得這些必要資訊。",
 	"cx-featured-collection-banner-learn-more": "了解更多",
 	"cx-featured-collection-banner-toggle-less": "較少",
