@@ -66,7 +66,7 @@ const requestToRecommendationApi = async ({ urlPostfix = null, urlParams }) => {
   }
   const recommendToolApiUrl = new URL(stringUrl);
   Object.keys(urlParams).forEach((key) => {
-    if (urlParams[key]) {
+    if (urlParams[key] !== null && urlParams[key] !== undefined) {
       recommendToolApiUrl.searchParams.append(key, urlParams[key]);
     }
   });
@@ -78,19 +78,7 @@ const requestToRecommendationApi = async ({ urlPostfix = null, urlParams }) => {
       throw new Error("Failed to load data from server");
     }
 
-    const result = await response.json();
-
-    if (Array.isArray(result)) {
-      return result;
-    } else if (typeof result === "object") {
-      return Array.isArray(result.recommendations)
-        ? result.recommendations
-        : result;
-    } else {
-      throw new Error(
-        "Output format of Recommendation API response is not supported"
-      );
-    }
+    return response.json();
   } catch (error) {
     mw.log.error(
       "Error while fetching suggestions from Recommendation API",
@@ -193,10 +181,10 @@ async function fetchPageSuggestions(
     urlParams.seed = seedArticleTitle;
   }
 
-  const suggestedResults =
-    (await requestToRecommendationApi({ urlParams })) || [];
+  const { recommendations } =
+    (await requestToRecommendationApi({ urlParams })) || {};
 
-  return suggestedResults.map(
+  return (recommendations || []).map(
     (item) =>
       new ArticleSuggestion({
         sourceTitle: item.title.replace(/_/g, " "),
@@ -226,10 +214,10 @@ const fetchMostPopularPageSuggestions = async (
     count: 24,
     search_algorithm: "mostpopular",
   };
-  const recommendations =
-    (await requestToRecommendationApi({ urlParams })) || [];
+  const { recommendations } =
+    (await requestToRecommendationApi({ urlParams })) || {};
 
-  return recommendations.map(
+  return (recommendations || []).map(
     (item) =>
       new ArticleSuggestion({
         sourceTitle: item.title.replace(/_/g, " "),
@@ -260,55 +248,65 @@ const fetchMostPopularSectionSuggestions = async (
   };
 
   const urlPostfix = "/sections";
-  const recommendations =
-    (await requestToRecommendationApi({ urlParams, urlPostfix })) || [];
+  const { recommendations } =
+    (await requestToRecommendationApi({ urlParams, urlPostfix })) || {};
 
-  return (
-    recommendations &&
-    recommendations.map(
-      (recommendation) =>
-        new SectionSuggestion({
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle: recommendation.source_title,
-          targetTitle: recommendation.target_title,
-          sourceSections: recommendation.source_sections,
-          targetSections: recommendation.target_sections,
-          present: recommendation.present,
-          missing: recommendation.missing,
-          sourceSectionInfo: recommendation.source_section_info,
-          sourceSectionSizes: recommendation.source_section_sizes,
-        })
-    )
+  return (recommendations || []).map(
+    (recommendation) =>
+      new SectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle: recommendation.source_title,
+        targetTitle: recommendation.target_title,
+        sourceSections: recommendation.source_sections,
+        targetSections: recommendation.target_sections,
+        present: recommendation.present,
+        missing: recommendation.missing,
+        sourceSectionInfo: recommendation.source_section_info,
+        sourceSectionSizes: recommendation.source_section_sizes,
+      })
   );
 };
 
 /**
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
+ * @param {number} count
  * @param {string|null} collectionName
- * @return {Promise<CollectionArticleSuggestion[]>}
+ * @param {number|null} continueOffset
+ * @param {number|null} continueSeed
+ * @return {Promise<{ recommendations: CollectionArticleSuggestion[], continue_offset: number|null, continue_seed: number|null}>}
  */
 const fetchPageSuggestionsByCollections = async (
   sourceLanguage,
   targetLanguage,
-  collectionName = null
+  count,
+  collectionName = null,
+  continueOffset = null,
+  continueSeed = null
 ) => {
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
-    count: 24,
+    count,
     collections: true,
   };
 
   if (collectionName) {
     urlParams.seed = collectionName;
+
+    if (continueOffset !== null) {
+      urlParams.continue_offset = continueOffset;
+    }
+
+    if (continueSeed !== null) {
+      urlParams.continue_seed = continueSeed;
+    }
   }
 
-  const recommendations =
-    (await requestToRecommendationApi({ urlParams })) || [];
+  const response = (await requestToRecommendationApi({ urlParams })) || {};
 
-  return recommendations.map(
+  const recommendations = (response.recommendations || []).map(
     (item) =>
       new CollectionArticleSuggestion({
         sourceTitle: item.title.replace(/_/g, " "),
@@ -319,54 +317,77 @@ const fetchPageSuggestionsByCollections = async (
         collection: item.collection,
       })
   );
+
+  return {
+    recommendations,
+    continue_offset: response.continue_offset,
+    continue_seed: response.continue_seed,
+  };
 };
 
 /**
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
+ * @param {number} count
  * @param {string|null} collectionName
- * @return {Promise<CollectionSectionSuggestion[]>}
+ * @param {number|null} continueOffset
+ * @param {number|null} continueSeed
+ * @return {Promise<{ recommendations: CollectionSectionSuggestion[], continue_offset: number|null, continue_seed: number|null }>}
  */
 const fetchSectionSuggestionsByCollections = async (
   sourceLanguage,
   targetLanguage,
-  collectionName = null
+  count,
+  collectionName = null,
+  continueOffset = null,
+  continueSeed = null
 ) => {
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
-    count: 24,
+    count,
     collections: true,
   };
 
   if (collectionName) {
     urlParams.seed = collectionName;
+
+    if (continueOffset !== null) {
+      urlParams.continue_offset = continueOffset;
+    }
+
+    if (continueSeed !== null) {
+      urlParams.continue_seed = continueSeed;
+    }
   }
 
   const urlPostfix = "/sections";
 
-  const recommendations =
-    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
+  const response =
+    (await requestToRecommendationApi({ urlPostfix, urlParams })) || {};
 
-  return (
-    recommendations &&
-    recommendations.map(
-      (recommendation) =>
-        new CollectionSectionSuggestion({
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle: recommendation.source_title,
-          targetTitle: recommendation.target_title,
-          sourceSections: recommendation.source_sections,
-          targetSections: recommendation.target_sections,
-          present: recommendation.present,
-          missing: recommendation.missing,
-          collection: recommendation.collection,
-          sourceSectionInfo: recommendation.source_section_info,
-          sourceSectionSizes: recommendation.source_section_sizes,
-        })
-    )
+  const recommendations = (response.recommendations || []).map(
+    (recommendation) =>
+      new CollectionSectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle: recommendation.source_title,
+        targetTitle: recommendation.target_title,
+        sourceSections: recommendation.source_sections,
+        targetSections: recommendation.target_sections,
+        present: recommendation.present,
+        missing: recommendation.missing,
+        collection: recommendation.collection,
+        sourceSectionInfo: recommendation.source_section_info,
+        sourceSectionSizes: recommendation.source_section_sizes,
+      })
   );
+
+  return {
+    recommendations,
+    continue_offset: response.continue_offset,
+    continue_seed: response.continue_seed,
+  };
 };
 
 /**
@@ -424,27 +445,24 @@ async function fetchSectionSuggestions(
 
   const urlPostfix = "/sections";
 
-  const recommendations =
-    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
+  const { recommendations } =
+    (await requestToRecommendationApi({ urlPostfix, urlParams })) || {};
 
-  return (
-    recommendations &&
-    recommendations.map(
-      (recommendation) =>
-        new SectionSuggestion({
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle: recommendation.source_title,
-          targetTitle: recommendation.target_title,
-          sourceSections: recommendation.source_sections,
-          targetSections: recommendation.target_sections,
-          present: recommendation.present,
-          missing: recommendation.missing,
-          sourceSectionInfo: recommendation.source_section_info,
-          sourceSectionSizes: recommendation.source_section_sizes,
-          seed,
-        })
-    )
+  return (recommendations || []).map(
+    (recommendation) =>
+      new SectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle: recommendation.source_title,
+        targetTitle: recommendation.target_title,
+        sourceSections: recommendation.source_sections,
+        targetSections: recommendation.target_sections,
+        present: recommendation.present,
+        missing: recommendation.missing,
+        sourceSectionInfo: recommendation.source_section_info,
+        sourceSectionSizes: recommendation.source_section_sizes,
+        seed,
+      })
   );
 }
 
@@ -468,10 +486,10 @@ async function fetchPageSuggestionsByTopics(
     count,
   };
 
-  const suggestedResults =
-    (await requestToRecommendationApi({ urlParams })) || [];
+  const { recommendations } =
+    (await requestToRecommendationApi({ urlParams })) || {};
 
-  return suggestedResults.map(
+  return (recommendations || []).map(
     (item) =>
       new ArticleSuggestion({
         sourceTitle: item.title.replace(/_/g, " "),
@@ -506,26 +524,23 @@ async function fetchSectionSuggestionsByTopics(
   };
 
   const urlPostfix = "/sections";
-  const recommendations =
-    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
+  const { recommendations } =
+    (await requestToRecommendationApi({ urlPostfix, urlParams })) || {};
 
-  return (
-    recommendations &&
-    recommendations.map(
-      (recommendation) =>
-        new SectionSuggestion({
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle: recommendation.source_title,
-          targetTitle: recommendation.target_title,
-          sourceSections: recommendation.source_sections,
-          targetSections: recommendation.target_sections,
-          present: recommendation.present,
-          missing: recommendation.missing,
-          sourceSectionInfo: recommendation.source_section_info,
-          sourceSectionSizes: recommendation.source_section_sizes,
-        })
-    )
+  return (recommendations || []).map(
+    (recommendation) =>
+      new SectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle: recommendation.source_title,
+        targetTitle: recommendation.target_title,
+        sourceSections: recommendation.source_sections,
+        targetSections: recommendation.target_sections,
+        present: recommendation.present,
+        missing: recommendation.missing,
+        sourceSectionInfo: recommendation.source_section_info,
+        sourceSectionSizes: recommendation.source_section_sizes,
+      })
   );
 }
 
@@ -549,10 +564,10 @@ async function fetchPageSuggestionsByCountries(
     count,
   };
 
-  const suggestedResults =
-    (await requestToRecommendationApi({ urlParams })) || [];
+  const { recommendations } =
+    (await requestToRecommendationApi({ urlParams })) || {};
 
-  return suggestedResults.map(
+  return (recommendations || []).map(
     (item) =>
       new ArticleSuggestion({
         sourceTitle: item.title.replace(/_/g, " "),
@@ -587,26 +602,23 @@ async function fetchSectionSuggestionsByCountries(
   };
 
   const urlPostfix = "/sections";
-  const recommendations =
-    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
+  const { recommendations } =
+    (await requestToRecommendationApi({ urlPostfix, urlParams })) || {};
 
-  return (
-    recommendations &&
-    recommendations.map(
-      (recommendation) =>
-        new SectionSuggestion({
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle: recommendation.source_title,
-          targetTitle: recommendation.target_title,
-          sourceSections: recommendation.source_sections,
-          targetSections: recommendation.target_sections,
-          present: recommendation.present,
-          missing: recommendation.missing,
-          sourceSectionInfo: recommendation.source_section_info,
-          sourceSectionSizes: recommendation.source_section_sizes,
-        })
-    )
+  return (recommendations || []).map(
+    (recommendation) =>
+      new SectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle: recommendation.source_title,
+        targetTitle: recommendation.target_title,
+        sourceSections: recommendation.source_sections,
+        targetSections: recommendation.target_sections,
+        present: recommendation.present,
+        missing: recommendation.missing,
+        sourceSectionInfo: recommendation.source_section_info,
+        sourceSectionSizes: recommendation.source_section_sizes,
+      })
   );
 }
 

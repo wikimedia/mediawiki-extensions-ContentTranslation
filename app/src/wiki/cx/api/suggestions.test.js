@@ -44,7 +44,9 @@ describe("fetchMostPopularPageSuggestions", () => {
     };
     const mockResponse = {
       ok: true,
-      json: jest.fn().mockResolvedValue([testRecommendation]),
+      json: jest
+        .fn()
+        .mockResolvedValue({ recommendations: [testRecommendation] }),
     };
     fetch.mockResolvedValue(mockResponse);
 
@@ -99,7 +101,9 @@ describe("fetchMostPopularSectionSuggestions", () => {
     };
     const mockResponse = {
       ok: true,
-      json: jest.fn().mockResolvedValue([testRecommendation]),
+      json: jest
+        .fn()
+        .mockResolvedValue({ recommendations: [testRecommendation] }),
     };
     fetch.mockResolvedValue(mockResponse);
 

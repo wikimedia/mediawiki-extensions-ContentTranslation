@@ -46,14 +46,16 @@ const useSuggestionFetchByCollections = () => {
   const doFetchPageSuggestionsByCollection = async (collectionName) => {
     const fetchedSuggestions = [];
 
-    /** @type {CollectionArticleSuggestion[]} */
-    let suggestions = await cxSuggestionsApi.fetchPageSuggestionsByCollections(
+    /**
+     * @type {{ recommendations: CollectionArticleSuggestion[], continue_offset: number|null, continue_seed: number|null}}
+     */
+    const response = await cxSuggestionsApi.fetchPageSuggestionsByCollections(
       sourceLanguage.value,
       targetLanguage.value,
       collectionName
     );
 
-    suggestions = suggestions.filter((suggestion) =>
+    const suggestions = response.recommendations.filter((suggestion) =>
       isPageSuggestionValid(suggestion)
     );
 
@@ -77,18 +79,20 @@ const useSuggestionFetchByCollections = () => {
    */
   const doFetchSectionSuggestionsByCollection = async (collectionName) => {
     const fetchedSuggestions = [];
-    /** @type {CollectionSectionSuggestion[]} */
-    const suggestions =
+    /**
+     * @type {{ recommendations: CollectionSectionSuggestion[], continue_offset: number|null, continue_seed: number|null }}
+     */
+    const response =
       await cxSuggestionsApi.fetchSectionSuggestionsByCollections(
         sourceLanguage.value,
         targetLanguage.value,
         collectionName
       );
 
-    let validSuggestions = suggestions.filter((suggestion) =>
+    const validSuggestions = response.recommendations.filter((suggestion) =>
       isSectionSuggestionValid(suggestion)
     );
-    const invalidSuggestions = suggestions.filter(
+    const invalidSuggestions = response.recommendations.filter(
       (suggestion) => !isSectionSuggestionValid(suggestion)
     );
 
