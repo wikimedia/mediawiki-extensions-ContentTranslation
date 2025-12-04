@@ -105,6 +105,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "來源頁面修訂 ID。",
 	"apihelp-cxpublishsection-param-captchaid": "驗證碼 ID (當使用驗證碼儲存時)。",
 	"apihelp-cxpublishsection-param-captchaword": "回答驗證碼 (當使用驗證碼儲存時)。",
+	"apihelp-cxpublishsection-param-publishtarget": "章節翻譯的發布目標。可用值：'SANDBOX'、'NEW_SECTION'、'EXPAND' 和 'REPLACE'。",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "與草稿章節翻譯關聯的章節翻譯 ID。",
 	"apihelp-sxsave-summary": "保存草稿章節翻譯，並存儲平行語料庫",
 	"apihelp-sxsave-param-sourcelanguage": "來源語言代碼。",

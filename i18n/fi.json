@@ -98,7 +98,7 @@
 	"cx-mt-abuse-warning-title": "Osa käännöksestäsi {{PLURAL:$1|sisältää}} $1 % muokkaamatonta tekstiä",
 	"cx-mt-abuse-warning-text": "Automaattinen käännös tarjotaan vain lähtökohtana. Varmista, että sisältö on oikein ja että teksti on sujuvaa omalla kielelläsi.\n\nKäännöksesi todennäköisesti poistetaan, kun muut muokkaajat tarkastavat sen.",
 	"cx-publish-captcha-title": "Varmistetaan, ettet ole robotti",
-	"cx-captcha-dialog-error": "Vastauksesi ei vaikuta oikealta. Ole hyvä ja yritä uudestaan.",
+	"cx-captcha-dialog-error": "Vastauksesi ei vaikuta oikealta. Ole hyvä ja yritä uudelleen.",
 	"cx-captcha-dialog-cancel": "Peruuta",
 	"cx-captcha-unsupported-type": "Captcha vaaditaan, mutta tämä captcha-tyyppi ei ole tuettu.",
 	"cx-translation-filter-published-translations": "Julkaistut",

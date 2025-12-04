@@ -118,6 +118,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "L’identifiant de la version de page source.",
 	"apihelp-cxpublishsection-param-captchaid": "Identifiant du captcha (en enregistrant avec une réponse de captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "Réponse au captcha (en enregistrant avec une réponse de captcha).",
+	"apihelp-cxpublishsection-param-publishtarget": "Cible de publication de la traduction de la section. Valeurs possibles : « SANDBOX », « NEW_SECTION », « EXPAND » et « REPLACE ».",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "Id de traduction de la section associé au brouillon de traduction de la section.",
 	"apihelp-sxsave-summary": "Enregistrer la traduction de section en brouillon et stocke le corpus parallèle.",
 	"apihelp-sxsave-param-sourcelanguage": "Le code de la langue source.",
