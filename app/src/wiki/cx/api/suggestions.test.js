@@ -55,7 +55,7 @@ describe("fetchMostPopularPageSuggestions", () => {
       "fr"
     );
     expect(fetch.mock.calls[0][0].toString()).toEqual(
-      "https://api.wikimedia.org/service/lw/recommendation/api/v1/translation?source=en&target=fr&count=24&search_algorithm=mostpopular"
+      "https://api.wikimedia.org/service/lw/recommendation/api/v1/translation?source=en&target=fr&count=6&search_algorithm=mostpopular"
     );
     expect(mockResponse.json).toHaveBeenCalled();
     expect(result).toEqual([
@@ -112,7 +112,7 @@ describe("fetchMostPopularSectionSuggestions", () => {
       "fr"
     );
     expect(fetch.mock.calls[0][0].toString()).toEqual(
-      "https://api.wikimedia.org/service/lw/recommendation/api/v1/translation/sections?source=en&target=fr&count=24&search_algorithm=mostpopular"
+      "https://api.wikimedia.org/service/lw/recommendation/api/v1/translation/sections?source=en&target=fr&count=6&search_algorithm=mostpopular"
     );
     expect(mockResponse.json).toHaveBeenCalled();
     expect(result).toEqual([

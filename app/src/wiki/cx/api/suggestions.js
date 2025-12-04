@@ -15,6 +15,7 @@ import {
 import { isDesktopSite } from "@/utils/mediawikiHelper";
 
 const appendixSectionTitlesInEnglish = en;
+const DEFAULT_COUNT = 6;
 
 const considerSizeRestrictions = async (urlPostfix, urlParams) => {
   const newcomer = await isNewcomerUser();
@@ -169,7 +170,7 @@ async function fetchPageSuggestions(
   sourceLanguage,
   targetLanguage,
   seedArticleTitle = null,
-  count = 24
+  count = DEFAULT_COUNT
 ) {
   const urlParams = {
     source: sourceLanguage,
@@ -211,7 +212,7 @@ const fetchMostPopularPageSuggestions = async (
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
-    count: 24,
+    count: DEFAULT_COUNT,
     search_algorithm: "mostpopular",
   };
   const { recommendations } =
@@ -243,7 +244,7 @@ const fetchMostPopularSectionSuggestions = async (
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
-    count: 24,
+    count: DEFAULT_COUNT,
     search_algorithm: "mostpopular",
   };
 
@@ -280,8 +281,8 @@ const fetchMostPopularSectionSuggestions = async (
 const fetchPageSuggestionsByCollections = async (
   sourceLanguage,
   targetLanguage,
-  count,
   collectionName = null,
+  count = DEFAULT_COUNT,
   continueOffset = null,
   continueSeed = null
 ) => {
@@ -328,8 +329,8 @@ const fetchPageSuggestionsByCollections = async (
 /**
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
- * @param {number} count
  * @param {string|null} collectionName
+ * @param {number|null} count
  * @param {number|null} continueOffset
  * @param {number|null} continueSeed
  * @return {Promise<{ recommendations: CollectionSectionSuggestion[], continue_offset: number|null, continue_seed: number|null }>}
@@ -337,8 +338,8 @@ const fetchPageSuggestionsByCollections = async (
 const fetchSectionSuggestionsByCollections = async (
   sourceLanguage,
   targetLanguage,
-  count,
   collectionName = null,
+  count = DEFAULT_COUNT,
   continueOffset = null,
   continueSeed = null
 ) => {
@@ -436,7 +437,7 @@ async function fetchSectionSuggestions(
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
-    count: 24,
+    count: DEFAULT_COUNT,
   };
 
   if (seed) {
@@ -477,7 +478,7 @@ async function fetchPageSuggestionsByTopics(
   sourceLanguage,
   targetLanguage,
   topics,
-  count = 24
+  count = DEFAULT_COUNT
 ) {
   const urlParams = {
     source: sourceLanguage,
@@ -514,7 +515,7 @@ async function fetchSectionSuggestionsByTopics(
   sourceLanguage,
   targetLanguage,
   topics,
-  count = 24
+  count = DEFAULT_COUNT
 ) {
   const urlParams = {
     source: sourceLanguage,
@@ -555,7 +556,7 @@ async function fetchPageSuggestionsByCountries(
   sourceLanguage,
   targetLanguage,
   countries,
-  count = 24
+  count = DEFAULT_COUNT
 ) {
   const urlParams = {
     source: sourceLanguage,
@@ -592,7 +593,7 @@ async function fetchSectionSuggestionsByCountries(
   sourceLanguage,
   targetLanguage,
   countries,
-  count = 24
+  count = DEFAULT_COUNT
 ) {
   const urlParams = {
     source: sourceLanguage,
