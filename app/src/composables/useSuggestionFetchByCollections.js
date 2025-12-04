@@ -4,6 +4,7 @@ import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import useURLHandler from "@/composables/useURLHandler";
 import { COLLECTIONS_SUGGESTION_PROVIDER } from "@/utils/suggestionFilterProviders";
 import { computed } from "vue";
+import useFeaturedCollectionFilter from "./useFeaturedCollectionFilter";
 
 const useSuggestionFetchByCollections = () => {
   const store = useStore();
@@ -21,6 +22,8 @@ const useSuggestionFetchByCollections = () => {
     return currentFilter.value.id;
   });
 
+  const { featuredCollection, featuredCollectionPromise } =
+    useFeaturedCollectionFilter();
   const {
     isSectionSuggestionValid,
     isPageSuggestionValid,
@@ -44,16 +47,18 @@ const useSuggestionFetchByCollections = () => {
    * @returns {Promise<CollectionArticleSuggestion[]>}
    */
   const doFetchPageSuggestionsByCollection = async (collectionName) => {
+    await featuredCollectionPromise.value;
     const fetchedSuggestions = [];
 
     /**
      * @type {{ recommendations: CollectionArticleSuggestion[], continue_offset: number|null, continue_seed: number|null}}
      */
-    const response = await cxSuggestionsApi.fetchPageSuggestionsByCollections(
-      sourceLanguage.value,
-      targetLanguage.value,
-      collectionName
-    );
+    const response = await cxSuggestionsApi.fetchPageSuggestionsByCollections({
+      sourceLanguage: sourceLanguage.value,
+      targetLanguage: targetLanguage.value,
+      featuredCollection: featuredCollection.value?.name || null,
+      collectionName,
+    });
 
     const suggestions = response.recommendations.filter((suggestion) =>
       isPageSuggestionValid(suggestion)
@@ -78,16 +83,18 @@ const useSuggestionFetchByCollections = () => {
    * @returns {Promise<CollectionSectionSuggestion[]>}
    */
   const doFetchSectionSuggestionsByCollection = async (collectionName) => {
+    await featuredCollectionPromise.value;
     const fetchedSuggestions = [];
     /**
      * @type {{ recommendations: CollectionSectionSuggestion[], continue_offset: number|null, continue_seed: number|null }}
      */
     const response =
-      await cxSuggestionsApi.fetchSectionSuggestionsByCollections(
-        sourceLanguage.value,
-        targetLanguage.value,
-        collectionName
-      );
+      await cxSuggestionsApi.fetchSectionSuggestionsByCollections({
+        sourceLanguage: sourceLanguage.value,
+        targetLanguage: targetLanguage.value,
+        featuredCollection: featuredCollection.value?.name || null,
+        collectionName,
+      });
 
     const validSuggestions = response.recommendations.filter((suggestion) =>
       isSectionSuggestionValid(suggestion)

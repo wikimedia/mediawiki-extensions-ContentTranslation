@@ -276,16 +276,18 @@ const fetchMostPopularSectionSuggestions = async (
  * @param {string|null} collectionName
  * @param {number|null} continueOffset
  * @param {number|null} continueSeed
+ * @param {string|null} featuredCollection
  * @return {Promise<{ recommendations: CollectionArticleSuggestion[], continue_offset: number|null, continue_seed: number|null}>}
  */
-const fetchPageSuggestionsByCollections = async (
+const fetchPageSuggestionsByCollections = async ({
   sourceLanguage,
   targetLanguage,
   collectionName = null,
   count = DEFAULT_COUNT,
   continueOffset = null,
-  continueSeed = null
-) => {
+  continueSeed = null,
+  featuredCollection = null,
+}) => {
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
@@ -303,6 +305,10 @@ const fetchPageSuggestionsByCollections = async (
     if (continueSeed !== null) {
       urlParams.continue_seed = continueSeed;
     }
+  }
+
+  if (featuredCollection) {
+    urlParams.featured_collection = featuredCollection;
   }
 
   const response = (await requestToRecommendationApi({ urlParams })) || {};
@@ -333,16 +339,18 @@ const fetchPageSuggestionsByCollections = async (
  * @param {number|null} count
  * @param {number|null} continueOffset
  * @param {number|null} continueSeed
+ * @param {string|null} featuredCollection
  * @return {Promise<{ recommendations: CollectionSectionSuggestion[], continue_offset: number|null, continue_seed: number|null }>}
  */
-const fetchSectionSuggestionsByCollections = async (
+const fetchSectionSuggestionsByCollections = async ({
   sourceLanguage,
   targetLanguage,
   collectionName = null,
   count = DEFAULT_COUNT,
   continueOffset = null,
-  continueSeed = null
-) => {
+  continueSeed = null,
+  featuredCollection = null,
+}) => {
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
@@ -360,6 +368,10 @@ const fetchSectionSuggestionsByCollections = async (
     if (continueSeed !== null) {
       urlParams.continue_seed = continueSeed;
     }
+  }
+
+  if (featuredCollection) {
+    urlParams.featured_collection = featuredCollection;
   }
 
   const urlPostfix = "/sections";
