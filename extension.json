@@ -721,6 +721,8 @@
 				"cx-sx-article-search-input-placeholder",
 				"cx-sx-article-search-recently-edited-title",
 				"cx-sx-article-search-nearby-title",
+				"cx-sx-article-search-community-priorities-title",
+				"cx-sx-article-search-community-priorities-subtitle",
 				"sx-article-search-language-selector-dialog-title",
 				"sx-article-search-close-button-aria-label",
 				"cx-sx-language-selector-placeholder",
