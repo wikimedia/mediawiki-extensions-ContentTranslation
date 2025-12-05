@@ -1,6 +1,6 @@
 import { ref, watch, computed } from "vue";
 import { cdxIconArticles, cdxIconSearch } from "@wikimedia/codex-icons";
-import usePageCollections from "./usePageCollections";
+import usePageCollections from "@/composables/usePageCollections";
 import useSearchArticles from "@/composables/useArticleSearch";
 import useURLHandler from "@/composables/useURLHandler";
 import {

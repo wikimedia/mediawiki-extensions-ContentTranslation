@@ -10,7 +10,7 @@ import {
   REGIONS_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import useURLHandler from "./useURLHandler";
-import usePageCollections from "@/components/CXDashboard/usePageCollections";
+import usePageCollections from "@/composables/usePageCollections";
 import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
 import useFiltersValidator from "@/composables/useFiltersValidator";
 import SuggestionFilter from "@/wiki/cx/models/suggestionFilter";
@@ -70,7 +70,7 @@ const useSuggestionsFilters = () => {
     label: bananaI18n.i18n("cx-sx-suggestions-filter-page-collection-label"),
   });
 
-  const { pageCollectionGroups, pageCollectionGroupsFetched } =
+  const { pageCollections, pageCollectionGroups, pageCollectionGroupsFetched } =
     usePageCollections();
 
   const automaticFiltersGroup = computed(() => {
@@ -277,10 +277,6 @@ const useSuggestionsFilters = () => {
 
     return [regionOrCountry]; // If it's not a region, return it as a single country
   };
-
-  const pageCollections = computed(() =>
-    Object.values(pageCollectionGroups.value).flat()
-  );
 
   const validateURLFilterWithCollections = () => {
     if (!pageCollectionGroupsFetched.value) {

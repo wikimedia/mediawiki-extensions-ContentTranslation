@@ -2,7 +2,7 @@ import useApplicationLanguagesInitialize from "@/composables/useApplicationLangu
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
 import useFavoritesFetch from "./useFavoritesFetch";
-import usePageCollections from "./usePageCollections";
+import usePageCollections from "@/composables/usePageCollections";
 import useDashboardOpenInstrument from "@/components/CXDashboard/useDashboardOpenInstrument";
 import { watch } from "vue";
 import usePublishTarget from "@/composables/usePublishTarget";

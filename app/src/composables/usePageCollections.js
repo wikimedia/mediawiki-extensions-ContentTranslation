@@ -6,6 +6,7 @@ const UNGROUPED_KEY = "ungrouped";
  * @type {Ref<{ [group: string]: PageCollection[] }>}
  */
 const pageCollectionGroups = ref({});
+const pageCollections = ref({});
 const pageCollectionGroupsFetched = ref(false);
 
 const usePageCollections = () => {
@@ -31,6 +32,7 @@ const usePageCollections = () => {
       }
 
       pageCollectionGroups.value = sortedGroups;
+      pageCollections.value = Object.values(collectionGroups).flat();
       pageCollectionGroupsFetched.value = true;
     } catch (error) {
       mw.log.error("Failed to fetch page collections", error);
@@ -41,6 +43,7 @@ const usePageCollections = () => {
     fetchPageCollectionGroups,
     pageCollectionGroupsFetched,
     pageCollectionGroups,
+    pageCollections,
   };
 };
 

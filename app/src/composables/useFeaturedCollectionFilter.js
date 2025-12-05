@@ -1,6 +1,7 @@
 import suggestionsApi from "@/wiki/cx/api/suggestions";
 import { computed, ref, watch } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
+import usePageCollections from "@/composables/usePageCollections";
 
 const siteMapper = new mw.cx.SiteMapper();
 
@@ -58,6 +59,14 @@ const fetchFeaturedCollection = (lang) => {
   featuredCollectionPromises.value[lang] = promise;
 };
 
+const collectionExists = (collectionName, allCollections) => {
+  if (!collectionName || !Array.isArray(allCollections)) return false;
+
+  return allCollections.some(
+    (col) => col.name.toLowerCase() === collectionName.toLowerCase()
+  );
+};
+
 /**
  * Composable for accessing featured collection data
  * @param {string|undefined} language - Optional language parameter
@@ -65,6 +74,8 @@ const fetchFeaturedCollection = (lang) => {
  *   - If undefined: uses URL target language parameter and watches for changes
  */
 const useFeaturedCollectionFilter = (language = undefined) => {
+  const { pageCollections } = usePageCollections();
+
   let languageRef;
 
   if (!language) {
@@ -97,7 +108,10 @@ const useFeaturedCollectionFilter = (language = undefined) => {
     const lang = languageRef.value;
     const collection = featuredCollections.value[lang];
 
-    return collection?.name ? collection : null;
+    return collection?.name &&
+      collectionExists(collection.name, pageCollections.value)
+      ? collection
+      : null;
   });
 
   const featuredCollectionFetched = computed(
