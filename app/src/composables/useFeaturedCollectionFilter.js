@@ -67,7 +67,7 @@ const fetchFeaturedCollection = (lang) => {
  *   - If string: static language code
  *   - If undefined: uses URL target language parameter and watches for changes
  */
-const useFeaturedCollectionFilter = (language) => {
+const useFeaturedCollectionFilter = (language = undefined) => {
   let languageRef;
 
   if (language === undefined) {

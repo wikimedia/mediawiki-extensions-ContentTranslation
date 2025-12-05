@@ -5,6 +5,7 @@ import useSuggestionsFilters from "./useSuggestionsFilters";
 import retry from "@/utils/retry";
 import useURLHandler from "@/composables/useURLHandler";
 import { TOPIC_SUGGESTION_PROVIDER } from "@/utils/suggestionFilterProviders";
+import useFeaturedCollectionFilter from "./useFeaturedCollectionFilter";
 
 const useSuggestionsFetchByTopics = () => {
   const store = useStore();
@@ -22,11 +23,15 @@ const useSuggestionsFetchByTopics = () => {
 
   const { getArticleTopics } = useSuggestionsFilters();
 
+  const { featuredCollection, featuredCollectionPromise } =
+    useFeaturedCollectionFilter();
+
   /**
    * @param {number} numberOfSuggestionsToFetch the number of suggestions to fetch
    * @return {Promise<ArticleSuggestion[]>}
    */
   const fetchPageSuggestionsByTopics = async (numberOfSuggestionsToFetch) => {
+    await featuredCollectionPromise.value;
     const topic = currentSuggestionFilters.value.id;
 
     const topicFilter = {
@@ -36,11 +41,12 @@ const useSuggestionsFetchByTopics = () => {
     const articleTopics = getArticleTopics(topic);
 
     /** @type {ArticleSuggestion[]} */
-    let suggestions = await cxSuggestionsApi.fetchPageSuggestionsByTopics(
-      sourceLanguage.value,
-      targetLanguage.value,
-      articleTopics
-    );
+    let suggestions = await cxSuggestionsApi.fetchPageSuggestionsByTopics({
+      sourceLanguage: sourceLanguage.value,
+      targetLanguage: targetLanguage.value,
+      topics: articleTopics,
+      featuredCollection: featuredCollection.value?.name,
+    });
 
     suggestions = suggestions.filter((suggestion) =>
       isPageSuggestionValid(suggestion)
@@ -62,6 +68,7 @@ const useSuggestionsFetchByTopics = () => {
   const fetchSectionSuggestionsByTopics = async (
     numberOfSuggestionsToFetch
   ) => {
+    await featuredCollectionPromise.value;
     const topic = currentSuggestionFilters.value.id;
 
     const topicFilter = {
@@ -75,11 +82,12 @@ const useSuggestionsFetchByTopics = () => {
     await retry(async () => {
       /** @type {SectionSuggestion[]} */
       const suggestions =
-        await cxSuggestionsApi.fetchSectionSuggestionsByTopics(
-          sourceLanguage.value,
-          targetLanguage.value,
-          articleTopics
-        );
+        await cxSuggestionsApi.fetchSectionSuggestionsByTopics({
+          sourceLanguage: sourceLanguage.value,
+          targetLanguage: targetLanguage.value,
+          topics: articleTopics,
+          featuredCollection: featuredCollection.value?.name,
+        });
 
       let validSuggestions = suggestions.filter((suggestion) =>
         isSectionSuggestionValid(suggestion)
