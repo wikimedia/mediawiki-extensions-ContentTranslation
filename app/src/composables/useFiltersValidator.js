@@ -165,7 +165,14 @@ const useFiltersValidator = () => {
    * @returns {boolean}
    */
   const isEqualFilter = (filterA, filterB) => {
-    return filterA.id === filterB.id && filterA.type === filterB.type;
+    if (!filterA?.id || !filterA?.type || !filterB?.id || !filterB?.type) {
+      return false;
+    }
+
+    return (
+      filterA.id.toLowerCase() === filterB.id.toLowerCase() &&
+      filterA.type.toLowerCase() === filterB.type.toLowerCase()
+    );
   };
 
   return {

@@ -161,7 +161,10 @@ const { findSelectedFilter } = useSuggestionsFilters();
 const isFilteringByFeaturedCollection = computed(() => {
   const selectedFilter = findSelectedFilter();
 
-  return selectedFilter?.id === featuredCollection.value?.name;
+  return (
+    selectedFilter?.id?.toLowerCase() ===
+    featuredCollection.value?.name.toLowerCase()
+  );
 });
 
 const shouldShowCommunityPriorityBadge = computed(() => {

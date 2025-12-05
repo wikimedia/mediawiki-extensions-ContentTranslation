@@ -13,6 +13,7 @@ import {
   SectionDifficultyThresholdEnum,
 } from "@/utils/translationDifficulty";
 import { isDesktopSite } from "@/utils/mediawikiHelper";
+import FeaturedCollection from "@/wiki/cx/models/featuredCollection";
 
 const appendixSectionTitlesInEnglish = en;
 const DEFAULT_COUNT = 6;
@@ -154,7 +155,7 @@ function fetchPageCollectionMembership(
 
 /**
  * @param {string} language
- * @returns {Promise<string|null>}
+ * @returns {Promise<FeaturedCollection|null>}
  */
 function fetchFeaturedCollectionDataByLanguage(language) {
   const mwApi = siteMapper.getApi(language);
@@ -167,9 +168,23 @@ function fetchFeaturedCollectionDataByLanguage(language) {
   });
 
   return new Promise((resolve) => {
-    jQueryPromise
-      .then((response) => resolve(response?.query?.cxconfig || null))
-      .fail(() => resolve(null));
+    jQueryPromise.then((response) => {
+      const cxconfig = response?.query?.cxconfig;
+
+      if (cxconfig) {
+        resolve(
+          new FeaturedCollection(
+            cxconfig.featuredcollectionname,
+            cxconfig.featuredcollectiondescription,
+            cxconfig.featuredcollectioncommunityname,
+            cxconfig.featuredcollectionlink,
+            language
+          )
+        );
+      } else {
+        resolve(null);
+      }
+    });
   });
 }
 

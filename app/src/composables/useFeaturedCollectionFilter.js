@@ -37,19 +37,16 @@ const featuredCollectionsFetched = ref({
 let isWatcherInitialized = false;
 
 const fetchFeaturedCollection = (lang) => {
-  if (!lang || featuredCollections.value[lang]) {
+  if (!lang || featuredCollectionPromises.value[lang]) {
     return;
   }
 
   const promise = suggestionsApi
     .fetchFeaturedCollectionDataByLanguage(lang)
-    .then((featuredCollectionData) => {
-      featuredCollections.value[lang] = {
-        name: featuredCollectionData.name,
-        communityName: featuredCollectionData.communityName,
-        description: featuredCollectionData.description,
-        link: featuredCollectionData.link,
-      };
+    .then((featuredCollection) => {
+      if (featuredCollection) {
+        featuredCollections.value[lang] = featuredCollection;
+      }
       featuredCollectionsFetched.value[lang] = true;
     })
     .catch((error) => {
@@ -70,7 +67,7 @@ const fetchFeaturedCollection = (lang) => {
 const useFeaturedCollectionFilter = (language = undefined) => {
   let languageRef;
 
-  if (language === undefined) {
+  if (!language) {
     // No parameter: use URL target language and watch it
     const { targetLanguageURLParameter } = useURLHandler();
     languageRef = targetLanguageURLParameter;
