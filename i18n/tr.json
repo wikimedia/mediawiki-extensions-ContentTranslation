@@ -551,6 +551,7 @@
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Viki sayfası bağlantısı (isteğe bağlı)",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "İçerik Çevirisi panosunda bir bilgi başlığında eklenmek üzere, öne çıkan koleksiyonla ilişkili bir viki sayfası bağlantısı sağlanabilir.",
 	"cx-featured-collection-banner-title": "Topluluk öncelikleri",
+	"cx-featured-collection-confirmation-banner-title": "Topluluk önceliği",
 	"cx-featured-collection-banner-description": "Bu koleksiyon, topluluğun önemli bilgiler olarak tanımladığı maddeleri içermektedir. Bu maddelerin çevirisi, önemli bilgilerin daha fazla okuyucuya ulaşmasına yardımcı olur.",
 	"cx-featured-collection-banner-learn-more": "Daha fazla bilgi",
 	"cx-featured-collection-banner-toggle-less": "daha az",

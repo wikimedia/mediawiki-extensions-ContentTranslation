@@ -355,6 +355,8 @@
 	"cx-sx-article-search-input-placeholder": "Nach einer zu übersetzenden Seite suchen",
 	"cx-sx-article-search-recently-edited-title": "Kürzlich von dir bearbeitet",
 	"cx-sx-article-search-nearby-title": "In der Nähe",
+	"cx-sx-article-search-community-priorities-title": "Prioritäten der Community",
+	"cx-sx-article-search-community-priorities-subtitle": "Artikel, die die Community als wichtig für die Übersetzung ausgewählt hat",
 	"sx-article-search-language-selector-dialog-title": "Sprachen",
 	"sx-article-search-close-button-aria-label": "Schließen",
 	"cx-sx-language-selector-placeholder": "Nach einer Sprache suchen",
