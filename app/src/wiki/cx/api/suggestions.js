@@ -575,21 +575,27 @@ async function fetchSectionSuggestionsByTopics(
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
  * @param {String[]} countries
- * @param {Number} count - How many suggestions to fetch. 24 is default.
+ * @param {Number} count - How many suggestions to fetch. 6 is default.
+ * @param {String|undefined|null} featuredCollection
  * @return {Promise<ArticleSuggestion[]>}
  */
-async function fetchPageSuggestionsByCountries(
+async function fetchPageSuggestionsByCountries({
   sourceLanguage,
   targetLanguage,
   countries,
-  count = DEFAULT_COUNT
-) {
+  count = DEFAULT_COUNT,
+  featuredCollection = null,
+}) {
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
     country: countries.join("|"),
     count,
   };
+
+  if (featuredCollection) {
+    urlParams.featured_collection = featuredCollection;
+  }
 
   const { recommendations } =
     (await requestToRecommendationApi({ urlParams })) || {};
@@ -612,21 +618,27 @@ async function fetchPageSuggestionsByCountries(
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
  * @param {String[]} countries
- * @param {Number} count - How many suggestions to fetch. 24 is default.
+ * @param {Number} count - How many suggestions to fetch. 6 is default.
+ * @param {String|undefined|null} featuredCollection
  * @return {Promise<SectionSuggestion[]>}
  */
-async function fetchSectionSuggestionsByCountries(
+async function fetchSectionSuggestionsByCountries({
   sourceLanguage,
   targetLanguage,
   countries,
-  count = DEFAULT_COUNT
-) {
+  count = DEFAULT_COUNT,
+  featuredCollection = null,
+}) {
   const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
     country: countries.join("|"),
     count,
   };
+
+  if (featuredCollection) {
+    urlParams.featured_collection = featuredCollection;
+  }
 
   const urlPostfix = "/sections";
   const { recommendations } =

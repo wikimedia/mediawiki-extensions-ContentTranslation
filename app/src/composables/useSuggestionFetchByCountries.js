@@ -4,6 +4,7 @@ import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import retry from "@/utils/retry";
 import useURLHandler from "@/composables/useURLHandler";
 import useSuggestionsFilters from "./useSuggestionsFilters";
+import useFeaturedCollectionFilter from "./useFeaturedCollectionFilter";
 
 const useSuggestionFetchByCountries = () => {
   const store = useStore();
@@ -21,6 +22,9 @@ const useSuggestionFetchByCountries = () => {
 
   const { getCountries } = useSuggestionsFilters();
 
+  const { featuredCollection, featuredCollectionPromise } =
+    useFeaturedCollectionFilter();
+
   /**
    * @param {number} numberOfSuggestionsToFetch the number of suggestions to fetch
    * @return {Promise<ArticleSuggestion[]>}
@@ -28,12 +32,14 @@ const useSuggestionFetchByCountries = () => {
   const fetchPageSuggestionsByCountries = async (
     numberOfSuggestionsToFetch
   ) => {
+    await featuredCollectionPromise.value;
     /** @type {ArticleSuggestion[]} */
-    let suggestions = await cxSuggestionsApi.fetchPageSuggestionsByCountries(
-      sourceLanguage.value,
-      targetLanguage.value,
-      getCountries(currentSuggestionFilters.value.id)
-    );
+    let suggestions = await cxSuggestionsApi.fetchPageSuggestionsByCountries({
+      sourceLanguage: sourceLanguage.value,
+      targetLanguage: targetLanguage.value,
+      countries: getCountries(currentSuggestionFilters.value.id),
+      featuredCollection: featuredCollection.value?.name,
+    });
 
     suggestions = suggestions.filter((suggestion) =>
       isPageSuggestionValid(suggestion)
@@ -56,16 +62,18 @@ const useSuggestionFetchByCountries = () => {
   const fetchSectionSuggestionsByCountries = async (
     numberOfSuggestionsToFetch
   ) => {
+    await featuredCollectionPromise.value;
     const fetchedSuggestions = [];
 
     await retry(async () => {
       /** @type {SectionSuggestion[]} */
       const suggestions =
-        await cxSuggestionsApi.fetchSectionSuggestionsByCountries(
-          sourceLanguage.value,
-          targetLanguage.value,
-          getCountries(currentSuggestionFilters.value.id)
-        );
+        await cxSuggestionsApi.fetchSectionSuggestionsByCountries({
+          sourceLanguage: sourceLanguage.value,
+          targetLanguage: targetLanguage.value,
+          countries: getCountries(currentSuggestionFilters.value.id),
+          featuredCollection: featuredCollection.value?.name,
+        });
 
       let validSuggestions = suggestions.filter((suggestion) =>
         isSectionSuggestionValid(suggestion)
