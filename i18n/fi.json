@@ -357,6 +357,8 @@
 	"cx-sx-article-search-input-placeholder": "Etsi sivua käännettäväksi",
 	"cx-sx-article-search-recently-edited-title": "Viime aikoina muokkaamiasi",
 	"cx-sx-article-search-nearby-title": "Lähistöllä",
+	"cx-sx-article-search-community-priorities-title": "Yhteisön prioriteetit",
+	"cx-sx-article-search-community-priorities-subtitle": "Artikkelit, jotka yhteisö on valinnut tärkeiksi käännösaiheiksi",
 	"sx-article-search-language-selector-dialog-title": "Kielet",
 	"sx-article-search-close-button-aria-label": "Sulje",
 	"cx-sx-language-selector-placeholder": "Etsi kieltä",
@@ -520,6 +522,7 @@
 	"communityconfiguration-contenttranslation-description": "Sisällön kääntäminen -työkalu mahdollistaa muokkaajien kääntää artikkeleita.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Kuvaus (valinnainen)",
 	"cx-featured-collection-banner-title": "Yhteisön prioriteetit",
+	"cx-featured-collection-confirmation-banner-title": "Yhteisön prioriteetti",
 	"cx-featured-collection-banner-learn-more": "Lisätietoja",
 	"cx-featured-collection-banner-toggle-less": "piilota",
 	"cx-featured-collection-banner-toggle-more": "lisää"

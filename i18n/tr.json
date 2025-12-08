@@ -382,6 +382,8 @@
 	"cx-sx-article-search-input-placeholder": "Çevirmek için bir sayfa arayın",
 	"cx-sx-article-search-recently-edited-title": "Son zamanlarda sizin tarafınızdan düzenlendi",
 	"cx-sx-article-search-nearby-title": "Yakınımdakiler",
+	"cx-sx-article-search-community-priorities-title": "Topluluk öncelikleri",
+	"cx-sx-article-search-community-priorities-subtitle": "Topluluğun çevrilmesi önemli olarak seçtiği maddeler",
 	"sx-article-search-language-selector-dialog-title": "Diller",
 	"sx-article-search-close-button-aria-label": "Kapat",
 	"cx-sx-language-selector-placeholder": "Bir dil arayın",
