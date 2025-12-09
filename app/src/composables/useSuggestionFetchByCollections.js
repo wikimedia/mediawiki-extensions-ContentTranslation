@@ -47,7 +47,12 @@ const useSuggestionFetchByCollections = () => {
    * @returns {Promise<CollectionArticleSuggestion[]>}
    */
   const doFetchPageSuggestionsByCollection = async (collectionName) => {
-    await featuredCollectionPromise.value;
+    let featuredCollectionName = null;
+
+    if (!collectionName) {
+      await featuredCollectionPromise.value;
+      featuredCollectionName = featuredCollection.value?.name || null;
+    }
     const fetchedSuggestions = [];
 
     /**
@@ -56,7 +61,7 @@ const useSuggestionFetchByCollections = () => {
     const response = await cxSuggestionsApi.fetchPageSuggestionsByCollections({
       sourceLanguage: sourceLanguage.value,
       targetLanguage: targetLanguage.value,
-      featuredCollection: featuredCollection.value?.name || null,
+      featuredCollection: featuredCollectionName,
       collectionName,
     });
 
@@ -83,6 +88,12 @@ const useSuggestionFetchByCollections = () => {
    * @returns {Promise<CollectionSectionSuggestion[]>}
    */
   const doFetchSectionSuggestionsByCollection = async (collectionName) => {
+    let featuredCollectionName = null;
+
+    if (!collectionName) {
+      await featuredCollectionPromise.value;
+      featuredCollectionName = featuredCollection.value?.name || null;
+    }
     await featuredCollectionPromise.value;
     const fetchedSuggestions = [];
     /**
@@ -92,7 +103,7 @@ const useSuggestionFetchByCollections = () => {
       await cxSuggestionsApi.fetchSectionSuggestionsByCollections({
         sourceLanguage: sourceLanguage.value,
         targetLanguage: targetLanguage.value,
-        featuredCollection: featuredCollection.value?.name || null,
+        featuredCollection: featuredCollectionName,
         collectionName,
       });
 
