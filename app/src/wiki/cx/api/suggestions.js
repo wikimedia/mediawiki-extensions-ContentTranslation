@@ -43,7 +43,7 @@ const considerSizeRestrictions = async (urlPostfix, urlParams) => {
       urlParams.min_size = thresholds[DifficultyEnum.easy];
       urlParams.max_size = thresholds[DifficultyEnum.medium] - 1;
     }
-  } else if (!isDesktopSite) {
+  } else if (!isDesktopSite && urlPostfix !== "/sections") {
     urlParams["lead_section"] = true;
   }
 };
