@@ -855,7 +855,8 @@
 				"cx-featured-collection-banner-description",
 				"cx-featured-collection-banner-learn-more",
 				"cx-featured-collection-banner-toggle-less",
-				"cx-featured-collection-banner-toggle-more"
+				"cx-featured-collection-banner-toggle-more",
+				"cx-sx-present-lead-section-label"
 			],
 			"noflip": true
 		},
