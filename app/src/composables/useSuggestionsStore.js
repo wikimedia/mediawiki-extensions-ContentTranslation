@@ -93,29 +93,23 @@ const useSuggestionsStore = () => {
    * @param {string} collectionName
    * @returns {ArticleSuggestion|null}
    */
-  const getNextUnseenPageSuggestionByCollection = (collectionName) => {
-    return getNextUnseenSuggestionByCollection(
+  const getNextUnseenPageSuggestionByCollection = (collectionName) =>
+    getNextUnseenSuggestionByCollection(
       collectionName,
       "suggestions/getNextUnseenPageSuggestionByFilter",
       "suggestions/removePageSuggestion"
     );
-  };
 
   /**
    * @param {string} collectionName
    * @returns {SectionSuggestion|null}
    */
-  const getNextUnseenSectionSuggestionByCollection = (collectionName) => {
-    const sectionSuggestionsForPair = store.getters[
-      "suggestions/getSectionSuggestionsForPair"
-    ](sourceLanguage.value, targetLanguage.value);
-
-    return getNextUnseenSuggestionByCollection(
-      sectionSuggestionsForPair,
+  const getNextUnseenSectionSuggestionByCollection = (collectionName) =>
+    getNextUnseenSuggestionByCollection(
+      collectionName,
       "suggestions/getNextUnseenSectionSuggestionByFilter",
       "suggestions/removeSectionSuggestion"
     );
-  };
 
   return {
     getFilteredPageSuggestions,
