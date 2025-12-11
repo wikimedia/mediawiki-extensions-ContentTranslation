@@ -2,6 +2,7 @@ import suggestionsApi from "@/wiki/cx/api/suggestions";
 import { computed, ref, watch } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import usePageCollections from "@/composables/usePageCollections";
+import FeaturedCollection from "@/wiki/cx/models/featuredCollection";
 
 const siteMapper = new mw.cx.SiteMapper();
 
@@ -20,12 +21,13 @@ const currentWikiFeaturedCollectionLink = mw.config.get(
 );
 
 const featuredCollections = ref({
-  [currentWikiLanguage]: {
-    name: currentWikiFeaturedCollectionName,
-    communityName: currentWikiFeaturedCollectionCommunityName,
-    description: currentWikiFeaturedCollectionDescription,
-    link: currentWikiFeaturedCollectionLink,
-  },
+  [currentWikiLanguage]: new FeaturedCollection(
+    currentWikiFeaturedCollectionName,
+    currentWikiFeaturedCollectionDescription,
+    currentWikiFeaturedCollectionCommunityName,
+    currentWikiFeaturedCollectionLink,
+    currentWikiLanguage
+  ),
 });
 
 const featuredCollectionPromises = ref({
@@ -74,7 +76,7 @@ const collectionExists = (collectionName, allCollections) => {
  *   - If undefined: uses URL target language parameter and watches for changes
  */
 const useFeaturedCollectionFilter = (language = undefined) => {
-  const { pageCollections } = usePageCollections();
+  const { pageCollections, fetchPageCollectionGroups } = usePageCollections();
 
   let languageRef;
 
@@ -118,8 +120,11 @@ const useFeaturedCollectionFilter = (language = undefined) => {
     () => featuredCollectionsFetched.value[languageRef.value] || false
   );
 
-  const featuredCollectionPromise = computed(
-    () => featuredCollectionPromises.value[languageRef.value]
+  const featuredCollectionPromise = computed(() =>
+    Promise.all([
+      fetchPageCollectionGroups(),
+      featuredCollectionPromises.value[languageRef.value],
+    ])
   );
 
   return {

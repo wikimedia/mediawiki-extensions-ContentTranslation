@@ -8,9 +8,10 @@ const UNGROUPED_KEY = "ungrouped";
 const pageCollectionGroups = ref({});
 const pageCollections = ref({});
 const pageCollectionGroupsFetched = ref(false);
+let pageCollectionGroupsPromise = null;
 
 const usePageCollections = () => {
-  const fetchPageCollectionGroups = async () => {
+  const doFetchPageCollectionGroups = async () => {
     try {
       const collectionGroups = await suggestionsApi.fetchPageCollectionGroups();
 
@@ -37,6 +38,14 @@ const usePageCollections = () => {
     } catch (error) {
       mw.log.error("Failed to fetch page collections", error);
     }
+  };
+
+  const fetchPageCollectionGroups = () => {
+    if (!pageCollectionGroupsPromise) {
+      pageCollectionGroupsPromise = doFetchPageCollectionGroups();
+    }
+
+    return pageCollectionGroupsPromise;
   };
 
   return {
