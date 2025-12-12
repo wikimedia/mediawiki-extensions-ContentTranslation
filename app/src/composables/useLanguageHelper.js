@@ -38,7 +38,7 @@ const useSuggestionListLanguagePairUpdate = () => {
 
 const useArticleLanguagePairUpdate = () => {
   const store = useStore();
-  const loadSuggestion = useSuggestionLoad();
+  const { loadSuggestion } = useSuggestionLoad();
   const { currentLanguageTitleGroup, targetPageExists } =
     useLanguageTitleGroup();
   const fetchPageMetadata = usePageMetadataFetch();

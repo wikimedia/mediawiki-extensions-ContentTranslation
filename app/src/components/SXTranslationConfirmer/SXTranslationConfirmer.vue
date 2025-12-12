@@ -29,7 +29,6 @@ const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,
   pageURLParameter: sourcePageTitle,
-  sectionURLParameter: sectionTitle,
   clearTranslationURLParameters,
 } = useURLHandler();
 const { inFeaturedCollection } = useFeaturedCollectionMembership();

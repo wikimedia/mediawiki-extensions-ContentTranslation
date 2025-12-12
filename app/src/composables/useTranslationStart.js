@@ -19,7 +19,7 @@ import {
  */
 const useTranslationStart = () => {
   const router = useRouter();
-  const loadSuggestion = useSuggestionLoad();
+  const { loadSuggestion } = useSuggestionLoad();
   const { setTranslationURLParams } = useURLHandler();
 
   /**

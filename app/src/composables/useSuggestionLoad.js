@@ -2,6 +2,7 @@ import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import { useStore } from "vuex";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
+import { ref } from "vue";
 
 /**
  * A cache for previous (or in-progress) promises
@@ -9,6 +10,10 @@ import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
  * @type {Map<string, Promise<SectionSuggestion|ArticleSuggestion>>}
  */
 const previousRequests = new Map();
+/**
+ * @type {Ref<UnwrapRef<SectionSuggestion[]>>}
+ */
+const loadedSectionSuggestions = ref([]);
 
 const useSuggestionLoad = () => {
   const store = useStore();
@@ -34,7 +39,7 @@ const useSuggestionLoad = () => {
    * @param {string} sourceTitle
    * {Promise<SectionSuggestion|ArticleSuggestion>}
    */
-  return async (sourceLanguage, targetLanguage, sourceTitle) => {
+  const loadSuggestion = (sourceLanguage, targetLanguage, sourceTitle) => {
     const key = `${sourceLanguage}:${targetLanguage}:${sourceTitle}`;
 
     // If a request for the same key is already in progress, return that promise
@@ -44,47 +49,39 @@ const useSuggestionLoad = () => {
 
     const doLoadSuggestion = async () => {
       /** @type {SectionSuggestion|null} */
-      let suggestion = store.getters[
-        "suggestions/getSectionSuggestionsForArticle"
-      ](sourceLanguage, targetLanguage, sourceTitle);
+      const suggestion = await cxSuggestionsApi.fetchSectionSuggestion(
+        sourceLanguage,
+        sourceTitle,
+        targetLanguage
+      );
 
-      if (!suggestion) {
-        /** @type {SectionSuggestion|null} */
-        suggestion = await cxSuggestionsApi.fetchSectionSuggestion(
-          sourceLanguage,
-          sourceTitle,
-          targetLanguage
-        );
+      try {
+        await fetchPageMetadata(sourceLanguage, [sourceTitle]);
 
-        try {
-          await fetchPageMetadata(sourceLanguage, [sourceTitle]);
-
-          if (!suggestion) {
-            const page = store.getters["mediawiki/getPage"](
-              sourceLanguage,
-              sourceTitle
-            );
-
-            return new ArticleSuggestion({
-              sourceLanguage,
-              targetLanguage,
-              sourceTitle,
-              langLinksCount: page.langLinksCount,
-              size: page.articleSize,
-              wikidataId: page.wikidataId,
-            });
-          } else {
-            suggestion.isListable = false;
-            store.commit("suggestions/addSectionSuggestion", suggestion);
-          }
-        } catch (e) {
-          const error = new Error(
-            `No page metadata found for title ${sourceTitle} and language pair ${sourceLanguage}-${targetLanguage}. ${e}`
+        if (!suggestion) {
+          const page = store.getters["mediawiki/getPage"](
+            sourceLanguage,
+            sourceTitle
           );
-          mw.errorLogger.logError(error, "error.contenttranslation");
-          throw error;
+
+          return new ArticleSuggestion({
+            sourceLanguage,
+            targetLanguage,
+            sourceTitle,
+            langLinksCount: page.langLinksCount,
+            size: page.articleSize,
+            wikidataId: page.wikidataId,
+          });
         }
+      } catch (e) {
+        const error = new Error(
+          `No page metadata found for title ${sourceTitle} and language pair ${sourceLanguage}-${targetLanguage}. ${e}`
+        );
+        mw.errorLogger.logError(error, "error.contenttranslation");
+        throw error;
       }
+
+      loadedSectionSuggestions.value.push(suggestion);
 
       return suggestion;
     };
@@ -96,6 +93,22 @@ const useSuggestionLoad = () => {
 
     return loadPromise;
   };
+
+  /**
+   * @param {string} sourceLanguage
+   * @param {string} targetLanguage
+   * @param {string} sourceTitle
+   * @returns {SectionSuggestion|null}
+   */
+  const getLoadedSuggestion = (sourceLanguage, targetLanguage, sourceTitle) =>
+    loadedSectionSuggestions.value.find(
+      (suggestion) =>
+        suggestion.sourceLanguage === sourceLanguage &&
+        suggestion.targetLanguage === targetLanguage &&
+        suggestion.sourceTitle === sourceTitle
+    ) || null;
+
+  return { loadSuggestion, getLoadedSuggestion };
 };
 
 export default useSuggestionLoad;

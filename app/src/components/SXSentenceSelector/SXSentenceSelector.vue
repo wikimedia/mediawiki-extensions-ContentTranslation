@@ -54,7 +54,7 @@ const {
 } = useURLHandler();
 
 const { resetPublishTarget, target } = usePublishTarget();
-const loadSuggestion = useSuggestionLoad();
+const { loadSuggestion } = useSuggestionLoad();
 
 if (!target.value) {
   loadSuggestion(

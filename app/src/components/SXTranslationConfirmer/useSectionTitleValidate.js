@@ -25,7 +25,7 @@ const useSectionTitleValidate = () => {
     pageURLParameter: sourceTitle,
   } = useURLHandler();
 
-  const loadSuggestion = useSuggestionLoad();
+  const { loadSuggestion } = useSuggestionLoad();
 
   return async () => {
     const suggestion = await loadSuggestion(

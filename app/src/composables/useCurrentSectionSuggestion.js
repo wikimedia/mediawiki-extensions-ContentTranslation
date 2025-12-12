@@ -2,9 +2,10 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
 import PageSection from "@/wiki/cx/models/pageSection";
+import useSuggestionLoad from "./useSuggestionLoad";
 
 /**
- * @return {{sectionSuggestion: ComputedRef<SectionSuggestion>, activeSectionTargetTitle: ComputedRef<string>}}
+ * @return {{sectionSuggestion: ComputedRef<SectionSuggestion|null>, activeSectionTargetTitle: ComputedRef<string>}}
  */
 const useCurrentSectionSuggestion = () => {
   const store = useStore();
@@ -14,9 +15,10 @@ const useCurrentSectionSuggestion = () => {
     pageURLParameter: sourceTitle,
     sectionURLParameter: sourceSectionTitle,
   } = useURLHandler();
+  const { getLoadedSuggestion } = useSuggestionLoad();
 
   const sectionSuggestion = computed(() =>
-    store.getters["suggestions/getSectionSuggestionsForArticle"](
+    getLoadedSuggestion(
       sourceLanguage.value,
       targetLanguage.value,
       sourceTitle.value
