@@ -70,8 +70,13 @@ mw.cx.init.Translation.prototype.init = function () {
 	const translationPromise = this.fetchTranslationData();
 	const pluginModules = mw.config.get( 'wgVisualEditorConfig' ).pluginModules;
 	const modulePromise = mw.loader.using( [ 'mw.cx.visualEditor' ].concat( pluginModules ) );
+	const sectionMappingsPromise = mw.cx.sectionMappingService.fetchSectionMappings(
+		this.sourceWikiPage.getTitle(),
+		this.sourceWikiPage.getLanguage(),
+		this.targetWikiPage.getLanguage()
+	);
 
-	Promise.all( [ translationPromise, modulePromise, platformPromise ] )
+	Promise.all( [ translationPromise, modulePromise, platformPromise, sectionMappingsPromise ] )
 		.then( ( [ [ sourcePageContent, draft ] ] ) => {
 			// Set the link cache for source language
 			ve.init.platform.sourceLinkCache = new ve.init.mw.LinkCache(
@@ -87,11 +92,7 @@ mw.cx.init.Translation.prototype.init = function () {
 
 			return this.initTranslationModel( sourcePageContent.segmentedContent, draft ).then( ( translationModel ) => {
 				if ( translationModel.isSectionTranslation() ) {
-					mw.cx.sectionMappingService.fetchSectionMappings(
-						this.sourceWikiPage.getTitle(),
-						this.sourceWikiPage.getLanguage(),
-						this.targetWikiPage.getLanguage()
-					).then( () => this.initializePublishTarget( translationModel ) );
+					this.initializePublishTarget( translationModel );
 				}
 
 				this.translationModel = translationModel;

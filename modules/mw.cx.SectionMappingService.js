@@ -62,6 +62,19 @@
 		isSectionPresent( sourceSectionTitle ) {
 			return !!mw.cx.sectionMappingService.getMappedPresentSectionTitle( sourceSectionTitle );
 		}
+
+		getSourceSectionNumber( sourceSectionTitle ) {
+			if ( !this.mappings || !this.mappings.sourceSections ) {
+				return null;
+			}
+
+			// TODO: Consider moving all string constants to a separate module
+			if ( sourceSectionTitle === '__LEAD_SECTION__' ) {
+				return 0;
+			}
+
+			return this.mappings.sourceSections.findIndex( ( s ) => s === sourceSectionTitle );
+		}
 	}
 
 	// Expose a singleton instance

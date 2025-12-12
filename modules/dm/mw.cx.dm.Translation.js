@@ -78,26 +78,6 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
 /* Static methods */
 
 /**
- * @param {HTMLDocument} htmlDocument
- * @param {string} sectionTitle
- * @return {number|null}
- */
-mw.cx.dm.Translation.static.getMwSectionNumberBySectionTitle = function ( htmlDocument, sectionTitle ) {
-	// TODO: Consider moving all string constants to a separate module
-	if ( sectionTitle === '__LEAD_SECTION__' ) {
-		return 0;
-	}
-	let sxSectionNumber = null;
-	const firstLevelSectionTitles = [].slice.call( htmlDocument.getElementsByTagName( 'h2' ) );
-	const targetSectionNode = firstLevelSectionTitles.find( ( el ) => el.innerText === sectionTitle );
-	if ( targetSectionNode ) {
-		sxSectionNumber = targetSectionNode.parentNode.dataset.mwSectionNumber;
-	}
-
-	return sxSectionNumber && parseInt( sxSectionNumber );
-};
-
-/**
  * Parse and restructure the source HTML for source and target languages.
  *
  * @param {string} sourceHtml The source HTML
@@ -127,7 +107,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 
 	let sxSectionNumber;
 	if ( sourceSectionTitle ) {
-		sxSectionNumber = mw.cx.dm.Translation.static.getMwSectionNumberBySectionTitle( domDoc, sourceSectionTitle );
+		sxSectionNumber = mw.cx.sectionMappingService.getSourceSectionNumber( sourceSectionTitle );
 	}
 
 	const articleNode = domDoc.createElement( 'article' );
@@ -412,10 +392,7 @@ mw.cx.dm.Translation.prototype.getSourceSectionTitle = function () {
  * @return {number}
  */
 mw.cx.dm.Translation.prototype.getMwSectionNumber = function () {
-	return mw.cx.dm.Translation.static.getMwSectionNumberBySectionTitle(
-		this.sourceDoc.htmlDocument,
-		this.getSourceSectionTitle()
-	);
+	return mw.cx.sectionMappingService.getSourceSectionNumber( this.getSourceSectionTitle() );
 };
 
 /**
