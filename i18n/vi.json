@@ -350,7 +350,7 @@
 	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Cảm ơn bạn vì đã mở rộng nội dung có sẵn tại ngôn ngữ của bạn",
 	"cx-sx-publisher-animation-success-message-title": "Đã xuất bản!",
 	"cx-sx-publisher-animation-success-message-subtitle": "Đang mở trang…",
-	"cx-sx-publisher-animation-failure-message-title": "XUất bản thất bại",
+	"cx-sx-publisher-animation-failure-message-title": "Không thể xuất bản",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Kiểm tra thông điệp lỗi",
 	"cx-sx-publish-summary": "Được tạo bằng cách biên dịch đoạn “$1” từ trang “$2”",
 	"cx-sx-publish-lead-section-summary": "Được tạo bằng cách dịch phần mở đầu từ trang \"$1\"",
