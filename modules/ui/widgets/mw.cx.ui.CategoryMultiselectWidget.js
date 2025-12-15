@@ -180,3 +180,11 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.onInputChange = function ( inputVal
 		this.menu.toggle( false );
 	}
 };
+
+/**
+ * Override parent's onTagSelect to prevent error when clicking already-selected tags.
+ * Selected tags don't have corresponding menu items, so trying to scroll them causes null reference errors.
+ */
+mw.cx.ui.CategoryMultiselectWidget.prototype.onTagSelect = function () {
+	return; // Do nothing
+};
