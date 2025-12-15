@@ -82,7 +82,10 @@ const useActionPanel = () => {
   const actionInformationMessage = computed(() => {
     if (missingCount.value > 1) {
       const messageKey = "cx-sx-existing-translation-additional-info";
-      const messageArgs = ["$1", missingCount.value - 1];
+      const messageArgs = [
+        "$1",
+        mw.language.convertNumber(missingCount.value - 1),
+      ];
       const message = mw.message(messageKey, ...messageArgs).parse();
 
       return message.replace("$1", `"${firstMissingSectionTitle.value}"`);

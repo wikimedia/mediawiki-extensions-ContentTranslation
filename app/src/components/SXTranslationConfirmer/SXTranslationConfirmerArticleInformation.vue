@@ -73,8 +73,8 @@ const sourceArticlePath = computed(() =>
   siteMapper.getPageUrl(sourceLanguage.value || "", sourceTitle.value || "")
 );
 
-const articleLanguageCount = computed(
-  () => (sourceArticle.value?.langLinksCount || 0) + 1
+const articleLanguageCount = computed(() =>
+  mw.language.convertNumber((sourceArticle.value?.langLinksCount || 0) + 1)
 );
 
 const formatPageViews = (views) => {
@@ -90,14 +90,15 @@ const formatPageViews = (views) => {
     if (views >= units[i].value) {
       // Divide by the unit's value and format the result
       return (
-        (views / units[i].value).toFixed(1).replace(/\.0$/, "") +
-        units[i].suffix
+        mw.language.convertNumber(
+          Number((views / units[i].value).toFixed(1).replace(/\.0$/, ""))
+        ) + units[i].suffix
       );
     }
   }
 
   // If no units match, return the number as a string
-  return views.toString();
+  return mw.language.convertNumber(views);
 };
 
 const weeklyViews = computed(() => {
@@ -121,31 +122,36 @@ const timeEstimateMessage = computed(() => {
   const hours = minutes >= 60 ? minutes / 60 : 0;
   const roundedHours = Math.round(hours * 2) / 2; // Round to nearest 0.5 hours
 
+  const formattedRoundedHours = mw.language.convertNumber(roundedHours);
+  const formattedMinutes = mw.language.convertNumber(minutes);
+
   if (!suggestion.value && isDesktopSite) {
     return bananaI18n.i18n(
       "cx-sx-translation-confirmer-translation-time-whole-article",
-      roundedHours,
-      minutes
+      formattedRoundedHours,
+      formattedMinutes
     );
   } else if (!suggestion.value) {
     return bananaI18n.i18n(
       "cx-sx-translation-confirmer-translation-time-lead-section",
-      roundedHours,
-      minutes
+      formattedRoundedHours,
+      formattedMinutes
     );
   } else if (sectionTitle.value) {
     return bananaI18n.i18n(
       "cx-sx-translation-confirmer-translation-time-single-section",
-      roundedHours,
-      minutes
+      formattedRoundedHours,
+      formattedMinutes
     );
   }
 
+  const sectionsLength = Object.keys(suggestion.value.missingSections).length;
+
   return bananaI18n.i18n(
     "cx-sx-translation-confirmer-translation-time-sections",
-    roundedHours,
-    minutes,
-    Object.keys(suggestion.value.missingSections).length
+    formattedRoundedHours,
+    formattedMinutes,
+    mw.language.convertNumber(sectionsLength)
   );
 });
 </script>

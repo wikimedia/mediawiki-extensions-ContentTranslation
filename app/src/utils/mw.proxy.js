@@ -44,6 +44,9 @@ class SiteMapper {
 const localStorage = {};
 
 const mw = {
+  language: {
+    convertNumber: (number) => number.toString(),
+  },
   storage: {
     store: localStorage,
     set: (key, value) => (localStorage[key] = value),
