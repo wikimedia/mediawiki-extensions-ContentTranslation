@@ -8,7 +8,8 @@
 			"Iwan Novirion",
 			"Kenrick95",
 			"William Surya Permana",
-			"WongKentir"
+			"WongKentir",
+			"Penyuwangi"
 		]
 	},
 	"apihelp-cxpublish-summary": "Menyimpan halaman yang dibuat menggunakan ekstensi Terjemahan Konten.",
@@ -124,6 +125,6 @@
 	"apihelp-cxpublishsection-param-targetsectiontitle": "Judul bagian tujuan.",
 	"apihelp-cxpublishsection-param-sectionnumber": "Posisi bagian di revisi baru halaman.",
 	"apihelp-cxpublishsection-param-sourcerevid": "ID revisi halaman sumber.",
-	"apihelp-cxpublishsection-param-captchaid": "ID Captcha (ketika menyimpan dengan respons captcha).",
-	"apihelp-cxpublishsection-param-captchaword": "Jawaban captcha (ketika menyimpan dengan respons captcha)."
+	"apihelp-cxpublishsection-param-captchaid": "ID Captcha (ketika menyimpan dengan tanggapan captcha).",
+	"apihelp-cxpublishsection-param-captchaword": "Jawaban captcha (ketika menyimpan dengan tanggapan captcha)."
 }

@@ -26,7 +26,7 @@
 	"mint-confirm-topic-page-language-selector-explanation": "Bản dịch [$1 từ Wikipedia tiếng $2]. Xem cách giải thích đề tài này trong {{PLURAL:$3|ngôn ngữ|$3 ngôn ngữ}} khác.",
 	"mint-confirm-topic-page-go-to-search-button-label": "Tìm đề tài khác",
 	"mint-confirm-topic-page-target-article-link-container-header": "Được biên soạn trong $1",
-	"mint-confirm-topic-page-target-article-link-container-details": "Bài này được những người thật biên soạn trong $1. Bạn có thể tham gia cùng cải thiện nội dung.",
+	"mint-confirm-topic-page-target-article-link-container-details": "Nội dung bài viết tại $1 do các tình nguyện viên đóng góp. Bạn có thể tham gia cùng cải thiện nội dung.",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "Đọc bài",
 	"mint-view-translation-page-header": "Dịch tự động",
 	"mint-view-translation-page-disclaimer-header": "Nội dung dịch máy có thể không chính xác",
