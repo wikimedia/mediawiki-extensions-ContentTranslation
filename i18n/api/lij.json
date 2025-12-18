@@ -102,6 +102,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "L'ID da versción da pàgina d'òrìgine.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (quànde ti sàrvi co-ina rispòsta captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "Rispóndi a-o captcha (quànde ti sàrvi co-ina rispòsta captcha).",
+	"apihelp-cxpublishsection-param-publishtarget": "O scîto de pubricaçión da traduçión de seçión. I valoî poscìbili: \"SANDBOX\", \"NEW_SECTION\", \"EXPAND\" e \"REPLACE\".",
 	"apihelp-cxpublishsection-param-sectiontranslationid": "L'ID da traduçión de seçión asociâ co-a bòssa da traduçión de seçión.",
 	"apihelp-sxsave-summary": "Sàrva a bòssa de traduçión de seçión e depòxitala inti corpora paralêli",
 	"apihelp-sxsave-param-sourcelanguage": "O còdice da léngoa d'òrìgine.",
