@@ -8,7 +8,7 @@ import {
 import ContentTypeSelector from "./ContentTypeSelector.vue";
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
@@ -80,21 +80,33 @@ const targetArticlePath = computed(() =>
 );
 
 const contentHeader = ref(null);
-
+let observer;
 onMounted(() => {
   /**
    * Only watch for vertical intersection, as horizontal
    * intersection is happening when component is being mounted
    * due to router transitions, inserting UI glitches.
    */
-  const observer = new IntersectionObserver(
+  observer = new IntersectionObserver(
     ([e]) => {
       isSticky.value = e.intersectionRect.height < e.boundingClientRect.height;
     },
     { threshold: [1] }
   );
 
-  observer.observe(contentHeader.value.$el);
+  const startIntersectionObserver = () => {
+    observer?.observe(contentHeader.value.$el);
+  };
+
+  window.addEventListener("scroll", startIntersectionObserver, {
+    passive: true,
+    once: true,
+  });
+});
+
+onBeforeUnmount(() => {
+  observer?.disconnect();
+  observer = null;
 });
 </script>
 
