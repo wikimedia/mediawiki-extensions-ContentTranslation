@@ -73,7 +73,10 @@
 				return 0;
 			}
 
-			return this.mappings.sourceSections.findIndex( ( s ) => s === sourceSectionTitle );
+			const namedSectionIndex = this.mappings.sourceSections.findIndex( ( s ) => s === sourceSectionTitle );
+
+			// Add 1 to account for the lead section
+			return namedSectionIndex + 1;
 		}
 	}
 
