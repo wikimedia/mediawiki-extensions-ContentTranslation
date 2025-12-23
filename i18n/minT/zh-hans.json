@@ -2,7 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"沈澄心",
-			"Peterxy12"
+			"Peterxy12",
+			"Anterdc99",
+			"Pawsdt",
+			"RyanCray88"
 		]
 	},
 	"automatic-translation-special-page-description": "自动翻译",
@@ -23,12 +26,17 @@
 	"mint-search-topic-page-results-container-empty": "搜索任何主题。主题内容在各不同语言不尽相同。",
 	"mint-confirm-topic-page-header": "自动翻译",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "查看自动翻译",
+	"mint-confirm-topic-page-language-selector-explanation": "翻译[$1 来自$2维基百科]。探索在{{PLURAL:$3|别的语言|其他$3种语言}}如何涵盖此主题。",
 	"mint-confirm-topic-page-go-to-search-button-label": "搜索别的主题",
 	"mint-confirm-topic-page-target-article-link-container-header": "由编辑者以$1编写",
+	"mint-confirm-topic-page-target-article-link-container-details": "条目已由真人编辑者以$1编写。您可以加入他们来改善内容。",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "阅读条目",
 	"mint-view-translation-page-header": "自动翻译",
 	"mint-view-translation-page-disclaimer-header": "自动产生的内容可能不正确",
+	"mint-view-translation-page-disclaimer-body": "本页面最初是以$1编写的自动翻译内容。",
 	"mint-view-translation-page-disclaimer-learn-more-link": "了解更多",
+	"mint-view-translation-page-target-article-container-header": "由真人创建的此主题内容也可用",
+	"mint-view-translation-page-target-article-container-details": "阅读来自$1维基百科编辑者的条目，以获得该主题的更多可靠信息。",
 	"mint-view-translation-page-source-article-link-label": "以$1打开",
 	"mint-view-translation-content-translation-entrypoint-title": "检查自动翻译",
 	"mint-view-translation-content-translation-entrypoint-description": "自动产生的内容可能不正确",
