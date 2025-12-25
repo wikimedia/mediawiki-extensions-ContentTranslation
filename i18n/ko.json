@@ -332,7 +332,7 @@
 	"cx-sx-publisher-mt-abuse-error-title": "번역을 계시할 수 없습니다: 수정되지 않은 문구 $1%를 포함합니다",
 	"cx-sx-publisher-mt-abuse-message-body": "기계 번역은 단지 시작점일 뿐입니다. 그대로 게시할 수 있지만 여러분의 번역이 여러분의 언어로 자연스럽게 읽히도록 만들어 주십시오.",
 	"cx-sx-publisher-mt-abuse-error-body": "기계 번역은 단지 시작점일 뿐입니다. 여러분의 언어로 자연스럽게 읽히도록 만들어 주십시오.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1개 문단|$1개 문단들|0=문단 없음}}",
+	"cx-sx-translation-suggestion-info": "번역할 {{PLURAL:$1|문단 $1개|0=문단 없음}}",
 	"cx-sx-translation-suggestion-quick": "빠른 번역",
 	"cx-sx-article-search-input-placeholder": "번역할 문서를 검색합니다",
 	"cx-sx-article-search-recently-edited-title": "내가 최근에 편집함",
