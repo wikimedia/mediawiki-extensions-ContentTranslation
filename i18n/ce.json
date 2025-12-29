@@ -488,5 +488,7 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Керла дакъош",
 	"cx-sx-suggestion-list-empty-title": "ХӀинца йолу ханна предложенеш йац",
 	"cx-sx-suggestion-list-empty-description": "Цхьа а предложени ца карийра тхуна оцу фильтран. Кхечу кепара фильтр хьажа мегар ду, йа гочйан билггал болу йаззам лаха мегар ду.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Массо а"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Массо а",
+	"cx-featured-collection-banner-learn-more": "Цул совнаха хаа",
+	"cx-featured-collection-banner-toggle-more": "кхин дӀа"
 }
