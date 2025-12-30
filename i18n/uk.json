@@ -360,6 +360,8 @@
 	"cx-sx-article-search-input-placeholder": "Знайдіть сторінку для перекладу",
 	"cx-sx-article-search-recently-edited-title": "Нещодавно відредаговано вами",
 	"cx-sx-article-search-nearby-title": "Поблизу",
+	"cx-sx-article-search-community-priorities-title": "Пріоритети спільноти",
+	"cx-sx-article-search-community-priorities-subtitle": "Статті, які спільнота вибрала як важливі для перекладу",
 	"sx-article-search-language-selector-dialog-title": "Мови",
 	"sx-article-search-close-button-aria-label": "Закрити",
 	"cx-sx-language-selector-placeholder": "Знайти мову",
@@ -525,5 +527,13 @@
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Локальна колекція",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Якщо встановити локальну колекцію, вона відобразиться на панелі інструментів перекладу вмісту, коли цільовою мовою на панелі інструментів буде та сама мова, що й у цій вікі.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Опис (необов'язково)",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Посилання на вікісторінку, пов'язану з колекцією, можна надати для включення до інформаційного банера на панелі інструменту перекладу вмісту."
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "Можна додати власний опис, який показуватиметься в інформаційному банері на панелі інструментів Перекладу вмісту.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Посилання на вікісторінку (необов'язково)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Посилання на вікісторінку, пов'язану з колекцією, можна надати для включення до інформаційного банера на панелі інструменту перекладу вмісту.",
+	"cx-featured-collection-banner-title": "Пріоритети спільноти",
+	"cx-featured-collection-confirmation-banner-title": "Пріоритет спільноти",
+	"cx-featured-collection-banner-description": "Ця колекція містить статті, які спільнота визначила як необхідні знання. Їх переклад допомагає зробити важливу інформацію доступною для більшої кількості читачів.",
+	"cx-featured-collection-banner-learn-more": "Дізнатися більше",
+	"cx-featured-collection-banner-toggle-less": "менше",
+	"cx-featured-collection-banner-toggle-more": "більше"
 }
