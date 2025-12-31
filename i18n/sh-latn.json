@@ -34,7 +34,7 @@
 	"cx-lost-session-publish": "Sesija je istekla. Prijevod ćete moći objaviti samo ako se prijavite ponovo u novom prozoru.",
 	"cx-lost-session-dashboard": "Kako biste izvršili ovu radnju, ponovo se prijavite.",
 	"cx-publish-summary": "Napravljeno prevođenjem stranice \"$1\"",
-	"cx-translation-add-translation": "Dodaj prijevod",
+	"cx-translation-add-translation": "Prevedi",
 	"cx-translation-target-page-exists": "Na odredišnom wikiju već postoji stranica sa naslovom [$1 $2]. Dajte joj drugi naslov.",
 	"tag-contenttranslation": "Prevodilac sadržaja",
 	"tag-contenttranslation-description": "Sadržaj je preveden sa drugog jezika korišćenjem alatke „Prevođenje sadržaja”",
