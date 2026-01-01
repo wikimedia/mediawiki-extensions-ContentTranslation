@@ -6,6 +6,7 @@
 			"Jopparn",
 			"Lokal Profil",
 			"Sabelöga",
+			"Stefan2255",
 			"WikiPhoenix"
 		]
 	},
@@ -43,7 +44,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Källans språkkod",
 	"apihelp-query+cxpublishedtranslations-param-to": "Målets språkkod",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Maximala antalet översättningar att hämta.",
-	"apihelp-query+cxpublishedtranslations-example-1": "Hämta alla publicerade översättningar",
+	"apihelp-query+cxpublishedtranslations-example-1": "Hämta alla publicerade översättningar, översatta från engelska till spanska",
 	"apihelp-cxtoken-summary": "Hämta JWT-nyckel för att autentisera med cxserver.",
 	"apihelp-cxtoken-example-1": "Hämta autentiseringstoken för cxserver",
 	"apihelp-cxdelete-summary": "Radera ett översättningsutkast som skapats med hjälp av tillägget Innehållsöversättning.",

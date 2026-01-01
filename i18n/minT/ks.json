@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Ayaat123"
+		]
 	},
 	"automatic-translation-special-page-description": "خۄدکار تَرجَمہٕ",
 	"automatic-translation-desc": "یہِ چھُ مَواد صَفَن ہُنٛد [[Special:AutomaticTranslation|خۄدکار تَرجَمہٕ]] دِوان.",
@@ -60,7 +62,7 @@
 	"ax-cx-introduction-dialog-title": "ترجمن کٔرِو جٲیزٕ تہٕ ٹھیک",
 	"ax-cx-introduction-summary": "پننِہ زبانہِ منز کٔرِو مَواد بہتر۔ اکھ بہتر تَرجَمہٕ لیٚکھِو، تہٕ یہِ کٔرِو وِکیٖپیٖڈیاہَس پؠٹھ شایع۔",
 	"ax-cx-introduction-information-accuracy": "خودکار تَرجَمہٕ چھُ اکھ اَہَم خلاسہ دِوان مگر یہ چھُ نہٕ ہمیشہ صحیح آسان.",
-	"ax-cx-introduction-information-expand": "اِنسانن ہُنٛد لیکھنہٕ آمُت مَواد چُھ زِیٛادٕ بَھروسہٕ مَنٛد، تہٕ تُہؠ ہیٚکِو یہِ بڑاونس منٛز مَدَتد کٔرِتھ!",
+	"ax-cx-introduction-information-expand": "اِنسانن ہُنٛد لؠکھنہٕ آمُت مَواد چھُ زِیٛادٕ بَروسہٕ مَنٛز، تہٕ تُہؠ ہیٚکِو یہِ بڑاونس منٛز مَدَتد کٔرِتھ!",
 	"ax-cx-introduction-information-correct": "پرٛٮ۪تھ جُملَس خٲطرٕ کٔرِو خۄدکار تَرجُمَن ہُنٛد جٲیزٕ تہٕ درست کرنہٕ خٲطرٕ مرحلہٕ وار عملہِ ہٕنٛز پیروی کٔرِو۔",
 	"ax-cx-introduction-dialog-action": "صحیح کٔرِو تہٕ کٔرِو جمع مضموٗنس منٛز",
 	"ax-translation-view-feedback-title": "کیٛاہ یہِ خۄدکار تَرجُم چھا تۄہیہ مدد کران مزیٖد ہیٚچھنس منٛز؟",
