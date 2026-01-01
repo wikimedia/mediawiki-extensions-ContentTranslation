@@ -15,7 +15,8 @@
 			"Stjn",
 			"Sunpriat",
 			"Vlad5250",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Vonavy"
 		]
 	},
 	"apihelp-cxpublish-summary": "Сохранить страницу, созданную с помощью расширения «Перевод содержимого».",
@@ -50,7 +51,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "Код языка источника.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Код целевого языка.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "Максимальное число возвращаемых переводов.",
-	"apihelp-query+cxpublishedtranslations-example-1": "Выборка всех опубликованных переводов",
+	"apihelp-query+cxpublishedtranslations-example-1": "Выборка всех опубликованных переводов с английского на испанский",
 	"apihelp-cxtoken-summary": "Получить токены JWT для аутентификации с помощью cxserver.",
 	"apihelp-cxtoken-example-1": "Получить токен аутентификации для cxserver",
 	"apihelp-cxdelete-summary": "Удалить черновой перевод, созданный с помощью расширения «Инструмент перевода».",
