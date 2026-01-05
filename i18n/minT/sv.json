@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Stefan2255",
 			"WikiPhoenix",
 			"Yupik"
 		]
@@ -12,6 +13,10 @@
 	"mint-translation-list-all-languages-option-label": "Alla",
 	"mint-home-info-panel-text": "Miljontals ämnen på Wikipedia kan automatiskt översättas till $1.",
 	"mint-home-random-topic-button-label": "Slumpmässigt ämne",
+	"ax-home-random-topic-loading-label": "Läser in...",
+	"ax-home-random-topic-error": "Fel uppstod när ett slumpmässigt ämne hämtades",
+	"ax-home-error-title": "Fel uppstod när artikeln $1 hämtades.",
+	"mint-home-experimental-note": "Stöd för automatisk översättning är experimentellt. [$1 Läs mer]",
 	"mint-language-selector-title": "Språk",
 	"mint-language-selector-suggestions-header": "Föreslagna",
 	"mint-language-selector-all-languages-header": "Alla språk",
@@ -45,11 +50,37 @@
 	"mint-view-translation-overlay-feedback-link-label": "Skicka återkoppling",
 	"ax-article-footer-entrypoint-card-description": "Mer innehåll på andra språk",
 	"ax-article-footer-entrypoint-card-supporting-text": "Läs automatisk översättning",
+	"ax-article-footer-entrypoint-card-heading": "Automatisk översättning",
 	"mint-explore-languages-header": "Utforska språk",
 	"mint-explore-languages-search-input-placeholder": "Alla språk för detta ämne",
 	"mint-explore-languages-explanation-banner-title": "Lär dig mer från andra språk",
 	"mint-explore-languages-explanation-banner-text": "Redigerare på olika språk behandlar detta ämne på olika sätt.",
 	"mint-explore-languages-language-card-container-title": "Språk med mest innehåll om \"$1\"",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 avsnitt|0=Inga avsnitt}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Mest detaljerad"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Mest detaljerad",
+	"mint-explore-languages-loading-error": "Det gick inte att förhandsgranska innehållet som är tillgängligt på varje språk. Välj ett språk som ska användas som källa för den automatiska översättningen.",
+	"mint-explore-languages-open-language-selector": "Välj språk",
+	"mint-explore-languages-more-results": "$1 {{PLURAL:$1|till språk}}",
+	"ax-cx-introduction-dialog-title": "Hitta och korrigera översättningar",
+	"ax-cx-introduction-summary": "Förbättra innehållet som finns tillgängligt på ditt språk. Skriv en bättre översättning och publicera den på Wikipedia.",
+	"ax-cx-introduction-information-accuracy": "Automatisk översättning ger en användbar översikt men är inte alltid exakt.",
+	"ax-cx-introduction-information-expand": "Innehåll skrivet av människor är mer tillförlitligt, och du kan hjälpa till att utöka det!",
+	"ax-cx-introduction-information-correct": "Följ en enkel steg-för-steg-process för att granska och korrigera automatiska översättningar för varje mening.",
+	"ax-cx-introduction-dialog-action": "Rätta och lägg till i artikeln",
+	"ax-translation-view-feedback-title": "Hjälper den här automatiska översättningen dig att lära dig mer?",
+	"ax-translation-view-feedback-positive": "Ja",
+	"ax-translation-view-feedback-negative": "Nej",
+	"ax-translation-view-feedback-privacy-statement": "För mer information, se undersökningens [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy sekretesspolicy].",
+	"ax-translation-view-feedback-details-question": "Vilket av följande håller du med om?",
+	"ax-translation-view-feedback-positive-missing-information": "Gav mig tillgång till information som är svår att hitta någon annanstans.",
+	"ax-translation-view-feedback-positive-translation-quality": "Översättningskvaliteten är tillräckligt god för att man med säkerhet ska förstå innehållet.",
+	"ax-translation-view-feedback-positive-quick-overview": "Jag kan snabbt få en allmän uppfattning om ämnet.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Tekniska aspekter som laddningstid hindrade inte inlärningen.",
+	"ax-translation-view-feedback-negative-missing-information": "Jag kan få bättre information någon annanstans.",
+	"ax-translation-view-feedback-negative-translation-quality": "Översättningskvaliteten är tillräckligt god för att man med säkerhet ska förstå innehållet.",
+	"ax-translation-view-feedback-negative-quick-overview": "Jag kan snabbt få en allmän uppfattning om ämnet.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Tekniska aspekter som laddningstid hindrade inte inlärningen.",
+	"ax-translation-view-feedback-confirm-title": "Återkoppling",
+	"ax-translation-view-feedback-confirm-description": "Tack för hjälpen! Du kan dela med dig av andra tankar om detta experiment [https://www.mediawiki.org/wiki/Talk:MinT på projektets diskussionssida].",
+	"ax-cx-failed-translation-label": "Översättningen misslyckades"
 }
