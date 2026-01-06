@@ -486,5 +486,9 @@
 	"cx-page-collection-dialog-section-suggestions-header": "Rannoù nevez",
 	"cx-sx-suggestion-list-empty-title": "Kinnig ebet evit poent",
 	"cx-sx-suggestion-list-empty-description": "N'hon eus kavet erbedadenn ebet evit ar sil-mañ. Gallout a rit klask gant ur sil all pe klask ur pennad resis da dreiñ.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "An holl"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "An holl",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Liamm pajenn wiki (diret)",
+	"cx-featured-collection-banner-learn-more": "Gouzout hiroc'h",
+	"cx-featured-collection-banner-toggle-less": "nebeutoc'h",
+	"cx-featured-collection-banner-toggle-more": "muioc'h"
 }
