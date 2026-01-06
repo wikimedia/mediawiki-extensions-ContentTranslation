@@ -74,7 +74,7 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "Aby zobaczyć swoje tłumaczenia, musisz się zalogować.",
 	"apierror-cx-samelanguages": "Język źródłowy i docelowy nie może być taki sam.",
 	"apierror-cx-translationnotfound": "Nie znaleziono tłumaczenia.",
-	"apihelp-cxpublishsection-summary": "Zapisz stronę stworzoną przy użyciu funkcji tłumaczenia sekcji rozszerzenia ContentTranslation.",
+	"apihelp-cxpublishsection-summary": "Zapisz sekcję stworzoną przy użyciu funkcji tłumaczenia sekcji rozszerzenia ContentTranslation.",
 	"apihelp-cxpublishsection-param-title": "Tytuł strony, na której będą dokonywane dalsze działania.",
 	"apihelp-cxpublishsection-param-html": "Treść do zapisania.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Kod języka źródłowego.",
