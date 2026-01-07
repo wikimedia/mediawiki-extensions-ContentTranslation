@@ -142,6 +142,7 @@
 	"cx-save-draft-shortcut-label": "Spara utkast",
 	"cx-save-draft-tooltip": "Översättningsutkast sparas automatiskt.",
 	"cx-save-draft-error": "Ett fel uppstod när utkastet skulle sparas.",
+	"cx-save-draft-error-retry": "Det gick inte att spara. Försöker igen om en stund...",
 	"cx-contributions-new-contributions": "Nytt bidrag",
 	"cx-contributions-new-article": "Ny sida",
 	"cx-contributions-translation": "Översättning",
@@ -537,11 +538,16 @@
 	"cx-sx-suggestions-filter-most-popular-label": "Populär",
 	"cx-sx-suggestions-filter-page-collection-label": "Alla samlingar",
 	"cx-sx-suggestions-filter-more-label": "Mer",
+	"cx-sx-suggestions-filter-active-group-label": "Aktiva filter",
 	"cx-sx-suggestions-filter-default-group-label": "Automatisk",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Samlingar",
+	"cx-sx-suggestions-filter-search-results-topics-default-description": "Ämne ⋅ Bläddra bland artiklar",
+	"cx-sx-suggestions-filter-search-results-collections-default-description": "Samling ⋅ {{PLURAL:$1|$1 artikel|$1 artiklar|0=Inga artiklar}}",
 	"cx-page-collection-dialog-close-button-aria-label": "Gå tillbaka till instrumentpanelen",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 artiklar finns på $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 dag|$1 dagar|0=Inga dagar}} kvar",
 	"cx-page-collection-dialog-page-suggestions-header": "Nya sidor",
-	"cx-page-collection-dialog-section-suggestions-header": "Nytt avsnitt"
+	"cx-page-collection-dialog-section-suggestions-header": "Nytt avsnitt",
+	"cx-sx-suggestion-list-empty-title": "Inga förslag för tillfället",
+	"cx-sx-suggestion-list-empty-description": "Vi hittade inga förslag för det här filtret. Du kan prova ett annat filter eller söka efter en specifik artikel att översätta."
 }
