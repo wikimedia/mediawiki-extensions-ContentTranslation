@@ -315,7 +315,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "Không thể xuất bản",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Kiểm tra thông điệp lỗi",
 	"cx-sx-publish-summary": "Được tạo bằng cách biên dịch đoạn “$1” từ trang “$2”",
-	"cx-sx-publish-lead-section-summary": "Được tạo bằng cách dịch phần mở đầu từ trang \"$1\"",
+	"cx-sx-publish-lead-section-summary": "Tạo với bản dịch phần mở đầu của trang “$1”",
 	"cx-sx-publisher-preview-options-title": "Tùy chọn xuất bản",
 	"cx-sx-publisher-preview-options-back-button-aria-label": "Quay lại",
 	"cx-sx-publisher-new-section-option-label": "Xuất bản dưới dạng một đoạn mới",

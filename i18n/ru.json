@@ -64,7 +64,8 @@
 			"Лилиә",
 			"Максим777",
 			"Петар Петковић",
-			"Умар"
+			"Умар",
+			"Lvova"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -325,7 +326,7 @@
 	"cx-sx-publisher-animation-success-message-subtitle": "Открытие страницы…",
 	"cx-sx-publisher-animation-failure-message-title": "Не удалось опубликовать",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Проверьте сообщения об ошибке",
-	"cx-sx-publish-summary": "Создано путем перевода раздела «$1» со страницы «$2»",
+	"cx-sx-publish-summary": "Создано путём перевода раздела «$1» со страницы «$2»",
 	"cx-sx-publish-lead-section-summary": "Создано переводом вводного раздела страницы $1",
 	"cx-sx-publisher-preview-options-title": "Варианты публикации",
 	"cx-sx-publisher-preview-options-back-button-aria-label": "Назад",
