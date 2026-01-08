@@ -8,7 +8,6 @@ import useSuggestionLoad from "./useSuggestionLoad";
  * @return {{sectionSuggestion: ComputedRef<SectionSuggestion|null>, activeSectionTargetTitle: ComputedRef<string>}}
  */
 const useCurrentSectionSuggestion = () => {
-  const store = useStore();
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,

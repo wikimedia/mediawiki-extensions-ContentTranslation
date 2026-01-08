@@ -24,7 +24,8 @@ const useEditorNavigation = () => {
     sectionURLParameter: sectionTitle,
     isQuickTutorialForced,
   } = useURLHandler();
-  const { activeSectionTargetTitle } = useCurrentSectionSuggestion();
+  const { sectionSuggestion, activeSectionTargetTitle } =
+    useCurrentSectionSuggestion();
   const { target: publishTarget } = usePublishTarget();
   const store = useStore();
   const router = useRouter();
@@ -82,6 +83,10 @@ const useEditorNavigation = () => {
       if (!!activeSectionTargetTitle.value) {
         extra.targetsection = activeSectionTargetTitle.value;
       }
+    }
+
+    if (sectionSuggestion.value.targetTitle) {
+      extra.targettitle = sectionSuggestion.value.targetTitle;
     }
 
     if (publishTarget.value) {
