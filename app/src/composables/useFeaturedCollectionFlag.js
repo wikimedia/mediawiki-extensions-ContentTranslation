@@ -22,7 +22,8 @@ const useFeaturedCollectionFlag = () => {
         useFeaturedCollectionFilter(targetLanguage);
 
       featuredCollections[targetLanguage] = featuredCollection;
-      featuredCollectionPromises[targetLanguage] = featuredCollectionPromise;
+      featuredCollectionPromises[targetLanguage] =
+        featuredCollectionPromise.value;
     }
 
     return { featuredCollections, featuredCollectionPromises };
