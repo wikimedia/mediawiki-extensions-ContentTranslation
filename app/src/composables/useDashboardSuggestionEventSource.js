@@ -13,6 +13,7 @@ const SUGGESTION_RECENT_EDIT = "suggestion_recent_edit";
 const SUGGESTION_TOPIC_AREA = "suggestion_topic_area";
 const SUGGESTION_SEARCH_RESULT_SEED = "suggestion_search_result_seed";
 const SUGGESTION_FEATURED = "suggestion_featured";
+const SUGGESTION_POPULAR_ARTICLES = "suggestion_popular_articles";
 const SUGGESTION_COLLECTIONS = "suggestion_collections";
 const SUGGESTION_REGION = "suggestion_region";
 
@@ -31,10 +32,7 @@ const useDashboardSuggestionEventSource = () => {
     } else if (type === SEED_SUGGESTION_PROVIDER) {
       return SUGGESTION_SEARCH_RESULT_SEED;
     } else if (id === POPULAR_SUGGESTION_PROVIDER) {
-      // we don't have a proper event source for most popular suggestions,
-      // let's use 'suggestion_featured' for now
-      // TODO: Add a new event source or rename 'suggestion_featured' for most popular suggestions
-      return SUGGESTION_FEATURED;
+      return SUGGESTION_POPULAR_ARTICLES;
     } else if (
       id === COLLECTIONS_SUGGESTION_PROVIDER ||
       type === COLLECTIONS_SUGGESTION_PROVIDER
