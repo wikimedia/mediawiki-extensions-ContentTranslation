@@ -371,6 +371,8 @@
 	"cx-sx-article-search-input-placeholder": "Zoek naar een te vertalen pagina",
 	"cx-sx-article-search-recently-edited-title": "Onlangs door u bewerkt",
 	"cx-sx-article-search-nearby-title": "In de buurt",
+	"cx-sx-article-search-community-priorities-title": "Gemeenschapsprioriteiten",
+	"cx-sx-article-search-community-priorities-subtitle": "Artikelen die de gemeenschap heeft uitgekozen als belangrijk om te vertalen",
 	"sx-article-search-language-selector-dialog-title": "Talen",
 	"sx-article-search-close-button-aria-label": "Sluiten",
 	"cx-sx-language-selector-placeholder": "Zoeken naar een taal",
@@ -534,5 +536,15 @@
 	"communityconfiguration-contenttranslation-title": "Vertaling van inhoud",
 	"communityconfiguration-contenttranslation-description": "Met het hulpmiddel voor het vertalen van inhoud kunnen bewerkers pagina's vertalen.",
 	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Lokale aanbevolen verzameling",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Als u een lokale uitgelichte verzameling instelt, wordt deze weergegeven in het Content Translation-dashboard wanneer de doeltaal van het dashboard is ingesteld op dezelfde taal als die van deze wiki."
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-description": "Als u een lokale uitgelichte verzameling instelt, wordt deze weergegeven in het Content Translation-dashboard wanneer de doeltaal van het dashboard is ingesteld op dezelfde taal als die van deze wiki.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Beschrijving (optioneel)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-description": "Er kan een aangepaste beschrijving worden opgegeven die dan wordt weergegeven in een informatiebalk in het dashboard van Content Translation.",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Koppeling naar de wikipagina (optioneel)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-description": "Er kan een wikipagina-koppeling worden opgegeven die verband houdt met de uitgelichte collectie. Deze wordt dan opgenomen in de informatiebalk in het dashboard van Content Translation.",
+	"cx-featured-collection-banner-title": "Gemeenschapsprioriteiten",
+	"cx-featured-collection-confirmation-banner-title": "Gemeenschapsprioriteit",
+	"cx-featured-collection-banner-description": "In deze collectie staan artikelen die de gemeenschap heeft aangewezen als onmisbare kennis. Door ze te vertalen komt essentiële informatie voor meer lezers beschikbaar.",
+	"cx-featured-collection-banner-learn-more": "Meer lezen",
+	"cx-featured-collection-banner-toggle-less": "minder",
+	"cx-featured-collection-banner-toggle-more": "meer"
 }
