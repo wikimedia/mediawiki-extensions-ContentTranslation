@@ -10,6 +10,7 @@ import useURLHandler from "@/composables/useURLHandler";
 
 const SUGGESTION_NO_SEED = "suggestion_no_seed";
 const SUGGESTION_RECENT_EDIT = "suggestion_recent_edit";
+const SUGGESTION_PREVIOUS_EDITS = "suggestion_previous_edits";
 const SUGGESTION_TOPIC_AREA = "suggestion_topic_area";
 const SUGGESTION_SEARCH_RESULT_SEED = "suggestion_search_result_seed";
 const SUGGESTION_FEATURED = "suggestion_featured";
@@ -24,7 +25,9 @@ const useDashboardSuggestionEventSource = () => {
     const { type, id } = currentFilter.value;
 
     if (id === EDITS_SUGGESTION_PROVIDER) {
-      return suggestionSeed ? SUGGESTION_RECENT_EDIT : SUGGESTION_NO_SEED;
+      return suggestionSeed
+        ? SUGGESTION_PREVIOUS_EDITS
+        : SUGGESTION_NO_SEED;
     } else if (type === TOPIC_SUGGESTION_PROVIDER) {
       return SUGGESTION_TOPIC_AREA;
     } else if (type === REGIONS_SUGGESTION_PROVIDER) {

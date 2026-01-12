@@ -36,12 +36,14 @@ import {
 // 		status: SUPPORTED. Right now used for all translations started from dashboard suggestion lists. Should be updated once suggestion filters are introduced.
 // 8. suggestion_recent_edit:
 // 		description: the user chooses a translation suggested because it is related to one of their recent edits or translation
-// 		status: SUPPORTED. Right now used when user selects a previous edited page to translate inside "Search for an article" screen.
-// 		Once suggestion filters are introduced should be also used for suggestions based on previous edit seeds.
-// 9. suggestion_topic_area:
+// 		status: SUPPORTED. Used when user selects a previously edited page to translate inside "Search for an article" screen.
+// 9. suggestion_previous_edits:
+// 		description: the user chooses a translation suggested because it matches the "For you" (previous edits) dashboard filter
+// 		status: SUPPORTED. Used when selecting suggestions from the dashboard "For you" filter.
+// 10. suggestion_topic_area:
 // 		description: the user chooses a translation suggested because its topic is within an area the user has requested
 // 		status: NOT SUPPORTED. Needs to be supported once topic filters are introduced.
-// 10. search_result:
+// 11. search_result:
 // 		description: the user chooses a translation that appeared in the results of a search
 // 		status: SUPPORTED. Used when a search result suggestion is selected, inside "Search for an article" screen.
 
