@@ -1,5 +1,5 @@
 import { useStore } from "vuex";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import pageApi from "@/wiki/mw/api/page";
 import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
@@ -10,10 +10,10 @@ import useURLHandler from "@/composables/useURLHandler";
  */
 const pageSuggestionSeedCollections = ref([]);
 const sectionSuggestionSeedCollections = ref([]);
-let publishedTranslationsReturned = false;
-let previousEditsInSourceLoaded = false;
-let previousEditsInTargetLoaded = false;
-const previousEditsInSource = ref([]);
+const publishedTranslationsInLanguagesReturned = [];
+const previousEditsInSourceLanguagesLoaded = [];
+const previousEditsInTargetLanguagesLoaded = [];
+const previousEditsInSourceLanguages = ref({});
 
 let ongoingStoreEditSeedsPromise = null;
 
@@ -28,7 +28,7 @@ const seedCollections = {
  * seeds can be fetched (e.g. current user has no edits), a seed based
  * on published translations with CX, is returned.
  *
- * @return {{getSuggestionSeed: (function(string): Promise<string|undefined>), defaultSeedsFetched: ComputedRef<boolean>}}
+ * @return {{getSuggestionSeed: (function(string): Promise<string|undefined>), fetchPreviousEditsInSource: function(void): Promise<void>, previousEditsInSource: ComputedRef<string[]>}}
  */
 const useSuggestionPreviousEditsSeeds = () => {
   const store = useStore();
@@ -37,16 +37,30 @@ const useSuggestionPreviousEditsSeeds = () => {
     targetLanguageURLParameter: targetLanguage,
   } = useURLHandler();
 
+  /**
+   * @type {ComputedRef<string[]>}
+   */
+  const previousEditsInSource = computed(
+    () => previousEditsInSourceLanguages.value[sourceLanguage.value] || []
+  );
+
+  /**
+   * @return {Promise<void>}
+   */
   const fetchPreviousEditsInSource = async () => {
+    const previousEditsInSourceLoaded =
+      previousEditsInSourceLanguagesLoaded.includes(sourceLanguage.value);
+
     if (!previousEditsInSourceLoaded) {
       /** @type {string[]} */
-      previousEditsInSource.value = await cxSuggestionsApi
-        .fetchUserEdits(sourceLanguage.value)
-        .then((titles) => {
-          previousEditsInSourceLoaded = true;
+      previousEditsInSourceLanguages.value[sourceLanguage.value] =
+        await cxSuggestionsApi
+          .fetchUserEdits(sourceLanguage.value)
+          .then((titles) => {
+            previousEditsInSourceLanguagesLoaded.push(sourceLanguage.value);
 
-          return titles;
-        });
+            return titles;
+          });
     }
   };
 
@@ -67,14 +81,20 @@ const useSuggestionPreviousEditsSeeds = () => {
       (translation) => translation.sourceLanguage === sourceLanguage.value
     );
 
+    const publishedTranslationsReturned =
+      publishedTranslationsInLanguagesReturned.includes(publishedTranslations);
+
     if (publishedTranslations.length && !publishedTranslationsReturned) {
-      publishedTranslationsReturned = true;
+      publishedTranslationsInLanguagesReturned.push(sourceLanguage.value);
 
       return publishedTranslations.map(
         (translation) => translation.sourceTitle
       );
     }
-    publishedTranslationsReturned = true;
+    publishedTranslationsInLanguagesReturned.push(sourceLanguage.value);
+
+    const previousEditsInSourceLoaded =
+      previousEditsInSourceLanguagesLoaded.includes(sourceLanguage.value);
 
     if (!previousEditsInSourceLoaded) {
       await fetchPreviousEditsInSource();
@@ -84,12 +104,15 @@ const useSuggestionPreviousEditsSeeds = () => {
       }
     }
 
+    const previousEditsInTargetLoaded =
+      previousEditsInTargetLanguagesLoaded.includes(targetLanguage.value);
+
     if (!previousEditsInTargetLoaded) {
       /** @type {string[]} */
       const previousEditsInTarget = await cxSuggestionsApi
         .fetchUserEdits(targetLanguage.value)
         .then((titles) => {
-          previousEditsInTargetLoaded = true;
+          previousEditsInTargetLanguagesLoaded.push(targetLanguage.value);
 
           return titles;
         });

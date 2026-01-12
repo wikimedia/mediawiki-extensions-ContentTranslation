@@ -64,7 +64,9 @@ const useSuggestionsFetch = () => {
       const titles = suggestions.map((suggestion) => suggestion.sourceTitle);
 
       if (titles.length) {
-        return fetchPageMetadata(sourceLanguage.value, titles);
+        const language = suggestions[0].sourceLanguage;
+
+        return fetchPageMetadata(language, titles);
       }
     } catch (error) {
       mw.log.error("Page suggestions fetching failed!");

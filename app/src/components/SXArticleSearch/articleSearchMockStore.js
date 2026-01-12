@@ -1,4 +1,6 @@
 import { createStore } from "vuex";
+import mediawikiGetters from "@/store/modules/mediawiki/getters";
+import mediawikiMutations from "@/store/modules/mediawiki/mutations";
 
 const autonyms = {
   en: "English",
@@ -18,12 +20,17 @@ const applicationModule = {
 
 const mediawikiModule = {
   namespaced: true,
+  state: { pages: [] },
+  mutations: {
+    addPage: mediawikiMutations.addPage,
+  },
   getters: {
     getLanguage: () => (languageCode) => ({
       autonym: autonyms[languageCode],
       dir: "ltr",
     }),
     getNearbyPages: () => [],
+    getPage: mediawikiGetters.getPage,
   },
   actions: {
     fetchNearbyPages: jest.fn(),

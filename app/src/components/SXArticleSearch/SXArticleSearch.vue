@@ -18,10 +18,10 @@ import { cdxIconClose } from "@wikimedia/codex-icons";
 import useTranslationStart from "@/composables/useTranslationStart";
 import useSuggestionPreviousEditsSeeds from "@/composables/useSuggestionPreviousEditsSeeds";
 import useLanguageHistory from "./useLanguageHistory";
-import pageApi from "@/wiki/mw/api/page";
 import useKeyboardNavigation from "@/composables/useKeyboardNavigation";
 import useSearchArticles from "@/composables/useArticleSearch";
 import useFeaturedCollectionSearchSuggestions from "./useFeaturedCollectionSearchSuggestions";
+import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 
 const searchInput = ref("");
 const searchInputUsed = ref(false);
@@ -36,6 +36,8 @@ const {
   targetLanguageURLParameter: targetLanguage,
 } = useURLHandler();
 const { supportedLanguageCodes } = useSupportedLanguageCodes();
+const fetchPageMetadata = usePageMetadataFetch();
+const recentEditsLoading = ref(false);
 
 const { searchResultsLoading, searchResultsSlice } = useSearchArticles(
   sourceLanguage,
@@ -94,15 +96,6 @@ const updateSelection = (updatedLanguage) => {
   updateSourceLanguage(updatedLanguage);
 };
 
-watch(
-  sourceLanguage,
-  () => {
-    store.dispatch("mediawiki/fetchNearbyPages");
-    searchInputRef.value?.focus();
-  },
-  { immediate: true }
-);
-
 const logEvent = useEventLogging();
 // Log "dashboard_search" event only for the first time user types a search query.
 watch(searchInput, () => {
@@ -134,18 +127,22 @@ const { fetchPreviousEditsInSource, previousEditsInSource } =
 
 const previouslyEditedPages = ref([]);
 
-const fetchPagesFromPreviousEditsInSource = () =>
+const fetchPagesFromPreviousEditsInSource = () => {
+  recentEditsLoading.value = true;
   fetchPreviousEditsInSource()
     .then(() => {
       if (previousEditsInSource.value.length > 0) {
-        return pageApi.fetchPages(
+        return fetchPageMetadata(
           sourceLanguage.value,
           previousEditsInSource.value
         );
       }
-
-      return [];
     })
+    .then(() =>
+      previousEditsInSource.value.map((title) =>
+        store.getters["mediawiki/getPage"](sourceLanguage.value, title)
+      )
+    )
     .then((pages) => {
       pages = pages.slice(0, maxCurrentSuggestions);
       // "previousEditsInSource" is sorted with the most recently edited titles first
@@ -155,8 +152,21 @@ const fetchPagesFromPreviousEditsInSource = () =>
           previousEditsInSource.value.indexOf(b.title)
       );
       previouslyEditedPages.value = pages;
+    })
+    .finally(() => {
+      recentEditsLoading.value = false;
     });
-fetchPagesFromPreviousEditsInSource();
+};
+
+watch(
+  sourceLanguage,
+  () => {
+    store.dispatch("mediawiki/fetchNearbyPages");
+    fetchPagesFromPreviousEditsInSource();
+    searchInputRef.value?.focus();
+  },
+  { immediate: true }
+);
 
 const nearbyPages = computed(() => store.getters["mediawiki/getNearbyPages"]);
 
@@ -170,7 +180,8 @@ const prevEditedPagesAvailable = computed(
     featuredCollectionPagesResolved.value
 );
 const nearbyPagesAvailable = computed(
-  () => nearbyPages.value && nearbyPages.value.length
+  () =>
+    nearbyPages.value && nearbyPages.value.length && !recentEditsLoading.value
 );
 const featuredCollectionPagesAvailable = computed(
   () =>

@@ -52,12 +52,14 @@ jest.mock("@/composables/useSuggestionPreviousEditsSeeds", () => () => ({
 
 const mockPages = [
   new Page({
+    pagelanguage: "en",
     thumbnail: { source: "/thumbnail1.jpg" },
     title: "Test page1",
     description: "Test description1",
     langLinksCount: 5,
   }),
   new Page({
+    pagelanguage: "en",
     thumbnail: { source: "/thumbnail2.jpg" },
     title: "Test page2",
     description: "Test description2",
