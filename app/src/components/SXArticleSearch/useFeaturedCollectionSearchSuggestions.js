@@ -20,9 +20,7 @@ const useFeaturedCollectionSearchSuggestions = (maxCurrentSuggestions) => {
   const { isFilteringByFeaturedCollection } = useSuggestionsFilters();
 
   const featuredCollectionPages = ref([]);
-  const featuredCollectionPagesResolved = ref(
-    featuredCollectionPages.value?.name ? false : true
-  );
+  const featuredCollectionPagesResolved = ref(false);
 
   const shouldFetchFeaturedCollectionSuggestions = () => {
     return (
@@ -89,8 +87,9 @@ const useFeaturedCollectionSearchSuggestions = (maxCurrentSuggestions) => {
   watch(
     sourceLanguage,
     async () => {
+      featuredCollectionPagesResolved.value = false;
+
       if (shouldFetchFeaturedCollectionSuggestions()) {
-        featuredCollectionPagesResolved.value = false;
         featuredCollectionPages.value = [];
         await fetchPageSuggestionsByFeaturedCollections();
       }
