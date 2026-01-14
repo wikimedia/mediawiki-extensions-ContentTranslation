@@ -161,5 +161,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Ett booleskt värde som indikerar om avsnittsrubrikerna ska inkluderas i svaret.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Hämta listan med webbplatslänkar för artikeln om månen på alla tillgängliga språk och sorterade efter artikelstorlek.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "Hämta listan med webbplatslänkar för artikeln om månen, inklusive avsnittsrubriker, på alla tillgängliga språk och sorterade efter artikelstorlek.",
-	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Begäran om att hämta webbplatslänkar från Wikidata misslyckades"
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Begäran om att hämta webbplatslänkar från Wikidata misslyckades",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "Det maximala antalet webbplatslänkar att hämta."
 }
