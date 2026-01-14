@@ -18325,8 +18325,9 @@ const b4 = window.Vuex.useStore, k4 = () => {
     );
     return location.href = f + "#" + i().path, !0;
   }, g = () => {
+    var p;
     const m = {};
-    o.value && (m.sourcesection = o.value, r.value && (m.targetsection = r.value)), a.value.targetTitle && (m.targettitle = a.value.targetTitle), l.value && (m.publishtarget = l.value), location.href = Z.getCXUrl(
+    o.value && (m.sourcesection = o.value, r.value && (m.targetsection = r.value)), (p = a.value) != null && p.targetTitle && (m.targettitle = a.value.targetTitle), l.value && (m.publishtarget = l.value), location.href = Z.getCXUrl(
       n.value,
       null,
       e.value,
