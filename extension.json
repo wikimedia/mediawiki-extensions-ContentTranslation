@@ -41,6 +41,11 @@
 					"styles": [
 						"mw.cx.skin"
 					],
+					"menus": [
+						"user-interface-preferences",
+						"user-menu",
+						"notifications"
+					],
 					"messages": [
 						"cx-javascript"
 					]
