@@ -70,13 +70,19 @@ mw.cx.init.Translation.prototype.init = function () {
 	const translationPromise = this.fetchTranslationData();
 	const pluginModules = mw.config.get( 'wgVisualEditorConfig' ).pluginModules;
 	const modulePromise = mw.loader.using( [ 'mw.cx.visualEditor' ].concat( pluginModules ) );
-	const sectionMappingsPromise = mw.cx.sectionMappingService.fetchSectionMappings(
-		this.sourceWikiPage.getTitle(),
-		this.sourceWikiPage.getLanguage(),
-		this.targetWikiPage.getLanguage()
-	);
+	const initPromises = [ translationPromise, modulePromise, platformPromise ];
 
-	Promise.all( [ translationPromise, modulePromise, platformPromise, sectionMappingsPromise ] )
+	// request section mappings only if this is section translation
+	if ( this.sourceWikiPage.getSectionTitle() ) {
+		const sectionMappingsPromise = mw.cx.sectionMappingService.fetchSectionMappings(
+			this.sourceWikiPage.getTitle(),
+			this.sourceWikiPage.getLanguage(),
+			this.targetWikiPage.getLanguage()
+		);
+		initPromises.push( sectionMappingsPromise );
+	}
+
+	Promise.all( initPromises )
 		.then( ( [ [ sourcePageContent, draft ] ] ) => {
 			// Set the link cache for source language
 			ve.init.platform.sourceLinkCache = new ve.init.mw.LinkCache(
