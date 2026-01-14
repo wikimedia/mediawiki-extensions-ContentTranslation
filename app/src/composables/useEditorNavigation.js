@@ -85,7 +85,7 @@ const useEditorNavigation = () => {
       }
     }
 
-    if (sectionSuggestion.value.targetTitle) {
+    if (sectionSuggestion.value?.targetTitle) {
       extra.targettitle = sectionSuggestion.value.targetTitle;
     }
 
