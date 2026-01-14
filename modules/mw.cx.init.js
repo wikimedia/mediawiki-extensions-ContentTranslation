@@ -23,10 +23,10 @@
 			return $.Deferred().resolve( targetTitleUrlParam );
 		}
 
-		return mtService.getSuggestedTitle( sourceTitle ).then(
-			( suggestedTitle ) => mw.cx.getTitleForNamespace( suggestedTitle, mw.cx.getDefaultTargetNamespace() ),
-			() => sourceTitle
-		);
+		return mtService
+			.getSuggestedTitle( sourceTitle )
+			.then( ( suggestedTitle ) => mw.cx.getTitleForNamespace( suggestedTitle, mw.cx.getDefaultTargetNamespace() ) )
+			.catch( () => sourceTitle );
 	}
 
 	function initCX() {
