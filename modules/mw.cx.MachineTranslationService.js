@@ -50,7 +50,7 @@ mw.cx.MachineTranslationService.prototype.translate = function ( content, provid
  * the "targetTitle" property of the response as suggested target title
  *
  * @param {string} title Title to translate.
- * @return {jQuery.Promise} Returns the suggested title
+ * @return {Promise<string>} Returns the suggested title
  */
 mw.cx.MachineTranslationService.prototype.getSuggestedTitle = function ( title ) {
 	const mtURL = this.siteMapper.getCXServerUrl( '/suggest/title/$title/$from/$to', {
@@ -59,15 +59,14 @@ mw.cx.MachineTranslationService.prototype.getSuggestedTitle = function ( title )
 		$to: this.targetLanguage
 	} );
 
-	const fetchTitleSuggestion = function ( token ) {
-		const request = {
-			type: 'get',
-			url: mtURL,
-			headers: { Authorization: token }
-		};
-
-		return $.ajax( request ).then( ( response ) => response.targetTitle );
-	};
+	const fetchTitleSuggestion = ( token ) => fetch( mtURL, { headers: { Authorization: token } } )
+		.then( ( response ) => {
+			if ( !response.ok ) {
+				throw new Error( `Request to fetch suggested title failed with status ${ response.status }` );
+			}
+			return response.json();
+		} )
+		.then( ( data ) => data.targetTitle || title );
 
 	return this.getCXServerToken().then( fetchTitleSuggestion );
 };
