@@ -395,5 +395,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Gos dat eará oasit leat?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Ale fuola, eará oasit eat leat jávkan. Dat leat dál gávdnamis jorgalusat mat leat jorgaluvvome listtus, ja daid sáhttá geavahit artihkkala viiddideapmái. Don gávnnat ođđa jorgalusa mii lea jorgaluvvome, mas lea juohke ossodaga sisdoallu.",
 	"sx-section-selector-close-button-aria-label": "Mana duođaštanboalu lusa",
-	"sx-quick-tutorial-next-button-aria-label": "Mana čuovvovaš siidui bagadeamis"
+	"sx-quick-tutorial-next-button-aria-label": "Mana čuovvovaš siidui bagadeamis",
+	"cx-sx-suggestions-filter-default-group-label": "Automáhtalaš"
 }
