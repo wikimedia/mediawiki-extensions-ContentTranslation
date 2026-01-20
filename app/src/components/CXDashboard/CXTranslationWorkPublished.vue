@@ -13,6 +13,7 @@ import {
 import useURLHandler from "@/composables/useURLHandler";
 import useTranslationStart from "@/composables/useTranslationStart";
 import CommunityPriorityBadge from "@/components/CommunityPriorityBadge.vue";
+import extractTitleFromPublishedUrl from "@/utils/extractTitleFromPublishedUrl";
 
 const props = defineProps({
   translation: {
@@ -68,9 +69,11 @@ const startTranslation = (sectionTitle) => {
 const namespaceIds = mw.config.get("wgNamespaceIds");
 
 const isUserNamespace = computed(() => {
-  const targetMwTitle = new mw.Title(props.translation.targetTitle);
+  const targetMwTitle = extractTitleFromPublishedUrl(
+    props.translation.targetUrl
+  );
 
-  return targetMwTitle.getNamespaceId() === namespaceIds.user;
+  return targetMwTitle?.getNamespaceId() === namespaceIds.user;
 });
 </script>
 
