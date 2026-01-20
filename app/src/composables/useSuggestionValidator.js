@@ -1,9 +1,13 @@
 import { useStore } from "vuex";
-import useApplicationState from "@/composables/useApplicationState";
+import useURLHandler from "@/composables/useURLHandler";
 
 const useSuggestionValidator = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
 
   /**
    * @param {SectionSuggestion|ArticleSuggestion|null|undefined} suggestion
