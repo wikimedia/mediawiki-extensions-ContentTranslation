@@ -56,14 +56,6 @@ const {
 const { resetPublishTarget, target } = usePublishTarget();
 const { loadSuggestion } = useSuggestionLoad();
 
-if (!target.value) {
-  loadSuggestion(
-    sourceLanguage.value,
-    targetLanguage.value,
-    sourceTitle.value
-  ).then(() => resetPublishTarget());
-}
-
 const { sourceSection: currentPageSection, selectedContentTranslationUnit } =
   useCurrentPageSection();
 const { targetPageTitleForPublishing } = useTitleForPublishing();
