@@ -72,7 +72,7 @@ onMounted(async () => {
 });
 
 const maxCurrentSuggestions = 3;
-const { featuredCollectionPages, featuredCollectionPagesResolved } =
+const { featuredCollectionPages, featuredCollectionPagesLoading } =
   useFeaturedCollectionSearchSuggestions(maxCurrentSuggestions);
 
 const close = () => {
@@ -177,7 +177,7 @@ const prevEditedPagesAvailable = computed(
   () =>
     previouslyEditedPages.value &&
     previouslyEditedPages.value.length &&
-    featuredCollectionPagesResolved.value
+    !featuredCollectionPagesLoading.value
 );
 const nearbyPagesAvailable = computed(
   () =>

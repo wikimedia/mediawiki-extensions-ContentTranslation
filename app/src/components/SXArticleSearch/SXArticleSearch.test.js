@@ -132,24 +132,7 @@ jest.mock("@/composables/useSuggestionsFilters", () => () => ({
   isFilteringByFeaturedCollection: jest.fn(() => false),
 }));
 
-const mockFeaturedCollectionPages = ref([]);
-const mockFeaturedCollectionPagesResolved = ref(false);
-
-jest.mock("./useFeaturedCollectionSearchSuggestions", () => {
-  return () => ({
-    featuredCollectionPages: mockFeaturedCollectionPages,
-    featuredCollectionPagesResolved: mockFeaturedCollectionPagesResolved,
-  });
-});
-
 describe("SXArticleSearch component test", () => {
-  beforeEach(() => {
-    // Reset mocks before each test
-    mockFeaturedCollectionPages.value = [];
-    mockFeaturedCollectionPagesResolved.value = true;
-    mockStartTranslation.mockClear();
-  });
-
   const wrapper = mount(SXArticleSearch, {
     global: {
       plugins: [mockStore, i18n, BreakpointsPlugin],
@@ -170,12 +153,6 @@ describe("SXArticleSearch component test", () => {
   });
 
   it("should execute startRecentlyEditedSectionTranslation method when suggestion-clicked event is emitted on a recently edited suggestion", async () => {
-    // Ensure no featured collection pages and that resolution is complete
-    mockFeaturedCollectionPages.value = [];
-    mockFeaturedCollectionPagesResolved.value = true;
-
-    await wrapper.vm.$nextTick();
-
     const suggestionsCard = wrapper.getComponent(ArticleSuggestionsCard);
     const suggestionWrapper = wrapper.find(".cx-search-suggestion");
 

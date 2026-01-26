@@ -21,6 +21,9 @@ const useFeaturedCollectionSearchSuggestions = (maxCurrentSuggestions) => {
 
   const featuredCollectionPages = ref([]);
   const featuredCollectionPagesResolved = ref(false);
+  const featuredCollectionPagesLoading = computed(
+    () => !!featuredCollection.value && !featuredCollectionPagesResolved.value
+  );
 
   const shouldFetchFeaturedCollectionSuggestions = () => {
     return (
@@ -99,7 +102,7 @@ const useFeaturedCollectionSearchSuggestions = (maxCurrentSuggestions) => {
 
   return {
     featuredCollectionPages,
-    featuredCollectionPagesResolved,
+    featuredCollectionPagesLoading,
   };
 };
 
