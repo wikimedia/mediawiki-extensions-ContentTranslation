@@ -101,6 +101,7 @@ onMounted(() => {
   window.addEventListener("scroll", startIntersectionObserver, {
     passive: true,
     once: true,
+    capture: true,
   });
 });
 
