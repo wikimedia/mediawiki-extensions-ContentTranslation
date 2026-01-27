@@ -106,6 +106,36 @@ const fetchLanguageTitles = (language, title) => {
 };
 
 /**
+ * Split an array into consecutive chunks of a fixed maximum size.
+ *
+ * This is useful for batching work (e.g., API requests) where each request can
+ * only accept N items. It returns a new array of arrays and does not mutate the
+ * input.
+ *
+ * @param {Array} items - The input array to split.
+ * @param {number} size - Chunk size (must be a positive integer).
+ * @returns {array[]} An array of chunks; the last chunk may be smaller than `size`.
+ * @throws {RangeError} If `size` is not a positive integer.
+ *
+ * @example
+ * chunk(['a','b','c','d','e'], 2);
+ * // => [['a','b'], ['c','d'], ['e']]
+ */
+const chunk = (items, size) => {
+  if (!Number.isInteger(size) || size <= 0) {
+    throw new RangeError("chunk(): size must be a positive integer");
+  }
+
+  const out = [];
+
+  for (let i = 0; i < items.length; i += size) {
+    out.push(items.slice(i, i + size));
+  }
+
+  return out;
+};
+
+/**
  * Given a source language, a target language and an array of titles in the source language,
  * this method fetches the langlinks for the titles from the Wikipedia Action API, and
  * returns an array of titles in the target language. If a title doesn't exist in the
@@ -114,33 +144,42 @@ const fetchLanguageTitles = (language, title) => {
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
  * @param {string[]} sourceTitles
- * @returns {string[]}
+ * @return {Promise<string[]>}
  */
-const fetchLanguageLinksForLanguage = (
+const fetchLanguageLinksForLanguage = async (
   sourceLanguage,
   targetLanguage,
   sourceTitles
 ) => {
-  // e.g. https://en.wikipedia.org/w/api.php?action=query&format=json&titles=Apple|Sun|Moon&prop=langlinks&lllang=el
-  const params = {
-    action: "query",
-    format: "json",
-    formatversion: 2,
-    prop: "langlinks",
-    titles: sourceTitles.join("|"),
-    lllang: targetLanguage,
-    origin: "*",
-    redirects: true,
-  };
   const mwApi = siteMapper.getApi(sourceLanguage);
+  const batchedTitles = chunk(sourceTitles, 50);
 
-  return mwApi.get(params).then((response) => {
-    const pages = Object.values(response.query.pages);
+  const requests = batchedTitles.map((titles) => {
+    // e.g. https://en.wikipedia.org/w/api.php?action=query&format=json&titles=Apple|Sun|Moon&prop=langlinks&lllang=el
+    const params = {
+      action: "query",
+      format: "json",
+      formatversion: 2,
+      prop: "langlinks",
+      titles,
+      lllang: targetLanguage,
+      origin: "*",
+      redirects: true,
+    };
 
-    return pages
-      .map((page) => page.langlinks?.[0]?.["*"])
-      .filter((title) => !!title);
+    return mwApi.get(params).then((response) => {
+      const pages = Object.values(response.query.pages);
+
+      return pages
+        .map((page) => page.langlinks?.[0]?.["*"])
+        .filter((title) => !!title);
+    });
   });
+
+  const results = await Promise.all(requests);
+
+  // Flatten batch results
+  return results.flat();
 };
 
 /**

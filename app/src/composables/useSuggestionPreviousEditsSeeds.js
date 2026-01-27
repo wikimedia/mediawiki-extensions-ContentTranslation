@@ -117,11 +117,14 @@ const useSuggestionPreviousEditsSeeds = () => {
           return titles;
         });
 
-      if (previousEditsInTarget.length) {
+      // Cap to 20 to avoid oversupplying seeds (and reduce API work)
+      const slicedTargetTitles = previousEditsInTarget.slice(0, 20);
+
+      if (slicedTargetTitles.length) {
         return pageApi.fetchLanguageLinksForLanguage(
           targetLanguage.value,
           sourceLanguage.value,
-          previousEditsInTarget
+          slicedTargetTitles
         );
       }
     }
