@@ -6,7 +6,9 @@
 	},
 	"cx-header-all-translations": "Пугк ёарркмуж",
 	"cx-source-view-page": "кӣһче лыст",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категорья|$1 категорья|$1 категорьедтӭ|0=Евла категорья}}",
 	"cx-campaign-contributionsmenu-mytranslations": "Ёарркмуж",
+	"cx-campaign-contributionsmenu-myuploads": "Лоа̄дтма ме̄дьяфа̄йлэтҍ",
 	"cx-your-translations-link": "{{GENDER:$1|То̄н ёарркмуж}}",
 	"cx-sx-language-selector-dialog-title": "О̄дзэ кӣл",
 	"cx-translation-list-all-languages-option-label": "Пугк",
@@ -15,5 +17,6 @@
 	"sx-article-search-language-selector-dialog-title": "Кӣл",
 	"cx-sx-language-selector-placeholder": "О̄дзэ кӣл",
 	"cx-sx-language-selector-no-search-results": "Нимӣ эйй коа̄внхувва",
-	"sx-translation-list-language-selector-dialog-title": "Кӣл"
+	"sx-translation-list-language-selector-dialog-title": "Кӣл",
+	"cx-sx-suggestions-filter-active-group-label": "О̄ннъюввэй фӣльтэр"
 }
