@@ -4,8 +4,7 @@ import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader.vue";
 import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons.vue";
 import mtValidator from "@/utils/mtValidator";
 import { computed, ref, inject } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { useStore } from "vuex";
+import useURLHandler from "@/composables/useURLHandler";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import {
   cdxIconEdit,
@@ -23,7 +22,7 @@ const {
   selectedContentTranslationUnit,
   isSectionTitleSelected,
 } = useCurrentPageSection();
-const { targetLanguage } = useApplicationState(useStore());
+const targetLanguage = useURLHandler();
 
 const showSentenceTab = computed(() => scopeSelection.value === "sentence");
 
