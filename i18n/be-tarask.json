@@ -53,6 +53,7 @@
 	"cx-mt-abuse-warning-title": "Частка вашага перакладу {{PLURAL:$1|зьмяшчае}} $1% нязьмененага тэксту",
 	"cx-mt-abuse-warning-text": "Аўтаматычны пераклад падаецца толькі як пункт адліку. Вам неабходна пераканацца, што зьмест дакладны і гучыць вашай мовай натуральна.\n\nМагчыма, ваш пераклад будзе выдалены пасьля вычыткі іншымі рэдактарамі.",
 	"cx-publish-captcha-title": "Праверка, што вы ня робат",
+	"cx-captcha-dialog-cancel": "Скасаваць",
 	"cx-translation-filter-published-translations": "Апублікаванае",
 	"cx-translation-filter-draft-translations": "Незавершаныя",
 	"cx-create-new-translation": "Новы пераклад",
@@ -87,6 +88,7 @@
 	"cx-notification-hundredth-translation": "Вы толькі што зрабілі 100 перакладаў! Гэта выдатнае дасягненьне. Падзяліцеся гэтай навіной зь іншымі рэдактарамі.",
 	"cx-tools-linter-page-exists-message": "Старонка з назваю $1 ужо існуе. Апублікаваўшы свой пераклад, вы перапішаце існы зьмест\n\nПераканайцеся, што замяняць гэтую старонку можна, альбо пераймянуйце ўласны пераклад.",
 	"cx-tools-linter-cannot-publish-title": "Публікацыя дазволеная толькі дасьведчаным карыстальнікам",
+	"cx-tools-linter-restart-translation-cancel": "Скасаваць",
 	"cx-sx-view-translation-anchor": "Паказаць",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Ваш пераклад будзе дададзены сюды",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Ваш пераклад будзе <strong>дададзены ў ваш чарнавік.</strong>",
@@ -94,5 +96,6 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Адсутнічае ў <span>$1</span> ды іншых",
 	"cx-uls-relevant-languages-panel-header": "Перакласьці гэтую старонку",
 	"cx-uls-relevant-languages-panel-message": "Гэтая старонка адсутнічае некаторымі мовамі, якія вы можаце ведаць. Перакладзіце яе за хвіліны!",
-	"cx-sx-login-dialog-title": "Тэрмін вашай сэсіі скончыўся"
+	"cx-sx-login-dialog-title": "Тэрмін вашай сэсіі скончыўся",
+	"sx-translation-deletion-cancel-button-label": "Скасаваць"
 }
