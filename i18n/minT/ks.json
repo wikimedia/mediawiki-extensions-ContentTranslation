@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Ayaat123"
+		]
 	},
 	"automatic-translation-special-page-description": "خۄدکار تَرجَمہٕ",
 	"automatic-translation-desc": "یہِ چھُ مَواد صَفَن ہُنٛد [[Special:AutomaticTranslation|خۄدکار تَرجَمہٕ]] دِوان.",
@@ -20,7 +22,7 @@
 	"mint-search-topic-page-results-container-empty": "کُنہِ تہِ موضوٗعس باپتھ کْرِو تلاش۔ کُنہٕ موضوٗعک مُواد ہیٚکہِ پرؠتھ زَبانہِ پؠٹھ مُختلف أسِتھ۔",
 	"mint-confirm-topic-page-header": "خۄدکار تَرجَمہٕ",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "خۄدکار تَرجَمہٕ وُچھِو",
-	"mint-confirm-topic-page-language-selector-explanation": "تَرجُم [$1 وِکیٖپیٖڈیا پؠٹھ $2 منٛز]۔ گشتہٕ مٲرِو زِ یہٕ موضوٗع کِتھ کٔنؠ چُھ {{PLURAL:$3|بیٛاکھ زَبان|$3 باقی زَبانہٕ}} منٛز بیان کرنہٕ آمُت۔",
+	"mint-confirm-topic-page-language-selector-explanation": "تَرجُم [$1 وِکیٖپیٖڈیا پؠٹھ $2 منٛز]۔ گشتہٕ مٲرِو زِ یہٕ موضوٗع کِتھ کٔنؠ چھُ {{PLURAL:$3|بیٛاکھ زَبان|$3 باقی زَبانہٕ}} منٛز بیان کرنہٕ آمُت۔",
 	"mint-confirm-topic-page-go-to-search-button-label": "بَدَل موضوٗع ژھٲنڈِو",
 	"mint-confirm-topic-page-target-article-link-container-header": "ایڈیٹرن ذٔریعہٕ لؠکھنہٕ آمُت $1 منٛز",
 	"mint-confirm-topic-page-target-article-link-container-details": "یہٕ مَضموٗن چھُ انسٲنی اؠڈِٹرو $1 منٛز لیوکھمُت۔ تُہؠ ہیٚکِو مواد بہتر بناونہٕ خٲطرٕ تِمن سٟتؠ شٲمِل گژھِتھ۔",
@@ -29,7 +31,7 @@
 	"mint-view-translation-page-disclaimer-header": "خۄدکار تَرجَمَس ہیٚکن غلظی ٲسِتھ",
 	"mint-view-translation-page-disclaimer-body": "یہٕ صَفہٕ چھُ موادُک اکھ خۄدکار تَرجَمہٕ یُس اصلی $1 منٛز لیکھنہٕ آمُت اوس۔",
 	"mint-view-translation-page-disclaimer-learn-more-link": "مٔزیٖد وُچھِو",
-	"mint-view-translation-page-target-article-container-header": "انسٲنی بناونہٕ آمُت مَواد تہٕ چُھ اتھ موضوعس مُتلق دستیاب",
+	"mint-view-translation-page-target-article-container-header": "اِنسٲنی بناونہٕ آمُت مَواد تہٕ چھُ اتھ موضوٗعس مُتلق دٔستیاب",
 	"mint-view-translation-page-target-article-container-details": "اَتھ موضوعَس پٮ۪ٹھ مٔزیٖد بَھروسہٕ منٛد زانٛکٲری حٲصِل کرنہٕ خٲطرٕ پٔرِو $1 وِکیٖپیٖڈیا ایڈیٹرَن ہُنٛد مَضموٗن۔",
 	"mint-view-translation-page-source-article-link-label": "$1 کھولِو",
 	"mint-view-translation-content-translation-entrypoint-title": "خۄدکار تَرجَمَس کٔرِو جانچ",
