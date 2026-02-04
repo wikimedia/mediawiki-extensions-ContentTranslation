@@ -1614,6 +1614,7 @@
 				"ext.cx.model",
 				"mw.cx.SiteMapper",
 				"mw.cx.dm.Translation",
+				"mw.cx.eventlogging",
 				"mw.cx.ui",
 				"mw.cx.util",
 				"ext.visualEditor.core.desktop"
