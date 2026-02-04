@@ -152,6 +152,7 @@
 	"cx-save-draft-shortcut-label": "Zapisz wersję roboczą",
 	"cx-save-draft-tooltip": "Tłumaczenie robocze są zapisywane automatycznie",
 	"cx-save-draft-error": "Wystąpił błąd podczas zapisywania szkicu.",
+	"cx-save-draft-error-retry": "Nie udało się zapisać. Ponowna próba za chwilę...",
 	"cx-contributions-new-contributions": "Nowy wkład",
 	"cx-contributions-new-article": "Nowa strona",
 	"cx-contributions-translation": "Tłumaczenie",
@@ -550,10 +551,13 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automatycznie",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Kolekcje",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Wyszukaj temat",
-	"cx-sx-suggestions-filter-search-results-topics-default-description": "Obszar tematyczny",
+	"cx-sx-suggestions-filter-search-results-topics-default-description": "Obszar tematyczny ⋅ Przeglądaj artykuły",
+	"cx-sx-suggestions-filter-search-results-collections-default-description": "Kolekcja ⋅ {{PLURAL:$1|$1 artykuł|$1 artykuły|$1 artykułów|0=Brak artykułów}}",
 	"cx-page-collection-dialog-close-button-aria-label": "Wróć do kokpitu",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 {{PLURAL:$2|artykuł|artykuły|artykułów}} {{PLURAL:$1|istnieje|istnieją|istnieje}} w: $3.",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|Pozostał 1 dzień|Pozostały $1 dni|Pozostało $1 dni|Czas upłynął}}",
 	"cx-page-collection-dialog-page-suggestions-header": "Nowe strony",
-	"cx-page-collection-dialog-section-suggestions-header": "Nowe sekcje"
+	"cx-page-collection-dialog-section-suggestions-header": "Nowe sekcje",
+	"cx-sx-suggestion-list-empty-title": "Na razie brak propozycji",
+	"cx-sx-suggestion-list-empty-description": "Nie znaleźliśmy żadnych sugestii dla tego filtra. Możesz wypróbować inny filtr lub wyszukać konkretny artykuł do przetłumaczenia."
 }

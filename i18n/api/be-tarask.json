@@ -3,7 +3,8 @@
 		"authors": [
 			"Jim-by",
 			"Red Winged Duck",
-			"Renessaince"
+			"Renessaince",
+			"Ucukor"
 		]
 	},
 	"apihelp-cxpublish-param-title": "Назва старонкі, на якой будуць выкананыя дзеяньні.",
@@ -35,5 +36,6 @@
 	"apihelp-cxdelete-param-sourcetitle": "Назва зыходнай старонкі.",
 	"apihelp-cxdelete-example-1": "Выдаліць чарнавік, зьвязаны з дадзенай моўнай парай і загалоўкам.",
 	"apihelp-cxsave-param-sourcerevision": "Вэрсія зыходнай старонкі.",
-	"apihelp-cxsave-param-progress": "Зьвесткі пра завершанасьць перакладу (прагрэс). JSON з ключамі <code>any</code>, <code>human</code>, <code>mt</code> і <code>mtSectionsCount</code>. Значэньні ключоў — адсоткі."
+	"apihelp-cxsave-param-progress": "Зьвесткі пра завершанасьць перакладу (прагрэс). JSON з ключамі <code>any</code>, <code>human</code>, <code>mt</code> і <code>mtSectionsCount</code>. Значэньні ключоў — адсоткі.",
+	"apierror-cx-invalidtranslator": "Няслушнае імя перакладніку"
 }
