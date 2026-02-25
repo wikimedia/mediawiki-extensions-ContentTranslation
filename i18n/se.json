@@ -329,6 +329,7 @@
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Ođđa oassi biddjojuvvo dása go leat geargan jorgalemiin",
 	"cx-sx-editor-original-panel-label": "Álgovuolggalaš",
 	"cx-sx-publisher-header-title": "Duođaš almmuheami",
+	"cx-sx-publisher-header-close-button-aria-label": "Gidde",
 	"cx-sx-publisher-publish-panel-new-section-status": "Gearggus almmuhit?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Du jorgalus lasihuvvo <strong>artihkkalii ođđa ossodahkan</strong>.",
 	"cx-sx-publisher-review-info": "Dárkkis ahte du jorgalusa lea álkit logahahtti ja giellaoahpalaččat riekta.",
@@ -369,6 +370,7 @@
 	"cx-sx-article-search-recently-edited-title": "Aitto rievdaduvvon dus",
 	"cx-sx-article-search-nearby-title": "Lahkosis",
 	"sx-article-search-language-selector-dialog-title": "Gielat",
+	"sx-article-search-close-button-aria-label": "Gidde",
 	"cx-sx-language-selector-placeholder": "Oza giela",
 	"cx-sx-language-selector-all-languages": "Buot gielat",
 	"cx-sx-language-selector-suggestions": "Evttohuvvon",
@@ -431,6 +433,7 @@
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 oassi|$1 oasi}} váilu/váilot $2:s.",
 	"cx-sx-publisher-captcha-dialog-header-title": "Iskame ahte don it leat robohta",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Almmut",
+	"cx-sx-publisher-captcha-dialog-close-button-aria-label": "Gidde",
 	"cx-contributecard-entrypoint-title": "Jorgalusat",
 	"cx-contributecard-entrypoint-desc": "Jorgal teakstabihttá dahje olles artihkkala. Daga sisdoalu olahahttin máŋgga gillii.",
 	"cx-contributecard-entrypoint-cta": "Jorgališgoađe",
@@ -473,5 +476,8 @@
 	"sx-published-translation-new-translation-button-label": "Ođđa jorgalus",
 	"sx-section-selector-close-button-aria-label": "Mana duođaštanboalu lusa",
 	"sx-quick-tutorial-next-button-aria-label": "Mana čuovvovaš siidui bagadeamis",
-	"cx-sx-suggestions-filter-default-group-label": "Automáhtalaš"
+	"cx-unreviewed-translation-dialog-close-button-label": "Gidde",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Lassedieđut",
+	"cx-sx-suggestions-filter-default-group-label": "Automáhtalaš",
+	"cx-page-collection-dialog-page-suggestions-header": "Ođđa siiddut"
 }
