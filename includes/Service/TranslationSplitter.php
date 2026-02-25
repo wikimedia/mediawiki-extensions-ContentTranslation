@@ -49,7 +49,7 @@ class TranslationSplitter {
 			$translationUnitsBySections[$unit->getMwSectionNumber()][] = $unit;
 		}
 
-		$revision = array_values( $translationUnits )[0]->getRevision();
+		$revision = array_first( $translationUnits )->getRevision();
 		$sourceSectionTitles = $this->sectionTitleFetcher->fetchSectionTitles(
 			$translation->getSourceLanguage(),
 			null,
@@ -60,12 +60,7 @@ class TranslationSplitter {
 			return [];
 		}
 
-		$mwSectionNumbers = array_keys( $translationUnitsBySections );
-		$mwSectionNumbers = array_filter( $mwSectionNumbers, static function ( int $value ) {
-			return $value !== 0;
-		} );
-
-		if ( !$this->validateSourceSectionKeys( $mwSectionNumbers, array_keys( $sourceSectionTitles ) ) ) {
+		if ( !$this->validateSourceSectionKeys( $translationUnitsBySections, $sourceSectionTitles ) ) {
 			// TODO: Throw an exception (maybe a custom one) or log something here
 			return [];
 		}
@@ -124,17 +119,18 @@ class TranslationSplitter {
 	}
 
 	/**
-	 * Given an array of integers representing the mw section numbers of corpora translation units,
-	 * and an array of integers representing the section keys of the section titles fetched from the API,
+	 * Given an array with integers keys representing the mw section numbers of corpora translation
+	 * units, and an array with integers keys representing the sections fetched from the API,
 	 * this method returns a boolean indicating if every corpora translation units has a section number
 	 * that belongs in the list of keys returned by the API.
 	 *
-	 * @param int[] $mwSectionNumbers
-	 * @param int[] $sectionKeys
+	 * @param array<int,array> $translationUnitsBySections
+	 * @param array<int,string> $sourceSectionTitles
 	 * @return bool
 	 */
-	private function validateSourceSectionKeys( array $mwSectionNumbers, array $sectionKeys ): bool {
-		return !array_diff( $mwSectionNumbers, $sectionKeys );
+	private function validateSourceSectionKeys( array $translationUnitsBySections, array $sourceSectionTitles ): bool {
+		unset( $translationUnitsBySections[0] );
+		return !array_diff_key( $translationUnitsBySections, $sourceSectionTitles );
 	}
 
 	/**

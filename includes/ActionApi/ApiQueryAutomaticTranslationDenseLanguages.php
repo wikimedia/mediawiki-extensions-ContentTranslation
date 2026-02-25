@@ -198,7 +198,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryBase {
 					return null;
 				}
 				$sections = $responseBody['parse']['sections'];
-				$lastSection = end( $sections );
+				$lastSection = array_last( $sections );
 
 				$size = 0;
 				if ( $lastSection ) {

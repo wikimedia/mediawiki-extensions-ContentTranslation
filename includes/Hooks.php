@@ -519,7 +519,7 @@ class Hooks implements
 		$userLocator = [
 			AttributeManager::ATTR_LOCATORS => [
 				[
-					[ UserLocator::class, 'locateFromEventExtra' ],
+					UserLocator::locateFromEventExtra( ... ),
 					[ 'recipient' ]
 				],
 			],

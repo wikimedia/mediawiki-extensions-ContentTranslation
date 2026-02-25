@@ -99,9 +99,10 @@ class RecentSignificantEditStore {
 			return;
 		}
 
-		$editIdsToDelete = array_map( static function ( RecentSignificantEdit $edit ) {
-			return $edit->getId();
-		}, array_slice( $edits, self::RECENT_EDITS_LIMIT ) );
+		$editIdsToDelete = array_map(
+			static fn ( RecentSignificantEdit $edit ) => $edit->getId(),
+			array_slice( $edits, self::RECENT_EDITS_LIMIT )
+		);
 
 		$primaryDb = $this->connectionProvider->getPrimaryDatabase();
 		$primaryDb->newDeleteQueryBuilder()

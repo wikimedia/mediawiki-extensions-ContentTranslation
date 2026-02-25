@@ -37,7 +37,7 @@ class SectionTitleFetcher {
 	 * @param string $targetLanguage
 	 * @param Title|null $pageTitle The title of the page
 	 * @param int|null $revision
-	 * @return string[]|null e.g. [ 1 => "Section 1", 2 => "Section 2" ]
+	 * @return array<int,string>|null e.g. [ 1 => "Section 1", 2 => "Section 2" ]
 	 */
 	public function fetchSectionTitles( string $targetLanguage, ?Title $pageTitle, ?int $revision = null ): ?array {
 		if ( !$pageTitle && !$revision ) {
