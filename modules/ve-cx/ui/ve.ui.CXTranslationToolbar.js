@@ -28,10 +28,9 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar() {
 
 	this.$element
 		.addClass( 've-cx-toolbar-mt' )
-		.prepend( $title, this.noMTServices.$element );
-
-	// Hide initially, because there is no selection initially
-	this.$element.toggle( false );
+		.prepend( $title, this.noMTServices.$element )
+		// Hide initially, because there is no selection initially
+		.hide();
 
 };
 

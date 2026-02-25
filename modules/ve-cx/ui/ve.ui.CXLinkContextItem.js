@@ -275,9 +275,7 @@ ve.ui.CXLinkContextItem.prototype.createRedLink = function ( adaptationInfo ) {
 	// cxserver. Per T224408, open the link target selection widget to let the user confirm
 	// the right target.
 	if ( adaptationInfo.targetFrom === 'source' ) {
-		this.context.getSurface().commandRegistry.registry.link.execute(
-			this.context.getSurface()
-		);
+		this.context.getSurface().executeCommand( 'link' );
 		return;
 	}
 

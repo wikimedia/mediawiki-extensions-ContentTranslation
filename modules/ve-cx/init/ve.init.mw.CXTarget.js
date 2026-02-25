@@ -912,10 +912,10 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 				}
 				// Find any existing references this reference is a duplicate of
 				const nodeGroup = doc.getInternalList().getNodeGroup( element.attributes.listGroup );
-				const kinNodes = nodeGroup && nodeGroup.keyedNodes[ element.attributes.listKey ];
-				if ( kinNodes && kinNodes.length > 0 ) {
+				const kinNode = nodeGroup && nodeGroup.getFirstNode( element.attributes.listKey );
+				if ( kinNode ) {
 					// This reference is a duplicate. Point it to the existing internal list item
-					element.attributes.listIndex = kinNodes[ 0 ].getAttribute( 'listIndex' );
+					element.attributes.listIndex = kinNode.getAttribute( 'listIndex' );
 					// Only the first reference in the group should have contentsUsed=true
 					element.attributes.contentsUsed = false;
 				}

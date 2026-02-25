@@ -143,10 +143,9 @@ ve.dm.CXReferenceNode.prototype.getAdaptationInfo = function () {
 		const nodeGroup = this.doc.getInternalList().getNodeGroup(
 			this.getAttribute( 'listGroup' )
 		);
-		const kinNodes = nodeGroup && nodeGroup.keyedNodes[ this.getAttribute( 'listKey' ) ];
-		// See if there is any kin nodes and if so, use the first one.
-		if ( kinNodes && kinNodes.length > 0 ) {
-			cxData = kinNodes[ 0 ].getAttribute( 'cx' ) || {};
+		const kinNode = nodeGroup && nodeGroup.getFirstNode( this.getAttribute( 'listKey' ) );
+		if ( kinNode ) {
+			cxData = kinNode.getAttribute( 'cx' ) || {};
 		}
 	}
 	return cxData;

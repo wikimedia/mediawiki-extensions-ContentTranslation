@@ -164,10 +164,7 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 };
 
 ve.dm.CXTransclusionBlockNode.prototype.addNewTemplate = function () {
-	const targetSurface = ve.init.target.targetSurface,
-		command = targetSurface.commandRegistry.lookup( 'transclusion' );
-
-	command.execute( targetSurface );
+	ve.init.target.targetSurface.executeCommand( 'transclusion' );
 };
 
 ve.dm.CXTransclusionBlockNode.prototype.onDetach = function ( parent ) {
