@@ -108,7 +108,7 @@
 		"recentTranslationEntrypointRegistrar": {
 			"class": "ContentTranslation\\HookHandler\\RecentTranslationEntrypointRegistrationHandler",
 			"services": [
-				"DBLoadBalancer",
+				"ConnectionProvider",
 				"RevisionStore",
 				"ContentTranslation.TranslationStore"
 			]

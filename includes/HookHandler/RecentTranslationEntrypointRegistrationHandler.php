@@ -13,12 +13,12 @@ use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Skin\Skin;
 use MobileContext;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class RecentTranslationEntrypointRegistrationHandler implements BeforePageDisplayHook {
 
 	public function __construct(
-		private readonly ILoadBalancer $loadBalancer,
+		private readonly IConnectionProvider $dbProvider,
 		private readonly RevisionStore $revisionStore,
 		private readonly TranslationStore $translationStore
 	) {
@@ -98,7 +98,7 @@ class RecentTranslationEntrypointRegistrationHandler implements BeforePageDispla
 		// This entrypoint should only be enabled for pages that have less than 5 edits.
 		$pageId = $out->getWikiPage()->getId();
 		// Find all revisions for this page
-		$dbr = $this->loadBalancer->getConnection( DB_REPLICA );
+		$dbr = $this->dbProvider->getReplicaDatabase();
 		$revisionsCount = $this->revisionStore->countRevisionsByPageId( $dbr, $pageId );
 
 		// If article has at least 5 edits, return
