@@ -188,6 +188,14 @@
 	"cx-publish-destination-namespace-draft": "Ühiskasutatav mustand",
 	"cx-publish-destination-namespace-draft-description": "Mustandinimeruumis kõigile ülevaatamiseks ja parandamiseks",
 	"cx-publish-destination-namespace-changed": "Avaldamiskoht muudetud isiklikuks mustandiks. Saad avaldamissätteid alati uuesti muuta.",
+	"cx-publish-destination-section-new": "Avalda uue alaosana",
+	"cx-publish-destination-section-new-description": "Lisad artiklisse uue alaosa.",
+	"cx-publish-destination-section-sandbox": "Avalda enda liivakastis",
+	"cx-publish-destination-section-sandbox-description": "Avaldad enda isiklikus ruumis endale ülevaatamiseks ja mujale kopeerimiseks.",
+	"cx-publish-destination-section-expand": "Lisa sisu olemasolevasse alaosasse",
+	"cx-publish-destination-section-expand-description": "Täiendad olemasolevat alaosa, säilitades selle sisu.",
+	"cx-publish-destination-section-replace": "Aseda olemasolev alaosa",
+	"cx-publish-destination-section-replace-description": "Kustutad olemasoleva alaosa ja lisad tõlke selle asemele.",
 	"cx-linkcontextitem-missing-link-title": "Puuduv link",
 	"cx-linkcontextitem-missing-title-description": "Seda lehekülge pole veel.",
 	"cx-mt-abuse-publish-error": "Sinu tõlget ei saa avaldata, sest see sisaldab liiga palju muutmata kujul teksti.",
@@ -247,6 +255,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Olemas sihtkeeles ($1)",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Alaosa sihtkeeles ($1)",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Sinu tõlkega täiendatakse olemasolevat alaosa. Jäta see kõrvale, kui alaosad ei ole seotud.",
+	"cx-sx-content-comparator-mapped-lead-section-clarifications": "Sinu tõlkega täiendatakse olemasolevat alaosa.",
 	"cx-sx-translation-confirmer-title": "Uus tõlge",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 vaatamine nädalas|$1 vaatamist nädalas|0=Mitte ühtegi vaatamist sel nädalal}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 tund|$1 tundi|0={{PLURAL:$2|$2 minut|$2 minutit}}}} tõlkimiseks",
@@ -388,6 +397,7 @@
 	"cx-sx-dashboard-stats-panel-title": "Sinu mõju",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Sel kuul",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Kokku",
+	"cx-sx-dashboard-stats-panel-all-stats-label": "Kõik tõlkmise arvandmed",
 	"sx-confirm-back-navigation-dialog-title": "Kas lahkud oma tõlkest?",
 	"sx-confirm-back-navigation-dialog-body": "Muudatusi pole veel salvestatud ja need lähevad kaotsi.\nSaad jätkata redigeerimist, et muudatused salvestataks automaatselt.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Hülga muudatused",
@@ -440,5 +450,6 @@
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "Proovi teist otsisõna või vaata teisi kaarte.",
 	"cx-sx-suggestion-list-empty-title": "Soovitused puuduvad praegu",
 	"cx-sx-suggestion-list-empty-description": "Sellele filtrile vastavaid tulemusi ei leidu. Võid proovida teistsugust filtrit või otsida kindlat artiklit, mida tõlkida.",
-	"cx-sx-suggestions-filter-collection-group-all-option-label": "Kõik"
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Kõik",
+	"cx-sx-present-lead-section-label": "(algus)"
 }
