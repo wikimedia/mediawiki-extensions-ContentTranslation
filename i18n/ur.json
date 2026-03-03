@@ -196,6 +196,7 @@
 	"cx-notification-first-translation": "ترجمہ کی پہلی کوشش پر مبارک! مزید ترجمہ کرنے کے لیے اپنی شراکتوں کے صفحہ پر صفحات تلاش کریں۔",
 	"cx-notification-tenth-translation": "دسویں ترجمہ پر مبارکباد! آپ ماہر مترجم بنتے جا رہے ہیں۔ جاری رکھیں!",
 	"cx-notification-hundredth-translation": "آپ نے 100 ترجمے مکمل کرلیے! یہ ایک غیر معمولی کارنامہ ہے۔ دوسرے صارفین کے ساتھ خبر شیئر کریں۔",
+	"cx-notification-continue-translation": "آپ نے کچھ ماہ قبل <strong>$1</strong> کا ترجمہ شروع کیا تھا۔ بہتر ہے اسے ایک سال بعد خودکار طور پر حذف ہونے سے پہلے شائع کر دیں۔",
 	"cx-contributions-link": "آپ کی شراکتیں",
 	"cx-your-translations-link": "{{GENDER:$1|آپ کی شراکتیں}}",
 	"cx-translationlist-empty-title": "کچھ ترجمے کے لیے نہیں؟",

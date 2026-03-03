@@ -128,6 +128,7 @@
 	"sx-quick-tutorial-translate-button-label": "Jurgâlškyeđe",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Mute jurgâlus",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Keevti",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Njuškii paijeel",
 	"cx-sx-translation-confirmer-title": "Uđđâ jurgâlus",
 	"cx-sx-content-comparator-discarded-section-label": "(hilgum)",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Jurgâl",
@@ -157,7 +158,15 @@
 	"cx-sx-dashboard-help-panel-title": "Tarbâšah-uv jurgâlemiše?",
 	"cx-sx-dashboard-help-panel-more-info-label": "Lasetiäđuh taan pargoniävust",
 	"cx-sx-dashboard-help-panel-feedback-label": "Addel macâttâs",
+	"cx-sx-dashboard-stats-panel-title": "Tuu vaikuttâs",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Taan máánust",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Ohtsis",
 	"cx-sx-login-dialog-button-label": "Čáládât siisâ",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 peivi|$1 peeivi|$1 peeivi|$1 peivid|0=Onne}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mánupaje|$1 mánupaje|$1 mánupaje|$1 mánuppaijeed}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 ihe|$1 ive|$1 ive|$1 ihheed}}",
+	"cx-unreviewed-translation-dialog-close-button-label": "Toopâ",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Lasetiäđuh",
 	"cx-sx-suggestions-filter-default-group-label": "Automaatlâš",
 	"cx-articletopics-topic-architecture": "Arkkitektuur"
 }
