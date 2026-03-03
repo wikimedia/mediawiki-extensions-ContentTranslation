@@ -18,7 +18,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "Id перакладу.",
 	"apihelp-query+contenttranslation-example-1": "Атрымаць пераклады, распачатыя цяперашнім карыстальнікам.",
 	"apihelp-query+contenttranslation-example-2": "Атрымаць чарнавік перакладаў па id.",
-	"apihelp-query+contenttranslation-example-3": "Знайсьці любы пераклад для дадзенай назвы між зададзенай моўнай парай",
+	"apihelp-query+contenttranslation-example-3": "Знайсьці будзь-які пераклад для дадзенай назвы між дадзенай моўнай парай",
 	"apihelp-query+cxpublishedtranslations-param-from": "Код мовы-крыніцы.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Код мэтавай мовы.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Атрыманьне ўсіх апублікаваных перакладаў з ангельскай на гішпанскую мову",
