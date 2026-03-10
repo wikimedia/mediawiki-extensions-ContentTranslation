@@ -23,11 +23,22 @@
 	"mint-search-topic-page-results-container-empty": "Pesquise qualquer tópico. O conteúdo de um tópico pode ser diferente em cada idioma.",
 	"mint-confirm-topic-page-header": "Tradução automática",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "Ver tradução automática",
+	"mint-confirm-topic-page-go-to-search-button-label": "Pesquisar outro tópico",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "Ler artigo",
 	"mint-view-translation-page-header": "Tradução automática",
 	"mint-view-translation-page-disclaimer-header": "O conteúdo automático pode ser impreciso",
 	"mint-view-translation-page-disclaimer-body": "Esta página é uma tradução automática do conteúdo originalmente escrito em $1.",
 	"mint-view-translation-page-disclaimer-learn-more-link": "Saiba mais",
 	"mint-view-translation-page-target-article-container-header": "Conteúdo criado por humanos também está disponível sobre este tópico",
-	"mint-view-translation-overlay-feedback-link-label": "Enviar comentário"
+	"mint-view-translation-page-target-article-container-details": "Leia o artigo escrito pelos editores da Wikipédia em $1 para obter informações mais confiáveis sobre o assunto.",
+	"mint-view-translation-page-source-article-link-label": "Abrir em $1",
+	"mint-view-translation-content-translation-entrypoint-title": "Revise a tradução automática",
+	"mint-view-translation-content-translation-entrypoint-description": "O conteúdo automático pode ser impreciso",
+	"mint-view-translation-overlay-header": "Tradução automática",
+	"mint-view-translation-overlay-source-article-link-label": "Ler na Wikipédia em $1",
+	"mint-view-translation-overlay-target-article-link-label": "Ler na Wikipédia em $1",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Corrija a tradução",
+	"mint-view-translation-overlay-share-button-label": "Compartilhar tradução automática",
+	"mint-view-translation-overlay-feedback-link-label": "Enviar comentário",
+	"ax-article-footer-entrypoint-card-supporting-text": "Ler tradução automática"
 }

@@ -161,6 +161,8 @@
 	"cx-sx-dashboard-help-panel-feedback-label": "Uuʹd maacctõõzz",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Õhttsa",
 	"cx-sx-login-dialog-button-label": "Ǩeeʹrjtõõđ sizz",
+	"sx-translation-deletion-cancel-button-label": "Jõõsk",
+	"sx-translation-deletion-confirm-button-label": "Jaukkâd jåårǥlõõzz",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 peiʹvved|1=õhtt peiʹvv|2=2 peeiʹv|3=3 peeiʹv|4=4 peeiʹv|5=5 peeiʹv|6=6 peeiʹv|0=Täʹbbe}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 määnpââʹjjed|1=õhtt määnpââʹjj|2=2 määnpââʹj|3=3 määnpââʹj|4=4 määnpââʹj|5=5 määnpââʹj|6=6 määnpââʹj}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 eeʹǩǩed|1=õhtt eeʹǩǩ|2=2 eeʹjj|3=3 eeʹjj|4=4 eeʹjj|5=5 eeʹjj|6=6 eeʹjj}}",
