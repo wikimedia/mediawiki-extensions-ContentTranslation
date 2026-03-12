@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tuwewanzi"
+		]
+	},
+	"cx-captcha-dialog-cancel": "Yužúžu {{GENDER:|wo|we|wo/we}}",
+	"cx-draft-cancel-button-label": "Yužúžu {{GENDER:|wo|we|wo/we}}",
+	"cx-tools-linter-restart-translation-cancel": "Yužúžu {{GENDER:|wo|we|wo/we}}",
+	"cx-publish-destination-namespace-main": "Oyúblaye tȟéča",
+	"cx-translation-list-all-languages-option-label": "Iyúha",
+	"cx-sx-sentence-selector-done-button-label": "Yuštáƞ",
+	"cx-sx-proposed-translation-retry-button": "Akhé iyútȟa",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Yuíyeska {{GENDER:|yo|ye|yo/ye}}",
+	"cx-sx-publisher-preview-options-back-button-aria-label": "Hékta",
+	"cx-sx-publisher-review-info-previous-button-aria-label": "Hékta",
+	"cx-sx-publisher-review-info-next-button-aria-label": "Íyokhihe",
+	"cx-sx-publisher-edit-button-aria-label": "Yutȟókeča {{GENDER:|yo|ye|yo/ye}}",
+	"cx-sx-sentence-selector-translated-segment-next-button-aria-label": "Íyokhihe",
+	"cx-sx-sentence-selector-translated-segment-previous-button-aria-label": "Hékta",
+	"cx-sx-followup-feedback-new-indicator": "théča",
+	"cx-sx-article-search-nearby-title": "Khiyéla",
+	"sx-article-search-language-selector-dialog-title": "Iyápi",
+	"cx-sx-language-selector-all-languages": "Iyápi iyúha",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Oyúblaye kiŋ lé yutȟókeča {{GENDER:|yo|ye|yo/ye}}",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Yeyá {{GENDER:|yo|ye|yo/ye}}",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Iyúpȟaȟ wóiyawa",
+	"cx-sx-login-dialog-button-label": "Čhaž’óigwa {{GENDER:|yo|ye|yo/ye}}",
+	"sx-translation-deletion-cancel-button-label": "Yužúžu {{GENDER:|wo|we|wo/we}}",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|aƞpétu}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|wi}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|ómakȟa}}",
+	"sx-confirm-draft-translation-start-button-label": "{{GENDER:|Hau|Haƞ|Hau/Haƞ}}",
+	"cx-sx-suggestions-filters-done-button-label": "Yuštáƞ",
+	"cx-sx-suggestions-filters-tab-all": "Iyúha",
+	"cx-sx-suggestions-filter-more-label": "Sáƞpȟa",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Iyúha"
+}
