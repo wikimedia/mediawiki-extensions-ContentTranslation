@@ -68,5 +68,13 @@
 	"cx-sx-content-comparator-translation-section-button-label": "Traduzi es sekson",
 	"cx-sx-content-comparator-source-selector-title": "Sekson na $1",
 	"sx-quick-tutorial-main-point-step-1": "Sekson pa sekson",
-	"sx-quick-tutorial-main-point-step-2": "Tradusons sujiridu"
+	"sx-quick-tutorial-main-point-step-2": "Tradusons sujiridu",
+	"sx-quick-tutorial-secondary-point-step-1": "Traduzi i publika un sekson na kada bes. É fási, déntu fáxi i bo ta dizinfada!",
+	"sx-quick-tutorial-secondary-point-step-2": "Kes traduson ki ta parti sima \"Sujistons\" ta mesti bu ravizon pa-s podi ledu ku naturalidadi.",
+	"sx-quick-tutorial-translate-button-label": "Kumesa ta traduzi",
+	"cx-sx-sentence-selector-header-close-button-aria-label": "Bai pa Painél",
+	"cx-sx-sentence-selector-header-title": "Traduzi sekson",
+	"cx-sx-sentence-selector-done-button-label": "Kunkluídu",
+	"cx-sx-proposed-translation-not-available-message": "Traduson otumátiku sta ndispunívi gurinhasin",
+	"cx-sx-proposed-translation-retry-button": "Tenta otu bes"
 }
