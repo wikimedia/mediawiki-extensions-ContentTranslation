@@ -202,6 +202,8 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryBase {
 
 				$size = 0;
 				if ( $lastSection ) {
+					// https://github.com/phan/phan/issues/5489
+					'@phan-var array $lastSection';
 					$size = $lastSection['byteoffset'];
 				}
 

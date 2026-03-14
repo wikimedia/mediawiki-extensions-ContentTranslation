@@ -251,7 +251,6 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 		try {
 			$wikitext = $this->getParsoidClient()->convertHtmlToWikitext(
-				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 				$targetTitle,
 				$html->getValue()
 			)['body'];
@@ -269,7 +268,6 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		try {
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 			$saveResult = $this->saveWikitext( $targetTitle, $wikitext, $params );
 		} catch ( ApiUsageException $e ) {
 			throw $e;
