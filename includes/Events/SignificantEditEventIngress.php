@@ -10,13 +10,13 @@ use ContentTranslation\Service\WikidataIdFetcher;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use MediaWiki\DomainEvent\DomainEventIngress;
-use MediaWiki\Page\Event\PageRevisionUpdatedEvent;
+use MediaWiki\Page\Event\PageLatestRevisionChangedEvent;
 use MediaWiki\Revision\RevisionStore;
 
 /**
  * Event subscriber for significant edits.
  *
- * Subscribes to PageRevisionUpdatedEventAfterCommit events and stores significant edits
+ * Subscribes to PageLatestRevisionChangedEvent events and stores significant edits
  * in the cx_significant_edits table.
  *
  * @copyright See AUTHORS.txt
@@ -34,7 +34,7 @@ class SignificantEditEventIngress extends DomainEventIngress {
 	}
 
 	/**
-	 * Handler for "PageRevisionUpdatedEventAfterCommit" events.
+	 * Handler for "PageLatestRevisionChangedEvent" events.
 	 * It adds a new row to the "cx_significant_edits" table, if the
 	 * current revision fulfils some requirements.
 	 *
@@ -43,10 +43,12 @@ class SignificantEditEventIngress extends DomainEventIngress {
 	 * 2. This change should affect at least one non-lead section
 	 *
 	 * @noinspection PhpUnused
-	 * @param PageRevisionUpdatedEvent $event
+	 * @param PageLatestRevisionChangedEvent $event
 	 * @return void
 	 */
-	public function handlePageRevisionUpdatedEvent( PageRevisionUpdatedEvent $event ): void {
+	public function handlePageLatestRevisionChangedEvent(
+		PageLatestRevisionChangedEvent $event
+	): void {
 		$pageIdentity = $event->getPage();
 		$rev = $event->getLatestRevisionAfter();
 		$user = $event->getAuthor();

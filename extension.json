@@ -149,7 +149,7 @@
 	"DomainEventIngresses": [
 		{
 			"events": [
-				"PageRevisionUpdated"
+				"PageLatestRevisionChanged"
 			],
 			"class": "ContentTranslation\\Events\\SignificantEditEventIngress",
 			"services": [
