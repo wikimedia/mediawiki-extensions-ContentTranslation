@@ -133,7 +133,7 @@
 	"cx-tools-linter-empty-title-message": "Svim stranicama je potrebno ime, da ih korisnici mogu pronaći. Molimo Vas, dajte ime stranici da biste je mogli objaviti.",
 	"cx-tools-linter-invalid-character": "Naslov sadrži nedopuštene znakove",
 	"cx-tools-linter-invalid-character-action": "Popravi problematične znakove",
-	"cx-tools-linter-invalid-character-message": "Zbog tehničkih razloga neki znakovi ne mogu biti uporabljeni u naslovima.\n\nMolimo, uredite naslov.",
+	"cx-tools-linter-invalid-character-message": "Naslov sadrži nedozvoljene znakove.\n\nUklonite ih i pokušajte ponovo.",
 	"cx-tools-linter-page-exists": "Stranica već postoji",
 	"cx-tools-linter-page-exists-message": "Stranica s naslovom $1 već postoji. Objavljivanjem ovoga prijevoda zamijenit ćete postojeći sadržaj.\n\nProvjerite je li u redu prebrisati postojeću stranicu, ili razmislite o preimenovanju Vašeg prijevoda.",
 	"cx-tools-linter-cannot-publish-title": "Objava je dopuštena samo iskusnijim suradnicima",
