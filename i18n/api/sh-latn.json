@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aca",
 			"Winston Sung"
 		]
 	},
@@ -16,7 +17,7 @@
 	"apihelp-cxpublish-param-wpCaptchaWord": "Odgovor na captchu (kada spremate s captcha odgovorom).",
 	"apihelp-cxpublish-param-cxversion": "Verzija uređivača koja se koristi za objavljivanje prevoda.",
 	"apihelp-query+contenttranslation-summary": "Baza prijevoda \"Prijevod sadržaja za pretragu\" (Query Content Translation).",
-	"apihelp-query+contenttranslation-param-translationid": "Naznaka prijevoda.",
+	"apihelp-query+contenttranslation-param-translationid": "ID prijevoda.",
 	"apihelp-query+contenttranslation-param-from": "Kôd izvornog jezika.",
 	"apihelp-query+contenttranslation-param-to": "Kôd ciljnog jezika.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Naslov izvorne stranice.",
