@@ -13,8 +13,8 @@
 	"apihelp-cxpublish-param-sourcetitle": "Naslov izvorne stranice.",
 	"apihelp-cxpublish-param-categories": "Kategorije za postaviti u objavljenu stranicu.",
 	"apihelp-cxpublish-param-publishtags": "Oznake izmjene za postaviti u objavljenu stranicu.",
-	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (kada spremate s captcha odgovorom).",
-	"apihelp-cxpublish-param-wpCaptchaWord": "Odgovor na captchu (kada spremate s captcha odgovorom).",
+	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (kada čuvate s captcha odgovorom).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Odgovor na captchu (kada čuvate s captcha odgovorom).",
 	"apihelp-cxpublish-param-cxversion": "Verzija uređivača koja se koristi za objavljivanje prevoda.",
 	"apihelp-query+contenttranslation-summary": "Baza prijevoda \"Prijevod sadržaja za pretragu\" (Query Content Translation).",
 	"apihelp-query+contenttranslation-param-translationid": "ID prijevoda.",
@@ -46,6 +46,6 @@
 	"apihelp-sxsave-param-targetlanguage": "Kôd ciljnog jezika.",
 	"apihelp-sxsave-param-sourcetitle": "Naslov izvorne stranice.",
 	"apihelp-sxsave-param-targettitle": "Naslov ciljne stranice.",
-	"apierror-sxsave-anon-user": "Radnja priložnika \"sxsave\" nije omogućena za anonimne korisnike",
+	"apierror-sxsave-anon-user": "Radnja API-ja \"sxsave\" nije omogućena za anonimne korisnike",
 	"apierror-cxpublishsection-translationnotfound": "Prijevod nije pronađen."
 }

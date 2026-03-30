@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"26agcp",
 			"Anettechan03",
 			"Chester1",
 			"Ebenezer",
@@ -58,6 +59,6 @@
 	"cx-entrypoint-dialog-button-translate-from": "Suutk'esik tak $1",
 	"cx-entrypoint-dialog-desc": "Je'el u páajtal a wáantik Wikipedia ikil a sutk'esik le u ju'unilo'oba'.  U sutk'esik jump'éel t'aane' jump'éel ba'al chen  ch'a'abil u beeta'al túumben ba'alo'ob yaan ichil a t'aan.",
 	"cx-campaign-newbytranslation-title": "Kaajsik yéetel jump'éel maansaj t'aan tu yóok'lal?",
-	"cx-campaign-newbytranslation-search": "Kaxaant u láak' wáalal utia'al a maansik ti' u láak' t'aan",
+	"cx-campaign-newbytranslation-search": "Kaxáant uláak' wáalal uti'al a máansik ti' uláak' t'aan",
 	"cx-campaign-newbytranslation-start": "Káas a ts'íib ti' u láak' t'aan"
 }
