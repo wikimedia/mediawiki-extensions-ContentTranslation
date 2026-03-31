@@ -205,7 +205,7 @@
 	"cx-tools-linter-template-inline-message": "Izvorna stranica koristi šablone za strukturiranje sadržaja, ali neki od njih ne postoje na odredišnom wikiju.\n\nSadržaj iz nedostajućih šablona dodan je kao obični tekst. Uvjerite se da pregledajte rezultat.",
 	"cx-tools-linter-template-add-new": "Dodaj novi šablon",
 	"cx-tools-linter-incomplete-template": "Nepotpun šablon",
-	"cx-tools-linter-restart-translation-title": "Ponovno započeti prijevod?",
+	"cx-tools-linter-restart-translation-title": "Ponovo započeti prijevod?",
 	"cx-tools-linter-restart-translation-message": "Započeti ćete novi prijevod s najnovije verzije stranice. Sve će promjene biti izgubljene.",
 	"cx-tools-linter-restart-translation-cancel": "Otkaži",
 	"cx-translator-header": "Vaše statistike",
