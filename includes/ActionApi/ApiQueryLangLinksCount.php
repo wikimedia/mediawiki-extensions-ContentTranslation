@@ -9,12 +9,15 @@
 namespace ContentTranslation\ActionApi;
 
 use MediaWiki\Api\ApiQueryBase;
+use MediaWiki\Deferred\LinksUpdate\LangLinksTable;
 
 class ApiQueryLangLinksCount extends ApiQueryBase {
 	public function execute() {
 		if ( $this->getPageSet()->getGoodTitleCount() < 1 ) {
 			return;
 		}
+
+		$this->setVirtualDomain( LangLinksTable::VIRTUAL_DOMAIN );
 
 		$this->addTables( 'langlinks' );
 		$this->addFields( [
