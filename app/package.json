@@ -18,8 +18,7 @@
     "lint:js": "eslint . --cache --fix",
     "lint:css": "stylelint --cache \"**/*.vue\"",
     "format": "prettier . --write",
-    "test": "npm install && npm -s run test:bundle && npm run lint && npm run test:unit",
-    "test:bundle": "bash ./scripts/check_bundle.sh"
+    "test": "npm install && npm run lint && npm run test:unit"
   },
   "dependencies": {
     "@wikimedia/language-data": "1.1.2",
@@ -38,7 +37,6 @@
     "@wikimedia/codex-design-tokens": "^1.16.0",
     "babel-jest": "29.5.0",
     "babel-preset-vue": "^2.0.2",
-    "bundlesize": "^0.18.1",
     "eslint": "^8.37.0 ",
     "eslint-plugin-prettier": "^4.2.0",
     "eslint-plugin-vue": "^9.10.0",

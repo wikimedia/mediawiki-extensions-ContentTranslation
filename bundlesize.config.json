@@ -16,5 +16,9 @@
 		"@note": "T404463: Should be refactored to not use mediawiki.ForeignApi on page load.",
 		"ignoreDependencies": true,
 		"maxSize": "1.8 kB"
+	},
+	{
+		"resourceModule": "mw.cx3",
+		"maxSize": "205 kB"
 	}
 ]
