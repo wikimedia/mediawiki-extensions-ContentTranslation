@@ -14,7 +14,6 @@ import { computed, onMounted, ref } from "vue";
 import {
   getTarget,
   getSurface,
-  getReferenceRendering,
 } from "../target/integration";
 
 function mwLinktoDataElement(domElements) {
@@ -115,10 +114,6 @@ export default {
         props.language,
         props.dir
       );
-      const MWReferenceContextItem =
-        ve.ui.contextItemFactory.lookup("reference");
-      // FIXME: This hack breaks SOLID rules and is unstable and unreliable!
-      MWReferenceContextItem.prototype.getRendering = getReferenceRendering;
 
       // Focus on the editor
       veSurface.focus();
