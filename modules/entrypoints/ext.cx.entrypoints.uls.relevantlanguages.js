@@ -1,8 +1,58 @@
 const sitematrix = require( './sitematrix.json' );
+const { cdxIconAdd } = require( './icons.json' );
 
 ( function () {
 	let entrypointRendered = false;
 	const siteMapper = new mw.cx.SiteMapper();
+
+	if ( mw.uls.shouldLoadUlsRewrite() ) {
+		const EntrypointRegistry = require( 'ext.uls.rewrite.entrypoints' );
+		const { ENTRYPOINT_TYPE, ULS_MODE } = EntrypointRegistry;
+
+		// copy from './ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue'
+		const getCXUrlByTargetLanguage = ( targetLanguage ) => {
+			const sourceTitle = mw.config.get( 'wgTitle' );
+			const sourceLanguage = siteMapper.getCurrentWikiLanguageCode();
+
+			return siteMapper.getCXUrl(
+				sourceTitle,
+				'',
+				sourceLanguage,
+				targetLanguage || null,
+				{ campaign: 'ulsmissinglanguages' }
+			);
+		};
+
+		let cachedMissingRelevantLanguages = null;
+		const getMissingRelevantLanguagesWithCache = ( context ) => {
+			if ( cachedMissingRelevantLanguages ) {
+				return cachedMissingRelevantLanguages;
+			}
+
+			const existingLanguages = Object.keys( context.languages || {} );
+			cachedMissingRelevantLanguages = getMissingRelevantLanguages( existingLanguages );
+
+			return cachedMissingRelevantLanguages;
+		};
+
+		EntrypointRegistry.register( ENTRYPOINT_TYPE.MISSING_CONTENT_LANGUAGES, {
+			id: 'cx-missing-languages-recommendation',
+			shouldShow: ( context ) => getMissingRelevantLanguagesWithCache( context ).length,
+			getConfig: ( context ) => {
+				const codes = getMissingRelevantLanguagesWithCache( context );
+
+				return codes.map( ( code ) => ( {
+					// TODO: Replace with direct call to language-data
+					label: $.uls.data.getAutonym( code ),
+					icon: cdxIconAdd,
+					description: mw.msg( 'ext-uls-missing-languages-entrypoint-description' ),
+					url: getCXUrlByTargetLanguage( code )
+				} ) );
+			}
+		}, ULS_MODE.CONTENT );
+
+		return;
+	}
 
 	/**
 	 * @param {string[]} missingRelevantLanguages array of missing frequent language autonyms
@@ -85,64 +135,75 @@ const sitematrix = require( './sitematrix.json' );
 		return missingLanguagesPanel;
 	};
 
+	/**
+	 * @param {string[]} existingLanguages Language codes already present for this article
+	 * @return {string[]} Missing relevant content language codes
+	 */
+	function getMissingRelevantLanguages( existingLanguages ) {
+		// Remove duplicates.
+		let frequentLanguages = [ ...new Set( mw.uls.getFrequentLanguageList() ) ];
+		// Remove current language.
+		frequentLanguages = frequentLanguages.filter(
+			( language ) => language !== mw.config.get( 'wgContentLanguage' )
+		);
+
+		/**
+		 * This variable stores an array of language codes. These language codes are
+		 * the content languages of the "relevant" wikis, from which the current article is missing.
+		 *
+		 * @type {string[]}
+		 */
+		const missingRelevantLanguages = [];
+
+		for ( const frequentLanguage of frequentLanguages ) {
+			const wikiDomainCode = siteMapper.getWikiDomainCode( frequentLanguage );
+
+			if ( !sitematrix.includes( wikiDomainCode ) ) {
+				continue;
+			}
+
+			/**
+			 * The content language of the corresponding wiki for the current "relevant" language
+			 * This can be different from the "relevant" language.
+			 * E.g.
+			 * - for "no" language code, "wikiDomainCode" will also be "no", but the content
+			 * language for this wiki is "nb".
+			 * - for "nb" language code, "wikiDomainCode" will be "no", and the content
+			 * language for this wiki is also "nb".
+			 *
+			 * @type {string}
+			 */
+			const wikiContentLanguage = siteMapper.getLanguageCodeForWikiDomain( wikiDomainCode );
+
+			// skip if the current article already exists for the corresponding content language
+			if ( existingLanguages.includes( wikiContentLanguage ) ) {
+				continue;
+			}
+
+			// skip if the content language already exists inside "missingRelevantLanguages" array
+			if ( missingRelevantLanguages.includes( wikiContentLanguage ) ) {
+				continue;
+			}
+
+			missingRelevantLanguages.push( wikiContentLanguage );
+		}
+
+		return missingRelevantLanguages;
+	}
+
 	mw.hook( 'mw.uls.compact_language_links.open' ).add(
 		( $trigger ) => {
 			if ( entrypointRendered ) {
 				return;
 			}
 			const uls = $trigger.data( 'uls' );
-			// Remove duplicates.
-			let frequentLanguages = [ ...new Set( mw.uls.getFrequentLanguageList() ) ];
-			// Remove current language.
-			frequentLanguages = frequentLanguages.filter(
-				( language ) => language !== mw.config.get( 'wgContentLanguage' )
-			);
 			const existingLanguages = Object.keys( uls.languages );
 
 			if ( !existingLanguages.length ) {
 				return;
 			}
 
-			/**
-			 * This variable stores an array of language codes. These language codes are
-			 * the content languages of the "relevant" wikis, from which the current article is missing.
-			 *
-			 * @type {string[]}
-			 */
-			const missingRelevantLanguages = [];
-
-			for ( const frequentLanguage of frequentLanguages ) {
-				const wikiDomainCode = siteMapper.getWikiDomainCode( frequentLanguage );
-
-				if ( !sitematrix.includes( wikiDomainCode ) ) {
-					continue;
-				}
-
-				/**
-				 * The content language of the corresponding wiki for the current "relevant" language
-				 * This can be different from the "relevant" language.
-				 * E.g.
-				 * - for "no" language code, "wikiDomainCode" will also be "no", but the content
-				 * language for this wiki is "nb".
-				 * - for "nb" language code, "wikiDomainCode" will be "no", and the content
-				 * language for this wiki is also "nb".
-				 *
-				 * @type {string}
-				 */
-				const wikiContentLanguage = siteMapper.getLanguageCodeForWikiDomain( wikiDomainCode );
-
-				// skip if the current article already exists for the corresponding content language
-				if ( existingLanguages.includes( wikiContentLanguage ) ) {
-					continue;
-				}
-
-				// skip if the content language already exists inside "missingRelevantLanguages" array
-				if ( missingRelevantLanguages.includes( wikiContentLanguage ) ) {
-					continue;
-				}
-
-				missingRelevantLanguages.push( wikiContentLanguage );
-			}
+			const missingRelevantLanguages = getMissingRelevantLanguages( existingLanguages );
 
 			if ( !missingRelevantLanguages.length ) {
 				return;

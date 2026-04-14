@@ -1133,19 +1133,31 @@
 			]
 		},
 		"ext.cx.entrypoints.ulsrelevantlanguages": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexComponents": [
+				"CdxIcon"
+			],
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages.js",
 				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue",
 				{
 					"name": "entrypoints/sitematrix.json",
 					"callback": "ContentTranslation\\HookHandler\\ULSRelevantLanguagesEntrypointRegistrationHandler::getWikipediaList"
+				},
+				{
+					"name": "entrypoints/icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconAdd"
+					]
 				}
 			],
 			"dependencies": [
 				"vue",
 				"mw.cx.SiteMapper",
 				"ext.uls.common",
-				"jquery.uls.data"
+				"jquery.uls.data",
+				"ext.uls.rewrite.entrypoints"
 			],
 			"styles": [
 				"entrypoints/styles/ext.cx.entrypoints.uls.relevantlanguages.less"
