@@ -32,7 +32,7 @@ use MediaWiki\Api\ApiUsageException;
 use MediaWiki\ChangeTags\ChangeTagsStore;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\HookContainer\HookContainer;
-use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;

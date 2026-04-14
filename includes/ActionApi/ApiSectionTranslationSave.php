@@ -20,7 +20,7 @@ use ContentTranslation\Translation;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiUsageException;
-use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;

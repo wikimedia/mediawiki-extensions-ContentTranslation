@@ -6,7 +6,7 @@ namespace ContentTranslation\Special;
 
 use ContentTranslation\SiteMapper;
 use MediaWiki\Html\TemplateParser;
-use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\SpecialPage\SpecialPage;
 
 /**

@@ -20,7 +20,7 @@ use Deflate;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Json\FormatJson;
-use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;

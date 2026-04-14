@@ -8,8 +8,8 @@ use ContentTranslation\Store\FavoriteSuggestionStore;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiUsageException;
-use MediaWiki\Languages\LanguageNameUtils;
-use TitleFactory;
+use MediaWiki\Language\LanguageNameUtils;
+use MediaWiki\Title\TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**

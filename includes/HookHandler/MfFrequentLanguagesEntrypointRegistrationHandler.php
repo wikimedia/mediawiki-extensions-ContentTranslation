@@ -5,8 +5,8 @@ declare( strict_types = 1 );
 namespace ContentTranslation\HookHandler;
 
 use ContentTranslation\SiteMapper;
-use MediaWiki\Languages\LanguageFactory;
-use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Language\LanguageFactory;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Registration\ExtensionRegistry;
