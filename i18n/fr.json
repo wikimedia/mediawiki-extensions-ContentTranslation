@@ -64,7 +64,8 @@
 			"Yodaspirine",
 			"Zarisi",
 			"Петар Петковић",
-			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ"
+			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ",
+			"Eihel"
 		]
 	},
 	"cx": "Traduire la page",
@@ -278,7 +279,7 @@
 	"cx-sx-section-selector-desc": "Vous comparerez le contenu dans les deux langues",
 	"cx-sx-language-selector-dialog-title": "Rechercher une langue",
 	"cx-sx-existing-translation-status": "Disponible en $1",
-	"cx-sx-existing-translation-additional-info": "Développer avec $1{{PLURAL:$2|et $2 autre{{PLURAL:$2||s}} section{{PLURAL:$2||s}}|0=}}",
+	"cx-sx-existing-translation-additional-info": "Développer avec $1 {{PLURAL:$2|et $2 autre{{PLURAL:$2||s}} section{{PLURAL:$2||s}}|0=}}",
 	"cx-sx-start-translation-button-label": "Commencer la traduction",
 	"cx-sx-view-translation-anchor": "Afficher",
 	"cx-sx-existing-translation-learn-more": "En savoir plus",
