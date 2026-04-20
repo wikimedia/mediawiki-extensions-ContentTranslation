@@ -75,6 +75,30 @@
 		return possibleTargetLanguages.length ? possibleTargetLanguages[ 0 ] : null;
 	}
 
+	if ( mw.config.get( 'wgULSLanguageSelectorV2Enabled' ) ) {
+		const EntrypointRegistry = require( 'ext.uls.rewrite.entrypoints' );
+		const { cdxIconAdd } = require( './icons.json' );
+		const { ENTRYPOINT_TYPE, ULS_MODE } = EntrypointRegistry;
+
+		EntrypointRegistry.register( ENTRYPOINT_TYPE.QUICK_ACTIONS, {
+			id: 'cx-uls-translate-page-quick-action',
+			shouldShow: () => true,
+			getConfig: () => ( {
+				label: mw.msg( 'cx-uls-translate-page-quick-action-label' ),
+				icon: cdxIconAdd,
+				url: siteMapper.getCXUrl(
+					mw.config.get( 'wgTitle' ),
+					null,
+					sourceLanguage,
+					getSuggestedTargetLanguage(),
+					{ campaign: 'ulsaddlanguages' }
+				)
+			} )
+		}, ULS_MODE.CONTENT );
+
+		return;
+	}
+
 	const cxEntrypointUrl = siteMapper.getCXUrl(
 		mw.config.get( 'wgTitle' ),
 		null,

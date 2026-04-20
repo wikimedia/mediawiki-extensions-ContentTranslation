@@ -931,12 +931,20 @@
 		},
 		"ext.cx.uls.quick.actions": {
 			"packageFiles": [
-				"entrypoints/ext.cx.uls.quick.actions.js"
+				"entrypoints/ext.cx.uls.quick.actions.js",
+				{
+					"name": "entrypoints/icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconAdd"
+					]
+				}
 			],
 			"dependencies": [
 				"mw.cx.SiteMapper",
 				"ext.uls.interface",
-				"ext.uls.common"
+				"ext.uls.common",
+				"ext.uls.rewrite.entrypoints"
 			],
 			"messages": [
 				"cx-uls-translate-page-quick-action-label"
