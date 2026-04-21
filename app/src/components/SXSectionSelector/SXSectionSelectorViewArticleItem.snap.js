@@ -19,7 +19,6 @@ exports[`SXSectionSelector View Article Item Component output matches snapshot f
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
         <!--v-if-->
         <g>
