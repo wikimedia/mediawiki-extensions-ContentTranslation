@@ -5,7 +5,7 @@ const { cdxIconAdd } = require( './icons.json' );
 	let entrypointRendered = false;
 	const siteMapper = new mw.cx.SiteMapper();
 
-	if ( mw.uls.shouldLoadUlsRewrite() ) {
+	if ( mw.config.get( 'wgULSLanguageSelectorV2Enabled' ) ) {
 		const EntrypointRegistry = require( 'ext.uls.rewrite.entrypoints' );
 		const { ENTRYPOINT_TYPE, ULS_MODE } = EntrypointRegistry;
 
