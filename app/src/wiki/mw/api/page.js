@@ -82,26 +82,40 @@ const fetchLanguageTitles = (language, title) => {
     origin: "*",
     redirects: true,
   };
-  const mwApi = siteMapper.getApi(language);
 
-  return mwApi.get(params).then((response) => {
-    const pages = response.query.pages;
+  const jQueryPromise = siteMapper.getApi(language).get(params);
 
-    // When invalid title is provided a dummy page is return with "missing"
-    // property equal to true. So we should check also for this one.
-    if (!pages || !pages.length || pages[0]?.missing) {
-      // Page not present
-      return null;
-    }
-    const titles = [{ lang: language, title }, ...(pages[0].langlinks || [])];
-    const wikidataId = pages[0].pageprops?.wikibase_item;
+  const isProductionApi =
+    siteMapper.siteTemplates.api.includes("wikipedia.org");
 
-    // For test articles used in development, wikidataId will be missing. Skip
-    if (!wikidataId) {
-      return null;
-    }
+  return new Promise((resolve, reject) => {
+    jQueryPromise
+      .then((response) => {
+        const pages = response.query.pages;
 
-    return Object.freeze(new LanguageTitleGroup(wikidataId, titles));
+        // When invalid title is provided a dummy page is return with "missing"
+        // property equal to true. So we should check also for this one.
+        if (!pages || !pages.length || pages[0]?.missing) {
+          reject(new Error("Page not found"));
+        }
+        const titles = [
+          { lang: language, title },
+          ...(pages[0].langlinks || []),
+        ];
+        const wikidataId = pages[0].pageprops?.wikibase_item;
+
+        // For test articles used in development, wikidataId will be missing. Skip
+        if (!wikidataId) {
+          if (!isProductionApi) {
+            return resolve(null);
+          }
+
+          reject(new Error("Wikidata ID not found"));
+        }
+
+        resolve(Object.freeze(new LanguageTitleGroup(wikidataId, titles)));
+      })
+      .fail(reject);
   });
 };
 
