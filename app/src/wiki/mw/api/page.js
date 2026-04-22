@@ -22,7 +22,7 @@ const fetchPages = (language, titles) => {
     format: "json",
     formatversion: 2,
     prop: "info|pageprops|pageimages|description|pageviews|langlinkscount|revisions",
-    pvipdays: 7, // Last 7 days page views
+    pvipdays: 7, // Last 7-day page views
     piprop: "thumbnail|name|original",
     rvprop: "size",
     pithumbsize: defaultThumbnailSize,
@@ -31,36 +31,42 @@ const fetchPages = (language, titles) => {
     redirects: true,
   };
 
-  const mwApi = siteMapper.getApi(language);
+  const jQueryPromise = siteMapper.getApi(language).get(params);
 
-  return mwApi.get(params).then((response) => {
-    const apiResponse = response.query.pages;
-    const redirects = response.query.redirects || [];
-    const redirectMap = redirects.reduce(
-      (rMap, redirect) => ({ ...rMap, [redirect.to]: redirect.from }),
-      {}
-    );
+  return new Promise((resolve, reject) => {
+    jQueryPromise
+      .then((response) => {
+        const foundPages = response.query.pages;
+        const redirects = response.query.redirects || [];
+        const redirectMap = redirects.reduce(
+          (rMap, redirect) => ({ ...rMap, [redirect.to]: redirect.from }),
+          {}
+        );
 
-    // consider title normalizations to also support non normalized titles for multi-word page titles
-    // e.g. "Greenhouse_gas" instead of "Greenhouse gas"
-    const titleNormalizations = response.query.normalized || [];
-    const normalizationMap = titleNormalizations.reduce(
-      (nMap, normalization) => ({
-        ...nMap,
-        [normalization.to]: normalization.from,
-      }),
-      {}
-    );
+        // consider title normalizations to also support non-normalized titles for multi-word page titles
+        // e.g. "Greenhouse_gas" instead of "Greenhouse gas"
+        const titleNormalizations = response.query.normalized || [];
+        const normalizationMap = titleNormalizations.reduce(
+          (nMap, normalization) => ({
+            ...nMap,
+            [normalization.to]: normalization.from,
+          }),
+          {}
+        );
 
-    return apiResponse.map((page) => {
-      // non-normalized page titles take priority over "redirect from" titles,
-      // because they only exist in the response, when they have included in the
-      // "titles" property of the request payload
-      const _alias =
-        normalizationMap[page.title] || redirectMap[page.title] || null;
+        resolve(
+          foundPages.map((page) => {
+            // non-normalized page titles take priority over "redirect from" titles
+            // because they only exist in the response, when they have included in the
+            // "titles" property of the request payload
+            const _alias =
+              normalizationMap[page.title] || redirectMap[page.title] || null;
 
-      return new Page({ ...page, _alias });
-    });
+            return new Page({ ...page, _alias });
+          })
+        );
+      })
+      .fail(reject);
   });
 };
 
