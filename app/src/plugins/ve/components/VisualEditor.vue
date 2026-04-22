@@ -11,10 +11,7 @@
 
 <script>
 import { computed, onMounted, ref } from "vue";
-import {
-  getTarget,
-  getSurface,
-} from "../target/integration";
+import { getTarget, getSurface } from "../target/integration";
 
 function mwLinktoDataElement(domElements) {
   // ve.dm.MWInternalLinkAnnotation.static.toDataElement has assumptions about document.baseURI.
