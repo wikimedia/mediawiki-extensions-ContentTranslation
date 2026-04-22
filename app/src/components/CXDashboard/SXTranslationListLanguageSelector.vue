@@ -33,6 +33,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emit = defineEmits([
@@ -99,6 +103,7 @@ const allLanguagesSelectedAsTarget = computed(
         <cdx-button
           class="sx-translation-list-language-selector__button"
           weight="quiet"
+          :disabled="disabled"
           @click.stop="openSourceLanguageDialog"
         >
           <span
@@ -126,7 +131,7 @@ const allLanguagesSelectedAsTarget = computed(
         <cdx-button
           class="sx-translation-list-language-selector__button"
           weight="quiet"
-          :disabled="targetLanguages.length < 2"
+          :disabled="disabled || targetLanguages.length < 2"
           @click.stop="openTargetLanguageDialog"
         >
           <span

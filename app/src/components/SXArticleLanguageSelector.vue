@@ -38,6 +38,7 @@ const onTargetLanguageSelected = (newTargetLanguage) =>
     :target-languages="supportedLanguageCodes"
     :selected-source-language="sourceLanguage"
     :selected-target-language="targetLanguage"
+    :disabled="!currentLanguageTitleGroup"
     @update:selected-source-language="onSourceLanguageSelected"
     @update:selected-target-language="onTargetLanguageSelected"
   />
