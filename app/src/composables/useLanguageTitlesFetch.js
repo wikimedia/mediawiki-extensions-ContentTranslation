@@ -1,7 +1,8 @@
 import pageApi from "@/wiki/mw/api/page";
 import { useStore } from "vuex";
 
-let pendingRequests = [];
+/** @type {Object.<string, Promise<void>>} */
+const pendingRequests = {};
 
 /**
  * Returns a function that fetches language links for a given language and title,
@@ -13,29 +14,29 @@ const useLanguageTitlesFetch = () => {
   const store = useStore();
 
   return (language, title) => {
-    const pendingRequestHash = `${language}:${title}`;
+    const key = `${language}:${title}`;
 
-    if (
-      store.getters["mediawiki/getLanguageTitleGroup"](language, title) ||
-      pendingRequests.includes(pendingRequestHash)
-    ) {
-      // Already exist in store or already being fetched
+    if (store.getters["mediawiki/getLanguageTitleGroup"](language, title)) {
+      // Already exist in store
       return Promise.resolve();
     }
 
-    pendingRequests.push(pendingRequestHash);
+    if (pendingRequests[key]) {
+      // Already being fetched — return the same promise
+      return pendingRequests[key];
+    }
 
-    return pageApi
+    pendingRequests[key] = pageApi
       .fetchLanguageTitles(language, title)
       .then((languageTitleGroup) => {
-        pendingRequests = pendingRequests.filter(
-          (hash) => hash !== pendingRequestHash
-        );
+        delete pendingRequests[key];
 
         if (languageTitleGroup) {
           store.commit("mediawiki/addLanguageTitleGroup", languageTitleGroup);
         }
       });
+
+    return pendingRequests[key];
   };
 };
 
