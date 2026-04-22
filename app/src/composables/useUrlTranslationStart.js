@@ -1,6 +1,5 @@
 import useTranslationStart from "@/composables/useTranslationStart";
 import useURLHandler from "@/composables/useURLHandler";
-import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 import useDashboardOpenInstrument from "@/components/CXDashboard/useDashboardOpenInstrument";
 
 /**
@@ -8,7 +7,6 @@ import useDashboardOpenInstrument from "@/components/CXDashboard/useDashboardOpe
  */
 const useUrlTranslationStart = () => {
   const startTranslation = useTranslationStart();
-  const fetchLanguageTitles = useLanguageTitlesFetch();
   const { logDashboardOpenEvent } = useDashboardOpenInstrument();
   const {
     sourceLanguageURLParameter: sourceLanguage,
@@ -17,12 +15,10 @@ const useUrlTranslationStart = () => {
   } = useURLHandler();
 
   return async () => {
-    fetchLanguageTitles(sourceLanguage.value, pageTitle.value).then(() =>
-      logDashboardOpenEvent()
-    );
+    logDashboardOpenEvent();
 
     // do not navigate to "sx-translation-confirmer". useUrlTranslationStart is only called inside
-    // router navigation guard, which will also handle the navigation to the confirmation step
+    // the router navigation guard, which will also handle the navigation to the confirmation step
     return startTranslation(
       pageTitle.value,
       sourceLanguage.value,
