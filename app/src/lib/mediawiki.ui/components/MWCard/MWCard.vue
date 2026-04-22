@@ -35,7 +35,7 @@ export default {
   margin-bottom: 1em;
   border-radius: @border-radius-base;
   padding: 8px;
-  box-shadow: @box-shadow-drop-small;
+  box-shadow: @box-shadow-medium;
   .mw-ui-card__title {
     color: @color-base;
   }

@@ -99,7 +99,7 @@ export default {
 .mw-progress-bar {
   border: @border-base;
   border-radius: @border-radius-pill;
-  box-shadow: @box-shadow-drop-medium;
+  box-shadow: @box-shadow-medium;
   overflow: hidden;
   &--pending {
     // TODO: Replace with standard pending stripe design.

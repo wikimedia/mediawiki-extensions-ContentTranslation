@@ -113,7 +113,7 @@ const { isPresentLeadSection } = useSectionPresenceStatus();
     .sx-content-comparator-header__mapped-section-clarifications {
       font-size: @font-size-small;
       color: @color-base;
-      line-height: @line-height-xx-small;
+      line-height: @line-height-small;
     }
   }
 }

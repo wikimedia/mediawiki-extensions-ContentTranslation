@@ -186,7 +186,7 @@ onBeforeUnmount(() => {
     position: sticky;
     top: -4px;
     background-color: @background-color-base;
-    box-shadow: @box-shadow-drop-small;
+    box-shadow: @box-shadow-medium;
     .sx-content-comparator__content-header-title {
       border-bottom: none;
     }

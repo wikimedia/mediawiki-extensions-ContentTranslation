@@ -237,7 +237,7 @@ onMounted(async () => {
 .mw-ui-language-selector {
   &__autocomplete,
   &__search {
-    box-shadow: @box-shadow-drop-medium;
+    box-shadow: @box-shadow-medium;
     border: 0;
     background-color: transparent;
     .mw-ui-input__input {
