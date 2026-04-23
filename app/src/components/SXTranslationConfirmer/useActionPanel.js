@@ -26,7 +26,7 @@ const useActionPanel = () => {
     useLanguageTitleGroup();
 
   const targetArticlePath = computed(() => {
-    if (!targetPageExists) {
+    if (!targetPageExists.value) {
       return null;
     }
 
