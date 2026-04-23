@@ -57,13 +57,16 @@ const useSuggestionLoad = () => {
 
       try {
         await fetchPageMetadata(sourceLanguage, [sourceTitle]);
+        const page = store.getters["mediawiki/getPage"](
+          sourceLanguage,
+          sourceTitle
+        );
+
+        if (!page) {
+          throw new Error("No page fetched");
+        }
 
         if (!suggestion) {
-          const page = store.getters["mediawiki/getPage"](
-            sourceLanguage,
-            sourceTitle
-          );
-
           return new ArticleSuggestion({
             sourceLanguage,
             targetLanguage,
