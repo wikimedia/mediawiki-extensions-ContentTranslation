@@ -17,7 +17,8 @@
 			"ZI Jony",
 			"আজিজ",
 			"আফতাবুজ্জামান",
-			"খাত্তাব হাসান"
+			"খাত্তাব হাসান",
+			"Zaheen"
 		]
 	},
 	"cx": "পাতা অনুবাদ করুন",
@@ -226,7 +227,7 @@
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1টি ত্রুটি}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1টি সতর্কতা}}",
 	"cx-tools-linter-learn-more": "আরও জানুন",
-	"cx-tools-linter-mark-as-resolved": "মিমাংসিত বলে চিহ্নিত করুন",
+	"cx-tools-linter-mark-as-resolved": "মীমাংসিত বলে চিহ্নিত করুন",
 	"cx-tools-linter-generic-title": "আপনার অনুবাদে একটি সমস্যা আছে",
 	"cx-tools-linter-abuse-filter": "অপব্যবহার ছাঁকনিগুলি আপনার অনুবাদে সমস্যাযুক্ত সামগ্রী চিহ্নিত করেছে",
 	"cx-tools-linter-empty-title": "আপনার অনুবাদের একটি শিরোনাম প্রয়োজন",
