@@ -84,8 +84,8 @@
 	"cx-campaign-try": "Паспрабаваць пераклад зьместу",
 	"cx-campaign-contributionsmenu-mytranslations": "Пераклады",
 	"cx-campaign-contributionsmenu-myuploads": "Загружаныя мэдыяфайлы",
-	"cx-tools-missing-link-text": "{{GENDER:|Пазначце}} старонку як адсутную, каб падахвоціць да яе стварэньня.",
-	"cx-tools-missing-link-mark-link": "{{GENDER:|Пазначыць}} як адсутную",
+	"cx-tools-missing-link-text": "{{GENDER:|Пазначце}} брак старонкі, каб падахвоціць да яе стварэньня.",
+	"cx-tools-missing-link-mark-link": "{{GENDER:|Пазначыць}} як няісную",
 	"echo-category-title-cx": "Пераклады",
 	"echo-pref-tooltip-cx": "Абвяшчаць мяне пра мае пераклады, створаныя праз інструмэнт перакладу зьместу.",
 	"cx-notification-first-translation": "Віншуем зь першым перакладам! У сваім унёску вы можаце знайсьці яшчэ старонкі для перакладу.",
@@ -105,9 +105,9 @@
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Ваш пераклад будзе <strong>дададзены ў ваш чарнавік.</strong>",
 	"cx-sx-publisher-publish-panel-expand-section-result": "Ваш пераклад будзе <strong>дададзены ў існы разьдзел.</strong>",
 	"cx-sx-publisher-edit-button-aria-label": "Рэдагаваць",
-	"cx-uls-relevant-languages-banner-text-single-missing": "Адсутнічае ў <span>$1</span> ды іншых",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Бракуе ў <span>$1</span> ды іншых",
 	"cx-uls-relevant-languages-panel-header": "Перакласьці гэтую старонку",
-	"cx-uls-relevant-languages-panel-message": "Гэтая старонка адсутнічае некаторымі мовамі, якія вы можаце ведаць. Перакладзіце яе за хвіліны!",
+	"cx-uls-relevant-languages-panel-message": "Гэтай старонкі бракуе на мовах, якія вы можаце ведаць. Перакладзіце яе за хвіліны!",
 	"cx-sx-login-dialog-title": "Тэрмін вашай сэсіі скончыўся",
 	"sx-translation-deletion-cancel-button-label": "Скасаваць"
 }

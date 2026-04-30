@@ -34,7 +34,8 @@
 			"沈澄心",
 			"밥풀떼기",
 			"아라",
-			"콩가루"
+			"콩가루",
+			"Tensama0415"
 		]
 	},
 	"cx": "문서 번역",
@@ -68,7 +69,7 @@
 	"tag-contenttranslation-v2-description": "이 내용은 버전 2의 내용 번역 도구를 사용하여 다른 언어에서 번역되었습니다.",
 	"tag-sectiontranslation": "문단 번역",
 	"tag-sectiontranslation-description": "문단 내용은 내용 번역 도구의 문단 번역 기능을 사용하여 다른 언어로 번역되었습니다.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Help:Content_translation/Translating/Translation_quality 내용 번역: 수정하지 않은 기계 번역의 높은 사용률]",
+	"tag-contenttranslation-high-unmodified-mt-text": "내용 번역: 수정하지 않은 기계 번역의 높은 사용률",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "ContentTranslation을 사용하여 게시한 번역에 수정되지 않은 기계 번역의 비율이 높습니다",
 	"cx-source-loading": "$1 문서를 불러오는 중",
 	"cx-beta": "내용 번역",
@@ -232,7 +233,7 @@
 	"cx-sx-section-selector-desc": "두 언어로 된 내용을 비교합니다.",
 	"cx-sx-language-selector-dialog-title": "언어 검색",
 	"cx-sx-existing-translation-status": "$1 언어로 사용 가능",
-	"cx-sx-existing-translation-additional-info": "$1 문단과 그 외 $2개 문단으로 내용 추가",
+	"cx-sx-existing-translation-additional-info": "$1 문단과 그 외 $2개 {{PLURAL:$2|문단으로}} 내용 추가",
 	"cx-sx-start-translation-button-label": "번역 시작",
 	"cx-sx-view-translation-anchor": "보기",
 	"cx-sx-existing-translation-learn-more": "더 알아보기",
@@ -405,7 +406,7 @@
 	"sx-confirm-back-navigation-dialog-title": "번역을 남기시겠습니까?",
 	"sx-confirm-back-navigation-dialog-body": "아직 변경사항이 저장되지 않았으므로 손실됩니다.\n계속 편집하면 변경사항이 자동으로 저장됩니다.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "변경사항 버리기",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "편집 계속",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "편집 계속하기",
 	"cx-sx-login-dialog-title": "세션이 만료되었습니다",
 	"cx-sx-login-dialog-body": "다른 창에서 재로그인하지 않는 한 기존의 편집 내역을 저장하고 계정에 연계할 수 없습니다.",
 	"cx-sx-login-dialog-button-label": "로그인",
