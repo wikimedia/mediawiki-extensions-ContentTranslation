@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
@@ -68,7 +69,7 @@
 	"ax-translation-view-feedback-title": "이 자동 번역이 더 많은 정보를 얻는 데 도움이 되나요?",
 	"ax-translation-view-feedback-positive": "예",
 	"ax-translation-view-feedback-negative": "아니요",
-	"ax-translation-view-feedback-privacy-statement": "자세한 내용은 이 설문조사의 [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy 개인정보 보호정책]을 참고하십시오.",
+	"ax-translation-view-feedback-privacy-statement": "자세한 내용은 이 설문 조사의 [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy 개인정보 보호 정책]을 참고하세요.",
 	"ax-translation-view-feedback-details-question": "다음 중 어느 것에 동의하시나요?",
 	"ax-translation-view-feedback-positive-missing-information": "다른 곳에서는 찾기 힘든 정보에 접근할 수 있었습니다.",
 	"ax-translation-view-feedback-positive-translation-quality": "번역 품질이 내용을 자신 있게 이해할 수 있을 만큼 좋습니다.",

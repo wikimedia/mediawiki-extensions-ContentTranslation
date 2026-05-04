@@ -29,6 +29,7 @@
 	"cx-translation-target-page-exists": "Stranica sa naslovom [$1 $2] već postoji na odredišnom wikiju. Pokušajte dati stranici drugi naziv.",
 	"tag-contenttranslation": "prijevod sadržaja",
 	"tag-contenttranslation-description": "Sadržaj je preveden sa drugog jezika pomoću alata za prijevod sadržaja.",
+	"tag-contenttranslation-v2-description": "Sadržaj je preveden s nekog drugog jezika drugom verzijom alata za prevođenje sadržaja.",
 	"cx-source-loading": "Učitavam $1",
 	"cx-beta": "Prijevod sadržaja",
 	"cx-beta-desc": "Alat za brzo prevođenje stranica na svoj jezik. Počnite prevoditi [[Special:MyContributions|Vaše doprinose]] i uređivati ih u uređivaču posebno napravljenim za prevođenje. Određeni alati mogu biti dostupni samo za određene jezike.",
