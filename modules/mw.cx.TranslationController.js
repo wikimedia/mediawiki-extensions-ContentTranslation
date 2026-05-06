@@ -504,7 +504,7 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode ) {
 		mw.cx.eventlogging.stats.saveFailure( false );
 		message = this.failCounter > 5 ? 'cx-save-draft-error' : 'cx-save-draft-error-retry';
 	}
-	// eslint-disable-next-line mediawiki/msg-doc
+
 	this.translationView.setErrorStatusMessage( mw.msg( message ) );
 };
 

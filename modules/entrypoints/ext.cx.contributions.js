@@ -30,7 +30,7 @@
 			.text( mw.msg( 'cx-contributions-new-contributions' ) );
 
 		const contributionButtons = this.getActivities().map(
-			// eslint-disable-next-line mediawiki/class-doc
+
 			( item ) => new OO.ui.ButtonWidget( {
 				classes: [ 'cx-contributions-item' ].concat( item.classes ),
 				label: item.text,
@@ -74,7 +74,7 @@
 				url: 'https://commons.wikimedia.org/wiki/Special:UploadWizard',
 				tooltip: mw.msg( 'cx-contributions-upload-tooltip' )
 			},
-			// eslint-disable-next-line mediawiki/class-doc
+
 			{
 				text: mw.msg( 'cx-contributions-translation' ),
 				classes: [ 'cx-contributions-translation' ]

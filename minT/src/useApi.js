@@ -177,7 +177,7 @@ const translate = ( content, sourceLanguage, targetLanguage, token ) => {
 		headers: { 'Content-Type': 'application/json', Authorization: token },
 		method: 'POST',
 		body: JSON.stringify( { html: content } ),
-		// eslint-disable-next-line compat/compat
+
 		signal: AbortSignal.timeout( 45000 )
 	} )
 		.then( ( response ) => {

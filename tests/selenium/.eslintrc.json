@@ -5,5 +5,8 @@
 	],
 	"globals": {
 		"document": "readonly"
+	},
+	"rules": {
+		"no-unused-vars": "warn"
 	}
 }

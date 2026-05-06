@@ -119,7 +119,7 @@
 		// * cx-callout-12
 		$dialog.removeClass().addClass( 'cx-callout cx-callout-' + direction );
 		if ( this.options.classes ) {
-			// eslint-disable-next-line mediawiki/class-doc
+
 			$dialog.addClass( this.options.classes );
 		}
 		const actualWidth = $dialog[ 0 ].offsetWidth;

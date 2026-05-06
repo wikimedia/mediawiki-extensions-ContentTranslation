@@ -6,6 +6,8 @@
 const contentTranslationStatsEventLogging = {
 	/**
 	 * Count creation of translated page.
+	 *
+	 * @param isMobile
 	 */
 	published: ( isMobile ) => {
 		mw.track( 'counter.MediaWiki.cx.publish.success', 1 );
@@ -18,6 +20,8 @@ const contentTranslationStatsEventLogging = {
 
 	/**
 	 * Log publish failures.
+	 *
+	 * @param isMobile
 	 */
 	publishFailed: ( isMobile ) => {
 		mw.track( 'counter.MediaWiki.cx.publish.fail', 1 );
