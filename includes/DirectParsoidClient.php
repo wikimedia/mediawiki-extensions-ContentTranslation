@@ -21,7 +21,6 @@ use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\User;
 
 class DirectParsoidClient implements ParsoidClient {
@@ -98,11 +97,9 @@ class DirectParsoidClient implements ParsoidClient {
 		PageIdentity $page,
 		string $wikitext
 	): RevisionRecord {
-		$rev = new MutableRevisionRecord( $page );
+		$rev = MutableRevisionRecord::newFromContent( $page, new WikitextContent( $wikitext ) );
 		$rev->setId( 0 );
 		$rev->setPageId( $page->getId() );
-
-		$rev->setContent( SlotRecord::MAIN, new WikitextContent( $wikitext ) );
 
 		return $rev;
 	}
