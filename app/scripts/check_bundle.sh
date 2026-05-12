@@ -20,7 +20,4 @@ Try running `npm run build` again or removing the node_modules folder and runnin
 eof
     exit 1;
 }
-bundlesize
 echo 'Your changes look good!'
-echo 'There are no staged changes to the dist folder in this change.'
-echo 'Make sure to `npm run build` if this was not expected.'
