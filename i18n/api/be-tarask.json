@@ -11,7 +11,7 @@
 	"apihelp-cxpublish-param-html": "Зьмест для захаваньня.",
 	"apihelp-cxpublish-param-from": "Код крынічнай мовы.",
 	"apihelp-cxpublish-param-to": "Код мэтавай мовы.",
-	"apihelp-cxpublish-param-sourcetitle": "Назва зыходнай старонкі.",
+	"apihelp-cxpublish-param-sourcetitle": "Назва крынічнае старонкі.",
 	"apihelp-cxpublish-param-categories": "Катэгорыі, якія трэба дадаць у апублікаваную старонку.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капчы (пры захаваньні з запытам капчы).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Адказ на капчу (пры захаваньні з запытам капчы).",
@@ -33,9 +33,11 @@
 	"apihelp-cxtoken-example-1": "Атрымаць токен аўтэнтыфікацыі для cxserver",
 	"apihelp-cxdelete-param-from": "Код крынічнай мовы.",
 	"apihelp-cxdelete-param-to": "Код мэтавай мовы.",
-	"apihelp-cxdelete-param-sourcetitle": "Назва зыходнай старонкі.",
+	"apihelp-cxdelete-param-sourcetitle": "Назва крынічнае старонкі.",
 	"apihelp-cxdelete-example-1": "Выдаліць чарнавік, зьвязаны з дадзенай моўнай парай і загалоўкам.",
-	"apihelp-cxsave-param-sourcerevision": "Вэрсія зыходнай старонкі.",
+	"apihelp-cxsave-param-sourcerevision": "Вэрсія крынічнае старонкі.",
 	"apihelp-cxsave-param-progress": "Зьвесткі пра завершанасьць перакладу (прагрэс). JSON з ключамі <code>any</code>, <code>human</code>, <code>mt</code> і <code>mtSectionsCount</code>. Значэньні ключоў — адсоткі.",
-	"apierror-cx-invalidtranslator": "Няслушнае імя перакладніку"
+	"apierror-cx-invalidtranslator": "Няслушнае імя перакладніку",
+	"apihelp-cxpublishsection-param-sourcerevid": "Ідэнтыфікатар вэрсіі крынічнае старонкі.",
+	"apihelp-sxsave-param-sourcerevision": "Ідэнтыфікатар вэрсіі крынічнае старонкі."
 }
