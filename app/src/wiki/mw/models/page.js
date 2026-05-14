@@ -107,7 +107,7 @@ export default class Page {
    * @returns {string|null}
    */
   getImage(width) {
-    if (!this.image) {
+    if (!this.image || !this.thumbnail) {
       return null;
     }
 
@@ -115,17 +115,27 @@ export default class Page {
       return this.image.source;
     }
 
+    const commonThumbnailSizes = [
+      20, 40, 60, 120, 250, 330, 500, 960, 1280, 1920, 3840,
+    ];
+    let imageSize = 500; // set a default size
+
+    // For given width find the nearest next size from above commonThumbnailSizes
+    for (let i = 0; i < commonThumbnailSizes.length; i++) {
+      let size = commonThumbnailSizes[i];
+
+      if (size >= width) {
+        imageSize = size;
+        break;
+      }
+    }
+    // Common thumbnail sizes. Refer: https://www.mediawiki.org/wiki/Common_thumbnail_sizes
     // the thumbnail source is in this format:
     // https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/50px-FullMoon2010.jpg
-    const thumbnailSource = this.thumbnail.source;
-
-    // Build a regex to find the "<width>px-" part before the exact image name
-    // Escape special regex characters in the image name to safely use it in the regex
-    const pattern = new RegExp(
-      `/\\d+px-${this.imageName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`
-    );
-
     // Replace the original thumbnail width with the new width while keeping the thumbnail path intact
-    return thumbnailSource.replace(pattern, `/${width}px-${this.imageName}`);
+    // Matches the width portion (e.g., "/120px-") at the end of the URL
+    const pattern = /\/\d+px-([^/]+)$/;
+
+    return this.thumbnail.source.replace(pattern, `/${imageSize}px-$1`);
   }
 }
