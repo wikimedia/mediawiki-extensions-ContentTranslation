@@ -86,6 +86,7 @@ const requestToRecommendationApi = async ({ urlPostfix = null, urlParams }) => {
       "Error while fetching suggestions from Recommendation API",
       error
     );
+    mw.errorLogger.logError(error, "error.contenttranslation");
     mw.cx.eventlogging.stats.recommendationFailed();
 
     return null;

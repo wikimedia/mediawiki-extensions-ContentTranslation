@@ -15,6 +15,9 @@ global.mw = {
   log: {
     error: jest.fn(),
   },
+  errorLogger: {
+    logError: jest.fn(),
+  },
   cx: {
     eventlogging: {
       stats: {
@@ -80,6 +83,10 @@ describe("fetchMostPopularPageSuggestions", () => {
     expect(mw.log.error).toHaveBeenCalledWith(
       "Error while fetching suggestions from Recommendation API",
       expect.any(Error)
+    );
+    expect(mw.errorLogger.logError).toHaveBeenCalledWith(
+      expect.any(Error),
+      "error.contenttranslation"
     );
     expect(result).toEqual([]);
   });
