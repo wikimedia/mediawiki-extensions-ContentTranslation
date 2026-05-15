@@ -3,6 +3,7 @@
 		"authors": [
 			"Abdullahi",
 			"Abshirdheere",
+			"AhmedG612",
 			"Dušan Kreheľ"
 		]
 	},
@@ -46,5 +47,7 @@
 	"cx-contributions-translation": "Turjumaad",
 	"cx-contributions-upload": "Gali fayl",
 	"cx-campaign-contributionsmenu-myuploads": "Gali fayl",
-	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]]."
+	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]].",
+	"cx-tools-linter-template-block-message": "Bogga asalka ah wuxuu adeegsadaa template aan laga helin wiki-ga la doonayo.\n\nTemplate-kan waa la iska dhaafay, laakiin waxaad ku dari kartaa nuxur cusub si aad u qabsato xogta ka maqan.",
+	"cx-publish-destination-section-new": "Daabac sida qayb cusub"
 }
