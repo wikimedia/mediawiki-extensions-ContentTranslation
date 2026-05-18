@@ -29,6 +29,7 @@
 	"apihelp-query+contenttranslation-param-sourcesectiontitle": "출처 문단의 제목 (선택 사항) 입니다.",
 	"apihelp-query+contenttranslation-param-limit": "가져올 번역의 최대 수입니다.",
 	"apihelp-query+contenttranslation-param-offset": "결과 집합의 오프셋 (선택 사항) 입니다.",
+	"apihelp-query+contenttranslation-param-usecase": "어떤 번역이 가져와질지에 대한 usecase입니다 (선택 사항).",
 	"apihelp-query+contenttranslation-param-type": "번역 상태",
 	"apihelp-query+contenttranslation-example-1": "현재 사용자가 만든 번역을 가져옵니다.",
 	"apihelp-query+contenttranslation-example-2": "ID로 번역 초안을 가져옵니다.",
