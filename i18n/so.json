@@ -3,7 +3,8 @@
 		"authors": [
 			"Abdullahi",
 			"Abshirdheere",
-			"Dušan Kreheľ"
+			"Dušan Kreheľ",
+			"AhmedG612"
 		]
 	},
 	"cx": "Turjun bogga",
@@ -64,5 +65,7 @@
 	"cx-stats-published-translations-label": "Turjumaadii waa la faafiyay",
 	"cx-stats-draft-target-source": "Turjumaad ayaa ku socota",
 	"cx-stats-total-published": "Wadarta la faafiyay",
-	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]]."
+	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]].",
+	"cx-tools-linter-template-block-message": "Bogga asalka ah wuxuu adeegsadaa template aan laga helin wiki-ga la doonayo.\n\nTemplate-kan waa la iska dhaafay, laakiin waxaad ku dari kartaa nuxur cusub si aad u qabsato xogta ka maqan.",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Haddii aad taqaanid tusmo u dhiganta oo ku jirta $1, waxaad ku xiriirin kartaa Wikidata si aaladuhu u heli karaan."
 }
