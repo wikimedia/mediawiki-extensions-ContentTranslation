@@ -4,6 +4,7 @@ namespace ContentTranslation\Tests;
 
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Notifier;
+use MediaWiki\User\UserFactory;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -16,17 +17,17 @@ class EchoIntegrationTest extends MediaWikiIntegrationTestCase {
 	public static function provideEchoGetBundleRules() {
 		yield 'cx-deleted-draft' => [
 			'cx-deleted-draft',
-			'Clara',
-			'cx-deleted-draft-Clara'
+			1,
+			'cx-deleted-draft-1'
 		];
 		yield 'cx-continue-translation' => [
 			'cx-continue-translation',
-			'Clara',
-			'cx-continue-translation-Clara'
+			2,
+			'cx-continue-translation-2'
 		];
 		yield 'cx-first-translation' => [
 			'cx-first-translation',
-			'Clara',
+			3,
 			'' // not bundled
 		];
 	}
@@ -35,8 +36,18 @@ class EchoIntegrationTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideEchoGetBundleRules
 	 * @covers ::onEchoGetBundleRules
 	 */
-	public function testEchoGetBundleRules( string $type, string $recipient, string $expected ) {
+	public function testEchoGetBundleRules( string $type, int $recipient, string $expected ) {
 		$this->markTestSkippedIfExtensionNotLoaded( 'Echo' );
+
+		$userFactory = $this->getMockBuilder( UserFactory::class )
+			->disableOriginalConstructor()
+			->onlyMethods( [ 'newFromId' ] )
+			->getMock();
+		$userFactory->method( 'newFromId' )
+			->willReturnCallback( static function ( $id ) use ( $userFactory ) {
+				return $userFactory->newFromAnyId( $id, 'Clara' );
+			} );
+		$this->setService( 'UserFactory', $userFactory );
 
 		$bundleString = '';
 		Notifier::getBundleRules(
