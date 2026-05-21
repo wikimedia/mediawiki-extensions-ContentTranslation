@@ -9850,14 +9850,33 @@ class ds {
    * @returns {string|null}
    */
   getImage(t) {
-    if (!this.image)
+    if (!this.image || !this.thumbnail)
       return null;
     if (!t)
       return this.image.source;
-    const n = this.thumbnail.source, o = new RegExp(
-      `/\\d+px-${this.imageName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`
-    );
-    return n.replace(o, `/${t}px-${this.imageName}`);
+    const n = [
+      20,
+      40,
+      60,
+      120,
+      250,
+      330,
+      500,
+      960,
+      1280,
+      1920,
+      3840
+    ];
+    let o = 500;
+    for (let a = 0; a < n.length; a++) {
+      let r = n[a];
+      if (r >= t) {
+        o = r;
+        break;
+      }
+    }
+    const s = /\/\d+px-([^/]+)$/;
+    return this.thumbnail.source.replace(s, `/${o}px-$1`);
   }
 }
 class DS {
@@ -10651,7 +10670,7 @@ const sy = Uf, ln = 6, ay = (e, t) => b(void 0, null, function* () {
     return mw.log.error(
       "Error while fetching suggestions from Recommendation API",
       a
-    ), mw.cx.eventlogging.stats.recommendationFailed(), null;
+    ), mw.errorLogger.logError(a, "error.contenttranslation"), mw.cx.eventlogging.stats.recommendationFailed(), null;
   }
 });
 function iy() {
