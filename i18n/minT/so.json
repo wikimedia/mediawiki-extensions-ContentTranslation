@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"automatic-translation-special-page-description": "Tarjumaad otomaatig ah",
+	"automatic-translation-desc": "Waxay bixisaa [[Special:AutomaticTranslation|tarjumaad otomaatig ah]] oo loogu talagalay bogagga nuxurka.",
+	"mint-home-header-title": "Tarjumaad otomaatig ah",
+	"mint-home-input-placeholder": "Raadi mawduuc",
+	"mint-translation-list-all-languages-option-label": "Dhammaan",
+	"mint-home-info-panel-text": "Malaayiin mawduuc oo ku jira Wikipedia ayaa si otomaatig ah loogu tarjumi karaa $1.",
+	"mint-home-random-topic-button-label": "Mawduuc aan kala sooc lahayn",
+	"ax-home-random-topic-loading-label": "Waa la soo shubayaa…",
+	"ax-home-random-topic-error": "Khalad ayaa dhacay markii la soo qaadanayay mawduuc aan kala sooc lahayn.",
+	"ax-home-error-title": "Khalad ayaa dhacay markii la soo qaadanayay maqaalka $1.",
+	"mint-home-experimental-note": "Taageerada tarjumaadda otomaatiga ah waa tijaabo. [$1 Baro wax badan]",
+	"mint-language-selector-title": "Luqadaha",
+	"mint-language-selector-suggestions-header": "La soo jeediyay",
+	"mint-language-selector-all-languages-header": "Dhammaan luqadaha",
+	"mint-language-selector-input-placeholder": "Dooro luqad",
+	"mint-search-topic-page-results-container-empty": "Raadi mawduuc kasta. Waxyaabaha ku jira mawduuc waxay ku kala duwanaan karaan luqad kasta.",
+	"mint-confirm-topic-page-go-to-search-button-label": "Raadi mawduuc kale",
+	"mint-explore-languages-more-results": "$1 {{PLURAL:$1|luqad|luqadood}} oo kale ayaa diyaar ah",
+	"ax-translation-view-feedback-privacy-statement": "Macluumaad dheeraad ah, eeg bayaanka sirta ee  [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy sahankan]."
+}

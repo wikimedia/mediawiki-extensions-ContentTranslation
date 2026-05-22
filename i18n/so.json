@@ -3,7 +3,8 @@
 		"authors": [
 			"Abdullahi",
 			"Abshirdheere",
-			"Dušan Kreheľ"
+			"Dušan Kreheľ",
+			"AhmedG612"
 		]
 	},
 	"cx": "Turjun bogga",
@@ -17,6 +18,8 @@
 	"cx-publish-page-success": "Waxaa bogga lagu faafiyay $1",
 	"cx-publish-button": "Faafinta turjumidda",
 	"cx-publish-button-publishing": "Faafin...",
+	"cx-publish-permission-warning": "Bulshadan waxay go’aansatay inay xaddiddo daabacaadda oo keliya tifaftirayaasha khibradda leh",
+	"cx-publish-permission-warning-link-label": "Baro wax badan",
 	"cx-publish-summary": "Samee turjumidda bogga \"$1\"",
 	"cx-translation-add-translation": "Ku dar turjumid",
 	"cx-translation-target-page-exists": "Bog wata ciwaankaan [$1 $2] waa uu ku jiraa eikiga. U dooro bogga ciwaan ka gadisan.",
@@ -46,5 +49,10 @@
 	"cx-contributions-translation": "Turjumaad",
 	"cx-contributions-upload": "Gali fayl",
 	"cx-campaign-contributionsmenu-myuploads": "Gali fayl",
-	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]]."
+	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]].",
+	"cx-tools-linter-template-block-message": "Bogga asalka ah wuxuu adeegsadaa template aan laga helin wiki-ga la doonayo.\n\nTemplate-kan waa la iska dhaafay, laakiin waxaad ku dari kartaa nuxur cusub si aad u qabsato xogta ka maqan.",
+	"cx-publish-destination-section-new": "Daabac sida qayb cusub",
+	"cx-sx-publisher-expand-option-label": "Ku dar waxyaabaha ku jira qaybta hore u jirta",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Haddii aad taqaanid tusmo u dhiganta oo ku jirta $1, waxaad ku xiriirin kartaa Wikidata si aaladuhu u heli karaan.",
+	"sx-published-translation-personal-draft-indicator": "Loo daabacay sidii qoraal shaqsi ah"
 }
