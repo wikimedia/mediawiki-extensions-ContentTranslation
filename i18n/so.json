@@ -25,6 +25,7 @@
 	"cx-translation-target-page-exists": "Bog wata ciwaankaan [$1 $2] waa uu ku jiraa eikiga. U dooro bogga ciwaan ka gadisan.",
 	"tag-contenttranslation": "nuxurka turjumaadda",
 	"tag-contenttranslation-description": "Waxa ku jira waxaa lagu turjumay luqad kale iyadoo la adeegsaday qalabka turjumaadda.",
+	"tag-contenttranslation-v2": "TurjumaadNuxur2",
 	"cx-source-loading": "Galin $1",
 	"cx-beta": "Wax turjumid",
 	"cx-beta-desc": "Qalabka turjumidda degdegga ah ee bogagga ee luqadaada. Ka biloow turjumidda [[Special:MyContributions|wax qoristaada bogga]], ee ku bedel wax bedelahayn side-by-side ee loo qaabeeyay turjumaadda. Qaar ka mid ah qalabkaas waxaa laga yaabaa in laga heli karo oo kaliya luqado gaar ah.",
