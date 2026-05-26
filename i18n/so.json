@@ -3,7 +3,8 @@
 		"authors": [
 			"Abdullahi",
 			"Abshirdheere",
-			"Dušan Kreheľ"
+			"Dušan Kreheľ",
+			"AhmedG612"
 		]
 	},
 	"cx": "Turjun bogga",
@@ -26,6 +27,7 @@
 	"cx-translation-target-page-exists": "Bog wata ciwaankaan [$1 $2] waa uu ku jiraa eikiga. U dooro bogga ciwaan ka gadisan.",
 	"tag-contenttranslation": "nuxurka turjumaadda",
 	"tag-contenttranslation-description": "Waxa ku jira waxaa lagu turjumay luqad kale iyadoo la adeegsaday qalabka turjumaadda.",
+	"tag-contenttranslation-v2": "TurjumaadNuxur2",
 	"cx-source-loading": "Galin $1",
 	"cx-beta": "Wax turjumid",
 	"cx-beta-desc": "Qalabka turjumidda degdegga ah ee bogagga ee luqadaada. Ka biloow turjumidda [[Special:MyContributions|wax qoristaada bogga]], ee ku bedel wax bedelahayn side-by-side ee loo qaabeeyay turjumaadda. Qaar ka mid ah qalabkaas waxaa laga yaabaa in laga heli karo oo kaliya luqado gaar ah.",
@@ -65,5 +67,7 @@
 	"cx-stats-published-translations-label": "Turjumaadii waa la faafiyay",
 	"cx-stats-draft-target-source": "Turjumaad ayaa ku socota",
 	"cx-stats-total-published": "Wadarta la faafiyay",
-	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]]."
+	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]].",
+	"cx-tools-linter-template-block-message": "Bogga asalka ah wuxuu adeegsadaa template aan laga helin wiki-ga la doonayo.\n\nTemplate-kan waa la iska dhaafay, laakiin waxaad ku dari kartaa nuxur cusub si aad u qabsato xogta ka maqan.",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Haddii aad taqaanid tusmo u dhiganta oo ku jirta $1, waxaad ku xiriirin kartaa Wikidata si aaladuhu u heli karaan."
 }

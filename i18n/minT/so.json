@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"automatic-translation-special-page-description": "Tarjumaad otomaatig ah",
+	"automatic-translation-desc": "Waxay bixisaa [[Special:AutomaticTranslation|tarjumaad otomaatig ah]] oo loogu talagalay bogagga nuxurka.",
+	"mint-home-header-title": "Tarjumaad otomaatig ah",
+	"mint-home-input-placeholder": "Raadi mawduuc",
+	"mint-translation-list-all-languages-option-label": "Dhammaan",
+	"mint-home-info-panel-text": "Malaayiin mawduuc oo ku jira Wikipedia ayaa si otomaatig ah loogu tarjumi karaa $1.",
+	"mint-home-random-topic-button-label": "Mawduuc aan kala sooc lahayn",
+	"mint-language-selector-title": "Luqadaha",
+	"mint-language-selector-suggestions-header": "La soo jeediyay",
+	"mint-language-selector-all-languages-header": "Dhammaan luqadaha",
+	"mint-language-selector-input-placeholder": "Dooro luqad",
+	"mint-search-topic-page-results-container-empty": "Raadi mawduuc kasta. Waxyaabaha ku jira mawduuc waxay ku kala duwanaan karaan luqad kasta.",
+	"mint-confirm-topic-page-go-to-search-button-label": "Raadi mawduuc kale"
+}
