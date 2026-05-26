@@ -30,7 +30,8 @@ const { cdxIconAdd } = require( './icons.json' );
 			}
 
 			const existingLanguages = Object.keys( context.languages || {} );
-			cachedMissingRelevantLanguages = getMissingRelevantLanguages( existingLanguages );
+			const preferredLanguages = context.preferredLanguages || [];
+			cachedMissingRelevantLanguages = getMissingRelevantLanguages( existingLanguages, preferredLanguages );
 
 			return cachedMissingRelevantLanguages;
 		};
@@ -137,11 +138,13 @@ const { cdxIconAdd } = require( './icons.json' );
 
 	/**
 	 * @param {string[]} existingLanguages Language codes already present for this article
+	 * @param {string[]} preferredLanguages Preferred language codes
 	 * @return {string[]} Missing relevant content language codes
 	 */
-	function getMissingRelevantLanguages( existingLanguages ) {
-		// Remove duplicates.
-		let frequentLanguages = [ ...new Set( mw.uls.getFrequentLanguageList() ) ];
+	function getMissingRelevantLanguages( existingLanguages, preferredLanguages = [] ) {
+		let frequentLanguages = preferredLanguages.length > 0 ?
+			preferredLanguages :
+			[ ...new Set( mw.uls.getFrequentLanguageList() ) ];
 		// Remove current language.
 		frequentLanguages = frequentLanguages.filter(
 			( language ) => language !== mw.config.get( 'wgContentLanguage' )

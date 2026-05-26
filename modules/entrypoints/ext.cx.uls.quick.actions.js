@@ -25,23 +25,30 @@
 	/**
 	 * Copied from ext.cx.interlanguagelink.init.js
 	 *
-	 * This method creates a list of target languages that could be suggested to the current user:
+	 * This method creates a list of target languages that could be suggested to the current user.
+	 * If preferred languages are provided, they are used. Otherwise, these are used:
 	 * - The MediaWiki user interface language.
 	 * - Accept-Language.
 	 * - Browser interface language.
 	 * It filters out page language and languages in which the article DOES exist, and returns
 	 * the first language in the array if the array is not empty or null elsewise.
 	 *
+	 * @param {string[]} preferredLanguages Preferred language codes
 	 * @return {string|null} Target language
 	 */
-	function getSuggestedTargetLanguage() {
+	function getSuggestedTargetLanguage( preferredLanguages = [] ) {
 		const pageLanguage = mw.config.get( 'wgPageContentLanguage' ).split( '-' )[ 0 ];
 		let possibleTargetLanguages = [];
-		possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
-		possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
 
-		Array.prototype.push.apply( possibleTargetLanguages, mw.uls.getAcceptLanguageList() );
-		Array.prototype.push.apply( possibleTargetLanguages, mw.uls.getPreviousLanguages() );
+		if ( preferredLanguages.length > 0 ) {
+			possibleTargetLanguages = [ ...preferredLanguages ];
+		} else {
+			possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
+			possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
+
+			Array.prototype.push.apply( possibleTargetLanguages, mw.uls.getAcceptLanguageList() );
+			Array.prototype.push.apply( possibleTargetLanguages, mw.uls.getPreviousLanguages() );
+		}
 
 		// Language codes can have country extensions like en-US.
 		// Remove them so that it is like domain code format.
@@ -83,14 +90,14 @@
 		EntrypointRegistry.register( ENTRYPOINT_TYPE.QUICK_ACTIONS, {
 			id: 'cx-uls-translate-page-quick-action',
 			shouldShow: () => true,
-			getConfig: () => ( {
+			getConfig: ( context ) => ( {
 				label: mw.msg( 'cx-uls-translate-page-quick-action-label' ),
 				icon: cdxIconAdd,
 				url: siteMapper.getCXUrl(
 					mw.config.get( 'wgTitle' ),
 					null,
 					sourceLanguage,
-					getSuggestedTargetLanguage(),
+					getSuggestedTargetLanguage( context ? context.preferredLanguages : [] ),
 					{ campaign: 'ulsaddlanguages' }
 				)
 			} )
