@@ -3,6 +3,10 @@
 .ve-cx-toolbar-mt {
 	.ve-ui-toolbar-group-cx-mt {
 		display: block;
+		// Override the width. Refer: https://phabricator.wikimedia.org/T426302
+		> .oo-ui-popupToolGroup-handle {
+			width: 100%;
+		}
 	}
 
 	.ve-cx-toolbar-mt-title {
