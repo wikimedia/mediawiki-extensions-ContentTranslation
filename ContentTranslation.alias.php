@@ -170,6 +170,7 @@ $specialPageAliases['sv'] = [
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = [
 	'ContentTranslation' => [ 'Переклад_вмісту' ],
+	'AutomaticTranslation' => [ 'Автоматичний_переклад' ],
 ];
 
 /** Urdu (اردو) */
