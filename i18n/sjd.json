@@ -13,6 +13,7 @@
 	"cx-your-translations-link": "{{GENDER:$1|То̄н ёарркмуж}}",
 	"cx-sx-language-selector-dialog-title": "О̄дзэ кӣл",
 	"cx-translation-list-all-languages-option-label": "Пугк",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Ёарксэ",
 	"cx-sx-publisher-preview-options-back-button-aria-label": "Моа̄ст",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Абзаһц",
 	"cx-sx-article-search-nearby-title": "Алльт",
@@ -21,5 +22,6 @@
 	"cx-sx-language-selector-no-search-results": "Нимӣ эйй коа̄внхувва",
 	"sx-translation-list-language-selector-dialog-title": "Кӣл",
 	"cx-uls-translate-page-quick-action-label": "Ёарркэ тэнн лыст",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Ёарксэ “$1”",
 	"cx-sx-suggestions-filter-active-group-label": "О̄ннъюввэй фӣльтэр"
 }
