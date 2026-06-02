@@ -518,5 +518,12 @@
 	"cx-sx-present-lead-section-label": "(Topp)",
 	"communityconfiguration-contenttranslation-title": "Innholdsoversettelse",
 	"communityconfiguration-contenttranslation-description": "Innholdsoversettelsesverktøyet lar bidragsytere oversette artikler.",
-	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Lokal utvalgt samling"
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollection-label": "Lokal utvalgt samling",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectiondescription-label": "Beskrivelse (valgfritt)",
+	"communityconfiguration-contenttranslation-contenttranslationfeaturedcollectionlink-label": "Lenke til wikiside (valgfritt)",
+	"cx-featured-collection-banner-title": "Fellesskapets prioriteringer",
+	"cx-featured-collection-confirmation-banner-title": "Fellesskapets prioriteringer",
+	"cx-featured-collection-banner-learn-more": "Les mer",
+	"cx-featured-collection-banner-toggle-less": "mindre",
+	"cx-featured-collection-banner-toggle-more": "mer"
 }
