@@ -17,11 +17,13 @@
 	"cx-translationlist-empty-title": "Нимэ̄нн элля ёарксэм гуэйкэ?",
 	"cx-sx-language-selector-dialog-title": "О̄дзэ кӣл",
 	"cx-translation-list-all-languages-option-label": "Пугк",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Ёарксэ",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Абзаһц",
 	"cx-sx-article-search-nearby-title": "Алльт",
 	"sx-article-search-language-selector-dialog-title": "Кӣл",
 	"cx-sx-language-selector-placeholder": "О̄дзэ кӣл",
 	"cx-sx-language-selector-no-search-results": "Нимӣ эйй коа̄внхувва",
 	"sx-translation-list-language-selector-dialog-title": "Кӣл",
-	"cx-uls-translate-page-quick-action-label": "Ёарркэ тэнн лыст"
+	"cx-uls-translate-page-quick-action-label": "Ёарркэ тэнн лыст",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Ёарксэ “$1”"
 }
