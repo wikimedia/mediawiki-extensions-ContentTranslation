@@ -10,11 +10,11 @@ import {
 import { MwDialog, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import colors from "@/lib/mediawiki.ui/variables/colors";
 
-import { useStore } from "vuex";
 import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
 import BlockTemplateStatusIndicator from "./BlockTemplateStatusIndicator.vue";
 import { useI18n } from "vue-banana-i18n";
+import { getAutonym } from "@wikimedia/language-data";
+import useURLHandler from "@/composables/useURLHandler";
 
 const props = defineProps({
   active: {
@@ -49,7 +49,9 @@ const props = defineProps({
 
 defineEmits(["update:active"]);
 
-const { targetLanguageAutonym } = useApplicationState(useStore());
+const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
+
+const targetLanguageAutonym = computed(() => getAutonym(targetLanguage.value));
 
 const adaptationRatio = computed(
   () =>
