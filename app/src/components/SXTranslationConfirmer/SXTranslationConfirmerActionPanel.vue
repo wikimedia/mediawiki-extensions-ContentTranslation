@@ -3,10 +3,9 @@ import { MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { computed, ref, watchEffect } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import useActionPanel from "./useActionPanel";
-import useApplicationState from "@/composables/useApplicationState";
+import { getAutonym } from "@wikimedia/language-data";
 import useConfirmationButtonClickHandlers from "./useConfirmationButtonClickHandlers";
 import { useRouter } from "vue-router";
-import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import { isDesktopSite } from "@/utils/mediawikiHelper";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
@@ -20,9 +19,9 @@ import useEditorNavigation from "@/composables/useEditorNavigation";
 import useSectionTitleValidate from "./useSectionTitleValidate";
 
 const router = useRouter();
-const store = useStore();
 const { sectionSuggestion } = useCurrentSectionSuggestion();
-const { targetLanguageAutonym } = useApplicationState(store);
+const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
+const targetLanguageAutonym = computed(() => getAutonym(targetLanguage.value));
 const { sectionURLParameter: preFilledSectionTitle, clearSectionURLParameter } =
   useURLHandler();
 const { logDashboardTranslationStartEvent } =
