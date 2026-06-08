@@ -51,7 +51,7 @@
 	"apihelp-query+cxpublishedtranslations-example-1": "Haal alle gepubliceerde vertalingen op die zijn vertaald uit het Engels in het Spaans",
 	"apihelp-cxtoken-summary": "JWT-tokens ophalen om te authenticeren met cxserver.",
 	"apihelp-cxtoken-example-1": "Het authenticatietoken voor cxserver ophalen",
-	"apihelp-cxdelete-summary": "Een met de Vertaling van inhoud-extensie gemaakte conceptvertaling verwijderen.",
+	"apihelp-cxdelete-summary": "Een met de uitbreiding Vertaling van inhoud gemaakte conceptvertaling verwijderen.",
 	"apihelp-cxdelete-param-from": "De code van de brontaal.",
 	"apihelp-cxdelete-param-to": "De code van de doeltaal.",
 	"apihelp-cxdelete-param-sourcetitle": "De titel van de bronpagina.",
