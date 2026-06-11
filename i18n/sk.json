@@ -11,7 +11,8 @@
 			"TomášPolonec",
 			"Urbanecm",
 			"Vegetator",
-			"Vlad5250"
+			"Vlad5250",
+			"Wizzard"
 		]
 	},
 	"cx": "Preložiť stránku",
@@ -191,7 +192,7 @@
 	"cx-sx-sentence-selector-translated-segment-next-button-aria-label": "Ďalej",
 	"cx-sx-sentence-selector-translated-segment-previous-button-aria-label": "Späť",
 	"cx-sx-published-section-invitation-title": "Preložiť ďalšiu sekciu",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sekcia|$1 sekcie|$1 sekcií|0=Žiadne sekcie}}",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sekcia|$1 sekcie|$1 sekcií|0=Žiadne sekcie}} na preklad",
 	"cx-sx-translation-suggestion-easy-sections": "{{PLURAL:$1|$1 rýchla|$1 rýchle|$1 rýchlych}}",
 	"cx-sx-section-selector-easy-section-badge": "Rýchla",
 	"cx-sx-translation-suggestion-quick": "Rýchly preklad",

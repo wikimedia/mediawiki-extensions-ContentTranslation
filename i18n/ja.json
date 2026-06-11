@@ -45,7 +45,8 @@
 			"沈澄心",
 			"翻訳者a",
 			"青子守歌",
-			"아라"
+			"아라",
+			"Tensama0415"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -371,7 +372,7 @@
 	"cx-sx-publisher-mt-abuse-error-title": "未修正の訳文が$1%含まれているため、翻訳を公開できません",
 	"cx-sx-publisher-mt-abuse-message-body": "機械翻訳は出発点です。引き続き公開できますが、翻訳が自分の言語で自然に読めることを確認してください。",
 	"cx-sx-publisher-mt-abuse-error-body": "機械翻訳は単なる出発点にすぎません。翻訳があなたの言語で自然に読めるものであることを確認してください。",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1節|0=節なし}}",
+	"cx-sx-translation-suggestion-info": "翻訳する{{PLURAL:$1|$1節|0=節なし}}",
 	"cx-sx-translation-suggestion-quick": "クイック翻訳",
 	"cx-sx-article-search-input-placeholder": "翻訳するページを検索",
 	"cx-sx-article-search-recently-edited-title": "あなたによって最近編集されました",
