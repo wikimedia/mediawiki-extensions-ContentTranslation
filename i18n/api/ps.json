@@ -5,6 +5,7 @@
 			"شاه زمان پټان"
 		]
 	},
+	"apihelp-cxpublish-summary": "د منځپانگيزې ژباړې شاتاړي سره جوړ شوی مخ خوندي‌کول.",
 	"apihelp-cxpublish-param-title": "د هغه مخ سرليک چې چارې بايد پرې ترسره شي.",
 	"apihelp-cxpublish-param-html": "د خوندي کولو منځپانگه.",
 	"apihelp-cxpublish-param-from": "د سرچينې د ژبې کوډ.",
@@ -13,6 +14,7 @@
 	"apihelp-cxpublish-param-categories": "هغه وېشنيزې چې خپاره شوي مخونه بايد پکې ځای پرځای شي.",
 	"apihelp-cxpublish-param-publishtags": "سمون نښلونونه چې خپاره شوو مخونو ته ورگډېږي.",
 	"apihelp-cxpublish-param-wpCaptchaId": "کيپچا پېژند (کله چې د کيپچا غبرگون سره خوندې کېږي).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "کيپچا ته ځواب ورکول (کله چې کيپچا ځواب سره خوندي کېږي).",
 	"apihelp-query+contenttranslation-param-translationid": "د ژباړې پېژند.",
 	"apihelp-query+contenttranslation-param-from": "د سرچينې د ژبې کوډ.",
 	"apihelp-query+contenttranslation-param-to": "د موخې د ژبې کوډ.",
