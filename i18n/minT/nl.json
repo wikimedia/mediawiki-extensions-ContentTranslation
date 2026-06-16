@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"McDutchie"
 		]
 	},
 	"automatic-translation-special-page-description": "Automatische vertaling",
@@ -32,7 +33,7 @@
 	"mint-view-translation-page-disclaimer-body": "Deze pagina is automatisch vertaald uit inhoud die oorspronkelijk is geschreven in $1.",
 	"mint-view-translation-page-disclaimer-learn-more-link": "Meer lezen",
 	"mint-view-translation-page-target-article-container-header": "Door mensen gemaakte inhoud is ook beschikbaar over dit onderwerp",
-	"mint-view-translation-page-target-article-container-details": "Lees de pagina van Wikipedia-redacteuren in de taal $1 voor meer betrouwbare informatie over het onderwerp.",
+	"mint-view-translation-page-target-article-container-details": "Lees de pagina van Wikipedia-bewerkers in de taal $1 voor meer betrouwbare informatie over het onderwerp.",
 	"mint-view-translation-page-source-article-link-label": "Openen in $1",
 	"mint-view-translation-content-translation-entrypoint-title": "Automatische vertaling controleren",
 	"mint-view-translation-content-translation-entrypoint-description": "Automatische inhoud kan fouten bevatten",
