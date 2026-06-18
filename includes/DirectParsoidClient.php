@@ -122,7 +122,7 @@ class DirectParsoidClient implements ParsoidClient {
 
 		try {
 			$parserOutput = $helper->getHtml();
-			$html = $parserOutput->getContentHolderText();
+			$html = $parserOutput->getContentHolder()->getAsRawHtmlString();
 
 			return $this->fakeRESTbaseHTMLResponse( $html, $helper );
 		} catch ( HttpException $ex ) {
