@@ -280,7 +280,6 @@ class ApiQueryContentTranslation extends ApiQueryBase {
 		return $allowedParams;
 	}
 
-	/** @inheritDoc */
 	private function addUnitsAndCategoriesToTranslation( Translation $translation ): void {
 		// Translation units and target categories. Only target categories are fetched
 		// when translation draft is restored. Source categories are saved into cx_corpora table for
