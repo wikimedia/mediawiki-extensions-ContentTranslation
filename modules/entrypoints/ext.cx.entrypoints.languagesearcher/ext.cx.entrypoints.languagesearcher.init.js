@@ -8,6 +8,10 @@
 ( function () {
 	'use strict';
 
+	if ( mw.config.get( 'wgULSLanguageSelectorV2Enabled' ) ) {
+		mw.loader.load( 'ext.cx.entrypoints.languagesearcher' );
+		return;
+	}
 	mw.hook( 'mobileFrontend.languageSearcher.noresults' ).add(
 		() => {
 			if ( mw.config.get( 'mintEntrypointLanguages' ) ) {

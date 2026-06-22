@@ -109,7 +109,7 @@
 
 	const getCxLanguageMatches = ( resultLanguages ) => {
 		if ( !mw.config.get( 'isLanguageSearcherCXEntrypointEnabled' ) ) {
-			return null;
+			return [];
 		}
 		const enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
 
@@ -302,6 +302,41 @@
 				onLanguageMatch( noResultsContainer, results, searchOrigin );
 			}
 		} );
+	}
+
+	if ( mw.config.get( 'wgULSLanguageSelectorV2Enabled' ) ) {
+		const EntrypointRegistry = require( 'ext.uls.rewrite.entrypoints' );
+		const { ENTRYPOINT_TYPE, ULS_MODE } = EntrypointRegistry;
+
+		EntrypointRegistry.register( ENTRYPOINT_TYPE.EMPTY_SEARCH, {
+			id: 'cx-language-searcher-translation-cta',
+			shouldShow: ( context ) => {
+				const hitCodes = Object.keys( context.searchQueryHits || {} );
+				return getCxLanguageMatches( hitCodes ).length > 0;
+			},
+			getConfig: ( context ) => {
+				const { cdxIconAdd } = require( './icons.json' );
+				const hitCodes = Object.keys( context.searchQueryHits || {} );
+				const cxMatches = getCxLanguageMatches( hitCodes );
+				if ( !cxMatches.length ) {
+					return [];
+				}
+
+				return cxMatches.map( ( langCode ) => ( {
+					label: $.uls.data.getAutonym( langCode ),
+					icon: cdxIconAdd,
+					url: siteMapper.getCXUrl(
+						mw.config.get( 'wgTitle' ),
+						null,
+						mw.config.get( 'wgContentLanguage' ),
+						langCode,
+						{ campaign: 'mflanguagesearcher', sx: true }
+					)
+				} ) );
+			}
+		}, ULS_MODE.CONTENT );
+
+		return;
 	}
 
 	mw.hook( 'mobileFrontend.languageSearcher.noresults' ).add( showTranslationCTA );
