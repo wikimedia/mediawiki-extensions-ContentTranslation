@@ -11,6 +11,7 @@ use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Context;
 use MobileContext;
+use UniversalLanguageSelector\Hooks;
 
 class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDisplayHook {
 
@@ -26,12 +27,16 @@ class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDis
 			$isMobileView = $mobileContext->shouldDisplayMobileView();
 		}
 
-		// The entrypoint module should only be registered for desktop devices
-		if ( $isMobileView ) {
+		$user = $out->getUser();
+		// Register the entrypoint module on desktop always, and on mobile only when the ULS rewrite
+		// (ULSv2) is enabled. Skip it on mobile when the rewrite is disabled.
+		if (
+			$isMobileView &&
+			!Hooks::isLanguageSelectorV2Enabled( $user, $skin, $out->getConfig() )
+		) {
 			return;
 		}
 
-		$user = $out->getUser();
 		// Enable entrypoint only on Wikipedias where Content Translation is enabled and only for users
 		// that have not disabled CX entrypoints
 		if (
@@ -47,6 +52,7 @@ class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDis
 			return;
 		}
 
+		// TODO: Remove the CxUlsEntrypoint.vue component once ULSv2 is enabled everywhere.
 		$out->addModules( 'ext.cx.entrypoints.ulsrelevantlanguages' );
 	}
 
