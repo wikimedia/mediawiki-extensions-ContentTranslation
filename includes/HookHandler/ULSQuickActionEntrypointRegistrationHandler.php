@@ -6,6 +6,7 @@ namespace ContentTranslation\HookHandler;
 
 use MediaWiki\Actions\ActionFactory;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use UniversalLanguageSelector\Hooks;
 
 class ULSQuickActionEntrypointRegistrationHandler implements BeforePageDisplayHook {
 
@@ -24,8 +25,12 @@ class ULSQuickActionEntrypointRegistrationHandler implements BeforePageDisplayHo
 		// 2. if page is the Main Page
 		// 3. if action is other than "view"
 		// 4. if namespace is not a "Content" (article) namespace
-		// 5. if skin is other than Vector 2022
-		if ( !$title->exists() || $title->isMainPage() || !$isView || !$title->isContentPage() || !$isVector2022Skin ) {
+		if ( !$title->exists() || $title->isMainPage() || !$isView || !$title->isContentPage() ) {
+			return;
+		}
+
+		// Do not load the module if ULS v2 is disabled, OR it is not Vector 2022 skin.
+		if ( !Hooks::isLanguageSelectorV2Enabled( $out->getUser(), $skin, $out->getConfig() ) || !$isVector2022Skin ) {
 			return;
 		}
 

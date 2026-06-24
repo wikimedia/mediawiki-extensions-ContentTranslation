@@ -86,8 +86,7 @@
 		const EntrypointRegistry = require( 'ext.uls.rewrite.entrypoints' );
 		const { cdxIconAdd } = require( './icons.json' );
 		const { ENTRYPOINT_TYPE, ULS_MODE } = EntrypointRegistry;
-
-		EntrypointRegistry.register( ENTRYPOINT_TYPE.QUICK_ACTIONS, {
+		const translateActionEntrypoint = {
 			id: 'cx-uls-translate-page-quick-action',
 			shouldShow: () => true,
 			getConfig: ( context ) => ( {
@@ -101,7 +100,21 @@
 					{ campaign: 'ulsaddlanguages' }
 				)
 			} )
-		}, ULS_MODE.CONTENT );
+		};
+
+		EntrypointRegistry.register(
+			ENTRYPOINT_TYPE.QUICK_ACTIONS,
+			translateActionEntrypoint,
+			ULS_MODE.CONTENT
+		);
+
+		const emptyListTranslateAction = Object.assign( {}, translateActionEntrypoint );
+		emptyListTranslateAction.id = 'cx-uls-translate-page-empty-list-action';
+		EntrypointRegistry.register(
+			ENTRYPOINT_TYPE.EMPTY_LIST,
+			emptyListTranslateAction,
+			ULS_MODE.CONTENT
+		);
 
 		return;
 	}
