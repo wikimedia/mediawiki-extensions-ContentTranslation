@@ -55,7 +55,7 @@
 			padding: 0 4px;
 
 			&__user_avatar_icon {
-				.cdx-mixin-css-icon( @cdx-icon-user-avatar, @param-fill-color: #54595d );
+				.cdx-mixin-css-icon( @cdx-icon-user-avatar, @param-fill-color: @color-subtle );
 			}
 		}
 
@@ -69,7 +69,7 @@
 			align-items: center;
 
 			&__expand_icon {
-				.cdx-mixin-css-icon( @cdx-icon-expand, @param-fill-color: #202122, @param-size-icon: 12px );
+				.cdx-mixin-css-icon( @cdx-icon-expand, @param-fill-color: @color-base, @param-size-icon: 12px );
 			}
 		}
 
@@ -97,7 +97,6 @@
 	// The menu itself.
 	.cx-skin-menu-content-list {
 		background-color: @background-color-base;
-		list-style: none;
 		// Match the width of the dropdown "heading"
 		min-width: 100%;
 		position: absolute;
