@@ -62,7 +62,7 @@ const updateSelection = (selection) => emit("update:selection", selection);
   width: 100%;
   .mw-ui-button-group {
     background-color: @background-color-interactive-subtle;
-    border-bottom: @border-style-base @border-width-base #eaecf0;
+    border-bottom: @border-style-base @border-width-base @border-color-muted;
   }
 }
 </style>

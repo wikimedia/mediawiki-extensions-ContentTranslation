@@ -98,15 +98,18 @@ const titleText = computed(() =>
     &--selected {
       box-decoration-break: clone;
       color: @color-base;
-      // TODO: `@background-color-warning-subtle` is not the right token here.
-      background-color: #fef6e7;
-      box-shadow: @padding 0 0 #fef6e7, -@padding 0 0 #fef6e7;
+      // Closest available token (exact shade is Yellow100); used so the highlight
+      // adapts to dark mode.
+      background-color: @background-color-warning-subtle;
+      box-shadow: @padding 0 0 @background-color-warning-subtle,
+        -@padding 0 0 @background-color-warning-subtle;
     }
     &--translated {
       box-decoration-break: clone;
       color: @color-base;
       background-color: @background-color-progressive-subtle;
-      box-shadow: @padding 0 0 #eaf3ff, -@padding 0 0 #eaf3ff;
+      box-shadow: @padding 0 0 @background-color-progressive-subtle,
+        -@padding 0 0 @background-color-progressive-subtle;
     }
   }
 }

@@ -165,10 +165,9 @@ const navigateToEditor = useEditorNavigation();
       font-weight: @font-weight-normal;
     }
     mark {
-      // TODO: Fix this with token, `@background-color-warning-subtle` is not the right one.
-      // Specifications document refers to this color as Yellow100.
-      // Could we create a background variable for this one?
-      background-color: #fef6e7;
+      // Closest available token (specifications refer to this color as Yellow100);
+      // used so the highlight adapts to dark mode.
+      background-color: @background-color-warning-subtle;
     }
   }
   .sx-quick-tutorial__action-button {

@@ -368,7 +368,7 @@ const eventSource = computed(() => {
       box-shadow: none;
     }
     &-header {
-      color: #72777d;
+      color: @color-subtle;
     }
   }
   &__empty-state {

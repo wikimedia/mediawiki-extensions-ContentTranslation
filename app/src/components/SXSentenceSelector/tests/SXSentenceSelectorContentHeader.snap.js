@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSentenceSelector Section Content Header Component output matches snapshot 1`
-] = `
+exports[`SXSentenceSelector Section Content Header Component output matches snapshot 1`] = `
 <div
   class="col shrink sx-sentence-selector__section-header pa-5"
 >
@@ -28,7 +26,7 @@ exports[
       >
         <!--v-if-->
         <g
-          fill="currentColor"
+          style="fill: currentColor;"
         >
           <path
             d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"

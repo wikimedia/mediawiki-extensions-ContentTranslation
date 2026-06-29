@@ -41,7 +41,7 @@ export default {
     activeIndicatorColor: {
       type: String,
       required: false,
-      default: "#202122",
+      default: "var(--color-base, #202122)",
     },
   },
   emits: ["select"],

@@ -42,7 +42,7 @@ export default {
     },
     color: {
       type: String,
-      default: "#36c",
+      default: "var(--color-progressive, #36c)",
     },
     indeterminate: {
       type: Boolean,
@@ -103,15 +103,15 @@ export default {
   overflow: hidden;
   &--pending {
     // TODO: Replace with standard pending stripe design.
-    background-color: #a2a9b1;
+    background-color: @background-color-disabled;
     background-size: 1rem;
     background-image: linear-gradient(
       135deg,
-      #fff 25%,
+      @background-color-base 25%,
       transparent 25%,
       transparent 50%,
-      #fff 50%,
-      #fff 75%,
+      @background-color-base 50%,
+      @background-color-base 75%,
       transparent 75%,
       transparent
     );

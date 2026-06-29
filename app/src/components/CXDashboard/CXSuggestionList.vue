@@ -284,7 +284,7 @@ const showFeaturedCollectionBanner = computed(
   }
   &__refresh-button-container {
     background: @background-color-base;
-    border-top: @border-width-base @border-style-base #eaecf0;
+    border-top: @border-width-base @border-style-base @border-color-muted;
   }
 }
 </style>

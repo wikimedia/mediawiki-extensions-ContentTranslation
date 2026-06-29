@@ -156,15 +156,15 @@ mw.cx.eventlogging.stats.selectSectionAccess(!isDesktop.value);
   background-color: @background-color-base;
 
   &__list-title {
-    color: #72777d;
+    color: @color-subtle;
   }
 
   &__more-details--desktop {
-    border-top: @border-width-base @border-style-base #eaecf0;
+    border-top: @border-width-base @border-style-base @border-color-muted;
   }
 
   &__additional-considerations {
-    border-top: @border-width-base @border-style-base #eaecf0;
+    border-top: @border-width-base @border-style-base @border-color-muted;
     .sx-section-selector__additional-consideration-title {
       .mw-ui-icon {
         display: inline;
@@ -174,7 +174,8 @@ mw.cx.eventlogging.stats.selectSectionAccess(!isDesktop.value);
 
   &-section-list-present--sidebar {
     box-sizing: @box-sizing-base;
-    border-inline-start: @border-width-base @border-style-base #eaecf0;
+    border-inline-start: @border-width-base @border-style-base
+      @border-color-muted;
   }
 }
 </style>

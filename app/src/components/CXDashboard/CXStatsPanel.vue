@@ -67,10 +67,18 @@ watch(
       Math.max(monthData.length - numOfBars, 0)
     );
 
+    // Read the color palette from the page so the chart adapts to dark mode.
+    const rootStyles = getComputedStyle(document.documentElement);
+    const baseColor =
+      rootStyles.getPropertyValue("--color-base").trim() || "#202122";
+    const progressiveColor =
+      rootStyles.getPropertyValue("--color-progressive").trim() || "#36c";
+    context.fillStyle = baseColor;
+
     slicedData.forEach((element, index) => {
-      // Last bar in chart is displayed using progressive color (Accent50) from WikimediaUI color palette
+      // Last bar in chart is displayed using the progressive color from the WikimediaUI palette
       if (index === slicedData.length - 1) {
-        context.fillStyle = "#36c";
+        context.fillStyle = progressiveColor;
       }
 
       const offsetY = height - element * segment;

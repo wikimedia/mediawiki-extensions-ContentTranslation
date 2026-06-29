@@ -4,7 +4,7 @@ exports[`MwCircleProgressBar.vue should be rendered correctly 1`] = `
 <svg
   class="mw-circle-progress-bar"
   height="20"
-  style="--active-color: #36c; --inactive-color: #c8ccd1; --stroke-width: 2px;"
+  style="--active-color: var(--color-progressive, #36c); --inactive-color: var(--border-color-subtle, #c8ccd1); --stroke-width: 2px;"
   viewport="0 0 20 20"
   width="20"
   xmlns="http://www.w3.org/2000/svg"

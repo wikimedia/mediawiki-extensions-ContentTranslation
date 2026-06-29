@@ -309,7 +309,7 @@ defineEmits(["close", "bookmark"]);
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-suggestion {
-  border-top: @border-width-base @border-style-base #eaecf0;
+  border-top: @border-width-base @border-style-base @border-color-muted;
   cursor: pointer;
   min-height: 100px;
   line-height: normal;
@@ -357,20 +357,20 @@ defineEmits(["close", "bookmark"]);
     }
   }
   &__missing-sections {
-    color: #72777d;
+    color: @color-subtle;
   }
   &__easy-sections {
     color: @color-success;
     font-weight: @font-weight-bold;
   }
   &__favorite-missing-sections {
-    color: #72777d;
+    color: @color-subtle;
     min-width: fit-content;
   }
   &__language-pair {
     width: 100%;
     margin-top: auto;
-    color: #72777d;
+    color: @color-subtle;
   }
 }
 </style>

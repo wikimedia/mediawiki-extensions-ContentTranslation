@@ -70,7 +70,7 @@ const isPreviousButtonDisabled = computed(
     border-top: 0;
     border-bottom: 0;
     border-inline: @border-style-base @border-width-base;
-    border-color: #eaecf0;
+    border-color: @border-color-muted;
   }
 
   & button&__previous-sentence-button,

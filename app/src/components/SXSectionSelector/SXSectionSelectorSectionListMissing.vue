@@ -107,6 +107,18 @@ const orderedMissingSections = computed(() => {
       font-weight: @font-weight-bold;
     }
   }
+
+  // The inlined sad-robot illustration has hard-coded fills; override them with
+  // tokens so it adapts to dark mode. CSS `fill` wins over the SVG attribute.
+  svg {
+    circle {
+      fill: @background-color-neutral;
+    }
+
+    path {
+      fill: @color-subtle;
+    }
+  }
 }
 
 .cdx-info-chip {

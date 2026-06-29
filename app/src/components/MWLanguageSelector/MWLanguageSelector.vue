@@ -265,7 +265,7 @@ onMounted(async () => {
   .no-results,
   .results {
     &-header {
-      color: #72777d;
+      color: @color-subtle;
     }
   }
 
@@ -299,7 +299,7 @@ onMounted(async () => {
   }
 
   h3 {
-    color: #72777d;
+    color: @color-subtle;
   }
 
   &__inputcontainer {

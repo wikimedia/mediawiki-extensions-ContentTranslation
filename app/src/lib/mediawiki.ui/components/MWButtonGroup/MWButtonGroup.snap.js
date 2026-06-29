@@ -16,7 +16,6 @@ exports[`MwButtonGroup.vue renders correctly 1`] = `
     label="buttonLabel1"
     large="false"
     progressive="false"
-    style="border-bottom-color: #202122;"
     type="button"
     value="item1"
   />

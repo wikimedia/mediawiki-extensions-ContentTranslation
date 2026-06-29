@@ -131,7 +131,7 @@ const timeagoMessage = computed(() => {
 
   &__footer {
     font-size: 14px;
-    color: #72777d;
+    color: @color-subtle;
     line-height: 1;
   }
 

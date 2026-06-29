@@ -81,7 +81,7 @@ const emit = defineEmits(["suggestion-clicked"]);
     box-shadow: none;
   }
   &-header {
-    color: #72777d;
+    color: @color-subtle;
   }
   &-subtitle {
     color: @color-subtle;

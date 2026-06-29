@@ -178,7 +178,7 @@ onBeforeUnmount(() => {
     // No border style defined in specifications
     border-bottom: @border-style-base @border-width-base @border-color-disabled;
     .mw-ui-button.sx-content-comparator__open-content-link-button {
-      color: #72777d;
+      color: @color-subtle;
       pointer-events: auto;
     }
   }

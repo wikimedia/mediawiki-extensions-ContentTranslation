@@ -24,7 +24,7 @@ exports[`SXContentComparator Header Navigation test Component output matches sna
         >
           <!--v-if-->
           <g
-            fill="currentColor"
+            style="fill: currentColor;"
           >
             <path
               d="M4 10l9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
@@ -57,7 +57,7 @@ exports[`SXContentComparator Header Navigation test Component output matches sna
         >
           <!--v-if-->
           <g
-            fill="currentColor"
+            style="fill: currentColor;"
           >
             <path
               d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"

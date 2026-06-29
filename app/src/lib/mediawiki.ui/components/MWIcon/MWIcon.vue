@@ -11,7 +11,7 @@
       @click="handleClick"
     >
       <title v-if="iconName" :id="iconName">{{ iconName }}</title>
-      <g :fill="iconColor">
+      <g :style="{ fill: iconColor }">
         <path :d="iconImagePath" />
       </g>
     </svg>

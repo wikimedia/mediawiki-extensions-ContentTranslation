@@ -68,7 +68,7 @@ defineProps({
     color: @color-subtle;
   }
   &__languages {
-    color: #72777d;
+    color: @color-subtle;
     margin-top: auto;
   }
 }

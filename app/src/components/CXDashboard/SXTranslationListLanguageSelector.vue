@@ -176,8 +176,8 @@ const allLanguagesSelectedAsTarget = computed(
 
 .sx-translation-list-language-selector {
   &--mobile {
-    border-top: @border-width-base @border-style-base #eaecf0;
-    border-bottom: @border-width-base @border-style-base #eaecf0;
+    border-top: @border-width-base @border-style-base @border-color-muted;
+    border-bottom: @border-width-base @border-style-base @border-color-muted;
   }
 
   & &__button {

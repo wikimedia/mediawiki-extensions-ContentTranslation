@@ -102,15 +102,15 @@ watch([waitingForPageCollectionsFetch, targetLanguage], ([newWaitingValue]) => {
     }
 
     &--active {
-      background-color: @background-color-progressive--active;
-      border-color: @border-color-progressive--active;
+      background-color: @background-color-progressive;
+      border-color: @border-color-progressive;
 
       .cdx-icon {
-        color: @color-inverted;
+        color: @color-inverted-fixed;
       }
 
       .cdx-info-chip__text {
-        color: @color-inverted;
+        color: @color-inverted-fixed;
       }
     }
   }

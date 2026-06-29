@@ -69,7 +69,6 @@ $body-font-weight: 400 !default;
 $body-font: map-get($font-stack, sans) !default;
 $heading-font: map-get($font-stack, serif) !default;
 $base-font-size: 1rem !default;
-$text-color: #202122 !default;
 
 @mixin t-reset() {
   margin: 0;
@@ -81,7 +80,6 @@ body {
   font-weight: $body-font-weight;
   font-size: $base-font-size;
   line-height: $line-height-ratio;
-  color: $text-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
