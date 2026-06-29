@@ -13,6 +13,15 @@
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-dark.less';
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-light.less';
 
+// OOUI renders icons and indicators (used by the desktop translation view and
+// its toolbars, tools and widgets) as monochrome black SVGs with no design token
+// hook, so they remain black and illegible in dark mode. Invert them under the
+// night mode selectors, the same approach Vector uses, while excluding
+// already-colored variants (progressive/destructive), checkbox checkmarks and
+// explicit opt-outs.
+@OOUIIconSelectors: ~'.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ):not( .oo-ui-image-invert ):not( .mw-no-invert )';
+@OOUIIndicatorSelectors: ~'.oo-ui-indicatorElement-indicator';
+
 @media screen {
 	// Light mode is the default. Applied explicitly so the custom properties are
 	// set rather than relying solely on the token fallbacks.
@@ -24,6 +33,12 @@
 	html.skin-theme-clientpref-night {
 		color-scheme: dark;
 		.cdx-mode-dark();
+
+		@{OOUIIconSelectors},
+		@{OOUIIndicatorSelectors} {
+			color-scheme: light;
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
 	}
 }
 
@@ -32,5 +47,11 @@
 	html.skin-theme-clientpref-os {
 		color-scheme: dark;
 		.cdx-mode-dark();
+
+		@{OOUIIconSelectors},
+		@{OOUIIndicatorSelectors} {
+			color-scheme: light;
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
 	}
 }
