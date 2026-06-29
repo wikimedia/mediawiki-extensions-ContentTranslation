@@ -24,9 +24,7 @@
 	}
 
 	> .cx-ui-translationIssue-message {
-		// TODO: Use @color-subtle. `#404244` is only meant to be used for component hover state
-		// and should not be used here.
-		color: #404244;
+		color: @color-subtle;
 		margin: 0;
 		white-space: pre-wrap;
 	}
@@ -41,7 +39,7 @@
 
 	> .cx-ui-translationIssue-foot:not( :empty ) {
 		margin-left: -@padding;
-		border-top: @border-width-base @border-style-base #eaecf0;
+		border-top: @border-width-base @border-style-base @border-color-muted;
 		padding: 0.5em @left;
 
 		&.cx-ui-translationIssue-foot-additional {
@@ -52,7 +50,7 @@
 	> .cx-ui-translationIssue-foot-additional > .oo-ui-buttonWidget {
 		display: block;
 		margin: 0;
-		border-bottom: @border-width-base @border-style-base #eaecf0;
+		border-bottom: @border-width-base @border-style-base @border-color-muted;
 		padding: 0.5em 1em;
 
 		&:first-child {

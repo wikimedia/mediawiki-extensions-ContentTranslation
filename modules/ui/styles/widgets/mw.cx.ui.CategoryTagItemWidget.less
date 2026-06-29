@@ -1,6 +1,8 @@
 // !important is used for rules in this file to beat OOUI specificity and
 // prevent regressions because of specificity changes in future OOUI versions.
 
+@import 'mediawiki.skin.variables.less';
+
 .mw-cx-ui-CategoryTagItemWidget {
 	&.oo-ui-widget-enabled > .oo-ui-labelElement-label {
 		cursor: pointer !important; /* stylelint-disable-line declaration-no-important */
@@ -12,7 +14,7 @@
 }
 
 .mw-cx-ui-CategoryTagItemWidget.oo-ui-flaggedElement-highlight {
-	background-color: #fef6e7 !important; /* stylelint-disable-line declaration-no-important */
+	background-color: @background-color-warning-subtle !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .mw-cx-ui-CategoryTagItemWidget.mw-cx-ui-CategoryTagItemWidget--no-remove {

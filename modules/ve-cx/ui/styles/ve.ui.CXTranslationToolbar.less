@@ -11,16 +11,16 @@
 
 	.ve-cx-toolbar-mt-title {
 		display: block;
-		border-bottom: @border-width-base @border-style-base #eaecf0;
-		color: #72777d;
+		border-bottom: @border-width-base @border-style-base @border-color-muted;
+		color: @color-subtle;
 		padding: 4px 10px;
 	}
 
 	.ve-cx-toolbar-mt-noservices {
 		display: block;
-		border-bottom: @border-width-base @border-style-base #eaecf0;
+		border-bottom: @border-width-base @border-style-base @border-color-muted;
 		color: @color-subtle;
-		background-color: #f8f9fa;
+		background-color: @background-color-interactive-subtle;
 		padding: 10px;
 	}
 
@@ -59,7 +59,7 @@
 
 .cx-flash-highlight() {
 	50% {
-		background-color: #eaf3ff;
+		background-color: @background-color-progressive-subtle;
 		color: @color-progressive;
 	}
 }

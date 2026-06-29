@@ -14,7 +14,7 @@ const nextUntil = ( element, selector ) => {
 };
 
 const highlightElement = ( element ) => {
-	element.style.background = '#fef6e7';
+	element.style.background = 'var(--background-color-warning-subtle, #fef6e7)';
 	element.style.marginBottom = 0;
 	element.style.marginLeft = '-16px';
 	element.style.marginRight = '-16px';
@@ -25,8 +25,8 @@ const highlightElement = ( element ) => {
 const createNewIndicator = () => {
 	const span = document.createElement( 'span' );
 	span.innerText = mw.message( 'cx-sx-followup-feedback-new-indicator' ).plain();
-	span.style.background = '#fdedd1';
-	span.style.color = '#ac6600';
+	span.style.background = 'var(--background-color-warning-subtle, #fdedd1)';
+	span.style.color = 'var(--color-warning, #ac6600)';
 	span.style.padding = '8px';
 	span.style.borderRadius = '50%';
 	span.style.fontSize = '16px';

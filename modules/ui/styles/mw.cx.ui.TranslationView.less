@@ -4,14 +4,14 @@
 
 .cx-translation-view {
 	.mw-ui-grid;
-	background-color: #eaecf0;
+	background-color: var( --background-color-neutral );
+	color: var( --color-neutral );
 	// Override overflow property specified in mw-ui-grid to default value, because
 	// non-visible value set on overflow property prevents position: sticky from working
 	overflow: visible;
 
 	.cx-translation-view-container {
 		.mw-ui-two-thirds;
-		background-color: #fff;
 		box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.15 );
 		border-radius: @border-radius-base;
 		padding: 0;
@@ -78,7 +78,7 @@
 
 .cx-suggestion {
 	.mw-ui-one-half(@palm);
-	background-color: #fff;
+	background-color: @background-color-base;
 	border: @border-subtle;
 	padding: 10px;
 	margin: 2px 0;
