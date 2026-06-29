@@ -1,0 +1,11 @@
+/**
+ * Less @import match for 'mediawiki.skin.variables.less' when the
+ * contenttranslation skin is active, registered via SkinLessImportPaths.
+ *
+ * Mirrors Vector and Minerva: it layers the Codex design tokens (which resolve to
+ * CSS custom properties) over the static skin defaults. Without this, the skin
+ * would use core's static fallback values and could not adapt to dark mode.
+ * The custom property values for each mode are set in CSSCustomProperties.less.
+ */
+@import 'mediawiki.skin.defaults.less';
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui.less';

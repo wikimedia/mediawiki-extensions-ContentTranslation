@@ -38,6 +38,7 @@
 				{
 					"name": "contenttranslation",
 					"responsive": true,
+					"clientPrefEnabled": true,
 					"styles": [
 						"mw.cx.skin"
 					],
@@ -52,6 +53,9 @@
 				}
 			]
 		}
+	},
+	"SkinLessImportPaths": {
+		"contenttranslation": "skin/styles/contenttranslation"
 	},
 	"HookHandlers": {
 		"sxbeforepublish": {
@@ -1757,7 +1761,8 @@
 		"mw.cx.skin": {
 			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"styles": [
-				"skin/styles/skin.less"
+				"skin/styles/skin.less",
+				"skin/styles/CSSCustomProperties.less"
 			],
 			"features": {
 				"content-links": true,

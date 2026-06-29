@@ -1,0 +1,36 @@
+/**
+ * Night mode color palette for the Content Translation skin.
+ *
+ * The Vue app (mw.cx3) and this skin both resolve Codex design tokens to CSS
+ * custom properties (e.g. `var( --color-base, #202122 )`). Defining the dark
+ * palette under the shared `skin-theme-clientpref-*` classes therefore re-themes
+ * the whole page at runtime, without rebuilding the app bundle.
+ *
+ * Modeled on the same mechanism used by Vector and Minerva.
+ * See https://doc.wikimedia.org/codex/latest/design-tokens/color.html
+ */
+@import 'mediawiki.skin.variables.less';
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-dark.less';
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-light.less';
+
+@media screen {
+	// Light mode is the default. Applied explicitly so the custom properties are
+	// set rather than relying solely on the token fallbacks.
+	:root {
+		.cdx-mode-light();
+	}
+
+	// Forced night mode: the user's explicit preference, regardless of system settings.
+	html.skin-theme-clientpref-night {
+		color-scheme: dark;
+		.cdx-mode-dark();
+	}
+}
+
+// Automatic night mode: follow the system setting.
+@media screen and ( prefers-color-scheme: dark ) {
+	html.skin-theme-clientpref-os {
+		color-scheme: dark;
+		.cdx-mode-dark();
+	}
+}

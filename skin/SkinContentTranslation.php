@@ -3,7 +3,9 @@
 namespace ContentTranslation\Skin;
 
 use MediaWiki\Linker\Linker;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Sanitizer;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Title\Title;
 
@@ -20,6 +22,45 @@ class SkinContentTranslation extends SkinMustache {
 	public function __construct( $options = [] ) {
 		$options['templateDirectory'] = __DIR__ . '/templates';
 		parent::__construct( $options );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getHtmlElementAttributes() {
+		$attribs = parent::getHtmlElementAttributes();
+		// Apply the night mode color palette via the shared client preference class.
+		// Together with 'clientPrefEnabled' this lets anonymous users' choice carry
+		// over through the client preferences cookie. See CSSCustomProperties.less.
+		$attribs['class'] = trim( ( $attribs['class'] ?? '' )
+			. ' skin-theme-clientpref-' . $this->getNightModeValue() );
+		return $attribs;
+	}
+
+	/**
+	 * Resolve the night mode value for the current user.
+	 *
+	 * Core has no skin-agnostic night mode preference: Vector stores the user's
+	 * choice in the 'vector-theme' option. We reuse it so a preference set elsewhere
+	 * on the wiki carries over to this page. For anonymous users the emitted value
+	 * is a base that is overridden client-side from the client preferences cookie.
+	 *
+	 * @return string One of 'day', 'night' or 'os'.
+	 */
+	private function getNightModeValue(): string {
+		$default = 'day';
+		$user = $this->getUser();
+		if ( !$user->isRegistered()
+			|| !ExtensionRegistry::getInstance()->isLoaded( 'Vector' )
+		) {
+			return $default;
+		}
+
+		$value = MediaWikiServices::getInstance()
+			->getUserOptionsLookup()
+			->getOption( $user, 'vector-theme' );
+
+		return in_array( $value, [ 'day', 'night', 'os' ], true ) ? $value : $default;
 	}
 
 	/**
