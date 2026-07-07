@@ -1111,7 +1111,26 @@
 			],
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.js",
-				"entrypoints/ext.cx.entrypoints.languagesearcher/LanguageSearcherCardContainer.vue",
+				"entrypoints/ext.cx.entrypoints.languagesearcher/LanguageSearcherCardContainer.vue"
+			],
+			"styles": [
+				"entrypoints/styles/ext.cx.entrypoints.languagesearcher.less"
+			],
+			"dependencies": [
+				"vue",
+				"jquery.uls.data",
+				"mw.cx.SiteMapper"
+			],
+			"messages": [
+				"cx-mflanguagesearcher-entrypoint-card-title",
+				"cx-mflanguagesearcher-entrypoint-card-description",
+				"mint-mflanguagesearcher-entrypoint-card-title",
+				"mint-mflanguagesearcher-entrypoint-card-description"
+			]
+		},
+		"ext.cx.entrypoints.languagesearcher.v2": {
+			"packageFiles": [
+				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.v2.js",
 				{
 					"name": "entrypoints/ext.cx.entrypoints.languagesearcher/icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
@@ -1120,20 +1139,10 @@
 					]
 				}
 			],
-			"styles": [
-				"entrypoints/styles/ext.cx.entrypoints.languagesearcher.less"
-			],
 			"dependencies": [
-				"vue",
 				"jquery.uls.data",
 				"mw.cx.SiteMapper",
 				"ext.uls.rewrite.entrypoints"
-			],
-			"messages": [
-				"cx-mflanguagesearcher-entrypoint-card-title",
-				"cx-mflanguagesearcher-entrypoint-card-description",
-				"mint-mflanguagesearcher-entrypoint-card-title",
-				"mint-mflanguagesearcher-entrypoint-card-description"
 			]
 		},
 		"ext.cx.entrypoints.mffrequentlanguages": {

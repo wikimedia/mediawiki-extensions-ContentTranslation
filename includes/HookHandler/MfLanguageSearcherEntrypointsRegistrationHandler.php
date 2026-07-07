@@ -9,15 +9,17 @@ use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use UniversalLanguageSelector\Hooks;
 
 /**
  * This class implements a handler for the "BeforePageDisplay" hook, that
- * registers the "ext.cx.entrypoints.languagesearcher.init" RL module when
- * the appropriate conditions are met. The following JS variables are also
- * set when the same conditions are met:
+ * registers the "ext.cx.entrypoints.languagesearcher.init" RL module (or
+ * "ext.cx.entrypoints.languagesearcher.v2" when the ULS V2 language selector
+ * is enabled) when the appropriate conditions are met. The following JS
+ * variables are also set when the same conditions are met:
  * - wgSectionTranslationTargetLanguages
- * - isLanguageSearcherCXEntrypointEnabled
- * - mintEntrypointLanguages
+ * - isLanguageSearcherCXEntrypointEnabled (only for the non-V2 module)
+ * - mintEntrypointLanguages (only for the non-V2 module)
  *
  * @author Nik Gkountas
  * @license GPL-2.0-or-later
@@ -85,6 +87,16 @@ class MfLanguageSearcherEntrypointsRegistrationHandler implements BeforePageDisp
 		$mintEntrypointLanguages = $out->getConfig()->get(
 			'AutomaticTranslationLanguageSearcherEntrypointEnabledLanguages'
 		);
+
+		if ( Hooks::isLanguageSelectorV2Enabled( $user, $skin, $out->getConfig() ) ) {
+			// ULS V2 only supports the CX entrypoint (not MinT); must load eagerly,
+			// as the ULS entrypoint registry locks once the V2 selector mounts.
+			if ( $isCXEntrypointEnabled ) {
+				$out->addModules( 'ext.cx.entrypoints.languagesearcher.v2' );
+				$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages', $sectionTranslationTargetLanguages );
+			}
+			return;
+		}
 
 		if ( $isCXEntrypointEnabled || $mintEntrypointLanguages ) {
 			$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
