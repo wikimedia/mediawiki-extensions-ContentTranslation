@@ -169,12 +169,7 @@ module.exports = {
 </script>
 
 <style lang="less">
-// Copy variables from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.css'.
-@background-color-base: #fff;
-@background-color-progressive-subtle: #eaf3ff;
-@color-base: #202122;
-@color-progressive: #36c;
-@color-subtle: #54595d;
+@import 'mediawiki.skin.variables.less';
 
 .sx-recent-edit-entrypoint {
 	width: 100%;
@@ -225,7 +220,7 @@ module.exports = {
 	&__separation-line {
 		margin: 0;
 		border-top: 0;
-		color: #eaecf0;
+		color: @border-color-muted;
 	}
 
 	&__invitation {
