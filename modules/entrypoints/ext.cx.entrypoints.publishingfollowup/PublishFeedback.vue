@@ -175,11 +175,13 @@ module.exports = defineComponent( {
 </script>
 
 <style lang="less">
+@import 'mediawiki.skin.variables.less';
+
 .sx-publishing-follow-up {
   width: 100%;
   position: fixed;
   bottom: 0;
-  background: white;
+  background: @background-color-base;
   box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.25);
   .row {
     box-sizing: border-box;
@@ -204,12 +206,12 @@ module.exports = defineComponent( {
   }
   .sx-published-section-confirmation__header {
     font-weight: 600;
-    color: #202122;
+    color: @color-base;
   }
   .sx-published-section-confirmation__content {
     margin-top: 8px;
     font-size: 14px;
-    color: #202122;
+    color: @color-base;
   }
   .sx-published-section-confirmation__close {
     cursor: pointer;
@@ -217,7 +219,7 @@ module.exports = defineComponent( {
   .sx-separation-line {
     margin: 0;
     border-top: 0;
-    color: #eaecf0;
+    color: @border-color-muted;
   }
 
   /**
@@ -233,22 +235,22 @@ module.exports = defineComponent( {
    * current plan that only targets mobile devices.
    */
   .sx-published-section-invitation:hover {
-    background: #eaf3ff;
+    background: @background-color-progressive-subtle;
   }
 
   .sx-published-section-invitation__icon {
     margin-right: 8px;
-    color: #36c;
+    color: @color-progressive;
   }
 
   .sx-published-section-invitation__header {
     font-weight: 600;
-    color: #36c;
+    color: @color-progressive;
   }
   .sx-published-section-invitation__description {
     margin-top: 4px;
     font-size: 14px;
-    color: #54595d;
+    color: @color-subtle;
   }
 }
 </style>
