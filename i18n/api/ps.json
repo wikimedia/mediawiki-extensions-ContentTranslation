@@ -127,5 +127,13 @@
 	"apierror-cxsplit-no-translation-found": "د ورکړل شوي پېژند لپاره هېڅ ژباړه ونه موندل شوه",
 	"apihelp-cxcheckunreviewed-summary": "وگورئ چې ايا د اوسني کارن لپاره دې وروستيو کې کومه چټکه، ناکتلې ژباړه خپره شوې.",
 	"apierror-cxcheckunreviewed-anon-user": "\"cxcheckunreviewed\" ای‌پي‌آی چاره د ورکنومو کارنانو لپاره چارن نه دی",
-	"apihelp-query+automatictranslationdenselanguages-param-qid": "د ويکي‌اومتوک پېژند."
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "د ويکي‌اومتوک پېژند.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "په ټولو شته ژبو کې د 'سپوږمۍ' ليکنې لپاره د وېبځي‌تړونو د لړليک ترلاسنه، چې د ليکنې د کچې له مخې اوډل شوې.",
+	"apihelp-cxfavoritesuggestions-summary": "د اوسني کارن لړليک ته يو خواپوري وړانديز ورگډول يا لرې‌کول",
+	"apihelp-cxfavoritesuggestions-param-listaction": "هغه چاره چې ورکړل شوي خواپورې وړانديز باندې ترسره کېږي. د لاسرسي وړ خوښنې: 'ورگډول' او 'لرې‌کول'",
+	"apihelp-cxfavoritesuggestions-param-title": "د هغه خواپرې وړانديز سرليک چې چاره بايد پرې ترسره شي",
+	"apihelp-cxfavoritesuggestions-param-from": "د هغه خواپورې وړانديز د سرچينې ژبه چې چاره بايد پرې ترسره شي.",
+	"apihelp-cxfavoritesuggestions-param-to": "د هغه خواپورې وړانديز د موخې‌وړ ژبه چې چاره بايد پرې ترسره شي.",
+	"apihelp-cxfavoritesuggestions-example-1": "د کارن د خواپوري وړانديزونو لړليک څخه يو وړانديز ورگډول",
+	"apihelp-cxfavoritesuggestions-example-2": "د کارن د خواپوري وړانديزونو لړليک څخه يو وړانديز لرې‌کول"
 }
