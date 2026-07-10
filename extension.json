@@ -1135,7 +1135,8 @@
 					"name": "entrypoints/ext.cx.entrypoints.languagesearcher/icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
 					"callbackParam": [
-						"cdxIconAdd"
+						"cdxIconAdd",
+						"cdxIconEllipsis"
 					]
 				}
 			],

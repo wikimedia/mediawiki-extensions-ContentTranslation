@@ -36,24 +36,36 @@
 			return getCxLanguageMatches( hitCodes ).length > 0;
 		},
 		getConfig: ( context ) => {
-			const { cdxIconAdd } = require( './icons.json' );
+			const { cdxIconAdd, cdxIconEllipsis } = require( './icons.json' );
 			const hitCodes = Object.keys( context.searchQueryHits || {} );
 			const cxMatches = getCxLanguageMatches( hitCodes );
 			if ( !cxMatches.length ) {
 				return [];
 			}
 
-			return cxMatches.map( ( langCode ) => ( {
+			const getCxUrl = ( langCode ) => siteMapper.getCXUrl(
+				mw.config.get( 'wgTitle' ),
+				null,
+				mw.config.get( 'wgContentLanguage' ),
+				langCode,
+				{ campaign: 'mflanguagesearcher', sx: true }
+			);
+
+			const results = cxMatches.slice( 0, 2 ).map( ( langCode ) => ( {
 				label: $.uls.data.getAutonym( langCode ),
 				icon: cdxIconAdd,
-				url: siteMapper.getCXUrl(
-					mw.config.get( 'wgTitle' ),
-					null,
-					mw.config.get( 'wgContentLanguage' ),
-					langCode,
-					{ campaign: 'mflanguagesearcher', sx: true }
-				)
+				url: getCxUrl( langCode )
 			} ) );
+
+			if ( cxMatches.length > 2 ) {
+				results.push( {
+					label: null,
+					icon: cdxIconEllipsis,
+					url: getCxUrl( cxMatches[ 0 ] )
+				} );
+			}
+
+			return results;
 		}
 	}, ULS_MODE.CONTENT );
 }() );
