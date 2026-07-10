@@ -182,7 +182,7 @@
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 خطأ}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 تحذير}}",
 	"cx-tools-linter-learn-more": "معرفة المزيد",
-	"cx-tools-linter-mark-as-resolved": "علم كمحلول",
+	"cx-tools-linter-mark-as-resolved": "عُلّم محلولًا",
 	"cx-tools-linter-generic-title": "هناك مشكلة في ترجمتك",
 	"cx-tools-linter-abuse-filter": "حددت مرشحات الإساءة محتوى إشكاليا في ترجمتك",
 	"cx-tools-linter-empty-title": "تحتاج ترجمتك إلى عنوان",
