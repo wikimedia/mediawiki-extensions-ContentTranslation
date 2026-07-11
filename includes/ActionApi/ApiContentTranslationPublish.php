@@ -153,7 +153,6 @@ class ApiContentTranslationPublish extends ApiBase {
 				// Record using Prometheus that the published translation is marked for review
 				$this->statsFactory->getCounter( 'ContentTranslation_publish_highmt_total' )
 					->setLabel( 'langCode', $params['to'] )
-					->copyToStatsdAt( 'cx.publish.highmt.' . $params['to'] )
 					->increment();
 			} else {
 				wfDebug( __METHOD__ . ": [[MediaWiki:$trackingCategoryMsg]] is not a valid title!\n" );
