@@ -1,4 +1,5 @@
-import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import useURLHandler from "@/composables/useURLHandler";
 
 export default {
   /**
@@ -48,13 +49,11 @@ export default {
    * Get nearby articles (based on user location) in current source language
    *
    * @param {Object} state
-   * @param {Object} getters
-   * @param {Object} rootState
    * @return {Page[]}
    */
-  getNearbyPages: (state, getters, rootState) => {
-    const sourceLanguage = rootState.application.sourceLanguage;
+  getNearbyPages: (state) => {
+    const { sourceLanguageURLParameter: sourceLanguage } = useURLHandler();
 
-    return state.nearbyPages[sourceLanguage];
+    return state.nearbyPages[sourceLanguage.value];
   },
 };

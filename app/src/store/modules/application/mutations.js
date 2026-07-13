@@ -1,5 +1,5 @@
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import useURLHandler from "@/composables/useURLHandler";
 
 const mutations = {
   /**
@@ -26,22 +26,17 @@ const mutations = {
    */
   setCurrentMTProvider: (state, provider) => {
     state.currentMTProvider = provider;
-    const { sourceLanguage, targetLanguage } = state;
+    const {
+      sourceLanguageURLParameter: sourceLanguage,
+      targetLanguageURLParameter: targetLanguage,
+    } = useURLHandler();
 
     const storageKey = MTProviderGroup.getStorageKey(
-      sourceLanguage,
-      targetLanguage
+      sourceLanguage.value,
+      targetLanguage.value
     );
 
     mw.storage.set(storageKey, provider);
-  },
-
-  setSourceLanguage: (state, language) => {
-    state.sourceLanguage = language;
-  },
-
-  setTargetLanguage: (state, language) => {
-    state.targetLanguage = language;
   },
 
   /**

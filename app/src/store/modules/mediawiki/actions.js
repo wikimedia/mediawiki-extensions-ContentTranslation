@@ -1,4 +1,5 @@
-import pageApi from "../../../wiki/mw/api/page";
+import pageApi from "@/wiki/mw/api/page";
+import useURLHandler from "@/composables/useURLHandler";
 
 /**
  * Fetch nearby suggestions for current source language
@@ -8,11 +9,11 @@ import pageApi from "../../../wiki/mw/api/page";
  *
  * @param {Object} context
  * @param {Function} context.commit
- * @param {Object} context.rootState
  * @return {Promise<void>}
  */
-async function fetchNearbyPages({ commit, rootState, state }) {
-  const { sourceLanguage } = rootState.application;
+async function fetchNearbyPages({ commit, state }) {
+  const { sourceLanguageURLParameter } = useURLHandler();
+  const sourceLanguage = sourceLanguageURLParameter.value;
 
   if (state.nearbyPages[sourceLanguage]?.length) {
     return;

@@ -12,8 +12,6 @@ const autonyms = {
 const applicationModule = {
   namespaced: true,
   mutations: {
-    setSourceLanguage: () => {},
-    setTargetLanguage: () => {},
     setPreviousRoute: () => {},
   },
 };

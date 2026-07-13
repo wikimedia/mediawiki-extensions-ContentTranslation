@@ -4,9 +4,11 @@ import BlockTemplateStatusIndicator from "./BlockTemplateStatusIndicator.vue";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
 import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons.vue";
 import useApplicationState from "@/composables/useApplicationState";
+import useURLHandler from "@/composables/useURLHandler";
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
+import { getAutonym } from "@wikimedia/language-data";
 import SxBlockTemplateStatusDialog from "./SXBlockTemplateStatusDialog.vue";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconPuzzle, cdxIconInfo } from "@wikimedia/codex-icons";
@@ -15,7 +17,9 @@ import useCurrentPageSection from "@/composables/useCurrentPageSection";
 defineEmits(["edit-translation"]);
 
 const store = useStore();
-const { targetLanguageAutonym, currentMTProvider } = useApplicationState(store);
+const { currentMTProvider } = useApplicationState(store);
+const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
+const targetLanguageAutonym = computed(() => getAutonym(targetLanguage.value));
 const {
   selectedContentTranslationUnit: selectedSubSection,
   currentProposedTranslation: blockProposedTranslation,

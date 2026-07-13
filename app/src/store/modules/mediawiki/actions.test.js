@@ -1,6 +1,12 @@
+import { ref } from "vue";
 import actions from "./actions";
-import Page from "../../../wiki/mw/models/page";
-jest.mock("../../../utils/mediawikiHelper");
+import Page from "@/wiki/mw/models/page";
+jest.mock("@/utils/mediawikiHelper");
+
+const mockSourceLanguage = ref("en");
+jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: mockSourceLanguage,
+}));
 
 const mockNearbyPages = {
   en: [new Page(), new Page()],
@@ -8,7 +14,7 @@ const mockNearbyPages = {
   de: [],
 };
 
-jest.mock("../../../wiki/mw/api/page", () => {
+jest.mock("@/wiki/mw/api/page", () => {
   return {
     fetchNearbyPages: (language) => {
       if (mockNearbyPages[language]) {
@@ -22,21 +28,18 @@ jest.mock("../../../wiki/mw/api/page", () => {
 
 describe("vuex store mediawiki/actions", () => {
   const commit = jest.fn();
-  const applicationState = { sourceLanguage: "en" };
-  const rootState = {
-    application: applicationState,
-  };
   const state = {
     nearbyPages: { en: mockNearbyPages.en },
   };
   it("fetchNearbyPages action with existing nearby pages for current language", async () => {
-    await actions.fetchNearbyPages({ commit, rootState, state });
+    mockSourceLanguage.value = "en";
+    await actions.fetchNearbyPages({ commit, state });
     expect(commit).toHaveBeenCalledTimes(0);
   });
 
   it("fetchNearbyPages action with empty nearby pages for current language", async () => {
-    applicationState.sourceLanguage = "es";
-    await actions.fetchNearbyPages({ commit, rootState, state });
+    mockSourceLanguage.value = "es";
+    await actions.fetchNearbyPages({ commit, state });
     expect(commit).toHaveBeenCalledWith("addNearbyPages", {
       language: "es",
       pages: mockNearbyPages.es,
@@ -44,8 +47,8 @@ describe("vuex store mediawiki/actions", () => {
   });
 
   it("fetchNearbyPages action with empty pages coming from api should store an empty array inside nearbyPages", async () => {
-    applicationState.sourceLanguage = "de";
-    await actions.fetchNearbyPages({ commit, rootState, state });
+    mockSourceLanguage.value = "de";
+    await actions.fetchNearbyPages({ commit, state });
     expect(commit).toHaveBeenCalledWith("addNearbyPages", {
       language: "de",
       pages: [],

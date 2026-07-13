@@ -41,10 +41,7 @@ const store = createStore({
     application: {
       namespaced: true,
       state: {},
-      mutations: {
-        setSourceLanguage: jest.fn(),
-        setTargetLanguage: jest.fn(),
-      },
+      mutations: {},
     },
   },
 });

@@ -1,4 +1,3 @@
-import useApplicationState from "@/composables/useApplicationState";
 import useURLHandler from "@/composables/useURLHandler";
 import { useStore } from "vuex";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
@@ -9,9 +8,6 @@ import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 const { setLanguageURLParams } = useURLHandler();
 
 const setLanguagePair = (store, sourceLanguage, targetLanguage) => {
-  store.commit("application/setSourceLanguage", sourceLanguage);
-  store.commit("application/setTargetLanguage", targetLanguage);
-
   setLanguageURLParams(sourceLanguage, targetLanguage);
 
   mw.storage.set("cxSourceLanguage", sourceLanguage);
@@ -23,7 +19,10 @@ const useSuggestionListLanguagePairUpdate = () => {
   const initializeSuggestions = useSuggestionsInitialize();
 
   return (newSourceLanguage, newTargetLanguage) => {
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
+    const {
+      sourceLanguageURLParameter: sourceLanguage,
+      targetLanguageURLParameter: targetLanguage,
+    } = useURLHandler();
 
     // If newly selected target language is same as source language, swap languages
     if (newSourceLanguage === newTargetLanguage) {
