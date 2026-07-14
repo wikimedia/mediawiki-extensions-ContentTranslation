@@ -32,6 +32,7 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "عنوان صفحه مقصد",
 	"apihelp-query+contenttranslation-param-sourcesectiontitle": "عنوان بخش منبع(اختیاری).",
 	"apihelp-query+contenttranslation-param-limit": "حداکثر مقادیر ترجمه برای گرفتن",
+	"apihelp-query+contenttranslation-param-offset": "جابجایی به مجموعه نتایج (اختیاری).",
 	"apihelp-query+contenttranslation-param-type": "وضعیت ترجمه",
 	"apihelp-query+contenttranslation-example-1": "گرفتن ترجمه‌های شروع شده توسط کاربر فعلی.",
 	"apihelp-query+contenttranslation-example-2": "گرفتن ترجمه‌های پیش‌نویس توسط شناسه.",
