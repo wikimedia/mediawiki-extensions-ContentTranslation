@@ -416,7 +416,7 @@
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Feelt op <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Feelt op <span>$1</span> an op <span>$2</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Feelt op <span>$1</span>, <span>$2</span> an a weider e Sproochen",
-	"cx-uls-relevant-languages-banner-text-single-missing": "Feelt op <span>$1</span> an an anere Sprroochen",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Feelt op <span>$1</span> an anere Sproochen",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Feelt op <span>$1</span>, <span>$2</span> an a weidere Sproochen",
 	"cx-uls-relevant-languages-panel-header": "Dës Säit iwwersetzen",
 	"cx-uls-relevant-languages-panel-message": "Dës Säit feelt an e puer Sproochen déi Dir eventuell kënnt. Dir kënnt se bannent Minutten iwwersetzen!",
