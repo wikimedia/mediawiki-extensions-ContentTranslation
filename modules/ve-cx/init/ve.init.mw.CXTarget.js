@@ -1039,9 +1039,11 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider,
 	}
 
 	// TODO: Extend converter and make a new TRANSLATION mode
-	ve.dm.converter.isForTranslation = true;
-	const sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, mode ).body.children[ 0 ];
-	ve.dm.converter.isForTranslation = false;
+	const converter = ve.dm.converter.domFromModelConverter;
+	converter.isForTranslation = true;
+	const sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, mode )
+		.body.children[ 0 ];
+	converter.isForTranslation = false;
 
 	const transclusionNode = getTransclusionNode( sourceNode );
 	if ( transclusionNode ) {

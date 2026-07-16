@@ -402,9 +402,13 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 	// and other view-only information that Parsoid doesn't care about.
 	// CLIPBOARD_MODE helps to keep the rendering in the content to be saved and hence helping to restore
 	// them with rendering.
-	ve.dm.converter.isForSaving = true;
-	const newContent = ve.dm.converter.getDomFromNode( sectionModel, ve.dm.Converter.static.CLIPBOARD_MODE ).body.innerHTML;
-	ve.dm.converter.isForSaving = false;
+	const converter = ve.dm.converter.domFromModelConverter;
+	converter.isForSaving = true;
+	const newContent = ve.dm.converter.getDomFromNode(
+		sectionModel,
+		ve.dm.Converter.static.CLIPBOARD_MODE
+	).body.innerHTML;
+	converter.isForSaving = false;
 	const existingContent = sectionState.getUserTranslation();
 	const unmodifiedMTContent = sectionState.getUnmodifiedMT();
 	if ( !unmodifiedMTContent.html ) {
