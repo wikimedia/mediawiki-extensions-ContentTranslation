@@ -156,7 +156,7 @@ const userIconColor = computed(
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 .translated-segment-card {
   width: 100%;
-  box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 -@border-width-base 2px @box-shadow-color-base;
   &__body {
     box-sizing: border-box;
     width: 100%;

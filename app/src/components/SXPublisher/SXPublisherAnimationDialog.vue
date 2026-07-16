@@ -81,11 +81,14 @@ const animationSubtitle = computed(() => animations[props.status].subtitle);
 </template>
 
 <style lang="less">
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .sx-publisher {
   .sx-publisher__publish-animation {
     text-align: center;
     .mw-ui-dialog__overlay {
-      background-color: rgba(255, 255, 255, 0.95);
+      background-color: @background-color-base;
+      opacity: 0.95;
     }
 
     .mw-ui-dialog__shell {

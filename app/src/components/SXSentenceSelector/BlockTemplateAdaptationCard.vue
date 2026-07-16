@@ -259,6 +259,6 @@ const optionalMissingTargetParamsCount = computed(() => {
   border-radius: @border-radius-base @border-radius-base 0 0;
   width: 100%;
   z-index: 1;
-  box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 -@border-width-base 2px @box-shadow-color-base;
 }
 </style>

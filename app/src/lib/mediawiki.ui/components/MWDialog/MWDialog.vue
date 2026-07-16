@@ -215,7 +215,7 @@ export default {
     min-width: 300px;
     max-height: calc(100vh - 100px);
     min-height: var(--dialog-min-height);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 2px 0 @box-shadow-color-base;
   }
 
   .mw-ui-dialog__header {

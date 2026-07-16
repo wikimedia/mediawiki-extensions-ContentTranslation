@@ -55,7 +55,7 @@ const onSelect = (event) => {
   bottom: 0;
   width: 100%;
   background-color: @background-color-base;
-  box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px -2px 2px @box-shadow-color-base;
   z-index: 1;
 
   .mw-ui-bottom-navigation__button-group {

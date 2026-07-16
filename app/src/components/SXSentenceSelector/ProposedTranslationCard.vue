@@ -125,8 +125,7 @@ const resizeObserver = new ResizeObserver(() => setHeaderAndFooterHeight());
     max-height: 50%;
     border-radius: @border-radius-base @border-radius-base 0 0;
     width: 100%;
-    // TODO: Fix these with variables(?)
-    box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 -@border-width-base 2px @box-shadow-color-base;
 
     .mw-ui-card__content {
       height: 100%;
