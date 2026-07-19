@@ -28,12 +28,10 @@ class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDis
 		}
 
 		$user = $out->getUser();
+		$isV2Enabled = Hooks::isLanguageSelectorV2Enabled( $user, $skin, $out->getConfig() );
 		// Register the entrypoint module on desktop always, and on mobile only when the ULS rewrite
 		// (ULSv2) is enabled. Skip it on mobile when the rewrite is disabled.
-		if (
-			$isMobileView &&
-			!Hooks::isLanguageSelectorV2Enabled( $user, $skin, $out->getConfig() )
-		) {
+		if ( $isMobileView && !$isV2Enabled ) {
 			return;
 		}
 
@@ -52,7 +50,14 @@ class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDis
 			return;
 		}
 
-		// TODO: Remove the CxUlsEntrypoint.vue component once ULSv2 is enabled everywhere.
+		if ( $isV2Enabled ) {
+			// Lightweight module without Vue or Codex; the card is rendered by ULS.
+			// Must load eagerly, as the ULS entrypoint registry locks once the V2 selector mounts.
+			$out->addModules( 'ext.cx.entrypoints.ulsrelevantlanguages.v2' );
+			return;
+		}
+
+		// TODO: Remove this module once ULSv2 is enabled everywhere.
 		$out->addModules( 'ext.cx.entrypoints.ulsrelevantlanguages' );
 	}
 

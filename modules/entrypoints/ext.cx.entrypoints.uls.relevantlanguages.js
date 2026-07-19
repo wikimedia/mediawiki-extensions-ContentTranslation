@@ -1,59 +1,8 @@
 const sitematrix = require( './sitematrix.json' );
-const { cdxIconAdd } = require( './icons.json' );
 
 ( function () {
 	let entrypointRendered = false;
 	const siteMapper = new mw.cx.SiteMapper();
-
-	if ( mw.config.get( 'wgULSLanguageSelectorV2Enabled' ) ) {
-		const EntrypointRegistry = require( 'ext.uls.rewrite.entrypoints' );
-		const { ENTRYPOINT_TYPE, ULS_MODE } = EntrypointRegistry;
-
-		// copy from './ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue'
-		const getCXUrlByTargetLanguage = ( targetLanguage ) => {
-			const sourceTitle = mw.config.get( 'wgTitle' );
-			const sourceLanguage = siteMapper.getCurrentWikiLanguageCode();
-
-			return siteMapper.getCXUrl(
-				sourceTitle,
-				'',
-				sourceLanguage,
-				targetLanguage || null,
-				{ campaign: 'ulsmissinglanguages' }
-			);
-		};
-
-		let cachedMissingRelevantLanguages = null;
-		const getMissingRelevantLanguagesWithCache = ( context ) => {
-			if ( cachedMissingRelevantLanguages ) {
-				return cachedMissingRelevantLanguages;
-			}
-
-			const existingLanguages = Object.keys( context.languages || {} );
-			const preferredLanguages = context.preferredLanguages || [];
-			cachedMissingRelevantLanguages = getMissingRelevantLanguages( existingLanguages, preferredLanguages );
-
-			return cachedMissingRelevantLanguages;
-		};
-
-		EntrypointRegistry.register( ENTRYPOINT_TYPE.MISSING_CONTENT_LANGUAGES, {
-			id: 'cx-missing-languages-recommendation',
-			shouldShow: ( context ) => getMissingRelevantLanguagesWithCache( context ).length,
-			getConfig: ( context ) => {
-				const codes = getMissingRelevantLanguagesWithCache( context );
-
-				return codes.map( ( code ) => ( {
-					// TODO: Replace with direct call to language-data
-					label: $.uls.data.getAutonym( code ),
-					icon: cdxIconAdd,
-					description: mw.msg( 'ext-uls-missing-languages-entrypoint-description' ),
-					url: getCXUrlByTargetLanguage( code )
-				} ) );
-			}
-		}, ULS_MODE.CONTENT );
-
-		return;
-	}
 
 	/**
 	 * @param {string[]} missingRelevantLanguages array of missing frequent language autonyms

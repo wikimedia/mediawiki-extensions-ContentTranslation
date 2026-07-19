@@ -1163,13 +1163,33 @@
 			]
 		},
 		"ext.cx.entrypoints.ulsrelevantlanguages": {
-			"class": "MediaWiki\\ResourceLoader\\CodexModule",
-			"codexComponents": [
-				"CdxIcon"
-			],
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages.js",
 				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue",
+				{
+					"name": "entrypoints/sitematrix.json",
+					"callback": "ContentTranslation\\HookHandler\\ULSRelevantLanguagesEntrypointRegistrationHandler::getWikipediaList"
+				}
+			],
+			"dependencies": [
+				"vue",
+				"mw.cx.SiteMapper",
+				"ext.uls.common",
+				"jquery.uls.data"
+			],
+			"styles": [
+				"entrypoints/styles/ext.cx.entrypoints.uls.relevantlanguages.less"
+			],
+			"messages": [
+				"cx-uls-relevant-languages-banner-text-single-missing",
+				"cx-uls-relevant-languages-banner-text-multiple-missing",
+				"cx-uls-relevant-languages-panel-header",
+				"cx-uls-relevant-languages-panel-message"
+			]
+		},
+		"ext.cx.entrypoints.ulsrelevantlanguages.v2": {
+			"packageFiles": [
+				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages.v2.js",
 				{
 					"name": "entrypoints/sitematrix.json",
 					"callback": "ContentTranslation\\HookHandler\\ULSRelevantLanguagesEntrypointRegistrationHandler::getWikipediaList"
@@ -1183,20 +1203,8 @@
 				}
 			],
 			"dependencies": [
-				"vue",
 				"mw.cx.SiteMapper",
-				"ext.uls.common",
-				"jquery.uls.data",
 				"ext.uls.rewrite.entrypoints"
-			],
-			"styles": [
-				"entrypoints/styles/ext.cx.entrypoints.uls.relevantlanguages.less"
-			],
-			"messages": [
-				"cx-uls-relevant-languages-banner-text-single-missing",
-				"cx-uls-relevant-languages-banner-text-multiple-missing",
-				"cx-uls-relevant-languages-panel-header",
-				"cx-uls-relevant-languages-panel-message"
 			]
 		},
 		"ext.cx.entrypoints.newbytranslation": {
