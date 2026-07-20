@@ -946,8 +946,6 @@
 			],
 			"dependencies": [
 				"mw.cx.SiteMapper",
-				"ext.uls.interface",
-				"ext.uls.common",
 				"ext.uls.rewrite.entrypoints"
 			],
 			"messages": [
