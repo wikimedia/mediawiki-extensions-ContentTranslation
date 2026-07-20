@@ -11,6 +11,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Registration\ExtensionRegistry;
 use MobileContext;
+use UniversalLanguageSelector\Hooks;
 
 class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisplayHook {
 
@@ -31,6 +32,12 @@ class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisp
 
 		// This entrypoint should only be enabled for mobile web version
 		if ( !$isMobileView ) {
+			return;
+		}
+
+		// This entrypoint only targets the MobileFrontend language searcher,
+		// which is replaced by the ULS V2 language selector when that is enabled.
+		if ( Hooks::isLanguageSelectorV2Enabled( $out->getUser(), $skin, $out->getConfig() ) ) {
 			return;
 		}
 
