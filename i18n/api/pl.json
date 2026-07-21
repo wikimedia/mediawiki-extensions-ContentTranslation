@@ -8,7 +8,8 @@
 			"Rail",
 			"Tar Lócesilion",
 			"The Polish",
-			"Woytecr"
+			"Woytecr",
+			"PanWor"
 		]
 	},
 	"apihelp-cxpublish-param-title": "Tytuł strony, na której będą dokonywane dalsze działania.",
@@ -59,7 +60,7 @@
 	"apihelp-cxsave-param-from": "Kod języka źródłowego.",
 	"apihelp-cxsave-param-to": "Kod języka docelowego.",
 	"apihelp-cxsave-param-sourcetitle": "Tytuł strony źródłowej.",
-	"apierror-cx-docserverexception": "Błąd konwersji HTML do wikitekstu: $1",
+	"apierror-cx-docserverexception": "Błąd konwersji HTML do wikikodu: $1",
 	"apierror-cx-inuse": "Ten artykuł już tłumaczony przez innego użytkownika.",
 	"apierror-cx-invalidlanguage": "Nieprawidłowy język.",
 	"apierror-cx-invalidprogress": "Nieprawidłowy postęp.",
