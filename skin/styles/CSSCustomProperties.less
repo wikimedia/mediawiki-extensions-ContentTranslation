@@ -21,6 +21,27 @@
 // explicit opt-outs.
 @OOUIIconSelectors: ~'.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ):not( .oo-ui-image-invert ):not( .mw-no-invert )';
 @OOUIIndicatorSelectors: ~'.oo-ui-indicatorElement-indicator';
+// Echo notification badges (bell/tray in the header) use `oo-ui-icon-*`
+// background images without the `oo-ui-iconElement-icon` class, so the
+// selector above misses them.
+@EchoBadgeSelectors: ~'#pt-notifications-alert .mw-echo-notifications-badge, #pt-notifications-notice .mw-echo-notifications-badge';
+
+.night-mode-icon-invert() {
+	@{OOUIIconSelectors},
+	@{OOUIIndicatorSelectors},
+	@{EchoBadgeSelectors} {
+		color-scheme: light;
+		filter: invert( 1 ) hue-rotate( 180deg );
+	}
+
+	// The badge counter uses design tokens that already resolve to dark mode
+	// colors; apply the same filter again to cancel the inherited inversion.
+	@{EchoBadgeSelectors} {
+		&::after {
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
+	}
+}
 
 @media screen {
 	// Light mode is the default. Applied explicitly so the custom properties are
@@ -33,12 +54,7 @@
 	html.skin-theme-clientpref-night {
 		color-scheme: dark;
 		.cdx-mode-dark();
-
-		@{OOUIIconSelectors},
-		@{OOUIIndicatorSelectors} {
-			color-scheme: light;
-			filter: invert( 1 ) hue-rotate( 180deg );
-		}
+		.night-mode-icon-invert();
 	}
 }
 
@@ -47,11 +63,6 @@
 	html.skin-theme-clientpref-os {
 		color-scheme: dark;
 		.cdx-mode-dark();
-
-		@{OOUIIconSelectors},
-		@{OOUIIndicatorSelectors} {
-			color-scheme: light;
-			filter: invert( 1 ) hue-rotate( 180deg );
-		}
+		.night-mode-icon-invert();
 	}
 }
