@@ -49,7 +49,13 @@ OO.mixinClass( mw.cx.ui.CategoryMultiselectWidget, OO.ui.mixin.LabelElement );
 /* Methods */
 
 mw.cx.ui.CategoryMultiselectWidget.prototype.setHeaderLabel = function ( label ) {
-	this.$icon.text( label );
+	// Keep the text outside $icon, since night mode inverts icon elements with a CSS filter
+	if ( !this.$headerLabel ) {
+		this.$headerLabel = $( '<span>' )
+			.addClass( 'mw-cx-ui-CategoryMultiselectWidget-headerLabel' );
+		this.$icon.after( this.$headerLabel );
+	}
+	this.$headerLabel.text( label );
 };
 
 /**

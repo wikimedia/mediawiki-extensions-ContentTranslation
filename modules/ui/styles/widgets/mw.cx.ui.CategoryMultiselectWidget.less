@@ -1,25 +1,36 @@
 @import 'mediawiki.skin.variables.less';
 
 .mw-cx-ui-CategoryMultiselectWidget.oo-ui-iconElement > .oo-ui-tagMultiselectWidget-handle {
-	padding: 0.3125em 0.625em;
+	padding: @spacing-30 @spacing-65;
 
 	> .oo-ui-iconElement-icon {
 		background-position: left center;
 		position: static;
+		display: inline-block;
+		vertical-align: middle;
 		margin: 0;
-		padding-left: 1.5em;
-		font-weight: bold;
-		line-height: 1.25;
+		margin-inline-end: @spacing-25;
+		width: @size-icon-medium;
+		height: @size-icon-medium;
+		min-width: @min-size-icon-medium;
+		min-height: @min-size-icon-medium;
+		cursor: default;
+	}
+
+	> .mw-cx-ui-CategoryMultiselectWidget-headerLabel {
+		vertical-align: middle;
+		font-weight: @font-weight-bold;
+		line-height: @line-height-x-small;
 		cursor: default;
 	}
 
 	> .oo-ui-tagMultiselectWidget-content > .oo-ui-labelElement-label {
 		color: @color-subtle;
-		font-weight: bold;
+		font-weight: @font-weight-bold;
 
 		&:not( :empty ) {
 			display: inline-block;
-			margin: 0.8em 0 0.5em;
+			margin: @spacing-75 0 @spacing-50;
 		}
 	}
 }
