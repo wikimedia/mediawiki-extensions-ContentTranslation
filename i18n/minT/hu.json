@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dj"
+		]
+	},
+	"automatic-translation-special-page-description": "Automatikus fordítás",
+	"mint-home-header-title": "Automatikus fordítás",
+	"mint-home-input-placeholder": "Téma keresése",
+	"mint-translation-list-all-languages-option-label": "Mind",
+	"mint-home-random-topic-button-label": "Véletlenszerű téma",
+	"ax-home-random-topic-loading-label": "Betöltés…",
+	"mint-language-selector-title": "Nyelvek",
+	"mint-language-selector-suggestions-header": "Ajánlott",
+	"mint-language-selector-all-languages-header": "Minden nyelv",
+	"mint-language-selector-input-placeholder": "Nyelv kijelölése",
+	"mint-language-selector-no-search-results": "Nincs találat",
+	"mint-search-topic-page-header": "Téma keresése",
+	"mint-search-topic-page-input-placeholder": "Téma keresése",
+	"mint-confirm-topic-page-header": "Automatikus fordítás",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Automatikus fordítás megtekintése",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Cikk olvasása",
+	"mint-view-translation-page-header": "Automatikus fordítás",
+	"mint-view-translation-page-disclaimer-header": "Az automatikus tartalom pontatlan lehet",
+	"mint-view-translation-overlay-header": "Automatikus fordítás",
+	"mint-view-translation-overlay-feedback-link-label": "Visszajelzés küldése",
+	"ax-article-footer-entrypoint-card-description": "További tartalom más nyelveken",
+	"ax-article-footer-entrypoint-card-supporting-text": "Automatikus fordítás olvasása",
+	"ax-article-footer-entrypoint-card-heading": "Automatikus fordítás",
+	"mint-explore-languages-header": "Nyelvek felfedezése",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Legrészletesebb",
+	"mint-explore-languages-open-language-selector": "Nyelv kiválasztása",
+	"ax-translation-view-feedback-positive": "Igen",
+	"ax-translation-view-feedback-negative": "Nem",
+	"ax-translation-view-feedback-confirm-title": "Visszajelzés"
+}
