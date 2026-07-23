@@ -188,27 +188,29 @@ module.exports = defineComponent( {
 @import 'mediawiki.skin.variables.less';
 
 .search-topic-header {
-  font-weight: @font-weight-bold;
-  display: flex;
-  align-items: center;
-  .cdx-icon {
-    margin-inline-end: @spacing-50;
-  }
+	font-weight: @font-weight-bold;
+	display: flex;
+	align-items: center;
+
+	.cdx-icon {
+		margin-inline-end: @spacing-50;
+	}
 }
+
 .search-topic-input {
-  margin-top: @spacing-100;
+	margin-top: @spacing-100;
 }
 
 .search-language-tabs {
-  margin-top: @spacing-100;
+	margin-top: @spacing-100;
 }
 
 .search-language-result-empty-state {
-  margin-top: @spacing-250;
-  color: @color-placeholder;
+	margin-top: @spacing-250;
+	color: @color-placeholder;
 }
 
 .search-language-result {
-  margin-top: @spacing-250;
+	margin-top: @spacing-250;
 }
 </style>

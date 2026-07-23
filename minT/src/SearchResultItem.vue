@@ -81,38 +81,39 @@ module.exports = defineComponent( {
 @import 'mediawiki.skin.variables.less';
 
 .mint-search-suggestion {
-  display: flex;
-  cursor: pointer;
-  line-height: normal;
-  margin-block-end: @spacing-50;
+	display: flex;
+	cursor: pointer;
+	line-height: normal;
+	margin-block-end: @spacing-50;
 
-  &-details {
-    margin-inline-start: 1rem;
-  }
+	&-details {
+		margin-inline-start: 1rem;
+	}
 
-  .mw-ui-thumbnail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    .thumbnail-placeholder {
-      width: 30px;
-      height: 30px;
-    }
-  }
+	.mw-ui-thumbnail {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 
-  & &__source-title {
-    padding: 0;
-    line-height: 1;
-    font-weight: @font-weight-bold;
-  }
+		.thumbnail-placeholder {
+			width: 30px;
+			height: 30px;
+		}
+	}
 
-  &__source-description {
-    color: @color-subtle;
-  }
+	& &__source-title {
+		padding: 0;
+		line-height: 1;
+		font-weight: @font-weight-bold;
+	}
+
+	&__source-description {
+		color: @color-subtle;
+	}
 }
 </style>

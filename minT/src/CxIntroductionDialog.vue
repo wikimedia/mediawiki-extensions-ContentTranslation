@@ -85,7 +85,7 @@ module.exports = defineComponent( {
 <style lang="less">
 @import 'mediawiki.skin.variables.less';
 
-.cdx-dialog-backdrop:has(.ax-cx-introduction-summary) {
+.cdx-dialog-backdrop:has( .ax-cx-introduction-summary ) {
 	background-color: @background-color-backdrop-dark;
 }
 

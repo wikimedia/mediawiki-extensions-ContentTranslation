@@ -197,7 +197,7 @@ module.exports = {
 </script>
 
 <style lang="less">
-@import "mediawiki.skin.variables.less";
+@import 'mediawiki.skin.variables.less';
 
 .sx-recent-translation-dialog {
 	display: flex;

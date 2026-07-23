@@ -199,67 +199,71 @@ module.exports = defineComponent( {
 @import 'mediawiki.skin.variables.less';
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 .translation-viewer__options-overlay {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: @z-index-above-content;
-    left: @spacing-0;
-    top: @spacing-0;
-    width: @size-full;
-    height: @size-full;
-    background-color: @background-color-backdrop-dark;
-    align-items: center;
-    justify-content: center;
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: @z-index-above-content;
+	left: @spacing-0;
+	top: @spacing-0;
+	width: @size-full;
+	height: @size-full;
+	background-color: @background-color-backdrop-dark;
+	align-items: center;
+	justify-content: center;
 
-    &__content {
-      background-color: @background-color-base;
-      margin-top: auto;
-      padding: @spacing-100;
-      width: @size-full;
-      height: @size-half;
-      box-shadow: @box-shadow-drop-medium;
-      animation: fadeIn 0.4s;
-      border-radius: @spacing-50 @spacing-50 @spacing-0 @spacing-0;
-    }
+	&__content {
+		background-color: @background-color-base;
+		margin-top: auto;
+		padding: @spacing-100;
+		width: @size-full;
+		height: @size-half;
+		box-shadow: @box-shadow-drop-medium;
+		animation: fadeIn 0.4s;
+		border-radius: @spacing-50 @spacing-50 @spacing-0 @spacing-0;
+	}
 
-    &__header {
-      display: flex;
-      justify-content: space-between;
-      h4 {
-        .cdx-icon {
-          margin-right: @spacing-25;
-        }
-        padding: @spacing-0;
-      }
-    }
+	&__header {
+		display: flex;
+		justify-content: space-between;
 
-    &__language-selector {
-      margin-top: @spacing-150;
-      margin-bottom: @spacing-150;
-      text-align: center;
-      &__arrow-icon {
-        margin-inline: @spacing-50;
-      }
-    }
+		h4 {
+			.cdx-icon {
+				margin-right: @spacing-25;
+			}
+			padding: @spacing-0;
+		}
+	}
 
-    &__actions-container {
-      a {
-        padding: @spacing-50 @spacing-0;
-        display: block;
-        color: inherit;
-        span {
-          margin-inline-start: @spacing-25;
-          font-weight: @font-weight-bold;
-        }
-      }
-    }
-  }
+	&__language-selector {
+		margin-top: @spacing-150;
+		margin-bottom: @spacing-150;
+		text-align: center;
+
+		&__arrow-icon {
+			margin-inline: @spacing-50;
+		}
+	}
+
+	&__actions-container {
+		a {
+			padding: @spacing-50 @spacing-0;
+			display: block;
+			color: inherit;
+
+			span {
+				margin-inline-start: @spacing-25;
+				font-weight: @font-weight-bold;
+			}
+		}
+	}
+}
 </style>

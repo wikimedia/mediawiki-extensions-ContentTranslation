@@ -39,16 +39,16 @@ module.exports = {
 <style lang="less">
 @import 'mediawiki.skin.variables.less';
 
-.entrypoint-card:not(:last-of-type) {
-  display: block;
-  margin-bottom: @spacing-100;
+.entrypoint-card:not( :last-of-type ) {
+	display: block;
+	margin-bottom: @spacing-100;
 }
 
 .entrypoint-card-icon--add {
-  .cdx-mixin-css-icon( @cdx-icon-add );
+	.cdx-mixin-css-icon( @cdx-icon-add );
 }
 
 .entrypoint-card-icon--robot {
-  .cdx-mixin-css-icon( @cdx-icon-robot );
+	.cdx-mixin-css-icon( @cdx-icon-robot );
 }
 </style>

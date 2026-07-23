@@ -300,120 +300,123 @@ module.exports = defineComponent( {
 @import 'mediawiki.skin.variables.less';
 
 .explore-languages {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  &-header {
-    position: sticky;
-    top: @spacing-0;
-    background-color: @background-color-base;
-    z-index: @z-index-top;
-    margin: 0 -@spacing-100;
-    padding: @spacing-100 @spacing-100 @spacing-100;
-    box-shadow: @box-shadow-drop-medium;
+	&-header {
+		position: sticky;
+		top: @spacing-0;
+		background-color: @background-color-base;
+		z-index: @z-index-top;
+		margin: 0 -@spacing-100;
+		padding: @spacing-100 @spacing-100 @spacing-100;
+		box-shadow: @box-shadow-drop-medium;
 
-    .explore-languages-title {
-      font-weight: @font-weight-bold;
-      display: flex;
-      align-items: center;
-      margin-bottom: @spacing-150;
-    }
+		.explore-languages-title {
+			font-weight: @font-weight-bold;
+			display: flex;
+			align-items: center;
+			margin-bottom: @spacing-150;
+		}
 
-    .cdx-icon {
-      margin-inline-end: @spacing-50;
-    }
-  }
+		.cdx-icon {
+			margin-inline-end: @spacing-50;
+		}
+	}
 
-  @keyframes loading-indicator-background-animation {
-    0% {
-      background-color: @background-color-interactive-subtle;
-    }
-    100% {
-      background-color: @background-color-disabled-subtle;
-    }
-  }
+	@keyframes loading-indicator-background-animation {
+		0% {
+			background-color: @background-color-interactive-subtle;
+		}
 
-  &-body {
-    margin: 0 -@spacing-100 -@spacing-100;
-    padding: @spacing-125 @spacing-100;
-    background-color: @background-color-neutral;
-    height: 100%;
+		100% {
+			background-color: @background-color-disabled-subtle;
+		}
+	}
 
-    &__explanation-banner {
-      border-color: @border-color-subtle;
-      margin-bottom: @spacing-50;
-    }
+	&-body {
+		margin: 0 -@spacing-100 -@spacing-100;
+		padding: @spacing-125 @spacing-100;
+		background-color: @background-color-neutral;
+		height: 100%;
 
-    &__language-card-container {
-      margin-top: @spacing-100;
+		&__explanation-banner {
+			border-color: @border-color-subtle;
+			margin-bottom: @spacing-50;
+		}
 
-      .cdx-button {
-        width: 100%;
-        justify-content: normal;
-        display: flex;
-        cursor: pointer;
-      }
+		&__language-card-container {
+			margin-top: @spacing-100;
 
-      .cdx-icon {
-        margin-inline-start: auto;
-      }
-    }
+			.cdx-button {
+				width: 100%;
+				justify-content: normal;
+				display: flex;
+				cursor: pointer;
+			}
 
-    &__language-card {
-      padding: @spacing-100;
-      margin-bottom: @spacing-100;
-      background-color: @background-color-base;
-      box-shadow: @box-shadow-drop-small;
+			.cdx-icon {
+				margin-inline-start: auto;
+			}
+		}
 
-      &--selected {
-        background-color: @background-color-progressive-subtle;
-      }
+		&__language-card {
+			padding: @spacing-100;
+			margin-bottom: @spacing-100;
+			background-color: @background-color-base;
+			box-shadow: @box-shadow-drop-small;
 
-      &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+			&--selected {
+				background-color: @background-color-progressive-subtle;
+			}
 
-        h4 {
-          padding-top: @spacing-0;
-          padding-bottom: @spacing-25;
-        }
-      }
+			&__header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 
-      &__subheader {
-        margin-bottom: @spacing-75;
-      }
+				h4 {
+					padding-top: @spacing-0;
+					padding-bottom: @spacing-25;
+				}
+			}
 
-      &__sections-count {
-        font-size: @font-size-small;
-        color: @color-subtle;
-        margin-inline-end: @spacing-25;
-      }
+			&__subheader {
+				margin-bottom: @spacing-75;
+			}
 
-      &__sections {
-        p {
-          margin-top: @spacing-0;
-          padding-bottom: @spacing-0;
-          color: @color-base;
-        }
-      }
-    }
+			&__sections-count {
+				font-size: @font-size-small;
+				color: @color-subtle;
+				margin-inline-end: @spacing-25;
+			}
 
-    &__loading-indicator {
-      padding: @spacing-25 @spacing-50;
-      margin-block: @spacing-50;
-      animation: loading-indicator-background-animation 1s linear infinite alternate;
-      .cdx-icon {
-        color: @color-subtle;
-        &:first-of-type {
-          margin-right: @spacing-50;
-        }
-      }
-    }
+			&__sections {
+				p {
+					margin-top: @spacing-0;
+					padding-bottom: @spacing-0;
+					color: @color-base;
+				}
+			}
+		}
 
-    &__language-selector {
-      margin-top: @spacing-50;
-    }
-  }
+		&__loading-indicator {
+			padding: @spacing-25 @spacing-50;
+			margin-block: @spacing-50;
+			animation: loading-indicator-background-animation 1s linear infinite alternate;
+
+			.cdx-icon {
+				color: @color-subtle;
+
+				&:first-of-type {
+					margin-right: @spacing-50;
+				}
+			}
+		}
+
+		&__language-selector {
+			margin-top: @spacing-50;
+		}
+	}
 }
 </style>

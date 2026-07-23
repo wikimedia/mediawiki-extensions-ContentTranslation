@@ -358,114 +358,125 @@ module.exports = defineComponent( {
 @import 'mediawiki.skin.variables.less';
 
 .confirm-topic-header {
-  font-weight: @font-weight-bold;
-  margin-bottom: @spacing-150;
-  .cdx-icon {
-    margin-inline-end: @spacing-50;
-  }
+	font-weight: @font-weight-bold;
+	margin-bottom: @spacing-150;
+
+	.cdx-icon {
+		margin-inline-end: @spacing-50;
+	}
 }
 
 .confirm-topic-preview {
-  padding: @spacing-100;
-  margin-block-end: @spacing-100;
-  cursor: pointer;
+	padding: @spacing-100;
+	margin-block-end: @spacing-100;
+	cursor: pointer;
 
-  && {
-    outline: @border-width-base @border-style-base @border-color-base;
-    &:focus {
-      outline: @border-width-thick @border-style-base @color-progressive;
-    }
-  }
+	&& {
+		outline: @border-width-base @border-style-base @border-color-base;
 
-  &__thumbnail-container {
-    &--no-thumbnail {
-      .mw-ui-thumbnail {
-        display: flex;
-        background-color: @background-color-neutral;
-        .cdx-icon {
-          height: @spacing-400;
-          margin: auto;
-          color: @color-progressive--hover;
-        }
-      }
-    }
-  }
+		&:focus {
+			outline: @border-width-thick @border-style-base @color-progressive;
+		}
+	}
 
-  & &__translation-container {
+	&__thumbnail-container {
+		&--no-thumbnail {
+			.mw-ui-thumbnail {
+				display: flex;
+				background-color: @background-color-neutral;
+
+				.cdx-icon {
+					height: @spacing-400;
+					margin: auto;
+					color: @color-progressive--hover;
+				}
+			}
+		}
+	}
+
+	& &__translation-container {
 		&__source-title {
 			margin-top: @spacing-100;
 			padding: @spacing-0;
 			padding-bottom: @spacing-50;
 			border-bottom: @border-base;
 		}
-    &__target-title {
-      padding: @spacing-0;
-    }
-    &__translation {
-      width: @spacing-full;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      background: @background-color-base;
-      padding: @spacing-0;
-      color: @color-subtle;
-    }
-    &__details {
-      .cdx-icon {
-        color: @color-progressive;
-      }
-      color: @color-progressive;
-      font-size: @font-size-medium;
-      font-weight: @font-weight-bold;
-    }
-  }
+
+		&__target-title {
+			padding: @spacing-0;
+		}
+
+		&__translation {
+			width: @spacing-full;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 4;
+			-webkit-box-orient: vertical;
+			background: @background-color-base;
+			padding: @spacing-0;
+			color: @color-subtle;
+		}
+
+		&__details {
+			.cdx-icon {
+				color: @color-progressive;
+			}
+			color: @color-progressive;
+			font-size: @font-size-medium;
+			font-weight: @font-weight-bold;
+		}
+	}
 }
 
 .confirm-topic-language-selector {
-  margin-top: @spacing-50;
-  text-align: center;
-  .cdx-icon {
-    margin: @spacing-0 @spacing-50;
-  }
+	margin-top: @spacing-50;
+	text-align: center;
+
+	.cdx-icon {
+		margin: @spacing-0 @spacing-50;
+	}
 }
 
 .confirm-topic-go-back-link-container {
-  margin: @spacing-200 @spacing-0;
-  text-align: center;
+	margin: @spacing-200 @spacing-0;
+	text-align: center;
 }
 
 .confirm-topic-original-target-article-container {
-  border-top: @border-base;
-  padding: @spacing-100;
-  background-color: @background-color-progressive-subtle;
-  &__header {
-    font-weight: @font-weight-bold;
-    margin-bottom: @spacing-75;
-  }
-  & .confirm-topic-original-target-article {
-    background-color: @background-color-base;
-    border: @border-base;
-    .cdx-menu-item {
-      margin-bottom: @spacing-0;
-    }
+	border-top: @border-base;
+	padding: @spacing-100;
+	background-color: @background-color-progressive-subtle;
 
-    p {
-      margin-top: @spacing-0;
-      margin-left: @spacing-75;
-      padding-left: @spacing-300;
-      font-size: @font-size-small;
-      color: @color-subtle;
-      & .cdx-icon {
-        color: @color-subtle;
-      }
-    }
-  }
+	&__header {
+		font-weight: @font-weight-bold;
+		margin-bottom: @spacing-75;
+	}
 
-  &__details {
-    margin-top: @spacing-50;
-    font-size: @font-size-small;
-    color: @color-subtle;
-  }
+	& .confirm-topic-original-target-article {
+		background-color: @background-color-base;
+		border: @border-base;
+
+		.cdx-menu-item {
+			margin-bottom: @spacing-0;
+		}
+
+		p {
+			margin-top: @spacing-0;
+			margin-left: @spacing-75;
+			padding-left: @spacing-300;
+			font-size: @font-size-small;
+			color: @color-subtle;
+
+			& .cdx-icon {
+				color: @color-subtle;
+			}
+		}
+	}
+
+	&__details {
+		margin-top: @spacing-50;
+		font-size: @font-size-small;
+		color: @color-subtle;
+	}
 }
 </style>

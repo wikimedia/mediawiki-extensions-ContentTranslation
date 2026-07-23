@@ -286,116 +286,129 @@ module.exports = defineComponent( {
 @import 'mediawiki.skin.variables.less';
 
 .mw-ui-language-selector {
-  // reset the padding added by ancestor divs (e.g. #bodyContent)
-  margin: -@spacing-100;
-  &-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 @spacing-100;
-    h3 {
-      font-size: @font-size-medium;
-    }
-  }
+	// reset the padding added by ancestor divs (e.g. #bodyContent)
+	margin: -@spacing-100;
 
-  &__input-container {
-    position: relative;
-  }
+	&-header {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 @spacing-100;
 
-  &__autocomplete,
-  &__search {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    box-shadow: @box-shadow-drop-small;
-    border: 0;
-    background-color: transparent;
-    .cdx-text-input__input {
-      padding-block: @spacing-75;
-      background-color: transparent;
-    }
-    .mw-ui-input__content {
-      margin: 0;
-      .mw-ui-input__input {
-        padding: 0 0 0 8px;
-        height: 20px;
-      }
-    }
-  }
+		h3 {
+			font-size: @font-size-medium;
+		}
+	}
 
-  &__results-container {
-    overflow: auto;
-    height: 50vh;
-    margin-top: @spacing-300;
-    padding: @spacing-100 0;
-  }
+	&__input-container {
+		position: relative;
+	}
 
-  &__results {
-    padding: 1em;
-    overflow-y: auto;
-  }
+	&__autocomplete,
+	&__search {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		box-shadow: @box-shadow-drop-small;
+		border: 0;
+		background-color: transparent;
 
-  .no-results,
-  .results {
-    &-header {
-      color: #72777d;
-    }
-  }
+		.cdx-text-input__input {
+			padding-block: @spacing-75;
+			background-color: transparent;
+		}
 
-  .results-languages,
-  .results-languages--suggestions {
-    text-align: left;
-    .language {
-      color: @color-base;
-      &--selected,
-      &:hover,
-      &:focus {
-        background-color: @background-color-interactive;
-      }
-    }
-    column-gap: 4px;
-    &.few-results {
-      column-count: 1;
-    }
-    &.some-results {
-      column-count: 2;
-    }
-    &.many-results {
-      column-count: 3;
-    }
-  }
-  .results-languages--suggestions {
-    column-count: 3;
-  }
+		.mw-ui-input__content {
+			margin: 0;
 
-  &__inputcontainer {
-    position: relative;
-    height: 1em;
-  }
+			.mw-ui-input__input {
+				padding: 0 0 0 8px;
+				height: 20px;
+			}
+		}
+	}
 
-  @media (max-width: 600px) {
-    .results-languages {
-      &.few-results,
-      &.some-results,
-      &.many-results {
-        column-count: 1;
-      }
-    }
-    .results-languages--suggestions {
-      column-count: 2;
-    }
-    .col-break {
-      display: none;
-    }
-  }
+	&__results-container {
+		overflow: auto;
+		height: 50vh;
+		margin-top: @spacing-300;
+		padding: @spacing-100 0;
+	}
 
-  .language {
-    display: block;
-    font-size: 1em;
-    text-decoration: none;
-    max-width: 160px;
-    cursor: pointer;
-  }
+	&__results {
+		padding: 1em;
+		overflow-y: auto;
+	}
+
+	.no-results,
+	.results {
+		&-header {
+			color: #72777d;
+		}
+	}
+
+	.results-languages,
+	.results-languages--suggestions {
+		text-align: left;
+
+		.language {
+			color: @color-base;
+
+			&--selected,
+			&:hover,
+			&:focus {
+				background-color: @background-color-interactive;
+			}
+		}
+		column-gap: 4px;
+
+		&.few-results {
+			column-count: 1;
+		}
+
+		&.some-results {
+			column-count: 2;
+		}
+
+		&.many-results {
+			column-count: 3;
+		}
+	}
+
+	.results-languages--suggestions {
+		column-count: 3;
+	}
+
+	&__inputcontainer {
+		position: relative;
+		height: 1em;
+	}
+
+	@media ( max-width: 600px ) {
+		.results-languages {
+			&.few-results,
+			&.some-results,
+			&.many-results {
+				column-count: 1;
+			}
+		}
+
+		.results-languages--suggestions {
+			column-count: 2;
+		}
+
+		.col-break {
+			display: none;
+		}
+	}
+
+	.language {
+		display: block;
+		font-size: 1em;
+		text-decoration: none;
+		max-width: 160px;
+		cursor: pointer;
+	}
 }
 </style>

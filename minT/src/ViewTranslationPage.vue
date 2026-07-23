@@ -554,142 +554,149 @@ module.exports = defineComponent( {
 @import 'mediawiki.skin.variables.less';
 
 .translation-viewer {
-  &__header {
-    background-color: @background-color-interactive;
-    padding: @spacing-50 @spacing-100;
-    font-weight: @font-weight-bold;
-    display: flex;
-    justify-content: space-between;
-  }
+	&__header {
+		background-color: @background-color-interactive;
+		padding: @spacing-50 @spacing-100;
+		font-weight: @font-weight-bold;
+		display: flex;
+		justify-content: space-between;
+	}
 
-  &__machine-translation-indicator {
-    display: flex;
-    margin: @spacing-100 @spacing-0;
-    padding: @spacing-50 @spacing-75;
-    background-color: @background-color-interactive-subtle;
-    box-shadow: @box-shadow-drop-medium;
-    position: sticky;
-    top: @spacing-100;
-    z-index: 1;
+	&__machine-translation-indicator {
+		display: flex;
+		margin: @spacing-100 @spacing-0;
+		padding: @spacing-50 @spacing-75;
+		background-color: @background-color-interactive-subtle;
+		box-shadow: @box-shadow-drop-medium;
+		position: sticky;
+		top: @spacing-100;
+		z-index: 1;
 
-    .cdx-icon {
-      margin-inline-end: @spacing-150;
-    }
+		.cdx-icon {
+			margin-inline-end: @spacing-150;
+		}
 
-    &__languages {
-      flex-grow: 1;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-  }
+		&__languages {
+			flex-grow: 1;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+	}
 
-  &__source-page-title-container h1.firstHeading,
-  &__sections-container h2.section-heading {
-    font-family: @font-family-serif !important;
-  }
+	&__source-page-title-container h1.firstHeading,
+	&__sections-container h2.section-heading {
+		font-family: @font-family-serif !important;
+	}
 
-  &__source-page-title-container {
-    margin-bottom: @spacing-100;
-    h1 {
-      margin-bottom: @spacing-100;
-    }
+	&__source-page-title-container {
+		margin-bottom: @spacing-100;
 
-    a.translation-viewer__source-page-link {
-      .cdx-icon {
-        color: @color-progressive;
-        vertical-align: middle;
-      }
-    }
-  }
+		h1 {
+			margin-bottom: @spacing-100;
+		}
 
-  &__source-page-link {
-    font-size: @font-size-small;
-  }
+		a.translation-viewer__source-page-link {
+			.cdx-icon {
+				color: @color-progressive;
+				vertical-align: middle;
+			}
+		}
+	}
 
-  &__content-translation-entrypoint {
-    margin-bottom: @spacing-100;
-    .cdx-card {
-      background-color: @background-color-interactive-subtle;
-      border-color: @border-color-muted;
-      .cdx-icon, .cdx-card__text .cdx-card__text__title {
-        color: @color-progressive;
-      }
-    }
-  }
+	&__source-page-link {
+		font-size: @font-size-small;
+	}
 
-  &__contents {
-    /** Feedback survey **/
-    .ext-quick-survey-panel {
-      margin: @spacing-100 0;
-      width: auto;
-      clear: unset;
-      float: unset;
+	&__content-translation-entrypoint {
+		margin-bottom: @spacing-100;
 
-      /** Hide the "Back" button in the survey */
-      .survey-action-buttons .cdx-button--action-default {
-        display: none;
-      }
-    }
+		.cdx-card {
+			background-color: @background-color-interactive-subtle;
+			border-color: @border-color-muted;
 
-    /* Highlight clicked reference in blue to help navigation */
-    /* The Cite extension CSS does not load on this special page */
-    ol.references li:target,
-    sup.reference:target {
-      background-color: @background-color-progressive-subtle;
-    }
-  }
+			.cdx-icon,
+ .cdx-card__text .cdx-card__text__title {
+				color: @color-progressive;
+			}
+		}
+	}
 
-  &__footer {
-    background-color: @background-color-interactive;
-    margin: 0 -@spacing-100;
-    padding-bottom: @spacing-100;
-    &__flat-card {
-      background-color: inherit;
-      border: none;
-      border-top: @border-base;
-    }
-    &__target-article-card {
-      margin-inline: @spacing-100;
-    }
-  }
+	&__contents {
+		/** Feedback survey **/
+		.ext-quick-survey-panel {
+			margin: @spacing-100 0;
+			width: auto;
+			clear: unset;
+			float: unset;
+
+			/** Hide the "Back" button in the survey */
+			.survey-action-buttons .cdx-button--action-default {
+				display: none;
+			}
+		}
+
+		/* Highlight clicked reference in blue to help navigation */
+		/* The Cite extension CSS does not load on this special page */
+		ol.references li:target,
+		sup.reference:target {
+			background-color: @background-color-progressive-subtle;
+		}
+	}
+
+	&__footer {
+		background-color: @background-color-interactive;
+		margin: 0 -@spacing-100;
+		padding-bottom: @spacing-100;
+
+		&__flat-card {
+			background-color: inherit;
+			border: none;
+			border-top: @border-base;
+		}
+
+		&__target-article-card {
+			margin-inline: @spacing-100;
+		}
+	}
 }
 
 @keyframes skeleton-loading {
-  0% {
-    background-color: @background-color-interactive-subtle;
-  }
-  100% {
-    background-color: @background-color-disabled;
-  }
+	0% {
+		background-color: @background-color-interactive-subtle;
+	}
+
+	100% {
+		background-color: @background-color-disabled;
+	}
 }
 
 .infobox-skeleton-loader {
-  margin-block: @spacing-100;
+	margin-block: @spacing-100;
 
-  .skeleton {
-    animation: skeleton-loading 1s linear infinite alternate;
-  }
+	.skeleton {
+		animation: skeleton-loading 1s linear infinite alternate;
+	}
 
-  &__image-placeholder {
-    height: 8rem;
-    width: @spacing-full;
-    border-radius: @spacing-25;
-    margin-bottom: @spacing-50;
-  }
+	&__image-placeholder {
+		height: 8rem;
+		width: @spacing-full;
+		border-radius: @spacing-25;
+		margin-bottom: @spacing-50;
+	}
 
-  &__text {
-    width: @spacing-full;
-    height: @spacing-75;
-    margin-bottom: @spacing-50;
-    border-radius: @spacing-25;
-  }
+	&__text {
+		width: @spacing-full;
+		height: @spacing-75;
+		margin-bottom: @spacing-50;
+		border-radius: @spacing-25;
+	}
 
-  &__fat-text {
-    width: @spacing-full;
-    height: @spacing-125;
-    margin-top: @spacing-125;
-    border-radius: @spacing-25;
-  }
+	&__fat-text {
+		width: @spacing-full;
+		height: @spacing-125;
+		margin-top: @spacing-125;
+		border-radius: @spacing-25;
+	}
 }
 </style>

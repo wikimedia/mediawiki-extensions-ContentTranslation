@@ -21,12 +21,13 @@ module.exports = defineComponent( {
 </script>
 
 <style lang="less">
-@import "mediawiki.skin.variables.less";
+@import 'mediawiki.skin.variables.less';
 
 @keyframes loading-indicator-background-animation {
 	0% {
 		background-color: @background-color-interactive-subtle;
 	}
+
 	100% {
 		background-color: @background-color-disabled-subtle;
 	}
@@ -39,6 +40,7 @@ module.exports = defineComponent( {
 
 	.cdx-icon {
 		color: @color-subtle;
+
 		&:first-of-type {
 			margin-right: @spacing-50;
 		}

@@ -178,79 +178,89 @@ module.exports = defineComponent( {
 @import 'mediawiki.skin.variables.less';
 
 .sx-publishing-follow-up {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  background: @background-color-base;
-  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.25);
-  .row {
-    box-sizing: border-box;
-    display: flex;
-    flex: 0 1 auto;
-    flex-wrap: wrap;
-  }
-  .col {
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-  }
-  .pa-4 {
-    padding: 16px;
-  }
-  .shrink {
-    flex-grow: 0 !important;
-    flex-shrink: 1 !important;
-  }
-  .sx-published-section-confirmation__icon {
-    margin-right: 8px;
-  }
-  .sx-published-section-confirmation__header {
-    font-weight: 600;
-    color: @color-base;
-  }
-  .sx-published-section-confirmation__content {
-    margin-top: 8px;
-    font-size: 14px;
-    color: @color-base;
-  }
-  .sx-published-section-confirmation__close {
-    cursor: pointer;
-  }
-  .sx-separation-line {
-    margin: 0;
-    border-top: 0;
-    color: @border-color-muted;
-  }
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background: @background-color-base;
+	box-shadow: 0 -1px 2px rgba( 0, 0, 0, 0.25 );
 
-  /**
+	.row {
+		box-sizing: border-box;
+		display: flex;
+		flex: 0 1 auto;
+		flex-wrap: wrap;
+	}
+
+	.col {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+
+	.pa-4 {
+		padding: 16px;
+	}
+
+	.shrink {
+		flex-grow: 0 !important;
+		flex-shrink: 1 !important;
+	}
+
+	.sx-published-section-confirmation__icon {
+		margin-right: 8px;
+	}
+
+	.sx-published-section-confirmation__header {
+		font-weight: 600;
+		color: @color-base;
+	}
+
+	.sx-published-section-confirmation__content {
+		margin-top: 8px;
+		font-size: 14px;
+		color: @color-base;
+	}
+
+	.sx-published-section-confirmation__close {
+		cursor: pointer;
+	}
+
+	.sx-separation-line {
+		margin: 0;
+		border-top: 0;
+		color: @border-color-muted;
+	}
+
+	/**
    * cursor only exists in desktop devices. So this style is not relevant to our current plan
    * that only targets mobile devices.
    */
-  .sx-published-section-invitation {
-    cursor: pointer;
-  }
+	.sx-published-section-invitation {
+		cursor: pointer;
+	}
 
-  /**
+	/**
    * :hover pseudoclass only exists in desktop devices. So this style is not relevant to our
    * current plan that only targets mobile devices.
    */
-  .sx-published-section-invitation:hover {
-    background: @background-color-progressive-subtle;
-  }
+	.sx-published-section-invitation:hover {
+		background: @background-color-progressive-subtle;
+	}
 
-  .sx-published-section-invitation__icon {
-    margin-right: 8px;
-    color: @color-progressive;
-  }
+	.sx-published-section-invitation__icon {
+		margin-right: 8px;
+		color: @color-progressive;
+	}
 
-  .sx-published-section-invitation__header {
-    font-weight: 600;
-    color: @color-progressive;
-  }
-  .sx-published-section-invitation__description {
-    margin-top: 4px;
-    font-size: 14px;
-    color: @color-subtle;
-  }
+	.sx-published-section-invitation__header {
+		font-weight: 600;
+		color: @color-progressive;
+	}
+
+	.sx-published-section-invitation__description {
+		margin-top: 4px;
+		font-size: 14px;
+		color: @color-subtle;
+	}
 }
 </style>

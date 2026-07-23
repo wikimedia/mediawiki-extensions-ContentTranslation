@@ -178,75 +178,76 @@ module.exports = {
 @import 'mediawiki.skin.variables.less';
 
 .cx-entrypoint-newbytranslation {
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  background: @background-color-base;
-  padding: @spacing-75;
-  border: @border-base;
-  filter: drop-shadow(0 2px 1px rgba(0,0,0,0.3));
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	background: @background-color-base;
+	padding: @spacing-75;
+	border: @border-base;
+	filter: drop-shadow( 0 2px 1px rgba( 0, 0, 0, 0.3 ) );
 
-  &-header {
-    display: flex;
-    align-items: center;
+	&-header {
+		display: flex;
+		align-items: center;
 
-    &__icon {
-      background-color: @background-color-progressive-subtle;
-      color: @color-progressive;
-      border-radius: @border-radius-circle;
-      padding: @spacing-50;
-      margin-inline-end: @spacing-100;
-    }
+		&__icon {
+			background-color: @background-color-progressive-subtle;
+			color: @color-progressive;
+			border-radius: @border-radius-circle;
+			padding: @spacing-50;
+			margin-inline-end: @spacing-100;
+		}
 
-    &__title {
-      margin-inline-end: auto;
-    }
-  }
+		&__title {
+			margin-inline-end: auto;
+		}
+	}
 
-  &-body {
-    padding: @spacing-0 @spacing-50;
-    margin: @spacing-0 @spacing-250;
+	&-body {
+		padding: @spacing-0 @spacing-50;
+		margin: @spacing-0 @spacing-250;
 
-    &__text {
-      margin-bottom: @spacing-100;
-    }
+		&__text {
+			margin-bottom: @spacing-100;
+		}
 
-    .cdx-card {
-      padding: @spacing-0;
-      box-shadow: @box-shadow-drop-small;
+		.cdx-card {
+			padding: @spacing-0;
+			box-shadow: @box-shadow-drop-small;
 
-      .cdx-thumbnail__image {
-        height: 84px;
-        width: 84px;
-      }
+			.cdx-thumbnail__image {
+				height: 84px;
+				width: 84px;
+			}
 
-      .cdx-card__text {
-        margin-block: auto;
+			.cdx-card__text {
+				margin-block: auto;
 
-        .cdx-card__text__description {
-          margin-top: @spacing-0;
-        }
-      }
-    }
-  }
+				.cdx-card__text__description {
+					margin-top: @spacing-0;
+				}
+			}
+		}
+	}
 
-  &-footer {
-    padding-inline-start: @spacing-50;
-    margin-inline-start: @spacing-250;
-    margin-block-start: @spacing-100;
-    display: flex;
+	&-footer {
+		padding-inline-start: @spacing-50;
+		margin-inline-start: @spacing-250;
+		margin-block-start: @spacing-100;
+		display: flex;
 
-    &__search-button, &__start-cx-button {
-      margin-inline-end: auto;
-    }
+		&__search-button,
+ &__start-cx-button {
+			margin-inline-end: auto;
+		}
 
-    &__search-button {
-      margin-inline-start: -@spacing-100;
+		&__search-button {
+			margin-inline-start: -@spacing-100;
 
-      .cdx-icon {
-        margin-inline-end: @spacing-50;
-      }
-    }
-  }
+			.cdx-icon {
+				margin-inline-end: @spacing-50;
+			}
+		}
+	}
 }
 </style>
