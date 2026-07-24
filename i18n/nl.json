@@ -349,7 +349,7 @@
 	"cx-sx-publisher-configure-button-aria-label": "Instellen",
 	"cx-sx-publisher-edit-button-aria-label": "Bewerken",
 	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Geen bewerkingen door u",
-	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1 %</span> door jou bewerkt",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1 %</span> door u bewerkt",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Uw vertaling",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Zin",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Alinea",
