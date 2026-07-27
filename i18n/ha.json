@@ -6,6 +6,7 @@
 			"Dušan Kreheľ",
 			"Em-em",
 			"Gwanki",
+			"M Bash Ne",
 			"Mr. Snatch",
 			"Ummabruka"
 		]
@@ -402,5 +403,9 @@
 	"sx-confirm-draft-translation-start-button-label": "Ya yi",
 	"cx-sx-suggestions-filters-header": "Daidaita shawarwari",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Shawarwari na kusa masu tacewa",
-	"cx-sx-suggestions-filter-most-popular-label": "shahararre"
+	"cx-sx-suggestions-filter-most-popular-label": "shahararre",
+	"cx-sx-suggestions-filter-collection-group-all-option-label": "Duka",
+	"cx-featured-collection-banner-learn-more": "Ƙara koyo",
+	"cx-featured-collection-banner-toggle-less": "Ƙasa",
+	"cx-featured-collection-banner-toggle-more": "Da yawa"
 }
