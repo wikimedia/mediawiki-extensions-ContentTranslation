@@ -31,7 +31,8 @@
 			"Vitor Mazuco",
 			"Vitorvicentevalente",
 			"YuriNikolai",
-			"Петар Петковић"
+			"Петар Петковић",
+			"NenhumaFênix"
 		]
 	},
 	"cx": "Traduzir página",
@@ -175,7 +176,7 @@
 	"cx-translation-status-deleted": "Excluído",
 	"cx-translation-label-draft": "Traduções em curso",
 	"cx-translation-label-published": "Traduções publicadas",
-	"cx-translation-already-in-progress": "Há uma tradução em andamento {{GENDER:$2|por}} $1. Quando há uma tradução ativa, você só pode começar uma nova após um dia. Por favor, tente novamente em 24 horas ou coordene-se com {{GENDER:$2|o usuário|a usuária|o usuário}} que iniciou a tradução atual.",
+	"cx-translation-already-in-progress": "Há uma tradução em andamento {{GENDER:$2|por}} $1. Quando há uma tradução ativa, você só pode começar uma nova após um dia. Por favor, tente novamente em 24 horas ou coordene-se com {{GENDER:$2|o usuário|a usuária|usuário(a)}} que iniciou a tradução atual.",
 	"cx-translation-already-in-progress-unknown": "Esta é uma tradução em andamento por um usuário desconhecido. Quando há uma tradução ativa, você só pode iniciar uma nova após um dia. Por favor, tente novamente em 24 horas ou coordene-se com o usuário que iniciou a tradução atual.",
 	"cx-feedback-link": "Fornecer comentários",
 	"cx-stats-published-translations-title": "Traduções publicadas",
