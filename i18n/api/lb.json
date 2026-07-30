@@ -39,6 +39,7 @@
 	"apierror-cx-keynotconfigured": "Schlëssel dan net agestallt",
 	"apierror-cx-missingdraft": "Brouillon gëtt et net.",
 	"apierror-cx-translationnotfound": "Iwwersetzung net fonnt.",
+	"apierror-cx-publish-usergroup-required": "Dir hutt net déi néideg Benotzergrupperechter, fir dës Iwwersetzungen am Haaptnummraum ze verëffentlechen.",
 	"apihelp-query+langlinkscount-summary": "D'Zuel vun den anere Sproochversioune kréien.",
 	"apihelp-query+langlinkscount-example-1": "D'Zuel vun den anere Sproochversioune vun der Säit 'Hond' kréien",
 	"apihelp-cxpublishsection-param-html": "Den Inhalt fir ze späicheren.",
