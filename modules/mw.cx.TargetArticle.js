@@ -99,6 +99,30 @@ mw.cx.TargetArticle.static.getCleanedupContent = function ( doc ) {
 		}
 	} );
 
+	// Remove duplicated reference bodies. When a named reference is defined in one section
+	// and reused in another, the reuse can carry a stale copy of the body in data-mw, for
+	// example in drafts saved before the fix for T428612. Keep the first body for each
+	// (group, name) pair and publish the other references as name-only reuses.
+	const seenRefBodies = new Set();
+	Array.prototype.forEach.call( doc.querySelectorAll( '[typeof~="mw:Extension/ref"]' ), ( element ) => {
+		const dataMw = JSON.parse( element.getAttribute( 'data-mw' ) || '{}' );
+		const name = OO.getProp( dataMw, 'attrs', 'name' );
+
+		// Sub-references share the name of their main reference, but each one holds its
+		// own "details" content in the body. Never remove their bodies.
+		if ( !name || dataMw.mainRef || !OO.getProp( dataMw, 'body', 'html' ) ) {
+			return;
+		}
+
+		const key = ( OO.getProp( dataMw, 'attrs', 'group' ) || '' ) + '/' + name;
+		if ( seenRefBodies.has( key ) ) {
+			delete dataMw.body;
+			element.setAttribute( 'data-mw', JSON.stringify( dataMw ) );
+		} else {
+			seenRefBodies.add( key );
+		}
+	} );
+
 	// Remove all pathological transclusions if any. Transclusion without any definition can cause
 	// Parsoid errors and hence failing the whole publishing workflow.
 	// Example `<span typeof="mw:Transclusion" data-mw="{}" data-cx="[{&quot;adapted&quot;:false}]" id="mwCH0"></span>`
