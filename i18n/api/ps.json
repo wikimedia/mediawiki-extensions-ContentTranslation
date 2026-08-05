@@ -127,5 +127,6 @@
 	"apihelp-cxcheckunreviewed-summary": "وگورئ چې ايا د اوسني کارن لپاره دې وروستيو کې کومه چټکه، ناکتلې ژباړه خپره شوې.",
 	"apierror-cxcheckunreviewed-anon-user": "\"cxcheckunreviewed\" ای‌پي‌آی چاره د ورکنومو کارنانو لپاره چارن نه دی",
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "د ويکي‌اومتوک پېژند.",
-	"apihelp-query+automatictranslationdenselanguages-example-1": "په ټولو شته ژبو کې د 'سپوږمۍ' ليکنې لپاره د وېبځي‌تړونو د لړليک ترلاسنه، چې د ليکنې د کچې له مخې اوډل شوې."
+	"apihelp-query+automatictranslationdenselanguages-example-1": "په ټولو شته ژبو کې د 'سپوږمۍ' ليکنې لپاره د وېبځي‌تړونو د لړليک ترلاسنه، چې د ليکنې د کچې له مخې اوډل شوې.",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "راټولولو لپاره د وېب‌ځي‌تړونو ډېرشمېر."
 }
