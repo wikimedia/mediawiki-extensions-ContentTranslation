@@ -1973,7 +1973,8 @@
 			"mw.cx.MachineTranslationService.test.js",
 			"mw.cx.TranslationTracker.test.js",
 			"mw.cx.util.test.js",
-			"ui/mw.cx.ui.Infobar.test.js"
+			"ui/mw.cx.ui.Infobar.test.js",
+			"ve-cx/init/ve.init.mw.CXTarget.test.js"
 		],
 		"dependencies": [
 			"ext.cx.model",
