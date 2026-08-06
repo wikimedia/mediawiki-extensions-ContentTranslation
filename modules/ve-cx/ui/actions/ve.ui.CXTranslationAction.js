@@ -70,7 +70,6 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 		promise = target.changeContentSource( section, originalSource, source );
 	}
 
-	// eslint-disable-next-line es-x/no-promise-prototype-finally
 	promise
 		.catch( () => {
 			mw.notify( mw.msg( 'cx-mt-failed' ) );

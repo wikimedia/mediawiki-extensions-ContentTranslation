@@ -31,7 +31,6 @@ const useSectionTitleTranslate = () => {
 		targetLanguage.value,
 		cxServerToken.value
 	).then( ( translation ) => {
-		// eslint-disable-next-line es-x/no-regexp-named-capture-groups
 		const regExp = /<div>(?<translatedTitle>(.|\s)*)<\/div>/;
 		const matches = regExp.exec( translation );
 

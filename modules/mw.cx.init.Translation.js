@@ -250,7 +250,6 @@ mw.cx.init.Translation.prototype.initializePublishTarget = function ( translatio
 		return;
 	}
 
-	// eslint-disable-next-line compat/compat
 	const query = Object.fromEntries( new URL( location.href ).searchParams );
 
 	if ( query.publishtarget ) {

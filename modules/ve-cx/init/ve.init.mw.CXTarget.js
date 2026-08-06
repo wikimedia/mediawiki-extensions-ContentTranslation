@@ -817,7 +817,6 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--non-empty' );
 
 	model.emit( 'beforeTranslation' );
-	// eslint-disable-next-line es-x/no-promise-prototype-finally
 	this.MTManager.getPreferredProvider()
 		.then( ( provider ) => this.changeContentSource( model, null, provider ) )
 		.catch( () => {

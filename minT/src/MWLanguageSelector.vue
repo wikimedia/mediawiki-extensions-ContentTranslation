@@ -256,7 +256,6 @@ module.exports = defineComponent( {
 		} );
 
 		const languageListItems = computed(
-			// eslint-disable-next-line es-x/no-array-prototype-flat
 			() => searchResultsByScript.value.flatMap( ( chunk ) => chunk )
 		);
 

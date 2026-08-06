@@ -23,7 +23,6 @@ const usePageMetadata = () => {
 
 		const redirects = response.query.redirects || [];
 		const redirectMap = redirects.reduce(
-			// eslint-disable-next-line es-x/no-rest-spread-properties
 			( rMap, redirect ) => ( { ...rMap, [ redirect.to ]: redirect.from } ),
 			{}
 		);
@@ -33,7 +32,6 @@ const usePageMetadata = () => {
 		const titleNormalizations = response.query.normalized || [];
 		const normalizationMap = titleNormalizations.reduce(
 			( nMap, normalization ) => ( {
-				// eslint-disable-next-line es-x/no-rest-spread-properties
 				...nMap,
 				[ normalization.to ]: normalization.from
 			} ),
