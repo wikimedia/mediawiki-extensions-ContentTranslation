@@ -25,11 +25,20 @@
 // background images without the `oo-ui-iconElement-icon` class, so the
 // selector above misses them.
 @EchoBadgeSelectors: ~'#pt-notifications-alert .mw-echo-notifications-badge, #pt-notifications-notice .mw-echo-notifications-badge';
+// jquery.ime's input method selector (the keyboard icon toggle in the new
+// translation dialog) is a third-party widget with hardcoded light-theme
+// colors and no design token hook. It ships its own `skin-invert` class (see
+// jquery.ime.js), but that doesn't get inverted here in practice, so invert
+// it explicitly. Its dropdown menu (`.imeselector-menu`) is a DOM descendant,
+// so it inherits this filter too — it must not get its own separate rule, or
+// the two filters would compose and cancel each other out.
+@ImeSelectorSelectors: ~'.imeselector';
 
 .night-mode-icon-invert() {
 	@{OOUIIconSelectors},
 	@{OOUIIndicatorSelectors},
-	@{EchoBadgeSelectors} {
+	@{EchoBadgeSelectors},
+	@{ImeSelectorSelectors} {
 		color-scheme: light;
 		filter: invert( 1 ) hue-rotate( 180deg );
 	}
