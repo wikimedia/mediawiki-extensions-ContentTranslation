@@ -129,6 +129,7 @@
 	"apierror-cxcheckunreviewed-anon-user": "\"cxcheckunreviewed\" ای‌پي‌آی چاره د ورکنومو کارنانو لپاره چارن نه دی",
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "د ويکي‌اومتوک پېژند.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "په ټولو شته ژبو کې د 'سپوږمۍ' ليکنې لپاره د وېبځي‌تړونو د لړليک ترلاسنه، چې د ليکنې د کچې له مخې اوډل شوې.",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "راټولولو لپاره د وېب‌ځي‌تړونو ډېرشمېر.",
 	"apihelp-cxfavoritesuggestions-summary": "د اوسني کارن لړليک ته يو خواپوري وړانديز ورگډول يا لرې‌کول",
 	"apihelp-cxfavoritesuggestions-param-listaction": "هغه چاره چې ورکړل شوي خواپورې وړانديز باندې ترسره کېږي. د لاسرسي وړ خوښنې: 'ورگډول' او 'لرې‌کول'",
 	"apihelp-cxfavoritesuggestions-param-title": "د هغه خواپرې وړانديز سرليک چې چاره بايد پرې ترسره شي",
