@@ -77,13 +77,6 @@
 				"DisambiguatorLookup"
 			]
 		},
-		"mfFrequentLanguagesEntrypointRegistrar": {
-			"class": "ContentTranslation\\HookHandler\\MfFrequentLanguagesEntrypointRegistrationHandler",
-			"services": [
-				"LanguageFactory",
-				"LanguageNameUtils"
-			]
-		},
 		"mfLanguageSearcherEntrypointsRegistrar": {
 			"class": "ContentTranslation\\HookHandler\\MfLanguageSearcherEntrypointsRegistrationHandler",
 			"services": [
@@ -128,7 +121,6 @@
 		"LoadExtensionSchemaUpdates": "schema",
 		"BeforePageDisplay": [
 			"main",
-			"mfFrequentLanguagesEntrypointRegistrar",
 			"mfLanguageSearcherEntrypointsRegistrar",
 			"ulsRelevantLanguagesEntrypointRegistrar",
 			"ulsQuickActionEntrypointRegistrar",
@@ -1142,22 +1134,6 @@
 				"jquery.uls.data",
 				"mw.cx.SiteMapper",
 				"ext.uls.rewrite.entrypoints"
-			]
-		},
-		"ext.cx.entrypoints.mffrequentlanguages": {
-			"scripts": [
-				"entrypoints/ext.cx.entrypoints.mffrequentlanguages.js"
-			],
-			"styles": [
-				"entrypoints/styles/ext.cx.entrypoints.mffrequentlanguages.less"
-			],
-			"dependencies": [
-				"mw.cx.SiteMapper"
-			],
-			"messages": [
-				"sx-missing-languages-entrypoint-panel-text-one-missing",
-				"sx-missing-languages-entrypoint-panel-text-two-missing",
-				"sx-missing-languages-entrypoint-panel-text-more-missing"
 			]
 		},
 		"ext.cx.entrypoints.ulsrelevantlanguages": {
