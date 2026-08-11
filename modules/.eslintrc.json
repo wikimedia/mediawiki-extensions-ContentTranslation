@@ -9,7 +9,6 @@
 		"ve": "readonly",
 		"moment": "readonly",
 		"Promise": "readonly",
-		"LanguageSearcher": true,
 		"publishErrorCaptcha": true,
 		"mouseenter": true,
 		"mouseleave": true,

@@ -1068,56 +1068,6 @@
 				"entrypoints/ext.cx.entrypoints.newarticle.veloader.js"
 			]
 		},
-		"ext.cx.entrypoints.languagesearcher.init": {
-			"scripts": [
-				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.init.js"
-			]
-		},
-		"ext.cx.entrypoints.languagesearcher.legacy": {
-			"class": "MediaWiki\\ResourceLoader\\CodexModule",
-			"codexStyleOnly": "true",
-			"codexComponents": [
-				"CdxButton"
-			],
-			"packageFiles": [
-				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.legacy.js"
-			],
-			"styles": [
-				"entrypoints/styles/ext.cx.entrypoints.languagesearcher.legacy.less"
-			],
-			"dependencies": [
-				"jquery.uls.data",
-				"mw.cx.SiteMapper"
-			],
-			"messages": [
-				"cx-campaign-mflanguagesearcher-invite"
-			]
-		},
-		"ext.cx.entrypoints.languagesearcher": {
-			"class": "MediaWiki\\ResourceLoader\\CodexModule",
-			"codexStyleOnly": "true",
-			"codexComponents": [
-				"CdxCard"
-			],
-			"packageFiles": [
-				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.js",
-				"entrypoints/ext.cx.entrypoints.languagesearcher/LanguageSearcherCardContainer.vue"
-			],
-			"styles": [
-				"entrypoints/styles/ext.cx.entrypoints.languagesearcher.less"
-			],
-			"dependencies": [
-				"vue",
-				"jquery.uls.data",
-				"mw.cx.SiteMapper"
-			],
-			"messages": [
-				"cx-mflanguagesearcher-entrypoint-card-title",
-				"cx-mflanguagesearcher-entrypoint-card-description",
-				"mint-mflanguagesearcher-entrypoint-card-title",
-				"mint-mflanguagesearcher-entrypoint-card-description"
-			]
-		},
 		"ext.cx.entrypoints.languagesearcher.v2": {
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.v2.js",
