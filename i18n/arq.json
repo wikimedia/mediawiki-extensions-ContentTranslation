@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Hussam",
-			"Oldstoneage"
+			"Oldstoneage",
+			"Bachounda"
 		]
 	},
 	"cx": "طرجم الپاجة",
@@ -16,7 +17,7 @@
 	"cx-draft-discard-button-label": "امحي الطرجمة",
 	"cx-beta-feature-enabled-notification": "الطرجمة تاع المحتاوا راه مآكتيفي في هاد الويكي.",
 	"cx-campaign-newarticle-notice": "ضركا تنجم تاني تخلق محتاوا جديد ب`<b>الطرجمة</b>! راك حاب تسيّي السيستام تاع الطرجمة تاع المحتاوا الّي راه فل بيطا؟",
-	"cx-campaign-no-thanks": "لا، صجّيت",
+	"cx-campaign-no-thanks": "لا، صحّيت",
 	"cx-campaign-try": "واه راني حاب نسيّي",
 	"cx-trend-deletions": "طرجمة ممحية"
 }

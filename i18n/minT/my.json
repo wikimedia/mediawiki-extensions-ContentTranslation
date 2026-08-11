@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dr Lotus Black"
+		]
+	},
+	"automatic-translation-special-page-description": "အလိုအလျောက် ဘာသာပြန်ခြင်း",
+	"mint-home-header-title": "အလိုအလျောက် ဘာသာပြန်ခြင်း",
+	"mint-home-input-placeholder": "အကြောင်းအရာတစ်ခုကို ရှာဖွေပါ",
+	"mint-translation-list-all-languages-option-label": "အားလုံး",
+	"mint-home-info-panel-text": "ဝီကီပီးဒီးယားရှိ အကြောင်းအရာသန်းပေါင်းများစွာကို $1သို့ အလိုအလျောက် ဘာသာပြန်ဆိုနိုင်ပါသည်။",
+	"mint-home-random-topic-button-label": "ကျပန်းအကြောင်းအရာ",
+	"mint-language-selector-title": "ဘာသာစကားများ",
+	"mint-language-selector-suggestions-header": "အကြံပေးထားသော",
+	"mint-language-selector-all-languages-header": "ဘာသာစကားများ အားလုံး",
+	"mint-language-selector-input-placeholder": "ဘာသာစကားတစ်ခု ရွေးရန်",
+	"mint-language-selector-no-search-results": "မည်သည့်ရလဒ်မှ မရှိပါ",
+	"mint-search-topic-page-header": "အကြောင်းအရာတစ်ခုကို ရှာဖွေပါ",
+	"mint-search-topic-page-input-placeholder": "အကြောင်းအရာတစ်ခုကို ရှာဖွေပါ",
+	"mint-search-topic-page-results-container-empty": "မည်သည့်ခေါင်းစဉ်ကိုမဆို ရှာဖွေပါ။ ခေါင်းစဉ်တစ်ခုအတွက် အကြောင်းအရာများသည် ဘာသာစကားတစ်ခုစီအလိုက် မတူညီနိုင်ပါ။",
+	"mint-confirm-topic-page-header": "အလိုအလျောက် ဘာသာပြန်ခြင်း",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "အလိုအလျောက်ဘာသာပြန်ဆိုချက်ကို ကြည့်ရှုပါ",
+	"mint-confirm-topic-page-go-to-search-button-label": "အကြောင်းအရာတစ်ခုကို ရှာဖွေပါ",
+	"mint-confirm-topic-page-target-article-link-container-header": "$1 ရှိ အယ်ဒီတာများမှ ရေးသားခဲ့သည်",
+	"mint-confirm-topic-page-target-article-link-container-details": "ဤဆောင်းပါးကို လူသားအယ်ဒီတာများက $1 ဖြင့် ရေးသားထားပါသည်။ အကြောင်းအရာများကို ပိုမိုကောင်းမွန်အောင် ၎င်းတို့နှင့် ပူးပေါင်းနိုင်ပါသည်။",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "ဆောင်းပါး ဖတ်ရှုရန်",
+	"mint-view-translation-page-header": "အလိုအလျောက် ဘာသာပြန်ခြင်း",
+	"mint-view-translation-page-disclaimer-header": "အလိုအလျောက် အကြောင်းအရာများသည် မမှန်ကန်နိုင်ပါ",
+	"mint-view-translation-page-disclaimer-body": "ဤစာမျက်နှာသည် မူလက $1 ဖြင့်ရေးသားထားသော အကြောင်းအရာ၏ အလိုအလျောက်ဘာသာပြန်ဆိုချက်ဖြစ်သည်။",
+	"mint-view-translation-page-disclaimer-learn-more-link": "ပိုမို လေ့လာရန်",
+	"mint-view-translation-page-source-article-link-label": "$1 တွင် ဖွင့်ပါ",
+	"mint-view-translation-content-translation-entrypoint-title": "အလိုအလျောက်ဘာသာပြန်ဆိုချက်ကို ပြန်လည်သုံးသပ်ပါ",
+	"mint-view-translation-content-translation-entrypoint-description": "အလိုအလျောက် အကြောင်းအရာများသည် မမှန်ကန်နိုင်ပါ",
+	"mint-view-translation-overlay-header": "အလိုအလျောက် ဘာသာပြန်ခြင်း",
+	"mint-view-translation-overlay-source-article-link-label": "$1 ရှိ ဝီကီပီဒီးယားတွင် ဖတ်ပါ",
+	"mint-view-translation-overlay-target-article-link-label": "$1 ရှိ ဝီကီပီဒီးယားတွင် ဖတ်ပါ",
+	"mint-view-translation-overlay-cx-entrypoint-label": "ဘာသာပြန်ကို အမှန်ပြင်ပါ",
+	"mint-view-translation-overlay-share-button-label": "အလိုအလျောက်ဘာသာပြန်ဆိုချက်ကို မျှဝေပါ",
+	"mint-view-translation-overlay-feedback-link-label": "အကြံပြုချက် ပို့ရန်",
+	"ax-article-footer-entrypoint-card-description": "အခြားဘာသာစကားများရှိ ပိုမိုသောအကြောင်းအရာ",
+	"ax-article-footer-entrypoint-card-supporting-text": "အလိုအလျောက်ဘာသာပြန်ဆိုချက်ကို ဖတ်ပါ"
+}
