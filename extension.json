@@ -1126,7 +1126,14 @@
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
 					"callbackParam": [
 						"cdxIconAdd",
-						"cdxIconEllipsis"
+						"cdxIconEllipsis",
+						"cdxIconRobot"
+					]
+				},
+				{
+					"name": "entrypoints/ext.cx.entrypoints.languagesearcher/config.json",
+					"config": [
+						"AutomaticTranslationLanguageSearcherEntrypointEnabledLanguages"
 					]
 				}
 			],
@@ -1134,6 +1141,9 @@
 				"jquery.uls.data",
 				"mw.cx.SiteMapper",
 				"ext.uls.rewrite.entrypoints"
+			],
+			"messages": [
+				"mint-mflanguagesearcher-entrypoint-card-title"
 			]
 		},
 		"ext.cx.entrypoints.ulsrelevantlanguages": {

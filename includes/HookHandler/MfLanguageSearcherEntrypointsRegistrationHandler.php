@@ -9,17 +9,12 @@ use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use UniversalLanguageSelector\Hooks;
 
 /**
  * This class implements a handler for the "BeforePageDisplay" hook, that
- * registers the "ext.cx.entrypoints.languagesearcher.init" RL module (or
- * "ext.cx.entrypoints.languagesearcher.v2" when the ULS V2 language selector
- * is enabled) when the appropriate conditions are met. The following JS
- * variables are also set when the same conditions are met:
- * - wgSectionTranslationTargetLanguages
- * - isLanguageSearcherCXEntrypointEnabled (only for the non-V2 module)
- * - mintEntrypointLanguages (only for the non-V2 module)
+ * registers the "ext.cx.entrypoints.languagesearcher.v2" RL module when the
+ * appropriate conditions are met. The "wgSectionTranslationTargetLanguages"
+ * JS variable is also set when the Content Translation entrypoint is enabled.
  *
  * @author Nik Gkountas
  * @license GPL-2.0-or-later
@@ -88,21 +83,17 @@ class MfLanguageSearcherEntrypointsRegistrationHandler implements BeforePageDisp
 			'AutomaticTranslationLanguageSearcherEntrypointEnabledLanguages'
 		);
 
-		if ( Hooks::isLanguageSelectorV2Enabled( $skin, $out->getConfig() ) ) {
-			// ULS V2 only supports the CX entrypoint (not MinT); must load eagerly,
-			// as the ULS entrypoint registry locks once the V2 selector mounts.
-			if ( $isCXEntrypointEnabled ) {
-				$out->addModules( 'ext.cx.entrypoints.languagesearcher.v2' );
-				$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages', $sectionTranslationTargetLanguages );
-			}
+		if ( !$isCXEntrypointEnabled && !$mintEntrypointLanguages ) {
 			return;
 		}
 
-		if ( $isCXEntrypointEnabled || $mintEntrypointLanguages ) {
-			$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
+		// Must load eagerly, as the ULS entrypoint registry locks once the selector mounts.
+		$out->addModules( 'ext.cx.entrypoints.languagesearcher.v2' );
+
+		// Only set when the CX entrypoint is enabled; its absence is what tells the
+		// module not to offer the Content Translation card.
+		if ( $isCXEntrypointEnabled ) {
 			$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages', $sectionTranslationTargetLanguages );
-			$out->addJsConfigVars( 'isLanguageSearcherCXEntrypointEnabled', $isCXEntrypointEnabled );
-			$out->addJsConfigVars( 'mintEntrypointLanguages', $mintEntrypointLanguages );
 		}
 	}
 }

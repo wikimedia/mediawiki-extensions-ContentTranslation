@@ -1,9 +1,9 @@
 /*!
- * Content Translation invitation for editors while searching in the
- * Universal Language Selector V2 (rewrite) language selector.
+ * Content Translation and Automatic Translation (MinT) invitations for editors
+ * while searching in the Universal Language Selector V2 (rewrite) language selector.
  *
- * Registers an "empty search" entrypoint with the ULS entrypoint registry.
- * The card itself is rendered by ULS, so this module must stay lightweight
+ * Registers "empty search" entrypoints with the ULS entrypoint registry.
+ * The cards themselves are rendered by ULS, so this module must stay lightweight
  * (in particular, it must not depend on Vue), as it is loaded on page load.
  *
  * @copyright See AUTHORS.txt
@@ -19,26 +19,42 @@
 	 * @return {string[]}
 	 */
 	const getCxLanguageMatches = ( resultLanguages ) => {
-		const enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
+		const enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' ) || [];
 
 		return resultLanguages.filter(
 			( code ) => enabledTargets.includes( code ) && code !== mw.config.get( 'wgContentLanguage' )
 		);
 	};
 
+	/**
+	 * @param {string[]} resultLanguages
+	 * @return {string[]}
+	 */
+	const getMintLanguageMatches = ( resultLanguages ) => {
+		const { AutomaticTranslationLanguageSearcherEntrypointEnabledLanguages: enabledTargets } =
+			require( './config.json' );
+
+		return resultLanguages.filter(
+			( code ) => ( enabledTargets || [] ).includes( code ) &&
+				code !== mw.config.get( 'wgContentLanguage' )
+		);
+	};
+
+	/**
+	 * @param {Object} context
+	 * @return {string[]}
+	 */
+	const getSearchHitCodes = ( context ) => Object.keys( context.searchQueryHits || {} );
+
 	const EntrypointRegistry = require( 'ext.uls.rewrite.entrypoints' );
 	const { ENTRYPOINT_TYPE, ULS_MODE } = EntrypointRegistry;
 
 	EntrypointRegistry.register( ENTRYPOINT_TYPE.EMPTY_SEARCH, {
 		id: 'cx-language-searcher-translation-cta',
-		shouldShow: ( context ) => {
-			const hitCodes = Object.keys( context.searchQueryHits || {} );
-			return getCxLanguageMatches( hitCodes ).length > 0;
-		},
+		shouldShow: ( context ) => getCxLanguageMatches( getSearchHitCodes( context ) ).length > 0,
 		getConfig: ( context ) => {
 			const { cdxIconAdd, cdxIconEllipsis } = require( './icons.json' );
-			const hitCodes = Object.keys( context.searchQueryHits || {} );
-			const cxMatches = getCxLanguageMatches( hitCodes );
+			const cxMatches = getCxLanguageMatches( getSearchHitCodes( context ) );
 			if ( !cxMatches.length ) {
 				return [];
 			}
@@ -66,6 +82,30 @@
 			}
 
 			return results;
+		}
+	}, ULS_MODE.CONTENT );
+
+	EntrypointRegistry.register( ENTRYPOINT_TYPE.EMPTY_SEARCH, {
+		id: 'mint-language-searcher-translation-cta',
+		shouldShow: ( context ) => getMintLanguageMatches( getSearchHitCodes( context ) ).length > 0,
+		getConfig: ( context ) => {
+			const { cdxIconRobot } = require( './icons.json' );
+			const mintMatches = getMintLanguageMatches( getSearchHitCodes( context ) );
+			if ( !mintMatches.length ) {
+				return [];
+			}
+
+			return {
+				label: mw.msg( 'mint-mflanguagesearcher-entrypoint-card-title' ),
+				icon: cdxIconRobot,
+				url: siteMapper.getMintUrl(
+					mw.config.get( 'wgPageName' ),
+					mw.config.get( 'wgContentLanguage' ),
+					mintMatches[ 0 ],
+					'confirm',
+					{ source: 'languageselector' }
+				)
+			};
 		}
 	}, ULS_MODE.CONTENT );
 }() );
