@@ -88,7 +88,7 @@ class MfLanguageSearcherEntrypointsRegistrationHandler implements BeforePageDisp
 			'AutomaticTranslationLanguageSearcherEntrypointEnabledLanguages'
 		);
 
-		if ( Hooks::isLanguageSelectorV2Enabled( $user, $skin, $out->getConfig() ) ) {
+		if ( Hooks::isLanguageSelectorV2Enabled( $skin, $out->getConfig() ) ) {
 			// ULS V2 only supports the CX entrypoint (not MinT); must load eagerly,
 			// as the ULS entrypoint registry locks once the V2 selector mounts.
 			if ( $isCXEntrypointEnabled ) {

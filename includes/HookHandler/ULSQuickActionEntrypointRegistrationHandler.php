@@ -30,7 +30,7 @@ class ULSQuickActionEntrypointRegistrationHandler implements BeforePageDisplayHo
 		}
 
 		// Do not load the module if ULS v2 is disabled, OR it is not Vector 2022 skin.
-		if ( !Hooks::isLanguageSelectorV2Enabled( $out->getUser(), $skin, $out->getConfig() ) || !$isVector2022Skin ) {
+		if ( !Hooks::isLanguageSelectorV2Enabled( $skin, $out->getConfig() ) || !$isVector2022Skin ) {
 			return;
 		}
 

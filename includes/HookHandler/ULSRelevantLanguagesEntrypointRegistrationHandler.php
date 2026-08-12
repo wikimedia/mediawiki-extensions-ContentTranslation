@@ -28,7 +28,7 @@ class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDis
 		}
 
 		$user = $out->getUser();
-		$isV2Enabled = Hooks::isLanguageSelectorV2Enabled( $user, $skin, $out->getConfig() );
+		$isV2Enabled = Hooks::isLanguageSelectorV2Enabled( $skin, $out->getConfig() );
 		// Register the entrypoint module on desktop always, and on mobile only when the ULS rewrite
 		// (ULSv2) is enabled. Skip it on mobile when the rewrite is disabled.
 		if ( $isMobileView && !$isV2Enabled ) {

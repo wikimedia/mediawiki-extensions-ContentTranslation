@@ -37,7 +37,7 @@ class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisp
 
 		// This entrypoint only targets the MobileFrontend language searcher,
 		// which is replaced by the ULS V2 language selector when that is enabled.
-		if ( Hooks::isLanguageSelectorV2Enabled( $out->getUser(), $skin, $out->getConfig() ) ) {
+		if ( Hooks::isLanguageSelectorV2Enabled( $skin, $out->getConfig() ) ) {
 			return;
 		}
 
