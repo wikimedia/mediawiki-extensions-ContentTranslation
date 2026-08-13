@@ -121,7 +121,7 @@
 	"cx-save-draft-shortcut-label": "ذخیره پیش‌نویس",
 	"cx-save-draft-tooltip": "پیش‌نویس‌های ترجمه به‌طور خودکار ذخیره شده‌اند",
 	"cx-save-draft-error": "خطایی هنگام ذخیرهٔ پیش‌نویس رخ داد.",
-	"cx-save-draft-error-retry": "ناتوان در ذخیره‌سازی. تلاش مجدد تا چند لحظهٔ دیگر...",
+	"cx-save-draft-error-retry": "ناتوان در ذخیره‌سازی. تلاش دوباره تا چند لحظهٔ دیگر...",
 	"cx-save-draft-offline": "شما برخط نیستید. تا پیش از آن که برخط شوید، امکان ذخیره‌سازی پیش‌نویس وجود ندارد.",
 	"cx-contributions-new-contributions": "مشارکت‌های جدید",
 	"cx-contributions-new-article": "صفحهٔ جدید",
