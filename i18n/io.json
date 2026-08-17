@@ -127,7 +127,6 @@
 	"cx-sx-publish-lead-section-summary": "Kreita per traduko dil aperto-seciono di la pagino \"$1\"",
 	"cx-sx-language-selector-placeholder": "Serchar idiomo",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Nova tradukajo",
-	"cx-campaign-mflanguagesearcher-invite": "Vu povas tradukar ca pagino. To esas facila maniero por krear nova kontenajo en vua idiomo.",
 	"sx-recent-translation-entrypoint-banner-details": "Helpez plubonigar kontenaji",
 	"sx-recent-translation-entrypoint-dialog-header": "Plubonigar la tradukuro",
 	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Revizar kontenajo",
@@ -136,7 +135,6 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Tradukar nova seciono",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Tradukar \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Tradukar \"$1\" e \"$2\"",
-	"sx-missing-languages-entrypoint-panel-text-more-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Mankanta en <span>$1</span> e pluse",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse",
 	"cx-contributecard-entrypoint-cta": "Komencar tradukado"

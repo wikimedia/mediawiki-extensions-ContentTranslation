@@ -283,7 +283,6 @@
 	"sx-editor-feedback-overlay-title": "Eskerrik asko!",
 	"sx-editor-feedback-overlay-clarification": "Zure zuzenketatik ikasten",
 	"sx-editor-feedback-overlay-stats": "<span>% $1</span> zuk editatu duzu",
-	"cx-campaign-mflanguagesearcher-invite": "Orrialde hau itzul dezakezu. Zure hizkuntzan edukia sortzeko modu erraza da.",
 	"cx-suggestion-list-favorites-division": "Geroko",
 	"sx-recent-translation-entrypoint-banner-header": "Orrialde hau duela gutxi itzuli da",
 	"sx-recent-translation-entrypoint-banner-details": "Edukiak hobetzen lagundu",
@@ -309,6 +308,5 @@
 	"sx-block-template-adaptation-card-edit-button-label": "Berrikusi eta editatu itzulpena",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Itzulpena aldatu",
 	"sx-block-template-adaptation-card-body-header-failure": "Txantiloi baliokidea ez dago erabilgarri $1 hizkuntzan",
-	"sx-missing-languages-entrypoint-panel-text-one-missing": "Ez dago eskuragarri: <span>$1</span>",
 	"cx-uls-relevant-languages-panel-message": "Orrialde hau ezagutu ditzakezun hizkuntza batzuetan falta da. Ti-ta itzul ditzakezu!"
 }

@@ -299,7 +299,6 @@
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Novi prijevod",
 	"cx-sx-translation-confirmer-continue-translation-button-label": "Nastavite prijevod",
 	"sx-editor-feedback-overlay-title": "Hvala!",
-	"cx-campaign-mflanguagesearcher-invite": "Možete prevesti ovu stranicu. To je jednostavan način za stvaranje sadržaja na Vašem jeziku.",
 	"sx-recent-translation-entrypoint-banner-header": "Ova je stranica nedavno prevedena",
 	"sx-recent-translation-entrypoint-banner-details": "Pomozite nam poboljšati njen sadržaj",
 	"sx-recent-translation-entrypoint-dialog-header": "Poboljšajte prijevod",
@@ -345,7 +344,6 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mjesec|$1 mjeseca|$1 mjeseci}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 godina|$1 godine|$1 godina}}",
 	"sx-confirm-draft-translation-start-button-label": "U redu",
-	"cx-mflanguagesearcher-entrypoint-card-title": "Napišite novi prijevod",
 	"cx-unreviewed-translation-dialog-close-button-label": "Zatvori",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Saznajte više"
 }

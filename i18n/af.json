@@ -108,8 +108,6 @@
 	"cx-sx-section-selector-missing-sections-title": "Afdelings ontbreek in $1",
 	"cx-suggestion-list-favorites-division": "Vir later",
 	"sx-recent-translation-entrypoint-banner-details": "Help om die inhoud te verbeter",
-	"sx-missing-languages-entrypoint-panel-text-one-missing": "Ontbreek in <span>$1</span>",
-	"sx-missing-languages-entrypoint-panel-text-more-missing": "Ontbreek in <span>$1</span>, <span>$2</span> en meer",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Ontbreek in <span>$1</span>, <span>$2</span> en meer",
 	"cx-uls-relevant-languages-panel-message": "Hierdie bladsy ontbreek in sommige tale wat jy dalk ken. Jy kan dit in minute vertaal!",
 	"cx-sx-dashboard-stats-panel-title": "Jou impak"

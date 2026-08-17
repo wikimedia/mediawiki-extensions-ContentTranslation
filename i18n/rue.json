@@ -20,7 +20,6 @@
 	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Зобразити обсяг",
 	"sx-recent-translation-entrypoint-dialog-review-lead-text": "Переклады повторно хосновають роботу редакторів з іншых языків. Некотры аспекты ся можуть погубити почас перекладу. Можете:",
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Одкрыти оріґіналну сторінку на $1",
-	"sx-missing-languages-entrypoint-panel-text-more-missing": "Не є на <span>$1</span>, <span>$2</span> і іншых",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Не є на <span>$1</span> і іншых",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Не є на <span>$1</span>, <span>$2</span> і іншых"
 }

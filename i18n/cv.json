@@ -234,7 +234,6 @@
 	"sx-editor-feedback-overlay-title": "Тавтапуҫ!",
 	"sx-editor-feedback-overlay-clarification": "Эсир тӳрлетнипе вӗренет",
 	"sx-editor-feedback-overlay-stats": "эсир <span>$1%</span> тӳрлетнӗ",
-	"cx-campaign-mflanguagesearcher-invite": "Эсир ку страницӑна куҫарма пултаратӑр. Ку — тӑван чӗлхепе контент хатӗрлемелли питӗ аван меслет.",
 	"cx-suggestion-list-favorites-division": "Каярах валли",
 	"sx-recent-translation-entrypoint-banner-header": "Ку страницӑна нумай пулмасть куҫарнӑ",
 	"sx-recent-translation-entrypoint-banner-details": "Контента лайӑхлатма пулӑшӑр",
@@ -252,9 +251,6 @@
 	"sx-block-template-adaptation-card-edit-button-label": "Куҫарӑва тӗрӗслӗр те тӳрлетӗр",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Куҫарӑва юса",
 	"sx-block-template-adaptation-card-body-header-failure": "$1 валли пӗрешкел шаблон ҫук",
-	"sx-missing-languages-entrypoint-panel-text-one-missing": "<span>$1</span> чӗлхепе ҫук",
-	"sx-missing-languages-entrypoint-panel-text-two-missing": "<span>$1</span> тата <span>$2</span> чӗлхесенче ҫук",
-	"sx-missing-languages-entrypoint-panel-text-more-missing": "<span>$1</span>, <span>$2</span> тата ытти чӗлхесенче ҫук",
 	"cx-uls-relevant-languages-banner-text-single-missing": "<span>$1</span> чӗлхепе тата ыттисенче ҫук",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> тата ытти чӗлхесенче ҫук",
 	"cx-uls-relevant-languages-panel-header": "Ку страницӑна куҫар",
@@ -273,6 +269,5 @@
 	"cx-sx-translation-work-years-since-started": "$1 {{PLURAL: $1|ҫул}}",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-section-selector-close-button-aria-label": "Ҫирӗплетӳ утӑмӗ ҫине куҫмалли кнопка",
-	"sx-quick-tutorial-next-button-aria-label": "Тепӗр пулӑшу страници ҫине куҫ",
-	"cx-mflanguagesearcher-entrypoint-card-title": "Ҫӗнӗ куҫарӑва ҫырса хур"
+	"sx-quick-tutorial-next-button-aria-label": "Тепӗр пулӑшу страници ҫине куҫ"
 }
