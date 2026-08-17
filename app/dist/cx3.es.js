@@ -15881,7 +15881,6 @@ const Ae = window.Vue.unref, Yg = window.Vue.toDisplayString, Pt = window.Vue.cr
           title: h.$i18n("sx-translation-list-language-selector-dialog-title"),
           fullscreen: a.value,
           header: a.value,
-          "overlay-mode": "dark",
           onClose: i
         }, {
           default: mo(() => [
