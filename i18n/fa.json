@@ -29,13 +29,14 @@
 			"Saeidpourbabak",
 			"درفش کاویانی",
 			"فلورانس",
-			"محک"
+			"محک",
+			"LProfo"
 		]
 	},
 	"cx": "ترجمهٔ صفحه",
 	"cx-javascript": "این ابزار بدون جاوااسکریپت کار نمی‌کند. جاوااسکریپت غیرفعال است، از کار افتاده است، یا توسط این مرورگر پشتیبانی نمی‌شود.",
 	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation ترجمهٔ محتوا] ابزاری است که ترجمهٔ سریع صفحات به زبان خودتان را ممکن می‌سازد. [$1 امتحانش کنید!]",
-	"cx-license-agreement": "با ادامه‌دادن، شما با [https://foundation.wikimedia.org/wiki/Terms_of_Use شرایط استفاده] موافقت می‌کنید و تأیید می‌کند که مشارکت‌هایتان را به‌طور غیرقابل بازگشتی تحت [https://creativecommons.org/licenses/by-sa/4.0/ مجوز CC BY-SA 4.0] و [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License مجوز مستندات آزاد گنو 1.3] منتشر کنید.",
+	"cx-license-agreement": "با ادامه‌دادن، شما با [https://foundation.wikimedia.org/wiki/Terms_of_Use شرایط استفاده] موافقت می‌کنید و به‌طور بازگشت‌ناپذیری تأیید می‌کنید که مشارکت‌هایتان را تحت [https://creativecommons.org/licenses/by-sa/4.0/ مجوز CC BY-SA 4.0] و [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License مجوز مستندات آزاد گنو ۱.۳] منتشر کنید.",
 	"cx-error-server-connection": "خطا: نمی‌توان به کارساز وصل شد.",
 	"cx-desc": "[[Special:ContentTranslation|ترجمهٔ]] صفحه‌های محتوایی را ساده می‌کند",
 	"cx-header-all-translations": "همهٔ ترجمه‌ها",
@@ -47,7 +48,7 @@
 	"cx-publish-error-readonly": "هیچ نوشتنی به ویکی مجاز نیست.",
 	"cx-publish-error-spam-blacklist": "هرزنگاری محتمل در متن ترجمهٔ شما شناسایی شد. جزئیات: $1",
 	"cx-publish-error-title-blacklist": "عنوانی که وارد کرده‌اید در فهرست سیاه قرار دارد. لطفاً نام دیگری برای ترجمهٔ خود انتخاب کنید.",
-	"cx-publish-error-unknown": "خطای غیرقابل بازیابی ناشناخته‌ای رخ داد. جزئیات خطا: $1",
+	"cx-publish-error-unknown": "خطای بازیابی‌ناپذیر ناشناخته‌ای رخ داد. جزئیات خطا: $1",
 	"cx-publish-error-offline": "شما در حال حاضر برخط نیستید. ترجمه‌ٔ شما تا پیش از آن که برخط شوید، قابل انتشار نیست.",
 	"cx-publish-button": "انتشار",
 	"cx-publish-button-publishing": "در حال انتشار...",
