@@ -35,7 +35,8 @@
 			"Sjoerddebruin",
 			"Southparkfan",
 			"Wikiklaas",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Sumurai8"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -110,7 +111,7 @@
 	"cx-mt-abuse-error-sections": "Uw vertaling bevat aanzienlijke delen ongewijzigde tekst",
 	"cx-mt-abuse-error-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. U dient voor een correcte inhoud en een natuurlijke schrijfwijze in uw taal te zorgen.\n\nUw vertaling kan niet worden gepubliceerd zonder verdere wijzigingen.",
 	"cx-mt-abuse-warning-title": "Een deel van uw vertaling {{PLURAL:$1|bevat}} $1% van de ongewijzigde tekst",
-	"cx-mt-abuse-warning-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. U dient voor een correcte inhoud en een natuurlijke schrijfwijze in uw taal te zorgen. Uw vertaling wordt waarschijnlijk verwijderd wanneer het gecontroleerd wordt door andere editoren.",
+	"cx-mt-abuse-warning-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. Zorg dat de inhoud accuraat is en natuurlijk leest in uw eigen taal.\n\nUw vertaling wordt waarschijnlijk verwijderd wanneer deze door andere bewerkers gecontroleerd wordt.",
 	"cx-publish-captcha-title": "Robotcontrole",
 	"cx-captcha-dialog-error": "Uw antwoord lijkt niet correct te zijn. Probeer het opnieuw.",
 	"cx-captcha-dialog-cancel": "Annuleren",
