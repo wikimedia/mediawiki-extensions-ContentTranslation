@@ -1,4 +1,5 @@
 @import '../../../ui/styles/mw.cx.variables.less';
+@import 'mediawiki.mixins.less';
 
 .ve-cx-ui-overlay-global > .oo-ui-windowManager-modal > .oo-ui-dialog.oo-ui-window-active {
 	left: @spacing-75;
@@ -7,5 +8,13 @@
 
 	@media only screen and ( min-width: @min-width-breakpoint-desktop ) {
 		width: calc( 100% ~'-' @max-tools-column-width ~'-' 2 * @spacing-75 );
+	}
+}
+
+.ve-cx-ui-overlay-global .ve-ui-mwMediaDialog {
+	.mw-widget-mediaResultWidget-thumbnail {
+		.darkmode-override( {
+			background-color: @background-color-base-fixed;
+		} );
 	}
 }
