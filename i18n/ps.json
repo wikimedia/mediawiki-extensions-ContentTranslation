@@ -7,6 +7,7 @@
 			"Baloch Khan",
 			"Dušan Kreheľ",
 			"SaldırganSincap",
+			"باران",
 			"شاه زمان پټان"
 		]
 	},
@@ -492,7 +493,7 @@
 	"cx-sx-suggestions-filter-search-results-empty-primary": "هيڅ پايلې ونه موندل شوې",
 	"cx-sx-suggestions-filter-search-results-empty-secondary": "د پلټنې بېلابېلې تگلارې وکاروئ يا نورې ريښکې وگورئ",
 	"cx-sx-suggestions-filter-search-results-loading": "د پلټنې پايلې بارېږي...",
-	"cx-page-collection-dialog-close-button-aria-label": "بېرته مخدړې ته ورتلل",
+	"cx-page-collection-dialog-close-button-aria-label": "بېرته ليددړې ته ورتلل",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 ليکنې په $3 کې شته",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 ورځ|$1 days|0=No ورځې}} پاتې",
 	"cx-page-collection-dialog-page-suggestions-header": "نوي مخونه",
