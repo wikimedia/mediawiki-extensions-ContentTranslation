@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bennylin",
 			"Leapofod",
 			"Rebeccayoga"
 		]
@@ -8,7 +9,7 @@
 	"mint-home-header-title": "Terjemahan otomatis",
 	"mint-translation-list-all-languages-option-label": "Semua",
 	"mint-home-random-topic-button-label": "Topik acak",
-	"mint-language-selector-title": "Bahasa-bahasa",
+	"mint-language-selector-title": "Bahasa",
 	"mint-language-selector-all-languages-header": "Seluruh bahasa",
 	"mint-search-topic-page-header": "Cari topik",
 	"mint-search-topic-page-results-container-empty": "Cari topik apa saja. Konten dalam topik bisa berbeda untuk setiap bahasa.",

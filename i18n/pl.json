@@ -70,7 +70,7 @@
 	"tag-contenttranslation-v2-description": "Zawartość strony przetłumaczono z innego języka przy pomocy narzędzia Tłumaczenie treści w wersji 2.",
 	"tag-sectiontranslation": "Tłumaczenie sekcji",
 	"tag-sectiontranslation-description": "Zawartość została przetłumaczona z sekcji w innym języku przy użyciu funkcji tłumaczenia sekcji narzędzia Tłumaczenia treści.",
-	"tag-contenttranslation-high-unmodified-mt-text": "Tłumaczenie treści: Duży udział niezmienionego tłumaczenia maszynowego",
+	"tag-contenttranslation-high-unmodified-mt-text": "Tłumaczenie treści: dużo niezmienionego tłumaczenia maszynowego",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "Tłumaczenie opublikowane przy użyciu narzędzia Tłumaczenie treści, które ma wysoki udział niezmodyfikowanych tłumaczeń maszynowych.",
 	"cx-source-loading": "Pobieranie $1",
 	"cx-beta": "Tłumaczenie treści",
