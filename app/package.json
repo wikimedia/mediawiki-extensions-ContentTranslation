@@ -61,5 +61,8 @@
       "path": "dist/style.css",
       "maxSize": "19.40KB"
     }
-  ]
+  ],
+  "overrides": {
+    "nanoid": "3.3.18"
+  }
 }
