@@ -293,7 +293,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 				foreach ( $drafts as $draft ) {
 					Notification::draftNotification(
 						$notificationType,
-						$user->getId(),
+						$user,
 						$draft->translation_source_title,
 						$draft->translation_source_language,
 						$draft->translation_target_language

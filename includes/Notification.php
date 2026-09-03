@@ -3,9 +3,13 @@
 namespace ContentTranslation;
 
 use ContentTranslation\Exception\InvalidNotificationTitleException;
-use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Notification\Notification as CoreNotification;
+use MediaWiki\Notification\RecipientSet;
+use MediaWiki\Notification\Types\TitleNotification;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 
 class Notification {
 
@@ -13,36 +17,30 @@ class Notification {
 	 * Notify the user on the first published translation.
 	 */
 	public static function firstTranslation( User $recipient ) {
-		Event::create( [
-			'type' => 'cx-first-translation',
-			'extra' => [
-				'recipient' => $recipient->getId(),
-			]
-		] );
+		MediaWikiServices::getInstance()->getNotificationService()->notify(
+			new CoreNotification( 'cx-first-translation' ),
+			new RecipientSet( $recipient )
+		);
 	}
 
 	/**
 	 * Notify the user on the 10th published translation.
 	 */
 	public static function tenthTranslation( User $recipient ) {
-		Event::create( [
-			'type' => 'cx-tenth-translation',
-			'extra' => [
-				'recipient' => $recipient->getId(),
-			]
-		] );
+		MediaWikiServices::getInstance()->getNotificationService()->notify(
+			new CoreNotification( 'cx-tenth-translation' ),
+			new RecipientSet( $recipient )
+		);
 	}
 
 	/**
 	 * Notify the user on the 100th published translation.
 	 */
 	public static function hundredthTranslation( User $recipient ) {
-		Event::create( [
-			'type' => 'cx-hundredth-translation',
-			'extra' => [
-				'recipient' => $recipient->getId(),
-			]
-		] );
+		MediaWikiServices::getInstance()->getNotificationService()->notify(
+			new CoreNotification( 'cx-hundredth-translation' ),
+			new RecipientSet( $recipient )
+		);
 	}
 
 	/**
@@ -51,13 +49,12 @@ class Notification {
 	 * @param string $lastTranslationTitle
 	 */
 	public static function suggestionsAvailable( User $recipient, $lastTranslationTitle ) {
-		Event::create( [
-			'type' => 'cx-suggestions-available',
-			'extra' => [
-				'recipient' => $recipient->getId(),
+		MediaWikiServices::getInstance()->getNotificationService()->notify(
+			new CoreNotification( 'cx-suggestions-available', [
 				'lastTranslationTitle' => $lastTranslationTitle
-			]
-		] );
+			] ),
+			new RecipientSet( $recipient )
+		);
 	}
 
 	/**
@@ -67,14 +64,14 @@ class Notification {
 	 * - That their draft was too old and thus deleted
 	 *
 	 * @param string $type 'cx-deleted-draft' or 'cx-continue-translation'
-	 * @param int $recipientId ID of user receiving this notification.
+	 * @param UserIdentity $recipient The user receiving this notification.
 	 * @param string $title Title of unpublished draft page which is deleted.
 	 * @param string $sourceLanguage
 	 * @param string $targetLanguage
 	 * @throws InvalidNotificationTitleException
 	 */
 	public static function draftNotification(
-		$type, $recipientId, $title, $sourceLanguage, $targetLanguage
+		string $type, UserIdentity $recipient, $title, $sourceLanguage, $targetLanguage
 	) {
 		$titleObj = Title::newFromText( $title );
 		if ( !$titleObj ) {
@@ -83,14 +80,12 @@ class Notification {
 			throw new InvalidNotificationTitleException( $title );
 		}
 
-		Event::create( [
-			'type' => $type,
-			'title' => $titleObj,
-			'extra' => [
-				'recipient' => $recipientId,
+		MediaWikiServices::getInstance()->getNotificationService()->notify(
+			new TitleNotification( $type, $titleObj, [
 				'source' => $sourceLanguage,
 				'target' => $targetLanguage
-			]
-		] );
+			] ),
+			new RecipientSet( $recipient )
+		);
 	}
 }

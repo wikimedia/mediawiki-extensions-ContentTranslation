@@ -16,9 +16,7 @@ use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
-use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Model\Event;
-use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
@@ -516,42 +514,33 @@ class Hooks implements
 			'tooltip' => 'echo-pref-tooltip-cx',
 		];
 
-		$userLocator = [
-			AttributeManager::ATTR_LOCATORS => [
-				[
-					UserLocator::locateFromEventExtra( ... ),
-					[ 'recipient' ]
-				],
-			],
-		];
-
 		$notifications['cx-first-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
 			'presentation-model' => EchoNotificationPresentationModel::class,
-		] + $userLocator;
+		];
 
 		$notifications['cx-tenth-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
 			'presentation-model' => EchoNotificationPresentationModel::class,
-		] + $userLocator;
+		];
 
 		$notifications['cx-hundredth-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
 			'presentation-model' => EchoNotificationPresentationModel::class,
-		] + $userLocator;
+		];
 
 		$notifications['cx-suggestions-available'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
 			'presentation-model' => EchoNotificationPresentationModel::class,
-		] + $userLocator;
+		];
 
 		$notifications['cx-deleted-draft'] = [
 			'category' => 'cx',
@@ -559,7 +548,7 @@ class Hooks implements
 			'section' => 'message',
 			'presentation-model' => DraftNotificationPresentationModel::class,
 			'bundle' => [ 'web' => true, 'expandable' => true ]
-		] + $userLocator;
+		];
 
 		$notifications['cx-continue-translation'] = [
 			'category' => 'cx',
@@ -567,7 +556,7 @@ class Hooks implements
 			'section' => 'message',
 			'presentation-model' => DraftNotificationPresentationModel::class,
 			'bundle' => [ 'web' => true, 'expandable' => true ]
-		] + $userLocator;
+		];
 
 		$icons['cx'] = [
 			'path' => 'ContentTranslation/images/cx-notification-green.svg',
@@ -587,17 +576,9 @@ class Hooks implements
 	 * @param string &$bundleString
 	 */
 	public static function onEchoGetBundleRules( $event, &$bundleString ) {
-		$recipient = $event->getExtraParam( 'recipient' );
-		if ( !$recipient ) {
-			return;
-		}
-
-		if ( $event->getType() === 'cx-deleted-draft' ) {
-			$bundleString = 'cx-deleted-draft-' . $recipient;
-		}
-
-		if ( $event->getType() === 'cx-continue-translation' ) {
-			$bundleString = 'cx-continue-translation-' . $recipient;
+		// Bundle hashes are stored per recipient, so the type alone is enough
+		if ( $event->getType() === 'cx-deleted-draft' || $event->getType() === 'cx-continue-translation' ) {
+			$bundleString = $event->getType();
 		}
 	}
 
