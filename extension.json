@@ -72,9 +72,6 @@
 			"services": [
 				"ConfigFactory",
 				"ContentLanguage"
-			],
-			"optional_services": [
-				"DisambiguatorLookup"
 			]
 		},
 		"mfLanguageSearcherEntrypointsRegistrar": {

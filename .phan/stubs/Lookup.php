@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Disambiguator;
 
-use MediaWiki\Title\Title;
+use MediaWiki\Output\OutputPage;
 
 /** Stub of Disambiguator's Lookup class for phan */
 class Lookup {
-	public function isDisambiguationPage( Title $title, bool $includeRedirects = true ): bool {
+	public static function isMarkedAsDisambiguationPage( OutputPage $outputPage ): bool {
 		return false;
 	}
 }

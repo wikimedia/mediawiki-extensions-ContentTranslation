@@ -6,13 +6,13 @@ namespace ContentTranslation\HookHandler;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigFactory;
 use MediaWiki\Context\IContextSource;
-use MediaWiki\Extension\Disambiguator\Lookup;
+use MediaWiki\Extension\Disambiguator\Lookup as DisambiguatorLookup;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Skin\Hook\SkinAfterContentHook;
 use MediaWiki\Skin\Skin;
-use MediaWiki\Title\Title;
 
 /**
  * Hook handler that registers the "ext.ax.articlefooter.entrypoint" RL module, when the
@@ -29,8 +29,6 @@ class AxArticleFooterEntrypointRegistrationHandler implements BeforePageDisplayH
 	public function __construct(
 		ConfigFactory $configFactory,
 		private readonly Language $contentLanguage,
-		/** Either a Lookup from the Disambiguator extension, or null if that is not installed */
-		private readonly ?Lookup $disambiguatorLookup
 	) {
 		$this->contentTranslationConfig = $configFactory->makeConfig( 'ArticleFooterEntrypoint' );
 	}
@@ -57,16 +55,14 @@ class AxArticleFooterEntrypointRegistrationHandler implements BeforePageDisplayH
 	}
 
 	/**
-	 * Uses the Disambiguator extension to test whether the page is a disambiguation page.
+	 * Whether the page is a disambiguation page.
 	 *
 	 * If the Disambiguator extension isn't installed, then the test always fails, i.e. the page is
 	 * never a disambiguation page.
-	 *
-	 * @param Title $title
-	 * @return bool
 	 */
-	private function isDisambiguationPage( Title $title ): bool {
-		return $this->disambiguatorLookup && $this->disambiguatorLookup->isDisambiguationPage( $title );
+	private function isDisambiguationPage( OutputPage $outputPage ): bool {
+		return class_exists( DisambiguatorLookup::class ) &&
+			DisambiguatorLookup::isMarkedAsDisambiguationPage( $outputPage );
 	}
 
 	private function shouldDisplayFooterEntrypoint( Skin $skin ): bool {
@@ -83,7 +79,7 @@ class AxArticleFooterEntrypointRegistrationHandler implements BeforePageDisplayH
 			!$title->isMainPage() &&
 			$title->exists() &&
 			!self::isDiffPage( $skin ) &&
-			!$this->isDisambiguationPage( $title ) &&
+			!$this->isDisambiguationPage( $skin->getOutput() ) &&
 			$this->isEntrypointAllowedOnSkin( $skin );
 	}
 
