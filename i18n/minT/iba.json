@@ -8,5 +8,8 @@
 	"mint-home-header-title": "Salin automatik",
 	"mint-home-input-placeholder": "Giga topik",
 	"mint-translation-list-all-languages-option-label": "Semua",
-	"mint-home-info-panel-text": "Bejuta topik ba Wikipedia ulih disalin automatik ngagai $1."
+	"mint-home-info-panel-text": "Bejuta topik ba Wikipedia ulih disalin automatik ngagai $1.",
+	"mint-language-selector-all-languages-header": "Semua jaku",
+	"mint-language-selector-input-placeholder": "Pilih jaku",
+	"mint-language-selector-no-search-results": "Nadai asil"
 }
