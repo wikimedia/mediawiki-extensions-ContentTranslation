@@ -11,12 +11,16 @@ namespace ContentTranslation\ActionApi;
 
 use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
+use MediaWiki\Storage\NameTableStore;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryDeletedTranslations extends ApiQueryBase {
-	public function __construct( ApiQuery $query, string $moduleName ) {
+	public function __construct(
+		ApiQuery $query,
+		string $moduleName,
+		private readonly NameTableStore $changeTagDefStore,
+	) {
 		parent::__construct( $query, $moduleName, 'dt' );
 	}
 
@@ -33,9 +37,8 @@ class ApiQueryDeletedTranslations extends ApiQueryBase {
 		$this->addFields( [ 'deleted_count' => 'COUNT(*)' ] );
 		$this->addJoinConds( [ 'change_tag' => [ 'LEFT JOIN', 'ar_rev_id = ct_rev_id' ] ] );
 
-		$changeTagDefStore = MediaWikiServices::getInstance()->getChangeTagDefStore();
 		try {
-			$this->addWhereFld( 'ct_tag_id', $changeTagDefStore->getId( 'contenttranslation' ) );
+			$this->addWhereFld( 'ct_tag_id', $this->changeTagDefStore->getId( 'contenttranslation' ) );
 		} catch ( NameTableAccessException ) {
 			// Return zero deleted articles if we cannot find contenttranslation tag definition ID
 			$this->getResult()->addValue( [ 'query', $this->getModuleName() ], 'deleted', 0 );

@@ -301,7 +301,12 @@
 		}
 	},
 	"APIMetaModules": {
-		"cxdeletedtranslations": "ContentTranslation\\ActionApi\\ApiQueryDeletedTranslations",
+		"cxdeletedtranslations": {
+			"class": "ContentTranslation\\ActionApi\\ApiQueryDeletedTranslations",
+			"services": [
+				"ChangeTagDefStore"
+			]
+		},
 		"cxconfig": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationConfig",
 			"services": [
