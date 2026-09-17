@@ -24,7 +24,8 @@
 // Echo notification badges (bell/tray in the header) use `oo-ui-icon-*`
 // background images without the `oo-ui-iconElement-icon` class, so the
 // selector above misses them.
-@EchoBadgeSelectors: ~'#pt-notifications-alert .mw-echo-notifications-badge, #pt-notifications-notice .mw-echo-notifications-badge';
+@EchoBadgeSelectors: ~'#pt-notifications-alert .mw-echo-notifications-badge';
+@EchoBadgeSelectorsNotice: ~'#pt-notifications-notice .mw-echo-notifications-badge';
 // jquery.ime's input method selector (the keyboard icon toggle in the new
 // translation dialog) is a third-party widget with hardcoded light-theme
 // colors and no design token hook. It ships its own `skin-invert` class (see
@@ -38,6 +39,7 @@
 	@{OOUIIconSelectors},
 	@{OOUIIndicatorSelectors},
 	@{EchoBadgeSelectors},
+	@{EchoBadgeSelectorsNotice},
 	@{ImeSelectorSelectors} {
 		color-scheme: light;
 		filter: invert( 1 ) hue-rotate( 180deg );
@@ -45,7 +47,8 @@
 
 	// The badge counter uses design tokens that already resolve to dark mode
 	// colors; apply the same filter again to cancel the inherited inversion.
-	@{EchoBadgeSelectors} {
+	@{EchoBadgeSelectors},
+	@{EchoBadgeSelectorsNotice} {
 		&::after {
 			filter: invert( 1 ) hue-rotate( 180deg );
 		}
