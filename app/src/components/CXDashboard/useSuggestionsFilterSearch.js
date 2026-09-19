@@ -118,7 +118,15 @@ const useSuggestionsFilterSearch = () => {
     );
   });
 
-  watch([searchInput, searchScope], async () => {
+  watch([searchInput, searchScope], () => {
+    if (!searchInput.value) {
+      rawSearchResults.value.topic_areas = [];
+      rawSearchResults.value.collections = [];
+      rawSearchResults.value.regions = [];
+
+      return;
+    }
+
     rawSearchResults.value.topic_areas = searchTopics(searchInput.value).map(
       (topic) =>
         new SuggestionFilterSearchResult({
@@ -184,21 +192,24 @@ const useSuggestionsFilterSearch = () => {
         key: "topic-areas",
         show:
           rawSearchResults.value.topic_areas.length &&
-          (isAll || searchScope.value === "topics"),
+          (isAll || searchScope.value === "topics") &&
+          !(isAll && searchResultsLoading.value),
         items: rawSearchResults.value.topic_areas,
       },
       {
         key: "geography",
         show:
           rawSearchResults.value.regions.length &&
-          (isAll || searchScope.value === "geography"),
+          (isAll || searchScope.value === "geography") &&
+          !(isAll && searchResultsLoading.value),
         items: rawSearchResults.value.regions,
       },
       {
         key: "collections",
         show:
           rawSearchResults.value.collections.length &&
-          (isAll || searchScope.value === "collections"),
+          (isAll || searchScope.value === "collections") &&
+          !(isAll && searchResultsLoading.value),
         items: rawSearchResults.value.collections,
       },
     ].filter((menu) => menu.show);
