@@ -163,13 +163,103 @@ describe("useSearchArticles", () => {
 
     searchInput.value = "test";
     await nextTick();
-    jest.advanceTimersByTime(500);
 
     expect(searchResultsLoading.value).toBe(true);
+    jest.advanceTimersByTime(500);
     await flushPromises();
 
     // After search completes, loading should be false
     expect(searchResultsLoading.value).toBe(false);
+  });
+
+  it("Stale responses do not overwrite newer search results or clear loading prematurely", async () => {
+    const sourceLanguage = ref("en");
+    const searchInput = ref("");
+
+    let resolveFirstSearch;
+    const firstSearchPromise = new Promise((resolve) => {
+      resolveFirstSearch = resolve;
+    });
+
+    const secondResults = [
+      new Page({
+        title: "Second result",
+        description: "Second description",
+      }),
+    ];
+
+    pageApi.searchPagesByTitlePrefix.mockImplementation((query) => {
+      if (query === "first") {
+        return firstSearchPromise;
+      }
+
+      return Promise.resolve(secondResults);
+    });
+
+    const { searchResultsSlice, searchResultsLoading } = useSearchArticles(
+      sourceLanguage,
+      searchInput
+    );
+
+    // Trigger first search
+    searchInput.value = "first";
+    await nextTick();
+    jest.advanceTimersByTime(500);
+    expect(pageApi.searchPagesByTitlePrefix).toHaveBeenCalledWith(
+      "first",
+      "en"
+    );
+    expect(searchResultsLoading.value).toBe(true);
+
+    // Trigger second search while first is in flight
+    searchInput.value = "second";
+    await nextTick();
+    expect(searchResultsLoading.value).toBe(true);
+
+    // Advance timers to trigger second debounced search
+    jest.advanceTimersByTime(500);
+    await flushPromises();
+    expect(pageApi.searchPagesByTitlePrefix).toHaveBeenCalledWith(
+      "second",
+      "en"
+    );
+
+    // Second search has completed
+    expect(searchResultsSlice.value).toStrictEqual(secondResults);
+    expect(searchResultsLoading.value).toBe(false);
+
+    // Now resolve the first (stale) search
+    resolveFirstSearch(mockResults);
+    await flushPromises();
+
+    // Results must remain the second search results, not overwritten by stale first search
+    expect(searchResultsSlice.value).toStrictEqual(secondResults);
+    expect(searchResultsLoading.value).toBe(false);
+  });
+
+  it("Clearing search input cancels pending search and resets loading state", async () => {
+    const sourceLanguage = ref("en");
+    const searchInput = ref("");
+
+    const { searchResultsSlice, searchResultsLoading } = useSearchArticles(
+      sourceLanguage,
+      searchInput
+    );
+
+    searchInput.value = "pending search";
+    await nextTick();
+    expect(searchResultsLoading.value).toBe(true);
+
+    // Clear before 500ms debounce fires
+    searchInput.value = "";
+    await nextTick();
+    expect(searchResultsLoading.value).toBe(false);
+
+    jest.advanceTimersByTime(500);
+    await flushPromises();
+
+    expect(pageApi.searchPagesByTitlePrefix).not.toHaveBeenCalled();
+    expect(searchResultsSlice.value).toEqual([]);
   });
 
   it("Event logging is called after search", async () => {

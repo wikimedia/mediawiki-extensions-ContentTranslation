@@ -87,10 +87,7 @@ const getSubFilterConfig = (filter, tabName) => {
     return {
       limit: 7,
       viewMoreConfig: {
-        label: bananaI18n.i18n(
-          "cx-sx-suggestions-filters-view-more-countries",
-          filter.label
-        ),
+        label: bananaI18n.i18n("cx-sx-suggestions-filters-more-countries"),
         onClick: () => switchCurrentTab("geography"),
       },
     };
@@ -320,6 +317,7 @@ const addTabResultMenu = (menuComponent, tabName) => {
         <cdx-text-input
           v-model="searchInput"
           role="combobox"
+          :aria-label="activeTab.searchPlaceholder"
           :aria-activedescendant="activeResultDescendant"
           aria-controls="sx-suggestions-filters__search-results__menu"
           aria-autocomplete="none"
@@ -385,13 +383,16 @@ const addTabResultMenu = (menuComponent, tabName) => {
             >
               <template #pending>
                 <div
+                  v-if="searchResultsLoading"
                   v-i18n:cx-sx-suggestions-filter-search-results-loading
                   class="sx-suggestions-filters__search-results-pending"
+                  role="status"
+                  aria-live="polite"
                 />
               </template>
               <template #no-results>
                 <div
-                  v-if="!searchResultsLoading"
+                  v-if="!searchResultsLoading && combinedResults.length === 0"
                   class="sx-suggestions-filters__search-results-empty"
                 >
                   <span

@@ -17,6 +17,7 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
   const searchResults = ref([]);
 
   const searchResultsLoading = ref(false);
+  let currentRequestId = 0;
 
   const searchResultsSlice = computed(() =>
     searchResults.value.slice(0, maxSearchResults)
@@ -38,6 +39,8 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
   };
 
   const debouncedSearchForArticles = debounce(async () => {
+    const requestId = currentRequestId;
+
     if (!searchInput.value) {
       searchResultsLoading.value = false;
 
@@ -50,18 +53,32 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
         searchInput.value,
         sourceLanguage.value
       );
+
+      if (requestId !== currentRequestId) {
+        return;
+      }
       await addFeaturedCollectionMembership(pages);
+
+      if (requestId !== currentRequestId) {
+        return;
+      }
       searchResults.value = pages;
     } finally {
-      searchResultsLoading.value = false;
-      mw.cx.eventlogging.stats.articleSearchAccess(isMobile.value);
+      if (requestId === currentRequestId) {
+        searchResultsLoading.value = false;
+        mw.cx.eventlogging.stats.articleSearchAccess(isMobile.value);
+      }
     }
   }, 500);
 
   const refreshSearch = () => {
+    currentRequestId++;
     searchResults.value = [];
 
     if (!searchInput.value) {
+      debouncedSearchForArticles.cancel();
+      searchResultsLoading.value = false;
+
       return;
     }
     searchResultsLoading.value = true;
