@@ -127,7 +127,7 @@
 		} );
 
 		return $( '<li>' )
-			.addClass( 'cx-new-interlanguage-link' )
+			.addClass( 'mw-list-item cx-new-interlanguage-link' )
 			.append( $languageLink, popup.$element );
 	}
 
