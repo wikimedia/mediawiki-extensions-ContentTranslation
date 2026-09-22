@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mormegil"
+		]
+	},
+	"automatic-translation-special-page-description": "Automatický překlad",
+	"automatic-translation-desc": "Poskytuje [[Special:AutomaticTranslation|automatický překlad]] stránek s obsahem.",
+	"mint-home-header-title": "Automatický překlad",
+	"mint-home-input-placeholder": "Hledat téma",
+	"mint-translation-list-all-languages-option-label": "Všechny",
+	"mint-home-info-panel-text": "Milióny témat na Wikipedii lze automaticky přeložit do jazyka $1.",
+	"mint-home-random-topic-button-label": "Náhodné téma",
+	"mint-language-selector-title": "Jazyky",
+	"mint-language-selector-suggestions-header": "Navrhované",
+	"mint-language-selector-all-languages-header": "Všechny jazyky",
+	"mint-language-selector-input-placeholder": "Vyberte jazyk",
+	"mint-language-selector-no-search-results": "Žádné výsledky"
+}

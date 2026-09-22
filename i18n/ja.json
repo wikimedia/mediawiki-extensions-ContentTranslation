@@ -46,7 +46,8 @@
 			"FlatLanguage",
 			"沈澄心",
 			"TAKAHASHI Shuuji",
-			"Tensama0415"
+			"Tensama0415",
+			"おはぐろ蜻蛉"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -249,7 +250,7 @@
 	"cx-suggestionlist-refresh": "候補を更新",
 	"cx-notification-suggestions-available": "過去の{{GENDER:$2|あなたの}}'''$1'''における翻訳によって、新しい候補が利用できるようになりました。",
 	"cx-infobar-view-issues": "問題を閲覧",
-	"cx-infobar-cannot-publish": "このウィキでは初学者の投稿を制限しているため、翻訳は公開できませんでした。",
+	"cx-infobar-cannot-publish": "このウィキでは初心者の投稿を制限しているため、翻訳は公開できませんでした。",
 	"cx-infobar-old-version": "この翻訳は古い版の原文に基づいています。翻訳原文が著しく改稿されている場合があり、翻訳をやり直したほうがよいかもしれません。",
 	"cx-tools-linter-issues": "問題点",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 件のエラー|$1 件のエラー}}",
@@ -265,7 +266,7 @@
 	"cx-tools-linter-invalid-character-message": "技術的な問題により、特定の文字はページ名に使えません。\n\n無効な文字を削除して題名を編集してください。",
 	"cx-tools-linter-page-exists": "ページは既に存在します",
 	"cx-tools-linter-page-exists-message": "$1 という題名は既に存在します。この翻訳を公開すると、既存の記事を上書きすることになります\n\n既存の記事と入れ換えてよいか確認するか、この翻訳の題名を変更してください。",
-	"cx-tools-linter-cannot-publish-title": "初学者の投稿は制限されています",
+	"cx-tools-linter-cannot-publish-title": "初心者の投稿は制限されています",
 	"cx-tools-linter-cannot-publish-message": "このコミュニティでは翻訳の公開を経験を積んだ編集者に限定しています。\nこの翻訳を公開するには、先にこのウィキで編集経験を増やすか、次の方法をお試しください。<ul><li>下書きとして翻訳を公開し、その後、標準の編集ツールを使って記事を作成します。</li><li>この制限を設けていない他の言語に翻訳します。</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "草稿として公開する",
 	"cx-tools-linter-template": "テンプレートが見つかりません",
