@@ -15,5 +15,12 @@
 	"mint-language-selector-suggestions-header": "Navrhované",
 	"mint-language-selector-all-languages-header": "Všechny jazyky",
 	"mint-language-selector-input-placeholder": "Vyberte jazyk",
-	"mint-language-selector-no-search-results": "Žádné výsledky"
+	"mint-language-selector-no-search-results": "Žádné výsledky",
+	"mint-search-topic-page-header": "Hledání tématu",
+	"mint-search-topic-page-input-placeholder": "Hledat téma",
+	"mint-search-topic-page-results-container-empty": "Hledejte jakékoli téma. Obsah k tématu se může v různých jazycích lišit.",
+	"mint-confirm-topic-page-header": "Automatický překlad",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Zobrazit automatický překlad",
+	"mint-confirm-topic-page-language-selector-explanation": "Překlad [$1 z Wikipedie v jazyce $2]. Prozkoumejte, jak je toto téma pokryto v {{PLURAL:$3|jiném jazyce|$3 jiných jazycích}}.",
+	"mint-confirm-topic-page-go-to-search-button-label": "Hledat jiné téma"
 }
