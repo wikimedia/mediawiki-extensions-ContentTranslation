@@ -1167,6 +1167,7 @@
 			"dependencies": [
 				"vue",
 				"jquery.uls.data",
+				"ext.uls.common",
 				"mw.cx.util",
 				"mw.cx.SiteMapper"
 			],
@@ -1193,7 +1194,8 @@
 			"dependencies": [
 				"mw.cx.SiteMapper",
 				"mw.cx.util",
-				"oojs-ui.styles.icons-content"
+				"oojs-ui.styles.icons-content",
+				"ext.uls.common"
 			]
 		},
 		"ext.cx.betafeature.init": {
