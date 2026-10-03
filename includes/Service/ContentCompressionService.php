@@ -3,8 +3,8 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Service;
 
-use Deflate;
 use RuntimeException;
+use Wikimedia\Deflate;
 
 /**
  * This service provides methods to compress and decompress content
