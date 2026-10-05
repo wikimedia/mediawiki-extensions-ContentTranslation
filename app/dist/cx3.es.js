@@ -16594,7 +16594,11 @@ const Hl = window.Vue.ref, ym = window.Vue.watch, Cm = window.Vue.computed, { to
         });
       }
     );
-  }), ym([e, t], () => x(void 0, null, function* () {
+  }), ym([e, t], () => {
+    if (!e.value) {
+      n.value.topic_areas = [], n.value.collections = [], n.value.regions = [];
+      return;
+    }
     n.value.topic_areas = r(e.value).map(
       (m) => new wi({
         label: m.label,
@@ -16632,7 +16636,7 @@ const Hl = window.Vue.ref, ym = window.Vue.watch, Cm = window.Vue.computed, { to
         filterId: m.id
       })
     );
-  }));
+  });
   const g = Cm(() => {
     const m = t.value === "all";
     return [
@@ -16643,17 +16647,17 @@ const Hl = window.Vue.ref, ym = window.Vue.watch, Cm = window.Vue.computed, { to
       },
       {
         key: "topic-areas",
-        show: n.value.topic_areas.length && (m || t.value === "topics"),
+        show: n.value.topic_areas.length && (m || t.value === "topics") && !(m && d.value),
         items: n.value.topic_areas
       },
       {
         key: "geography",
-        show: n.value.regions.length && (m || t.value === "geography"),
+        show: n.value.regions.length && (m || t.value === "geography") && !(m && d.value),
         items: n.value.regions
       },
       {
         key: "collections",
-        show: n.value.collections.length && (m || t.value === "collections"),
+        show: n.value.collections.length && (m || t.value === "collections") && !(m && d.value),
         items: n.value.collections
       }
     ].filter((p) => p.show);
