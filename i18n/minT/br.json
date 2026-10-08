@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Huñvreüs"
+			"Huñvreüs",
+			"Ar choler"
 		]
 	},
 	"automatic-translation-special-page-description": "Troidigezh emgefre",
@@ -76,7 +77,7 @@
 	"ax-translation-view-feedback-negative-missing-information": "Gallout a ran kaout titouroù gwelloc'h e lec'h all.",
 	"ax-translation-view-feedback-negative-translation-quality": "N'eo ket mat a-walc'h kalite an droidigezh evit kompren an endalc'hadoù gant fiziañs.",
 	"ax-translation-view-feedback-negative-quick-overview": "Ne c'hellan ket kaout ur sell hollek war an danvez buan.",
-	"ax-translation-view-feedback-confirm-title": "Sonjoù",
+	"ax-translation-view-feedback-confirm-title": "Evezhiadennoù",
 	"ax-translation-view-feedback-confirm-description": "Trugarez eus ho skoazell ! Gallout a rit reiñ ho soñjoù all diwar-benn an arnod-mañ [https://www.mediawiki.org/wiki/Talk:MinT war bajenn gaozeal ar raktres].",
 	"ax-cx-failed-translation-label": "Treiñ c'hwitet"
 }
