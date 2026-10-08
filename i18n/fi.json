@@ -478,7 +478,6 @@
 	"cx-sx-suggestions-filters-done-button-label": "Valmis",
 	"cx-sx-suggestions-filters-view-all-collections-group": "Näytä kaikki kokoelmat",
 	"cx-sx-suggestions-filters-view-all-regions-group": "Näytä kaikki alueet",
-	"cx-sx-suggestions-filters-view-more-countries": "Näytä lisää maita {{GRAMMAR:inessive|$1}}",
 	"cx-sx-suggestions-filters-tab-all": "Kaikki",
 	"cx-sx-suggestions-filters-tab-collections": "Kokoelmat",
 	"cx-sx-suggestions-filters-tab-regions": "Alueet",
