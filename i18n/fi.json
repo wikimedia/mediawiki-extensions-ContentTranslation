@@ -20,6 +20,7 @@
 			"Silvonen",
 			"Stryn",
 			"Valtlait",
+			"Wikipeedikko",
 			"Yupik"
 		]
 	},
@@ -476,8 +477,9 @@
 	"cx-sx-suggestions-filters-header": "Säädä ehdotuksia",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Sulje ehdotussuodattimet",
 	"cx-sx-suggestions-filters-done-button-label": "Valmis",
-	"cx-sx-suggestions-filters-view-all-collections-group": "Näytä kaikki kokoelmat",
-	"cx-sx-suggestions-filters-view-all-regions-group": "Näytä kaikki alueet",
+	"cx-sx-suggestions-filters-view-all-collections-group": "Kaikki kokoelmat",
+	"cx-sx-suggestions-filters-view-all-regions-group": "Kaikki alueet",
+	"cx-sx-suggestions-filters-more-countries": "Lisää maita",
 	"cx-sx-suggestions-filters-tab-all": "Kaikki",
 	"cx-sx-suggestions-filters-tab-collections": "Kokoelmat",
 	"cx-sx-suggestions-filters-tab-regions": "Alueet",
@@ -489,7 +491,7 @@
 	"cx-sx-suggestions-filter-active-group-label": "Aktiiviset suodattimet",
 	"cx-sx-suggestions-filter-default-group-label": "Automaattinen",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Kokoelmat",
-	"cx-sx-suggestions-filter-search-input-placeholder": "Hae kaikista luokista...",
+	"cx-sx-suggestions-filter-search-input-placeholder": "Etsi mitä tahansa aihetta, kokoelmaa tai muita tietoja",
 	"cx-sx-suggestions-filter-search-input-placeholder-collections": "Hae kokoelmia...",
 	"cx-sx-suggestions-filter-search-input-placeholder-regions": "Hae maita tai alueita...",
 	"cx-sx-suggestions-filter-search-input-placeholder-topics": "Hae aiheita...",
