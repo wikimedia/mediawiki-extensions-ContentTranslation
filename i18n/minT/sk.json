@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"KormiSK"
+		]
+	},
+	"automatic-translation-special-page-description": "Automatický preklad",
+	"automatic-translation-desc": "Poskytuje [[Special:AutomaticTranslation|automatický preklad]] stránok s obsahom.",
+	"mint-home-header-title": "Automatický preklad",
+	"mint-confirm-topic-page-header": "Automatický preklad",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Zobraziť automatický preklad"
+}
