@@ -5,5 +5,9 @@
 		]
 	},
 	"cx": "ကၠာဲဘာသာမုက်လိက်",
-	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 ကဵုသတိ|$1 ကဵုသတိဂမၠိုင်}}"
+	"cx-entrypoint-dialog-button-translate-from": "ကၠာဲဘာသာနူ $1",
+	"cx-tools-instructions-text5": "{{GENDER:|ပတိုန်}}ဆေၚ်စပ်ကဵုပရေၚ်ကၠာဲဘာသာ",
+	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 ကဵုသတိ|$1 ကဵုသတိဂမၠိုင်}}",
+	"cx-sx-content-comparator-content-header-translate-button-label": "ကၠာဲဘာသာ",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "ကၠာဲဘာသာ \"$1\""
 }
