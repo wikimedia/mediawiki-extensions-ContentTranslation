@@ -35,6 +35,7 @@
 	"cx-translation-target-page-exists": "א בלאַט מיטן נאָמען [$1 $2] עקזיסטירט אין דער ציל וויקי. באַטראַכט געבן דעם בלאַט אן אַנדער טיטל.",
 	"tag-contenttranslation": "אינהאלט־איבערזעצונג",
 	"tag-contenttranslation-description": "דער אינהאלט איז געווארן איבערגעזעצט פון אן אנדער שפראך מיטן אינהאלט־איבערזעצונג געצייג.",
+	"tag-sectiontranslation": "אָפטיילונג־איבערזעצונג",
 	"cx-source-loading": "לאדן $1",
 	"cx-beta": "לויפיקע איבערזעצונג",
 	"cx-entrypoint-title": "איבערזעצן דעם בלאט צו $1",
@@ -214,6 +215,7 @@
 	"cx-feature-discovery-dismiss": "גוט, פֿארשטאנען",
 	"cx-sx-select-section": "קלייבט אויס אן אָפּטיילונג איבערצוזעצן",
 	"cx-sx-section-selector-title": "אפטיילונגען",
+	"cx-sx-section-selector-subtitle": "קלייבן אַן אָפּטיילונג",
 	"cx-sx-section-selector-desc": "פֿארגלייכן אינהאלט אין ביידע שפראכן",
 	"cx-sx-language-selector-dialog-title": "זוכן אַ שפּראַך",
 	"cx-sx-view-translation-anchor": "באַקוקן",
@@ -224,6 +226,7 @@
 	"cx-sx-sentence-selector-done-button-label": "ערליידיקט",
 	"cx-sx-sentence-selector-skip-translation-button-label": "איבערהיפן",
 	"cx-sx-translation-confirmer-title": "נייע איבערזעצונג",
+	"cx-sx-content-comparator-present-section-placeholder-title": "אייער איבערזעצונג וועט ווערן צוגעגעבן דא",
 	"sx-article-search-language-selector-dialog-title": "שפּראַכן",
 	"cx-sx-article-search-header": "נייע איבערזעצונג"
 }
