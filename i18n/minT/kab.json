@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"ButterflyOfFire"
+		]
+	},
+	"automatic-translation-special-page-description": "Tasuqilt tawurmant",
+	"mint-home-header-title": "Tasuqilt tawurmant",
+	"mint-home-input-placeholder": "Nadi ɣef kra n usentel",
+	"mint-translation-list-all-languages-option-label": "Akk",
+	"mint-home-random-topic-button-label": "Asentel agacuran",
+	"ax-home-random-topic-loading-label": "Yessalay-d…",
+	"mint-language-selector-title": "Tutlayin",
+	"mint-language-selector-suggestions-header": "Yettwasumer-d",
+	"mint-language-selector-all-languages-header": "Akk tutlayin",
+	"mint-language-selector-input-placeholder": "Fren tutlayt",
+	"mint-language-selector-no-search-results": "Ulac igmaḍ",
+	"mint-confirm-topic-page-header": "Tasuqilt tawurmant",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Wali tasuqilt tawurmant",
+	"mint-confirm-topic-page-go-to-search-button-label": "Nadi ɣef usentel nniḍen",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Ɣeṛ amagrad",
+	"mint-view-translation-page-header": "Tasuqilt tawurmant",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Issin ugar",
+	"mint-view-translation-page-source-article-link-label": "Ldi deg $1",
+	"mint-view-translation-overlay-header": "Tasuqilt tawurmant",
+	"mint-view-translation-overlay-source-article-link-label": "Ɣeṛ-it deg Wikipidya s $1",
+	"mint-view-translation-overlay-target-article-link-label": "Ɣeṛ-it deg Wikipidya s $1",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Seɣti tasuqilt-nni",
+	"mint-view-translation-overlay-share-button-label": "Bḍu tasuqilt tawurmant",
+	"ax-article-footer-entrypoint-card-heading": "Tisuqilin tiwurmanin",
+	"mint-explore-languages-header": "Snirem tutlayin",
+	"mint-explore-languages-explanation-banner-title": "Issin ugar seg tutlayin nniḍen",
+	"mint-explore-languages-open-language-selector": "Fren tutlayt",
+	"ax-translation-view-feedback-positive": "Ih",
+	"ax-translation-view-feedback-negative": "Uhu",
+	"ax-translation-view-feedback-confirm-title": "Tikti"
+}
