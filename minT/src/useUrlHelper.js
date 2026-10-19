@@ -2,9 +2,18 @@
 
 const PageSearchResult = require( './pageSearchResult.js' );
 
+/**
+ * Language codes go into API hostnames and the DOM. Reject all codes that are not
+ * safe language codes. This is the same rule as LanguageNameUtils::isValidBuiltInCode.
+ *
+ * @param {string|null} code
+ * @return {string|null}
+ */
+const getValidLanguageCode = ( code ) => /^[a-z0-9-]{2,}$/i.test( code ) ? code : null;
+
 const useUrlHelper = () => {
 	/**
-	 * @return {{page: string, sourceLanguage: string, targetLanguage: string, step: string}}
+	 * @return {{page: string, sourceLanguage: string|null, targetLanguage: string|null, step: string}}
 	 */
 	const getURLParams = () => {
 		const currentUrl = new URL( location.href );
@@ -12,8 +21,8 @@ const useUrlHelper = () => {
 
 		return {
 			page: searchParams.get( 'page' ),
-			sourceLanguage: searchParams.get( 'from' ),
-			targetLanguage: searchParams.get( 'to' ),
+			sourceLanguage: getValidLanguageCode( searchParams.get( 'from' ) ),
+			targetLanguage: getValidLanguageCode( searchParams.get( 'to' ) ),
 			step: searchParams.get( 'step' )
 		};
 	};
