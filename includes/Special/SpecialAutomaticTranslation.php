@@ -41,8 +41,14 @@ class SpecialAutomaticTranslation extends SpecialPage {
 		$out->addModules( 'mint.app' );
 
 		// TODO: is there a way to get URL params in "getInitialLanguagesData" hook?
-		$out->addJsConfigVars( 'mintUrlSourceLanguageCode', $out->getRequest()->getVal( 'from' ) );
-		$out->addJsConfigVars( 'mintUrlTargetLanguageCode', $out->getRequest()->getVal( 'to' ) );
+		$out->addJsConfigVars( 'mintUrlSourceLanguageCode', $this->getLanguageCodeParam( 'from' ) );
+		$out->addJsConfigVars( 'mintUrlTargetLanguageCode', $this->getLanguageCodeParam( 'to' ) );
+	}
+
+	private function getLanguageCodeParam( string $name ): ?string {
+		$code = $this->getRequest()->getVal( $name );
+
+		return $code !== null && $this->languageNameUtils->isValidBuiltInCode( $code ) ? $code : null;
 	}
 
 	/**

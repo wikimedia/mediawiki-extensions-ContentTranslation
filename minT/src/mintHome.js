@@ -78,11 +78,11 @@ addLanguageButtonEventListener(
 );
 
 Vue.watch( targetLanguage, () => {
-	targetLanguageButton.innerHTML = getAutonym( targetLanguage.value );
+	targetLanguageButton.textContent = getAutonym( targetLanguage.value );
 } );
 
 Vue.watch( sourceLanguage, () => {
-	sourceLanguageButton.innerHTML = getAutonym( sourceLanguage.value );
+	sourceLanguageButton.textContent = getAutonym( sourceLanguage.value );
 } );
 
 const homeSearchInput = document.getElementById( 'mint-home-search-input' );
@@ -99,7 +99,7 @@ const {
 
 // once sites are loaded, redirect if loaded
 Vue.watch( sites, () => {
-	if ( !!title && !!step ) {
+	if ( !!title && !!step && !!urlSourceLanguage ) {
 		const { findOneOrFetchPage } = usePageMetadata();
 		const { prepareSiteLinks } = useSiteLinksHelper();
 
