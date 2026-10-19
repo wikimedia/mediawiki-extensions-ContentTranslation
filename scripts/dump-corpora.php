@@ -19,6 +19,12 @@ use ContentTranslation\JsonDumpFormatter;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\TmxDumpFormatter;
+use MediaWiki\Export\Dump7ZipOutput;
+use MediaWiki\Export\DumpBZip2Output;
+use MediaWiki\Export\DumpDBZip2Output;
+use MediaWiki\Export\DumpFileOutput;
+use MediaWiki\Export\DumpGZipOutput;
+use MediaWiki\Export\DumpOutput;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IConnectionProvider;
@@ -28,13 +34,13 @@ use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class CXCorporaDump extends Maintenance {
-	/** @var string[][] */
-	private static $sinkTypes = [
-		'file' => [ 'DumpFileOutput', '' ],
-		'gzip' => [ 'DumpGZipOutput', '.gz' ],
-		'bzip2' => [ 'DumpBZip2Output', '.bz2' ],
-		'dbzip2' => [ 'DumpDBZip2Output', '.bz2' ],
-		'7zip' => [ 'Dump7ZipOutput', '.7z' ],
+	/** @var array<array{0:class-string<DumpOutput>,1:string}> */
+	private const SINK_TYPES = [
+		'file' => [ DumpFileOutput::class, '' ],
+		'gzip' => [ DumpGZipOutput::class, '.gz' ],
+		'bzip2' => [ DumpBZip2Output::class, '.bz2' ],
+		'dbzip2' => [ DumpDBZip2Output::class, '.bz2' ],
+		'7zip' => [ Dump7ZipOutput::class, '.7z' ],
 	];
 
 	public function __construct() {
@@ -110,10 +116,10 @@ class CXCorporaDump extends Maintenance {
 		}
 
 		$sinkType = $this->getOption( 'compression', 'file' );
-		if ( !isset( self::$sinkTypes[ $sinkType ] ) ) {
+		if ( !isset( self::SINK_TYPES[ $sinkType ] ) ) {
 			$this->fatalError( "Unknown compression format\n" );
 		}
-		[ $sinkClass, $sinkExtension ] = self::$sinkTypes[ $sinkType ];
+		[ $sinkClass, $sinkExtension ] = self::SINK_TYPES[ $sinkType ];
 
 		// Figure out groups (which translation pairs go to which file)
 		/** @var IConnectionProvider $connectionProvider */
