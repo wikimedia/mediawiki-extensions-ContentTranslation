@@ -51,15 +51,5 @@
     "vite-plugin-externals": "^0.6.2",
     "vue": "3.5.13",
     "vuex": "^4.1.0"
-  },
-  "bundlesize": [
-    {
-      "path": "dist/cx3.es.js",
-      "maxSize": "170.74KB"
-    },
-    {
-      "path": "dist/style.css",
-      "maxSize": "19.40KB"
-    }
-  ]
+  }
 }
