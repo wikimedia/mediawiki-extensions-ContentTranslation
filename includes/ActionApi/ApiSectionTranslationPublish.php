@@ -293,6 +293,16 @@ class ApiSectionTranslationPublish extends ApiBase {
 					$params['sectiontranslationid'],
 					$publishedStatusIndex
 				);
+
+				$hookRunner->onContentTranslationAfterPublish(
+					$user,
+					$targetTitle,
+					$newRevId,
+					$sourceLanguage,
+					$sourceTitle,
+					$targetLanguage,
+					true
+				);
 			}
 
 			if ( isset( $editResult['pageid'] ) ) {

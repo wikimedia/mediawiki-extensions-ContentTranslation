@@ -180,7 +180,8 @@
 				"ContentTranslation.TranslationTargetUrlCreator",
 				"ContentTranslation.UserPermissionChecker",
 				"ChangeTagsStore",
-				"ContentTranslation.TranslatorStore"
+				"ContentTranslation.TranslatorStore",
+				"HookContainer"
 			]
 		},
 		"cxpublishsection": {

@@ -18,6 +18,7 @@
 
 namespace ContentTranslation\ActionApi;
 
+use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\LogNames;
 use ContentTranslation\Notification;
 use ContentTranslation\ParsoidClient;
@@ -34,6 +35,7 @@ use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiUsageException;
 use MediaWiki\ChangeTags\ChangeTagsStore;
 use MediaWiki\Deferred\DeferredUpdates;
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Language\LanguageFactory;
 use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Logger\LoggerFactory;
@@ -61,7 +63,8 @@ class ApiContentTranslationPublish extends ApiBase {
 		private readonly TranslationTargetUrlCreator $targetUrlCreator,
 		private readonly UserPermissionChecker $userPermissionChecker,
 		private readonly ChangeTagsStore $changeTagsStore,
-		private readonly TranslatorStore $translatorStore
+		private readonly TranslatorStore $translatorStore,
+		private readonly HookContainer $hookContainer
 	) {
 		parent::__construct( $main, $name );
 		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
@@ -314,6 +317,19 @@ class ApiContentTranslationPublish extends ApiBase {
 
 			// Save the translation history.
 			$this->translationStore->saveTranslation( $this->translation, $user );
+
+			if ( isset( $result['newrevid'] ) ) {
+				$hookRunner = new ContentTranslationHookRunner( $this->hookContainer );
+				$hookRunner->onContentTranslationAfterPublish(
+					$user,
+					$targetTitle,
+					$result['newrevid'],
+					$sourceLanguage,
+					$sourceTitle,
+					$targetLanguage,
+					false
+				);
+			}
 
 			// Notify user about milestones
 			$this->notifyTranslator();
