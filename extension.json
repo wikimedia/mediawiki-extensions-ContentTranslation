@@ -521,6 +521,9 @@
 				"entrypoints/ext.cx.entrypoints.publishingfollowup/sx.publishing.followup.confirmation.js",
 				"entrypoints/ext.cx.entrypoints.publishingfollowup/PublishFeedback.vue"
 			],
+			"styles": [
+				"entrypoints/ext.cx.entrypoints.publishingfollowup/sx.publishing.followup.highlight.less"
+			],
 			"messages": [
 				"cx-sx-followup-feedback-new-indicator",
 				"cx-sx-published-section-confirmation-header",

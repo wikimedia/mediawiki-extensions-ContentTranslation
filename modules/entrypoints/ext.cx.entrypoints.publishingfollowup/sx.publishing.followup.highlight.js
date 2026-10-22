@@ -1,47 +1,66 @@
-const nextUntil = ( element, selector ) => {
-	const siblings = [];
-	element = element.nextElementSibling;
+/**
+ * @param {HTMLElement} headingWrapper A section heading wrapper (`<div class="mw-heading mw-headingN">`)
+ * @return {number} The level of the heading (1 for `<h1>`, 2 for `<h2>` etc.)
+ */
+const getHeadingLevel = ( headingWrapper ) => {
+	const match = headingWrapper.className.match( /\bmw-heading(\d)\b/ );
+
+	return match ? Number( match[ 1 ] ) : 0;
+};
+
+/**
+ * Get all the elements of the section that starts with the given heading wrapper, including its
+ * subsections, i.e. all the siblings until the next heading of the same or a higher level.
+ *
+ * @param {HTMLElement} headingWrapper
+ * @return {HTMLElement[]}
+ */
+const getSectionElements = ( headingWrapper ) => {
+	const level = getHeadingLevel( headingWrapper );
+	const elements = [];
+	let element = headingWrapper.nextElementSibling;
 
 	while ( element ) {
-		if ( element.matches( selector ) ) {
+		if ( element.matches( '.mw-heading' ) && getHeadingLevel( element ) <= level ) {
 			break;
 		}
-		siblings.push( element );
+		elements.push( element );
 		element = element.nextElementSibling;
 	}
 
-	return siblings;
-};
-
-const highlightElement = ( element ) => {
-	element.style.background = 'var(--background-color-warning-subtle, #fef6e7)';
-	element.style.marginBottom = 0;
-	element.style.marginLeft = '-16px';
-	element.style.marginRight = '-16px';
-	element.style.paddingLeft = '16px';
-	element.style.paddingRight = '16px';
+	return elements;
 };
 
 const createNewIndicator = () => {
 	const span = document.createElement( 'span' );
-	span.innerText = mw.message( 'cx-sx-followup-feedback-new-indicator' ).plain();
-	span.style.background = 'var(--background-color-warning-subtle, #fdedd1)';
-	span.style.color = 'var(--color-warning, #ac6600)';
-	span.style.padding = '8px';
-	span.style.borderRadius = '50%';
-	span.style.fontSize = '16px';
-	span.style.display = 'flex';
-	span.style.width = 'max-content';
+	span.className = 'sx-published-section-new-indicator';
+	span.textContent = mw.message( 'cx-sx-followup-feedback-new-indicator' ).plain();
 
 	return span;
 };
 
 /**
- * @param {HTMLElement} firstHighlightedParagraph
+ * Highlight the section contents with a single element, so that no gaps appear between the
+ * highlighted elements (e.g. because of paragraph margins).
+ *
+ * @param {HTMLElement} headingWrapper
+ * @param {HTMLElement[]} sectionElements
  */
-const fixFirstParagraphSpacing = ( firstHighlightedParagraph ) => {
-	firstHighlightedParagraph.style.paddingTop = '0.5em';
-	firstHighlightedParagraph.style.marginTop = 0;
+const highlightSectionContents = ( headingWrapper, sectionElements ) => {
+	if ( !sectionElements.length ) {
+		return;
+	}
+
+	if ( sectionElements.length === 1 && sectionElements[ 0 ].tagName === 'SECTION' ) {
+		// The contents are already wrapped, e.g. in the collapsible block of MobileFrontend
+		sectionElements[ 0 ].classList.add( 'sx-published-section-content' );
+		return;
+	}
+
+	const contentWrapper = document.createElement( 'div' );
+	contentWrapper.className = 'sx-published-section-content';
+	headingWrapper.after( contentWrapper );
+	contentWrapper.append( ...sectionElements );
 };
 
 const newSectionParam = 'sx-published-section';
@@ -65,43 +84,37 @@ const highlightPublishedSection = () => {
 		return;
 	}
 
-	// Scroll to newly published section
-	highlightedHeading.scrollIntoView();
 	/**
-	 * Get parent element, which corresponds to the section header (`<div class="mw-heading">`)
+	 * Get the section heading wrapper (`<div class="mw-heading">`)
 	 *
 	 * @type {HTMLElement}
 	 */
-	const highlightedHWrapper = highlightedHeading.parentElement;
-	highlightElement( highlightedHWrapper );
+	const highlightedHWrapper = highlightedHeading.closest( '.mw-heading' ) || highlightedHeading.parentElement;
+	highlightedHWrapper.classList.add( 'sx-published-section-heading' );
+	highlightSectionContents( highlightedHWrapper, getSectionElements( highlightedHWrapper ) );
 
-	// Get all section nodes by getting all elements until next section header
-	const siblings = nextUntil( highlightedHWrapper, '.mw-heading' );
-	const firstHighlightedParagraph = siblings[ 0 ].querySelector( 'p' );
+	const isMobile = mw.config.get( 'skin' ) === 'minerva';
+	const newIndicator = createNewIndicator();
+	const editSection = highlightedHWrapper.querySelector( '.mw-editsection' );
 
-	if ( firstHighlightedParagraph ) {
-		// Use padding-top instead of margin-top for first section paragraph so that no
-		// white-space appears between header and paragraph
-		fixFirstParagraphSpacing( firstHighlightedParagraph );
+	if ( isMobile && editSection ) {
+		// On mobile, place the indicator at the end of the section title area, leaving room for
+		// the existing actions (the edit button)
+		highlightedHWrapper.insertBefore( newIndicator, editSection );
+	} else {
+		// On desktop, place the indicator at the end of the heading, after the edit links
+		highlightedHWrapper.append( newIndicator );
 	}
 
-	/**
-	 * Create element for new section indicator
-	 *
-	 * @type {HTMLSpanElement}
-	 */
-	const newIndicator = createNewIndicator();
+	if ( isMobile ) {
+		// Sections may be collapsed on mobile. MobileFrontend expands the section that contains
+		// the URL fragment, both when initializing section toggling (which may happen after this
+		// code runs) and on "hashchange". Replace the location, so that no history entry is added.
+		location.replace( '#' + encodeURIComponent( highlightedTitleId ) );
+	}
 
-	// Add new section indicator immediately after the heading text
-	highlightedHWrapper.insertBefore(
-		newIndicator,
-		highlightedHWrapper.querySelector( 'h1, h2, h3, h4, h5, h6' ).nextSibling
-	);
-
-	// Highlight all section nodes
-	siblings.forEach( ( sectionElement ) => {
-		highlightElement( sectionElement );
-	} );
+	// Scroll to newly published section
+	highlightedHeading.scrollIntoView();
 };
 
 highlightPublishedSection();

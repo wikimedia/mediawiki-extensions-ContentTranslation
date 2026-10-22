@@ -1,0 +1,68 @@
+@import 'mediawiki.skin.variables.less';
+
+// Highlight of a section that was just published with Section Translation, see T241592.
+// Selectors are more specific than the heading styles of the skins (e.g. `.mw-body-content .mw-heading2`),
+// which would otherwise override the margins.
+
+.mw-parser-output {
+	.mw-heading.sx-published-section-heading,
+	.sx-published-section-content {
+		background-color: @background-color-warning-subtle;
+		margin-left: -@spacing-50;
+		margin-right: -@spacing-50;
+		padding-left: @spacing-50;
+		padding-right: @spacing-50;
+
+		.skin-minerva & {
+			// Extend the highlight to the edges of the screen
+			margin-left: -@spacing-100;
+			margin-right: -@spacing-100;
+			padding-left: @spacing-100;
+			padding-right: @spacing-100;
+		}
+	}
+
+	.mw-heading.sx-published-section-heading {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0;
+
+		.skin-minerva & {
+			// MobileFrontend uses a negative margin to align the expand/collapse icon to the edge
+			// of the screen, which would make it overflow the highlight
+			/* stylelint-disable-next-line selector-class-pattern */
+			.indicator {
+				margin-left: 0;
+			}
+		}
+	}
+
+	.sx-published-section-content {
+		// Keep the margins of the first and last children inside the highlight (so that no gap
+		// appears between the heading and the contents), and contain floating elements (e.g. images)
+		display: flow-root;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.sx-published-section-new-indicator {
+	flex-shrink: 0;
+	margin-left: auto;
+	padding: 0 @spacing-50;
+	border-radius: @border-radius-pill;
+	// Same color as the section highlight, multiplied by itself. Only the background layers are
+	// blended, so that the text color is not affected.
+	background-color: @background-color-warning-subtle;
+	background-image: linear-gradient( @background-color-warning-subtle, @background-color-warning-subtle );
+	background-blend-mode: multiply;
+	color: @color-warning;
+	font-family: @font-family-system-sans;
+	font-size: @font-size-medium;
+	font-weight: @font-weight-bold;
+	line-height: @line-height-medium;
+
+	.skin-minerva & {
+		margin-right: @spacing-100;
+	}
+}
