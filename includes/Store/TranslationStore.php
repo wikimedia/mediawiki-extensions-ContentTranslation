@@ -61,7 +61,7 @@ class TranslationStore {
 	 * @param string $sourceLanguage
 	 * @param string $targetLanguage
 	 * @param string|null $status possible status values: "published"|"draft"|"deleted"
-	 * @param int $dbType
+	 * @param bool $fromPrimary Whether to read from the primary database
 	 * @return Translation|null
 	 */
 	public function findTranslationByUser(
@@ -70,13 +70,11 @@ class TranslationStore {
 		string $sourceLanguage,
 		string $targetLanguage,
 		?string $status = null,
-		int $dbType = DB_REPLICA
+		bool $fromPrimary = false
 	): ?Translation {
-		if ( $dbType === DB_REPLICA ) {
-			$dbr = $this->connectionProvider->getReplicaDatabase();
-		} else {
-			$dbr = $this->connectionProvider->getPrimaryDatabase();
-		}
+		$dbr = $fromPrimary
+			? $this->connectionProvider->getPrimaryDatabase()
+			: $this->connectionProvider->getReplicaDatabase();
 
 		$globalUserId = $this->userService->getGlobalUserId( $user );
 
@@ -425,14 +423,14 @@ class TranslationStore {
 				return;
 			}
 
-			// Nothing was inserted, the row probably exists. Let's try fetching it with DB_PRIMARY
+			// Nothing was inserted, the row probably exists. Let's try fetching it from the primary
 			$existingTranslation = $this->findTranslationByUser(
 				$user,
 				$translation->getSourceTitle(),
 				$translation->getSourceLanguage(),
 				$translation->getTargetLanguage(),
 				null,
-				DB_PRIMARY
+				true
 			);
 		}
 
