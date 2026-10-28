@@ -35,6 +35,7 @@
 	"apihelp-query+contenttranslation-example-1": "Obter traduções iniciadas pelo usuário atual.",
 	"apihelp-query+contenttranslation-example-2": "Obter rascunhos de traduções por id.",
 	"apihelp-query+contenttranslation-example-3": "Encontre qualquer tradução para o título entre os pares de idioma",
+	"apihelp-query+contenttranslationfavoritesuggestions-summary": "Ver as sugestões favoritas do usuário para o Tradutor de Conteúdo.",
 	"apihelp-query+contenttranslationfavoritesuggestions-param-limit": "O número máximo de sugestões de tradução para buscar.",
 	"apihelp-query+contenttranslationfavoritesuggestions-param-offset": "Deslocamento para resultados paginados.",
 	"apihelp-query+contenttranslationcorpora-summary": "Obter o texto paralelo alinhado em seções para uma determinada tradução. Veja também <code>list=cxpublishedtranslations</code>. Os dumps são fornecidos em diferentes formatos para acesso de alto volume.",
