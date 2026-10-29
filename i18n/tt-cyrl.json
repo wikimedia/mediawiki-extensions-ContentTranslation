@@ -28,6 +28,7 @@
 	"tag-contenttranslation": "тәрҗемә итү коралы",
 	"tag-contenttranslation-v2": "контентны тәрҗемә итү (v2)",
 	"tag-sectiontranslation": "тәрҗемә итү коралы: бүлек",
+	"tag-contenttranslation-high-unmodified-mt-text": "ContentTranslation: машина ясаган зур күләмле тәрҗемә үзгәртүләрсез кулланылган",
 	"cx-beta": "Эчтәлеген тәрҗемә итү",
 	"cx-entrypoint-title": "Бу битне $1 теленә тәрҗемә итү",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бу бит $1 телендә әлегә юк. {{GENDER:|Сез}} аны төзергә телисезме?",

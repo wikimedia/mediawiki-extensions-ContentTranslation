@@ -11,7 +11,8 @@
 			"Mahdy Saffar",
 			"Ommmmid",
 			"Reza1615",
-			"Rulebased"
+			"Rulebased",
+			"LProfo"
 		]
 	},
 	"apihelp-cxpublish-summary": "ذخیرهٔ یک صفحهٔ ایجادشده با استفاده از افزودهٔ ترجمهٔ محتوا",
@@ -34,7 +35,7 @@
 	"apihelp-query+contenttranslation-param-limit": "حداکثر مقادیر ترجمه برای گرفتن",
 	"apihelp-query+contenttranslation-param-offset": "جابجایی به مجموعه نتایج (اختیاری).",
 	"apihelp-query+contenttranslation-param-type": "وضعیت ترجمه",
-	"apihelp-query+contenttranslation-example-1": "گرفتن ترجمه‌های شروع شده توسط کاربر فعلی.",
+	"apihelp-query+contenttranslation-example-1": "گرفتن ترجمه‌های شروع‌شده توسط کاربر کنونی.",
 	"apihelp-query+contenttranslation-example-2": "گرفتن ترجمه‌های پیش‌نویس توسط شناسه.",
 	"apihelp-query+contenttranslation-example-3": "یافتن هر ترجمهٔ عنوان داده شده بین جفت زبانی داده شده",
 	"apihelp-query+contenttranslationfavoritesuggestions-param-limit": "بیشترین تعداد ترجمه‌های پیشنهاد برای واکشی.",
