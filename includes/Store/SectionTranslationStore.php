@@ -337,22 +337,23 @@ class SectionTranslationStore {
 	}
 
 	/**
-	 * Given the "parent" translation id and the section id
-	 * (in the "${revision}_${sectionNumber} form), this method
-	 * deletes the corresponding section translation from the
+	 * Given the section translation id and its "parent" translation id,
+	 * this method deletes the corresponding section translation from the
 	 * "cx_section_translations" table.
 	 *
 	 * @param int $sectionTranslationId
+	 * @param int $translationId The parent "cxsx_translation_id". The delete only applies to rows
+	 *  of this translation, so callers cannot change rows of other users.
 	 * @return void
 	 */
-	public function deleteTranslationById( int $sectionTranslationId ): void {
+	public function deleteTranslationById( int $sectionTranslationId, int $translationId ): void {
 		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		$deletedStatusIndex = self::getStatusIndexByStatus( self::TRANSLATION_STATUS_DELETED );
 		$dbw->newUpdateQueryBuilder()
 			->update( self::TABLE_NAME )
 			->set( [ 'cxsx_translation_status' => $deletedStatusIndex ] )
-			->where( [ 'cxsx_id' => $sectionTranslationId ] )
+			->where( [ 'cxsx_id' => $sectionTranslationId, 'cxsx_translation_id' => $translationId ] )
 			->caller( __METHOD__ )
 			->execute();
 	}
