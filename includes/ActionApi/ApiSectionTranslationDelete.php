@@ -46,13 +46,23 @@ class ApiSectionTranslationDelete extends ApiBase {
 			$this->dieBlocked( $block );
 		}
 
+		if ( !$user->isNamed() ) {
+			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'mustbeloggedin' );
+		}
+
 		$sectionTranslationId = $params['sectiontranslationid'];
 		$translationId = $params['translationid'];
 		$sectionId = $params['sectionid'];
+
+		// All deletes below use this id, so they only change data of the current user
+		if ( !$this->translationStore->findByUserAndId( $user, $translationId ) ) {
+			$this->dieWithError( 'apierror-cx-translationnotfound', 'translationnotfound' );
+		}
+
 		// delete all corpora translation units associated with this draft section translation
 		$this->corporaStore->deleteTranslationDataBySectionId( $translationId, $sectionId );
 		// delete the section translation from the database
-		$this->sectionTranslationStore->deleteTranslationById( $sectionTranslationId );
+		$this->sectionTranslationStore->deleteTranslationById( $sectionTranslationId, $translationId );
 
 		// if no other corpora units are associated with the "parent" translation id, update the
 		// status of the "parent" translation to "deleted" and remove the association with the
