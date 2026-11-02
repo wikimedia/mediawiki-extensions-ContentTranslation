@@ -96,13 +96,15 @@ class SectionTranslationStore {
 	/**
 	 * @param int|null $id The "cxsx_id" of the section translation row
 	 * @param int|null $translationStatus Either "deleted", "draft" or "published"
+	 * @param int $translationId The parent "cxsx_translation_id". The update only applies to rows
+	 *  of this translation, so callers cannot change rows of other users.
 	 */
-	public function updateTranslationStatusById( ?int $id, ?int $translationStatus ) {
+	public function updateTranslationStatusById( ?int $id, ?int $translationStatus, int $translationId ) {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 		$dbw->newUpdateQueryBuilder()
 			->update( self::TABLE_NAME )
 			->set( [ 'cxsx_translation_status' => $translationStatus ] )
-			->where( [ 'cxsx_id' => $id ] )
+			->where( [ 'cxsx_id' => $id, 'cxsx_translation_id' => $translationId ] )
 			->caller( __METHOD__ )
 			->execute();
 	}

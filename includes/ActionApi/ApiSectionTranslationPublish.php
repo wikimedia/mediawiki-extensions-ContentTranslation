@@ -283,7 +283,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 				);
 				$this->sectionTranslationStore->updateTranslationStatusById(
 					$params['sectiontranslationid'],
-					$publishedStatusIndex
+					$publishedStatusIndex,
+					$translation->getTranslationId()
 				);
 			}
 		} else {
