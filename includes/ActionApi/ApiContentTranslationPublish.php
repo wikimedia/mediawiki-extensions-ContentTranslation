@@ -18,6 +18,7 @@
 
 namespace ContentTranslation\ActionApi;
 
+use ContentTranslation\Hooks;
 use ContentTranslation\Notification;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
@@ -128,11 +129,11 @@ class ApiContentTranslationPublish extends ApiBase {
 		if ( $params['cxversion'] === 2 ) {
 			$tags[] = 'contenttranslation-v2'; // Tag for CX2: contenttranslation-v2
 		}
-		// Remove any tags that are not registered.
-		return array_intersect(
-			$tags,
-			$this->changeTagsStore->listSoftwareActivatedTags()
-		);
+		// Allow only tags that ContentTranslation defines. Users must not apply
+		// tags that core or other extensions reserve.
+		$allowedTags = [];
+		Hooks::registerTags( $allowedTags );
+		return array_intersect( $tags, $allowedTags );
 	}
 
 	protected function getCategories( array $params ) {
