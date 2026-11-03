@@ -89,7 +89,7 @@ class ApiSectionTranslationDelete extends ApiBase {
 	 */
 	protected function getExamplesMessages() {
 		return [
-			'action=sxdelete&translationid=1&sectionid=100_20' => 'apihelp-sxdelete-example-1'
+			'action=sxdelete&sectiontranslationid=1&translationid=1&sectionid=100_20' => 'apihelp-sxdelete-example-1'
 		];
 	}
 
