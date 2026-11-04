@@ -9,7 +9,8 @@
 			"Purodha",
 			"Rooiratel",
 			"Slashme",
-			"Winstonza"
+			"Winstonza",
+			"Pyn3tv"
 		]
 	},
 	"cx": "Vertaal bladsy",
@@ -106,6 +107,7 @@
 	"cx-publish-destination-namespace-draft": "Gemeenskapskonsep",
 	"cx-unreviewed-translation-category": "Vertaalde bladsye wat nagegaan moet word",
 	"cx-sx-section-selector-missing-sections-title": "Afdelings ontbreek in $1",
+	"cx-sx-publish-summary": "Geskep deur die afdeling \" $1 \" van die bladsy \" $2 \" te vertaal",
 	"cx-suggestion-list-favorites-division": "Vir later",
 	"sx-recent-translation-entrypoint-banner-details": "Help om die inhoud te verbeter",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Ontbreek in <span>$1</span>, <span>$2</span> en meer",
