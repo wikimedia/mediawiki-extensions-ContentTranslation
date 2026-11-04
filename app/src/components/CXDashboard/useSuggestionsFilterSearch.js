@@ -98,8 +98,10 @@ const useSuggestionsFilterSearch = () => {
     searchScope.value === "all" ? searchInput.value : ""
   );
 
-  const { searchResultsSlice, searchResultsLoading } =
-    useSearchArticles(sourceLanguage, searchTopicsQuery);
+  const { searchResultsSlice, searchResultsLoading } = useSearchArticles(
+    sourceLanguage,
+    searchTopicsQuery
+  );
 
   watch(searchResultsSlice, () => {
     rawSearchResults.value.topics = searchResultsSlice.value.map(

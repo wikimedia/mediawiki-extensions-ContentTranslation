@@ -14,7 +14,7 @@
 	},
 	"pre-commit": "precommit",
 	"devDependencies": {
-		"eslint-config-wikimedia": "0.32.5",
+		"eslint-config-wikimedia": "0.32.6",
 		"grunt-banana-checker": "0.13.0",
 		"pre-commit": "^1.2.2",
 		"stylelint-config-wikimedia": "0.19.3"
