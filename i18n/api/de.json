@@ -133,7 +133,7 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "Die ID der Abschnittsübersetzung, die mit dem Entwurf der Abschnittsübersetzung verknüpft ist.",
 	"apihelp-sxdelete-param-translationid": "Die mit der Abschnittsentwurfsübersetzung verknüpfte Übersetzungs-ID.",
 	"apihelp-sxdelete-param-sectionid": "Die ID des Abschnitts des Entwurfs der Abschnittsübersetzung.",
-	"apihelp-sxdelete-example-1": "Löschen eines Entwurfs mit der angegebenen Übersetzungs- und Abschnittsnummer.",
+	"apihelp-sxdelete-example-1": "Lösche die Übersetzung des Abschnitts im Entwurfsstatus mit der angegebenen Abschnitts-ID sowie die dazugehörigen Parallelkorpora für die angegebene Übersetzungs-ID und Abschnitts-ID.",
 	"apihelp-cxsplit-summary": "Erstellen und Speichern einer Abschnittsübersetzung in der Datenbank, für jeden übersetzten Abschnitt der gegebenen Artikelübersetzung",
 	"apihelp-cxsplit-param-translationid": "Die ID der Übersetzung, für die die Abschnittsübersetzungen erstellt werden.",
 	"apierror-cxsplit-anon-user": "Die API-Aktion „cxsplit“ ist für anonyme Benutzer nicht aktiviert",

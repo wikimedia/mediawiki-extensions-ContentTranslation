@@ -128,7 +128,7 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "Identificador de tradución da sección asociado ao borrador de tradución da sección.",
 	"apihelp-sxdelete-param-translationid": "Identificador de tradución asociado ao borrador de tradución da sección.",
 	"apihelp-sxdelete-param-sectionid": "Identificador da sección do borrador de tradución da sección.",
-	"apihelp-sxdelete-example-1": "Eliminar un borrador asociado ao identificador de tradución e ao identificador de sección indicados.",
+	"apihelp-sxdelete-example-1": "Elimina a tradución da sección en borrador co identificador de tradución da sección indicado, xunto aos seus corpus paralelos para o identificador de tradución e o identificador de sección indicados.",
 	"apihelp-cxsplit-summary": "Crear e gardar unha tradución de sección na base de datos para cada sección traducida da tradución do artigo indicado",
 	"apihelp-cxsplit-param-translationid": "Identificador da tradución, para o que se crearán as traducións das seccións.",
 	"apierror-cxsplit-anon-user": "A acción da API \"cxsplit\" non está habilitada para os usuarios anónimos",

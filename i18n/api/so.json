@@ -126,7 +126,7 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "Aqoonsiga turjumaadda qaybta ee la xiriira qabyo qaybta turjumaadda.",
 	"apihelp-sxdelete-param-translationid": "Aqoonsiga turjumaadda ee la xiriira qabyo qaybta turjumaadda.",
 	"apihelp-sxdelete-param-sectionid": "Aqoonsiga qaybta ee qabyo qaybta turjumaadda.",
-	"apihelp-sxdelete-example-1": "Tirtir qabyo qaybta turjumaadda ee ku xiran aqoonsiga turjumaadda iyo aqoonsiga qaybta.",
+	"apihelp-sxdelete-example-1": "Tirtir qaybta turjumaadda qabyo ee leh aqoonsiga qaybta turjumaadda ee la bixiyey, iyo sidoo kale qoraallada isbarbar socda ee u dhigma aqoonsiga turjumaadda iyo aqoonsiga qaybta la bixiyey.",
 	"apihelp-cxsplit-summary": "Abuur oo kaydi turjumaad qayb ah kaydka xogta, qayb kasta oo la turjumay ee turjumaadda maqaalka la bixiyay",
 	"apihelp-cxsplit-param-translationid": "Aqoonsiga turjumaadda, taas oo lagu abuuri doono turjumaadaha qaybaha.",
 	"apierror-cxsplit-anon-user": "Ficilka API-ga \"cxsplit\" lama oggola isticmaalayaasha aan la aqoonsan",
