@@ -3,6 +3,7 @@
 		"authors": [
 			"Cwlin0416",
 			"Kly",
+			"LowensteinYang",
 			"Winston Sung",
 			"捍粵者"
 		]
@@ -129,7 +130,7 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "與草稿章節翻譯關聯的章節翻譯 ID。",
 	"apihelp-sxdelete-param-translationid": "與草稿章節翻譯關聯的翻譯 ID。",
 	"apihelp-sxdelete-param-sectionid": "草稿章節翻譯的章節 ID。",
-	"apihelp-sxdelete-example-1": "以指定翻譯 ID 與章節 ID 來刪除關聯的草稿。",
+	"apihelp-sxdelete-example-1": "刪除具有指定段落翻譯 ID 的草稿段落翻譯，並一併刪除該翻譯ID與段落ID對應的平行語料庫。",
 	"apihelp-cxsplit-summary": "為指定條目翻譯的各已翻譯章節，建立章節翻譯並儲存到資料庫",
 	"apihelp-cxsplit-param-translationid": "翻譯的 ID，用於要建立的章節翻譯。",
 	"apierror-cxsplit-anon-user": "「cxsplit」API 操作未啟用給匿名使用者",
