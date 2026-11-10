@@ -48,6 +48,9 @@ class DateManipulator {
 		return $datetime;
 	}
 
+	/**
+	 * @return array<string,\DateTime>
+	 */
 	public function getSteps( \DateTime $min, \DateTime $max ): array {
 		// Avoid modifying passed objects
 		$current = clone $min;
