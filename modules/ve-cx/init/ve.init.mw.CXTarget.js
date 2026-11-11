@@ -266,7 +266,7 @@ ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
 	this.translationView.toolsColumn.setTranslation( translation );
 	this.clearSurfaces();
 	this.surfaces.push( targetSurface );
-	targetSurface.getDialogs().connect( this, {
+	targetSurface.getModalDialogs().connect( this, {
 		opening: this.onDialogOpening.bind( this, targetSurface.getContext() ),
 		closing: 'onDialogClosing'
 	} );
@@ -358,7 +358,7 @@ ve.init.mw.CXTarget.prototype.createSurface = function ( dmDoc, config ) {
 	// tools column, so we move the overlay. Also, other, non-complex tools, shouldn't be
 	// showing. See T193587
 	if ( config.inDialog ) {
-		surface.getDialogs().connect( this, {
+		surface.getModalDialogs().connect( this, {
 			opening: this.onDialogOpening.bind( this, surface.getContext() ),
 			closing: 'onDialogClosing'
 		} );
