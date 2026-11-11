@@ -10,7 +10,6 @@ const contentTranslationStatsEventLogging = {
 	 * @param isMobile
 	 */
 	published: ( isMobile ) => {
-		mw.track( 'counter.MediaWiki.cx.publish.success', 1 );
 		if ( isMobile ) {
 			mw.track( 'stats.mediawiki_cx_mobile_publish_success_total', 1 );
 		} else {
@@ -24,7 +23,6 @@ const contentTranslationStatsEventLogging = {
 	 * @param isMobile
 	 */
 	publishFailed: ( isMobile ) => {
-		mw.track( 'counter.MediaWiki.cx.publish.fail', 1 );
 		if ( isMobile ) {
 			mw.track( 'stats.mediawiki_cx_mobile_publish_fail_total', 1 );
 		} else {
