@@ -68,7 +68,10 @@ mw.cx.init.Translation.prototype.init = function () {
 	// modules and manually initializing the platform
 	const platformPromise = new ve.init.mw.Platform().initialize();
 	const translationPromise = this.fetchTranslationData();
-	const pluginModules = mw.config.get( 'wgVisualEditorConfig' ).pluginModules;
+	// Some plugin modules are listed but not registered on every wiki
+	// (e.g. ext.wikilambda.visualeditor). Skip them, as VE does.
+	const pluginModules = mw.config.get( 'wgVisualEditorConfig' ).pluginModules
+		.filter( mw.loader.getState );
 	const modulePromise = mw.loader.using( [ 'mw.cx.visualEditor' ].concat( pluginModules ) );
 	const initPromises = [ translationPromise, modulePromise, platformPromise ];
 
