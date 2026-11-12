@@ -24,6 +24,10 @@ mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config 
 	// Properties
 	this.captcha = null;
 	this.captchaDialog = null;
+	this.hCaptchaWidget = null;
+	this.$hCaptchaContainer = null;
+	this.hCaptchaData = null;
+	this.publishArguments = [];
 };
 
 /* Inheritance */
@@ -160,6 +164,9 @@ mw.cx.TargetArticle.static.getCleanedupContent = function ( doc ) {
  * should be added to high MT tracking category.
  */
 mw.cx.TargetArticle.prototype.publish = function ( hasIssues, hasTooMuchUnmodifiedText ) {
+	// For a new publish after an hCaptcha check.
+	this.publishArguments = [ hasIssues, hasTooMuchUnmodifiedText ];
+
 	this.getContent( true ).then( ( html ) => {
 		const apiParams = {
 			assert: 'user',
@@ -175,6 +182,11 @@ mw.cx.TargetArticle.prototype.publish = function ( hasIssues, hasTooMuchUnmodifi
 			wpCaptchaWord: this.captcha && this.captcha.input.getValue(),
 			cxversion: 2
 		};
+
+		if ( this.hCaptchaData ) {
+			apiParams.wpCaptchaWord = this.hCaptchaData.captchaword;
+			apiParams.wgConfirmEditForceShowCaptcha = this.hCaptchaData.wgConfirmEditForceShowCaptcha;
+		}
 
 		// Check for title conflicts
 		this.checkForPublishAnyway( this.getTargetTitle(), hasIssues ).then(
@@ -232,6 +244,11 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 			params.captchaword = this.captcha.input.getValue();
 		}
 
+		if ( this.hCaptchaData ) {
+			params.captchaword = this.hCaptchaData.captchaword;
+			params.wgConfirmEditForceShowCaptcha = this.hCaptchaData.wgConfirmEditForceShowCaptcha;
+		}
+
 		return new mw.Api()
 			.postWithToken( 'csrf', params )
 			.then( this.publishSuccess.bind( this ), this.publishFail.bind( this ) );
@@ -249,12 +266,19 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
 	const publishAction = this.translation.isSectionTranslation() ? 'cxpublishsection' : 'cxpublish';
 	const publishResult = response[ publishAction ];
+	// An hCaptcha token is good for one request only.
+	const sentHCaptchaToken = !!this.hCaptchaData;
+	this.hCaptchaData = null;
 
 	if ( publishResult.result === 'success' ) {
 		this.translation.setTargetURL( publishResult.targeturl );
 		this.translation.setTargetRevisionId( publishResult.newrevid );
 		this.translation.setTargetPageId( publishResult.pageid );
 		return this.publishComplete( publishResult.targettitle || null );
+	}
+
+	if ( publishResult.edit.captcha && publishResult.edit.captcha.type === 'hcaptcha' ) {
+		return this.solveHCaptcha( publishResult.edit.captcha, sentHCaptchaToken );
 	}
 
 	if ( publishResult.edit.captcha ) {
@@ -274,6 +298,14 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
  */
 mw.cx.TargetArticle.prototype.publishComplete = function ( apiTargetTitle ) {
 	this.captcha = null;
+
+	if ( this.hCaptchaWidget ) {
+		// The widget is no longer needed. A new one is built if hCaptcha is needed again.
+		this.$hCaptchaContainer.remove();
+		this.$hCaptchaContainer = null;
+		this.hCaptchaWidget = null;
+	}
+
 	this.emit( 'publishSuccess', apiTargetTitle );
 };
 
@@ -291,6 +323,8 @@ mw.cx.TargetArticle.prototype.publishComplete = function ( apiTargetTitle ) {
  * @param {Object} [jqXHR] jQuery XHR object
  */
 mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailObjOrData, data, jqXHR ) {
+	this.hCaptchaData = null;
+
 	if ( !data ) {
 		if ( errorCode === 'ok-but-empty' ) {
 			this.showPublishError( mw.msg( 'cx-publish-error-empty' ) );
@@ -399,6 +433,54 @@ mw.cx.TargetArticle.prototype.showErrorCaptcha = function ( apiResult ) {
 	}
 
 	OO.ui.getWindowManager().openWindow( 'cxCaptcha' );
+};
+
+/**
+ * Get an hCaptcha token, then publish again with it.
+ *
+ * @param {Object} captcha The captcha object of the edit API result
+ * @param {boolean} sentToken True if the failed request had a token
+ * @return {Promise}
+ */
+mw.cx.TargetArticle.prototype.solveHCaptcha = function ( captcha, sentToken ) {
+	return Promise.resolve( mw.loader.using( 'ext.confirmEdit.CaptchaWidget' ) ).then( () => {
+		if ( !this.hCaptchaWidget ) {
+			this.$hCaptchaContainer = $( '<div>' ).addClass( 'cx-hcaptcha' );
+			$( '.cx-header-infobar' ).after( this.$hCaptchaContainer );
+			this.hCaptchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
+				container: this.$hCaptchaContainer[ 0 ],
+				interfaceName: 'contenttranslation'
+			} );
+		}
+
+		return this.hCaptchaWidget.updateForFailure( captcha );
+	} ).then( ( shouldResubmit ) => {
+		if ( sentToken && !shouldResubmit ) {
+			// The server refused the token. Stop, to prevent a loop.
+			throw new Error( mw.msg( 'cx-captcha-dialog-error' ) );
+		}
+
+		// updateForFailure() already renders a widget that was rendered before.
+		if ( !this.hCaptchaWidget.captchaRendered ) {
+			return this.hCaptchaWidget.renderCaptcha();
+		}
+	} ).then(
+		() => this.hCaptchaWidget.getCaptchaDataForSubmission()
+	).then( ( captchaData ) => {
+		this.hCaptchaData = captchaData;
+
+		if ( this.translation.isSectionTranslation() ) {
+			this.publishSection();
+		} else {
+			this.publish( ...this.publishArguments );
+		}
+	} ).catch( ( error ) => {
+		// The widget rejects with a plain string for some failures, and with an Error for others.
+		const message = error instanceof Error ?
+			error.message :
+			mw.msg( 'cx-publish-error-unknown', String( error ) );
+		this.showPublishError( message, String( error ) );
+	} );
 };
 
 /**
@@ -514,7 +596,7 @@ mw.cx.TargetArticle.prototype.checkForPublishAnyway = function ( pageTitle, hasI
 	// CAPTCHA check may occur as a response to the request to publish the translation.
 	// If that happens, we can and should skip these checks to avoid showing
 	// "Publish anyway" dialog again if the target page already exists.
-	if ( this.captcha ) {
+	if ( this.captcha || this.hCaptchaData ) {
 		return $.Deferred().resolve().promise();
 	}
 

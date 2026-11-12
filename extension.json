@@ -1464,6 +1464,7 @@
 				"categories",
 				"cx",
 				"cx-beta-feature-enabled-notification",
+				"cx-captcha-dialog-error",
 				"cx-captcha-unsupported-type",
 				"cx-draft-cancel-button-label",
 				"cx-draft-restored",

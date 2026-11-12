@@ -90,4 +90,70 @@
 			'Same name in a different group keeps its body' );
 	} );
 
+	function getTargetArticle( shouldResubmit, sentToken, rendered ) {
+		const targetArticle = Object.create( mw.cx.TargetArticle.prototype );
+		Object.assign( targetArticle, {
+			translation: { isSectionTranslation: () => false },
+			hCaptchaData: sentToken ? { captchaword: 'old' } : null,
+			publishArguments: [ true, false ],
+			hCaptchaWidget: {
+				captchaRendered: !!rendered,
+				renderCalls: 0,
+				updateForFailure: () => Promise.resolve( shouldResubmit ),
+				renderCaptcha: () => {
+					targetArticle.hCaptchaWidget.renderCalls++;
+					return Promise.resolve();
+				},
+				getCaptchaDataForSubmission: () => Promise.resolve( { captchaword: 'token' } )
+			},
+			publishCalls: [],
+			errors: []
+		} );
+		targetArticle.publish = ( ...args ) => targetArticle.publishCalls.push( args );
+		targetArticle.showPublishError = ( msg ) => targetArticle.errors.push( msg );
+		return targetArticle;
+	}
+
+	QUnit.test( 'publishSuccess: hCaptcha failure', function ( assert ) {
+		this.sandbox.stub( mw.loader, 'using' ).returns( Promise.resolve() );
+		const response = { cxpublish: { result: 'error', edit: { captcha: { type: 'hcaptcha' } } } };
+		const first = getTargetArticle( false, false );
+		const refused = getTargetArticle( false, true );
+		const stricter = getTargetArticle( true, true );
+
+		return Promise.all( [ first, refused, stricter ].map( ( t ) => t.publishSuccess( response ) ) ).then( () => {
+			assert.deepEqual( first.publishCalls, [ [ true, false ] ], 'Publishes again with the same arguments' );
+			assert.strictEqual( first.hCaptchaData.captchaword, 'token', 'Sends the new token' );
+			assert.deepEqual( refused.publishCalls, [], 'Does not publish again when the token was refused' );
+			assert.strictEqual( refused.errors.length, 1, 'Shows an error when the token was refused' );
+			assert.deepEqual( stricter.publishCalls, [ [ true, false ] ], 'Publishes again for a stricter challenge' );
+		} );
+	} );
+
+	QUnit.test( 'publishComplete: removes the hCaptcha widget', ( assert ) => {
+		const targetArticle = getTargetArticle( false, false, true );
+		const $container = $( '<div>' ).addClass( 'cx-hcaptcha' ).appendTo( '#qunit-fixture' );
+		targetArticle.$hCaptchaContainer = $container;
+		targetArticle.emit = () => {};
+
+		targetArticle.publishComplete( null );
+
+		assert.strictEqual( targetArticle.hCaptchaWidget, null, 'Forgets the widget' );
+		assert.strictEqual( $container.closest( document.documentElement ).length, 0, 'Removes the container' );
+	} );
+
+	QUnit.test( 'publishSuccess: hCaptcha widget renders once', function ( assert ) {
+		this.sandbox.stub( mw.loader, 'using' ).returns( Promise.resolve() );
+		const response = { cxpublish: { result: 'error', edit: { captcha: { type: 'hcaptcha' } } } };
+		const notRendered = getTargetArticle( false, false, false );
+		const rendered = getTargetArticle( true, true, true );
+
+		return Promise.all( [ notRendered, rendered ].map( ( t ) => t.publishSuccess( response ) ) ).then( () => {
+			assert.strictEqual( notRendered.hCaptchaWidget.renderCalls, 1, 'Renders a new widget' );
+			assert.strictEqual( rendered.hCaptchaWidget.renderCalls, 0,
+				'Does not render again, updateForFailure() already did' );
+			assert.deepEqual( rendered.publishCalls, [ [ true, false ] ], 'Still publishes again' );
+		} );
+	} );
+
 }() );
