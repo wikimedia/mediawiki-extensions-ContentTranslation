@@ -48,6 +48,9 @@ exports[`SXPublisher.vue matches the snapshot 1`] = `
   <sx-publisher-review-info-stub
     publishfeedbackmessages=""
   />
+  <div
+    class="sx-publisher__hcaptcha px-4"
+  />
   <section
     class="sx-publisher__section-preview pa-5"
   >

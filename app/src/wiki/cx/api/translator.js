@@ -245,6 +245,7 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {Number} publishParams.revision
  * @param {String} publishParams.captchaId
  * @param {String} publishParams.captchaWord
+ * @param {boolean} [publishParams.forceShowCaptcha]
  * @param {boolean} publishParams.publishTarget
  * @param {Number|null} publishParams.sectionTranslationId
  * @param {string|undefined} publishParams.existingSectionTitle
@@ -267,6 +268,7 @@ const publishTranslation = ({
   revision,
   captchaId,
   captchaWord,
+  forceShowCaptcha,
   publishTarget,
   sectionTranslationId,
   existingSectionTitle,
@@ -287,9 +289,11 @@ const publishTranslation = ({
     existingsectiontitle: existingSectionTitle,
   };
 
-  if (captchaId) {
+  // hCaptcha has an answer (a token) but no ID
+  if (captchaId || captchaWord) {
     params.captchaid = captchaId;
     params.captchaword = captchaWord;
+    params.wgConfirmEditForceShowCaptcha = forceShowCaptcha;
   }
   const api = new mw.Api();
 

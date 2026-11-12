@@ -63,6 +63,7 @@ const useTranslationPublish = () => {
    *
    * @param {string|number} captchaId
    * @param {string|number} captchaAnswer
+   * @param {boolean} [forceShowCaptcha] hCaptcha only
    * @return {Promise<{
    *   publishFeedbackMessage: PublishFeedbackMessage|null,
    *   targetUrl: string|null,
@@ -70,7 +71,11 @@ const useTranslationPublish = () => {
    *   revisionId: number|undefined,
    * }>}
    */
-  const sendPublishRequest = async (captchaId, captchaAnswer) => {
+  const sendPublishRequest = async (
+    captchaId,
+    captchaAnswer,
+    forceShowCaptcha
+  ) => {
     logPublishAttemptEvent();
 
     // the return value from the "saveTranslation" api method contains the id (cxsx_id)
@@ -106,9 +111,11 @@ const useTranslationPublish = () => {
       publishPayload.existingSectionTitle = existingTargetSectionTitle.value;
     }
 
-    if (captchaId) {
+    // hCaptcha has an answer (a token) but no ID
+    if (captchaId || captchaAnswer) {
       publishPayload.captchaId = captchaId;
       publishPayload.captchaWord = captchaAnswer;
+      publishPayload.forceShowCaptcha = forceShowCaptcha;
     }
 
     /**
@@ -131,6 +138,7 @@ const useTranslationPublish = () => {
   /**
    * @param {string|number|null} captchaAnswer
    * @param {CaptchaDetails|null} captchaDetails
+   * @param {boolean} [forceShowCaptcha] hCaptcha only
    * @return {Promise<{
    *   publishFeedbackMessage: PublishFeedbackMessage|null,
    *   targetUrl: string|null,
@@ -138,7 +146,11 @@ const useTranslationPublish = () => {
    *   revisionId: number|undefined,
    * }>|null}
    */
-  const doPublish = async (captchaAnswer = null, captchaDetails = null) => {
+  const doPublish = async (
+    captchaAnswer = null,
+    captchaDetails = null,
+    forceShowCaptcha = undefined
+  ) => {
     /**
      * Set initial publish status to "pending" before
      * publish request
@@ -151,7 +163,8 @@ const useTranslationPublish = () => {
       /** @type {{publishFeedbackMessage: PublishFeedbackMessage|null, targetUrl: string|null}} */
       publishResponse = await sendPublishRequest(
         captchaDetails?.id,
-        captchaAnswer
+        captchaAnswer,
+        forceShowCaptcha
       );
     } catch (error) {
       if (error instanceof AssertUserError) {

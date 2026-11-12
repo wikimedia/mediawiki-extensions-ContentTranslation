@@ -24,6 +24,7 @@ import useURLHandler from "@/composables/useURLHandler";
 import usePublishTarget from "@/composables/usePublishTarget";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import useSectionPresenceStatus from "@/composables/useSectionPresenceStatus";
+import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 
 const { sourceSection } = useCurrentPageSection();
 const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
@@ -70,7 +71,9 @@ const {
   captchaDialogOn,
   handleCaptchaError,
   onCaptchaDialogClose,
+  solveHCaptcha,
 } = useCaptcha();
+const hCaptchaContainer = ref(null);
 
 const {
   publishFeedbackMessages,
@@ -85,17 +88,59 @@ const completePublishing = usePublishingComplete();
 const { doPublish, isPublishDialogActive, publishStatus, closePublishDialog } =
   useTranslationPublish();
 
-const publishTranslation = async (captchaAnswer = null) => {
+/**
+ * @param {string|null} [captchaAnswer] Answer from the CAPTCHA dialog
+ * @param {Object|null} [hCaptchaData] From useCaptcha's solveHCaptcha
+ */
+const publishTranslation = async (
+  captchaAnswer = null,
+  hCaptchaData = null
+) => {
   if (isPublishingDisabled.value) {
     return;
   }
-  const result = await doPublish(captchaAnswer, captchaDetails.value);
+  const result = await doPublish(
+    hCaptchaData ? hCaptchaData.captchaword : captchaAnswer,
+    captchaDetails.value,
+    hCaptchaData?.wgConfirmEditForceShowCaptcha
+  );
 
   if (!result) {
     return;
   }
 
   const { publishFeedbackMessage, targetUrl } = result;
+
+  if (publishFeedbackMessage?.details?.type === "hcaptcha") {
+    let newHCaptchaData;
+
+    try {
+      newHCaptchaData = await solveHCaptcha(
+        publishFeedbackMessage.details,
+        hCaptchaContainer.value,
+        !!hCaptchaData
+      );
+    } catch (error) {
+      closePublishDialog();
+      // A warning, not an error, so that the user can publish again
+      addPublishFeedbackMessage(
+        new PublishFeedbackMessage({
+          // The widget rejects with a plain string for some failures, and with an Error for others.
+          text:
+            error instanceof Error
+              ? error.message
+              : mw.message("cx-publish-error-unknown", String(error)).text(),
+          status: "warning",
+        })
+      );
+
+      return;
+    }
+
+    await publishTranslation(null, newHCaptchaData);
+
+    return;
+  }
 
   const isCaptchaError = handleCaptchaError(publishFeedbackMessage);
 
@@ -219,6 +264,7 @@ const presentTargetArticlePath = computed(() => {
     <sx-publisher-review-info
       :publish-feedback-messages="publishFeedbackMessages"
     />
+    <div ref="hCaptchaContainer" class="sx-publisher__hcaptcha px-4" />
     <section class="sx-publisher__section-preview pa-5">
       <mw-row class="pb-5 ma-0">
         <!--eslint-disable vue/no-v-text-v-html-on-component vue/no-v-html -->

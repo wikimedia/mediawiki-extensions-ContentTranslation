@@ -2,6 +2,7 @@ import { shallowMount, flushPromises } from "@vue/test-utils";
 import SxPublisher from "./SXPublisher.vue";
 import { createI18n } from "vue-banana-i18n";
 import { ref } from "vue";
+import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 
 const mockIsPublishDialogActive = ref(false);
 const mockPublishStatus = ref("pending");
@@ -15,21 +16,24 @@ jest.mock("./useTranslationPublish", () => () => ({
 
 const mockIsPublishingDisabled = ref(false);
 const mockPublishFeedbackMessages = ref([]);
+const mockAddPublishFeedbackMessage = jest.fn();
 jest.mock("./usePublishFeedbackMessages", () => () => ({
   publishFeedbackMessages: mockPublishFeedbackMessages,
   isPublishingDisabled: mockIsPublishingDisabled,
-  addPublishFeedbackMessage: jest.fn(),
+  addPublishFeedbackMessage: mockAddPublishFeedbackMessage,
   clearPublishFeedbackMessages: jest.fn(),
   initializePublishFeedbackMessages: jest.fn(),
 }));
 
 const mockCaptchaDialogOn = ref(false);
 const mockCaptchaDetails = ref(null);
+const mockSolveHCaptcha = jest.fn();
 jest.mock("./useCaptcha", () => () => ({
   captchaDetails: mockCaptchaDetails,
   captchaDialogOn: mockCaptchaDialogOn,
   handleCaptchaError: jest.fn().mockReturnValue(false),
   onCaptchaDialogClose: jest.fn(),
+  solveHCaptcha: mockSolveHCaptcha,
 }));
 
 const mockSourceSection = ref({
@@ -172,5 +176,75 @@ describe("SXPublisher.vue", () => {
     expect(
       wrapper.findComponent({ name: "SxPublisherCaptchaDialog" }).exists()
     ).toBe(true);
+  });
+
+  describe("when publishing needs hCaptcha", () => {
+    const failure = {
+      publishFeedbackMessage: new PublishFeedbackMessage({
+        type: "captcha",
+        status: "error",
+        details: { type: "hcaptcha" },
+      }),
+    };
+    const success = { publishFeedbackMessage: null, targetUrl: "url" };
+
+    const publish = async () => {
+      await shallowMount(SxPublisher, options)
+        .findComponent({ name: "SxPublisherHeader" })
+        .vm.$emit("publish-translation");
+      await flushPromises();
+    };
+
+    it("publishes again with the token, and the flag of a stricter challenge", async () => {
+      mockDoPublish
+        .mockResolvedValueOnce(failure)
+        .mockResolvedValueOnce(failure)
+        .mockResolvedValueOnce(success);
+      mockSolveHCaptcha
+        .mockResolvedValueOnce({ captchaword: "token" })
+        .mockResolvedValueOnce({
+          captchaword: "strict",
+          wgConfirmEditForceShowCaptcha: true,
+        });
+
+      await publish();
+
+      expect(mockDoPublish.mock.calls.slice(1)).toEqual([
+        ["token", null, undefined],
+        ["strict", null, true],
+      ]);
+      expect(mockSolveHCaptcha.mock.calls.map((call) => call[2])).toEqual([
+        false,
+        true,
+      ]);
+    });
+
+    it("shows a warning when hCaptcha gives no token", async () => {
+      mockDoPublish.mockResolvedValueOnce(failure);
+      mockSolveHCaptcha.mockRejectedValueOnce(new Error("failed"));
+
+      await publish();
+
+      expect(mockDoPublish).toHaveBeenCalledTimes(1);
+      const message = mockAddPublishFeedbackMessage.mock.calls[0][0];
+      expect(message.text).toBe("failed");
+      expect(message.isError).toBe(false);
+    });
+
+    it("shows the details when the hCaptcha widget rejects with a string", async () => {
+      global.mw.message = (key, ...args) => ({
+        text: () => `${key}: ${args.join()}`,
+      });
+      mockDoPublish.mockResolvedValueOnce(failure);
+      mockSolveHCaptcha.mockRejectedValueOnce("container not in the DOM");
+
+      await publish();
+
+      const message = mockAddPublishFeedbackMessage.mock.calls[0][0];
+      expect(message.text).toBe(
+        "cx-publish-error-unknown: container not in the DOM"
+      );
+      delete global.mw.message;
+    });
   });
 });
