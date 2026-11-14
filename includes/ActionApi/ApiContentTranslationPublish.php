@@ -92,7 +92,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			$wikitext .= $categoryText;
 		}
 
-		$sourceLink = '[[:' . Sitemapper::getDomainCode( $params['from'] )
+		$sourceLink = '[[:' . SiteMapper::getDomainCode( $params['from'] )
 			. ':Special:Redirect/revision/'
 			. $this->translation->translation['sourceRevisionId']
 			. '|' . $params['sourcetitle'] . ']]';
