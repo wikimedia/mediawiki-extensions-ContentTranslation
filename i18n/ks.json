@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ayaat123",
+			"Iflaq",
 			"SaldırganSincap"
 		]
 	},
@@ -21,8 +22,10 @@
 	"cx-publish-error-spam-blacklist": "تُہُنٛدِس تَرجَمس منٛز آو مُمکنہٕ فضوٗل مواد لبنہٕ۔ تفصیل: $1",
 	"cx-publish-error-title-blacklist": "عنوان یُس تۄہیہ ٹایِپ کوٚرمُت چھُ بٕلیک لِسٹٕڑ۔ مہربأنی کٔرِتھ ژأریو بیٛاکھ ناو پننہِ تَرجَمہٕ باپتھ۔",
 	"cx-publish-error-unknown": "نامولوٗم ناواپس نۄقٕص چھُ گومُت۔ نۄقٕص تفصیٖل: $1",
+	"cx-publish-error-offline": "تہؠ چھِو ؤنکیٚنس آف لاین۔ تہنٛد ترجمہٕ ہیٚکہ نہٕ تتھ وقتس تام شایع گژھتھ یوٚتام نہٕ تہؠ آن لائن واپس ییو۔",
 	"cx-publish-button": "شایع",
 	"cx-publish-button-publishing": "شایَع کَرَن...",
+	"cx-publish-permission-warning-link-label": "مٔزیٖد وُچھِو",
 	"cx-lost-session": "تُہُنٛد سیشن گو ختم",
 	"cx-lost-session-draft": "تُہُنٛد سیشَن چھُ ختم گومُت۔ تُہنٛد اؠڈِٹ ہیٚکو نہٕ محفوٗظ کٔرِتھ یوتام نہٕ تۄہیہِ دوبار لاگ اِن کٔریو بْیِس وِنڈو منٛز۔",
 	"cx-lost-session-publish": "تُہُنٛد سیشَن چھُ ختم گومُت۔ تۄہہِ ہیٚکیٛو نہٕ تَرجَمہٕ شایع کٔرِتھ یوتام نہٕ تۄہہِ دوبار لاگ اِن کٔریو بؠیِس وِنڈو منٛز۔",
@@ -88,7 +91,7 @@
 	"cx-save-draft-saving": "مَحفوٗظ چھُ کَرنہٕ یِوان...",
 	"cx-save-draft-shortcut-label": "ڈرافٹ کٔرِو مَحفوض",
 	"cx-save-draft-tooltip": "تَرجَمہٕ ڈرافٹ چھِ خۄدکار طور مَحفوٗظ کرنہٕ یوان",
-	"cx-save-draft-error": "اکھ نُقُس آو صَفہٕ محفوٗظ کرنَس دوران۔",
+	"cx-save-draft-error": "اکھ نُقُس آو ڈرافٹ محفوٗظ کرنَس دوران۔",
 	"cx-contributions-new-contributions": "نٔوؠ شَرکٔژ",
 	"cx-contributions-new-article": "نۆو صَفہٕ",
 	"cx-contributions-translation": "تَرجَمہٕ",
@@ -184,6 +187,8 @@
 	"cx-publish-destination-namespace-draft": "کمیونٹی ڈرٛافٹ",
 	"cx-publish-destination-namespace-draft-description": "ڈرٛافٹ ناو جاے منٛز کمیونٹی باپتھ جٲیزٕ تہٕ بہتر بناونہٕ باپتھ",
 	"cx-publish-destination-namespace-changed": "شایع مَنزِل آیہِ تبدیٖل کرنہٕ ذأتی ڈرافٹس کُن۔ مزیٖد ایڈجسٹمینٹ کٔرِو شایع طرٕز منٛز کُنہِ تہِ ساتہٕ",
+	"cx-publish-destination-section-new": "نٔو حِصہٕ طور کٔرِو شایَع",
+	"cx-publish-destination-section-replace-description": "موجودٕ حصہٕ کریو ڈیلیٹ، امہ بجایہ کٔرو پنن ترجمہٕ شٲمل۔",
 	"cx-linkcontextitem-missing-link-title": "غٲر موجوٗد لِنک",
 	"cx-linkcontextitem-missing-title-description": "یہِ صَفہٕ چھُ نہٕ وُنہِ موجود",
 	"cx-mt-abuse-publish-error": "تُہُنٛد تَرجَمہٕ آو نہٕ شایع کَرنہٕ تِکیازِ اَتھ منٛز چھُ واریاہ تبدیل کَرنہٕ وَرٲے مَتَن۔",
@@ -266,6 +271,8 @@
 	"cx-sx-publisher-header-close-button-aria-label": "بَنٛد",
 	"cx-sx-publisher-header-check-button-aria-label": "تَصدیٖق",
 	"cx-sx-publisher-publish-panel-new-section-status": "شایَع کَرنہٕ خٲطرٕ چھا تَیار؟",
+	"cx-sx-publisher-publish-panel-existing-section-notice": "یُتھ حصہٕ چھ گۄڈٕ پیٚٹھٕ موجود۔",
+	"cx-sx-publisher-publish-panel-existing-lead-section-notice": "ہؠریم حِصہٕ چھُ گۄڈٕ پیٚٹھٕ موجود۔",
 	"cx-sx-publisher-publish-panel-new-section-result": "تُہُنٛد تَرجَمہٕ یِیہِ <strong>مضموٗنس منٛز بطور نوٚو حِصہٕ شٲمِل کرنہٕ۔</strong>",
 	"cx-sx-publisher-review-info": "وارٕ ؤچھِو زِ تُہُنٛد ترجُمہٕ چھَ قۄدرتی طورس پؠٹھ پرنہٕ یِوان تہٕ چھَ مُنٲسِب گرٛامر اِستِمال کران",
 	"cx-sx-publisher-animation-publishing-indicator-title": "تَرجَمہٕ کٔرِو شایَع...",
