@@ -32,6 +32,8 @@
 	"cx-draft-cancel-button-label": "Kanselá",
 	"cx-campaign-no-thanks": "Nò, danki.",
 	"cx-campaign-contributionsmenu-mytranslations": "Tradukshon",
+	"cx-campaign-contributionsmenu-myuploads": "Media kargá",
+	"cx-no-source-categories": "Sin kategoria",
 	"echo-category-title-cx": "Tradukshon",
 	"cx-contributions-link": "Bo kontribushon",
 	"cx-your-translations-link": "{{GENDER:$1|Bo tradukshon}}",
