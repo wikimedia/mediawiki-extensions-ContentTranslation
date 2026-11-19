@@ -38,7 +38,6 @@
     "@wikimedia/codex-design-tokens": "^1.16.0",
     "babel-jest": "29.5.0",
     "babel-preset-vue": "^2.0.2",
-    "bundlesize": "^0.18.1",
     "eslint": "^8.37.0 ",
     "eslint-plugin-prettier": "^4.2.0",
     "eslint-plugin-vue": "^9.10.0",
@@ -53,15 +52,5 @@
     "vite-plugin-externals": "^0.6.2",
     "vue": "3.4.27",
     "vuex": "^4.1.0"
-  },
-  "bundlesize": [
-    {
-      "path": "dist/cx3.es.js",
-      "maxSize": "163.53KB"
-    },
-    {
-      "path": "dist/style.css",
-      "maxSize": "18.95KB"
-    }
-  ]
+  }
 }
