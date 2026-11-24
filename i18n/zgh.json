@@ -1,12 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hakim1bal"
+			"Hakim1bal",
+			"Daoudsfouli"
 		]
 	},
 	"cx": "ⵙⵙⵓⵖⵍ ⵜⴰⵙⵏⴰ",
 	"cx-dashboard-header": "ⵜⵉⵙⵓⵖⴰⵍ",
+	"cx-save-draft-saving": "ⴰⵔ ⵉⵙⴽⵍⴰⵙ...",
 	"cx-sx-content-comparator-content-header-translate-button-label": "ⵙⵙⵓⵖⵍ",
 	"cx-sx-publisher-animation-success-message-title": "ⵜⴻⵜⵜⵓⴼⵙⵔ!",
-	"cx-sx-publisher-animation-success-message-subtitle": "ⴰⵔⵣⵣⵓⵎ ⵏ ⵜⴰⵙⵏⴰ..."
+	"cx-sx-publisher-animation-success-message-subtitle": "ⴰⵔⵣⵣⵓⵎ ⵏ ⵜⴰⵙⵏⴰ...",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "ⵣⴷⵉ ⴳ ⵓⵙⵓⵖⵍ",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "ⵣⴷⵉ ⴳ ⵓⵙⵏⴼⵍ"
 }
