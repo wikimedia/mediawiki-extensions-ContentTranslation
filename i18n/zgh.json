@@ -6,10 +6,17 @@
 		]
 	},
 	"cx": "ⵙⵙⵓⵖⵍ ⵜⴰⵙⵏⴰ",
+	"cx-header-all-translations": "ⵜⵉⵙⵓⵖⴰⵍ ⴰⴽⴽⵯ",
+	"cx-translation-filter-suggested-translations": "ⵉⵙⵓⵎⴰⵔ",
 	"cx-save-draft-saving": "ⴰⵔ ⵉⵙⴽⵍⴰⵙ...",
+	"cx-translation-label-published": "ⴼⵔ ⵜⵉⵙⵓⵖⴰⵍ",
+	"cx-campaign-contributionsmenu-mytranslations": "ⵜⵉⵙⵓⵖⴰⵍ",
+	"echo-category-title-cx": "ⵜⵉⵙⵓⵖⴰⵍ",
+	"cx-your-translations-link": "{{GENDER:$1|ⵜⵉⵙⵓⵖⴰⵍ ⵏⵏⴽ}}",
 	"cx-sx-content-comparator-content-header-translate-button-label": "ⵙⵙⵓⵖⵍ",
 	"cx-sx-publisher-animation-success-message-title": "ⵜⴻⵜⵜⵓⴼⵙⵔ!",
 	"cx-sx-publisher-animation-success-message-subtitle": "ⴰⵔⵣⵣⵓⵎ ⵏ ⵜⴰⵙⵏⴰ...",
 	"cx-sx-translation-confirmer-continue-translation-button-label": "ⵣⴷⵉ ⴳ ⵓⵙⵓⵖⵍ",
+	"cx-contributecard-entrypoint-title": "ⵜⵉⵙⵓⵖⴰⵍ",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "ⵣⴷⵉ ⴳ ⵓⵙⵏⴼⵍ"
 }
