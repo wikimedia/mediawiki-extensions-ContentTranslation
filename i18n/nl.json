@@ -100,7 +100,7 @@
 	"cx-tools-mt-use-source": "Oorspronkelijke inhoud kopiëren",
 	"cx-tools-mt-reset": "Vertaling terugzetten",
 	"cx-tools-mt-provider-title": "$1 gebruiken",
-	"cx-tools-mt-dont-use": "Beginnen met een lege alinea",
+	"cx-tools-mt-dont-use": "Met een lege alinea beginnen",
 	"cx-tools-mt-set-default": "Houd het standaard",
 	"cx-tools-mt-noservices": "Er zijn geen vertaaldiensten beschikbaar voor de gekozen talen.\n[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation Waarom?]",
 	"cx-tools-mt-preferred": "standaard",
